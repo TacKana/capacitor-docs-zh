@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run build",
+    "build": "docusaurus build",
     "build:preview": "docusaurus build --locale zh-CN",
     "build:production": "docusaurus build",
     "clear": "docusaurus clear",
