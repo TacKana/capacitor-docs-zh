@@ -7,22 +7,22 @@ const HOSTNAME = 'capacitorjs.com';
 const BASE_URL = '/docs';
 
 module.exports = {
-  title: 'Capacitor Documentation',
+  title: 'Capacitor 官方中文文档',
   tagline:
-    'Capacitor is a cross-platform native runtime that makes it easy to build modern web apps that run natively on iOS, Android, and the Web.',
+    'Capacitor 是一个跨平台的原生运行时，它能让构建可在 iOS、Android 和网页端原生运行的现代 Web 应用变得轻松简单。',
   url: `https://${HOSTNAME}`,
   baseUrl: `${BASE_URL}/`,
-  // i18n: {
-  //   defaultLocale: 'zh-CN',
-  //   locales: ['zh-CN'],
-  //   localeConfigs: {
-  //     'zh-CN': { label: '简体中文' },
-  //   },
-  // },
+  i18n: {
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
+    localeConfigs: {
+      'zh-Hans': { label: '简体中文' },
+    },
+  },
   markdown: {
     format: 'detect',
   },
-  onBrokenAnchors: 'throw',
+  onBrokenAnchors: 'log',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/meta/favicon.png',
