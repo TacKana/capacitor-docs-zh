@@ -29,12 +29,12 @@ module.exports = {
   organizationName: 'ionic-team',
   projectName: 'capacitor-docs',
   themeConfig: {
-    announcementBar: {
-      id: 'announcement-bar',
-      content:
-        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: 'announcement-bar',
+    //   content:
+    //     '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
+    //   isCloseable: false,
+    // },
     colorMode: {
       defaultMode: 'light',
     },
