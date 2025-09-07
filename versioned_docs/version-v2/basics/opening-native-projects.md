@@ -1,35 +1,35 @@
 ---
-title: Opening Native Projects
-description: Opening Native Projects via Native IDEs
+title: 打开原生项目
+description: 通过原生 IDE 打开项目
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# Opening Native Projects
+# 打开原生项目
 
-Capacitor uses the native IDE for each platform in order to provide required configuration, and to build, test, and deploy apps.
+Capacitor 使用各平台的原生 IDE 来提供必要的配置，并用于构建、测试和部署应用程序。
 
-For iOS development, that means you must have [Xcode 11](https://developer.apple.com/xcode/) or above installed. For Android, [Android Studio](https://developer.android.com/studio/index.html) 3 or above.
+对于 iOS 开发，这意味着您必须安装 [Xcode 11](https://developer.apple.com/xcode/) 或更高版本。对于 Android，则需要 [Android Studio](https://developer.android.com/studio/index.html) 3 或更高版本。
 
-Both IDEs can be opened manually or using the `npx cap open` command:
+这两个 IDE 都可以手动打开，也可以使用 `npx cap open` 命令：
 
-## Opening Xcode
+## 打开 Xcode
 
 ```bash
 npx cap open ios
 ```
 
-Alternatively, you can open Xcode manually:
+或者，您也可以手动打开 Xcode：
 
 ```bash
 open ios/App/App.xcworkspace
 ```
 
-## Opening Android Studio
+## 打开 Android Studio
 
 ```bash
 npx cap open android
 ```
 
-Alternatively, you can open Android Studio and import the `android/` directory as an Android Studio project.
+另外，您也可以打开 Android Studio 并导入 `android/` 目录作为 Android Studio 项目。

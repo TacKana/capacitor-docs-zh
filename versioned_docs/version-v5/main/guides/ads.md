@@ -1,22 +1,22 @@
 ---
 title: Ads
-description: Adding Advertisements to your Capacitor app
+description: 在Capacitor应用中集成广告功能
 contributors:
   - mlynch
 slug: /guides/ads
 ---
 
-# Advertisements in Capacitor Apps
+# Capacitor应用中的广告集成
 
-Many consumer apps need to display ads in order to generate revenue.
+大多数消费级应用需要通过展示广告来获得收益。
 
-The most popular ad network for mobile apps is Google Admob, and there is a [community-maintained Capacitor plugin](https://github.com/capacitor-community/admob) ready to use:
+移动应用中最主流的广告平台是Google Admob，社区已提供了一个[现成的Capacitor插件](https://github.com/capacitor-community/admob)：
 
 ```shell
 npm install @capacitor-community/admob
 npx cap update
 ```
 
-Then, follow the [Capacitor Community Admob](https://github.com/capacitor-community/admob) documentation for configuration and usage.
+安装完成后，请按照[Capacitor Community Admob](https://github.com/capacitor-community/admob)文档进行配置和使用。
 
-This [community article](https://medium.com/enappd/implement-admob-in-ionic-react-capacitor-apps-ebc7af360b41) is also a useful reference for practical applications of this plugin (though it is using an older version of the plugin).
+这篇[社区文章](https://medium.com/enappd/implement-admob-in-ionic-react-capacitor-apps-ebc7af360b41)虽然使用的是旧版插件，但对于实际应用仍有很好的参考价值。

@@ -1,41 +1,41 @@
 ---
-title: Deploying and Updating
-description: Update your Capacitor app remotely in realtime even through the app stores
+title: 应用部署与更新
+description: 实时远程更新您的Capacitor应用，即使通过应用商店也能实现
 contributors:
   - mlynch
 slug: /guides/deploying-updates
 ---
 
-# App Deployment and Realtime Updates
+# 应用部署与实时更新
 
-The last mile of app development involves publishing your app to the app stores, as well as keeping it updated over time.
+应用开发的最后阶段涉及将应用发布到应用商店，并保持长期更新。
 
-One of the key advantages to a Web Native mobile development approach is the ability to make realtime updates to apps in an app store friendly way, as long as those changes do not require binary updates (aka compiled native functionality).
+采用Web Native移动开发方法的核心优势在于：只要更新不涉及二进制变更（即无需重新编译原生功能），就能以符合应用商店政策的方式实现实时更新。
 
-Additionally, since most Capacitor developers are targeting both iOS and Android (and web) at the same time, manually publishing app and binary updates to each store can be unnecessarily tedious.
+此外，由于大多数Capacitor开发者需要同时面向iOS、Android和Web平台，手动向每个商店提交应用和二进制更新会带来不必要的繁琐工作。
 
-To make app store publishing and long term app updates easier, Ionic, the company behind Capacitor, offers a powerful Mobile DevOps platform called [Appflow](https://useappflow.com/).
+为简化应用商店发布和长期更新流程，Capacitor背后的公司Ionic提供了强大的移动DevOps平台——[Appflow](https://useappflow.com/)。
 
-## Automate App Store Publishing with Appflow
+## 通过Appflow实现自动化商店发布
 
-Appflow offers several major time saving features for Capacitor developers. One of the most interesting is the ability to publish directly to both the Apple App Store and the Google Play Store. All plans have support for a number of monthly deployments, with expanded limits to support more apps and the ability to fully automate deployments reserved for higher tier plans.
+Appflow为Capacitor开发者提供了多项省时功能，其中最亮眼的是支持直接发布到Apple App Store和Google Play商店。所有套餐都包含每月限定次数的部署额度，更高阶套餐可扩展应用数量限制并支持全自动部署。
 
-## Deploy Realtime Updates with Appflow
+## 使用Appflow实施实时更新
 
-In concert with app store publishing features, developers can deploy realtime app updates throughout the lifetime of their app using Appflow's live deploy functionality.
+结合应用商店发布功能，开发者可以通过Appflow的实时部署特性，在整个应用生命周期内推送即时更新。
 
-Live deployment works on the principle that Capacitor apps are built largely as web apps with hooks into native functionality. Apple and Google explicitly allow web content updates to apps, so this feature is app store compatible and provides unprecedented agility to mobile app teams.
+实时部署的原理基于Capacitor应用本质上是嵌入了原生功能的Web应用。苹果和谷歌明确允许应用更新Web内容，因此该特性完全符合商店政策，为移动团队提供了前所未有的敏捷性。
 
-## Connect to GitHub, Bitbucket, and GitLab
+## 无缝对接Git代码库
 
-Appflow can connect directly to a GitHub, Bitbucket, or GitLab repo for git-triggered builds and deployments.
+Appflow可直接连接GitHub、Bitbucket或GitLab仓库，实现基于Git触发的构建和部署。
 
-This makes it easy to connect to your existing development workflow to start adding automated app store and real time updates with zero disruption.
+这让您能轻松对接现有开发流程，零干扰地开启自动化商店发布与实时更新功能。
 
-## Try Appflow Today
+## 立即体验Appflow
 
-Appflow powers major consumer and enterprise apps with hundreds of millions of users and significant business impact. The Appflow team works closely with many Fortune 500 companies to thousands of small to medium-sized companies.
+Appflow已为众多消费级和企业级应用提供支持，服务用户数亿并产生显著商业影响。从财富500强到数千家中小企业，Appflow团队都有深入合作。
 
-And, because the team behind Appflow works closely with the Capacitor team, Appflow is optimized to work best with Capacitor.
+由于Appflow团队与Capacitor核心团队紧密协作，该平台针对Capacitor进行了深度优化。
 
-Appflow is free to get started and uses the same Ionic account you may have used in the past. To get started, visit [useappflow.com](https://useappflow.com/) or browse the [documentation](https://ionicframework.com/docs/v3/appflow) to learn more about how Appflow works.
+现在即可免费开始使用Appflow，只需使用您可能已有的Ionic账户。访问[useappflow.com](https://useappflow.com/) 或查阅[文档](https://ionicframework.com/docs/v3/appflow) 了解更多运作细节。

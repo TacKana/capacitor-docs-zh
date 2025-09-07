@@ -1,5 +1,5 @@
 ---
-title: CLI Command - cap ls
+title: CLI 命令 - cap ls
 description: Capacitor CLI - cap ls
 contributors:
   - dotNetkow
@@ -8,22 +8,22 @@ canonicalUrl: https://capacitorjs.com/docs/cli/list
 
 # Capacitor CLI - cap ls
 
-List all installed Cordova and Capacitor plugins.
+列出所有已安装的 Cordova 和 Capacitor 插件。
 
 ```bash
 npx cap ls [platform]
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (optional): `android`, `ios`
+- `platform` (可选): `android`, `ios`
 
-<strong>Example output:</strong>
+<strong>示例输出：</strong>
 
 ```
-Found 1 Capacitor plugin for android:
+发现 1 个适用于 android 的 Capacitor 插件：
     capacitor-mapbox (0.0.1)
-Found 2 Cordova plugins for android:
+发现 2 个适用于 android 的 Cordova 插件：
     cordova-plugin-camera
     cordova-plugin-splashscreen
 ```

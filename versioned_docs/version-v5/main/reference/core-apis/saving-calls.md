@@ -1,27 +1,31 @@
 ---
-title: Persisting Plugin Calls
-description: How to save plugin calls in Capacitor
+title: 持久化插件调用
+description: 在 Capacitor 中保存插件调用的方法
 slug: /core-apis/saving-calls
 ---
 
-# Saving Plugin Calls
+# 保存插件调用
 
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later.
+大多数情况下，插件方法被调用执行任务后可以立即完成。但在某些场景中，你需要保持插件调用可用以便后续访问。
 
-## Overview
+## 概述
 
-Two reasons you might need a plugin call (`CAPPluginCall` on iOS or `PluginCall` on Android) to persist outside of the method in your plugin are:
+在插件方法外部需要持久化插件调用（iOS 中的 `CAPPluginCall` 或 Android 中的 `PluginCall`）主要有两个原因：
 
-1. To perform an asynchronous action, such as a network request.
-2. To provide repeated updates back to the JavaScript environment, such as streaming live geolocation data.
+1. 执行异步操作，例如网络请求
+2. 向 JavaScript 环境提供重复更新，例如实时地理位置数据流
 
-These two reasons can overlap but there is an important distinction. Specifically, whether or not a call will need to return data more than once. The Capacitor bridge records each call that is made from JavaScript to native so that it can match the result to the correct code when the plugin returns it, and the default behavior is to erase this bookkeeping after `resolve()` or `reject()` is called once. But if your method is a callback that will `resolve()` multiple times, then there is an extra step involved. More information about how to declare callbacks [can be found here.](/plugins/creating-plugins/method-types.md)
+这两种情况可能重叠，但存在一个重要区别：即调用是否需要多次返回数据。Capacitor 桥接层会记录每个从 JavaScript 到原生环境的调用，以便插件返回结果时能匹配正确的代码。默认行为是在 `resolve()` 或 `reject()` 被调用一次后清除这些记录。但如果你的方法是需要多次 `resolve()` 的回调，则需要额外处理步骤。[点击此处](/plugins/creating-plugins/method-types.md)了解更多关于声明回调方法的信息。
 
 ---
 
-### Saving a call for a single completion
+### 保存单次完成的调用
 
-If you need to save a call to be completed once in the future, you have two options. One option is to simply save it locally in an instance variable. The second is to use the bridge's set of methods to save it and then retrieve it later via the `callbackId`. After calling `resolve()` or `reject()`, you can dispose of the call object as it will no longer be relevant (don't forget to call `releaseCall()` if you used `saveCall()`).
+如果需要保存调用以便未来完成一次，你有两个选择：
+- 简单地将其保存为实例变量
+- 使用桥接层的保存方法集，稍后通过 `callbackId` 检索
+
+调用 `resolve()` 或 `reject()` 后，可以释放调用对象（如果使用了 `saveCall()` 别忘了调用 `releaseCall()`）。
 
 **iOS**
 
@@ -43,11 +47,13 @@ void releaseCall(String callbackId)
 
 ---
 
-### Saving a call for multiple completions
+### 保存多次完成的调用
 
-Saving a call to be completed multiple times in the future means two things: saving the native call object itself (as above) and telling the bridge to preserve its bookkeeping so `resolve()` or `reject()` can be invoked repeatedly.
+保存需要多次完成的调用意味着两件事：
+- 保存原生调用对象本身（如上所述）
+- 告知桥接层保持记录，以便能重复调用 `resolve()` 或 `reject()`
 
-To mark a call this way, set its `keepAlive` property (this was called `isSaved` prior to version 3 but has been renamed to make the behavior clearer).
+通过设置调用的 `keepAlive` 属性来标记这种方式（3.0 版本前称为 `isSaved`，重命名后更清晰地表达了行为意图）。
 
 **iOS**
 
@@ -61,4 +67,4 @@ call.keepAlive = true
 call.setKeepAlive(true);
 ```
 
-If `keepAlive` is true, then `resolve()` can be called as many times as necessary and the result will be returned as expected. Setting this flag to true also means that the bridge will automatically call `saveCall()` for you after your method returns.
+当 `keepAlive` 为 true 时，可以多次调用 `resolve()` 并按预期返回结果。设置此标志为 true 也意味着桥接层会在方法返回后自动为你调用 `saveCall()`。

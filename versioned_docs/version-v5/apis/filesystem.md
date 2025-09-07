@@ -1,53 +1,55 @@
 ---
 title: Filesystem Capacitor Plugin API
-description: The Filesystem API provides a NodeJS-like API for working with files on the device.
+description: 文件系统插件提供类似 NodeJS 的文件操作 API，用于在设备上处理文件。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/filesystem/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/filesystem/src/definitions.ts
-sidebar_label: Filesystem
+sidebar_label: 文件系统
 ---
 
 # @capacitor/filesystem
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+文件系统插件提供类似 NodeJS 的文件操作 API，用于在设备上处理文件。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/filesystem@latest-5
 npx cap sync
 ```
 
-## iOS
+## iOS 配置
 
-To have files appear in the Files app, you must set the following keys to `YES` in `Info.plist`:
+若要使文件出现在 iOS 的「文件」应用中，必须在 `Info.plist` 中设置以下键值为 `YES`：
 
-- `UIFileSharingEnabled` (`Application supports iTunes file sharing`)
-- `LSSupportsOpeningDocumentsInPlace` (`Supports opening documents in place`)
+- `UIFileSharingEnabled`（支持 iTunes 文件共享）
+- `LSSupportsOpeningDocumentsInPlace`（支持就地打开文档）
 
-Read about [Configuring iOS](https://capacitorjs.com/docs/ios/configuration) for help.
+请参阅 [iOS 配置指南](https://capacitorjs.com/docs/ios/configuration) 获取帮助。
 
-## Android
+## Android 配置
 
-If using <a href="#directory">`Directory.Documents`</a> or <a href="#directory">`Directory.ExternalStorage`</a>, in Android 10 and older, this API requires the following permissions be added to your `AndroidManifest.xml`:
+如果使用 <a href="#directory">`Directory.Documents`</a> 或 <a href="#directory">`Directory.ExternalStorage`</a>，在 Android 10 及更早版本中，需要在 `AndroidManifest.xml` 中添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+更多关于 Android 权限设置的信息，请参考 [Android 权限配置指南](https://capacitorjs.com/docs/android/configuration#setting-permissions)。
 
-Note that <a href="#directory">`Directory.ExternalStorage`</a> is only available on Android 9 or older and <a href="#directory">`Directory.Documents`</a> only allows to access the files/folders created by your app on Android on Android 11 and newer.
+注意：
+- <a href="#directory">`Directory.ExternalStorage`</a> 仅在 Android 9 或更早版本可用
+- 在 Android 11 及更新版本中，<a href="#directory">`Directory.Documents`</a> 只能访问应用自身创建的文件/目录
 
-Working with large files may require you to add `android:largeHeap="true"` to the `<application>` tag in `AndroidManifest.xml`.
+处理大文件时，可能需要在 `AndroidManifest.xml` 的 `<application>` 标签中添加 `android:largeHeap="true"` 属性。
 
-## Understanding Directories and Files
+## 理解目录与文件
 
-iOS and Android have additional layers of separation between files, such as special directories that are backed up to the Cloud, or ones for storing Documents. The Filesystem API offers a simple way to scope each operation to a specific special directory on the device.
+iOS 和 Android 对文件有额外的分层管理机制，例如有专门用于云备份的目录或存储文档的特殊目录。文件系统插件提供了一种简单的方式，可以将操作限定在设备的特定目录上。
 
-Additionally, the Filesystem API supports using full `file://` paths, or reading `content://` files on Android. Simply leave out the `directory` param to use a full file path.
+此外，文件系统插件支持使用完整的 `file://` 路径，或在 Android 上读取 `content://` 文件。只需省略 `directory` 参数即可使用完整文件路径。
 
-## Example
+## 示例
 
 ```typescript
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
@@ -55,7 +57,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 const writeSecretFile = async () => {
   await Filesystem.writeFile({
     path: 'secrets/text.txt',
-    data: 'This is a test',
+    data: '这是测试内容',
     directory: Directory.Documents,
     encoding: Encoding.UTF8,
   });
@@ -68,7 +70,7 @@ const readSecretFile = async () => {
     encoding: Encoding.UTF8,
   });
 
-  console.log('secrets:', contents);
+  console.log('读取内容:', contents);
 };
 
 const deleteSecretFile = async () => {
@@ -79,18 +81,17 @@ const deleteSecretFile = async () => {
 };
 
 const readFilePath = async () => {
-  // Here's an example of reading a file with a full file path. Use this to
-  // read binary data (base64 encoded) from plugins that return File URIs, such as
-  // the Camera.
+  // 示例：通过完整文件路径读取文件
+  // 可用于读取返回 File URI 的插件（如相机）提供的二进制数据（base64 编码）
   const contents = await Filesystem.readFile({
     path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt',
   });
 
-  console.log('data:', contents);
+  console.log('文件数据:', contents);
 };
 ```
 
-## API
+## API 文档
 
 <docgen-index>
 
@@ -110,9 +111,9 @@ const readFilePath = async () => {
 * [`downloadFile(...)`](#downloadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
+* [枚举](#enums)
 
 </docgen-index>
 
@@ -125,15 +126,15 @@ const readFilePath = async () => {
 readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 ```
 
-Read a file from disk
+从磁盘读取文件
 
-| Param         | Type                                                        |
+| 参数          | 类型                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#readfileoptions">ReadFileOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#readfileresult">ReadFileResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#readfileresult">ReadFileResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -144,15 +145,15 @@ Read a file from disk
 writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 ```
 
-Write a file to disk in the specified location on device
+将文件写入设备指定位置
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#writefileoptions">WriteFileOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#writefileresult">WriteFileResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#writefileresult">WriteFileResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -163,13 +164,13 @@ Write a file to disk in the specified location on device
 appendFile(options: AppendFileOptions) => Promise<void>
 ```
 
-Append to a file on disk in the specified location on device
+在设备指定位置追加文件内容
 
-| Param         | Type                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#appendfileoptions">AppendFileOptions</a></code> |
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -180,13 +181,13 @@ Append to a file on disk in the specified location on device
 deleteFile(options: DeleteFileOptions) => Promise<void>
 ```
 
-Delete a file from disk
+从磁盘删除文件
 
-| Param         | Type                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletefileoptions">DeleteFileOptions</a></code> |
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -197,13 +198,13 @@ Delete a file from disk
 mkdir(options: MkdirOptions) => Promise<void>
 ```
 
-Create a directory.
+创建目录
 
-| Param         | Type                                                  |
+| 参数          | 类型                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#mkdiroptions">MkdirOptions</a></code> |
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -214,13 +215,13 @@ Create a directory.
 rmdir(options: RmdirOptions) => Promise<void>
 ```
 
-Remove a directory
+移除目录
 
-| Param         | Type                                                  |
+| 参数          | 类型                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#rmdiroptions">RmdirOptions</a></code> |
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -231,15 +232,15 @@ Remove a directory
 readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 ```
 
-Return a list of files from the directory (not recursive)
+获取目录中的文件列表（非递归）
 
-| Param         | Type                                                      |
+| 参数          | 类型                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#readdiroptions">ReaddirOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#readdirresult">ReaddirResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#readdirresult">ReaddirResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -250,15 +251,15 @@ Return a list of files from the directory (not recursive)
 getUri(options: GetUriOptions) => Promise<GetUriResult>
 ```
 
-Return full File URI for a path and directory
+获取路径和目录对应的完整文件 URI
 
-| Param         | Type                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#geturioptions">GetUriOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#geturiresult">GetUriResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#geturiresult">GetUriResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -269,15 +270,15 @@ Return full File URI for a path and directory
 stat(options: StatOptions) => Promise<StatResult>
 ```
 
-Return data about a file
+获取文件信息
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#statoptions">StatOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#statresult">StatResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#statresult">StatResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -288,13 +289,13 @@ Return data about a file
 rename(options: RenameOptions) => Promise<void>
 ```
 
-Rename a file or directory
+重命名文件或目录
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> |
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -305,15 +306,15 @@ Rename a file or directory
 copy(options: CopyOptions) => Promise<CopyResult>
 ```
 
-Copy a file or directory
+复制文件或目录
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#copyresult">CopyResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#copyresult">CopyResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -324,13 +325,11 @@ Copy a file or directory
 checkPermissions() => Promise<PermissionStatus>
 ```
 
-Check read/write permissions.
-Required on Android, only when using <a href="#directory">`Directory.Documents`</a> or
-`Directory.ExternalStorage`.
+检查读写权限（仅在 Android 上使用 <a href="#directory">`Directory.Documents`</a> 或 `Directory.ExternalStorage` 时需要）
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -341,13 +340,11 @@ Required on Android, only when using <a href="#directory">`Directory.Documents`<
 requestPermissions() => Promise<PermissionStatus>
 ```
 
-Request read/write permissions.
-Required on Android, only when using <a href="#directory">`Directory.Documents`</a> or
-`Directory.ExternalStorage`.
+请求读写权限（仅在 Android 上使用 <a href="#directory">`Directory.Documents`</a> 或 `Directory.ExternalStorage` 时需要）
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自:** 1.0.0
 
 --------------------
 
@@ -358,15 +355,15 @@ Required on Android, only when using <a href="#directory">`Directory.Documents`<
 downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 ```
 
-Perform a http request to a server and download the file to the specified destination.
+向服务器发起 HTTP 请求并下载文件到指定位置
 
-| Param         | Type                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#downloadfileoptions">DownloadFileOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#downloadfileresult">DownloadFileResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#downloadfileresult">DownloadFileResult</a>&gt;</code>
 
-**Since:** 5.1.0
+**自:** 5.1.0
 
 --------------------
 
@@ -377,16 +374,16 @@ Perform a http request to a server and download the file to the specified destin
 addListener(eventName: 'progress', listenerFunc: ProgressListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Add a listener to file download progress events.
+添加文件下载进度事件监听器
 
-| Param              | Type                                                          |
+| 参数               | 类型                                                          |
 | ------------------ | ------------------------------------------------------------- |
 | **`eventName`**    | <code>'progress'</code>                                       |
 | **`listenerFunc`** | <code><a href="#progresslistener">ProgressListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 5.1.0
+**自:** 5.1.0
 
 --------------------
 
@@ -397,246 +394,88 @@ Add a listener to file download progress events.
 removeAllListeners() => Promise<void>
 ```
 
-Remove all listeners for this plugin.
+移除本插件所有监听器
 
-**Since:** 5.2.0
+**自:** 5.2.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ReadFileResult
 
-| Prop       | Type                        | Description                                                                                                                            | Since |
-| ---------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`data`** | <code>string \| Blob</code> | The representation of the data contained in the file Note: Blob is only available on Web. On native, the data is returned as a string. | 1.0.0 |
+| 属性        | 类型                        | 描述                                                                                                                            | 自   |
+| ----------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---- |
+| **`data`**  | <code>string \| Blob</code> | 文件包含的数据表示形式 注意：Blob 仅在 Web 端可用。在原生平台上，数据以字符串形式返回。                                         | 1.0.0 |
 
 
 #### ReadFileOptions
 
-| Prop            | Type                                            | Description                                                                                                                                                                 | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to read                                                                                                                                                | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to read the file from                                                                                                              | 1.0.0 |
-| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | The encoding to read the file in, if not provided, data is read as binary and returned as base64 encoded. Pass <a href="#encoding">Encoding.UTF8</a> to read data as string | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                                                                                                                                 | 自   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **`path`**        | <code>string</code>                             | 要读取的文件路径                                                                                                                                                    | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 读取文件的 <a href="#directory">`Directory`</a>                                                                                                                     | 1.0.0 |
+| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 文件读取编码，如果不提供，数据将作为二进制读取并返回 base64 编码。传递 <a href="#encoding">Encoding.UTF8</a> 可以字符串形式读取数据                                 | 1.0.0 |
 
 
 #### WriteFileResult
 
-| Prop      | Type                | Description                             | Since |
-| --------- | ------------------- | --------------------------------------- | ----- |
-| **`uri`** | <code>string</code> | The uri where the file was written into | 1.0.0 |
+| 属性        | 类型                | 描述                             | 自   |
+| ----------- | ------------------- | ------------------------------- | ---- |
+| **`uri`**   | <code>string</code> | 文件写入位置的 URI               | 1.0.0 |
 
 
 #### WriteFileOptions
 
-| Prop            | Type                                            | Description                                                                                                                                               | Default            | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to write                                                                                                                             |                    | 1.0.0 |
-| **`data`**      | <code>string \| Blob</code>                     | The data to write Note: Blob data is only supported on Web.                                                                                               |                    | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to store the file in                                                                                             |                    | 1.0.0 |
-| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | The encoding to write the file in. If not provided, data is written as base64 encoded. Pass <a href="#encoding">Encoding.UTF8</a> to write data as string |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | Whether to create any missing parent directories.                                                                                                         | <code>false</code> | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                                                                                                               | 默认值            | 自   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ---- |
+| **`path`**        | <code>string</code>                             | 要写入的文件路径                                                                                                                                   |                    | 1.0.0 |
+| **`data`**        | <code>string \| Blob</code>                     | 要写入的数据 注意：Blob 数据仅在 Web 端支持                                                                                                       |                    | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 文件存储的 <a href="#directory">`Directory`</a>                                                                                                   |                    | 1.0.0 |
+| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 文件写入编码。如果不提供，数据将以 base64 编码写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以字符串形式写入数据                             |                    | 1.0.0 |
+| **`recursive`**   | <code>boolean</code>                            | 是否创建缺失的父目录                                                                                                                              | <code>false</code> | 1.0.0 |
 
 
 #### AppendFileOptions
 
-| Prop            | Type                                            | Description                                                                                                                                               | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to append                                                                                                                            | 1.0.0 |
-| **`data`**      | <code>string</code>                             | The data to write                                                                                                                                         | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to store the file in                                                                                             | 1.0.0 |
-| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | The encoding to write the file in. If not provided, data is written as base64 encoded. Pass <a href="#encoding">Encoding.UTF8</a> to write data as string | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                                                                                                               | 自   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **`path`**        | <code>string</code>                             | 要追加内容的文件路径                                                                                                                              | 1.0.0 |
+| **`data`**        | <code>string</code>                             | 要写入的数据                                                                                                                                      | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 文件存储的 <a href="#directory">`Directory`</a>                                                                                                   | 1.0.0 |
+| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 文件写入编码。如果不提供，数据将以 base64 编码写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以字符串形式写入数据                             | 1.0.0 |
 
 
 #### DeleteFileOptions
 
-| Prop            | Type                                            | Description                                                      | Since |
-| --------------- | ----------------------------------------------- | ---------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to delete                                   | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to delete the file from | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                      | 自   |
+| ----------------- | ----------------------------------------------- | -------------------------------------------------------- | ---- |
+| **`path`**        | <code>string</code>                             | 要删除的文件路径                                          | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 文件所在的 <a href="#directory">`Directory`</a>          | 1.0.0 |
 
 
 #### MkdirOptions
 
-| Prop            | Type                                            | Description                                                           | Default            | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**      | <code>string</code>                             | The path of the new directory                                         |                    | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to make the new directory in |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | Whether to create any missing parent directories as well.             | <code>false</code> | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                           | 默认值            | 自   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------- | ------------------ | ---- |
+| **`path`**        | <code>string</code>                             | 新目录路径                                                    |                    | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 创建目录的 <a href="#directory">`Directory`</a>               |                    | 1.0.0 |
+| **`recursive`**   | <code>boolean</code>                            | 是否同时创建缺失的父目录                                      | <code>false</code> | 1.0.0 |
 
 
 #### RmdirOptions
 
-| Prop            | Type                                            | Description                                                           | Default            | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**      | <code>string</code>                             | The path of the directory to remove                                   |                    | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to remove the directory from |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | Whether to recursively remove the contents of the directory           | <code>false</code> | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                           | 默认值            | 自   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------- | ------------------ | ---- |
+| **`path`**        | <code>string</code>                             | 要删除的目录路径                                              |                    | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 目录所在的 <a href="#directory">`Directory`</a>               |                    | 1.0.0 |
+| **`recursive`**   | <code>boolean</code>                            | 是否递归删除目录内容                                          | <code>false</code> | 1.0.0 |
 
 
 #### ReaddirResult
 
-| Prop        | Type                    | Description                                        | Since |
-| ----------- | ----------------------- | -------------------------------------------------- | ----- |
-| **`files`** | <code>FileInfo[]</code> | List of files and directories inside the directory | 1.0.0 |
-
-
-#### FileInfo
-
-| Prop        | Type                               | Description                                                                          | Since |
-| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------ | ----- |
-| **`name`**  | <code>string</code>                | Name of the file or directory.                                                       |       |
-| **`type`**  | <code>'file' \| 'directory'</code> | Type of the file.                                                                    | 4.0.0 |
-| **`size`**  | <code>number</code>                | Size of the file in bytes.                                                           | 4.0.0 |
-| **`ctime`** | <code>number</code>                | Time of creation in milliseconds. It's not available on Android 7 and older devices. | 4.0.0 |
-| **`mtime`** | <code>number</code>                | Time of last modification in milliseconds.                                           | 4.0.0 |
-| **`uri`**   | <code>string</code>                | The uri of the file.                                                                 | 4.0.0 |
-
-
-#### ReaddirOptions
-
-| Prop            | Type                                            | Description                                                 | Since |
-| --------------- | ----------------------------------------------- | ----------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the directory to read                           | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to list files from | 1.0.0 |
-
-
-#### GetUriResult
-
-| Prop      | Type                | Description         | Since |
-| --------- | ------------------- | ------------------- | ----- |
-| **`uri`** | <code>string</code> | The uri of the file | 1.0.0 |
-
-
-#### GetUriOptions
-
-| Prop            | Type                                            | Description                                                    | Since |
-| --------------- | ----------------------------------------------- | -------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to get the URI for                        | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to get the file under | 1.0.0 |
-
-
-#### StatResult
-
-| Prop        | Type                               | Description                                                                          | Since |
-| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------ | ----- |
-| **`type`**  | <code>'file' \| 'directory'</code> | Type of the file.                                                                    | 1.0.0 |
-| **`size`**  | <code>number</code>                | Size of the file in bytes.                                                           | 1.0.0 |
-| **`ctime`** | <code>number</code>                | Time of creation in milliseconds. It's not available on Android 7 and older devices. | 1.0.0 |
-| **`mtime`** | <code>number</code>                | Time of last modification in milliseconds.                                           | 1.0.0 |
-| **`uri`**   | <code>string</code>                | The uri of the file                                                                  | 1.0.0 |
-
-
-#### StatOptions
-
-| Prop            | Type                                            | Description                                                    | Since |
-| --------------- | ----------------------------------------------- | -------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | The path of the file to get data about                         | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> to get the file under | 1.0.0 |
-
-
-#### CopyOptions
-
-| Prop              | Type                                            | Description                                                                                                                                                  | Since |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`from`**        | <code>string</code>                             | The existing file or directory                                                                                                                               | 1.0.0 |
-| **`to`**          | <code>string</code>                             | The destination file or directory                                                                                                                            | 1.0.0 |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> containing the existing file or directory                                                                           | 1.0.0 |
-| **`toDirectory`** | <code><a href="#directory">Directory</a></code> | The <a href="#directory">`Directory`</a> containing the destination file or directory. If not supplied will use the 'directory' parameter as the destination | 1.0.0 |
-
-
-#### CopyResult
-
-| Prop      | Type                | Description                            | Since |
-| --------- | ------------------- | -------------------------------------- | ----- |
-| **`uri`** | <code>string</code> | The uri where the file was copied into | 4.0.0 |
-
-
-#### PermissionStatus
-
-| Prop                | Type                                                        |
-| ------------------- | ----------------------------------------------------------- |
-| **`publicStorage`** | <code><a href="#permissionstate">PermissionState</a></code> |
-
-
-#### DownloadFileResult
-
-| Prop       | Type                | Description                                                          | Since |
-| ---------- | ------------------- | -------------------------------------------------------------------- | ----- |
-| **`path`** | <code>string</code> | The path the file was downloaded to.                                 | 5.1.0 |
-| **`blob`** | <code>Blob</code>   | The blob data of the downloaded file. This is only available on web. | 5.1.0 |
-
-
-#### DownloadFileOptions
-
-| Prop            | Type                                            | Description                                                                                                                                                                                                                      | Default            | Since |
-| --------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**      | <code>string</code>                             | The path the downloaded file should be moved to.                                                                                                                                                                                 |                    | 5.1.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | The directory to write the file to. If this option is used, filePath can be a relative path rather than absolute. The default is the `DATA` directory.                                                                           |                    | 5.1.0 |
-| **`progress`**  | <code>boolean</code>                            | An optional listener function to receive downloaded progress events. If this option is used, progress event should be dispatched on every chunk received. Chunks are throttled to every 100ms on Android/iOS to avoid slowdowns. |                    | 5.1.0 |
-| **`recursive`** | <code>boolean</code>                            | Whether to create any missing parent directories.                                                                                                                                                                                | <code>false</code> | 5.1.2 |
-
-
-#### PluginListenerHandle
-
-| Prop         | Type                                      |
-| ------------ | ----------------------------------------- |
-| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
-
-
-#### ProgressStatus
-
-| Prop                | Type                | Description                                          | Since |
-| ------------------- | ------------------- | ---------------------------------------------------- | ----- |
-| **`url`**           | <code>string</code> | The url of the file being downloaded.                | 5.1.0 |
-| **`bytes`**         | <code>number</code> | The number of bytes downloaded so far.               | 5.1.0 |
-| **`contentLength`** | <code>number</code> | The total number of bytes to download for this file. | 5.1.0 |
-
-
-### Type Aliases
-
-
-#### RenameOptions
-
-<code><a href="#copyoptions">CopyOptions</a></code>
-
-
-#### PermissionState
-
-<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
-
-#### ProgressListener
-
-A listener function that receives progress events.
-
-<code>(progress: <a href="#progressstatus">ProgressStatus</a>): void</code>
-
-
-### Enums
-
-
-#### Directory
-
-| Members               | Value                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Since |
-| --------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Documents`**       | <code>'DOCUMENTS'</code>        | The Documents directory. On iOS it's the app's documents directory. Use this directory to store user-generated content. On Android it's the Public Documents folder, so it's accessible from other apps. It's not accesible on Android 10 unless the app enables legacy External Storage by adding `android:requestLegacyExternalStorage="true"` in the `application` tag in the `AndroidManifest.xml`. On Android 11 or newer the app can only access the files/folders the app created. | 1.0.0 |
-| **`Data`**            | <code>'DATA'</code>             | The Data directory. On iOS it will use the Documents directory. On Android it's the directory holding application files. Files will be deleted when the application is uninstalled.                                                                                                                                                                                                                                                                                                       | 1.0.0 |
-| **`Library`**         | <code>'LIBRARY'</code>          | The Library directory. On iOS it will use the Library directory. On Android it's the directory holding application files. Files will be deleted when the application is uninstalled.                                                                                                                                                                                                                                                                                                      | 1.1.0 |
-| **`Cache`**           | <code>'CACHE'</code>            | The Cache directory. Can be deleted in cases of low memory, so use this directory to write app-specific files. that your app can re-create easily.                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
-| **`External`**        | <code>'EXTERNAL'</code>         | The external directory. On iOS it will use the Documents directory. On Android it's the directory on the primary shared/external storage device where the application can place persistent files it owns. These files are internal to the applications, and not typically visible to the user as media. Files will be deleted when the application is uninstalled.                                                                                                                        | 1.0.0 |
-| **`ExternalStorage`** | <code>'EXTERNAL_STORAGE'</code> | The external storage directory. On iOS it will use the Documents directory. On Android it's the primary shared/external storage directory. It's not accesible on Android 10 unless the app enables legacy External Storage by adding `android:requestLegacyExternalStorage="true"` in the `application` tag in the `AndroidManifest.xml`. It's not accesible on Android 11 or newer.                                                                                                      | 1.0.0 |
-
-
-#### Encoding
-
-| Members     | Value                | Description                                                                                                                              | Since |
-| ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`UTF8`**  | <code>'utf8'</code>  | Eight-bit UCS Transformation Format                                                                                                      | 1.0.0 |
-| **`ASCII`** | <code>'ascii'</code> | Seven-bit ASCII, a.k.a. ISO646-US, a.k.a. the Basic Latin block of the Unicode character set This encoding is only supported on Android. | 1.0.0 |
-| **`UTF16`** | <code>'utf16'</code> | Sixteen-bit UCS Transformation Format, byte order identified by an optional byte-order mark This encoding is only supported on Android.  | 1.0.0 |
-
-</docgen-api>
+| 属性          | 类型                    | 描述                                        | 自   |
+| ------------- | ----------------------- | ------------------------------------------ | ---- |
+| **`files`**   | <code>FileInfo[]</code> | 目录内的文件和

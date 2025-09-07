@@ -1,6 +1,6 @@
 ---
 title: Local Notifications
-description: Local Notifications API
+description: 本地通知 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,11 +9,11 @@ canonicalUrl: https://capacitorjs.com/docs/apis/local-notifications
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-# Local Notifications
+# 本地通知
 
-The Local Notification API provides a way to schedule "local" notifications - notifications that are scheduled and delivered on the device as opposed to "push" notifications sent from a server.
+本地通知 API 提供了调度"本地"通知的能力——这些通知由设备本身调度和发送，不同于从服务器推送的"远程"通知。
 
-Local Notifications are great for reminding the user about a change in the app since they last visited, providing reminder features, and delivering offline information without the app being in the foreground.
+本地通知非常适合以下场景：当用户再次打开应用时提醒他们应用发生的变化、提供提醒功能、或在应用未处于前台时传递离线信息。
 
 
 
@@ -29,11 +29,11 @@ Local Notifications are great for reminding the user about a change in the app s
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+- [接口](#interfaces)
 
 
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -42,8 +42,8 @@ const { LocalNotifications } = Plugins;
 const notifs = await LocalNotifications.schedule({
   notifications: [
     {
-      title: 'Title',
-      body: 'Body',
+      title: '标题',
+      body: '内容',
       id: 1,
       schedule: { at: new Date(Date.now() + 1000 * 5) },
       sound: null,
@@ -53,16 +53,16 @@ const notifs = await LocalNotifications.schedule({
     },
   ],
 });
-console.log('scheduled notifications', notifs);
+console.log('已调度通知', notifs);
 ```
 
-## Local Notifications configuration (Android only)
+## 本地通知配置（仅Android）
 
-The local notification plugin allows the following configuration values to be added in `capacitor.config.json` for the Android platform:
+在 `capacitor.config.json` 中可为 Android 平台添加以下本地通知插件配置项：
 
-- `smallIcon`: It allows you to set the default icon for the local notification.
-- `iconColor`: It allows you to set the default color for the local notification icon.
-- `sound`: It allows you to set the default notification sound. On Android 26+ it sets the default channel sound and can't be changed unless the app is uninstalled.
+- `smallIcon`: 设置本地通知的默认图标
+- `iconColor`: 设置本地通知图标的默认颜色
+- `sound`: 设置默认通知音效。在 Android 26+ 系统上会设置默认通道音效且无法更改，除非卸载应用
 
 ```json
  "plugins": {
@@ -85,11 +85,11 @@ The local notification plugin allows the following configuration values to be ad
 schedule(options: { notifications: LocalNotification[]; }) => Promise<LocalNotificationScheduleResult>
 ```
 
-| Param         | Type                                                 |
+| 参数          | 类型                                                 |
 | ------------- | ---------------------------------------------------- |
 | **`options`** | `{ notifications: LocalNotification[]; }` |
 
-**Returns:** <code>Promise&lt;<a href="#localnotificationscheduleresult">LocalNotificationScheduleResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#localnotificationscheduleresult">LocalNotificationScheduleResult</a>&gt;</code>
 
 ---
 
@@ -99,7 +99,7 @@ schedule(options: { notifications: LocalNotification[]; }) => Promise<LocalNotif
 getPending() => Promise<LocalNotificationPendingList>
 ```
 
-**Returns:** <code>Promise&lt;<a href="#localnotificationpendinglist">LocalNotificationPendingList</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#localnotificationpendinglist">LocalNotificationPendingList</a>&gt;</code>
 
 ---
 
@@ -109,7 +109,7 @@ getPending() => Promise<LocalNotificationPendingList>
 registerActionTypes(options: { types: LocalNotificationActionType[]; }) => Promise<void>
 ```
 
-| Param         | Type                                                   |
+| 参数          | 类型                                                   |
 | ------------- | ------------------------------------------------------ |
 | **`options`** | `{ types: LocalNotificationActionType[]; }` |
 
@@ -121,7 +121,7 @@ registerActionTypes(options: { types: LocalNotificationActionType[]; }) => Promi
 cancel(pending: LocalNotificationPendingList) => Promise<void>
 ```
 
-| Param         | Type                                                                                  |
+| 参数          | 类型                                                                                  |
 | ------------- | ------------------------------------------------------------------------------------- |
 | **`pending`** | <code><a href="#localnotificationpendinglist">LocalNotificationPendingList</a></code> |
 
@@ -133,7 +133,7 @@ cancel(pending: LocalNotificationPendingList) => Promise<void>
 areEnabled() => Promise<LocalNotificationEnabledResult>
 ```
 
-**Returns:** <code>Promise&lt;<a href="#localnotificationenabledresult">LocalNotificationEnabledResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#localnotificationenabledresult">LocalNotificationEnabledResult</a>&gt;</code>
 
 ---
 
@@ -143,7 +143,7 @@ areEnabled() => Promise<LocalNotificationEnabledResult>
 createChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-| Param         | Type                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> |
 
@@ -155,7 +155,7 @@ createChannel(channel: NotificationChannel) => Promise<void>
 deleteChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-| Param         | Type                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> |
 
@@ -167,7 +167,7 @@ deleteChannel(channel: NotificationChannel) => Promise<void>
 listChannels() => Promise<NotificationChannelList>
 ```
 
-**Returns:** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
 
 ---
 
@@ -177,7 +177,7 @@ listChannels() => Promise<NotificationChannelList>
 requestPermission() => Promise<NotificationPermissionResponse>
 ```
 
-**Returns:** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
 
 ---
 
@@ -187,12 +187,12 @@ requestPermission() => Promise<NotificationPermissionResponse>
 addListener(eventName: 'localNotificationReceived', listenerFunc: (notification: LocalNotification) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                                                                       |
+| 参数               | 类型                                                                                       |
 | ------------------ | ------------------------------------------------------------------------------------------ |
 | **`eventName`**    | <code>"localNotificationReceived"</code>                                                   |
 | **`listenerFunc`** | <code>(notification: <a href="#localnotification">LocalNotification</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -202,12 +202,12 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notificationAction: LocalNotificationActionPerformed) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                                                                                                           |
+| 参数               | 类型                                                                                                                           |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | **`eventName`**    | <code>"localNotificationActionPerformed"</code>                                                                                |
 | **`listenerFunc`** | <code>(notificationAction: <a href="#localnotificationactionperformed">LocalNotificationActionPerformed</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -217,39 +217,39 @@ addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notifi
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin
+移除该插件所有原生监听器
 
 ---
 
-### Interfaces
+### 接口
 
 #### LocalNotificationScheduleResult
 
 #### LocalNotification
 
-| Prop                   | Type                                                                            | Description                                                                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`title`**            | <code>string</code>                                                             |                                                                                                                                                                                                                                                                        |
-| **`body`**             | <code>string</code>                                                             |                                                                                                                                                                                                                                                                        |
-| **`id`**               | <code>number</code>                                                             |                                                                                                                                                                                                                                                                        |
-| **`schedule`**         | <code><a href="#localnotificationschedule">LocalNotificationSchedule</a></code> |                                                                                                                                                                                                                                                                        |
-| **`sound`**            | <code>string</code>                                                             | Name of the audio file with extension. On iOS the file should be in the app bundle. On Android the file should be on res/raw folder. Doesn't work on Android version 26+ (Android O and newer), for Recommended format is .wav because is supported by both platforms. |
-| **`smallIcon`**        | <code>string</code>                                                             | Android-only: set a custom statusbar icon. If set, it overrides default icon from capacitor.config.json                                                                                                                                                                |
-| **`iconColor`**        | <code>string</code>                                                             | Android only: set the color of the notification icon                                                                                                                                                                                                                   |
-| **`attachments`**      | <code>LocalNotificationAttachment[]</code>                                      |                                                                                                                                                                                                                                                                        |
-| **`actionTypeId`**     | <code>string</code>                                                             |                                                                                                                                                                                                                                                                        |
-| **`extra`**            | <code>any</code>                                                                |                                                                                                                                                                                                                                                                        |
-| **`threadIdentifier`** | <code>string</code>                                                             | iOS only: set the thread identifier for notification grouping                                                                                                                                                                                                          |
-| **`summaryArgument`**  | <code>string</code>                                                             | iOS 12+ only: set the summary argument for notification grouping                                                                                                                                                                                                       |
-| **`group`**            | <code>string</code>                                                             | Android only: set the group identifier for notification grouping, like threadIdentifier on iOS.                                                                                                                                                                        |
-| **`groupSummary`**     | <code>boolean</code>                                                            | Android only: designate this notification as the summary for a group (should be used with the `group` property).                                                                                                                                                       |
-| **`channelId`**        | <code>string</code>                                                             | Android only: set the notification channel on which local notification will generate. If channel with the given name does not exist then the notification will not fire. If not provided, it will use the default channel.                                             |
-| **`ongoing`**          | <code>boolean</code>                                                            | Android only: set the notification ongoing. If set to true the notification can't be swiped away.                                                                                                                                                                      |
-| **`autoCancel`**       | <code>boolean</code>                                                            | Android only: set the notification to be removed automatically when the user clicks on it                                                                                                                                                                              |
+| 属性                   | 类型                                                                            | 说明                                                                                                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`title`**            | <code>string</code>                                                             | 通知标题                                                                                                                                                                                                                                                        |
+| **`body`**             | <code>string</code>                                                             | 通知内容                                                                                                                                                                                                                                                        |
+| **`id`**               | <code>number</code>                                                             | 通知ID                                                                                                                                                                                                                                                          |
+| **`schedule`**         | <code><a href="#localnotificationschedule">LocalNotificationSchedule</a></code> | 调度设置                                                                                                                                                                                                                                                        |
+| **`sound`**            | <code>string</code>                                                             | 音频文件名（带扩展名）。iOS需将文件放在应用包中，Android需放在res/raw目录下。Android 26+版本（O及以上）无效，推荐使用.wav格式（双平台兼容）                                                                                                                     |
+| **`smallIcon`**        | <code>string</code>                                                             | 仅Android：自定义状态栏图标。若设置则覆盖capacitor.config.json中的默认图标                                                                                                                                                                                      |
+| **`iconColor`**        | <code>string</code>                                                             | 仅Android：设置通知图标颜色                                                                                                                                                                                                                                     |
+| **`attachments`**      | <code>LocalNotificationAttachment[]</code>                                      | 附件                                                                                                                                                                                                                                                            |
+| **`actionTypeId`**     | <code>string</code>                                                             | 操作类型ID                                                                                                                                                                                                                                                      |
+| **`extra`**            | <code>any</code>                                                                | 附加数据                                                                                                                                                                                                                                                        |
+| **`threadIdentifier`** | <code>string</code>                                                             | 仅iOS：设置通知分组标识符                                                                                                                                                                                                                                       |
+| **`summaryArgument`**  | <code>string</code>                                                             | 仅iOS 12+：设置通知分组的摘要参数                                                                                                                                                                                                                               |
+| **`group`**            | <code>string</code>                                                             | 仅Android：设置通知分组标识符（类似iOS的threadIdentifier）                                                                                                                                                                                                      |
+| **`groupSummary`**     | <code>boolean</code>                                                            | 仅Android：将该通知设为分组摘要（需与`group`属性配合使用）                                                                                                                                                                                                      |
+| **`channelId`**        | <code>string</code>                                                             | 仅Android：设置生成本地通知的通道。如果指定名称的通道不存在则不会触发通知。若未提供则使用默认通道                                                                                                                                                               |
+| **`ongoing`**          | <code>boolean</code>                                                            | 仅Android：设置持续通知。设为true后通知无法被滑动清除                                                                                                                                                                                                           |
+| **`autoCancel`**       | <code>boolean</code>                                                            | 仅Android：设置点击通知后自动取消                                                                                                                                                                                                                               |
 
 #### LocalNotificationSchedule
 
-| Prop          | Type                                                                                               |
+| 属性          | 类型                                                                                               |
 | ------------- | -------------------------------------------------------------------------------------------------- |
 | **`at`**      | <code><a href="#date">Date</a></code>                                                              |
 | **`repeats`** | <code>boolean</code>                                                                               |
@@ -259,57 +259,57 @@ Remove all native listeners for this plugin
 
 #### Date
 
-Enables basic storage and retrieval of dates and times.
+提供日期和时间的基本存储与检索功能。
 
-| Method                 | Signature                                                             | Description                                                                                                                             |
+| 方法                 | 签名                                                             | 说明                                                                                                                             |
 | ---------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **toString**           | () =&gt; string                                                       | Returns a string representation of a date. The format of the string depends on the locale.                                              |
-| **toDateString**       | () =&gt; string                                                       | Returns a date as a string value.                                                                                                       |
-| **toTimeString**       | () =&gt; string                                                       | Returns a time as a string value.                                                                                                       |
-| **toLocaleString**     | () =&gt; string                                                       | Returns a value as a string value appropriate to the host environment's current locale.                                                 |
-| **toLocaleDateString** | () =&gt; string                                                       | Returns a date as a string value appropriate to the host environment's current locale.                                                  |
-| **toLocaleTimeString** | () =&gt; string                                                       | Returns a time as a string value appropriate to the host environment's current locale.                                                  |
-| **valueOf**            | () =&gt; number                                                       | Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC.                                                      |
-| **getTime**            | () =&gt; number                                                       | Gets the time value in milliseconds.                                                                                                    |
-| **getFullYear**        | () =&gt; number                                                       | Gets the year, using local time.                                                                                                        |
-| **getUTCFullYear**     | () =&gt; number                                                       | Gets the year using Universal Coordinated Time (UTC).                                                                                   |
-| **getMonth**           | () =&gt; number                                                       | Gets the month, using local time.                                                                                                       |
-| **getUTCMonth**        | () =&gt; number                                                       | Gets the month of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                             |
-| **getDate**            | () =&gt; number                                                       | Gets the day-of-the-month, using local time.                                                                                            |
-| **getUTCDate**         | () =&gt; number                                                       | Gets the day-of-the-month, using Universal Coordinated Time (UTC).                                                                      |
-| **getDay**             | () =&gt; number                                                       | Gets the day of the week, using local time.                                                                                             |
-| **getUTCDay**          | () =&gt; number                                                       | Gets the day of the week using Universal Coordinated Time (UTC).                                                                        |
-| **getHours**           | () =&gt; number                                                       | Gets the hours in a date, using local time.                                                                                             |
-| **getUTCHours**        | () =&gt; number                                                       | Gets the hours value in a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                       |
-| **getMinutes**         | () =&gt; number                                                       | Gets the minutes of a <a href="#date">Date</a> object, using local time.                                                                |
-| **getUTCMinutes**      | () =&gt; number                                                       | Gets the minutes of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                           |
-| **getSeconds**         | () =&gt; number                                                       | Gets the seconds of a <a href="#date">Date</a> object, using local time.                                                                |
-| **getUTCSeconds**      | () =&gt; number                                                       | Gets the seconds of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                           |
-| **getMilliseconds**    | () =&gt; number                                                       | Gets the milliseconds of a <a href="#date">Date</a>, using local time.                                                                  |
-| **getUTCMilliseconds** | () =&gt; number                                                       | Gets the milliseconds of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                      |
-| **getTimezoneOffset**  | () =&gt; number                                                       | Gets the difference in minutes between the time on the local computer and Universal Coordinated Time (UTC).                             |
-| **setTime**            | (time: number) =&gt; number                                           | Sets the date and time value in the <a href="#date">Date</a> object.                                                                    |
-| **setMilliseconds**    | (ms: number) =&gt; number                                             | Sets the milliseconds value in the <a href="#date">Date</a> object using local time.                                                    |
-| **setUTCMilliseconds** | (ms: number) =&gt; number                                             | Sets the milliseconds value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                              |
-| **setSeconds**         | (sec: number, ms?: number) =&gt; number                               | Sets the seconds value in the <a href="#date">Date</a> object using local time.                                                         |
-| **setUTCSeconds**      | (sec: number, ms?: number) =&gt; number                               | Sets the seconds value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                   |
-| **setMinutes**         | (min: number, sec?: number, ms?: number) =&gt; number                 | Sets the minutes value in the <a href="#date">Date</a> object using local time.                                                         |
-| **setUTCMinutes**      | (min: number, sec?: number, ms?: number) =&gt; number                 | Sets the minutes value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                   |
-| **setHours**           | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | Sets the hour value in the <a href="#date">Date</a> object using local time.                                                            |
-| **setUTCHours**        | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | Sets the hours value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                     |
-| **setDate**            | (date: number) =&gt; number                                           | Sets the numeric day-of-the-month value of the <a href="#date">Date</a> object using local time.                                        |
-| **setUTCDate**         | (date: number) =&gt; number                                           | Sets the numeric day of the month in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                        |
-| **setMonth**           | (month: number, date?: number) =&gt; number                           | Sets the month value in the <a href="#date">Date</a> object using local time.                                                           |
-| **setUTCMonth**        | (month: number, date?: number) =&gt; number                           | Sets the month value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                     |
-| **setFullYear**        | (year: number, month?: number, date?: number) =&gt; number            | Sets the year of the <a href="#date">Date</a> object using local time.                                                                  |
-| **setUTCFullYear**     | (year: number, month?: number, date?: number) =&gt; number            | Sets the year value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                      |
-| **toUTCString**        | () =&gt; string                                                       | Returns a date converted to a string using Universal Coordinated Time (UTC).                                                            |
-| **toISOString**        | () =&gt; string                                                       | Returns a date as a string value in ISO format.                                                                                         |
-| **toJSON**             | (key?: any) =&gt; string                                              | Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization. |
+| **toString**           | () =&gt; string                                                       | 返回日期字符串表示（格式取决于区域设置）                                                                                        |
+| **toDateString**       | () =&gt; string                                                       | 返回日期部分的字符串值                                                                                                          |
+| **toTimeString**       | () =&gt; string                                                       | 返回时间部分的字符串值                                                                                                          |
+| **toLocaleString**     | () =&gt; string                                                       | 根据当前区域设置返回字符串值                                                                                                    |
+| **toLocaleDateString** | () =&gt; string                                                       | 根据当前区域设置返回日期部分的字符串值                                                                                          |
+| **toLocaleTimeString** | () =&gt; string                                                       | 根据当前区域设置返回时间部分的字符串值                                                                                          |
+| **valueOf**            | () =&gt; number                                                       | 返回自1970年1月1日UTC午夜以来的毫秒数                                                                                           |
+| **getTime**            | () =&gt; number                                                       | 获取毫秒时间值                                                                                                                  |
+| **getFullYear**        | () =&gt; number                                                       | 获取本地时间的年份                                                                                                              |
+| **getUTCFullYear**     | () =&gt; number                                                       | 获取UTC时间的年份                                                                                                               |
+| **getMonth**           | () =&gt; number                                                       | 获取本地时间的月份                                                                                                              |
+| **getUTCMonth**        | () =&gt; number                                                       | 获取UTC时间的月份                                                                                                               |
+| **getDate**            | () =&gt; number                                                       | 获取本地时间的日期                                                                                                              |
+| **getUTCDate**         | () =&gt; number                                                       | 获取UTC时间的日期                                                                                                               |
+| **getDay**             | () =&gt; number                                                       | 获取本地时间的星期                                                                                                              |
+| **getUTCDay**          | () =&gt; number                                                       | 获取UTC时间的星期                                                                                                               |
+| **getHours**           | () =&gt; number                                                       | 获取本地时间的小时                                                                                                              |
+| **getUTCHours**        | () =&gt; number                                                       | 获取UTC时间的小时                                                                                                               |
+| **getMinutes**         | () =&gt; number                                                       | 获取本地时间的分钟                                                                                                              |
+| **getUTCMinutes**      | () =&gt; number                                                       | 获取UTC时间的分钟                                                                                                               |
+| **getSeconds**         | () =&gt; number                                                       | 获取本地时间的秒数                                                                                                              |
+| **getUTCSeconds**      | () =&gt; number                                                       | 获取UTC时间的秒数                                                                                                               |
+| **getMilliseconds**    | () =&gt; number                                                       | 获取本地时间的毫秒                                                                                                              |
+| **getUTCMilliseconds** | () =&gt; number                                                       | 获取UTC时间的毫秒                                                                                                               |
+| **getTimezoneOffset**  | () =&gt; number                                                       | 获取本地时间与UTC时间的分钟差                                                                                                   |
+| **setTime**            | (time: number) =&gt; number                                           | 设置Date对象的日期时间值                                                                                                        |
+| **setMilliseconds**    | (ms: number) =&gt; number                                             | 使用本地时间设置毫秒值                                                                                                          |
+| **setUTCMilliseconds** | (ms: number) =&gt; number                                             | 使用UTC时间设置毫秒值                                                                                                           |
+| **setSeconds**         | (sec: number, ms?: number) =&gt; number                               | 使用本地时间设置秒数                                                                                                            |
+| **setUTCSeconds**      | (sec: number, ms?: number) =&gt; number                               | 使用UTC时间设置秒数                                                                                                             |
+| **setMinutes**         | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用本地时间设置分钟                                                                                                            |
+| **setUTCMinutes**      | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用UTC时间设置分钟                                                                                                             |
+| **setHours**           | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用本地时间设置小时                                                                                                            |
+| **setUTCHours**        | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用UTC时间设置小时                                                                                                             |
+| **setDate**            | (date: number) =&gt; number                                           | 使用本地时间设置日期                                                                                                            |
+| **setUTCDate**         | (date: number) =&gt; number                                           | 使用UTC时间设置日期                                                                                                             |
+| **setMonth**           | (month: number, date?: number) =&gt; number                           | 使用本地时间设置月份                                                                                                            |
+| **setUTCMonth**        | (month: number, date?: number) =&gt; number                           | 使用UTC时间设置月份                                                                                                             |
+| **setFullYear**        | (year: number, month?: number, date?: number) =&gt; number            | 使用本地时间设置年份                                                                                                            |
+| **setUTCFullYear**     | (year: number, month?: number, date?: number) =&gt; number            | 使用UTC时间设置年份                                                                                                             |
+| **toUTCString**        | () =&gt; string                                                       | 返回UTC格式的日期字符串                                                                                                         |
+| **toISOString**        | () =&gt; string                                                       | 返回ISO格式的日期字符串值                                                                                                       |
+| **toJSON**             | (key?: any) =&gt; string                                              | 供JSON.stringify方法使用，用于对象数据的JSON序列化转换                                                                          |
 
 #### LocalNotificationAttachment
 
-| Prop          | Type                                                                                              |
+| 属性          | 类型                                                                                              |
 | ------------- | ------------------------------------------------------------------------------------------------- |
 | **`id`**      | <code>string</code>                                                                               |
 | **`url`**     | <code>string</code>                                                                               |
@@ -317,7 +317,7 @@ Enables basic storage and retrieval of dates and times.
 
 #### LocalNotificationAttachmentOptions
 
-| Prop                                                             | Type                |
+| 属性                                                             | 类型                |
 | ---------------------------------------------------------------- | ------------------- |
 | **`iosUNNotificationAttachmentOptionsTypeHintKey`**              | <code>string</code> |
 | **`iosUNNotificationAttachmentOptionsThumbnailHiddenKey`**       | <code>string</code> |
@@ -326,19 +326,19 @@ Enables basic storage and retrieval of dates and times.
 
 #### LocalNotificationPendingList
 
-| Prop                | Type                                    |
+| 属性                | 类型                                    |
 | ------------------- | --------------------------------------- |
 | **`notifications`** | <code>LocalNotificationRequest[]</code> |
 
 #### LocalNotificationRequest
 
-| Prop     | Type                |
+| 属性     | 类型                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
 
 #### LocalNotificationActionType
 
-| Prop                                   | Type                                   |
+| 属性                                   | 类型                                   |
 | -------------------------------------- | -------------------------------------- |
 | **`id`**                               | <code>string</code>                    |
 | **`actions`**                          | <code>LocalNotificationAction[]</code> |
@@ -350,61 +350,6 @@ Enables basic storage and retrieval of dates and times.
 
 #### LocalNotificationAction
 
-| Prop                         | Type                 |
+| 属性                         | 类型                 |
 | ---------------------------- | -------------------- |
-| **`id`**                     | <code>string</code>  |
-| **`title`**                  | <code>string</code>  |
-| **`requiresAuthentication`** | <code>boolean</code> |
-| **`foreground`**             | <code>boolean</code> |
-| **`destructive`**            | <code>boolean</code> |
-| **`input`**                  | <code>boolean</code> |
-| **`inputButtonTitle`**       | <code>string</code>  |
-| **`inputPlaceholder`**       | <code>string</code>  |
-
-#### LocalNotificationEnabledResult
-
-| Prop        | Type                 | Description                                               |
-| ----------- | -------------------- | --------------------------------------------------------- |
-| **`value`** | <code>boolean</code> | Whether the device has Local Notifications enabled or not |
-
-#### NotificationChannel
-
-| Prop              | Type                               |
-| ----------------- | ---------------------------------- |
-| **`id`**          | <code>string</code>                |
-| **`name`**        | <code>string</code>                |
-| **`description`** | <code>string</code>                |
-| **`sound`**       | <code>string</code>                |
-| **`importance`**  | <code>1 \| 2 \| 5 \| 4 \| 3</code> |
-| **`visibility`**  | <code>0 \| 1 \| -1</code>          |
-| **`lights`**      | <code>boolean</code>               |
-| **`lightColor`**  | <code>string</code>                |
-| **`vibration`**   | <code>boolean</code>               |
-
-#### NotificationChannelList
-
-| Prop           | Type                               |
-| -------------- | ---------------------------------- |
-| **`channels`** | <code>NotificationChannel[]</code> |
-
-#### NotificationPermissionResponse
-
-| Prop          | Type                 |
-| ------------- | -------------------- |
-| **`granted`** | <code>boolean</code> |
-
-#### PluginListenerHandle
-
-| Prop         | Type                       |
-| ------------ | -------------------------- |
-| **`remove`** | <code>() =&gt; void</code> |
-
-#### LocalNotificationActionPerformed
-
-| Prop               | Type                                                            |
-| ------------------ | --------------------------------------------------------------- |
-| **`actionId`**     | <code>string</code>                                             |
-| **`inputValue`**   | <code>string</code>                                             |
-| **`notification`** | <code><a href="#localnotification">LocalNotification</a></code> |
-
-
+| **`id`**                     | <code>string

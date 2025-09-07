@@ -1,73 +1,73 @@
 ---
-title: Using with Ionic Framework
-description: Using Capacitor with Ionic Framework
+title: 与 Ionic Framework 配合使用
+description: 在 Ionic Framework 中使用 Capacitor
 slug: /getting-started/with-ionic
 ---
 
-# Using Capacitor with Ionic Framework
+# 在 Ionic Framework 中使用 Capacitor
 
-## Installing
+## 安装方式
 
-Capacitor can be installed directly into any new or existing Ionic app.
+Capacitor 可以直接安装到任何新建或现有的 Ionic 应用中。
 
-### New Ionic Project
+### 新建 Ionic 项目
 
-Capacitor is installed in new Ionic apps by default! All you have to do is start a new project:
+Capacitor 默认已集成在新建的 Ionic 应用中！您只需创建一个新项目：
 
 ```bash
 ionic start
 ```
 
-> If you'd like a tutorial for building your first Ionic/Capacitor app, see [this tutorial](https://ionicframework.com/docs/v3/intro/next).
+> 如需构建首个 Ionic/Capacitor 应用的教程，请参阅 [此教程](https://ionicframework.com/docs/v3/intro/next)。
 
-### Existing Ionic Project
+### 现有 Ionic 项目
 
-Install and initialize Capacitor with your app name and bundle ID:
+通过指定应用名称和包标识符来安装并初始化 Capacitor：
 
 ```bash
 ionic integrations enable capacitor
 ```
 
-Ionic Framework makes use of the APIs in the following plugins:
+Ionic Framework 使用了以下插件提供的 API：
 
 - [**App**](/apis/app.md)
 - [**Haptics**](/apis/haptics.md)
 - [**Keyboard**](/apis/keyboard.md)
 - [**StatusBar**](/apis/status-bar.md)
 
-For the best user experience, you should make sure these plugins are installed even if you don't import them in your app:
+为了获得最佳用户体验，即使您没有在应用中导入这些插件，也应确保它们已安装：
 
 ```bash
 npm install @capacitor/app @capacitor/haptics @capacitor/keyboard @capacitor/status-bar
 ```
 
-If your Ionic app uses Cordova, you will want to read the [Migrating from Cordova to Capacitor guide](/main/cordova/migrating-from-cordova-to-capacitor.md) as well.
+如果您的 Ionic 应用正在使用 Cordova，建议同时阅读 [从 Cordova 迁移到 Capacitor 指南](/main/cordova/migrating-from-cordova-to-capacitor.md)。
 
-### Add Platforms
+### 添加平台
 
-After Capacitor installed, you can add native platforms to your app:
+安装 Capacitor 后，您可以为应用添加原生平台：
 
 ```bash
 ionic capacitor add
 ```
 
-This will create a new directory in the root of your project for the native platform. This directory is a native project that should be considered a source artifact. Learn more about [native project management](/main/cordova/index.md#native-project-management).
+这将在项目根目录下为原生平台创建新目录。该目录是原生项目，应视为源代码产物。了解更多关于 [原生项目管理](/main/cordova/index.md#native-project-management) 的内容。
 
-## Workflow
+## 工作流程
 
-### Build your Ionic App
+### 构建 Ionic 应用
 
-Capacitor JavaScript libraries are bundled into your app, so the web asset build is no different after Capacitor is installed.
+Capacitor 的 JavaScript 库会被打包到应用中，因此安装 Capacitor 后的 Web 资源构建过程并无差异。
 
 ```bash
 ionic build
 ```
 
-This creates the web asset directory that Capacitor copies into native projects, configured via `webDir` in the [Capacitor configuration](/main/reference/config.md).
+这将创建 Capacitor 复制到原生项目中的 Web 资源目录，通过 [Capacitor 配置](/main/reference/config.md) 中的 `webDir` 进行配置。
 
-### Ionic CLI Capacitor Commands
+### Ionic CLI 的 Capacitor 命令
 
-The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI for convenience. See the documentation for each below. Help output is also available by using the `--help` flag after each command.
+Ionic CLI 提供了一系列封装了 Capacitor CLI 的高级命令以便使用。各命令的文档如下，也可在每个命令后添加 `--help` 标志查看帮助输出。
 
 - [`ionic capacitor add`](https://ionicframework.com/docs/v3/cli/commands/capacitor-add)
 - [`ionic capacitor build`](https://ionicframework.com/docs/v3/cli/commands/capacitor-build)
@@ -75,4 +75,4 @@ The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI f
 - [`ionic capacitor sync`](https://ionicframework.com/docs/v3/cli/commands/capacitor-sync)
 - [`ionic capacitor open`](https://ionicframework.com/docs/v3/cli/commands/capacitor-open)
 
-[Learn more about development workflow in Capacitor &#8250;](/main/basics/workflow.md)
+[深入了解 Capacitor 开发工作流程 &#8250;](/main/basics/workflow.md)

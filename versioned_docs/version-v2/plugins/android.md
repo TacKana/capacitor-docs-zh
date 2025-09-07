@@ -1,42 +1,41 @@
 ---
-title: Capacitor Android Plugin Guide
-description: Capacitor Android Plugin Guide
+title: Capacitor Android 插件开发指南
+description: Capacitor Android 插件开发指南
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/plugins/android
 ---
 
-# Capacitor Android Plugin Guide
+# Capacitor Android 插件开发指南
 
-Building Capacitor plugins for Android involves writing Java or [Kotlin](https://developer.android.com/kotlin/overview) to interface with Android SDKs.
+为 Android 构建 Capacitor 插件需要编写 Java 或 [Kotlin](https://developer.android.com/kotlin/overview) 代码来与 Android SDK 交互。
 
-## Getting Started
+## 开始使用
 
-To get started, first generate a plugin as shown in the [Getting Started](/plugins.md) section of the Plugin guide.
+首先按照插件指南中的[入门章节](/plugins.md)生成一个插件。
 
-Next, open `your-plugin/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
+接着，在 Android Studio 中打开 `your-plugin/android/` 目录。你需要找到插件的 `.java` 文件，其路径取决于创建插件时使用的 Plugin ID 和 Plugin Class Name 参数。
 
-For example, for a plugin with the ID `com.domain.myplugin` and the Plugin Class Name `MyPlugin`, you would find the `.java` file at `android/src/main/java/com/domain/myplugin/MyPlugin.java`.
+例如，对于 ID 为 `com.domain.myplugin` 且类名为 `MyPlugin` 的插件，`.java` 文件位于 `android/src/main/java/com/domain/myplugin/MyPlugin.java`。
 
-## Using Kotlin
+## 使用 Kotlin
 
-Capacitor uses Java by default but you can use Kotlin instead, if you prefer.
+Capacitor 默认使用 Java，但也可以选择使用 Kotlin。
 
-After generating a plugin, right click the Java plugin class in Android Studio and select the "Convert Java file to Kotlin file" option from the menu. Android Studio will walk you through configuring the project for Kotlin support. Once this is completed, right click the Java class again and re-select the conversion option to convert it to a Kotlin class.
+生成插件后，在 Android Studio 中右键点击 Java 插件类，选择"Convert Java file to Kotlin file"选项。Android Studio 会引导你配置 Kotlin 支持。完成后再次右键点击 Java 类并选择转换选项将其转为 Kotlin 类。
 
-## Building your Plugin
+## 构建插件
 
-A Capacitor plugin for Android is a simple Java class that extends `com.getcapacitor.Plugin` and have a `@NativePlugin` annotation.
-It has some methods with `@PluginMethod()` annotation that will be callable from JavaScript.
+Android 平台的 Capacitor 插件是一个继承 `com.getcapacitor.Plugin` 并带有 `@NativePlugin` 注解的简单 Java 类。其中带有 `@PluginMethod()` 注解的方法可以从 JavaScript 调用。
 
-Once your plugin is generated, you can start editing it by opening the file with the Plugin class name you choose on the generator.
+生成插件后，可以通过打开生成器选择的插件类文件开始编辑。
 
-### Simple Example
+### 简单示例
 
-In the generated example, there is a simple echo plugin with an `echo` function that simply returns a value that it was given.
+生成的示例中包含一个简单的 echo 插件，其 `echo` 方法会原样返回传入的值。
 
-This example demonstrates a couple core components of Capacitor plugins: receiving data from a Plugin Call, and returning data back to the caller.
+这个示例展示了 Capacitor 插件的两个核心功能：从插件调用接收数据，以及向调用者返回数据。
 
 `EchoPlugin.java`
 
@@ -52,7 +51,7 @@ import com.getcapacitor.PluginMethod;
 @NativePlugin()
 public class EchoPlugin extends Plugin {
     public void load() {
-        // Called when the plugin is first constructed in the bridge
+        // 当插件在桥接中首次构造时调用
     }
 
     @PluginMethod()
@@ -66,11 +65,11 @@ public class EchoPlugin extends Plugin {
 }
 ```
 
-> In order to make Capacitor aware of your plugin, you have to [export it to capacitor](#export-to-capacitor) in your apps `MainActivity`.
+> 为了使 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出给 Capacitor](#export-to-capacitor)。
 
-### Kotlin Example
+### Kotlin 示例
 
-If choosing to use Kotlin instead of Java, the Echo plugin example looks like this:
+如果选择使用 Kotlin 而不是 Java，Echo 插件示例如下：
 
 `EchoPlugin.kt`
 
@@ -96,18 +95,17 @@ class EchoPlugin : Plugin() {
 }
 ```
 
-> In order to make Capacitor aware of your plugin, you have to [export it to capacitor](#export-to-capacitor) in your apps `MainActivity`.
+> 为了使 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出给 Capacitor](#export-to-capacitor)。
 
-It is recommended for Kotlin files to be in the `android/src/main/java/` directory where Java files might also reside.
+建议将 Kotlin 文件放在 `android/src/main/java/` 目录下，Java 文件也可以放置于此。
 
-### Accessing Called Data
+### 访问调用数据
 
-Each plugin method receives an instance of `com.getcapacitor.PluginCall` containing all the information of the plugin method invocation from the client.
+每个插件方法都会收到一个 `com.getcapacitor.PluginCall` 实例，包含从客户端调用插件方法的所有信息。
 
-A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `getData` field of the call instance, or by using convenience methods such as `getString` or `getObject`.
+客户端可以发送任何可 JSON 序列化的数据，如数字、文本、布尔值、对象和数组。这些数据可通过 `getData` 字段或便捷方法如 `getString` 或 `getObject` 访问。
 
-For example, here is how you'd get data passed to your method:
+例如，获取传递给方法的数据：
 
 ```java
 @PluginMethod()
@@ -117,7 +115,7 @@ public void storeContact(PluginCall call) {
   boolean isAwesome = call.getBoolean("isAwesome", false);
 
   if (!call.getData().has("id")) {
-    call.reject("Must provide an id");
+    call.reject("必须提供 id");
     return;
   }
   // ...
@@ -126,13 +124,13 @@ public void storeContact(PluginCall call) {
 }
 ```
 
-Notice the various ways data can be accessed on the `PluginCall` instance, including how to check for a key using `getData`'s `has` method.
+注意 `PluginCall` 实例上多种访问数据的方式，包括使用 `getData` 的 `has` 方法检查键是否存在。
 
-### Returning Data Back
+### 返回数据
 
-A plugin call can succeed or fail. For calls using promises (most common), succeeding corresponds to calling `resolve` on the Promise, and failure calling `reject`. For those using callbacks, a succeeding will call the success callback or the error callback if failing.
+插件调用可以成功或失败。对于使用 Promise 的调用（最常见），成功对应调用 Promise 的 `resolve`，失败对应调用 `reject`。对于使用回调的，成功会调用成功回调，失败则调用错误回调。
 
-The `resolve` method of `PluginCall` takes a `JSObject` and supports JSON-serializable data types. Here's an example of returning data back to the client:
+`PluginCall` 的 `resolve` 方法接受 `JSObject` 并支持 JSON 序列化数据类型。返回数据给客户端的示例：
 
 ```java
 JSObject ret = new JSObject();
@@ -143,15 +141,15 @@ ret.put("info", info);
 call.resolve(ret);
 ```
 
-To fail, or reject a call, use `call.reject`, passing an error string and (optionally) an `Exception` instance
+要失败或拒绝调用，使用 `call.reject`，传入错误字符串和（可选的）`Exception` 实例：
 
 ```java
 call.reject(exception.getLocalizedMessage(), exception);
 ```
 
-### Adding Initialization Logic
+### 添加初始化逻辑
 
-Plugins can override the `load` method to run some code when the plugin is first initialized:
+插件可以重写 `load` 方法来在首次初始化时运行代码：
 
 ```java
 public class MyPlugin extends Plugin {
@@ -160,35 +158,33 @@ public class MyPlugin extends Plugin {
 }
 ```
 
-### Presenting Native Screens
+### 显示原生界面
 
-To present a Native Screen over the Capacitor screen we will use [Android's Intents](https://developer.android.com/guide/components/intents-filters). Intents allow you to start an activity from your app, or from another app. [See Common Intents](https://developer.android.com/guide/components/intents-common)
+要在 Capacitor 界面上显示原生界面，我们将使用 [Android 的 Intent](https://developer.android.com/guide/components/intents-filters)。Intent 允许你从你的应用或其他应用启动 Activity。[参见常用 Intent](https://developer.android.com/guide/components/intents-common)
 
-#### Intents without Result(s)
+#### 无结果的 Intent
 
-Most times you just want to present the native Activity,
-in this case you can just trigger the [relevant action](https://developer.android.com/guide/components/intents-common).
+大多数时候你只是想显示原生 Activity，这时可以触发[相关操作](https://developer.android.com/guide/components/intents-common)。
 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 getActivity().startActivity(intent);
 ```
 
-#### Intents with Result(s)
+#### 带结果的 Intent
 
-Sometimes when you launch an Intent, you expect some result back. In that case you want to use `startActivityForResult`.
+有时启动 Intent 后会期待返回结果。这时需要使用 `startActivityForResult`。
 
-Also make sure you call `saveCall(call);` as you will need it later when handling the intents result.
+同时确保调用 `saveCall(call);` 因为你稍后处理 Intent 结果时需要它。
 
-You also have to register your intents [unique request](https://developer.android.com/training/basics/intents/result#StartActivity) code with `@NativePlugin` in order for
-`handleOnActivityResult` to be triggered.
+你还需要用 `@NativePlugin` 注册 Intent 的[唯一请求](https://developer.android.com/training/basics/intents/result#StartActivity)代码，以便触发 `handleOnActivityResult`。
 
 ```java
 @NativePlugin(
-  requestCodes={MyPlugin.REQUEST_IMAGE_PICK} // register request code(s) for intent results
+  requestCodes={MyPlugin.REQUEST_IMAGE_PICK} // 为 Intent 结果注册请求代码
 )
 class ImagePicker extends Plugin {
-  protected static final int REQUEST_IMAGE_PICK = 12345; // Unique request code
+  protected static final int REQUEST_IMAGE_PICK = 12345; // 唯一请求代码
 
   @PluginMethod()
   public void pickImage(PluginCall call) {
@@ -200,72 +196,72 @@ class ImagePicker extends Plugin {
     startActivityForResult(call, intent, REQUEST_IMAGE_PICK);
   }
 
-  // in order to handle the intents result, you have to @Override handleOnActivityResult
+  // 要处理 Intent 结果，必须 @Override handleOnActivityResult
   @Override
   protected void handleOnActivityResult(int requestCode, int resultCode, Intent data) {
     super.handleOnActivityResult(requestCode, resultCode, data);
 
-    // Get the previously saved call
+    // 获取之前保存的调用
     PluginCall savedCall = getSavedCall();
 
     if (savedCall == null) {
       return;
     }
     if (requestCode == REQUEST_IMAGE_PICK) {
-      // Do something with the data
+      // 对数据进行处理
     }
   }
 }
 ```
 
-### Events
+### 事件
 
-Capacitor Plugins can emit App events and Plugin events
+Capacitor 插件可以触发应用事件和插件事件。
 
-#### App Events
+#### 应用事件
 
-App Events are regular javascript events, like `window` or `document` events.
+应用事件是常规的 JavaScript 事件，类似 `window` 或 `document` 事件。
 
-Capacitor provides all this functions to fire events:
+Capacitor 提供以下触发事件的函数：
 
 ```java
-//If you want to provide the target
+//如果要指定目标
 bridge.triggerJSEvent("myCustomEvent", "window");
 
 bridge.triggerJSEvent("myCustomEvent", "document", "{ 'dataKey': 'dataValue' }");
 
-// Window Events
+// 窗口事件
 bridge.triggerWindowJSEvent("myCustomEvent");
 
 bridge.triggerWindowJSEvent("myCustomEvent", "{ 'dataKey': 'dataValue' }");
 
-// Document events
+// 文档事件
 bridge.triggerDocumentJSEvent("myCustomEvent");
 
 bridge.triggerDocumentJSEvent("myCustomEvent",  "{ 'dataKey': 'dataValue' }");
 ```
 
-And to listen for it, just use regular javascript:
+监听事件只需使用常规 JavaScript：
 
 ```typescript
 window.addEventListener('myCustomEvent', function () {
-  console.log('myCustomEvent was fired');
+  console.log('myCustomEvent 已触发');
 });
 ```
 
-Note: `data` must be a serialized JSON string value.
+注意：`data` 必须是序列化的 JSON 字符串值。
 
-#### Plugin Events
+#### 插件事件
 
-Plugins can emit their own events that you can listen by attaching a listener to the plugin Object like this:
+插件可以触发自己的事件，可以通过给插件对象附加监听器来监听：
 
 ```typescript
 Plugins.MyPlugin.addListener('myPluginEvent', (info: any) => {
-  console.log('myPluginEvent was fired');
+  console.log('myPluginEvent 已触发');
 });
 ```
 
-To emit the event from the Java plugin class you can do it like this:
+要从 Java 插件类触发事件：
 
 ```java
 JSObject ret = new JSObject();
@@ -273,25 +269,24 @@ ret.put("value", "some value");
 notifyListeners("myPluginEvent", ret);
 ```
 
-To remove a listener from the plugin object:
+移除监听器：
 
 ```typescript
 const myPluginEventListener = Plugins.MyPlugin.addListener(
   'myPluginEvent',
   (info: any) => {
-    console.log('myPluginEvent was fired');
+    console.log('myPluginEvent 已触发');
   },
 );
 
 myPluginEventListener.remove();
 ```
 
-### Permissions
+### 权限
 
-Some Plugins will require you to request permissions.
-Capacitor provides some helpers to do that.
+某些插件需要请求权限。Capacitor 提供了一些辅助方法。
 
-First declare your plugin permissions in the `@NativePlugin` annotation
+首先在 `@NativePlugin` 注解中声明插件权限：
 
 ```java
 @NativePlugin(
@@ -301,10 +296,10 @@ First declare your plugin permissions in the `@NativePlugin` annotation
 )
 ```
 
-You can check if all the required permissions has been granted with `hasRequiredPermissions()`.
-You can request all permissions with `pluginRequestAllPermissions();`.
-You can request for a single permission with `pluginRequestPermission(Manifest.permission.CAMERA, 12345);`
-Or you can request a group of permissions with:
+可以用 `hasRequiredPermissions()` 检查是否已授予所有必需权限。
+可以用 `pluginRequestAllPermissions();` 请求所有权限。
+可以用 `pluginRequestPermission(Manifest.permission.CAMERA, 12345);` 请求单个权限。
+或者请求一组权限：
 
 ```java
 static final int REQUEST_IMAGE_CAPTURE = 12345;
@@ -315,48 +310,48 @@ pluginRequestPermissions(new String[] {
 }, REQUEST_IMAGE_CAPTURE);
 ```
 
-To handle the permission request you have to Override `handleRequestPermissionsResult`
+要处理权限请求，需要重写 `handleRequestPermissionsResult`：
 
 ```java
 @Override
 protected void handleRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
   super.handleRequestPermissionsResult(requestCode, permissions, grantResults);
 
-  log("handling request perms result");
+  log("处理权限请求结果");
   PluginCall savedCall = getSavedCall();
   if (savedCall == null) {
-    log("No stored plugin call for permissions request result");
+    log("没有存储的插件调用用于权限请求结果");
     return;
   }
 
   for(int result : grantResults) {
     if (result == PackageManager.PERMISSION_DENIED) {
-      savedCall.error("User denied permission");
+      savedCall.error("用户拒绝了权限");
       return;
     }
   }
 
   if (requestCode == REQUEST_IMAGE_CAPTURE) {
-    // We got the permission
+    // 已获得权限
   }
 }
 ```
 
-### Override navigation
+### 重写导航
 
-Capacitor plugins can override the webview navigation. For that the plugin can override `public Boolean shouldOverrideLoad(Uri url)` method.
-Returning `true` causes the WebView to abort loading the URL.
-Returning `false` causes the WebView to continue loading the URL.
-Returning `null` will defer to the default Capacitor policy.
+Capacitor 插件可以重写 WebView 导航。为此插件可以重写 `public Boolean shouldOverrideLoad(Uri url)` 方法。
+返回 `true` 会使 WebView 中止加载 URL。
+返回 `false` 会使 WebView 继续加载 URL。
+返回 `null` 会采用默认的 Capacitor 策略。
 
-### Export to Capacitor
+### 导出给 Capacitor
 
-By using the `@NativePlugin` and `@PluginMethod()` annotations in your plugins, you make them available to Capacitor, but you still need an extra step in your application to make Capacitor aware of the plugins.
+通过在插件中使用 `@NativePlugin` 和 `@PluginMethod()` 注解，你可以让插件对 Capacitor 可用，但仍需在应用中额外步骤让 Capacitor 识别插件。
 
-This is done in your apps `MainActivity`, where you `add` it in e.g. `src/main/java/com/example/myapp/MainActivity.java` like so:
+这在你应用的 `MainActivity` 中完成，例如在 `src/main/java/com/example/myapp/MainActivity.java` 中添加：
 
 ```java
-// Other imports...
+// 其他导入...
 import com.example.myapp.EchoPlugin;
 
 public class MainActivity extends BridgeActivity {
@@ -364,10 +359,10 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // Initializes the Bridge
+    // 初始化桥接
     this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      // Ex: add(TotallyAwesomePlugin.class);
+      // 已安装的其他插件放在这里
+      // 例如：add(TotallyAwesomePlugin.class);
       add(EchoPlugin.class);
     }});
   }

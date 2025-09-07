@@ -1,3 +1,3 @@
-# Capacitor Basics
+# Capacitor 基础
 
-Follow the links on the left to learn the basics of using and developing with Capacitor.
+点击左侧链接，了解使用和开发 Capacitor 的基本知识。

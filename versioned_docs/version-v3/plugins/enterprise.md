@@ -1,46 +1,46 @@
 ---
-title: Capacitor for Enterprise
-description: Capacitor offers powerful native features and support for enterprise
-sidebar_label: Enterprise Plugins
+title: Capacitor 企业版
+description: Capacitor 为企业级应用提供强大的原生功能支持
+sidebar_label: 企业插件
 slug: /plugins/enterprise
 ---
 
-# Capacitor for Enterprise
+# Capacitor 企业解决方案
 
-Capacitor offers powerful native security, authentication, and data management solutions and plugins for mission-critical enterprise apps.
+Capacitor 为关键业务的企业级应用提供强大的原生安全、认证和数据管理解决方案及插件。
 
-In addition, teams have access to customer-loved support and optional advisory services to make sure your next major app project is a success and stays that way, regardless of changes in the mobile ecosystem.
+此外，开发团队还能获得深受客户好评的技术支持服务，以及可选的咨询顾问服务，确保您的下一个重要应用项目取得成功并持续保持优势，无论移动生态系统如何变化。
 
-[Capacitor's Enterprise offering](/plugins/enterprise.md) centers around a suite of powerful native Capacitor plugins: [Auth Connect](https://ionicframework.com/enterprise/auth-connect) for secure authentication, [Identity Vault](https://ionicframework.com/enterprise/identity-vault) for encrypted session and user identity management, and [Offline Storage](https://ionicframework.com/enterprise/offline-storage) for high-performance, encrypted SQL data storage.
+[Capacitor 企业版方案](/plugins/enterprise.md) 的核心是一套强大的原生插件：[Auth Connect](https://ionicframework.com/enterprise/auth-connect) 提供安全认证方案，[Identity Vault](https://ionicframework.com/enterprise/identity-vault) 实现加密会话和用户身份管理，[Offline Storage](https://ionicframework.com/enterprise/offline-storage) 则提供高性能的加密 SQL 数据存储。
 
-Each solution works great with any modern web technology stack running in Capacitor, and does not require Ionic Framework.
+每个解决方案都能完美适配运行在 Capacitor 上的任何现代 Web 技术栈，且无需依赖 Ionic 框架。
 
-## Enterprise Authentication
+## 企业级认证方案
 
-With [Auth Connect](https://ionicframework.com/enterprise/auth-connect) and [Identity Vault](https://ionicframework.com/enterprise/identity-vault), connect to any OAuth or OpenID provider (Auth0, Ping, AWS Cognito, Azure Active Directory, and more) using mobile security best practices such as biometric authentication and encrypted session storage.
+通过 [Auth Connect](https://ionicframework.com/enterprise/auth-connect) 和 [Identity Vault](https://ionicframework.com/enterprise/identity-vault)，您可以基于移动安全最佳实践（如生物识别认证和加密会话存储），连接任何 OAuth 或 OpenID 服务提供商（Auth0、Ping、AWS Cognito、Azure Active Directory 等）。
 
-Auth Connect provides a simple, portable API for authentication with a number of enterprise and consumer identity providers and provides complex native authentication flows in just a few lines of JavaScript.
+Auth Connect 提供简洁易用的可移植 API，只需几行 JavaScript 代码即可实现复杂的企业级或消费者身份认证流程。
 
-Combined with Identity Vault (below), Capacitor apps can implement the most powerful, secure, and _correct_ enterprise authentication flows.
+结合 Identity Vault 使用，Capacitor 应用能够实现最强大、最安全且最规范的企业认证流程。
 
-## Secure Identity Management
+## 安全的身份管理
 
-[Identity Vault](https://ionicframework.com/enterprise/identity-vault) works in concert with Auth Connect to secure sensitive user and identity data, such as authentication tokens, backed by biometric authentication with support for the widest variety of iOS and Android devices. Identity Vault goes above and beyond a typical fingerprint or face scanning plugin to work with secure enclaves and encryption services on each platform. This is necessary because simply scanning a fingerprint or face identity, as most community plugins do, does not provide adequate security and protection from jailbreaking or other exploits.
+[Identity Vault](https://ionicframework.com/enterprise/identity-vault) 与 Auth Connect 协同工作，为敏感用户身份数据（如认证令牌）提供安全保护，支持最广泛的 iOS 和 Android 设备生物识别认证。相比普通的指纹或面部识别插件，Identity Vault 更进一步，与各平台的加密安全区深度集成。这一点至关重要，因为大多数社区插件仅实现简单的指纹/面部扫描功能，无法有效防范越狱或其他安全漏洞。
 
-[Identity Vault](https://ionicframework.com/enterprise/identity-vault) may also be used standalone and integrated with any existing authentication flow to provide advanced session security.
+[Identity Vault](https://ionicframework.com/enterprise/identity-vault) 也可独立使用，与现有认证流程集成，提供高级会话安全保障。
 
-## Offline and Encrypted Data Storage
+## 离线加密数据存储
 
-With [Offline Storage](https://ionicframework.com/enterprise/offline-storage), Capacitor developers have access to a high-performance, encrypted SQL data storage system for building powerful and secure offline-enabled apps on iOS and Android.
+[Offline Storage](https://ionicframework.com/enterprise/offline-storage) 为 Capacitor 开发者提供了高性能的加密 SQL 数据存储系统，可在 iOS 和 Android 上构建安全可靠的离线应用。
 
-Combined with [Identity Vault](https://ionicframework.com/enterprise/identity-vault), developers can securely manage data encryption keys and implement on-device data management best practices without touching a line of native code.
+结合 [Identity Vault](https://ionicframework.com/enterprise/identity-vault) 使用时，开发者可以安全管理数据加密密钥，无需编写原生代码就能实施最佳的设备端数据管理方案。
 
-## Enterprise Support and Advisory
+## 企业支持与咨询
 
-For teams building mission-critical apps, Ionic provides enterprise-grade support and optional advisory services to help make your next major app project a success. Customers remark how much they love being able to add a team of mobile experts to their project by working with Ionic.
+对于构建关键业务应用的团队，Ionic 提供企业级技术支持和可选的咨询服务。众多客户反馈表示，通过与 Ionic 合作，他们的项目获得了移动开发专家团队的鼎力支持。
 
-## Get in touch
+## 联系我们
 
-Interested? We'd love to talk and see how we can best help your team.
+感兴趣吗？我们非常期待与您交流，探讨如何为您的团队提供最佳支持。
 
-<a href="https://ionicframework.com/native" class="ui-button">Get in touch</a>
+<a href="https://ionicframework.com/native" class="ui-button">立即联系</a>

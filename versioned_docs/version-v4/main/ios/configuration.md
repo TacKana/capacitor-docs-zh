@@ -1,64 +1,64 @@
 ---
-title: Configuring iOS
-description: Configuring iOS
+title: iOS 配置
+description: iOS 配置
 contributors:
   - dotNetkow
   - mlynch
 slug: /ios/configuration
 ---
 
-# Configuring iOS
+# iOS 配置指南
 
-## Configuring `Info.plist`
+## 配置 `Info.plist`
 
-The `Info.plist` file is the main configuration file for iOS apps. You may need to edit it whenever a Capacitor plugin requires new settings or permissions.
+`Info.plist` 文件是 iOS 应用的主配置文件。当 Capacitor 插件需要新设置或权限时，您可能需要编辑此文件。
 
-To modify it, [open your project in Xcode](/main/ios/index.md#opening-the-ios-project), select the **App** project and the **App** target, and click the **Info** tab.
+修改方式：先在 [Xcode 中打开项目](/main/ios/index.md#opening-the-ios-project)，选中 **App** 项目和 **App** 目标，然后点击 **Info** 标签页。
 
-![Xcode info editor](../../../../static/img/v4/docs/ios/xcode-info-editor.png)
+![Xcode信息编辑器](../../../../static/img/v4/docs/ios/xcode-info-editor.png)
 
-> You can show the true key names by right-clicking in the table and checking **Raw Keys & Values** in the context menu.
+> 在表格中右键点击并勾选上下文菜单中的 **Raw Keys & Values**，可显示原始键名。
 >
-> You can also open and edit the `ios/App/App/Info.plist` file manually to inspect the raw keys. Use [this reference documentation](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html) for a list of possible keys.
+> 您也可以手动打开并编辑 `ios/App/App/Info.plist` 文件查看原始键值。完整的键名列表请参考 [苹果官方文档](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html)。
 
-## Managing Permissions
+## 权限管理
 
-iOS permissions do not need to be specified explicitly like they are in Android. However, iOS requires "Usage Descriptions" to be defined in `Info.plist`. These settings are human-readable descriptions that will be presented to the end user when permission is requested for a particular device API.
+iOS 权限不需要像 Android 那样显式声明，但必须在 `Info.plist` 中定义"使用说明"。这些设置是当请求特定设备 API 权限时，向终端用户展示的人类可读描述。
 
-Consult the [Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) list for keys containing `UsageDescription` to see the various usage description settings that may be required for your app.
+请查阅 [Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) 列表中包含 `UsageDescription` 的键，了解应用可能需要配置的各种使用说明设置。
 
-For more information, Apple has provided a guide to [Resolving the Privacy-Sensitive Data App Rejection](https://developer.apple.com/library/content/qa/qa1937/_index.html) which contains more information on APIs that require usage descriptions.
+更多信息可参考苹果官方的 [解决隐私敏感数据应用被拒](https://developer.apple.com/library/content/qa/qa1937/_index.html) 指南，其中详细说明了需要提供使用说明的 API。
 
-## Setting Capabilities
+## 设置功能特性
 
-Capabilities are used to enable key features that your app may need. You may need to configure them whenever a Capacitor plugin requires it.
+功能特性（Capabilities）用于启用应用所需的关键功能。当 Capacitor 插件有要求时，您需要进行配置。
 
-Unlike other configuration options and usage descriptions, capabilities are _not_ configured in `Info.plist`.
+与其他配置选项和使用说明不同，功能特性 _不_ 在 `Info.plist` 中配置。
 
-To add a new capability, [open your app in Xcode](/main/ios/index.md#opening-the-ios-project), select the **App** project and the **App** target, click **Signing & Capabilities** in the tab bar, and then click the **+ Capability** button. See [this article](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) for more information about iOS capabilities.
+添加新功能特性的步骤：先在 [Xcode 中打开应用](/main/ios/index.md#opening-the-ios-project)，选中 **App** 项目和 **App** 目标，点击顶部 **Signing & Capabilities** 标签，然后点击 **+ Capability** 按钮。iOS 功能特性的详细信息请参阅 [这篇文章](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app)。
 
-![Xcode Capabilities](../../../../static/img/v4/docs/ios/xcode-capabilities.png)
+![Xcode功能特性](../../../../static/img/v4/docs/ios/xcode-capabilities.png)
 
-## Renaming your App
+## 重命名应用
 
-You can't rename the `App` directory, but you can set the name of your app by renaming the **App** target.
+虽然无法重命名 `App` 目录，但您可以通过重命名 **App** 目标来更改应用显示名称。
 
-To rename the **App** target, [open your project in Xcode](/main/ios/index.md#opening-the-ios-project), select the **App** project, and double-click the **App** target.
+重命名步骤：先在 [Xcode 中打开项目](/main/ios/index.md#opening-the-ios-project)，选中 **App** 项目，双击 **App** 目标进行修改。
 
-![Xcode Target](../../../../static/img/v4/docs/ios/xcode-target.png)
+![Xcode目标](../../../../static/img/v4/docs/ios/xcode-target.png)
 
-Then, open `ios/App/Podfile` and rename the current target at the bottom of the file:
+接着打开 `ios/App/Podfile` 文件，修改底部的目标名称：
 
 ```diff
 -target 'App' do
 +target 'MyRenamedApp' do
    capacitor_pods
-   # Add your Pods here
+   # 在此添加您的 Pods
  end
 ```
 
-Finally, add the `scheme` attribute inside the `ios` object in the [Capacitor configuration file](/main/reference/config.md#schema).
+最后，在 [Capacitor 配置文件](/main/reference/config.md#schema) 的 `ios` 对象中添加 `scheme` 属性。
 
-## Deeplinks (aka Universal Links)
+## 深度链接（即通用链接）
 
-For a Deep Links guide, [see here](/main/guides/deep-links.md).
+深度链接配置指南请 [参阅此处](/main/guides/deep-links.md)。

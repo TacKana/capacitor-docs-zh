@@ -1,97 +1,111 @@
 ---
-title: Development Workflow
-description: Capacitor Workflow
+title: 开发工作流
+description: Capacitor 工作流程
 slug: /basics/workflow
 ---
 
-# Capacitor Workflow
+# Capacitor 工作流程
 
-Working with Capacitor is slightly different than working with a traditional web app. To make your web native Capacitor application, you'll need to do the following steps.
+使用 Capacitor 开发与传统网页应用略有不同。要构建原生混合应用，您需要遵循以下步骤。
 
-## Building your web code
+## 构建网页代码
 
-Once you are ready to test your web app on a mobile device, you'll need to build your web app for distribution. If you are using a tool like [Create React App](https://create-react-app.dev/) or [Vite](https://vitejs.dev/) that command will be `npm run build`; while a tool like [Angular](https://angular.io/) uses the command `ng build`. Whatever your command is, you will need to build your web code for distribution in order to use it with Capacitor.
+当准备在移动设备上测试网页应用时，需要先构建用于分发的网页应用。如果您使用 [Create React App](https://create-react-app.dev) 或 [Vite](https://vitejs.dev) 等工具，构建命令通常是 `npm run build`；而 [Angular](https://angular.io) 则使用 `ng build` 命令。无论使用什么构建命令，都需要先构建网页代码才能与 Capacitor 配合使用。
 
-## Syncing your web code to your Capacitor project
+## 同步网页代码到 Capacitor 项目
 
-Once your web code has been built for distribution, you will need to push your web code to the web native Capacitor application. To do this, you can use the [Capacitor CLI](/cli/index.md) to "sync" your web code and install/update the required native dependencies.
+构建完成后，需要将网页代码推送到 Capacitor 原生应用中。可以使用 [Capacitor CLI](/cli/index.md) 来"同步"网页代码并安装/更新所需的原生依赖。
 
-To sync your project, run:
+运行以下命令同步项目：
 
 ```bash
 npx cap sync
 ```
 
-Running `npx cap sync` will **copy** over your already built web bundle to both your Android and iOS projects as well as **update** the native dependencies that Capacitor uses.
+`npx cap sync` 命令会执行两个操作：
+1. 将已构建的网页资源**复制**到 Android 和 iOS 项目中
+2. **更新** Capacitor 使用的原生依赖
 
-You can [read our docs](/cli/commands/sync.md) on `sync` and more on the [Capacitor CLI reference](/cli/index.md) documentation.
+您可以在 [sync 命令文档](/cli/commands/sync.md) 或 [Capacitor CLI 参考文档](/cli/index.md) 中了解更多信息。
 
 :::info
-Did you get an error about "not being able to find the web assets directory?" Update your [Capacitor configuration](/main/reference/config.md) file to use the proper `webDir`.
+如果遇到"找不到网页资源目录"的错误，请检查 [Capacitor 配置文件](/main/reference/config.md) 中的 `webDir` 设置是否正确。
 :::
 
+## 测试 Capacitor 应用
 
-## Testing your Capacitor app
+同步完成后，就可以在移动设备上测试应用了。有以下几种测试方式，最简单的是使用 Capacitor CLI 命令。
 
-Once you've synced over your web bundle to your native project, it is time to test your application on a mobile device. There are a few different ways to do this, but the easiest way is to use the built in Capacitor CLI commands.
-
-To run a debug build of your Capacitor app on an iOS device, you can run:
+在 iOS 设备上运行调试版本：
 ```bash
 npx cap run ios
 ```
 
-Similarly, to run a debug build of your Capacitor app on an Android device, you can run:
+在 Android 设备上运行调试版本：
 ```bash
 npx cap run android
 ```
 
-
-Once you've iterated and tested your application, it is time to compile the final binary to distribute to other mobile devices.
+测试并迭代开发完成后，就可以编译最终版本分发了。
 
 :::info
-You can also [run your app on iOS via Xcode](/main/ios/index.md#running-in-xcode) or [run your app on Android via Android Studio](/main/android/index.md#running-with-android-studio) as well. Both options are valid for development. Go ahead and try both to see which option you prefer!
+您也可以选择：
+- [通过 Xcode 运行 iOS 应用](/main/ios/index.md#running-in-xcode)
+- [通过 Android Studio 运行 Android 应用](/main/android/index.md#running-with-android-studio)
+
+两种方式都适用于开发，建议都尝试以选择您偏好的方式！
 :::
 
-### Open your Native IDE
+### 打开原生 IDE
 
-If you'd like more control over your native project you can quickly open the native IDEs using the Capacitor CLI.
+如需更深入地控制原生项目，可以使用 CLI 快速打开原生开发环境。
 
-To [open the iOS Capacitor `.xcworkspace` project in Xcode](/main/ios/index.md#opening-the-ios-project), you can run:
+[在 Xcode 中打开 iOS 项目](/main/ios/index.md#opening-the-ios-project)：
 ```bash
 npx cap open ios
 ```
 
-Similarly, to [open the Android Capacitor project in Android Studio](/main/android/index.md#opening-the-android-project), you can run:
+[在 Android Studio 中打开 Android 项目](/main/android/index.md#opening-the-android-project)：
 ```bash
 npx cap open android
 ```
 
-Opening the native project can give you full control over the native runtime of your application. You can [create plugins](/plugins.mdx), [add custom native code](/main/ios/custom-code.md), or [compile your application](#compiling-your-native-binary) for releasing.
+打开原生项目后，您可以完全控制应用的原生运行时环境，包括：
+- [创建插件](/plugins.mdx)
+- [添加自定义原生代码](/main/ios/custom-code.md)
+- [编译应用](#编译原生二进制)
 
-## Compiling your native binary
+## 编译原生二进制
 
-After `sync`, you are encouraged to open your target platform's IDE: Xcode for iOS or Android Studio for Android, for compiling your native app.
+同步完成后，建议在对应平台的 IDE 中编译应用：
+- iOS：使用 Xcode
+- Android：使用 Android Studio
 
-Alternatively, to compile your app in a terminal or in CI environments, you can use the [cap build command](/cli/commands/build) to build the native project, outputting a signed AAB, APK or IPA file ready for distribution to a device or end users.
+如果需要在终端或 CI 环境中编译，可以使用 [cap build 命令](/cli/commands/build) 来构建原生项目，生成已签名的 AAB、APK 或 IPA 文件。
 
 ```bash
 npx cap build android
 ```
 
-We also  suggest using tools such as [Fastlane](https://fastlane.tools) or a cloud build tool like [Appflow](https://useappflow.com) to automate these processes for you. While every application is different, we have an example of a general release process for Capacitor projects. Go and read our publishing guides for [iOS](/main/ios/deploying-to-app-store.md) and [Android](/main/android/deploying-to-google-play.md) for more info on how to deploy to the Apple App Store or the Google Play Store.
+我们还建议使用自动化工具：
+- [Fastlane](https://fastlane.tools)
+- 云构建工具如 [Appflow](https://useappflow.com)
 
-## Updating Capacitor
+关于发布应用到应用商店的完整流程，请参考我们的发布指南：
+- [iOS 应用商店发布指南](/main/ios/deploying-to-app-store.md)
+- [Google Play 发布指南](/main/android/deploying-to-google-play.md)
 
-Updating your Capacitor runtime is as straightforward as running `npm install`.
+## 更新 Capacitor
+
+更新 Capacitor 非常简单，只需运行 npm install 命令：
 
 ```bash
 npm i @capacitor/core @capacitor/ios @capacitor/android
 npm i -D @capacitor/cli
 ```
 
-When updating Capacitor, you want to make sure your Core, Android, and iOS libraries are all the same version. Capacitor Core, Android, and iOS releases are all uploaded simultaneously, meaning that if you install all of the libraries at the same time, you'll be fine!
+更新时请确保核心库、Android 和 iOS 库版本一致。Capacitor 团队会同时发布这些库，因此同时安装即可保持版本同步。
 
 :::info
-You can subscribe to the [Capacitor repo](https://github.com/ionic-team/capacitor) to be notified of new releases. At the top of the repository index, click **Watch** -> **Releases only**.
+如需获取新版本通知，可以订阅 [Capacitor 代码库](https://github.com/ionic-team/capacitor)。在仓库首页点击 **Watch** -> **Releases only** 即可只接收版本更新通知。
 :::
-

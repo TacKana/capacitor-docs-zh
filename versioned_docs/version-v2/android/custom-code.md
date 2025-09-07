@@ -1,6 +1,6 @@
 ---
-title: Custom Native Android Code
-description: Custom Native Android Code
+title: 自定义原生 Android 代码
+description: 自定义原生 Android 代码实现
 contributors:
   - mlynch
   - jcesarmobile
@@ -8,23 +8,21 @@ contributors:
 canonicalUrl: https://capacitorjs.com/docs/android/custom-code
 ---
 
-# Custom Native Android Code
+# 自定义原生 Android 代码
 
-Many apps will want to add custom Java or Kotlin code to implement native features, without the overhead of building and publishing a proper Capacitor plugin.
+许多应用需要添加自定义 Java 或 Kotlin 代码来实现原生功能，但又不想承担构建和发布完整 Capacitor 插件的开销。
 
-There are two ways to do this depending on whether or not you need to access that code from the WebView:
+根据是否需要从 WebView 访问这些代码，有以下两种实现方式：
 
-## WebView Accessible Native Code
+## 可供 WebView 访问的原生代码
 
-The easiest way to build custom native code that needs to be accessible in the WebView is to build
-a local Capacitor plugin for it. In this case, building the plugin is as simple as building a class
-that inherits from `com.getcapacitor.Plugin` and uses the `@NativePlugin()` and `@PluginMethod()` annotations.
+要实现可被 WebView 访问的自定义原生代码，最简单的方式是构建一个本地 Capacitor 插件。这种情况下，只需创建一个继承自 `com.getcapacitor.Plugin` 的类，并使用 `@NativePlugin()` 和 `@PluginMethod()` 注解即可。
 
-Here are examples of custom code in Java and Kotlin:
+以下是 Java 和 Kotlin 的自定义代码示例：
 
-### Java
+### Java 实现
 
-`com/example/myapp/CustomNativePlugin.java` in `android/app/src/main/java`:
+在 `android/app/src/main/java` 下创建 `com/example/myapp/CustomNativePlugin.java`：
 
 ```java
 package com.example.myapp;
@@ -40,23 +38,23 @@ public class CustomNativePlugin extends Plugin {
   @PluginMethod()
   public void customCall(PluginCall call) {
     String message = call.getString("message");
-    // More code here...
+    // 这里添加更多代码...
     call.success();
   }
 
   @PluginMethod()
   public void customFunction(PluginCall call) {
-    // More code here...
+    // 这里添加更多代码...
     call.resolve();
   }
 }
 ```
 
-### Kotlin
+### Kotlin 实现
 
-It is also possible to develop custom code with Kotlin. When adding new Kotlin files in Android Studio, you will be prompted to configure Kotlin in your project if necessary. When doing this, make sure to only configure Kotlin in your app module, not the Capacitor or third-party modules.
+也可以使用 Kotlin 开发自定义代码。在 Android Studio 中添加新 Kotlin 文件时，如果需要会提示配置项目支持 Kotlin。请确保仅配置应用模块，不要影响 Capacitor 或第三方模块。
 
-`com/example/myapp/CustomNativePlugin.kt` in `android/app/src/main/java`:
+在 `android/app/src/main/java` 下创建 `com/example/myapp/CustomNativePlugin.kt`：
 
 ```kotlin
 package com.example.myapp;
@@ -72,24 +70,24 @@ class CustomNativePlugin : Plugin() {
   @PluginMethod
   fun customCall(call: PluginCall) {
     val message = call.getString("message")
-    // More code here...
+    // 这里添加更多代码...
     call.success()
   }
 
   @PluginMethod
   fun customFunction(call: PluginCall) {
-    // More code here...
+    // 这里添加更多代码...
     call.resolve()
   }
 }
 ```
 
-### Registering Plugin Code
+### 注册插件代码
 
-The final step is to register the plugin in your Activity. Registering a Kotlin plugin class in the Activity is the same as registering a Java class:
+最后一步是在 Activity 中注册插件。Kotlin 插件类的注册方式与 Java 类相同：
 
 ```java
-// Other imports...
+// 其他导入语句...
 import com.example.myapp.CustomNativePlugin;
 
 public class MainActivity extends BridgeActivity {
@@ -97,31 +95,30 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // Initializes the Bridge
+    // 初始化 Bridge
     this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      // Ex: add(TotallyAwesomePlugin.class);
+      // 已安装的其他插件放在这里
+      // 例如：add(TotallyAwesomePlugin.class);
       add(CustomNativePlugin.class);
     }});
   }
 }
 ```
 
-Then you can use your functions in your webView code:
+然后就可以在 WebView 代码中使用这些功能：
 
 ```typescript
-// Other codes...
+// 其他代码...
 import { Plugins } from '@capacitor/core';
 const { CustomNativePlugin } = Plugins;
-// Other codes...
-CustomNativePlugin.customCall({ message: 'CUSTOM MESSAGE' });
+// 其他代码...
+CustomNativePlugin.customCall({ message: '自定义消息' });
 CustomNativePlugin.customFunction();
-// Other codes...
+// 其他代码...
 ```
 
-For more usages of plugin APIs, have a look at [Capacitor Android Plugin Guide](/plugins/android.md).
+更多插件 API 用法，请参考 [Capacitor Android 插件指南](/plugins/android.md)。
 
-## Private Native Code
+## 私有原生代码实现
 
-If your code doesn't need to be accessible from the WebView, then simply add your code anywhere it needs to go. With Capacitor, you have full
-control over your native project. Need to add a new event handler in your Activity? Just update `MainActivity` and add it. The world is truly your oyster.
+如果代码不需要被 WebView 访问，那么直接在任何需要的地方添加代码即可。Capacitor 赋予你对原生项目的完全控制权——可以在 `MainActivity` 中添加新的事件处理程序，或进行任何必要的修改，原生开发将变得非常灵活。

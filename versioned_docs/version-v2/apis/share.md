@@ -1,6 +1,7 @@
+
 ---
-title: Share
-description: Share API
+title: 分享
+description: 分享 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,28 +10,28 @@ canonicalUrl: https://capacitorjs.com/docs/apis/share
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+分享 API 提供了在用户已安装的任何支持分享的应用中分享内容的方法。
 
-The Share API works on iOS, Android, and the Web (using the new [Web Share API](https://developers.google.com/web/updates/2016/09/navigator-share)), though web support is currently spotty.
+该 API 支持 iOS、Android 和 Web 平台（使用新的 [Web 分享 API](https://developers.google.com/web/updates/2016/09/navigator-share)），不过目前 Web 平台的支持尚不完善。
 
 - [`share(...)`](#share)
-- [Interfaces](#interfaces)
+- [接口](#interfaces)
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
 const { Share } = Plugins;
 
 let shareRet = await Share.share({
-  title: 'See cool stuff',
-  text: 'Really awesome thing you need to see right meow',
+  title: '看看这个很棒的东西',
+  text: '你马上需要看到的真正超赞的东西',
   url: 'http://ionicframework.com/',
-  dialogTitle: 'Share with buddies',
+  dialogTitle: '分享给朋友们',
 });
 ```
 
-Each platform uses a different set of fields, but you should supply them all.
+每个平台使用不同的字段集，但建议您提供全部字段。
 
 ## API
 
@@ -40,23 +41,23 @@ Each platform uses a different set of fields, but you should supply them all.
 share(options: ShareOptions) => Promise<any>
 ```
 
-Show a Share modal for sharing content in your app with other apps
+显示分享模态框，用于在您的应用与其他应用之间分享内容
 
-| Param         | Type                                                  |
-| ------------- | ----------------------------------------------------- |
+| 参数           | 类型                                                      |
+| -------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
-**Returns:** <code>Promise&lt;any&gt;</code>
+**返回值:** <code>Promise&lt;any&gt;</code>
 
 ---
 
-### Interfaces
+### 接口
 
 #### ShareOptions
 
-| Prop              | Type                | Description                                                               |
+| 属性              | 类型                | 描述                                                               |
 | ----------------- | ------------------- | ------------------------------------------------------------------------- |
-| **`title`**       | <code>string</code> | Set a title for any message. This will be the subject if sharing to email |
-| **`text`**        | <code>string</code> | Set some text to share                                                    |
-| **`url`**         | <code>string</code> | Set a URL to share, can be http, https or file URL                        |
-| **`dialogTitle`** | <code>string</code> | Set a title for the share modal. Android only                             |
+| **`title`**       | <code>string</code> | 设置消息标题。如果是通过邮件分享，这将作为邮件主题 |
+| **`text`**        | <code>string</code> | 设置要分享的文本内容                                                    |
+| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或文件 URL                        |
+| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题。仅限 Android 平台                             |

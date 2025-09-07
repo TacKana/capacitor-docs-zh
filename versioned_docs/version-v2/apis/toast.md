@@ -9,16 +9,16 @@ canonicalUrl: https://capacitorjs.com/docs/apis/toast
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
+Toast API 提供了一种通知弹出窗口，用于向用户显示重要信息。就像真正的吐司一样！
 
 - [`show(...)`](#show)
-- [Interfaces](#interfaces)
+- [接口](#interfaces)
 
-## PWA Notes
+## PWA 注意事项
 
-[PWA Elements](/web/pwa-elements.mdx) are required for Toast plugin to work.
+Toast 插件需要 [PWA Elements](/web/pwa-elements.mdx) 才能正常工作。
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -39,18 +39,18 @@ async show() {
 show(options: ToastShowOptions) => Promise<void>
 ```
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#toastshowoptions">ToastShowOptions</a></code> |
 
 ---
 
-### Interfaces
+### 接口
 
 #### ToastShowOptions
 
-| Prop           | Type                                       | Description                                                                |
+| 属性            | 类型                                       | 描述                                                                       |
 | -------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
-| **`text`**     | <code>string</code>                        |                                                                            |
-| **`duration`** | <code>"short" \| "long"</code>             | Duration of the toast, either 'short' (2000ms, default) or 'long' (3500ms) |
-| **`position`** | <code>"center" \| "bottom" \| "top"</code> |                                                                            |
+| **`text`**     | <code>string</code>                        | 显示的文本内容                                                             |
+| **`duration`** | <code>"short" \| "long"</code>             | 显示时长，'short'（2000毫秒，默认）或 'long'（3500毫秒）                   |
+| **`position`** | <code>"center" \| "bottom" \| "top"</code> | 显示位置                                                                   |

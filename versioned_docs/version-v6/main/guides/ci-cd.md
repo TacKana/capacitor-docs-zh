@@ -1,51 +1,47 @@
 ---
 title: CI/CD
-description: Adding Mobile CI/CD to your Capacitor App development process
+description: 为你的Capacitor应用开发流程添加移动端持续集成/持续交付支持
 contributors:
   - mlynch
 slug: /guides/ci-cd
 ---
 
-# CI/CD for Capacitor Apps
+# Capacitor应用的持续集成与交付
 
-Every serious app will utilize a CI/CD process for continuous testing, integration, and delivery.
+任何成熟的应用程序都会采用CI/CD（持续集成/持续交付）流程来进行自动化测试、集成和发布。
 
-Unfortunately, Mobile presents unique CI/CD challenges, and the same techniques that web developers use for frontend CI/CD won't apply for mobile, since build and deployment processes are radically different.
+但移动端开发面临着独特的CI/CD挑战，网页前端开发者惯用的CI/CD技术并不适用于移动端，因为两者的构建和发布流程存在根本差异。
 
-## Basic CI/CD for your frontend
+## 前端基础CI/CD流程
 
-The first step for CI/CD for a Capacitor app is using a process for building and testing your _frontend_ JS app.
+实施Capacitor应用CI/CD的第一步，是建立前端JavaScript应用的构建与测试流程。
 
-This is commonly done today using a generic CI/CD service like GitHub Actions, CircleCI, Jenkins, etc.
+目前通常使用GitHub Actions、CircleCI、Jenkins等通用CI/CD服务来实现。这套流程会在每次代码提交时触发应用构建，并运行本地测试套件。这是典型的JavaScript CI/CD流程，开发团队大多已熟悉这套模式。
 
-In this process, an app is set to build on each commit and often run a local test suite. This is the typical JS CI/CD process and your team is likely already familiar with it.
+但这只是冰山一角，团队还需要解决原生移动端的构建、测试和发布问题。
 
-But this is just the tip of the iceberg, as teams will need to figure out how to build, test, and deploy the actual native mobile side of their app.
+## 引入移动端CI/CD支持
 
-## Adding Mobile CI/CD
+对于移动应用而言，仅完成JS应用的构建测试远远不够——你的应用有相当部分需要作为原生iOS和Android应用来构建运行。
 
-Just building and running JS app tests is not nearly enough for a mobile app, given that a big portion of your app needs to build and run as a native iOS and Android app.
+此外，移动应用的发布和更新机制与网页应用截然不同。网页应用部署在可快速更新的服务器上，而移动应用则"托管"在应用商店中，以加密签名的二进制包形式分发，其更新机制也大相径庭。
 
-Additionally, the way a mobile app is deployed and updated is very different from a web app. Whereas a web app will be hosted on a server that can be quickly updated, mobile apps are "hosted" in app stores and distributed as cryptographically-signed binaries. The update process is very different.
+这意味着我们需要能够执行原生移动构建测试的服务，同时提供符合移动特性的部署更新方案。
 
-This means we need a service that can do native mobile builds and tests, and also offer a way to deploy and update our apps in a native mobile appropriate way.
+## Appflow：专为Capacitor打造的移动CI/CD
 
-## Appflow: Mobile CI/CD for Capacitor apps
+[Appflow](https://ionic.io/appflow)就是这样一款提供端到端移动CI/CD的服务，它是Capacitor应用的官方移动持续集成与DevOps平台。
 
-One such service that provides end-to-end Mobile CI/CD is [Appflow](https://ionic.io/appflow), the official Mobile CI/CD and Mobile DevOps platform for Capacitor apps.
+Appflow提供定期更新的托管式iOS/Android构建环境，支持与Azure DevOps、GitLab、GitHub、Bitbucket等主流Git服务集成，能够在每次提交时触发JS和原生移动构建。它还能将构建产物分发到不同渠道（如利益相关方、测试用户、生产环境），并支持自动化提交应用到商店，省去了团队维护复杂原生构建环境的烦恼。
 
-Appflow provides frequently updated, managed iOS and Android build environments. Appflow integrates with popular git services like Azure DevOps, GitLab, GitHub, and Bitbucket, to support triggering JS and native mobile builds on each commit. Appflow also supports separating builds into different channels for stakeholders, beta testers, and production users. Additionally, Appflow can automatically submit your app to app stores as part of an automated workflow, and removes the need for your team to manage complicated native iOS and Android build stacks.
+对Capacitor开发者而言，Appflow还具备实时推送更新的能力——只要修改限于应用的JS/HTML/CSS层面，就无需经过应用商店审核。
 
-For Capacitor developers, Appflow also offers the ability to push real-time updates to apps without app store submission, as long as those updates are at the JS/HTML/CSS layer of an app.
+详见[Appflow官方文档](https://ionicframework.com/docs/appflow)。
 
-For more details, see the [Appflow Documentation](https://ionicframework.com/docs/appflow).
+## 传统CI/CD服务与Appflow的结合方案
 
-## Using a traditional CI/CD service with Appflow
+虽然Appflow可以完全替代传统CI/CD服务（同时处理网页和原生构建），但它也能与传统服务协同工作。实现方式是：通过webhook在每次提交时将构建产物推送给Appflow。
 
-Appflow can replace a traditional CI/CD service since it performs web/JS builds and native mobile builds. However, it works great with a traditional CI/CD service.
+## 其他移动CI/CD方案
 
-To use it in this way, use webhooks to send built assets to Appflow on each commit.
-
-## Other Mobile CI/CD Options
-
-There are other services for Mobile CI/CD, though none focused on Capacitor. Whichever CI/CD service you prefer, Capacitor can integrate with it as Capacitor apps are just native apps. However, for remote live updates of Capacitor apps, [Appflow](https://ionic.io/appflow) is the only service with this feature.
+市场虽存在其他移动CI/CD服务，但都非专为Capacitor设计。无论选择哪种服务，Capacitor都能与之集成——毕竟Capacitor应用本质就是原生应用。但若需要远程实时更新功能，目前仅有[Appflow](https://ionic.io/appflow)提供这项服务。

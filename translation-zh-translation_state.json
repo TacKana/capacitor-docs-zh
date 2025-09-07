@@ -1,0 +1,3952 @@
+{
+  "docs/index.md": {
+    "source_hash": "9c1b199c14cc11b013e151895aeed5b5ecf95f0f",
+    "last_translated_at": "2025-09-07T04:53:42.119Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/telemetry.md": {
+    "source_hash": "9b7192caea126ff604a858f8332f19372a9231b1",
+    "last_translated_at": "2025-09-07T04:56:42.082Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/cordova.md": {
+    "source_hash": "ffcb4e4a2dd6c95f41ed377e827ec5fa6ace09bf",
+    "last_translated_at": "2025-09-07T04:56:42.082Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/release.md": {
+    "source_hash": "2bf6417786747ded32e50f6c5a23a9c6ee72ccee",
+    "last_translated_at": "2025-09-07T04:56:42.082Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins.mdx": {
+    "source_hash": "1d48d9fc6d2190bce58c4eadd72066f0371698c0",
+    "last_translated_at": "2025-09-07T04:59:20.625Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/permissions.md": {
+    "source_hash": "f76f2accb99ecf1d5f2b2de7b6c7ae03317d0613",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/toast.md": {
+    "source_hash": "5e2ed023306cacbc0ee561e2adf2266613b8a52c",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/index.md": {
+    "source_hash": "75cbe990bb9a4a1d53a14f2718d112c2bcb28fca",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/getting-started/environment-setup.md": {
+    "source_hash": "9c64e3f7b622f7c9ea66393fc690060a5f456420",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/getting-started/installation.md": {
+    "source_hash": "53f2b1a55813820315be27ada7fe5fbf123a912b",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/react-hooks.md": {
+    "source_hash": "86f26f26138ae45ba9bb45cda8ed8ecc93515558",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/deploying-to-app-store.md": {
+    "source_hash": "90ee3de71e32194aa98b5aa961b031539d41d888",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/index.md": {
+    "source_hash": "c7005ff83438641dc815ea88c69208beac277560",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/run.md": {
+    "source_hash": "52073cb4341544169f9fb6e222924a31e7f9600d",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/official.md": {
+    "source_hash": "e216978b7f583f44728f768a2abde3742b7146e6",
+    "last_translated_at": "2025-09-07T05:05:11.503Z",
+    "translator_version": "1.0"
+  },
+  "docs/README.md": {
+    "source_hash": "2da29748116f6902b34de847091569cd1858ae65",
+    "last_translated_at": "2025-09-07T05:05:40.238Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/toast.md": {
+    "source_hash": "26d555eea53b00adb2ba1828f2f290404d8a646f",
+    "last_translated_at": "2025-09-07T05:06:57.876Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/storage.md": {
+    "source_hash": "081711f4e418f8670dfc980a656eed2f622f89de",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/configuring-your-app.md": {
+    "source_hash": "b3a02cc4f2a865dcf314f842422bbe90726646d0",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/managing-platforms.md": {
+    "source_hash": "f61c695adaac3111cb62f61760dad8fadcf7e82c",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/splash-screens-and-icons.md": {
+    "source_hash": "5dafd5d67f61a9699a3a85637c6481475d99ae8b",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/privacy-manifest.md": {
+    "source_hash": "b62c35c147106a27a609e7632d6615a41b79022f",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/privacy-manifest.md": {
+    "source_hash": "8e3d6465b92466ee735e87f3945a17441d28549f",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/2-web-to-native.mdx": {
+    "source_hash": "98b2c607fb72f4feab677dbfbd861c8dd4a8467c",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/dependencies.md": {
+    "source_hash": "4abe09bddcede4ce4d2eed9ea7998c67166b1fb5",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/framework.md": {
+    "source_hash": "b11700699195c22d90db2e8176bcd5b6c08eae1d",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/dependencies.md": {
+    "source_hash": "4abe09bddcede4ce4d2eed9ea7998c67166b1fb5",
+    "last_translated_at": "2025-09-07T05:11:42.603Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/community.md": {
+    "source_hash": "29f1576da60271e50e9ab6f13c353285681c476e",
+    "last_translated_at": "2025-09-07T05:12:18.268Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/lifecycle.md": {
+    "source_hash": "2e97967c41a40f55ad70672cbcf17d93bf017397",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/setting-target-sdk.md": {
+    "source_hash": "9ab01ed60b466fecdb13e572404d6a8bb0e81e02",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/templates.md": {
+    "source_hash": "a6438c12dc01264845c509359456366aeb58a340",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/web/index.md": {
+    "source_hash": "dcb8153e437afd3f5ada3d80914a1ddb543d3576",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/share.md": {
+    "source_hash": "aaa5262857fc08325ba7e77bd77b4351b733d4a4",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/building-your-app.md": {
+    "source_hash": "eea5be6eb03fbcbb32e9ea675b6f35bb03ec231b",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/index.md": {
+    "source_hash": "75cbe990bb9a4a1d53a14f2718d112c2bcb28fca",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/splash-screens-and-icons.md": {
+    "source_hash": "3bf731931fd960f43d61b7c085f1eb51da32c8e7",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/storage.md": {
+    "source_hash": "12854c9ba11e659ff084349ab43010b46a1fac88",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis.md": {
+    "source_hash": "8d489e64ce7bcca5bc359ae10936809133648305",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis/android.md": {
+    "source_hash": "4c34d7d28126eb97ca48453abaa4ed9fcd115c96",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/1-new-project.mdx": {
+    "source_hash": "59ebb5f3309d0e7993a1eacf3d1758493662a1de",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/enterprise.md": {
+    "source_hash": "40f097a736d136ffc6f5ba054acfe3a9f2b6473d",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/index.md": {
+    "source_hash": "04ba8d58b7460c11659827e6ba8735984577f375",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/add.md": {
+    "source_hash": "c6d8de3bc1d47810161b069c0cb9b7df95834a46",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/templates.md": {
+    "source_hash": "a6438c12dc01264845c509359456366aeb58a340",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/deploying-to-app-store.md": {
+    "source_hash": "90ee3de71e32194aa98b5aa961b031539d41d888",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/2-web-to-native.mdx": {
+    "source_hash": "98b2c607fb72f4feab677dbfbd861c8dd4a8467c",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/3-build-and-run.md": {
+    "source_hash": "52f323609b7ffae57ddc47cc48c3e9d4cb24ee28",
+    "last_translated_at": "2025-09-07T05:27:40.173Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/vscode-extension.mdx": {
+    "source_hash": "3f5de8e3010b491aa847daabb4c0a92745933070",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/plugin-hooks.md": {
+    "source_hash": "f1a6092b69cbe5e1c83faae02ba60a838b07ff4d",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/opening-native-projects.md": {
+    "source_hash": "2ea315db597b9584d18531b5904ec8491942adf4",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/running-your-app.md": {
+    "source_hash": "64db995b6f23e6b33321e903ae5fcdced697771e",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins.md": {
+    "source_hash": "1adde666cf36f39b13948c37533ae67d2bca0a0b",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/text-zoom.md": {
+    "source_hash": "a12417bf8c857bc2fbf4019ad2b84bc1b4f7529d",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/hooks.md": {
+    "source_hash": "36b0678b5b0bd938a4e64cba074693885299433b",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/index.md": {
+    "source_hash": "a0bfb0847793861c2ffb88a67a02fe5e8a13d7bb",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/index.md": {
+    "source_hash": "782d59edd89320fe28179d50207932285c4ec7e1",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis/android.md": {
+    "source_hash": "469a02d8824d9993c70c6d8177abba22a4e8c441",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/community.md": {
+    "source_hash": "e7c9da20094a36683ef4373151e2d1a33f072730",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins.mdx": {
+    "source_hash": "5c02a423995402a926ee5ddfd871713b6b89f029",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/README.md": {
+    "source_hash": "d0bc1988762759d127c5f7fb327264a76be18038",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/deploying-to-google-play.md": {
+    "source_hash": "66774b84cc3cb045f22cb3d917978ee8c7d31d9f",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/lifecycle.md": {
+    "source_hash": "2e97967c41a40f55ad70672cbcf17d93bf017397",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/native-settings.md": {
+    "source_hash": "fb35f6f1a736cba9fc52076656d52d1e251f051d",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/community.md": {
+    "source_hash": "29f1576da60271e50e9ab6f13c353285681c476e",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/toast.md": {
+    "source_hash": "3d83b1820c5675c61dd40fa0c8087c726cfe9a3f",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/deploying-to-app-store.md": {
+    "source_hash": "90ee3de71e32194aa98b5aa961b031539d41d888",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/1-1.md": {
+    "source_hash": "a543730b5bbcf4680e2807f72fde4d483742f836",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/cordova.md": {
+    "source_hash": "ffcb4e4a2dd6c95f41ed377e827ec5fa6ace09bf",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/monorepos.md": {
+    "source_hash": "4365210fc64633b8ef999c2617d60803869ad878",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/native-settings.md": {
+    "source_hash": "42b2d99a8be51ada95986f47aad989896c9bbcb0",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/official.md": {
+    "source_hash": "c6fc436eb2a79d2fad66e3fe5e1faffdc7b6bbff",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/hooks.md": {
+    "source_hash": "36b0678b5b0bd938a4e64cba074693885299433b",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/with-ionic.md": {
+    "source_hash": "aa7173e2f733d65455a1fd3d1ec927bbeeea7322",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis/saving-calls.md": {
+    "source_hash": "0e61aea29b65eaa4f6a7e613cb1d6e8cbf53cd2d",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/framework.md": {
+    "source_hash": "b11700699195c22d90db2e8176bcd5b6c08eae1d",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/recommendations.md": {
+    "source_hash": "254418eefe3442650c8f13078ac5faed183ce052",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/release.md": {
+    "source_hash": "2bf6417786747ded32e50f6c5a23a9c6ee72ccee",
+    "last_translated_at": "2025-09-07T05:50:23.120Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/deploying-to-google-play.md": {
+    "source_hash": "66774b84cc3cb045f22cb3d917978ee8c7d31d9f",
+    "last_translated_at": "2025-09-07T05:52:38.570Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/basics/configuring-your-app.md": {
+    "source_hash": "0372ad13937cac539558b0e56fe9553682fb925a",
+    "last_translated_at": "2025-09-07T05:53:42.581Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/index.md": {
+    "source_hash": "7cccc31bbb329a4e19e3be66bd69366da91cc26b",
+    "last_translated_at": "2025-09-07T05:58:59.478Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/hooks.md": {
+    "source_hash": "36b0678b5b0bd938a4e64cba074693885299433b",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/index.md": {
+    "source_hash": "04e75b7947aee158724a2a743c84d7d1e1b6ae96",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/configuration.md": {
+    "source_hash": "77e524ad0f96fdb73bfc2578af4c5b24acf86b95",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/splash-screens-and-icons.md": {
+    "source_hash": "e7d316ea7138128d4ae42c6d3344fcd09d34acb1",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/custom-code.md": {
+    "source_hash": "f0d5ac7dc54cc7ab006c59bbb457e15989548172",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/index.md": {
+    "source_hash": "01e3babea2efefd45cf9567f5e38d75362d63b9d",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/1-1.md": {
+    "source_hash": "a543730b5bbcf4680e2807f72fde4d483742f836",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/open.md": {
+    "source_hash": "4fb3bae46af3999a418bf098f3e671a543651e86",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/plugin-generate.md": {
+    "source_hash": "74a156eeb8d1296a5843597dc483350c1e59ca35",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/README.md": {
+    "source_hash": "6d2299e0201596cde35f9cf47fd92909c5f7340d",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/updating/1-1.md": {
+    "source_hash": "a543730b5bbcf4680e2807f72fde4d483742f836",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/init.md": {
+    "source_hash": "416b70da8902668b7d00afed02a999f947b92511",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/open.md": {
+    "source_hash": "3633d79cf6ab6e03210cd634617c42209f12d2f4",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/screen-orientation.md": {
+    "source_hash": "c16b62f33112ca33ccf1a5c38d9e97db8e11a69a",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis/saving-calls.md": {
+    "source_hash": "0e61aea29b65eaa4f6a7e613cb1d6e8cbf53cd2d",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis.md": {
+    "source_hash": "8d489e64ce7bcca5bc359ae10936809133648305",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/0-getting-started.mdx": {
+    "source_hash": "e2c9aa308e1c19641f7e20b2ce4c648dbe85c8c4",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/monorepos.md": {
+    "source_hash": "77bd602b587a36cd6cefee6bd1ce98635bdc3b06",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/getting-started.md": {
+    "source_hash": "db8912c6ad051d98949bc2d7b5d6b7b0b18c152f",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/official.md": {
+    "source_hash": "b7e17da57e7bdb079105816d856bf8da487daedb",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/index.md": {
+    "source_hash": "6a16b8f24983d97661be6fc749f3bf2b18d9f638",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/development-workflow.md": {
+    "source_hash": "4f2c310a9a23a5e799b4db9360909fa51a6c6f24",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins.mdx": {
+    "source_hash": "4b6aeda28aa25c5b3e5e0b06b611ab43fed0cb21",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/copy.md": {
+    "source_hash": "6f21854c6b82d9472e5f239ce7956600834b446f",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/ls.md": {
+    "source_hash": "6ce7f1364d39f95c1f53bfbc0c18a4682ad4d136",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/splash-screens-and-icons.md": {
+    "source_hash": "c91f4590fe83bef6b97f918340fa8efbd33c60e2",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/storage.md": {
+    "source_hash": "1b716265c5b7e6a85fbd536f0c25ec6cda4c8c36",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/cordova.md": {
+    "source_hash": "ffcb4e4a2dd6c95f41ed377e827ec5fa6ace09bf",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/monorepos.md": {
+    "source_hash": "4365210fc64633b8ef999c2617d60803869ad878",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/z-advanced.md": {
+    "source_hash": "bdfa2c3944a6c5b5271cf4f9983e8202e6190340",
+    "last_translated_at": "2025-09-07T06:21:48.084Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/index.md": {
+    "source_hash": "25ced2d003058e0482d79762abf9ec7b70d7c3d0",
+    "last_translated_at": "2025-09-07T06:25:12.434Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/camera.md": {
+    "source_hash": "9c95109d991ed446f09121b0975c8f33664ee95a",
+    "last_translated_at": "2025-09-07T06:33:07.234Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/action-sheet.md": {
+    "source_hash": "9afb7773af923626f9c9d35176ce6fe995cab7f2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/app-launcher.md": {
+    "source_hash": "37d9993ae563b65f79f8b50165f1273bec5be19d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/app.md": {
+    "source_hash": "a0fce90d76618a8a5e6fddaed917ade0d1fe78da",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/background-runner.md": {
+    "source_hash": "1c45e761c6dfd7456826272f3eab8fd720994474",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/barcode-scanner.md": {
+    "source_hash": "e56563d1126784300fafbcb6a9a0d3c25114f502",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/browser.md": {
+    "source_hash": "699706447f7eb3710a7c7480bdb97181117c0f50",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/clipboard.md": {
+    "source_hash": "e68a1cc2248f99b665a6a79a9a26e9b6fb590b77",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/cookies.md": {
+    "source_hash": "533125cdf8281317edfe867ce0a84578197776fe",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/device.md": {
+    "source_hash": "012d0a969ba229f07d6fdfba5402ac1e64a79144",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/dialog.md": {
+    "source_hash": "765cfa40a14f6033fc4c848c883816e8b0152923",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/file-transfer.md": {
+    "source_hash": "871a171ceecdec81b645c52d6a00bcdd26568a4b",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/file-viewer.md": {
+    "source_hash": "a1fafeea522e4261f227b75909759e090115f798",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/filesystem.md": {
+    "source_hash": "eff1c26e8cb66c2e21b00f6b03e5feafd226c097",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/geolocation.md": {
+    "source_hash": "4dcb91963e881249e83b5cf036253c9b516fe69c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/google-maps.md": {
+    "source_hash": "c5eefe6c32813112208b60b556a9986ee3d598c3",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/haptics.md": {
+    "source_hash": "00f70ebe3744fef19ef0b1d6f4da683d92888c65",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/http.md": {
+    "source_hash": "49dbeaaa8afcc7c7a406a9fa446958b9f019659f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/inappbrowser.md": {
+    "source_hash": "ea7ebb01b904ad107cab2e9a718e7f19cb618e1b",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/keyboard.md": {
+    "source_hash": "3eb8ac0586bbfa06696d8b80ed25fa5e146cd4ce",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/local-notifications.md": {
+    "source_hash": "e356ee81eabbbc081a28ad120702e34ced46f753",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/motion.md": {
+    "source_hash": "cd0a20db9a5d80a373233ffb0fd01b0a2ed34cfe",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/network.md": {
+    "source_hash": "509d75e770520332ab2a16a5c1485db4aeb8ff65",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/preferences.md": {
+    "source_hash": "ab3709c61f1d7781a31f7d6548292b54fb203c8d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/privacy-screen.md": {
+    "source_hash": "7b5580b613c2822510505607b28b960573031347",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/push-notifications.md": {
+    "source_hash": "22de6c6079769e0a435bc0e434198fa147cc6caa",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/screen-orientation.md": {
+    "source_hash": "794f72cd6c311e3ea4ebf1c142f025edbe76bcf6",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/screen-reader.md": {
+    "source_hash": "055456e9ed7f98754002c7bb3ac0ca5f06727460",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/share.md": {
+    "source_hash": "5e391eba3a8f89dbb1564f7cfb0ec79c49825087",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/splash-screen.md": {
+    "source_hash": "087246c5667f46e8878bdca11ac5d248563c65ed",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/status-bar.md": {
+    "source_hash": "a6cc6ebfa3937bb039c56dc6b922c021635ee767",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/text-zoom.md": {
+    "source_hash": "0e1ad52fa4c4250c8b87c172568900c3296317a6",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/apis/watch.md": {
+    "source_hash": "483537ce0fea99b4c2decf699af23d42237fcf5f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/add.md": {
+    "source_hash": "493e6c9bb119ae5b07a2ac449dc75916d94bb2c2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/build.md": {
+    "source_hash": "2edf0bac2b2b00cd79c1f93b600afc35ee6b6d15",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/copy.md": {
+    "source_hash": "6f21854c6b82d9472e5f239ce7956600834b446f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/init.md": {
+    "source_hash": "416b70da8902668b7d00afed02a999f947b92511",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/ls.md": {
+    "source_hash": "6ce7f1364d39f95c1f53bfbc0c18a4682ad4d136",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/open.md": {
+    "source_hash": "3633d79cf6ab6e03210cd634617c42209f12d2f4",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/run.md": {
+    "source_hash": "52073cb4341544169f9fb6e222924a31e7f9600d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/sync.md": {
+    "source_hash": "e7e0e8d332b6e8b342d13613e295a2bf4e4a2f1a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/cli/commands/update.md": {
+    "source_hash": "d102ae07a6fa3ed2ccec32e7bf587264c66bbd4c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/custom-code.md": {
+    "source_hash": "70830a09c303a4f530e8b0b9d0aebd3f3fd75b4c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/android/troubleshooting.md": {
+    "source_hash": "d67f2d124d281e5686753ff26567c21bbffc3422",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/basics/using-plugins.md": {
+    "source_hash": "eb76cbea2de3508b36b598d0512ae8a460a66a47",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/basics/utilities.md": {
+    "source_hash": "eb644b62104984a77fb7289cd54f4d897534a55e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/basics/workflow.md": {
+    "source_hash": "4b1a55cc1faa7cf810f83f825ed518dade729216",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/cordova/index.md": {
+    "source_hash": "63b880459358bc53551b68911f24861102ca19f2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "6673e5f008ce40f78a655d165f07c67f5019d5af",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/cordova/migration-strategy.md": {
+    "source_hash": "9b3a51e470df54127a603d4086af997a16391d68",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/environment-setup.md": {
+    "source_hash": "16b78a9c98c0740cf3883543d29cc9213c83d087",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/faqs.md": {
+    "source_hash": "7b29d233f62b831caf9544027aab308e085b7b80",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/installation.md": {
+    "source_hash": "f51ae7ea50895523cc6cdb3468b69383822336d0",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/ui.md": {
+    "source_hash": "583e068c6400bbc8b2eb455800352ad04f43a2af",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/getting-started/with-ionic.md": {
+    "source_hash": "aa7173e2f733d65455a1fd3d1ec927bbeeea7322",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/ads.md": {
+    "source_hash": "0606b79d7771e812a1d6362216dec1e4075e5f42",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/angular.md": {
+    "source_hash": "56987015140692ae02eefa87f94db45339ee1355",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/autofill-credentials.mdx": {
+    "source_hash": "ed88028eecc4ef9e7c78036638b21d2061019f74",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/automated-configuration.md": {
+    "source_hash": "8dc96c1bd8318b73c597a5d74e820b85c4833ede",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/ci-cd.md": {
+    "source_hash": "378c6489da6607a02a3e564c0d9905dced9c0a2f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/community.md": {
+    "source_hash": "fc67d10aff70496c68fbadf639fe02b832d7310a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/deep-links.md": {
+    "source_hash": "f069591b3fc66c1ef445df463b45b6b0b648dcf5",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/deploying-updates.md": {
+    "source_hash": "3218238a452080995366a4c36f12a7464b0fa524",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/environment-specific-configurations.md": {
+    "source_hash": "62f6a6c967fca3cf5f9b7255a1df1d0fd58acd5c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/games.md": {
+    "source_hash": "802c39a84cc4f688e378dca811a573e6a1b2f567",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/in-app-purchases.md": {
+    "source_hash": "bd460cbfdd1d6ad0240ca7eee388f3c7d073583e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/ionic-framework-app.md": {
+    "source_hash": "fb732efbd1ba190efb836f932c9a10c3c049403c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/live-reload.md": {
+    "source_hash": "958053c372368bb41d56108f40d144fb98241223",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/mocking-plugins.md": {
+    "source_hash": "8fd68adee256cfd4074b2f5c087896d7e1c1c674",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/push-notifications-firebase.md": {
+    "source_hash": "32323afc33276e3126aa425645c1102bdf3ba870",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/react-hooks.md": {
+    "source_hash": "86f26f26138ae45ba9bb45cda8ed8ecc93515558",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/screen-orientation.md": {
+    "source_hash": "21bafcd8a92e53c16809ac57b80cb07e27f71e2a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/security.md": {
+    "source_hash": "c588752266f6ee545c2cc8cd7561abd2c3f650b7",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/guides/storage.md": {
+    "source_hash": "1b716265c5b7e6a85fbd536f0c25ec6cda4c8c36",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/configuration.md": {
+    "source_hash": "8f9c039a6c88d924e83ee71c7ddf0013456b2e95",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/deploying-to-app-store.md": {
+    "source_hash": "90ee3de71e32194aa98b5aa961b031539d41d888",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/privacy-manifest.md": {
+    "source_hash": "aea484ff2509a42de08a3150d21f65936d7422c2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/spm.md": {
+    "source_hash": "e09a7f1cab7e7d47d0bde8cb3510a43d27a0b92a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/troubleshooting.md": {
+    "source_hash": "c0ef2e33c60985af1b06c03499c038c1a8860a4f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/ios/viewcontroller.md": {
+    "source_hash": "c7212d4edc1b2cd0d148e4ed7b90185b0eea85a8",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis/android.md": {
+    "source_hash": "4c34d7d28126eb97ca48453abaa4ed9fcd115c96",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis/data-types.md": {
+    "source_hash": "eff00114607bb1fcb0150ffeb67802f0616aa92f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis/ios.md": {
+    "source_hash": "c20a830355a7c3affcb8a8e054f0d23f0fce021d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis/saving-calls.md": {
+    "source_hash": "0e61aea29b65eaa4f6a7e613cb1d6e8cbf53cd2d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis/web.md": {
+    "source_hash": "a0083f51f3ec01cc25009930c0d00c4a02adb709",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/config.md": {
+    "source_hash": "4ab6b7f5684b0a8340f38bc7ca141e544e04992c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/core-apis.md": {
+    "source_hash": "8d489e64ce7bcca5bc359ae10936809133648305",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/reference/support-policy.mdx": {
+    "source_hash": "cc2c9dc61ace61c3ab4aeae7032d320772935e91",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/plugins/3-0.md": {
+    "source_hash": "c116588d695102d6625d5f469c170c998ca8e6f0",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/plugins/5-0.md": {
+    "source_hash": "f5833d034f182006f37e690d0ad2c1ce92f71259",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/plugins/6-0.md": {
+    "source_hash": "06b5882dea235149d6c454f6390345f70d8a64fe",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/plugins/7-0.md": {
+    "source_hash": "93f72396cfca3106f52ceaa25753735fc3218bce",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/2-0.md": {
+    "source_hash": "9105b0816ddada4cf17633565d6dfa9c30be3f6c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/3-0.md": {
+    "source_hash": "7851ca21ac99a26efe384ed52cf140dda20737cc",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/4-0.md": {
+    "source_hash": "af23a38a81b77e9128948a7c47fe2a61eb60885f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/5-0.md": {
+    "source_hash": "2ce8a23c7f471ae306aaa4b4d2159ffe0ae62297",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/6-0.md": {
+    "source_hash": "c92580c0c80cfd7123a7dd4cc0e7a0851b29a840",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/updating/7-0.md": {
+    "source_hash": "f2cbf603f23b9878394c02eeb59d4a5dbd0c71e2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/web/progressive-web-apps.md": {
+    "source_hash": "39987851a74d2e772ef0a6082a98ddd4d3e1e065",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/main/web/pwa-elements.mdx": {
+    "source_hash": "698071f9d36ce31ffaa009453d9c9c784d85d76f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/android-guide.md": {
+    "source_hash": "92db9de2beeb9cb55c9ed6788b6f7a94f861d0ef",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/configuration-values.md": {
+    "source_hash": "3fe13583a7ff4991a8d92c12e5e010270c97edde",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/development-workflow.md": {
+    "source_hash": "757ac748ba43c044c16a4151ff697ef28516a3d8",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/ios-guide.md": {
+    "source_hash": "195fd218e4e01aeb93604dc1bd74818deea8f77d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/method-types.md": {
+    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/overview.md": {
+    "source_hash": "b4f7c00feab27ce613f1e60cb35af17bcf9f1309",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/creating-plugins/web-guide.md": {
+    "source_hash": "530e2049deaf21c04ddd0c2bbb2148d5abe2c9a6",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/code-abstraction.md": {
+    "source_hash": "c572a3262b035636ebdfc81b7cff3dbd4fc1077e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/designing-api.md": {
+    "source_hash": "61334a7e77b3d81af696665b36cf88472138d7d9",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/getting-started.md": {
+    "source_hash": "db8912c6ad051d98949bc2d7b5d6b7b0b18c152f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/implementing-for-android.md": {
+    "source_hash": "410762c044fe3e79e203645afa37b1f3aa116da8",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/implementing-for-ios.md": {
+    "source_hash": "aba066514b226fd2c638d484b20b83fe721a7dfa",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/implementing-for-web.md": {
+    "source_hash": "bedd1dadd8e490078586ed6ac14ff9df16d12030",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/packaging.md": {
+    "source_hash": "0aeeab067e1b5ed86045f770c638cec1685be240",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/tutorial/using-api.md": {
+    "source_hash": "9ad815a17ded9c7a842507d68ff051e9eaee0b65",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/cordova.md": {
+    "source_hash": "be3f71f8e5e0c030497eddd92654563c94a0c529",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/enterprise.md": {
+    "source_hash": "40f097a736d136ffc6f5ba054acfe3a9f2b6473d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "docs/plugins/official.md": {
+    "source_hash": "0905d798da9e9e17bda4187479a957f4e61861a1",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/configuration.md": {
+    "source_hash": "2f5f75660d54ef9bde8b08ed2e61d9d251552d88",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/custom-code.md": {
+    "source_hash": "a3fdf5295ff6a9c64997524e3273385464760613",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/deploying-to-google-play.md": {
+    "source_hash": "dc28761f8863113db085f5957a4eb38c782773fb",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/index.md": {
+    "source_hash": "51c94e92f0744f688ae34871ede9ba3ef9a19c45",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/lifecycle.md": {
+    "source_hash": "4df07613d3624074b7881aa9900c322f5fc3bd2a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/troubleshooting.md": {
+    "source_hash": "734a1783e45d50c876004883a2a07b79fe752f43",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/android/updating.md": {
+    "source_hash": "5a3a679952b639d047894ddb289472a31f22017c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/accessibility.md": {
+    "source_hash": "d44d928644cbdeb7fd757658552a20d6b4cd1dc1",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/app.md": {
+    "source_hash": "f767b693e47cd1a69907d5ae8088c806d7db3da3",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/background-task.md": {
+    "source_hash": "1c711bb13905ca8b38c1d7ff0d85f16bd91a078d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/browser.md": {
+    "source_hash": "1a0c1215ea32ec0486193c408f83891e3322a5fa",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/camera.md": {
+    "source_hash": "c8b4370f7a0df6c095e4af5db3607dd761710f4b",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/clipboard.md": {
+    "source_hash": "8e0216fcf56f305028eae6ae372b3e6b0e391f7c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/console.md": {
+    "source_hash": "3155237d9dcde5fc00604063fe0b8d22245f57fc",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/device.md": {
+    "source_hash": "8bfe7fd87dec8cc2e961c1564d22ea992835122e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/filesystem.md": {
+    "source_hash": "e382c00f3476687e33b75f6d87d5eff1a9e5c41d",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/geolocation.md": {
+    "source_hash": "fde22eeb41bc0ea5b34d0f7c851d6a9220ec40e4",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/haptics.md": {
+    "source_hash": "9c89961ce5f89628c3b01d758c8396d6fb2cdf36",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/index.md": {
+    "source_hash": "88bf95f8d48a4a17a24706f45f418e416028511e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/keyboard.md": {
+    "source_hash": "598851dcdd245c558a0c551ac3f7e4253a28e1fc",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/local-notifications.md": {
+    "source_hash": "9bab1dd90609c0f4ac1741249aae8574cd5f7fce",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/modals.md": {
+    "source_hash": "7ba8c8f9a73d1919c1a8037c355a9b4203614bdf",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/motion.md": {
+    "source_hash": "a0b3aba9a7c52ab984b6f1f7614f192cd8f1e9ac",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/network.md": {
+    "source_hash": "6d14676346c563384d020be008e7e0c8378cb37a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/photos.md": {
+    "source_hash": "2ad98c96a90f4e8a77d3090507801e17560e0667",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/push-notifications.md": {
+    "source_hash": "802edb8c695fc3a007991ba5289cbdb67ffa5893",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/splash-screen.md": {
+    "source_hash": "24d38664a1018966459390523cd2c41d7c819f15",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/apis/status-bar.md": {
+    "source_hash": "d972d51ce81617d5b2b71a913e631c8acba4ae09",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/progressive-web-app.md": {
+    "source_hash": "32f9937a351d27ca7eb8c9c798b0b4e73f782813",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/using-plugins.md": {
+    "source_hash": "7867fb4cd8bce0d421377ea345cd5ed0f78f4599",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/utilities.md": {
+    "source_hash": "b0c5859dc8bc2cdf49a0ab603a4569cb942a2444",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/basics/workflow.md": {
+    "source_hash": "d493c6c38756f4ae5699a71a0977775d1557a152",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/add.md": {
+    "source_hash": "4f4e408b0038b2a5ff85c8e472c9b39a07da226a",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/cap.md": {
+    "source_hash": "7ae5107a2c9141ff6bfbaa253ec9ccd9b668f377",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/copy.md": {
+    "source_hash": "6af60e94e09e956043ada998ee502f43070250da",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/create.md": {
+    "source_hash": "2edee6b302be6d62695bf80fc5755401710bd007",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/index.md": {
+    "source_hash": "ed2a348af1a0d5acac2c0cdd82a493d5a468a0cb",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/ls.md": {
+    "source_hash": "073f83063734af47539c1ef09980b67697d05fa5",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/serve.md": {
+    "source_hash": "b03a90cfe1351159666f4cc86e9a42cab46ab211",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/sync.md": {
+    "source_hash": "759385abd9d136bffc7da76d37f60d3d635a253b",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cli/update.md": {
+    "source_hash": "662feaf18b6c1356b0d08cfad7b98a346558020f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cordova/index.md": {
+    "source_hash": "2498d0843f72b1ff2627b7606ab56a257bc2280f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cordova/known-incompatible-plugins.md": {
+    "source_hash": "c355311d3d37d8f8e12ff47e883e39b56af8af87",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "31de4591756d529b01308592b55ac01952c18207",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cordova/migration-strategy.md": {
+    "source_hash": "6e4f9dbd3e5473573b65bf4a71ad0997518ad31e",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/cordova/using-cordova-plugins.md": {
+    "source_hash": "0f414f289d2cf7b1fcf83bb30a41807b2aa557f3",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/getting-started/dependencies.md": {
+    "source_hash": "87cf19f6ed0b5eb1febd5de9e19bd1da4cda56f1",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/getting-started/index.md": {
+    "source_hash": "50a072ca6191a12829a2dbd4fa3de1b6af1aebfc",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/getting-started/with-ionic.md": {
+    "source_hash": "5af16d2c80df53b5f708fd5e9c87c9b70f2a5788",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/ads.md": {
+    "source_hash": "6e56967651e93c46e2d02e275ba6a0a0dc5d168f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/ci-cd.md": {
+    "source_hash": "f891d53f5addbd4d713308f7b4b018b981ccccd8",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/community.md": {
+    "source_hash": "dc48a15f38865510c32b7da1b9112b5805659cc8",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/deep-links.md": {
+    "source_hash": "02d980ac4da265415c0e52df6bb8a59f50346daf",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/deploying-updates.md": {
+    "source_hash": "8fc52064b5a17bbc8b40fba67eb1aaf3c9e53707",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/in-app-purchases.md": {
+    "source_hash": "f9ed62312cd4fc911d7e39edb59d6e5798c1f7d6",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/ionic-framework-app.md": {
+    "source_hash": "5b90bd693ec875238b5ab015bf9769e7ad289883",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/live-reload.md": {
+    "source_hash": "a6ccf5f7ba4648f9c86bf7b34458073149d8ec5c",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/push-notifications-firebase.md": {
+    "source_hash": "fc0687f00dff4e13c4d3a759f461768f43bfbd7f",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/react-hooks.md": {
+    "source_hash": "7db85ba1a2d3d0edd43e51d27c19e7f4288db8e9",
+    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/screen-orientation.md": {
+    "source_hash": "7256fb2af5fc27eeadeac5f60ff43b37b85205f7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/guides/security.md": {
+    "source_hash": "d39d2c2ebf43f57e24dab17b15a57adfd640983a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/configuration.md": {
+    "source_hash": "f3f10a599a1d0ad407e84db9fa36fe19c0ee75cd",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/custom-code.md": {
+    "source_hash": "405f47156b1f93e45bf4161cb36d7d8fdb96b841",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/deploying-to-app-store.md": {
+    "source_hash": "87e7f5c0dd59cb51884ce734e30710f4e0738432",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/index.md": {
+    "source_hash": "b6d376c6d508525e58fe33f82f6ec3f9322d201b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/troubleshooting.md": {
+    "source_hash": "e2a1adf11847d63354d489fc64a304f4d29cfb75",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/ios/updating.md": {
+    "source_hash": "2a9fbf771e4a111d6c676080b22bcff7e034bff1",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/android.md": {
+    "source_hash": "96615e313af8e9e52c491ea4094c239981dbb4ce",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/community.md": {
+    "source_hash": "005c5edbc02046828e2673917f9504a751e47e38",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/creating-plugins.md": {
+    "source_hash": "82b2dfb746b0571e6ffe7887953aa651b13effb9",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/enterprise.md": {
+    "source_hash": "932e4ed3b241cf8e04ceb8eb36de4ea46a29c28f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/ios.md": {
+    "source_hash": "4a1400f992a4d5ea6aa1a08278df8dfb8df88d80",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/js.md": {
+    "source_hash": "968cc8a5c35f403dc6ef16f80bc6be803b9ba589",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/README.md": {
+    "source_hash": "308d50fff27a8e6720ff7b09fd6e760653c849f6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/web.md": {
+    "source_hash": "6a08ceb0ee19707546a50642d76cf2d486827b32",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/plugins/workflow.md": {
+    "source_hash": "9e3e0bb632e11293664f2eadd3153e9440012ec1",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/web/index.md": {
+    "source_hash": "708b10abf9b57c9bcb0935d1711ec04b9c43fae4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/web/pwa-elements.mdx": {
+    "source_hash": "e7415c949f7d5e02f5251e7ede4002ab039671ae",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/config.md": {
+    "source_hash": "190743719f91d702403b04a76ac1852d4c9fb471",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/index.md": {
+    "source_hash": "1a02d29235a8691346e377882eeedbedb3109b9c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v2/README.md": {
+    "source_hash": "ec3f7d30faa082a93f2b89fd27b3276161b7d4ac",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/action-sheet.md": {
+    "source_hash": "922a10cef407176091269200213292742aa80d58",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/app-launcher.md": {
+    "source_hash": "4260f6aefeaa6c3318e2e9907f60fd38019af1bc",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/app.md": {
+    "source_hash": "0f8c07849861e219fb0cb27f2c504722b28a038d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/browser.md": {
+    "source_hash": "31f42b040262861a1fb4c2e2a28d54ab0d19e6d5",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/camera.md": {
+    "source_hash": "173aaf63306f4e50326c06e7e8776a372b4b98ef",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/clipboard.md": {
+    "source_hash": "eaec76e220f037eb52e750daf38b6899d3595931",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/device.md": {
+    "source_hash": "9a2babcec546fabc0b2c63e968d0408359a48d94",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/dialog.md": {
+    "source_hash": "6024bc2666f8d0894e17ea0ba58ab162c52e88ce",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/filesystem.md": {
+    "source_hash": "1e11fdb6d9e292e7942ed86426726c96cec1cbf5",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/geolocation.md": {
+    "source_hash": "ad4027fb39a8d6c56097f1069c1b99536f0721b7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/google-maps.md": {
+    "source_hash": "61eae711dde816db97001b81e8ccfc2c2bc445eb",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/haptics.md": {
+    "source_hash": "1f8f70a458b568db6f19d5309bc6d620689e9e6e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/keyboard.md": {
+    "source_hash": "ed756fa52020c4af7e9cdd88fa75562a12eee8ca",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/local-notifications.md": {
+    "source_hash": "27a66a7964799b64cc0f8dd402c9a6f0eb28dcc4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/motion.md": {
+    "source_hash": "41ff8dbdb1a29493a46d34b3c304792eb9c5c0d5",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/network.md": {
+    "source_hash": "677d81eebdc0273c27a3761637808a5a9fd22e7c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/push-notifications.md": {
+    "source_hash": "7cc0ff888de3e4801047047170cd108992f98faa",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/screen-reader.md": {
+    "source_hash": "beb28e16b52a7a909639bcd4e117f23eae8ffc79",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/share.md": {
+    "source_hash": "581faa7259a914f7402b4f2d147711c712a4165e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/splash-screen.md": {
+    "source_hash": "59ad92cdd18e5d2afc4c1e07956734db2b1e89fd",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/status-bar.md": {
+    "source_hash": "3feb18f2b90bf5fbb046d106c021915dcddbcd0c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/storage.md": {
+    "source_hash": "4d6942e402b6b47a89c620a840bd63f83737c129",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/apis/toast.md": {
+    "source_hash": "602513392c030a25d6ae1c356bb5b56e4c2dba19",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/add.md": {
+    "source_hash": "c6d8de3bc1d47810161b069c0cb9b7df95834a46",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/copy.md": {
+    "source_hash": "bdc354e6acb5908c155dce1b10ce829ec95f67af",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/init.md": {
+    "source_hash": "416b70da8902668b7d00afed02a999f947b92511",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/ls.md": {
+    "source_hash": "6ce7f1364d39f95c1f53bfbc0c18a4682ad4d136",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/open.md": {
+    "source_hash": "3633d79cf6ab6e03210cd634617c42209f12d2f4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/run.md": {
+    "source_hash": "ffadbb042fff9f2f3139d472d384600979ccb518",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/sync.md": {
+    "source_hash": "c65cdc6f2275348e22c6cad23e6ec7ae27922711",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/cli/commands/update.md": {
+    "source_hash": "51b569fbe7f6bdc48d726c37acd4c1dd8e4f06b8",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/configuration.md": {
+    "source_hash": "320c4c7e93a7b08f792fc8607c89d1f782008103",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/custom-code.md": {
+    "source_hash": "e8f47041e66df1eb7f52cf54b0c64fc9d3d28de7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/deploying-to-google-play.md": {
+    "source_hash": "05e908204c40a0dc0175d04648b2441921805e01",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/index.md": {
+    "source_hash": "73dbe8a581bba48b9db9e8b6cfe5fac2c0f2e952",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/lifecycle.md": {
+    "source_hash": "2e97967c41a40f55ad70672cbcf17d93bf017397",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/managing-dependencies.md": {
+    "source_hash": "5b0d002ec02952bafe80c98131c7433903d78af2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/android/troubleshooting.md": {
+    "source_hash": "f6942f37a787bb71d1b339ee4baa9a0d72b116aa",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/configuring-your-app.md": {
+    "source_hash": "8e54031b71ba45a56a1601bea378efd59a811e23",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/managing-platforms.md": {
+    "source_hash": "f61c695adaac3111cb62f61760dad8fadcf7e82c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/using-plugins.md": {
+    "source_hash": "621a2b16cf4f770067290302ac51a3f1aeadb528",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/utilities.md": {
+    "source_hash": "28bf1fe1053155e8aa869f33d64640cbfae6ea7c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/basics/workflow.md": {
+    "source_hash": "089ab45add3261958054528ce8af11d378e5198c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/cordova/index.md": {
+    "source_hash": "63b880459358bc53551b68911f24861102ca19f2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "836795f5acf87c96c92f9c620eafa193e4243fae",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/cordova/migration-strategy.md": {
+    "source_hash": "ac849909fa6a0532aeba5d23820d8fd1b784a612",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/getting-started/templates.md": {
+    "source_hash": "a6438c12dc01264845c509359456366aeb58a340",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/getting-started/vscode-extension.md": {
+    "source_hash": "5449e5cd8a962bb9ec4591dba0f5276f5a458bc6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/getting-started/with-ionic.md": {
+    "source_hash": "aa576d51645a125353d3032cca81a90d0389661f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/ads.md": {
+    "source_hash": "0606b79d7771e812a1d6362216dec1e4075e5f42",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/angular.md": {
+    "source_hash": "56987015140692ae02eefa87f94db45339ee1355",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/automated-configuration.md": {
+    "source_hash": "38f1e3830c436ca9feb83f09e96c1a762133ab28",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/ci-cd.md": {
+    "source_hash": "e01277624abd86b7835599dc4a18de690fb15786",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/community.md": {
+    "source_hash": "fc67d10aff70496c68fbadf639fe02b832d7310a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/deep-links.md": {
+    "source_hash": "6951d4051a433550beaf0c44d0a7c4fa04cc13a9",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/deploying-updates.md": {
+    "source_hash": "4899200eac889305490c97da217f44fb28f856cb",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/environment-specific-configurations.md": {
+    "source_hash": "9a019236cce6e2bdc2d22474f63afae735ed3478",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/in-app-purchases.md": {
+    "source_hash": "bd460cbfdd1d6ad0240ca7eee388f3c7d073583e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/ionic-framework-app.md": {
+    "source_hash": "89f5bcb836079e839cd8b1da1f02fd00fec6eeda",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/live-reload.md": {
+    "source_hash": "d3c7e58432e1a6256630cc3ee3562955873f44f3",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/mocking-plugins.md": {
+    "source_hash": "8fd68adee256cfd4074b2f5c087896d7e1c1c674",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/push-notifications-firebase.md": {
+    "source_hash": "980cac2f96bbcc34af71d0a998d07dd62a3a1712",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/react-hooks.md": {
+    "source_hash": "86f26f26138ae45ba9bb45cda8ed8ecc93515558",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/screen-orientation.md": {
+    "source_hash": "b084d52d1d0f99d6948753f6611c2184d370711f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/security.md": {
+    "source_hash": "35a2c72def54a20cbfc6f55d089197ba610c7546",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/splash-screens-and-icons.md": {
+    "source_hash": "5dafd5d67f61a9699a3a85637c6481475d99ae8b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/guides/storage.md": {
+    "source_hash": "22811451530e6643bb739ae545078f57a418ead8",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/configuration.md": {
+    "source_hash": "1510680fae7e724078dc9e40689a753289974d6d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/custom-code.md": {
+    "source_hash": "bceaa5860cf82520ff717ba564d713e76722ce9d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/deploying-to-app-store.md": {
+    "source_hash": "e933e29284b284c24b72f301ba107f6ebf97ffd7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/troubleshooting.md": {
+    "source_hash": "05c07dc5dce2ab238fea1f3dd5e611b02be010eb",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/ios/viewcontroller.md": {
+    "source_hash": "0a547baf69bb9e083333029beb96facc5ba3769d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis/data-types.md": {
+    "source_hash": "eff00114607bb1fcb0150ffeb67802f0616aa92f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis/ios.md": {
+    "source_hash": "8a2c1df1be5624c39ee351d2a821e708ea8a8269",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis/saving-calls.md": {
+    "source_hash": "0e61aea29b65eaa4f6a7e613cb1d6e8cbf53cd2d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/core-apis/web.md": {
+    "source_hash": "a0083f51f3ec01cc25009930c0d00c4a02adb709",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/reference/config.md": {
+    "source_hash": "274116736fbb8fe67f5c711197ac6d04bf8c2744",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/updating/plugins/3-0.md": {
+    "source_hash": "25ae1afcd629913e631cda9744f3ee7882e42313",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/updating/2-0.md": {
+    "source_hash": "9105b0816ddada4cf17633565d6dfa9c30be3f6c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/updating/3-0.md": {
+    "source_hash": "bf31316041da562d7f39744b69eba7c55676a868",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/web/index.md": {
+    "source_hash": "5e972666fb44e73beeff101e844e8ff55141e032",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/web/progressive-web-apps.md": {
+    "source_hash": "2e5379a715dce017c5c6abe37805f01ef66536c0",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/main/web/pwa-elements.mdx": {
+    "source_hash": "db4fa018b93d9ca246ba69aad78b9eb1e2aea7bf",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/android-guide.md": {
+    "source_hash": "5f7d54b9de22c56d7f6bc49d6ccb06e7e0f69d77",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/configuration-values.md": {
+    "source_hash": "7a25ae4c31c74941e6e32e52ea4931586dab0fec",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/development-workflow.md": {
+    "source_hash": "4f2c310a9a23a5e799b4db9360909fa51a6c6f24",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/ios-guide.md": {
+    "source_hash": "1335586575b3b3645d7e033ca72cbed1d379af3c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/method-types.md": {
+    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/overview.md": {
+    "source_hash": "2f6a604515481c54a1e80664b4219cf0df72d880",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/creating-plugins/web-guide.md": {
+    "source_hash": "c8e42c9bef0611624a6b3213f07f0bad7df3a631",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/code-abstraction.md": {
+    "source_hash": "5a393ca66db7f84e88a3a71adfe8aaf00f750c2b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/designing-api.md": {
+    "source_hash": "04b0651a3d855572c430cb1b3710ca733a7e42b0",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/getting-started.md": {
+    "source_hash": "db8912c6ad051d98949bc2d7b5d6b7b0b18c152f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/implementing-for-android.md": {
+    "source_hash": "8d3ad88359c06282c8f0f8942e15ae003b9e86b2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/implementing-for-ios.md": {
+    "source_hash": "a37f303319d7caee1fc8e4bcb2f8878fb547795e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/implementing-for-web.md": {
+    "source_hash": "7145aa74ba33ea35ff8f2ae1e7cc236c2cf59183",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/packaging.md": {
+    "source_hash": "00e5233d292113dfca925dfa1b521b947cfd264f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/tutorial/using-api.md": {
+    "source_hash": "9ad815a17ded9c7a842507d68ff051e9eaee0b65",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/cordova.md": {
+    "source_hash": "511242a0ce5942114f62fb4db954824ba67e1ad3",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/enterprise.md": {
+    "source_hash": "40f097a736d136ffc6f5ba054acfe3a9f2b6473d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v3/plugins/official.md": {
+    "source_hash": "dd657ebc94c5da49aaf1e8aa2a90a4ecc229362a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/action-sheet.md": {
+    "source_hash": "ff4b4194189f884a5c0a65cb6055bff8397e6715",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/app-launcher.md": {
+    "source_hash": "eaa7795d29540b849d61ba923f456f37c91dc3b9",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/app.md": {
+    "source_hash": "8bc7b1bd66b8208661a320acba5869acbd580509",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/browser.md": {
+    "source_hash": "91ce959cdf996406ef2d5cfcc0263ab085d5e6ec",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/camera.md": {
+    "source_hash": "a79f0764593c2e3c133e766acb34db9f4e377522",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/clipboard.md": {
+    "source_hash": "c2385f797bb9326306ee1df2ad4dc5e4fd761400",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/cookies.md": {
+    "source_hash": "cde1b6ed1415eeece5cec31cdebbafc34d3f4210",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/device.md": {
+    "source_hash": "0cdc98ea88a5a16059256673021b8a7cc8360c54",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/dialog.md": {
+    "source_hash": "6024bc2666f8d0894e17ea0ba58ab162c52e88ce",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/filesystem.md": {
+    "source_hash": "0066435999fa65b082b369c26e13b9d4b7149964",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/geolocation.md": {
+    "source_hash": "678935a0baef4287198c2e6bb8b0bbc9d47f7ee2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/google-maps.md": {
+    "source_hash": "2987e08af0df12274d01ced1e85a3eece7da0c33",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/haptics.md": {
+    "source_hash": "747fd81ba8caf644eb7e418bcb33cba81a388ad4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/http.md": {
+    "source_hash": "f342d9c0dd8ecef71bf691ebc12b0f03544cde1f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/keyboard.md": {
+    "source_hash": "3a2462d339a213bb716382a7f6b80eb160041ee8",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/local-notifications.md": {
+    "source_hash": "89744f48bc5ed63b9103e4e1ca12d81b9a55e7e7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/motion.md": {
+    "source_hash": "13590cf3ec11200f88bda3fbcb3ba1c6e0434733",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/network.md": {
+    "source_hash": "677d81eebdc0273c27a3761637808a5a9fd22e7c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/preferences.md": {
+    "source_hash": "c650791e423231eb884fcdaa7094a110021aea75",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/push-notifications.md": {
+    "source_hash": "9c8d0cad4b77c695e50c69e48f3a49a257cc0d39",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/screen-orientation.md": {
+    "source_hash": "62c54a68718481c05a1ed2e76685591f133464bc",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/screen-reader.md": {
+    "source_hash": "fe695cd685489850ec2b29bcaa8ef3c5043361fb",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/share.md": {
+    "source_hash": "6d5945e3b1fce4ce36a69de6a12612e5d6e13299",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/splash-screen.md": {
+    "source_hash": "1a4ab698d54bdb536a8ee211cfa410f7167fa7a6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/status-bar.md": {
+    "source_hash": "1f0cb96ed51e6adc236fd9e049a3e11d2d4908d6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/text-zoom.md": {
+    "source_hash": "0576a8a2c5635a8aff18aecb0cfb568fbd6bcfbd",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/apis/toast.md": {
+    "source_hash": "b2819938034012b98ae7eb5bce727f16329bf553",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/add.md": {
+    "source_hash": "c6d8de3bc1d47810161b069c0cb9b7df95834a46",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/build.md": {
+    "source_hash": "0497357066a4b2f805335d97a6fbe0ce7ea2770a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/copy.md": {
+    "source_hash": "2e2cb5f5f6cff57ec4722876f97f1df24fce9d47",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/ls.md": {
+    "source_hash": "6ce7f1364d39f95c1f53bfbc0c18a4682ad4d136",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/run.md": {
+    "source_hash": "cb3ef5cf089283d2062da88d99b0edabcdc19e89",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/sync.md": {
+    "source_hash": "eb78aee4429f82ef33153cb5b7b27bbea0a72442",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/commands/update.md": {
+    "source_hash": "51b569fbe7f6bdc48d726c37acd4c1dd8e4f06b8",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/hooks.md": {
+    "source_hash": "36b0678b5b0bd938a4e64cba074693885299433b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/cli/index.md": {
+    "source_hash": "a0bfb0847793861c2ffb88a67a02fe5e8a13d7bb",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/configuration.md": {
+    "source_hash": "77e524ad0f96fdb73bfc2578af4c5b24acf86b95",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/custom-code.md": {
+    "source_hash": "ddb599a32712c2a8dce2e7ff1b6862f1f34aacd4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/index.md": {
+    "source_hash": "8032cbb5188778713260883e0b439205bcf97f1d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/android/troubleshooting.md": {
+    "source_hash": "99bfd7d4551ac4991f3d5cfe37134bd60d9211f4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/basics/configuring-your-app.md": {
+    "source_hash": "0372ad13937cac539558b0e56fe9553682fb925a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/basics/using-plugins.md": {
+    "source_hash": "eb76cbea2de3508b36b598d0512ae8a460a66a47",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/basics/utilities.md": {
+    "source_hash": "eb644b62104984a77fb7289cd54f4d897534a55e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/basics/workflow.md": {
+    "source_hash": "89a948110d49abfe1feda1aeae9d65d16929fcb7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/cordova/index.md": {
+    "source_hash": "63b880459358bc53551b68911f24861102ca19f2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "0deb66df7e67cd0980d8ca1ab79d0a26f922c52b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/cordova/migration-strategy.md": {
+    "source_hash": "9b3a51e470df54127a603d4086af997a16391d68",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/environment-setup.md": {
+    "source_hash": "89df4055c23bf31ad6e589c3261ea2faaa2ab814",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/faqs.md": {
+    "source_hash": "b32fa1a4eba431602aaa19769e430db84f303317",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/installation.md": {
+    "source_hash": "3bbeb8e5d305385ef08962d215c29b6f4876ae61",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/templates.md": {
+    "source_hash": "a6438c12dc01264845c509359456366aeb58a340",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/ui.md": {
+    "source_hash": "583e068c6400bbc8b2eb455800352ad04f43a2af",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/vscode-extension.md": {
+    "source_hash": "f95479806fcfb098581df4a0aa90a866b50cdb60",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/getting-started/with-ionic.md": {
+    "source_hash": "aa7173e2f733d65455a1fd3d1ec927bbeeea7322",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/ads.md": {
+    "source_hash": "0606b79d7771e812a1d6362216dec1e4075e5f42",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/angular.md": {
+    "source_hash": "56987015140692ae02eefa87f94db45339ee1355",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/autofill-credentials.mdx": {
+    "source_hash": "cd334d8db77149987cc0c5df7c527034060566de",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/automated-configuration.md": {
+    "source_hash": "8dc96c1bd8318b73c597a5d74e820b85c4833ede",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/ci-cd.md": {
+    "source_hash": "378c6489da6607a02a3e564c0d9905dced9c0a2f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/community.md": {
+    "source_hash": "fc67d10aff70496c68fbadf639fe02b832d7310a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/deep-links.md": {
+    "source_hash": "7dfa623354c18f65c3341d452a34c8f13e87b038",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/deploying-updates.md": {
+    "source_hash": "3218238a452080995366a4c36f12a7464b0fa524",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/environment-specific-configurations.md": {
+    "source_hash": "9a019236cce6e2bdc2d22474f63afae735ed3478",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/games.md": {
+    "source_hash": "802c39a84cc4f688e378dca811a573e6a1b2f567",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/in-app-purchases.md": {
+    "source_hash": "bd460cbfdd1d6ad0240ca7eee388f3c7d073583e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/ionic-framework-app.md": {
+    "source_hash": "fb732efbd1ba190efb836f932c9a10c3c049403c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/live-reload.md": {
+    "source_hash": "958053c372368bb41d56108f40d144fb98241223",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/mocking-plugins.md": {
+    "source_hash": "8fd68adee256cfd4074b2f5c087896d7e1c1c674",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/push-notifications-firebase.md": {
+    "source_hash": "681567b822fe0cc468079c232693d2c5cfa861f9",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/security.md": {
+    "source_hash": "c588752266f6ee545c2cc8cd7561abd2c3f650b7",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/guides/storage.md": {
+    "source_hash": "1b716265c5b7e6a85fbd536f0c25ec6cda4c8c36",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/configuration.md": {
+    "source_hash": "39ac44be65a32c12ea4c15481142920d754ace6d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/custom-code.md": {
+    "source_hash": "1121f2586f1bbf9594274a32f7255bd07b1cab4b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/troubleshooting.md": {
+    "source_hash": "35f48c14b4f161a61b3339b9538178ee06cca1df",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/ios/viewcontroller.md": {
+    "source_hash": "7661dbb9bc611bb4b35f9d878aa76bb000275f14",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis/data-types.md": {
+    "source_hash": "eff00114607bb1fcb0150ffeb67802f0616aa92f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis/ios.md": {
+    "source_hash": "c20a830355a7c3affcb8a8e054f0d23f0fce021d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/core-apis/web.md": {
+    "source_hash": "a0083f51f3ec01cc25009930c0d00c4a02adb709",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/reference/config.md": {
+    "source_hash": "03e0445c7618db80485f5a4cf1101398a9d13bf3",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/updating/plugins/3-0.md": {
+    "source_hash": "ec0d829c604a462a8051d0c369db0a860206ec19",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/updating/1-1.md": {
+    "source_hash": "a543730b5bbcf4680e2807f72fde4d483742f836",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/updating/2-0.md": {
+    "source_hash": "9105b0816ddada4cf17633565d6dfa9c30be3f6c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/updating/3-0.md": {
+    "source_hash": "596eb55ccd3021f55e1145185f8be82e9878da14",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/updating/4-0.md": {
+    "source_hash": "dc2b7e1a1a94ba269f0fc83529cfe3a904dce98b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/2-web-to-native.mdx": {
+    "source_hash": "98b2c607fb72f4feab677dbfbd861c8dd4a8467c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/3-build-and-run.md": {
+    "source_hash": "c99f6a521a2c60f370b8a88d50ea3c5e6ecb5c0c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/4-debugging.md": {
+    "source_hash": "1478f869a1f150cf103c988dce8d3c24fcf775b5",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/bundle-cost.md": {
+    "source_hash": "7e09e57bd40d0c82f49cd7a9f481a7c221627810",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/dependencies.md": {
+    "source_hash": "4abe09bddcede4ce4d2eed9ea7998c67166b1fb5",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/framework.md": {
+    "source_hash": "b11700699195c22d90db2e8176bcd5b6c08eae1d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/recommendations.md": {
+    "source_hash": "254418eefe3442650c8f13078ac5faed183ce052",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/run-scripts.md": {
+    "source_hash": "04e1715eef34e6448e456a5c80b37a2d1bc7e471",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/splash-icon.md": {
+    "source_hash": "c59abf3222166226c48041089ad8159c1bccf28c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/vs-code-ext/z-advanced.md": {
+    "source_hash": "b55a154d76fdfdb7880f7a873991210f7aef594d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/web/index.md": {
+    "source_hash": "5e972666fb44e73beeff101e844e8ff55141e032",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/web/progressive-web-apps.md": {
+    "source_hash": "39987851a74d2e772ef0a6082a98ddd4d3e1e065",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/main/web/pwa-elements.mdx": {
+    "source_hash": "717f5985239f4405fd64d2ecd85375bc86156228",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/android-guide.md": {
+    "source_hash": "5f7d54b9de22c56d7f6bc49d6ccb06e7e0f69d77",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/configuration-values.md": {
+    "source_hash": "7a25ae4c31c74941e6e32e52ea4931586dab0fec",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/development-workflow.md": {
+    "source_hash": "6183aa2936dd3b9f57707e731f2644425d8b2333",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/ios-guide.md": {
+    "source_hash": "1335586575b3b3645d7e033ca72cbed1d379af3c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/method-types.md": {
+    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/overview.md": {
+    "source_hash": "b4f7c00feab27ce613f1e60cb35af17bcf9f1309",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/creating-plugins/web-guide.md": {
+    "source_hash": "530e2049deaf21c04ddd0c2bbb2148d5abe2c9a6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/code-abstraction.md": {
+    "source_hash": "c572a3262b035636ebdfc81b7cff3dbd4fc1077e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/designing-api.md": {
+    "source_hash": "04b0651a3d855572c430cb1b3710ca733a7e42b0",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/implementing-for-android.md": {
+    "source_hash": "0904e44ab67907b1064c49bdcfc541a37874c325",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/implementing-for-ios.md": {
+    "source_hash": "897a179db604159e803b2900491b73a6deaf0661",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/implementing-for-web.md": {
+    "source_hash": "7145aa74ba33ea35ff8f2ae1e7cc236c2cf59183",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/packaging.md": {
+    "source_hash": "0aeeab067e1b5ed86045f770c638cec1685be240",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/tutorial/using-api.md": {
+    "source_hash": "9ad815a17ded9c7a842507d68ff051e9eaee0b65",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins/cordova.md": {
+    "source_hash": "be3f71f8e5e0c030497eddd92654563c94a0c529",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/plugins.mdx": {
+    "source_hash": "a3445e776cbe518e2ebda06a0b97e1ffb13a275e",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v4/README.md": {
+    "source_hash": "2da29748116f6902b34de847091569cd1858ae65",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/action-sheet.md": {
+    "source_hash": "a2abc480b812b9f3850891a3fca8a263124a6359",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/app-launcher.md": {
+    "source_hash": "ba45af9c282629de8ea4c0a0d9dd7924658a4260",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/app.md": {
+    "source_hash": "3d231cf845ab5d74493256edf301e67d71a31031",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/background-runner.md": {
+    "source_hash": "85427887481cf11174aa2db7e6b0e33440f1d410",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/browser.md": {
+    "source_hash": "f4b0b1726c5a9336bdc37c4952b731aedc716a26",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/camera.md": {
+    "source_hash": "7842be9d7d7ebdd3bb0d2b5c5b33a9dc03a1b60b",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/clipboard.md": {
+    "source_hash": "a8e66b18fe873f3820b425e5d8619a5738c543f6",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/cookies.md": {
+    "source_hash": "cde1b6ed1415eeece5cec31cdebbafc34d3f4210",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/device.md": {
+    "source_hash": "3102990e6f7e7e7ce997ceeada7650ad5fcb0c5a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/dialog.md": {
+    "source_hash": "3a3756b28c40c6d4fec7198a78b813806fd614da",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/filesystem.md": {
+    "source_hash": "af78941191fffb0198855a246f7e33533b2c1bd1",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/geolocation.md": {
+    "source_hash": "7b6f36ffadadcb75c89d210633d85684f4160b9f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/google-maps.md": {
+    "source_hash": "5cdad54fbcc0839cc5349d57c0f734d5aad3604d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/haptics.md": {
+    "source_hash": "6770becf0655ca9f54e05ce02644b02d4526ec24",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/http.md": {
+    "source_hash": "f342d9c0dd8ecef71bf691ebc12b0f03544cde1f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/keyboard.md": {
+    "source_hash": "4769d603a0907da1a08e10714e439ff9b7c54d5d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/local-notifications.md": {
+    "source_hash": "2433184f323d91a7a5286871c0a8364b60080712",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/motion.md": {
+    "source_hash": "7847314307801d0ab1281f589c61b925ea9d2041",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/network.md": {
+    "source_hash": "b853d8454c20b4f124f86279ee2855cee099596d",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/preferences.md": {
+    "source_hash": "1c52a67d0a77a6da3812fea283b80cf0a0b23c84",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/push-notifications.md": {
+    "source_hash": "3d012ed96b6a31ff103905411d7dc1532de3c961",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/screen-orientation.md": {
+    "source_hash": "a404b151e40de8f9036e1e8a2f5363632f00e57f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/screen-reader.md": {
+    "source_hash": "6f0a8453811b0a908ce176c030d2610b2c809736",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/share.md": {
+    "source_hash": "186ac0c1825963830155fde8503382807aa55923",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/splash-screen.md": {
+    "source_hash": "997a5149fbf40b53ad8bd24d082daca42c4a05b2",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/status-bar.md": {
+    "source_hash": "bf559b288f5668c66ddcf81c1141608bf3cf22a9",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/text-zoom.md": {
+    "source_hash": "dc6304ea17c3dcf9836ee199ff11aa5628ffc972",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/apis/watch.md": {
+    "source_hash": "77b031bbfc0806ec9c03a68c59a887714cfd2438",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/build.md": {
+    "source_hash": "2edf0bac2b2b00cd79c1f93b600afc35ee6b6d15",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/copy.md": {
+    "source_hash": "6f21854c6b82d9472e5f239ce7956600834b446f",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/init.md": {
+    "source_hash": "416b70da8902668b7d00afed02a999f947b92511",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/ls.md": {
+    "source_hash": "6ce7f1364d39f95c1f53bfbc0c18a4682ad4d136",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/open.md": {
+    "source_hash": "3633d79cf6ab6e03210cd634617c42209f12d2f4",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/run.md": {
+    "source_hash": "31fbf837f2e8a64eeb621a2099a6b71788f07866",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/sync.md": {
+    "source_hash": "e7e0e8d332b6e8b342d13613e295a2bf4e4a2f1a",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/commands/update.md": {
+    "source_hash": "d102ae07a6fa3ed2ccec32e7bf587264c66bbd4c",
+    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/index.md": {
+    "source_hash": "a58b22846e878dbac691286edbf7b092e6129c11",
+    "last_translated_at": "2025-09-07T07:14:34.408Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/hooks.md": {
+    "source_hash": "36b0678b5b0bd938a4e64cba074693885299433b",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/cli/index.md": {
+    "source_hash": "a0bfb0847793861c2ffb88a67a02fe5e8a13d7bb",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/configuration.md": {
+    "source_hash": "77e524ad0f96fdb73bfc2578af4c5b24acf86b95",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/custom-code.md": {
+    "source_hash": "e7f1b5d95e1604accb6f74e20d48c9243f219fb7",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/deploying-to-google-play.md": {
+    "source_hash": "66774b84cc3cb045f22cb3d917978ee8c7d31d9f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/index.md": {
+    "source_hash": "122581573a36a16e25a32ae727553b76af12ac8a",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/lifecycle.md": {
+    "source_hash": "2e97967c41a40f55ad70672cbcf17d93bf017397",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/android/troubleshooting.md": {
+    "source_hash": "7d1dc7ea7fb389f16491c7725567fe6c0340bdcb",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/basics/configuring-your-app.md": {
+    "source_hash": "0372ad13937cac539558b0e56fe9553682fb925a",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/basics/using-plugins.md": {
+    "source_hash": "eb76cbea2de3508b36b598d0512ae8a460a66a47",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/basics/utilities.md": {
+    "source_hash": "eb644b62104984a77fb7289cd54f4d897534a55e",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/basics/workflow.md": {
+    "source_hash": "e8067a679e2000d80992ce87242cbd4d4ead9f08",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/cordova/index.md": {
+    "source_hash": "63b880459358bc53551b68911f24861102ca19f2",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "0deb66df7e67cd0980d8ca1ab79d0a26f922c52b",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/cordova/migration-strategy.md": {
+    "source_hash": "9b3a51e470df54127a603d4086af997a16391d68",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/environment-setup.md": {
+    "source_hash": "dfbee6742c35d68b44a8c64e6860ad301527bb6c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/faqs.md": {
+    "source_hash": "73fd7a97ba90e49479655a712d9276fb5963fed1",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/installation.md": {
+    "source_hash": "3bbeb8e5d305385ef08962d215c29b6f4876ae61",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/ui.md": {
+    "source_hash": "583e068c6400bbc8b2eb455800352ad04f43a2af",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/vscode-extension.md": {
+    "source_hash": "61f1443a376fcc77020c3376dfe16be8bbd5be8c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/getting-started/with-ionic.md": {
+    "source_hash": "c7ff2ff393c77f806a4774d6f33908443540aecd",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/ads.md": {
+    "source_hash": "0606b79d7771e812a1d6362216dec1e4075e5f42",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/angular.md": {
+    "source_hash": "56987015140692ae02eefa87f94db45339ee1355",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/autofill-credentials.mdx": {
+    "source_hash": "ec75e11a71fecc80129e77de29f5ebd108bbfe7f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/automated-configuration.md": {
+    "source_hash": "8dc96c1bd8318b73c597a5d74e820b85c4833ede",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/ci-cd.md": {
+    "source_hash": "378c6489da6607a02a3e564c0d9905dced9c0a2f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/community.md": {
+    "source_hash": "fc67d10aff70496c68fbadf639fe02b832d7310a",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/deep-links.md": {
+    "source_hash": "0b3f9c01fb66ccc075531c8175b5f11484d46b8c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/deploying-updates.md": {
+    "source_hash": "3218238a452080995366a4c36f12a7464b0fa524",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/environment-specific-configurations.md": {
+    "source_hash": "a46d2adec79515589b9b350170c1f43863d373b9",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/games.md": {
+    "source_hash": "802c39a84cc4f688e378dca811a573e6a1b2f567",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/in-app-purchases.md": {
+    "source_hash": "bd460cbfdd1d6ad0240ca7eee388f3c7d073583e",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/ionic-framework-app.md": {
+    "source_hash": "fb732efbd1ba190efb836f932c9a10c3c049403c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/live-reload.md": {
+    "source_hash": "958053c372368bb41d56108f40d144fb98241223",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/mocking-plugins.md": {
+    "source_hash": "8fd68adee256cfd4074b2f5c087896d7e1c1c674",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/push-notifications-firebase.md": {
+    "source_hash": "ec59b32874da4dd794045576eacc30f519faa006",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/react-hooks.md": {
+    "source_hash": "86f26f26138ae45ba9bb45cda8ed8ecc93515558",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/screen-orientation.md": {
+    "source_hash": "21bafcd8a92e53c16809ac57b80cb07e27f71e2a",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/security.md": {
+    "source_hash": "c588752266f6ee545c2cc8cd7561abd2c3f650b7",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/splash-screens-and-icons.md": {
+    "source_hash": "e9200f72a28e07459a191fcefefa3ba18f69eb7f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/guides/storage.md": {
+    "source_hash": "1b716265c5b7e6a85fbd536f0c25ec6cda4c8c36",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/configuration.md": {
+    "source_hash": "b9b613f6695def124a2f6bcc62ebfcfc0aa987a3",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/custom-code.md": {
+    "source_hash": "62ec7844e9e0ebdc4ed8130d9cad3c23cf08131e",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/troubleshooting.md": {
+    "source_hash": "10fa702dfe24a53b04ae8d04821e584c36ecb892",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/ios/viewcontroller.md": {
+    "source_hash": "4b72c90f8c4a9144dc257e683404ad5e6c6d9554",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis/android.md": {
+    "source_hash": "4c34d7d28126eb97ca48453abaa4ed9fcd115c96",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis/data-types.md": {
+    "source_hash": "eff00114607bb1fcb0150ffeb67802f0616aa92f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis/ios.md": {
+    "source_hash": "c20a830355a7c3affcb8a8e054f0d23f0fce021d",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis/saving-calls.md": {
+    "source_hash": "0e61aea29b65eaa4f6a7e613cb1d6e8cbf53cd2d",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis/web.md": {
+    "source_hash": "a0083f51f3ec01cc25009930c0d00c4a02adb709",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/config.md": {
+    "source_hash": "cc140f1b799dc3b89d56f7d082e336de624c2153",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/core-apis.md": {
+    "source_hash": "8d489e64ce7bcca5bc359ae10936809133648305",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/reference/support-policy.mdx": {
+    "source_hash": "99c9c176a789ce26ed29353e8f24b4cb4e7aefc1",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/plugins/3-0.md": {
+    "source_hash": "5aa1502afefe49065c37d3599bc658cead0717c6",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/plugins/5-0.md": {
+    "source_hash": "f5833d034f182006f37e690d0ad2c1ce92f71259",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/2-0.md": {
+    "source_hash": "9105b0816ddada4cf17633565d6dfa9c30be3f6c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/3-0.md": {
+    "source_hash": "cb2a474636c1fdab2074b65ac4c2af4171ac4330",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/4-0.md": {
+    "source_hash": "a49e3f65e8f5e070d62a109c5cf5540606698134",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/updating/5-0.md": {
+    "source_hash": "cacc0a07717b9228c956c8022d0c28564a9da560",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/0-getting-started.mdx": {
+    "source_hash": "e2c9aa308e1c19641f7e20b2ce4c648dbe85c8c4",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/1-new-project.mdx": {
+    "source_hash": "59ebb5f3309d0e7993a1eacf3d1758493662a1de",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/3-build-and-run.md": {
+    "source_hash": "52f323609b7ffae57ddc47cc48c3e9d4cb24ee28",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/4-debugging.md": {
+    "source_hash": "fd8c031c0ca3846fa75ab2c74476a3ed2efb18b1",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/bundle-cost.md": {
+    "source_hash": "7e09e57bd40d0c82f49cd7a9f481a7c221627810",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/plugin-registry.md": {
+    "source_hash": "aa7ef0682f81ac10cde2f17bb1c97e5956a8609c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/recommendations.md": {
+    "source_hash": "254418eefe3442650c8f13078ac5faed183ce052",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/release.md": {
+    "source_hash": "2bf6417786747ded32e50f6c5a23a9c6ee72ccee",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/run-scripts.md": {
+    "source_hash": "04e1715eef34e6448e456a5c80b37a2d1bc7e471",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/splash-icon.md": {
+    "source_hash": "bdb76723d0f6eadd264e20a6f4c4f2a8b89af5da",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/vs-code-ext/z-advanced.md": {
+    "source_hash": "c8dcb2edfdc659be8d9c3765e868edd436bcf223",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/web/index.md": {
+    "source_hash": "5e972666fb44e73beeff101e844e8ff55141e032",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/web/progressive-web-apps.md": {
+    "source_hash": "39987851a74d2e772ef0a6082a98ddd4d3e1e065",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/main/web/pwa-elements.mdx": {
+    "source_hash": "1d248c340ed6557e58220988c5ca078ce9654c50",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/android-guide.md": {
+    "source_hash": "5f7d54b9de22c56d7f6bc49d6ccb06e7e0f69d77",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/configuration-values.md": {
+    "source_hash": "3fe13583a7ff4991a8d92c12e5e010270c97edde",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/ios-guide.md": {
+    "source_hash": "1335586575b3b3645d7e033ca72cbed1d379af3c",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/method-types.md": {
+    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/overview.md": {
+    "source_hash": "b4f7c00feab27ce613f1e60cb35af17bcf9f1309",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/creating-plugins/web-guide.md": {
+    "source_hash": "530e2049deaf21c04ddd0c2bbb2148d5abe2c9a6",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/code-abstraction.md": {
+    "source_hash": "c572a3262b035636ebdfc81b7cff3dbd4fc1077e",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/designing-api.md": {
+    "source_hash": "04b0651a3d855572c430cb1b3710ca733a7e42b0",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/getting-started.md": {
+    "source_hash": "db8912c6ad051d98949bc2d7b5d6b7b0b18c152f",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/implementing-for-android.md": {
+    "source_hash": "0904e44ab67907b1064c49bdcfc541a37874c325",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/implementing-for-ios.md": {
+    "source_hash": "897a179db604159e803b2900491b73a6deaf0661",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/implementing-for-web.md": {
+    "source_hash": "7145aa74ba33ea35ff8f2ae1e7cc236c2cf59183",
+    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/packaging.md": {
+    "source_hash": "0aeeab067e1b5ed86045f770c638cec1685be240",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/tutorial/using-api.md": {
+    "source_hash": "9ad815a17ded9c7a842507d68ff051e9eaee0b65",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/community.md": {
+    "source_hash": "29f1576da60271e50e9ab6f13c353285681c476e",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/cordova.md": {
+    "source_hash": "be3f71f8e5e0c030497eddd92654563c94a0c529",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/plugins/enterprise.md": {
+    "source_hash": "40f097a736d136ffc6f5ba054acfe3a9f2b6473d",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v5/README.md": {
+    "source_hash": "2da29748116f6902b34de847091569cd1858ae65",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/action-sheet.md": {
+    "source_hash": "7d53e1168f5cab6c392c0a20432c456c68e77869",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/app-launcher.md": {
+    "source_hash": "be3733be72cbd3396a7677cd0f370b7e8b7a4027",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/app.md": {
+    "source_hash": "38428ee8c3430df86d6f398ba02022ae4fdd270c",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/background-runner.md": {
+    "source_hash": "1c45e761c6dfd7456826272f3eab8fd720994474",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/barcode-scanner.md": {
+    "source_hash": "645efd15145ac8d61cb981595d08c2f3f1768612",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/browser.md": {
+    "source_hash": "37698f15bcdf71108b29323703fbb7a3f76efb4e",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/camera.md": {
+    "source_hash": "a8f7ac213a5d7e3e012dcde95e66d0167f632754",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/clipboard.md": {
+    "source_hash": "cccc1ff45aff851a4a81e96de8532310af8a1edd",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/cookies.md": {
+    "source_hash": "533125cdf8281317edfe867ce0a84578197776fe",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/device.md": {
+    "source_hash": "a406f85f5840c68cee19fa9b3627a33dd3e57ce1",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/dialog.md": {
+    "source_hash": "8002a1bd841317b023d2764b422415304dd5f187",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/filesystem.md": {
+    "source_hash": "75eef49b708ca9130fc8f71fbf1a3cd4f82a96e1",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/geolocation.md": {
+    "source_hash": "f15130a48f4267fa1a8319be54a72d68e6a39788",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/google-maps.md": {
+    "source_hash": "0eed27612a843f687948ebe0ec2f8837015c032b",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/haptics.md": {
+    "source_hash": "e91144d10e551160defb4cb480b637150a20fc29",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/http.md": {
+    "source_hash": "49dbeaaa8afcc7c7a406a9fa446958b9f019659f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/inappbrowser.md": {
+    "source_hash": "cafbe939b8acb9eff7c57d607ca9d8d7de11f6ec",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/keyboard.md": {
+    "source_hash": "e8df80ba098887cf904e62a4a6d24a3b63af83df",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/local-notifications.md": {
+    "source_hash": "f3a0c167688eae0b969402abd549b2fbd74897c0",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/motion.md": {
+    "source_hash": "c5b4b152308cfda1e97bdcfd0cc2971bba8ad215",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/network.md": {
+    "source_hash": "676e0142d8e840eb90bbdde50939608077096f7d",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/preferences.md": {
+    "source_hash": "e2928d8063005c7e565021d69c034e4c747c3492",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/push-notifications.md": {
+    "source_hash": "321d4c3c8c97ae04ca441cdc7a4a3145e5d9ec2d",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/screen-orientation.md": {
+    "source_hash": "841fe455ac799fb66048d51b78d84f62387e8e2f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/screen-reader.md": {
+    "source_hash": "63ef8cbcfd843a10d3b28d638f6c068ff974c037",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/share.md": {
+    "source_hash": "691ddbdae7cc46e091aca1f822f6294fb3865851",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/splash-screen.md": {
+    "source_hash": "3f0ef78d1a9798a38f504432bf335396903c0b56",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/status-bar.md": {
+    "source_hash": "d2673c58f0f29ed875725670f1a7284f34bc93bf",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/text-zoom.md": {
+    "source_hash": "ec2876e29d021b0ee6d051b199027329314df9aa",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/toast.md": {
+    "source_hash": "3688f4b3a3b41795552d674c063a059d14fe8ca4",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/apis/watch.md": {
+    "source_hash": "483537ce0fea99b4c2decf699af23d42237fcf5f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/add.md": {
+    "source_hash": "493e6c9bb119ae5b07a2ac449dc75916d94bb2c2",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/build.md": {
+    "source_hash": "2edf0bac2b2b00cd79c1f93b600afc35ee6b6d15",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/init.md": {
+    "source_hash": "416b70da8902668b7d00afed02a999f947b92511",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/open.md": {
+    "source_hash": "3633d79cf6ab6e03210cd634617c42209f12d2f4",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/sync.md": {
+    "source_hash": "e7e0e8d332b6e8b342d13613e295a2bf4e4a2f1a",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/commands/update.md": {
+    "source_hash": "d102ae07a6fa3ed2ccec32e7bf587264c66bbd4c",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/cli/index.md": {
+    "source_hash": "04e75b7947aee158724a2a743c84d7d1e1b6ae96",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/configuration.md": {
+    "source_hash": "77e524ad0f96fdb73bfc2578af4c5b24acf86b95",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/custom-code.md": {
+    "source_hash": "f67aa44dcd4c5cf2c150912680aa478e119bb46f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/deploying-to-google-play.md": {
+    "source_hash": "66774b84cc3cb045f22cb3d917978ee8c7d31d9f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/index.md": {
+    "source_hash": "0fa8dbcd774277a3f387cf4e38f0763e7697fe47",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/lifecycle.md": {
+    "source_hash": "2e97967c41a40f55ad70672cbcf17d93bf017397",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/setting-target-sdk.md": {
+    "source_hash": "3a02d9497f11641c0a9e4f42d6a859a730b29f08",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/android/troubleshooting.md": {
+    "source_hash": "2ff016d582b97718a125dce5f61d93fb769d7850",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/basics/configuring-your-app.md": {
+    "source_hash": "0372ad13937cac539558b0e56fe9553682fb925a",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/basics/using-plugins.md": {
+    "source_hash": "eb76cbea2de3508b36b598d0512ae8a460a66a47",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/basics/utilities.md": {
+    "source_hash": "eb644b62104984a77fb7289cd54f4d897534a55e",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/basics/workflow.md": {
+    "source_hash": "4b1a55cc1faa7cf810f83f825ed518dade729216",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/cordova/index.md": {
+    "source_hash": "63b880459358bc53551b68911f24861102ca19f2",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/cordova/migrating-from-cordova-to-capacitor.md": {
+    "source_hash": "6673e5f008ce40f78a655d165f07c67f5019d5af",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/cordova/migration-strategy.md": {
+    "source_hash": "9b3a51e470df54127a603d4086af997a16391d68",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/environment-setup.md": {
+    "source_hash": "e53ff79b11be9fea94bc8759a84e7ef53840a219",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/faqs.md": {
+    "source_hash": "b32fa1a4eba431602aaa19769e430db84f303317",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/installation.md": {
+    "source_hash": "a1125e412029df065dcfe68c8410dd76883134d4",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/templates.md": {
+    "source_hash": "a6438c12dc01264845c509359456366aeb58a340",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/ui.md": {
+    "source_hash": "583e068c6400bbc8b2eb455800352ad04f43a2af",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/getting-started/vscode-extension.md": {
+    "source_hash": "304285da9da15aaa1c8da4882d34a9ebab360f6d",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/ads.md": {
+    "source_hash": "0606b79d7771e812a1d6362216dec1e4075e5f42",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/angular.md": {
+    "source_hash": "56987015140692ae02eefa87f94db45339ee1355",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/autofill-credentials.mdx": {
+    "source_hash": "bba56b9adc8d2a078ca0027e05c7961e2cb4c430",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/automated-configuration.md": {
+    "source_hash": "8dc96c1bd8318b73c597a5d74e820b85c4833ede",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/ci-cd.md": {
+    "source_hash": "378c6489da6607a02a3e564c0d9905dced9c0a2f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/community.md": {
+    "source_hash": "fc67d10aff70496c68fbadf639fe02b832d7310a",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/deep-links.md": {
+    "source_hash": "f0a3493679b298338c65b5ac9e80c8f96a14094f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/deploying-updates.md": {
+    "source_hash": "3218238a452080995366a4c36f12a7464b0fa524",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/environment-specific-configurations.md": {
+    "source_hash": "a46d2adec79515589b9b350170c1f43863d373b9",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/games.md": {
+    "source_hash": "802c39a84cc4f688e378dca811a573e6a1b2f567",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/in-app-purchases.md": {
+    "source_hash": "bd460cbfdd1d6ad0240ca7eee388f3c7d073583e",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/ionic-framework-app.md": {
+    "source_hash": "fb732efbd1ba190efb836f932c9a10c3c049403c",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/live-reload.md": {
+    "source_hash": "958053c372368bb41d56108f40d144fb98241223",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/mocking-plugins.md": {
+    "source_hash": "8fd68adee256cfd4074b2f5c087896d7e1c1c674",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/push-notifications-firebase.md": {
+    "source_hash": "baedafaa2e045e3ccaec53c49dce6c321567395b",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/react-hooks.md": {
+    "source_hash": "86f26f26138ae45ba9bb45cda8ed8ecc93515558",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/screen-orientation.md": {
+    "source_hash": "21bafcd8a92e53c16809ac57b80cb07e27f71e2a",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/guides/security.md": {
+    "source_hash": "c588752266f6ee545c2cc8cd7561abd2c3f650b7",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/configuration.md": {
+    "source_hash": "8e1fa2d0d1386abe4841a4a8de54eb63422bef86",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/custom-code.md": {
+    "source_hash": "090239c107895b3948087c939966dad234d7c8c8",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/index.md": {
+    "source_hash": "979e20eabe324f39fd1496448cdeffc1d828cb66",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/privacy-manifest.md": {
+    "source_hash": "dd26d9c2a341835120aaf246d4d3caefaf55467f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/spm.md": {
+    "source_hash": "5429e9d18b033b7793bde253ad50a0b13aed17a4",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/troubleshooting.md": {
+    "source_hash": "bff700e1d5083db47e946a8ef76d136e90fb33e8",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/ios/viewcontroller.md": {
+    "source_hash": "a485fded14fb457f45d3fdf51737e8d372c8cc08",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis/android.md": {
+    "source_hash": "4c34d7d28126eb97ca48453abaa4ed9fcd115c96",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis/data-types.md": {
+    "source_hash": "eff00114607bb1fcb0150ffeb67802f0616aa92f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis/ios.md": {
+    "source_hash": "c20a830355a7c3affcb8a8e054f0d23f0fce021d",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis/web.md": {
+    "source_hash": "a0083f51f3ec01cc25009930c0d00c4a02adb709",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/config.md": {
+    "source_hash": "34e36ad219869ad413c3d83fefb652af160f0424",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/core-apis.md": {
+    "source_hash": "8d489e64ce7bcca5bc359ae10936809133648305",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/reference/support-policy.mdx": {
+    "source_hash": "0302da42bf07095d8620248fa6e8b08e86492d28",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/plugins/3-0.md": {
+    "source_hash": "6bb94c4775bce24e4dcde595f0b10e30ac6c1dc2",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/plugins/5-0.md": {
+    "source_hash": "f5833d034f182006f37e690d0ad2c1ce92f71259",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/plugins/6-0.md": {
+    "source_hash": "06b5882dea235149d6c454f6390345f70d8a64fe",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/1-1.md": {
+    "source_hash": "a543730b5bbcf4680e2807f72fde4d483742f836",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/2-0.md": {
+    "source_hash": "9105b0816ddada4cf17633565d6dfa9c30be3f6c",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/3-0.md": {
+    "source_hash": "cfd1548729a88c06d4867c6f0c055e7cdfd9dc4b",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/4-0.md": {
+    "source_hash": "af23a38a81b77e9128948a7c47fe2a61eb60885f",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/5-0.md": {
+    "source_hash": "11c0e75dac218b07fd2ef1814d0277bb6f9060ce",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/updating/6-0.md": {
+    "source_hash": "0783f6330473c68d44e6c87b6ea5e7c7bc89fe2b",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/0-getting-started.mdx": {
+    "source_hash": "e2c9aa308e1c19641f7e20b2ce4c648dbe85c8c4",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/1-new-project.mdx": {
+    "source_hash": "59ebb5f3309d0e7993a1eacf3d1758493662a1de",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/4-debugging.md": {
+    "source_hash": "fd8c031c0ca3846fa75ab2c74476a3ed2efb18b1",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/bundle-cost.md": {
+    "source_hash": "7e09e57bd40d0c82f49cd7a9f481a7c221627810",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/native-settings.md": {
+    "source_hash": "42b2d99a8be51ada95986f47aad989896c9bbcb0",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/plugin-registry.md": {
+    "source_hash": "aa7ef0682f81ac10cde2f17bb1c97e5956a8609c",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/run-scripts.md": {
+    "source_hash": "04e1715eef34e6448e456a5c80b37a2d1bc7e471",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/vs-code-ext/splash-icon.md": {
+    "source_hash": "bdb76723d0f6eadd264e20a6f4c4f2a8b89af5da",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/web/index.md": {
+    "source_hash": "5e972666fb44e73beeff101e844e8ff55141e032",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/web/progressive-web-apps.md": {
+    "source_hash": "39987851a74d2e772ef0a6082a98ddd4d3e1e065",
+    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins.mdx": {
+    "source_hash": "1d48d9fc6d2190bce58c4eadd72066f0371698c0",
+    "last_translated_at": "2025-09-07T07:42:50.304Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/cordova.md": {
+    "source_hash": "be3f71f8e5e0c030497eddd92654563c94a0c529",
+    "last_translated_at": "2025-09-07T07:43:19.892Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/index.md": {
+    "source_hash": "9c1b199c14cc11b013e151895aeed5b5ecf95f0f",
+    "last_translated_at": "2025-09-07T07:43:57.429Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/README.md": {
+    "source_hash": "2da29748116f6902b34de847091569cd1858ae65",
+    "last_translated_at": "2025-09-07T07:44:56.635Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/community.md": {
+    "source_hash": "29f1576da60271e50e9ab6f13c353285681c476e",
+    "last_translated_at": "2025-09-07T07:45:32.802Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/enterprise.md": {
+    "source_hash": "40f097a736d136ffc6f5ba054acfe3a9f2b6473d",
+    "last_translated_at": "2025-09-07T07:47:57.223Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/plugin-hooks.md": {
+    "source_hash": "f1a6092b69cbe5e1c83faae02ba60a838b07ff4d",
+    "last_translated_at": "2025-09-07T07:52:17.533Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/main/web/pwa-elements.mdx": {
+    "source_hash": "698071f9d36ce31ffaa009453d9c9c784d85d76f",
+    "last_translated_at": "2025-09-07T08:11:39.297Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/android-guide.md": {
+    "source_hash": "92db9de2beeb9cb55c9ed6788b6f7a94f861d0ef",
+    "last_translated_at": "2025-09-07T08:13:46.344Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/configuration-values.md": {
+    "source_hash": "3fe13583a7ff4991a8d92c12e5e010270c97edde",
+    "last_translated_at": "2025-09-07T08:14:47.069Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/development-workflow.md": {
+    "source_hash": "757ac748ba43c044c16a4151ff697ef28516a3d8",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/ios-guide.md": {
+    "source_hash": "0f89529c699cac186ef4dd9d79e4bf7032988ddf",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/method-types.md": {
+    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/overview.md": {
+    "source_hash": "b4f7c00feab27ce613f1e60cb35af17bcf9f1309",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/creating-plugins/web-guide.md": {
+    "source_hash": "530e2049deaf21c04ddd0c2bbb2148d5abe2c9a6",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/code-abstraction.md": {
+    "source_hash": "c572a3262b035636ebdfc81b7cff3dbd4fc1077e",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/designing-api.md": {
+    "source_hash": "04b0651a3d855572c430cb1b3710ca733a7e42b0",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/getting-started.md": {
+    "source_hash": "db8912c6ad051d98949bc2d7b5d6b7b0b18c152f",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/implementing-for-android.md": {
+    "source_hash": "0904e44ab67907b1064c49bdcfc541a37874c325",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/implementing-for-ios.md": {
+    "source_hash": "897a179db604159e803b2900491b73a6deaf0661",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/implementing-for-web.md": {
+    "source_hash": "7145aa74ba33ea35ff8f2ae1e7cc236c2cf59183",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/packaging.md": {
+    "source_hash": "0aeeab067e1b5ed86045f770c638cec1685be240",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  },
+  "versioned_docs/version-v6/plugins/tutorial/using-api.md": {
+    "source_hash": "9ad815a17ded9c7a842507d68ff051e9eaee0b65",
+    "last_translated_at": "2025-09-07T08:40:53.858Z",
+    "translator_version": "1.0"
+  }
+}

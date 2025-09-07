@@ -1,34 +1,34 @@
 ---
 title: Advanced Topics
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/advanced
 ---
 
-The extension has some advanced features that you may be interested in.
+本扩展提供了一些您可能会感兴趣的高级功能。
 
-### Exporting Project Information
+### 导出项目信息
 
-Click `Configuration` > `Export` to create a markdown file that describes the dependencies and plugins of your project. This includes the version number used and latest version available. 
+点击 `Configuration` > `Export` 可创建一个描述项目依赖和插件的 Markdown 文件。该文件包含正在使用的版本号以及最新可用版本信息。
 
-If a recommendation is made it will be described. A list of files in your project that do not match the standard naming convention will also be listed.
+若存在建议的升级版本，也会在文件中说明。同时还会列出项目中不符合标准命名规范的文件列表。
 
-### Set Android Studio Location
+### 设置 Android Studio 路径
 
-The extension will guess the location of Android Studio to be able to find the location for Java. You can set an alternative location by clicking `Settings` > `Advanced` and setting `Java Home` to another path. The default location is usually `/Applications/Android Studio.app/Contents/jre/Contents/Home`.
+扩展会默认猜测 Android Studio 的安装位置以查找 Java 路径。您可以通过点击 `Settings` > `Advanced` 并设置 `Java Home` 来修改路径。默认位置通常是 `/Applications/Android Studio.app/Contents/jre/Contents/Home`。
 
-### Set Shell Path
+### 设置 Shell 路径
 
-The default shell is `/bin/sh` on a Mac or `cmd` on Windows. You can change the default shell used by clicking `Setting` > `Advanced` and setting `Shell Path`. For example: `/bin/zsh`.
+默认 Shell 在 Mac 上是 `/bin/sh`，在 Windows 上是 `cmd`。要更改默认 Shell，请点击 `Setting` > `Advanced` 并设置 `Shell Path`，例如：`/bin/zsh`。
 
-### ADB Path
+### ADB 路径
 
-ADB is used when debugging Android devices. The Location of the Android Debug Bridge (ADB) can be change by clicking `Settings` > `Advanced` and setting `Adb Path`.
+调试 Android 设备时会使用 ADB。要修改 Android Debug Bridge (ADB) 的位置，请点击 `Settings` > `Advanced` 并设置 `Adb Path`。
 
-### Other Features
+### 其他功能
 
-Click the `...` button next to `Project` to show a list of expermental features:
-- **Migrate from NPM to PNPM** - Your project will be switched to use pnpm as its package manager.
-- **Switch from WebPack to ESBuild** - Your Angular project will be switched to use the ESBuild option.
-- **Rebuild Node Modules** - The `node_modules` folder will be deleted and `npm install` will be run to restore the folder.
+点击 `Project` 旁边的 `...` 按钮可显示实验性功能列表：
+- **从 NPM 迁移到 PNPM** - 将项目的包管理器切换为 pnpm
+- **从 WebPack 切换到 ESBuild** - 将 Angular 项目的构建工具切换为 ESBuild 选项
+- **重建 Node 模块** - 删除 `node_modules` 文件夹并运行 `npm install` 重新安装依赖

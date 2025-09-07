@@ -1,77 +1,77 @@
 ---
-title: Frequently Asked Questions
-description: Common Capacitor questions
+title: 常见问题解答
+description: Capacitor 常见问题
 slug: /getting-started/faqs
-sidebar_label: FAQs
+sidebar_label: 常见问题
 ---
 
-# FAQs
+# 常见问题
 
-Below are a list of commonly asked Capacitor questions. If you don't find an answer here, check out [our forum](https://forum.ionicframework.com) or [our Discord](https://ionic.link/discord). Check out the sidebar for a list of frequently asked questions 👉
+以下是关于 Capacitor 的常见问题列表。如果您在这里找不到答案，可以访问[我们的论坛](https://forum.ionicframework.com) 或 [Discord 社区](https://ionic.link/discord)。侧边栏也列出了更多常见问题 👉
 
-## What platforms does Capacitor support?
+## Capacitor 支持哪些平台？
 
-Capacitor can target virtually any device with our official and community platforms.
+Capacitor 能够支持几乎所有设备平台，包括官方维护和社区开发的平台。
 
-### Official Platforms
+### 官方平台
 
-Capacitor officially supports the following platforms:
+Capacitor 官方支持以下平台：
 - iOS 13+
 - Android 5.1+
-  - Requires Chrome WebView 60+
-- Modern Web Browsers
+  - 需要 Chrome WebView 60+ 版本
+- 现代网页浏览器
   - Chrome
   - Firefox
   - Safari
   - Edge
 
-### Community Platforms
+### 社区平台
 
-Capacitor also has community platforms to target cross platform desktop frameworks. The current community targets are the following.
+Capacitor 还有社区开发的跨平台桌面框架支持。目前社区支持的目标平台包括：
 - Electron
   - https://github.com/capacitor-community/electron
 
-## Do I need to use Ionic Framework with Capacitor?
+## 必须配合 Ionic 框架使用 Capacitor 吗？
 
-No! You don't! Capacitor works with **any** web application, not just ones built with other Ionic tools. If you want a specific look and feel for your Capacitor app, and Ionic Framework isn't the right UI toolkit for you, you shouldn't feel forced to use it. There are plenty of apps in both app stores that utilize Capacitor and not Ionic Framework.
+完全不需要！Capacitor 可以与任何网页应用配合使用，不仅限于 Ionic 工具构建的应用。如果您需要特定的界面风格，而 Ionic 框架不符合需求，完全不必强制使用。应用商店中有许多使用 Capacitor 但未采用 Ionic 框架的应用案例。
 
-## Where can I find plugins for my Capacitor project?
+## 在哪里能找到 Capacitor 项目所需的插件？
 
-To find plugins for your project, you should check the following places in this order.
+查找插件建议按照以下顺序检查这些资源：
 
-### Capacitor Official Plugins ⚡
+### 官方插件 ⚡
 
-The [Capacitor Official Plugins](https://github.com/ionic-team/capacitor-plugins) are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs. If you need a plugin, this should be one of the first places you look.
+[Capacitor 官方插件库](https://github.com/ionic-team/capacitor-plugins) 由 Capacitor 团队维护，提供常用原生 API 的访问。需要插件时应优先考虑这里。
 
-### Capacitor Community GitHub ⚡
+### 社区 GitHub ⚡
 
-The [Capacitor Community GitHub organization](https://github.com/capacitor-community) lists plugins that our excellent community of developers creates. They are Capacitor first plugins that are actively developed and should work in any Capacitor 3+ project. If you can't find an official plugin, this should be places you look.
+[Capacitor 社区 GitHub 组织](https://github.com/capacitor-community) 收录了开发者社区开发的优质插件。这些专为 Capacitor 3+ 项目设计的插件都在积极维护中。若官方插件不满足需求，这里应是您的下一站。
 
-### Awesome Capacitor 😎
+### 精选插件合集 😎
 
-Like many other [Awesome lists](https://github.com/sindresorhus/awesome), [Awesome Capacitor](https://github.com/riderx/awesome-capacitor) is a community-curated list of great Capacitor plugins. If you can't find an official or community plugin, chances are that someone has already made the plugin you are looking for here.
+与其他众多 [Awesome 列表](https://github.com/sindresorhus/awesome) 类似，[Awesome Capacitor](https://github.com/riderx/awesome-capacitor) 是社区整理的优质插件合集。如果前两者都没有您需要的插件，很可能在这里能找到现成方案。
 
-### Project Fugu 🐡
+### 网页能力项目 🐡
 
-[Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu/) is the Chromium Team's [tracker](https://fugu-tracker.web.app/#shipped) of web APIs that have been added to Chromium browsers. While some features may not be supported on both Android and iOS, features like [Web Share](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) and [ContactsManager (Android Only)](https://developer.mozilla.org/en-US/docs/Web/API/ContactsManager), may replace `@capacitor/share` or `@capacitor-community/contacts` for your use case.
+[Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu/) 是 Chromium 团队追踪[已实现网页 API](https://fugu-tracker.web.app/#shipped) 的项目。虽然部分功能可能不兼容 iOS，但如 [网页分享](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) 和 [联系人管理（仅 Android）](https://developer.mozilla.org/en-US/docs/Web/API/ContactsManager) 等功能，或许能直接替代 `@capacitor/share` 或 `@capacitor-community/contacts` 插件。
 
-You can [Can I Use...?](https://caniuse.com) to check if you can use these features on Android and iOS _without_ needing any native plugins.
+您可以通过 [Can I Use...?](https://caniuse.com) 查询这些功能在 Android 和 iOS 上的支持情况，无需依赖原生插件也能实现需求。
 
-### Cordova Plugins 🔌
+### Cordova 插件 🔌
 
-Did you know Capacitor supports Cordova plugins? If you are migrating off of Cordova, or have a Cordova plugin that doesn't have a Capacitor equivalent, you can use most Cordova plugins directly in Capacitor. You can [read our guide](https://capacitorjs.com/docs/plugins/cordova) on how to use Cordova plugins in Capacitor.
+Capacitor 兼容 Cordova 插件！无论是从 Cordova 迁移，还是需要使用没有 Capacitor 替代方案的 Cordova 插件，大多数 Cordova 插件都可以直接在 Capacitor 中使用。具体使用方法请参阅[我们的指南](https://capacitorjs.com/docs/plugins/cordova)。
 
-## Can I build iOS apps without a Mac with Capacitor?
+## 没有 Mac 电脑能开发 iOS 应用吗？
 
-Short answer, no. The longer answer is that while you can use cloud services like [Ionic AppFlow](https://ionic.io/appflow), you won't be able to test your application on a device or simulator. You should always be sure to test your application with a physical device to make sure that your Capacitor application is usable to people with Apple products.
+简单回答：不能。详细来说，虽然可以使用 [Ionic AppFlow](https://ionic.io/appflow) 等云服务，但您将无法在设备或模拟器上测试应用。为确保应用在苹果设备上的可用性，始终建议使用真机测试。
 
-## Why do I get a blank screen when running on an Android emulator?
+## 为什么 Android 模拟器上运行显示空白屏幕？
 
-Capacitor requires Android 5.1 as well as a WebView version of 60 or higher. If you create an Android 6 or 7 emulator for example, the newest version of the WebView won't be installed, and you'll get a blank white screen. To get around this, you can install a newer Android emulator for testing your application.
+Capacitor 要求 Android 5.1 及以上版本，且 WebView 版本需 60+。如果创建的是 Android 6 或 7 模拟器，默认不会安装最新版 WebView，导致出现空白屏幕。解决方法：创建新版 Android 模拟器进行测试。
 
-## Why am I getting CocoaPods errors on my Apple Silicon Device?
+## 为什么在 Apple Silicon 设备上出现 CocoaPods 错误？
 
-If you installed CocoaPods with `sudo gem install cocoapods` and you're using an Apple Silicon-powered Mac, you might encounter something like this when running `npx cap update`:
+如果在 Apple Silicon 芯片的 Mac 上通过 `sudo gem install cocoapods` 安装 CocoaPods，运行 `npx cap update` 时可能会遇到类似错误：
 
 ```
 [error] Analyzing dependencies
@@ -79,13 +79,13 @@ If you installed CocoaPods with `sudo gem install cocoapods` and you're using an
         ruby 2.6.3p62 (2019-04-16 revision 67580) [universal.arm64e-darwin20]
 ```
 
-This is a CocoaPods bug related to `ffi` not installing on Apple Silicon computers.
-We recommend using [Homebrew to install CocoaPods](/main/getting-started/environment-setup.md#homebrew).
-Alternatively, if you have Rosetta installed, you can install `ffi` on a `x86_64` architecture and run `pod install` using the simulated Intel architecture for the first time.
+这是 CocoaPods 在 Apple Silicon 电脑上安装 `ffi` 时的兼容性问题。我们推荐使用 [Homebrew 安装 CocoaPods](/main/getting-started/environment-setup.md#homebrew)。
+
+如果已安装 Rosetta，也可以通过 x86_64 架构安装 `ffi` 并首次运行：
 
 ```
 $ sudo arch -x86_64 gem install ffi
 $ arch -x86_64 pod install
 ```
 
-After that, running Capacitor should work as expected.
+之后 Capacitor 即可正常运行。

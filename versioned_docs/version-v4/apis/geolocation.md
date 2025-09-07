@@ -1,16 +1,16 @@
 ---
-title: Geolocation Capacitor Plugin API
-description: The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+title: Geolocation Capacitor 插件 API
+description: 地理定位 API 提供简单方法来获取和追踪设备当前 GPS 位置信息，包括海拔、方向和速度等可用数据。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/src/definitions.ts
-sidebar_label: Geolocation
+sidebar_label: 地理位置
 ---
 
 # @capacitor/geolocation
 
-The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+该地理定位 API 提供简单方法来获取和追踪设备当前 GPS 位置信息，包括海拔、方向和速度等可用数据。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/geolocation
@@ -19,35 +19,34 @@ npx cap sync
 
 ## iOS
 
-Apple requires privacy descriptions to be specified in `Info.plist` for location information:
+苹果公司要求在 `Info.plist` 中为位置信息配置隐私说明：
 
-- `NSLocationAlwaysUsageDescription` (`Privacy - Location Always Usage Description`)
-- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
+- `NSLocationAlwaysUsageDescription` (`隐私 - 始终使用位置描述`)
+- `NSLocationWhenInUseUsageDescription` (`隐私 - 使用期间访问位置描述`)
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
+阅读 [iOS 指南](https://capacitorjs.com/docs/ios) 中的 [配置 Info.plist](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 章节，了解如何在 Xcode 中设置 iOS 权限的更多信息。
 
 ## Android
 
-This API requires the following permissions be added to your `AndroidManifest.xml`:
+此 API 需要在 `AndroidManifest.xml` 中添加以下权限：
 
 ```xml
-
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-feature android:name="android.hardware.location.gps" />
 ```
 
-The first two permissions ask for location data, both fine and coarse, and the last line is optional but necessary if your app _requires_ GPS to function. You may leave it out, though keep in mind that this may mean your app is installed on devices lacking GPS hardware.
+前两个权限请求获取精确和粗略位置数据，最后一行是可选的，但如果应用必须依赖 GPS 才能运行则必须添加。你可以选择不加，但请注意这可能导致应用安装在缺少 GPS 硬件的设备上。
 
-Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+阅读 [Android 指南](https://capacitorjs.com/docs/android) 中的 [设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions) 章节，了解如何设置 Android 权限的更多信息。
 
-### Variables
+### 变量
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+本插件将使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
 
-- `$playServicesLocationVersion` version of `com.google.android.gms:play-services-location` (default: `20.0.0`)
+- `$playServicesLocationVersion` 版本号 `com.google.android.gms:play-services-location` (默认值：`20.0.0`)
 
-## Example
+## 示例
 
 ```typescript
 import { Geolocation } from '@capacitor/geolocation';
@@ -55,7 +54,7 @@ import { Geolocation } from '@capacitor/geolocation';
 const printCurrentPosition = async () => {
   const coordinates = await Geolocation.getCurrentPosition();
 
-  console.log('Current position:', coordinates);
+  console.log('当前位置:', coordinates);
 };
 ```
 
@@ -68,13 +67,12 @@ const printCurrentPosition = async () => {
 * [`clearWatch(...)`](#clearwatch)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions(...)`](#requestpermissions)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### getCurrentPosition(...)
 
@@ -82,18 +80,17 @@ const printCurrentPosition = async () => {
 getCurrentPosition(options?: PositionOptions | undefined) => Promise<Position>
 ```
 
-Get the current GPS location of the device
+获取设备当前 GPS 位置
 
-| Param         | Type                                                        |
+| 参数          | 类型                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#positionoptions">PositionOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#position">Position</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#position">Position</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
-
 
 ### watchPosition(...)
 
@@ -101,20 +98,18 @@ Get the current GPS location of the device
 watchPosition(options: PositionOptions, callback: WatchPositionCallback) => Promise<CallbackID>
 ```
 
-Set up a watch for location changes. Note that watching for location changes
-can consume a large amount of energy. Be smart about listening only when you need to.
+设置位置变化监听。注意持续监听位置变化会消耗大量电量。请仅在需要时合理使用。
 
-| Param          | Type                                                                    |
+| 参数           | 类型                                                                    |
 | -------------- | ----------------------------------------------------------------------- |
 | **`options`**  | <code><a href="#positionoptions">PositionOptions</a></code>             |
 | **`callback`** | <code><a href="#watchpositioncallback">WatchPositionCallback</a></code> |
 
-**Returns:** <code>Promise&lt;string&gt;</code>
+**返回值:** <code>Promise&lt;string&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
-
 
 ### clearWatch(...)
 
@@ -122,16 +117,15 @@ can consume a large amount of energy. Be smart about listening only when you nee
 clearWatch(options: ClearWatchOptions) => Promise<void>
 ```
 
-Clear a given watch
+清除指定的位置监听
 
-| Param         | Type                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearwatchoptions">ClearWatchOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
-
 
 ### checkPermissions()
 
@@ -139,14 +133,13 @@ Clear a given watch
 checkPermissions() => Promise<PermissionStatus>
 ```
 
-Check location permissions.  Will throw if system location services are disabled.
+检查位置权限。如果系统定位服务被禁用将抛出异常。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
-
 
 ### requestPermissions(...)
 
@@ -154,78 +147,67 @@ Check location permissions.  Will throw if system location services are disabled
 requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Promise<PermissionStatus>
 ```
 
-Request location permissions.  Will throw if system location services are disabled.
+请求位置权限。如果系统定位服务被禁用将抛出异常。
 
-| Param             | Type                                                                                  |
+| 参数              | 类型                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------- |
 | **`permissions`** | <code><a href="#geolocationpluginpermissions">GeolocationPluginPermissions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
-
-### Interfaces
-
+### 接口
 
 #### Position
 
-| Prop            | Type                                                                                                                                                                                | Description                                             | Since |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
-| **`timestamp`** | <code>number</code>                                                                                                                                                                 | Creation timestamp for coords                           | 1.0.0 |
-| **`coords`**    | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | The GPS coordinates along with the accuracy of the data | 1.0.0 |
-
+| 属性              | 类型                                                                                                                                                                                | 描述                   | 版本  |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----- |
+| **`timestamp`**   | <code>number</code>                                                                                                                                                                 | 坐标创建时间戳         | 1.0.0 |
+| **`coords`**      | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | 包含精度的 GPS 坐标数据 | 1.0.0 |
 
 #### PositionOptions
 
-| Prop                     | Type                 | Description                                                                                                                                                                           | Default            | Since |
-| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`enableHighAccuracy`** | <code>boolean</code> | High accuracy mode (such as GPS, if available) On Android 12+ devices it will be ignored if users didn't grant ACCESS_FINE_LOCATION permissions (can be checked with location alias). | <code>false</code> | 1.0.0 |
-| **`timeout`**            | <code>number</code>  | The maximum wait time in milliseconds for location updates. In Android, since version 4.0.0 of the plugin, timeout gets ignored for getCurrentPosition.                               | <code>10000</code> | 1.0.0 |
-| **`maximumAge`**         | <code>number</code>  | The maximum age in milliseconds of a possible cached position that is acceptable to return                                                                                            | <code>0</code>     | 1.0.0 |
-
+| 属性                        | 类型                 | 描述                                                                                                                                                                           | 默认值            | 版本  |
+| --------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----- |
+| **`enableHighAccuracy`**    | <code>boolean</code> | 高精度模式（如启用 GPS 等）。在 Android 12+ 设备上，如果用户未授予 ACCESS_FINE_LOCATION 权限（可通过 location 别名检查），此设置将被忽略。                                     | <code>false</code> | 1.0.0 |
+| **`timeout`**               | <code>number</code>  | 获取位置更新的最大等待时间（毫秒）。在 Android 中，自插件 4.0.0 版本起，getCurrentPosition 会忽略 timeout 参数。                                                                | <code>10000</code> | 1.0.0 |
+| **`maximumAge`**            | <code>number</code>  | 可接受的缓存位置的最大年龄（毫秒）                                                                                                                                             | <code>0</code>     | 1.0.0 |
 
 #### ClearWatchOptions
 
-| Prop     | Type                                              |
-| -------- | ------------------------------------------------- |
-| **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
-
+| 属性      | 类型                                              |
+| --------- | ------------------------------------------------- |
+| **`id`**  | <code><a href="#callbackid">CallbackID</a></code> |
 
 #### PermissionStatus
 
-| Prop                 | Type                                                        | Description                                                                                                                                                                                                                                                                                                                                                        | Since |
-| -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | Permission state for location alias. On Android it requests/checks both ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions. On iOS and web it requests/checks location permission.                                                                                                                                                                        | 1.0.0 |
-| **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state for coarseLocation alias. On Android it requests/checks ACCESS_COARSE_LOCATION. On Android 12+, users can choose between Approximate location (ACCESS_COARSE_LOCATION) or Precise location (ACCESS_FINE_LOCATION), so this alias can be used if the app doesn't need high accuracy. On iOS and web it will have the same value as location alias. | 1.2.0 |
-
+| 属性                    | 类型                                                        | 描述                                                                                                                                                                                                                                                                                                                                 | 版本  |
+| ----------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`location`**          | <code><a href="#permissionstate">PermissionState</a></code> | 位置权限状态。在 Android 上会同时请求/检查 ACCESS_COARSE_LOCATION 和 ACCESS_FINE_LOCATION 权限。在 iOS 和网页端会请求/检查位置权限。                                                                                                                                                                                                | 1.0.0 |
+| **`coarseLocation`**    | <code><a href="#permissionstate">PermissionState</a></code> | 粗略位置权限状态。在 Android 上会请求/检查 ACCESS_COARSE_LOCATION。在 Android 12+ 上，用户可以选择"大致位置"(ACCESS_COARSE_LOCATION)或"精确位置"(ACCESS_FINE_LOCATION)，因此当应用不需要高精度时可以使用此别名。在 iOS 和网页端，该值将与 location 别名相同。                                                                       | 1.2.0 |
 
 #### GeolocationPluginPermissions
 
-| Prop              | Type                                     |
-| ----------------- | ---------------------------------------- |
-| **`permissions`** | <code>GeolocationPermissionType[]</code> |
+| 属性                | 类型                                     |
+| ------------------- | ---------------------------------------- |
+| **`permissions`**   | <code>GeolocationPermissionType[]</code> |
 
-
-### Type Aliases
-
+### 类型别名
 
 #### WatchPositionCallback
 
 <code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
 
-
 #### CallbackID
 
 <code>string</code>
 
-
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
 
 #### GeolocationPermissionType
 

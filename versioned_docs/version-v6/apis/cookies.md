@@ -1,6 +1,6 @@
 ---
-title: Cookies Capacitor Plugin API
-description: The Capacitor Cookies API provides native cookie support via patching `document.cookie` to use native libraries.
+title: Cookies Capacitor 插件 API
+description: Capacitor Cookies API 通过重写 `document.cookie` 来使用原生库，提供原生 Cookie 支持。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/cookies.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
 sidebar_label: Cookies
@@ -8,20 +8,19 @@ sidebar_label: Cookies
 
 # CapacitorCookies
 
-The Capacitor Cookies API provides native cookie support via patching `document.cookie` to use native libraries. It also provides methods for modifying cookies at a specific url. This plugin is bundled with `@capacitor/core`.
+Capacitor Cookies API 通过重写 `document.cookie` 来使用原生库，提供原生 Cookie 支持。该插件还提供了针对特定 URL 修改 Cookie 的方法。本插件已捆绑在 `@capacitor/core` 中。
 
-## Configuration
+## 配置
 
-By default, the patching of `document.cookie` to use native libraries is disabled.
-If you would like to enable this feature, modify the configuration below in the `capacitor.config` file.
+默认情况下，使用原生库重写 `document.cookie` 的功能是禁用的。如需启用该功能，请在 `capacitor.config` 文件中修改以下配置。
 
-| Prop          | Type                 | Description                                                               | Default            |
-| ------------- | -------------------- | ------------------------------------------------------------------------- | ------------------ |
-| **`enabled`** | <code>boolean</code> | Enable the patching of `document.cookie` to use native libraries instead. | <code>false</code> |
+| 属性           | 类型                  | 描述                                                                 | 默认值              |
+| -------------- | --------------------- | ------------------------------------------------------------------- | ------------------ |
+| **`enabled`**  | <code>boolean</code>  | 启用使用原生库替代 `document.cookie` 的功能                          | <code>false</code> |
 
-### Example Configuration
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -33,7 +32,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -49,7 +48,7 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { CapacitorCookies } from '@capacitor/core';
@@ -88,9 +87,9 @@ const clearAllCookies = async () => {
 };
 ```
 
-## Third Party Cookies on iOS
+## iOS 第三方 Cookie
 
-As of iOS 14, you cannot use 3rd party cookies by default. Add the following lines to your Info.plist file to get better support for cookies on iOS. You can add up to 10 domains.
+从 iOS 14 开始，默认情况下无法使用第三方 Cookie。如需在 iOS 上获得更好的 Cookie 支持，请将以下内容添加到 Info.plist 文件中。最多可添加 10 个域名。
 
 ```xml
 <key>WKAppBoundDomains</key>
@@ -110,8 +109,8 @@ As of iOS 14, you cannot use 3rd party cookies by default. Add the following lin
 * [`deleteCookie(...)`](#deletecookie)
 * [`clearCookies(...)`](#clearcookies)
 * [`clearAllCookies()`](#clearallcookies)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -124,11 +123,11 @@ As of iOS 14, you cannot use 3rd party cookies by default. Add the following lin
 getCookies(options?: GetCookieOptions) => Promise<HttpCookieMap>
 ```
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#getcookieoptions">GetCookieOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpcookiemap">HttpCookieMap</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#httpcookiemap">HttpCookieMap</a>&gt;</code>
 
 --------------------
 
@@ -139,9 +138,9 @@ getCookies(options?: GetCookieOptions) => Promise<HttpCookieMap>
 setCookie(options: SetCookieOptions) => Promise<void>
 ```
 
-Write a cookie to the device.
+向设备写入 Cookie。
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#setcookieoptions">SetCookieOptions</a></code> |
 
@@ -154,9 +153,9 @@ Write a cookie to the device.
 deleteCookie(options: DeleteCookieOptions) => Promise<void>
 ```
 
-Delete a cookie from the device.
+从设备删除 Cookie。
 
-| Param         | Type                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecookieoptions">DeleteCookieOptions</a></code> |
 
@@ -169,9 +168,9 @@ Delete a cookie from the device.
 clearCookies(options: ClearCookieOptions) => Promise<void>
 ```
 
-Clear cookies from the device at a given URL.
+清除设备上指定 URL 的所有 Cookie。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearcookieoptions">ClearCookieOptions</a></code> |
 
@@ -184,12 +183,12 @@ Clear cookies from the device at a given URL.
 clearAllCookies() => Promise<void>
 ```
 
-Clear all cookies on the device.
+清除设备上所有 Cookie。
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### HttpCookieMap
@@ -197,22 +196,22 @@ Clear all cookies on the device.
 
 #### HttpCookie
 
-| Prop        | Type                | Description              |
-| ----------- | ------------------- | ------------------------ |
-| **`url`**   | <code>string</code> | The URL of the cookie.   |
-| **`key`**   | <code>string</code> | The key of the cookie.   |
-| **`value`** | <code>string</code> | The value of the cookie. |
+| 属性          | 类型                | 描述                  |
+| ------------- | ------------------- | -------------------- |
+| **`url`**     | <code>string</code> | Cookie 的 URL        |
+| **`key`**     | <code>string</code> | Cookie 的键名        |
+| **`value`**   | <code>string</code> | Cookie 的值          |
 
 
 #### HttpCookieExtras
 
-| Prop          | Type                | Description                      |
-| ------------- | ------------------- | -------------------------------- |
-| **`path`**    | <code>string</code> | The path to write the cookie to. |
-| **`expires`** | <code>string</code> | The date to expire the cookie.   |
+| 属性            | 类型                | 描述                      |
+| --------------- | ------------------- | ------------------------ |
+| **`path`**      | <code>string</code> | Cookie 的写入路径        |
+| **`expires`**   | <code>string</code> | Cookie 的过期日期        |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### GetCookieOptions
@@ -222,21 +221,21 @@ Clear all cookies on the device.
 
 #### Omit
 
-Construct a type with the properties of T except for those in type K.
+构造一个类型，该类型从 T 中排除了 K 中的属性。
 
 <code><a href="#pick">Pick</a>&lt;T, <a href="#exclude">Exclude</a>&lt;keyof T, K&gt;&gt;</code>
 
 
 #### Pick
 
-From T, pick a set of properties whose keys are in the union K
+从 T 中选取一组键在联合类型 K 中的属性
 
 <code>{ [P in K]: T[P]; }</code>
 
 
 #### Exclude
 
-<a href="#exclude">Exclude</a> from T those types that are assignable to U
+从 T 中排除那些可赋值给 U 的类型
 
 <code>T extends U ? never : T</code>
 

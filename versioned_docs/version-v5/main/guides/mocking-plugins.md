@@ -1,20 +1,20 @@
 ---
 title: Mocking Plugins
-description: How to create mock objects for Capacitor plugins
+description: 如何为 Capacitor 插件创建模拟对象
 contributors:
   - kensodemann
 slug: /guides/mocking-plugins
 ---
 
-# Mocking Capacitor Plugins
+# 模拟 Capacitor 插件
 
-When creating unit tests within your application, it is a best practice to create mocks for any external dependency to the unit that is under test. This includes Capacitor plugins that your component or service is using.
+在应用中进行单元测试时，最佳实践是为被测单元的所有外部依赖创建模拟对象。这包括组件或服务所使用的 Capacitor 插件。
 
-Most mocking libraries create mocks by taking an object and wrapping it in a JavaScript proxy so calls to the methods on that object can be examined and the return values of the methods can be controlled. Capacitor plugins, however, are implemented within the JavaScript layer as proxies. Creating a proxy of a proxy is not supported and fails. Manual mocks can be used to circumvent this issue.
+大多数模拟库通过将对象包装在 JavaScript 代理中来创建模拟，从而可以检查对该对象方法的调用并控制方法的返回值。然而，Capacitor 插件在 JavaScript 层本身就是通过代理实现的，不支持对代理再创建代理，这会导致失败。我们可以使用手动模拟来解决这个问题。
 
-## Manual Mocks
+## 手动模拟
 
-Manual mocks allow the user to easily stub the functionality of an entire JavaScript module. As a result, when the tests do an `import { Storage } from '@capacitor/storage'`, instead of loading the real `Storage` JavaScript proxy object, the tests would load something like this:
+手动模拟允许用户轻松地模拟整个 JavaScript 模块的功能。这样，当测试中执行 `import { Storage } from '@capacitor/storage'` 时，就不会加载真正的 `Storage` JavaScript 代理对象，而是加载类似这样的内容：
 
 ```TypeScript
 export const Storage = {
@@ -27,13 +27,13 @@ export const Storage = {
 };
 ```
 
-Since this is a plain JavaScript object and not a proxy object, it is very easy to spy on. Also, since it is a mock it does not try to make any native calls. This makes the use of manual mocks an ideal choice to use when testing code that uses Capacitor plugins.
+由于这是一个普通的 JavaScript 对象而非代理对象，很容易进行监视。同时，作为模拟对象，它不会尝试进行任何原生调用。这使得手动模拟成为测试使用 Capacitor 插件代码的理想选择。
 
 ### Jest
 
-The Jest testing framework has <a href="https://jestjs.io/docs/manual-mocks" _target="blank">manual mocks</a> built in to it. Create a `__mocks__/@capacitor` folder at the root of your project, and Jest will automatically load files from there rather than from `node_modules`.
+Jest 测试框架内置了<a href="https://jestjs.io/docs/manual-mocks" _target="blank">手动模拟</a>功能。在项目根目录创建 `__mocks__/@capacitor` 文件夹，Jest 就会自动从这里而非 `node_modules` 加载文件。
 
-For example, let's say you have the following directory structure:
+例如，假设有以下目录结构：
 
 ```
 .
@@ -48,17 +48,17 @@ For example, let's say you have the following directory structure:
 +- src
 ```
 
-Your tests will use the stubs defined in `storage.ts` and `toast.ts` rather than the real `@capacitor/storage` and `@capacitor/toast` plugins from `node_modules`.
+你的测试将使用 `storage.ts` 和 `toast.ts` 中定义的桩代码，而非来自 `node_modules` 的真实 `@capacitor/storage` 和 `@capacitor/toast` 插件。
 
 ### Jasmine
 
-The Jasmine testing framework does not include the concept of "manual mocks" but we can easily simulate this through the use of TypeScript path mapping.
+Jasmine 测试框架不包含"手动模拟"的概念，但我们可以通过 TypeScript 路径映射轻松模拟这一功能。
 
-First, create the same directory structure at the root level of your project just like you would for the Jest example.
+首先，像 Jest 示例一样在项目根层级创建相同的目录结构。
 
-Angular projects (the most common scenario in which you would be using Jasmine as a testing framework) include a `tsconfig.spec.json` file that extends the `tsconfig.json` base configuration when unit tests are being executed. Modify this file to extend any `paths` mapping you may have at the base level.
+Angular 项目（最常见的 Jasmine 测试框架使用场景）在执行单元测试时会包含一个扩展自 `tsconfig.json` 基础配置的 `tsconfig.spec.json` 文件。修改此文件以扩展基础层级的任何 `paths` 映射。
 
-For example, if your `tsconfig.json` file contains the following `paths` mapping:
+例如，如果 `tsconfig.json` 文件包含以下 `paths` 映射：
 
 ```JSON
     "paths": {
@@ -67,29 +67,29 @@ For example, if your `tsconfig.json` file contains the following `paths` mapping
     },
 ```
 
-Then update your `tsconfig.spec.json` file to include those paths plus any you would like to use for the unit tests:
+那么更新 `tsconfig.spec.json` 文件以包含这些路径及你想在单元测试中使用的其它路径：
 
 ```JSON
     "paths": {
       "@app/*": ["src/app/*"],
       "@env/*": ["src/environments/*"],
-      "@test/*": ["test/*"],
+ "@test/*": ["test/*"],
       "@capacitor/*": ["__mocks__/@capacitor/*"]
     }
 ```
 
-Now when the unit tests are compiled, `import { Storage } from '@capacitor/storage';` will use the stub file under `__mocks__/@capacitor` rather than the real one in `node_modules`.
+现在当单元测试编译时，`import { Storage } from '@capacitor/storage';` 将使用 `__mocks__/@capacitor` 下的桩文件而非 `node_modules` 中的真实文件。
 
-**Note:** the `paths` object is replaced entirely rather than being merged, so if you have any paths defined at in `tsconfig.json` they _must_ also be included in `tsconfig.spec.json`.
+**注意**：`paths` 对象是完整替换而非合并，因此如果 `tsconfig.json` 中定义过任何路径，它们_必须_也包含在 `tsconfig.spec.json` 中。
 
-## Mocking the Stubs
+## 模拟桩代码
 
-With the manual mocks in place, the tests can now be written to mock and spy on the method calls in all of the usual ways.
+配置好手动模拟后，现在就可以用常规方式编写测试来模拟和监视方法调用了。
 
 ### Jest
 
 ```TypeScript
-  it("gets the first and last name", async () => {
+  it("获取名和姓", async () => {
     Storage.get = jest.fn().mockImplementation(
       async (data: { key: string }): Promise<{ value: string }> => {
         return data.key === "firstName"
@@ -105,7 +105,7 @@ With the manual mocks in place, the tests can now be written to mock and spy on 
     expect(w.vm.lastName).toEqual("Simms");
   });
 
-  it("clears the storage", () => {
+  it("清空存储", () => {
     const button = wrapper.findComponent('[data-testid="clear"]');
     Storage.clear = jest.fn().mockResolvedValue(undefined);
     button.trigger("click");
@@ -116,7 +116,7 @@ With the manual mocks in place, the tests can now be written to mock and spy on 
 ### Jasmine
 
 ```TypeScript
-  it("gets the first and last name", async () => {
+  it("获取名和姓", async () => {
     spyOn(Storage, 'get');
     (Storage.get as any)
       .withArgs({ key: 'firstName' })
@@ -132,7 +132,7 @@ With the manual mocks in place, the tests can now be written to mock and spy on 
     expect(component.lastName).toEqual('Jones');
   });
 
-  it('clears the storage', () => {
+  it('清空存储', () => {
     spyOn(Storage, 'clear');
     click(clear.nativeElement);
     fixture.detectChanges();
@@ -140,7 +140,7 @@ With the manual mocks in place, the tests can now be written to mock and spy on 
   });
 ```
 
-## Examples
+## 示例
 
-- [Mocking Capacitor Plugins in Jasmine](https://github.com/ionic-team/cap-plugin-mock-jasmine)
-- [Mocking Capacitor Plugins in Jest](https://github.com/ionic-team/cap-plugin-mock-jest)
+- [在 Jasmine 中模拟 Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jasmine)
+- [在 Jest 中模拟 Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jest)

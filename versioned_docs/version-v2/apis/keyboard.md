@@ -1,6 +1,6 @@
 ---
 title: Keyboard
-description: Keyboard API
+description: 键盘API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/keyboard
 
 <plugin-platforms platforms="ios,android"></plugin-platforms>
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+键盘API提供键盘显示与可见性控制功能，并能追踪键盘显示/隐藏事件。
 
 - [`show()`](#show)
 - [`hide()`](#hide)
@@ -22,81 +22,80 @@ The Keyboard API provides keyboard display and visibility control, along with ev
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
-- [Enums](#enums)
+- [接口](#interfaces)
+- [枚举](#enums)
 
-## Window Events for cordova-plugin-ionic-keyboard compatibility
+## 兼容cordova-plugin-ionic-keyboard的窗口事件
 
 - keyboardWillShow
 - keyboardDidShow
 - keyboardWillHide
 - keyboardDidHide
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins, KeyboardInfo } from '@capacitor/core';
 
 const { Keyboard } = Plugins;
 
-// Keyboard Plugin Events
+// 键盘插件事件
 
 Keyboard.addListener('keyboardWillShow', (info: KeyboardInfo) => {
-  console.log('keyboard will show with height', info.keyboardHeight);
+  console.log('键盘即将显示，高度为', info.keyboardHeight);
 });
 
 Keyboard.addListener('keyboardDidShow', (info: KeyboardInfo) => {
-  console.log('keyboard did show with height', info.keyboardHeight);
+  console.log('键盘已显示，高度为', info.keyboardHeight);
 });
 
 Keyboard.addListener('keyboardWillHide', () => {
-  console.log('keyboard will hide');
+  console.log('键盘即将隐藏');
 });
 
 Keyboard.addListener('keyboardDidHide', () => {
-  console.log('keyboard did hide');
+  console.log('键盘已隐藏');
 });
 
-// window events
+// 窗口事件
 
 window.addEventListener('keyboardWillShow', (e) => {
-  console.log('keyboard will show with height', (<any>e).keyboardHeight);
+  console.log('键盘即将显示，高度为', (<any>e).keyboardHeight);
 });
 
 window.addEventListener('keyboardDidShow', (e) => {
-  console.log('keyboard did show with height', (<any>e).keyboardHeight);
+  console.log('键盘已显示，高度为', (<any>e).keyboardHeight);
 });
 
 window.addEventListener('keyboardWillHide', () => {
-  console.log('keyboard will hide');
+  console.log('键盘即将隐藏');
 });
 
 window.addEventListener('keyboardDidHide', () => {
-  console.log('keyboard did hide');
+  console.log('键盘已隐藏');
 });
 
-// API
+// API调用
 
 Keyboard.setAccessoryBarVisible({ isVisible: false });
 
-Keyboard.show();
+Keyboard.show(); // 显示键盘
 
-Keyboard.hide();
+Keyboard.hide(); // 隐藏键盘
 ```
 
-## Keyboard configuration (iOS only)
+## 键盘配置（仅iOS）
 
-The keyboard plugin allows the following configuration values to be added in `capacitor.config.json` for the iOS platform:
+在`capacitor.config.json`中可为iOS平台配置以下键盘参数：
 
-- `resize`: It configures the way the app is resized when the Keyboard appears.
-  Allowed values are
+- `resize`: 控制键盘出现时应用的调整方式
+  可选值包括：
+  - `none`: 不调整应用和WebView
+  - `native`: （默认）键盘显示/隐藏时调整整个原生WebView，会影响`vh`相对单位
+  - `body`: 仅调整HTML的`<body>`元素，视口不变因此不影响相对单位
+  - `ionic`: 仅调整ionic应用的ion-app元素
 
-  - `none`: Not the app, nor the webview are resized
-  - `native`: (default) The whole native webview will be resized when the keyboard shows/hides, it will affect the `vh` relative unit.
-  - `body`: Only the html `<body>` element will be resized. Relative units are not affected, because the viewport does not change.
-  - `ionic`: Only the html ion-app element will be resized. Use it only for ionic apps.
-
-- `style`: If set to `dark` it will use Dark style keyboard instead of the regular one.
+- `style`: 设为`dark`将使用深色风格键盘
 
 ```json
 {
@@ -117,7 +116,7 @@ The keyboard plugin allows the following configuration values to be added in `ca
 show() => Promise<void>
 ```
 
-Show the keyboard. This method is alpha and may have issues
+显示键盘（此方法为Alpha版本，可能存在问题）
 
 ---
 
@@ -127,7 +126,7 @@ Show the keyboard. This method is alpha and may have issues
 hide() => Promise<void>
 ```
 
-Hide the keyboard.
+隐藏键盘
 
 ---
 
@@ -137,10 +136,9 @@ Hide the keyboard.
 setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 ```
 
-Set whether the accessory bar should be visible on the keyboard. We recommend disabling
-the accessory bar for short forms (login, signup, etc.) to provide a cleaner UI
+设置键盘辅助栏的可见性。建议在登录/注册等简短表单中禁用辅助栏以获得更简洁的UI
 
-| Param         | Type                                 |
+| 参数          | 类型                                 |
 | ------------- | ------------------------------------ |
 | **`options`** | `{ isVisible: boolean; }` |
 
@@ -152,9 +150,9 @@ the accessory bar for short forms (login, signup, etc.) to provide a cleaner UI
 setScroll(options: { isDisabled: boolean; }) => Promise<void>
 ```
 
-Programmatically enable or disable the WebView scroll
+通过编程方式启用/禁用WebView滚动
 
-| Param         | Type                                  |
+| 参数          | 类型                                  |
 | ------------- | ------------------------------------- |
 | **`options`** | `{ isDisabled: boolean; }` |
 
@@ -166,9 +164,9 @@ Programmatically enable or disable the WebView scroll
 setStyle(options: KeyboardStyleOptions) => Promise<void>
 ```
 
-Programmatically set the keyboard style
+通过编程设置键盘样式
 
-| Param         | Type                                                                  |
+| 参数          | 类型                                                                  |
 | ------------- | --------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardstyleoptions">KeyboardStyleOptions</a></code> |
 
@@ -180,9 +178,9 @@ Programmatically set the keyboard style
 setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 ```
 
-Programmatically set the resize mode
+通过编程设置调整模式
 
-| Param         | Type                                                                    |
+| 参数          | 类型                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardresizeoptions">KeyboardResizeOptions</a></code> |
 
@@ -194,12 +192,12 @@ Programmatically set the resize mode
 addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                                                     |
+| 参数               | 类型                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>"keyboardWillShow"</code>                                          |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -209,12 +207,12 @@ addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) =>
 addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                                                     |
+| 参数               | 类型                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>"keyboardDidShow"</code>                                           |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -224,12 +222,12 @@ addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => 
 addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => PluginListenerHandle
 ```
 
-| Param              | Type                            |
+| 参数               | 类型                            |
 | ------------------ | ------------------------------- |
 | **`eventName`**    | <code>"keyboardWillHide"</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>      |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -239,12 +237,12 @@ addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => PluginLi
 addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => PluginListenerHandle
 ```
 
-| Param              | Type                           |
+| 参数               | 类型                           |
 | ------------------ | ------------------------------ |
 | **`eventName`**    | <code>"keyboardDidHide"</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>     |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -254,48 +252,48 @@ addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => PluginLis
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin
+移除该插件的所有原生监听器
 
 ---
 
-### Interfaces
+### 接口
 
 #### KeyboardStyleOptions
 
-| Prop        | Type                                                    |
+| 属性        | 类型                                                    |
 | ----------- | ------------------------------------------------------- |
 | **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> |
 
 #### KeyboardResizeOptions
 
-| Prop       | Type                                                      |
+| 属性       | 类型                                                      |
 | ---------- | --------------------------------------------------------- |
 | **`mode`** | <code><a href="#keyboardresize">KeyboardResize</a></code> |
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
+| 属性         | 类型                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |
 
 #### KeyboardInfo
 
-| Prop                 | Type                |
+| 属性                 | 类型                |
 | -------------------- | ------------------- |
 | **`keyboardHeight`** | <code>number</code> |
 
-### Enums
+### 枚举
 
 #### KeyboardStyle
 
-| Members     | Value                |
+| 枚举值     | 值                |
 | ----------- | -------------------- |
 | **`Dark`**  | <code>"DARK"</code>  |
 | **`Light`** | <code>"LIGHT"</code> |
 
 #### KeyboardResize
 
-| Members      | Value                 |
+| 枚举值      | 值                 |
 | ------------ | --------------------- |
 | **`Body`**   | <code>"body"</code>   |
 | **`Ionic`**  | <code>"ionic"</code>  |

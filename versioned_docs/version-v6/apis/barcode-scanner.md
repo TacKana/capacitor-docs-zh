@@ -1,25 +1,25 @@
 ---
 title: Barcode Scanner Capacitor Plugin API
-description: Capacitor plugin using Outsystems Barcode libs
+description: 使用Outsystems条码库的Capacitor插件
 custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/src/definitions.ts
-sidebar_label: Barcode Scanner
+sidebar_label: 条码扫描器
 ---
 
 # @capacitor/barcode-scanner
 
-Capacitor plugin using Outsystems Barcode libs
+基于Outsystems条码库的Capacitor插件
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/barcode-scanner
 npx cap sync
 ```
 
-#### Android
+#### Android配置
 
-The barcode scanner plugin requires a minimum Android SDK target of 26. This is higher than the default that comes with your Capacitor application. You can update this value in your `android/variables.gradle` file.
+条码扫描插件要求最低Android SDK版本为26，这高于Capacitor应用的默认值。您可以在`android/variables.gradle`文件中更新此设置：
 
 ```gradle
 ext {
@@ -27,7 +27,7 @@ ext {
 }
 ```
 
-You will need to modify the `allprojects > repositories` section in your `android/build.gradle` file to include the Outsystems repository. Your `android/build.gradle` file should look similar to this after adding the repository.
+需要在`android/build.gradle`文件的`allprojects > repositories`部分添加Outsystems仓库。添加后的配置示例如下：
 
 ```gradle
 allprojects {
@@ -49,27 +49,27 @@ allprojects {
 }
 ```
 
-#### iOS
+#### iOS配置
 
-The barcode scanner uses the camera on the device. Ensure you configure the Privacy - Camera Usage Description in your Info.plist file so that your application can access the device's camera.
+条码扫描功能需要使用设备摄像头。请确保在Info.plist文件中配置"Privacy - Camera Usage Description"，以便应用能访问摄像头权限。
 
 ---
 
-## API
+## API接口
 
 <docgen-index>
 
 * [`scanBarcode(...)`](#scanbarcode)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [类型别名](#type-aliases)
+* [枚举类型](#enums)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-Interface defining the contract for a plugin capable of scanning barcodes.
-Requires implementation of the scanBarcode method, which initiates a barcode scan with given options.
+定义条码扫描插件功能接口。
+要求实现scanBarcode方法，该方法通过给定选项初始化条码扫描。
 
 ### scanBarcode(...)
 
@@ -77,48 +77,46 @@ Requires implementation of the scanBarcode method, which initiates a barcode sca
 scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcodeScannerScanResult>
 ```
 
-| Param         | Type                                                                                      |
+| 参数          | 类型                                                                                      |
 | ------------- | ----------------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#capacitorbarcodescanneroptions">CapacitorBarcodeScannerOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#capacitorbarcodescannerscanresult">CapacitorBarcodeScannerScanResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#capacitorbarcodescannerscanresult">CapacitorBarcodeScannerScanResult</a>&gt;</code>
 
 --------------------
 
 
-### Type Aliases
+### 类型别名
 
 
 #### CapacitorBarcodeScannerScanResult
 
-Defines the structure of the result returned from a barcode scan.
+定义条码扫描返回结果的结构。
 
 <code>{ ScanResult: string }</code>
 
 
 #### CapacitorBarcodeScannerOptions
 
-Defines the options for configuring a barcode scan.
+定义条码扫描的配置选项。
 
 <code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
 
 
 #### CapacitorBarcodeScannerTypeHint
 
-Extends supported formats from Html5Qrcode with a special 'ALL' option,
-indicating support for all barcode types.
-Type definition combining <a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> and OSBarcodeTypeHintALLOption
-to represent the hint for the type of barcode to be scanned.
+扩展Html5Qrcode支持的格式，新增'ALL'选项表示支持所有条码类型。
+结合<a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a>和OSBarcodeTypeHintALLOption的类型定义，表示要扫描的条码类型提示。
 
 <code><a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> | <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a></code>
 
 
-### Enums
+### 枚举类型
 
 
 #### Html5QrcodeSupportedFormats
 
-| Members                 | Value           |
+| 成员                 | 值           |
 | ----------------------- | --------------- |
 | **`QR_CODE`**           | <code>0</code>  |
 | **`AZTEC`**             | <code>1</code>  |
@@ -141,14 +139,14 @@ to represent the hint for the type of barcode to be scanned.
 
 #### CapacitorBarcodeScannerTypeHintALLOption
 
-| Members   | Value           |
+| 成员   | 值           |
 | --------- | --------------- |
 | **`ALL`** | <code>17</code> |
 
 
 #### CapacitorBarcodeScannerCameraDirection
 
-| Members     | Value          |
+| 成员     | 值          |
 | ----------- | -------------- |
 | **`BACK`**  | <code>1</code> |
 | **`FRONT`** | <code>2</code> |
@@ -156,7 +154,7 @@ to represent the hint for the type of barcode to be scanned.
 
 #### CapacitorBarcodeScannerScanOrientation
 
-| Members         | Value          |
+| 成员         | 值          |
 | --------------- | -------------- |
 | **`PORTRAIT`**  | <code>1</code> |
 | **`LANDSCAPE`** | <code>2</code> |
@@ -165,9 +163,9 @@ to represent the hint for the type of barcode to be scanned.
 
 #### CapacitorBarcodeScannerAndroidScanningLibrary
 
-| Members     | Value                |
+| 成员     | 值                |
 | ----------- | -------------------- |
-| **`ZXING`** | <code>'zxing'</code> |
+| **`ZXING`** | <code>'zxingly'</code> |
 | **`MLKIT`** | <code>'mlkit'</code> |
 
 </docgen-api>

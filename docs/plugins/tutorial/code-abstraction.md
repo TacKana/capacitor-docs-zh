@@ -1,44 +1,44 @@
 ---
 title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Code Abstraction Patterns
+description: Capacitor插件开发 - 代码抽象模式
 contributors:
   - eric-horodyski
-sidebar_label: Code Abstraction Patterns
+sidebar_label: 代码抽象模式
 slug: /plugins/tutorial/code-abstraction-patterns
 ---
 
-# Capacitor Plugin Abstraction Patterns
+# Capacitor插件抽象模式
 
-Plugins that get built for Capacitor can vary in complexity. Let’s use the <a href="https://capacitorjs.com/docs/plugins" target="_blank">Official Capacitor Plugins</a> as an example: the Android implementation of the <a href="https://github.com/ionic-team/capacitor-plugins/blob/main/toast/android/src/main/java/com/capacitorjs/plugins/toast/Toast.java" target="_blank">Toast plugin</a> is simple, while <a href="https://github.com/ionic-team/capacitor-plugins/tree/main/push-notifications/android/src/main/java/com/capacitorjs/plugins/pushnotifications" target="_blank">Push Notifications</a> is quite complex with multiple files.
+为Capacitor构建的插件在复杂度上可能各不相同。以<a href="https://capacitorjs.com/docs/plugins" target="_blank">官方Capacitor插件</a>为例：<a href="https://github.com/ionic-team/capacitor-plugins/blob/main/toast/android/src/main/java/com/capacitorjs/plugins/toast/Toast.java" target="_blank">Toast插件</a>的Android实现非常简单，而<a href="https://github.com/ionic-team/capacitor-plugins/tree/main/push-notifications/android/src/main/java/com/capacitorjs/plugins/pushnotifications" target="_blank">推送通知插件</a>则相当复杂，包含多个文件。
 
-Depending on the plugin’s complexity and requirements, it would not be a stretch to scope the work required to build a plugin as its own software project, specifically if implementing requirements vary between iOS and Android.
+根据插件的复杂度和需求，将一个插件的开发工作视为独立软件项目并不为过，特别是当iOS和Android平台的实现需求差异较大时。
 
-That said, a refresher on design patterns and a review of standard Capacitor plugin code abstractions are in order.
+因此，我们有必要重温设计模式并了解Capacitor插件中常见的代码抽象方式。
 
-## Design Patterns 101
+## 设计模式基础
 
-Design patterns are general, reusable solutions to common problems in software design. Design patterns aren’t programmatic solutions to problems; instead, they are guides or blueprints on abstracting code to solve recurring problems.
+设计模式是针对软件设计中常见问题的通用、可复用的解决方案。它们并非具体的编程实现，而是指导开发者如何通过代码抽象来解决重复出现的问题框架。
 
-You have most likely used design patterns even if you aren’t aware of them. Angular heavily relies on the Dependency Injection and Singleton patterns. React uses the Mediator and State patterns. Push notifications use the Observer pattern.
+即使您没有意识到，很可能已经使用过设计模式。Angular大量依赖依赖注入和单例模式。React采用了中介者和状态模式。推送通知则使用了观察者模式。
 
-As a developer, you should feel empowered to use the library of design patterns to craft code abstractions that work for your Capacitor plugins.
+作为开发者，您可以自由运用设计模式库中的各种模式，为Capacitor插件构建合适的代码抽象。
 
-Some good resources that describe and provide examples of design patterns are:
+以下是介绍设计模式的优质资源：
 
-- <a href="https://www.oreilly.com/library/view/head-first-design/0596007124/" target="_blank">Head First Design Patterns (O'Reilly Publishing)</a>
-- <a href="https://refactoring.guru/design-patterns" target="_blank">Design Patterns (Refactoring Guru)</a>
+- <a href="https://www.oreilly.com/library/view/head-first-design/0596007124/" target="_blank">《Head First设计模式》（O'Reilly出版社）</a>
+- <a href="https://refactoring.guru/design-patterns" target="_blank">设计模式（Refactoring Guru）</a>
 
-> Personally speaking, I keep a copy of _Head First Design Patterns_ to leaf through in the planning phases of projects and browse _Refactoring Guru_ when I’m heads-down writing code.
+> 就个人而言，我在项目规划阶段会翻阅《Head First设计模式》，而在编写代码时会浏览Refactoring Guru网站。
 
-## Patterns in the wild
+## 实际应用中的模式
 
-If you look through the source code of enough Capacitor plugins, you will see that specific design patterns are popular with Capacitor plugin developers.
+如果研究足够多的Capacitor插件源码，您会发现某些设计模式在插件开发者中特别受欢迎。
 
-**Bridge Design Pattern**
+**桥接模式**
 
-The Bridge design pattern splits the abstraction from the implementation of code. It is a design mechanism that encapsulates an implementation class inside of an interface class.
+桥接模式将抽象与实现分离，通过将实现类封装在接口类中的设计机制。
 
-The Official Capacitor plugins heavily use the Bridge pattern, evidenced by this example from the Device plugin:
+官方Capacitor插件广泛使用桥接模式，以下来自Device插件的示例就是明证：
 
 ```swift
 @objc func getLanguageCode(_ call: CAPPluginCall) {
@@ -47,18 +47,18 @@ The Official Capacitor plugins heavily use the Bridge pattern, evidenced by this
 }
 ```
 
-Why does this design pattern fit so well for Capacitor plugins?
+为何这种模式特别适合Capacitor插件？
 
-- You can focus on high-level logic in the abstraction and on platform details in the implementation.
-- You hide implementation details from the client.
-- You can introduce new implementations independently from each other.
-- You can create platform-independent classes and implementations.
+- 您可以在抽象层专注高层逻辑，在实现层处理平台细节
+- 向客户端隐藏实现细节
+- 可以相互独立地引入新实现
+- 能创建平台无关的类和实现
 
-**Facade Design Pattern**
+**外观模式**
 
-The Facade design pattern provides a simple interface to a complex subsystem containing many moving parts. It may not expose all the functionality of the subsystem. However, it does expose the features that clients care about.
+外观模式为包含多个组件的复杂子系统提供简单接口。它可能不会暴露子系统的全部功能，但会提供客户端关心的核心特性。
 
-Some of the more complex Capacitor Official plugins use the Facade pattern, including the Local Notifications plugin:
+部分较复杂的官方Capacitor插件使用外观模式，比如本地通知插件：
 
 ```java
 @Override
@@ -72,12 +72,12 @@ public void load() {
 }
 ```
 
-Why does this design pattern fit well for Capacitor plugins?
+为何这种模式适合Capacitor插件？
 
-- You can isolate your code from the complexity of a subsystem.
-- You can protect the client code from any changes in the subsystem code.
-- You can structure a subsystem into layers.
+- 使代码与复杂子系统隔离
+- 保护客户端代码不受子系统变更影响
+- 可以将子系统分层组织
 
-## What will the screen orientation plugin use?
+## 屏幕方向插件将采用哪种模式？
 
-The `ScreenOrientation` plugin will use the Bridge design pattern. While we haven’t addressed the underlying iOS and Android APIs required to perform the actions the plugin requires, implementing our plugin’s API is straightforward and relatively simple, as you will see, starting with the next step: the iOS implementation.
+`ScreenOrientation`插件将采用桥接设计模式。虽然我们尚未讨论实现插件功能所需的底层iOS和Android API，但正如您将在下一步（iOS实现）中看到的，该插件API的实现相对简单直接。

@@ -1,32 +1,32 @@
 ---
-title: Migrate from Cordova
-description: Visual Studio Code Extension for Capacitor
+title: 从 Cordova 迁移
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/cordova
 ---
 
-The extension automates the experience of migrating from Cordova to Capacitor. Most Cordova plugins will work in a Capacitor application but the extension will suggest recommendations for improvement as well.
+该扩展自动化了从 Cordova 迁移到 Capacitor 的体验。大多数 Cordova 插件在 Capacitor 应用程序中都能正常工作，但扩展会提供改进建议。
 
-## Migrating
+## 迁移步骤
 
-The `Capacitor Migration` section will appear if Cordova is detected:
-1. Click each item and choose an action (`Uninstall`, `Upgrade` or `Ignore`).
-2. Finally click [`Remove Cordova`](#remove-cordova) to finalize the migration.
+如果检测到 Cordova，将会显示 `Capacitor Migration` 部分：
+1. 点击每个项目并选择一个操作（`卸载`、`升级` 或 `忽略`）。
+2. 最后点击 [`移除 Cordova`](#remove-cordova) 完成迁移。
 
 :::note
-Capacitor will work with most Cordova plugins and there are only a few Cordova plugins that are incompatible and will require you to refactor your code after migration.
+Capacitor 与大多数 Cordova 插件兼容，只有少数不兼容的 Cordova 插件需要在迁移后重构代码。
 :::
 
-### Unneeded Plugins
-Cordova plugins that you **no longer need** will be flagged and you can click `Uninstall` to remove them.
+### 不再需要的插件
+对于您**不再需要**的 Cordova 插件，系统会进行标记，您可以点击 `卸载` 来移除它们。
 
-### Incompatible Plugins
-Cordova plugins that are on a known **[incompatible list](https://capacitorjs.com/docs/plugins/cordova#known-incompatible-plugins)** will be flagged. There may be Capacitor equivalents, your code will need to be refactored.
+### 不兼容的插件
+对于已知的**[不兼容插件列表](https://capacitorjs.com/docs/plugins/cordova#known-incompatible-plugins)**中的 Cordova 插件，系统会进行标记。可能存在等效的 Capacitor 插件，您的代码需要进行重构。
 
-### Better Plugins
-Cordova plugins that have **better** equivalent Capacitor plugins will show as optional suggestions (light bulb icon). A **better** plugin is defined as one that has official support from the Capacitor team. Some Cordova plugins have been deprecated or are no longer maintained, we track these and provide suggestions for alternatives.
+### 更好的插件
+对于有**更好**等效 Capacitor 插件的 Cordova 插件，会显示为可选建议（灯泡图标）。**更好**的插件是指那些得到 Capacitor 团队官方支持的插件。一些 Cordova 插件已被弃用或不再维护，我们会跟踪这些插件并提供替代建议。
 
-### Remove Cordova
+### 移除 Cordova
 
-The final step of migration is to choose the **Remove Cordova** item which will backup your `config.xml` and remove the `cordova` section from `package.json`. After this you'll see additional features appear like debugging and running.
+迁移的最后一步是选择 **Remove Cordova** 项目，这将备份您的 `config.xml` 并从 `package.json` 中移除 `cordova` 部分。之后，您将看到更多功能出现，如调试和运行。

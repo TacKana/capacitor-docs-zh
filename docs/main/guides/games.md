@@ -1,18 +1,17 @@
 ---
 title: Games
-description: Game development wiht Capacitor
+description: 使用Capacitor进行游戏开发
 slug: /guides/games
 ---
 
-# Game Development with Capacitor
+# 使用Capacitor开发游戏
 
-Capacitor is a great platform for building cross-platform games. With broad support for WebGL and canvas rendering, developers can build high-performance game experiences on modern mobile devices.
+Capacitor是构建跨平台游戏的理想平台。凭借对WebGL和画布渲染的广泛支持，开发者能够在现代移动设备上打造高性能的游戏体验。
 
-We generally recommend building with a game engine, which will provide primitives for common game objects and features, though developers are free to build from scratch.
+虽然开发者可以完全从零开始构建，但我们通常建议使用游戏引擎进行开发，这些引擎会为常见的游戏对象和功能提供基础组件。
 
-## Phaser + Capacitor
+## Phaser + Capacitor组合方案
 
-[Phaser](https://phaser.io/) is one of the most popular web-based game development engines. Capacitor and Phaser form the foundation of popular games like [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/).
+[Phaser](https://phaser.io/) 是最受欢迎的基于网页的游戏开发引擎之一。Capacitor与Phaser的组合支撑了诸如[吸血鬼幸存者](https://store.steampowered.com/app/1794680/Vampire_Survivors/)等热门游戏的开发。
 
-To get started building games with Capacitor and Phaser, see the [Capacitor + Phaser Starter template](https://github.com/ionic-team/capacitor-starters/tree/main/phaser), which includes consideration for mobile device scaling and defaulting to landscape mode.
-
+要开始使用Capacitor和Phaser开发游戏，可以参考[Capacitor + Phaser入门模板](https://github.com/ionic-team/capacitor-starters/tree/main/phaser)。该模板已包含针对移动设备屏幕适配的解决方案，并默认设置为横屏模式。

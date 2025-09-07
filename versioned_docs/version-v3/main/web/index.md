@@ -1,57 +1,57 @@
 ---
-title: Capacitor Web Documentation
-description: Web Getting Started
-sidebar_label: Getting Started
+title: Capacitor Web 文档
+description: Web 入门指南
+sidebar_label: 开始使用
 slug: /web
 contributors:
   - mlynch
 ---
 
-# Using Capacitor in a Web Project
+# 在 Web 项目中使用 Capacitor
 
-Capacitor fully supports traditional web and Progressive Web Apps. In fact, using Capacitor makes it easy to ship a PWA version of your iOS and Android app store apps with minimal work.
+Capacitor 全面支持传统网页和渐进式 Web 应用（PWA）。实际上，使用 Capacitor 可以轻松地将 iOS 和 Android 应用商店的应用打包为 PWA 版本，工作量极小。
 
-## Browser Support
+## 浏览器兼容性
 
-Capacitor core and plugins build for ES2017. This newer JavaScript syntax is supported in all modern browsers (including those that power PWAs on iOS and Android), but will not work in IE11 without additional JavaScript transformations, e.g. with [Babel](https://babeljs.io).
+Capacitor 核心库和插件基于 ES2017 标准构建。所有现代浏览器（包括 iOS 和 Android 上的 PWA 运行环境）都支持这一较新的 JavaScript 语法，但在 IE11 等旧版浏览器中需要额外使用 [Babel](https://babeljs.io) 等工具进行转译才能正常运行。
 
-Plugins with web support will perform feature detection and throw exceptions if a browser does not support a particular Web API.
+支持 Web 的插件会进行特性检测，如果浏览器不支持特定 Web API 则会抛出异常。
 
-## Installation
+## 安装指南
 
-If you're already building with Capacitor for iOS or Android, there are no additional installation steps!
+如果您已在为 iOS 或 Android 开发 Capacitor 应用，无需额外安装步骤！
 
-Otherwise, see the [Installation](/main/getting-started/installation.md) guide before continuing.
+否则，请先参阅 [安装指南](/main/getting-started/installation.md) 再继续。
 
-### Using Capacitor as a Module
+### 作为模块使用 Capacitor
 
-Most commonly, apps will be using a framework with a build system that supports importing JavaScript modules. By importing from `@capacitor/core`, or by importing a plugin, the Capacitor JavaScript runtime will be loaded with your app.
+大多数情况下，应用会采用支持 JavaScript 模块导入的构建系统框架。通过从 `@capacitor/core` 导入或导入插件，Capacitor JavaScript 运行时将与您的应用一同加载。
 
-### Using Capacitor as a Script Include
+### 作为脚本引入 Capacitor
 
-To use the Capacitor runtime in a web app that is not using a build system or bundler/module loader, do the following:
+若要在不使用构建系统或模块加载器的 Web 应用中使用 Capacitor 运行时，请执行以下操作：
 
-1. Set `bundledWebRuntime` to `true` in the [Capacitor configuration file](/main/reference/config.md)
+1. 在 [Capacitor 配置文件](/main/reference/config.md) 中将 `bundledWebRuntime` 设为 `true`
 
 ```json
 "bundledWebRuntime": true
 ```
 
-2. Copy the Capacitor runtime bundle (`capacitor.js`) into your web assets directory
+2. 将 Capacitor 运行时包 (`capacitor.js`) 复制到您的网页资源目录
 
 ```bash
 npx cap sync web
 ```
 
-3. Import `capacitor.js` in `index.html` before other JavaScript
+3. 在 `index.html` 中优先引入 `capacitor.js`
 
 ```html
 <script src="capacitor.js"></script>
 <script src="your/app.js"></script>
 ```
 
-## Going Live
+## 发布上线
 
-When you're ready to publish your Progressive Web App and share it with the world, just upload the contents of your web assets directory.
+当您准备好发布渐进式 Web 应用并与全世界分享时，只需上传网页资源目录中的内容即可。
 
-That will contain everything you need to run your app!
+该目录包含运行应用所需的一切！

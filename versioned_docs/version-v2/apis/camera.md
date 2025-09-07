@@ -1,6 +1,6 @@
 ---
 title: Camera
-description: Camera API
+description: 相机API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,49 +9,47 @@ canonicalUrl: https://capacitorjs.com/docs/apis/camera
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Camera API allows a user to pick a photo from their photo album or take a picture. On iOS, this uses `UIImagePickerController`, and on Android this
-API sends an intent which will be handled by the core Camera app by default.
+相机API允许用户从相册选取照片或拍摄新照片。在iOS上使用`UIImagePickerController`，在Android上默认通过系统相机应用处理。
 
 - [`getPhoto(...)`](#getphoto)
-- [Interfaces](#interfaces)
-- [Enums](#enums)
+- [接口](#interfaces)
+- [枚举](#enums)
 
-## iOS Notes
+## iOS注意事项
 
-iOS requires the following usage description be added and filled out for your app in `Info.plist`:
+iOS需要在`Info.plist`中添加以下使用说明：
 
-Name: `Privacy - Camera Usage Description`
-Key: `NSCameraUsageDescription`
+名称: `Privacy - Camera Usage Description`
+键名: `NSCameraUsageDescription`
 
-Name: `Privacy - Photo Library Additions Usage Description`
-Key: `NSPhotoLibraryAddUsageDescription`
+名称: `Privacy - Photo Library Additions Usage Description`
+键名: `NSPhotoLibraryAddUsageDescription`
 
-Name: `Privacy - Photo Library Usage Description`
-Key: `NSPhotoLibraryUsageDescription`
+名称: `Privacy - Photo Library Usage Description`
+键名: `NSPhotoLibraryUsageDescription`
 
-Read about [Setting iOS Permissions](/ios/configuration.md) in the [iOS Guide](/ios/index.md) for more information on setting iOS permissions in Xcode
+更多关于在Xcode中设置iOS权限的信息，请参阅[iOS指南](/ios/index.md)中的[设置iOS权限](/ios/configuration.md)
 
-## Android Notes
+## Android注意事项
 
-This API requires the following permissions be added to your `AndroidManifest.xml`:
+此API需要在`AndroidManifest.xml`中添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-The storage permissions are for reading/saving photo files.
+存储权限用于读取/保存照片文件。
 
-Read about [Setting Android Permissions](/android/configuration.md) in the [Android Guide](/android/index.md) for more information on setting Android permissions.
+更多关于设置Android权限的信息，请参阅[Android指南](/android/index.md)中的[设置Android权限](/android/configuration.md)
 
-Additionally, because the Camera API launches a separate Activity to handle taking the photo, you should listen for `appRestoredResult` in the `App` plugin
-to handle any camera data that was sent in the case your app was terminated by the operating system while the Activity was running.
+此外，由于相机API会启动单独的Activity来处理拍照，您应该监听`App`插件中的`appRestoredResult`，以便在Activity运行时应用被操作系统终止的情况下处理任何相机数据。
 
-## PWA Notes
+## PWA注意事项
 
-[PWA Elements](/web/pwa-elements.mdx) are required for Camera plugin to work.
+相机插件需要[PWA Elements](/web/pwa-elements.mdx)支持才能正常工作。
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins, CameraResultType } from '@capacitor/core';
@@ -64,19 +62,19 @@ async takePicture() {
     allowEditing: true,
     resultType: CameraResultType.Uri
   });
-  // image.webPath will contain a path that can be set as an image src.
-  // You can access the original file using image.path, which can be
-  // passed to the Filesystem API to read the raw data of the image,
-  // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+  // image.webPath包含可用于设置图像src的路径
+  // 您可以通过image.path访问原始文件，该路径可以
+  // 传递给Filesystem API以读取图像的原始数据
+  // （如果需要，也可以将resultType设为CameraResultType.Base64）
   var imageUrl = image.webPath;
-  // Can be set to the src of an image now
+  // 现在可以将其设置为图像的src
   imageElement.src = imageUrl;
 }
 ```
 
-## Example Guides
+## 示例教程
 
-[Building an Ionic Framework Camera App](/guides/ionic-framework-app.md)
+[构建Ionic Framework相机应用](/guides/ionic-framework-app.md)
 
 ## API
 
@@ -86,56 +84,55 @@ async takePicture() {
 getPhoto(options: CameraOptions) => Promise<CameraPhoto>
 ```
 
-Prompt the user to pick a photo from an album, or take a new photo
-with the camera.
+提示用户从相册选择照片或使用相机拍摄新照片
 
-| Param         | Type                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#cameraoptions">CameraOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#cameraphoto">CameraPhoto</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#cameraphoto">CameraPhoto</a>&gt;</code>
 
 ---
 
-### Interfaces
+### 接口
 
 #### CameraPhoto
 
-| Prop               | Type                | Description                                                                                                                                                                   |
-| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`base64String`** | <code>string</code> | The base64 encoded string representation of the image, if using <a href="#cameraresulttype">CameraResultType.Base64</a>.                                                      |
-| **`dataUrl`**      | <code>string</code> | The url starting with 'data:image/jpeg;base64,' and the base64 encoded string representation of the image, if using <a href="#cameraresulttype">CameraResultType.DataUrl</a>. |
-| **`path`**         | <code>string</code> | If using <a href="#cameraresulttype">CameraResultType.Uri</a>, the path will contain a full, platform-specific file URL that can be read later using the Filesystem API.      |
-| **`webPath`**      | <code>string</code> | webPath returns a path that can be used to set the src attribute of an image for efficient loading and rendering.                                                             |
-| **`exif`**         | <code>any</code>    | Exif data, if any, retrieved from the image                                                                                                                                   |
-| **`format`**       | <code>string</code> | The format of the image, ex: jpeg, png, gif. iOS and Android only support jpeg. Web supports jpeg and png. gif is only supported if using file input.                         |
+| 属性                | 类型                | 说明                                                                                                                                                                   |
+| ------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`base64String`**  | <code>string</code> | 使用<a href="#cameraresulttype">CameraResultType.Base64</a>时的base64编码字符串                                                                                        |
+| **`dataUrl`**       | <code>string</code> | 使用<a href="#cameraresulttype">CameraResultType.DataUrl</a>时的'data:image/jpeg;base64,'开头的URL和base64编码字符串                                                   |
+| **`path`**          | <code>string</code> | 使用<a href="#cameraresulttype">CameraResultType.Uri</a>时的完整平台特定文件URL，可通过Filesystem API读取                                                              |
+| **`webPath`**       | <code>string</code> | webPath返回可用于设置图像src属性的路径，以实现高效加载和渲染                                                                                                           |
+| **`exif`**          | <code>any</code>    | 从图像中检索的Exif数据（如果有）                                                                                                                                       |
+| **`format`**        | <code>string</code> | 图像格式，如jpeg、png、gif。iOS和Android仅支持jpeg。Web支持jpeg和png。仅在使用文件输入时支持gif                                                                        |
 
 #### CameraOptions
 
-| Prop                      | Type                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`quality`**             | <code>number</code>                                           | The quality of image to return as JPEG, from 0-100                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **`allowEditing`**        | <code>boolean</code>                                          | Whether to allow the user to crop or make small edits (platform specific)                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`resultType`**          | <code><a href="#cameraresulttype">CameraResultType</a></code> | How the data should be returned. Currently, only 'Base64', 'DataUrl' or 'Uri' is supported                                                                                                                                                                                                                                                                                                                                                                          |
-| **`saveToGallery`**       | <code>boolean</code>                                          | Whether to save the photo to the gallery. If the photo was picked from the gallery, it will only be saved if edited. Default: false                                                                                                                                                                                                                                                                                                                                 |
-| **`width`**               | <code>number</code>                                           | The width of the saved image                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **`height`**              | <code>number</code>                                           | The height of the saved image                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **`preserveAspectRatio`** | <code>boolean</code>                                          | Whether to preserve the aspect ratio of the image. If this flag is true, the width and height will be used as max values and the aspect ratio will be preserved. This is only relevant when both a width and height are passed. When only width or height is provided the aspect ratio is always preserved (and this option is a no-op). A future major version will change this behavior to be default, and may also remove this option altogether. Default: false |
-| **`correctOrientation`**  | <code>boolean</code>                                          | Whether to automatically rotate the image "up" to correct for orientation in portrait mode Default: true                                                                                                                                                                                                                                                                                                                                                            |
-| **`source`**              | <code><a href="#camerasource">CameraSource</a></code>         | The source to get the photo from. By default this prompts the user to select either the photo album or take a photo. Default: <a href="#camerasource">CameraSource.Prompt</a>                                                                                                                                                                                                                                                                                       |
-| **`direction`**           | <code><a href="#cameradirection">CameraDirection</a></code>   | iOS and Web only: The camera direction. Default: <a href="#cameradirection">CameraDirection.Rear</a>                                                                                                                                                                                                                                                                                                                                                                |
-| **`presentationStyle`**   | <code>"fullscreen" \| "popover"</code>                        | iOS only: The presentation style of the Camera. Defaults to fullscreen.                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`webUseInput`**         | <code>boolean</code>                                          | Web only: Whether to use the PWA Element experience or file input. The default is to use PWA Elements if installed and fall back to file input. To always use file input, set this to `true`. Learn more about PWA Elements: https://capacitorjs.com/docs/pwa-elements                                                                                                                                                                                              |
-| **`promptLabelHeader`**   | <code>string</code>                                           | If use <a href="#camerasource">CameraSource.Prompt</a> only, can change Prompt label. default: promptLabelHeader : 'Photo' // iOS only promptLabelCancel : 'Cancel' // iOS only promptLabelPhoto : 'From Photos' promptLabelPicture : 'Take Picture'                                                                                                                                                                                                                |
-| **`promptLabelCancel`**   | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`promptLabelPhoto`**    | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`promptLabelPicture`**  | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 属性                       | 类型                                                          | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`quality`**              | <code>number</code>                                           | JPEG图像质量，0-100                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`allowEditing`**         | <code>boolean</code>                                          | 是否允许用户裁剪或进行小幅编辑（平台特定）                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **`resultType`**           | <code><a href="#cameraresulttype">CameraResultType</a></code> | 数据返回方式。目前仅支持'Base64'、'DataUrl'或'Uri'                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`saveToGallery`**        | <code>boolean</code>                                          | 是否将照片保存到相册。如果照片是从相册选取的，则仅在编辑后才会保存。默认: false                                                                                                                                                                                                                                                                                                                                                                              |
+| **`width`**                | <code>number</code>                                           | 保存图像的宽度                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **`height`**               | <code>number</code>                                           | 保存图像的高度                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **`preserveAspectRatio`**  | <code>boolean</code>                                          | 是否保持图像宽高比。如果为true，则width和height将作为最大值并保持宽高比。仅当同时提供width和height时相关。当只提供width或height时，宽高比始终会保持（此选项无效）。未来主要版本可能会将此行为设为默认，并可能完全移除此选项。默认: false                                                                                                                                                                                                                        |
+| **`correctOrientation`**   | <code>boolean</code>                                          | 是否自动将图像"向上"旋转以校正纵向模式下的方向 默认: true                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **`source`**               | <code><a href="#camerasource">CameraSource</a></code>         | 照片来源。默认提示用户选择相册或拍照。默认: <a href="#camerasource">CameraSource.Prompt</a>                                                                                                                                                                                                                                                                                                                                                                 |
+| **`direction`**            | <code><a href="#cameradirection">CameraDirection</a></code>   | 仅iOS和Web: 相机方向。默认: <a href="#cameradirection">CameraDirection.Rear</a>                                                                                                                                                                                                                                                                                                                                                                             |
+| **`presentationStyle`**    | <code>"fullscreen" \| "popover"</code>                        | 仅iOS: 相机的呈现样式。默认为全屏。                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`webUseInput`**          | <code>boolean</code>                                          | 仅Web: 使用PWA Element体验还是文件输入。默认使用已安装的PWA Elements，若未安装则回退到文件输入。要始终使用文件输入，设为`true`。了解更多关于PWA Elements: https://capacitorjs.com/docs/pwa-elements                                                                                                                                                                                                                                                          |
+| **`promptLabelHeader`**    | <code>string</code>                                           | 如果使用<a href="#camerasource">CameraSource.Prompt</a>，可更改提示标签。默认: promptLabelHeader : '照片' // 仅iOS promptLabelCancel : '取消' // 仅iOS promptLabelPhoto : '从相册选择' promptLabelPicture : '拍照'                                                                                                                                                                                                                                             |
+| **`promptLabelCancel`**    | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **`promptLabelPhoto`**     | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **`promptLabelPicture`**   | <code>string</code>                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-### Enums
+### 枚举
 
 #### CameraResultType
 
-| Members       | Value                  |
+| 成员          | 值                     |
 | ------------- | ---------------------- |
 | **`Uri`**     | <code>"uri"</code>     |
 | **`Base64`**  | <code>"base64"</code>  |
@@ -143,7 +140,7 @@ with the camera.
 
 #### CameraSource
 
-| Members      | Value                 |
+| 成员         | 值                    |
 | ------------ | --------------------- |
 | **`Prompt`** | <code>"PROMPT"</code> |
 | **`Camera`** | <code>"CAMERA"</code> |
@@ -151,7 +148,7 @@ with the camera.
 
 #### CameraDirection
 
-| Members     | Value                |
+| 成员        | 值                   |
 | ----------- | -------------------- |
 | **`Rear`**  | <code>"REAR"</code>  |
 | **`Front`** | <code>"FRONT"</code> |

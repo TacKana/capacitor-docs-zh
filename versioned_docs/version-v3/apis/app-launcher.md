@@ -1,6 +1,6 @@
 ---
-title: App Launcher Capacitor Plugin API
-description: The AppLauncher API allows to open other apps
+title: App Launcher Capacitor 插件 API
+description: AppLauncher API 允许应用打开其他应用程序
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/src/definitions.ts
 sidebar_label: App Launcher
@@ -8,29 +8,29 @@ sidebar_label: App Launcher
 
 # @capacitor/app-launcher
 
-The AppLauncher API allows your app to check if an app can be opened and open it.
+AppLauncher API 使您的应用能够检查并打开其他应用程序。
 
-On iOS you can only open apps if you know their url scheme.
+在 iOS 平台，您只能通过已知的 URL Scheme 来打开应用。
 
-On Android you can open apps if you know their url scheme or use their public package name.
+在 Android 平台，您既可以通过 URL Scheme，也可以使用应用的公开包名来打开应用。
 
-**Note:** On [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) and newer you have to add the app package names you want to query in the `AndroidManifest.xml` inside the `queries` tag.
+**注意：** 在 [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 及更高版本中，您需要将要查询的应用包名添加到 `AndroidManifest.xml` 文件的 `queries` 标签中。
 
-Example:
+示例：
 ```xml
 <queries>
   <package android:name="com.getcapacitor.myapp" />
 </queries>
 ```
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/app-launcher
 npx cap sync
 ```
 
-## Example
+## 使用示例
 
 ```typescript
 import { AppLauncher } from '@capacitor/app-launcher';
@@ -38,7 +38,7 @@ import { AppLauncher } from '@capacitor/app-launcher';
 const checkCanOpenUrl = async () => {
   const { value } = await AppLauncher.canOpenUrl({ url: 'com.getcapacitor.myapp' });
 
-  console.log('Can open url: ', value);
+  console.log('能否打开该URL: ', value);
 };
 
 const openPortfolioPage = async () => {
@@ -46,13 +46,13 @@ const openPortfolioPage = async () => {
 };
 ```
 
-## API
+## API 文档
 
 <docgen-index>
 
 * [`canOpenUrl(...)`](#canopenurl)
 * [`openUrl(...)`](#openurl)
-* [Interfaces](#interfaces)
+* [接口定义](#interfaces)
 
 </docgen-index>
 
@@ -65,24 +65,20 @@ const openPortfolioPage = async () => {
 canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 ```
 
-Check if an app can be opened with the given URL.
+检查给定 URL 是否能打开对应的应用。
 
-On iOS you must declare the URL schemes you pass to this method by adding
-the `LSApplicationQueriesSchemes` key to your app's `Info.plist` file.
-Learn more about configuring
-[`Info.plist`](https://capacitorjs.com/docs/v3/ios/configuration#configuring-infoplist).
+在 iOS 平台上，您必须先在应用的 `Info.plist` 文件中通过添加 `LSApplicationQueriesSchemes` 键来声明要检查的 URL Scheme。
+详细了解如何配置 [`Info.plist`](https://capacitorjs.com/docs/v3/ios/configuration#configuring-infoplist)。
 
-This method always returns false for undeclared schemes, whether or not an
-appropriate app is installed. To learn more about the key, see
-[LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes).
+对于未声明的 Scheme，无论是否安装了对应应用，此方法都会返回 false。更多关于此键的信息，请参阅 [LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes)。
 
-| Param         | Type                                                            |
-| ------------- | --------------------------------------------------------------- |
-| **`options`** | <code><a href="#canopenurloptions">CanOpenURLOptions</a></code> |
+| 参数          | 类型                                                                 |
+| ------------- | -------------------------------------------------------------------- |
+| **`options`** | <code><a href="#canopenurloptions">CanOpenURLOptions</a></code>      |
 
-**Returns:** <code>Promise&lt;<a href="#canopenurlresult">CanOpenURLResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#canopenurlresult">CanOpenURLResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本：** 1.0.0
 
 --------------------
 
@@ -93,49 +89,49 @@ appropriate app is installed. To learn more about the key, see
 openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 ```
 
-Open an app with the given URL.
-On iOS the URL should be a known URLScheme.
-On Android the URL can be a known URLScheme or an app package name.
+通过给定 URL 打开对应应用。
+在 iOS 平台上，URL 应为已知的 URL Scheme。
+在 Android 平台上，URL 可以是已知的 URL Scheme 或应用包名。
 
-| Param         | Type                                                      |
-| ------------- | --------------------------------------------------------- |
-| **`options`** | <code><a href="#openurloptions">OpenURLOptions</a></code> |
+| 参数          | 类型                                                           |
+| ------------- | -------------------------------------------------------------- |
+| **`options`** | <code><a href="#openurloptions">OpenURLOptions</a></code>      |
 
-**Returns:** <code>Promise&lt;<a href="#openurlresult">OpenURLResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#openurlresult">OpenURLResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口定义
 
 
 #### CanOpenURLResult
 
-| Prop        | Type                 |
-| ----------- | -------------------- |
-| **`value`** | <code>boolean</code> |
+| 属性         | 类型                  |
+| ------------ | --------------------- |
+| **`value`**  | <code>boolean</code>  |
 
 
 #### CanOpenURLOptions
 
-| Prop      | Type                |
-| --------- | ------------------- |
-| **`url`** | <code>string</code> |
+| 属性       | 类型                |
+| ---------- | ------------------- |
+| **`url`**  | <code>string</code> |
 
 
 #### OpenURLResult
 
-| Prop            | Type                 |
-| --------------- | -------------------- |
-| **`completed`** | <code>boolean</code> |
+| 属性             | 类型                  |
+| ---------------- | --------------------- |
+| **`completed`**  | <code>boolean</code>  |
 
 
 #### OpenURLOptions
 
-| Prop      | Type                |
-| --------- | ------------------- |
-| **`url`** | <code>string</code> |
+| 属性       | 类型                |
+| ---------- | ------------------- |
+| **`url`**  | <code>string</code> |
 
 </docgen-api>

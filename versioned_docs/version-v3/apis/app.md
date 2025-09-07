@@ -1,6 +1,6 @@
 ---
 title: App Capacitor Plugin API
-description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+description: App API 用于处理应用的高级状态和事件。例如，当应用进入或离开前台时触发事件，处理深度链接，打开其他应用以及管理持久化的插件状态。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/src/definitions.ts
 sidebar_label: App
@@ -8,19 +8,18 @@ sidebar_label: App
 
 # @capacitor/app
 
-The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+App API 用于处理应用的高级状态和事件。例如，当应用进入或离开前台时触发事件，处理深度链接，打开其他应用以及管理持久化的插件状态。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/app
 npx cap sync
 ```
 
-## iOS
+## iOS 配置
 
-For being able to open the app from a custom scheme you need to register the scheme first. You can do it by editing the [`Info.plist`](https://capacitorjs.com/docs/v3/ios/configuration#configuring-infoplist) file and adding this lines.
-
+如需通过自定义 URL Scheme 打开应用，需先注册该 Scheme。可通过编辑 [`Info.plist`](https://capacitorjs.com/docs/v3/ios/configuration#configuring-infoplist) 文件并添加以下内容实现。
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -36,9 +35,9 @@ For being able to open the app from a custom scheme you need to register the sch
 </array>
 ```
 
-## Android
+## Android 配置
 
-For being able to open the app from a custom scheme you need to register the scheme first. You can do it by adding this lines inside the `activity` section of the `AndroidManifest.xml`.
+如需通过自定义 URL Scheme 打开应用，需先注册该 Scheme。可在 `AndroidManifest.xml` 文件的 `activity` 部分添加以下配置实现。
 
 ```xml
 <intent-filter>
@@ -49,33 +48,33 @@ For being able to open the app from a custom scheme you need to register the sch
 </intent-filter>
 ```
 
-`custom_url_scheme` value is stored in `strings.xml`. When the Android platform is added, `@capacitor/cli` adds the app's package name as default value, but can be replaced by editing the `strings.xml` file.
+`custom_url_scheme` 的值存储在 `strings.xml` 中。当添加 Android 平台时，`@capacitor/cli` 会自动将应用包名设为默认值，也可通过编辑 `strings.xml` 文件进行修改。
 
-## Example
+## 使用示例
 
 ```typescript
 import { App } from '@capacitor/app';
 
 App.addListener('appStateChange', ({ isActive }) => {
-  console.log('App state changed. Is active?', isActive);
+  console.log('应用状态变化。是否活跃？', isActive);
 });
 
 App.addListener('appUrlOpen', data => {
-  console.log('App opened with URL:', data);
+  console.log('应用通过以下 URL 打开:', data);
 });
 
 App.addListener('appRestoredResult', data => {
-  console.log('Restored state:', data);
+  console.log('恢复的状态:', data);
 });
 
 const checkAppLaunchUrl = async () => {
   const { url } = await App.getLaunchUrl();
 
-  console.log('App opened with URL: ' + url);
+  console.log('应用通过以下 URL 启动: ' + url);
 };
 ```
 
-## API
+## API 文档
 
 <docgen-index>
 
@@ -89,8 +88,8 @@ const checkAppLaunchUrl = async () => {
 * [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
 * [`addListener('backButton', ...)`](#addlistenerbackbutton-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口定义](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -103,14 +102,13 @@ const checkAppLaunchUrl = async () => {
 exitApp() => never
 ```
 
-Force exit the app. This should only be used in conjunction with the `backButton` handler for Android to
-exit the app when navigation is complete.
+强制退出应用。此方法通常与 Android 的 `backButton` 事件处理器配合使用，在导航完成后退出应用。
 
-Ionic handles this itself so you shouldn't need to call this if using Ionic.
+如果使用 Ionic 框架，Ionic 已自行处理此逻辑，通常无需调用此方法。
 
-**Returns:** <code>never</code>
+**返回:** <code>never</code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -121,11 +119,11 @@ Ionic handles this itself so you shouldn't need to call this if using Ionic.
 getInfo() => Promise<AppInfo>
 ```
 
-Return information about the app.
+获取应用基础信息。
 
-**Returns:** <code>Promise&lt;<a href="#appinfo">AppInfo</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#appinfo">AppInfo</a>&gt;</code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -136,11 +134,11 @@ Return information about the app.
 getState() => Promise<AppState>
 ```
 
-Gets the current app state.
+获取当前应用状态。
 
-**Returns:** <code>Promise&lt;<a href="#appstate">AppState</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#appstate">AppState</a>&gt;</code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -151,11 +149,11 @@ Gets the current app state.
 getLaunchUrl() => Promise<AppLaunchUrl | undefined>
 ```
 
-Get the URL the app was launched with, if any.
+获取启动应用的 URL（如果有）。
 
-**Returns:** <code>Promise&lt;<a href="#applaunchurl">AppLaunchUrl</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#applaunchurl">AppLaunchUrl</a>&gt;</code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -166,11 +164,11 @@ Get the URL the app was launched with, if any.
 minimizeApp() => Promise<void>
 ```
 
-Minimizes the application.
+最小化应用。
 
-Only available for Android.
+仅 Android 平台可用。
 
-**Since:** 1.1.0
+**版本:** 1.1.0
 
 --------------------
 
@@ -181,16 +179,16 @@ Only available for Android.
 addListener(eventName: 'appStateChange', listenerFunc: StateChangeListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for changes in the App's active state (whether the app is in the foreground or background)
+监听应用活跃状态变化（应用是否在前台运行）
 
-| Param              | Type                                                                |
+| 参数                | 类型                                                                |
 | ------------------ | ------------------------------------------------------------------- |
 | **`eventName`**    | <code>'appStateChange'</code>                                       |
 | **`listenerFunc`** | <code><a href="#statechangelistener">StateChangeListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -201,17 +199,16 @@ Listen for changes in the App's active state (whether the app is in the foregrou
 addListener(eventName: 'appUrlOpen', listenerFunc: URLOpenListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for url open events for the app. This handles both custom URL scheme links as well
-as URLs your app handles (Universal Links on iOS and App Links on Android)
+监听应用 URL 打开事件。同时处理自定义 URL Scheme 和通用链接（iOS 的 Universal Links 和 Android 的 App Links）
 
-| Param              | Type                                                        |
+| 参数                | 类型                                                        |
 | ------------------ | ----------------------------------------------------------- |
 | **`eventName`**    | <code>'appUrlOpen'</code>                                   |
 | **`listenerFunc`** | <code><a href="#urlopenlistener">URLOpenListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -222,36 +219,26 @@ as URLs your app handles (Universal Links on iOS and App Links on Android)
 addListener(eventName: 'appRestoredResult', listenerFunc: RestoredListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-If the app was launched with previously persisted plugin call data, such as on Android
-when an activity returns to an app that was closed, this call will return any data
-the app was launched with, converted into the form of a result from a plugin call.
+当应用被关闭后通过持久化的插件调用数据重新启动时（如 Android 上 activity 返回到已关闭的应用），此方法会返回应用启动时携带的所有数据，并转换为插件调用的结果格式。
 
-On Android, due to memory constraints on low-end devices, it's possible
-that, if your app launches a new activity, your app will be terminated by
-the operating system in order to reduce memory consumption.
+在 Android 低端设备上，由于内存限制，当应用启动新 activity 时，操作系统可能为减少内存消耗而终止应用进程。
 
-For example, that means the Camera API, which launches a new Activity to
-take a photo, may not be able to return data back to your app.
+例如，Camera API 会启动新 activity 拍摄照片，可能无法将数据返回给应用。
 
-To avoid this, Capacitor stores all restored activity results on launch.
-You should add a listener for `appRestoredResult` in order to handle any
-plugin call results that were delivered when your app was not running.
+为避免此问题，Capacitor 会在启动时存储所有恢复的 activity 结果。建议添加 `appRestoredResult` 监听器来处理应用未运行时传递的插件调用结果。
 
-Once you have that result (if any), you can update the UI to restore a
-logical experience for the user, such as navigating or selecting the
-proper tab.
+获取结果后（如有），可更新 UI 以恢复用户的逻辑体验，如导航或选择正确的标签页。
 
-We recommend every Android app using plugins that rely on external
-Activities (for example, Camera) to have this event and process handled.
+建议所有依赖外部 Activity 的 Android 应用（例如使用 Camera）都配置此事件处理。
 
-| Param              | Type                                                          |
+| 参数                | 类型                                                          |
 | ------------------ | ------------------------------------------------------------- |
 | **`eventName`**    | <code>'appRestoredResult'</code>                              |
 | **`listenerFunc`** | <code><a href="#restoredlistener">RestoredListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -262,18 +249,16 @@ Activities (for example, Camera) to have this event and process handled.
 addListener(eventName: 'backButton', listenerFunc: BackButtonListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for the hardware back button event (Android only). Listening for this event will disable the
-default back button behaviour, so you might want to call `window.history.back()` manually.
-If you want to close the app, call `App.exitApp()`.
+监听硬件返回按钮事件（仅 Android）。监听此事件会禁用默认返回行为，可能需要手动调用 `window.history.back()`。如需关闭应用，请调用 `App.exitApp()`。
 
-| Param              | Type                                                              |
+| 参数                | 类型                                                              |
 | ------------------ | ----------------------------------------------------------------- |
 | **`eventName`**    | <code>'backButton'</code>                                         |
 | **`listenerFunc`** | <code><a href="#backbuttonlistener">BackButtonListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -284,75 +269,75 @@ If you want to close the app, call `App.exitApp()`.
 removeAllListeners() => Promise<void>
 ```
 
-Remove all native listeners for this plugin
+移除此插件所有的原生监听器
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口定义
 
 
 #### AppInfo
 
-| Prop          | Type                | Description                                                                                         | Since |
+| 属性          | 类型                | 描述                                                                                         | 版本 |
 | ------------- | ------------------- | --------------------------------------------------------------------------------------------------- | ----- |
-| **`name`**    | <code>string</code> | The name of the app.                                                                                | 1.0.0 |
-| **`id`**      | <code>string</code> | The identifier of the app. On iOS it's the Bundle Identifier. On Android it's the Application ID    | 1.0.0 |
-| **`build`**   | <code>string</code> | The build version. On iOS it's the CFBundleVersion. On Android it's the versionCode.                | 1.0.0 |
-| **`version`** | <code>string</code> | The app version. On iOS it's the CFBundleShortVersionString. On Android it's package's versionName. | 1.0.0 |
+| **`name`**    | <code>string</code> | 应用名称                                                                                | 1.0.0 |
+| **`id`**      | <code>string</code> | 应用标识符。iOS 上是 Bundle Identifier，Android 上是 Application ID    | 1.0.0 |
+| **`build`**   | <code>string</code> | 构建版本号。iOS 上是 CFBundleVersion，Android 上是 versionCode                | 1.0.0 |
+| **`version`** | <code>string</code> | 应用版本。iOS 上是 CFBundleShortVersionString，Android 上是 versionName | 1.0.0 |
 
 
 #### AppState
 
-| Prop           | Type                 | Description                       | Since |
+| 属性           | 类型                 | 描述                       | 版本 |
 | -------------- | -------------------- | --------------------------------- | ----- |
-| **`isActive`** | <code>boolean</code> | Whether the app is active or not. | 1.0.0 |
+| **`isActive`** | <code>boolean</code> | 表示应用是否处于活跃状态 | 1.0.0 |
 
 
 #### AppLaunchUrl
 
-| Prop      | Type                | Description                   | Since |
+| 属性      | 类型                | 描述                   | 版本 |
 | --------- | ------------------- | ----------------------------- | ----- |
-| **`url`** | <code>string</code> | The url used to open the app. | 1.0.0 |
+| **`url`** | <code>string</code> | 用于打开应用的 URL | 1.0.0 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### URLOpenListenerEvent
 
-| Prop                       | Type                 | Description                                                                                                                                                                        | Since |
+| 属性                       | 类型                 | 描述                                                                                                                                                                        | 版本 |
 | -------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`url`**                  | <code>string</code>  | The URL the app was opened with.                                                                                                                                                   | 1.0.0 |
-| **`iosSourceApplication`** | <code>any</code>     | The source application opening the app (iOS only) https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication                         | 1.0.0 |
-| **`iosOpenInPlace`**       | <code>boolean</code> | Whether the app should open the passed document in-place or must copy it first. https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace | 1.0.0 |
+| **`url`**                  | <code>string</code>  | 打开应用的 URL                                                                                                                                                   | 1.0.0 |
+| **`iosSourceApplication`** | <code>any</code>     | 打开应用的源应用（仅 iOS） https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication                         | 1.0.0 |
+| **`iosOpenInPlace`**       | <code>boolean</code> | 指示应用应直接打开文档还是需先复制 https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace | 1.0.0 |
 
 
 #### RestoredListenerEvent
 
-| Prop             | Type                              | Description                                                                                                                                       | Since |
+| 属性             | 类型                              | 描述                                                                                                                                       | 版本 |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`pluginId`**   | <code>string</code>               | The pluginId this result corresponds to. For example, `Camera`.                                                                                   | 1.0.0 |
-| **`methodName`** | <code>string</code>               | The methodName this result corresponds to. For example, `getPhoto`                                                                                | 1.0.0 |
-| **`data`**       | <code>any</code>                  | The result data passed from the plugin. This would be the result you'd expect from normally calling the plugin method. For example, `CameraPhoto` | 1.0.0 |
-| **`success`**    | <code>boolean</code>              | Boolean indicating if the plugin call succeeded.                                                                                                  | 1.0.0 |
-| **`error`**      | `{ message: string; }` | If the plugin call didn't succeed, it will contain the error message.                                                                             | 1.0.0 |
+| **`pluginId`**   | <code>string</code>               | 对应的插件 ID，如 `Camera`                                                                                                                   | 1.0.0 |
+| **`methodName`** | <code>string</code>               | 对应的方法名，如 `getPhoto`                                                                                                                | 1.0.0 |
+| **`data`**       | <code>any</code>                  | 插件返回的数据，与正常调用插件方法的结果一致，如 `CameraPhoto` | 1.0.0 |
+| **`success`**    | <code>boolean</code>              | 表示插件调用是否成功                                                                                                  | 1.0.0 |
+| **`error`**      | `{ message: string; }` | 调用失败时的错误信息                                                                             | 1.0.0 |
 
 
 #### BackButtonListenerEvent
 
-| Prop            | Type                 | Description                                                                                               | Since |
+| 属性            | 类型                 | 描述                                                                                               | 版本 |
 | --------------- | -------------------- | --------------------------------------------------------------------------------------------------------- | ----- |
-| **`canGoBack`** | <code>boolean</code> | Indicates whether the browser can go back in history. False when the history stack is on the first entry. | 1.0.0 |
+| **`canGoBack`** | <code>boolean</code> | 指示浏览器是否可以后退。当历史堆栈位于第一条记录时为 false | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### StateChangeListener

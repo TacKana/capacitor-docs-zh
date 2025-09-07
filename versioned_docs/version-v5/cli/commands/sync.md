@@ -1,33 +1,33 @@
 ---
 title: CLI Command - cap sync
-description: Capacitor CLI command - cap sync
+description: Capacitor CLI 命令 - cap sync
 contributors:
   - dotNetkow
 sidebar_label: sync
 ---
 
-# Capacitor CLI - cap sync
+# Capacitor CLI - cap sync 命令
 
-This command runs [`copy`](/cli/commands/copy.md) and then [`update`](/cli/commands/update.md).
+该命令会先执行 [`copy`](/cli/commands/copy.md) 操作，再执行 [`update`](/cli/commands/update.md) 操作。
 
 ```bash
 npx cap sync [options] [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (optional): `android`, `ios`
+- `platform` （可选）：`android` 或 `ios`
 
-<strong>Options:</strong>
+<strong>选项参数：</strong>
 
-- `--deployment`: Podfile.lock won't be deleted and pod install will use `--deployment` option.
-- `--inline`: After syncing, all JS source maps will be inlined allowing for debugging an Android Web View in Chromium based browsers.
+- `--deployment`：保留 Podfile.lock 文件，并使用 `--deployment` 选项执行 pod install。
+- `--inline`：同步完成后，所有 JS 源映射将被内联，以便在基于 Chromium 的浏览器中调试 Android WebView。
 
-## Hooks
+## 钩子函数
 
-The following hooks are available for sync command:
+sync 命令支持以下钩子函数：
 
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-[More information](../hooks)
+[了解更多](../hooks)

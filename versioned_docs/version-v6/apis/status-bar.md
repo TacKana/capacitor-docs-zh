@@ -1,47 +1,41 @@
 ---
-title: Status Bar Capacitor Plugin API
-description: The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+title: Status Bar Capacitor 插件 API
+description: StatusBar API 提供配置状态栏样式以及显示/隐藏状态栏的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/status-bar/src/definitions.ts
-sidebar_label: Status Bar
+sidebar_label: 状态栏
 ---
 
 # @capacitor/status-bar
 
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+StatusBar API 提供配置状态栏样式以及显示/隐藏状态栏的方法。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/status-bar
 npx cap sync
 ```
 
-## iOS Note
+## iOS 注意事项
 
-This plugin requires "View controller-based status bar appearance"
-(`UIViewControllerBasedStatusBarAppearance`) set to `YES` in `Info.plist`. Read
-about [Configuring iOS](https://capacitorjs.com/docs/ios/configuration) for
-help.
+本插件要求在 `Info.plist` 中将 "基于视图控制器的状态栏外观" (`UIViewControllerBasedStatusBarAppearance`) 设为 `YES`。如需帮助请查阅 [iOS 配置指南](https://capacitorjs.com/docs/ios/configuration)。
 
-The status bar visibility defaults to visible and the style defaults to
-`Style.Default`. You can change these defaults by adding
-`UIStatusBarHidden` and/or `UIStatusBarStyle` in `Info.plist`.
+状态栏默认可见，样式默认为 `Style.Default`。您可以通过在 `Info.plist` 中添加 `UIStatusBarHidden` 和/或 `UIStatusBarStyle` 来修改这些默认值。
 
-`setBackgroundColor` and `setOverlaysWebView` are currently not supported on
-iOS devices.
+当前 iOS 设备不支持 `setBackgroundColor` 和 `setOverlaysWebView` 方法。
 
-## Example
+## 示例
 
 ```typescript
 import { StatusBar, Style } from '@capacitor/status-bar';
 
-// iOS only
+// 仅 iOS 有效
 window.addEventListener('statusTap', function () {
-  console.log('statusbar tapped');
+  console.log('状态栏被点击');
 });
 
-// Display content under transparent status bar (Android only)
+// 使内容显示在透明状态栏下方（仅 Android 有效）
 StatusBar.setOverlaysWebView({ overlay: true });
 
 const setStatusBarStyleDark = async () => {
@@ -71,8 +65,8 @@ const showStatusBar = async () => {
 * [`hide(...)`](#hide)
 * [`getInfo()`](#getinfo)
 * [`setOverlaysWebView(...)`](#setoverlayswebview)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -85,13 +79,13 @@ const showStatusBar = async () => {
 setStyle(options: StyleOptions) => Promise<void>
 ```
 
-Set the current style of the status bar.
+设置状态栏当前样式。
 
-| Param         | Type                                                  |
+| 参数          | 类型                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#styleoptions">StyleOptions</a></code> |
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
@@ -102,15 +96,15 @@ Set the current style of the status bar.
 setBackgroundColor(options: BackgroundColorOptions) => Promise<void>
 ```
 
-Set the background color of the status bar.
+设置状态栏背景颜色。
 
-This method is only supported on Android.
+此方法仅在 Android 上受支持。
 
-| Param         | Type                                                                      |
+| 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#backgroundcoloroptions">BackgroundColorOptions</a></code> |
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
@@ -121,17 +115,14 @@ This method is only supported on Android.
 show(options?: AnimationOptions | undefined) => Promise<void>
 ```
 
-Show the status bar.
-On iOS, if the status bar is initially hidden and the initial style is set to
-`UIStatusBarStyleLightContent`, first show call might present a glitch on the
-animation showing the text as dark and then transition to light. It's recommended
-to use <a href="#animation">`Animation.None`</a> as the animation on the first call.
+显示状态栏。
+在 iOS 上，如果状态栏初始隐藏且初始样式设为 `UIStatusBarStyleLightContent`，首次调用 show 时可能会出现动画闪烁，文本先显示为深色再过渡为浅色。建议首次调用时使用 <a href="#animation">`Animation.None`</a> 作为动画类型。
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#animationoptions">AnimationOptions</a></code> |
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
@@ -142,13 +133,13 @@ to use <a href="#animation">`Animation.None`</a> as the animation on the first c
 hide(options?: AnimationOptions | undefined) => Promise<void>
 ```
 
-Hide the status bar.
+隐藏状态栏。
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#animationoptions">AnimationOptions</a></code> |
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
@@ -159,11 +150,11 @@ Hide the status bar.
 getInfo() => Promise<StatusBarInfo>
 ```
 
-Get info about the current state of the status bar.
+获取状态栏当前状态信息。
 
-**Returns:** <code>Promise&lt;<a href="#statusbarinfo">StatusBarInfo</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#statusbarinfo">StatusBarInfo</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
@@ -174,79 +165,78 @@ Get info about the current state of the status bar.
 setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 ```
 
-Set whether or not the status bar should overlay the webview to allow usage
-of the space underneath it.
+设置状态栏是否覆盖 WebView，以便使用其下方空间。
 
-This method is only supported on Android.
+此方法仅在 Android 上受支持。
 
-| Param         | Type                                                                            |
+| 参数          | 类型                                                                            |
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#setoverlayswebviewoptions">SetOverlaysWebViewOptions</a></code> |
 
-**Since:** 1.0.0
+**始于:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### StyleOptions
 
-| Prop        | Type                                    | Description                                               | Since |
-| ----------- | --------------------------------------- | --------------------------------------------------------- | ----- |
-| **`style`** | <code><a href="#style">Style</a></code> | <a href="#style">Style</a> of the text of the status bar. | 1.0.0 |
+| 属性         | 类型                                    | 描述                                               | 始于 |
+| ------------ | --------------------------------------- | ------------------------------------------------- | ---- |
+| **`style`**  | <code><a href="#style">Style</a></code> | 状态栏文本的<a href="#style">样式</a>。           | 1.0.0 |
 
 
 #### BackgroundColorOptions
 
-| Prop        | Type                | Description                                                                                 | Since |
-| ----------- | ------------------- | ------------------------------------------------------------------------------------------- | ----- |
-| **`color`** | <code>string</code> | A hex color to which the status bar color is set. This option is only supported on Android. | 1.0.0 |
+| 属性         | 类型                | 描述                                                                                 | 始于 |
+| ------------ | ------------------- | ----------------------------------------------------------------------------------- | ---- |
+| **`color`**  | <code>string</code> | 设置状态栏颜色的十六进制值。此选项仅在 Android 上受支持。                           | 1.0.0 |
 
 
 #### AnimationOptions
 
-| Prop            | Type                                            | Description                                                                                         | Default                     | Since |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------- | ----- |
-| **`animation`** | <code><a href="#animation">Animation</a></code> | The type of status bar animation used when showing or hiding. This option is only supported on iOS. | <code>Animation.Fade</code> | 1.0.0 |
+| 属性               | 类型                                            | 描述                                                                                         | 默认值                     | 始于 |
+| ------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------- | ---- |
+| **`animation`**    | <code><a href="#animation">Animation</a></code> | 显示或隐藏状态栏时使用的动画类型。此选项仅在 iOS 上受支持。                                  | <code>Animation.Fade</code> | 1.0.0 |
 
 
 #### StatusBarInfo
 
-| Prop           | Type                                    | Description                                                                         | Since |
-| -------------- | --------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
-| **`visible`**  | <code>boolean</code>                    | Whether the status bar is visible or not.                                           | 1.0.0 |
-| **`style`**    | <code><a href="#style">Style</a></code> | The current status bar style.                                                       | 1.0.0 |
-| **`color`**    | <code>string</code>                     | The current status bar color. This option is only supported on Android.             | 1.0.0 |
-| **`overlays`** | <code>boolean</code>                    | Whether the statusbar is overlaid or not. This option is only supported on Android. | 1.0.0 |
+| 属性            | 类型                                    | 描述                                                                         | 始于 |
+| --------------- | --------------------------------------- | --------------------------------------------------------------------------- | ---- |
+| **`visible`**   | <code>boolean</code>                    | 状态栏是否可见。                                                           | 1.0.0 |
+| **`style`**     | <code><a href="#style">Style</a></code> | 当前状态栏样式。                                                           | 1.0.0 |
+| **`color`**     | <code>string</code>                     | 当前状态栏颜色。此选项仅在 Android 上受支持。                              | 1.0.0 |
+| **`overlays`**  | <code>boolean</code>                    | 状态栏是否处于覆盖模式。此选项仅在 Android 上受支持。                      | 1.0.0 |
 
 
 #### SetOverlaysWebViewOptions
 
-| Prop          | Type                 | Description                               | Since |
-| ------------- | -------------------- | ----------------------------------------- | ----- |
-| **`overlay`** | <code>boolean</code> | Whether to overlay the status bar or not. | 1.0.0 |
+| 属性           | 类型                 | 描述                               | 始于 |
+| -------------- | -------------------- | --------------------------------- | ---- |
+| **`overlay`**  | <code>boolean</code> | 是否让状态栏覆盖内容区域。         | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### Style
 
-| Members       | Value                  | Description                                                                                                                                                                                                                                            | Since |
-| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`Dark`**    | <code>'DARK'</code>    | Light text for dark backgrounds.                                                                                                                                                                                                                       | 1.0.0 |
-| **`Light`**   | <code>'LIGHT'</code>   | Dark text for light backgrounds.                                                                                                                                                                                                                       | 1.0.0 |
-| **`Default`** | <code>'DEFAULT'</code> | The style is based on the device appearance. If the device is using Dark mode, the statusbar text will be light. If the device is using Light mode, the statusbar text will be dark. On Android the default will be the one the app was launched with. | 1.0.0 |
+| 成员           | 值                  | 描述                                                                                                                                                                                                                                            | 始于 |
+| -------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **`Dark`**     | <code>'DARK'</code> | 深色背景上的浅色文本。                                                                                                                                                                                                                        | 1.0.0 |
+| **`Light`**    | <code>'LIGHT'</code> | 浅色背景上的深色文本。                                                                                                                                                                                                                        | 1.0.0 |
+| **`Default`**  | <code>'DEFAULT'</code> | 样式基于设备外观。如果设备使用深色模式，状态栏文本将显示为浅色；如果设备使用浅色模式，则显示为深色。在 Android 上，默认样式为应用启动时的样式。                                                                                               | 1.0.0 |
 
 
 #### Animation
 
-| Members     | Value                | Description                                                   | Since |
-| ----------- | -------------------- | ------------------------------------------------------------- | ----- |
-| **`None`**  | <code>'NONE'</code>  | No animation during show/hide.                                | 1.0.0 |
-| **`Slide`** | <code>'SLIDE'</code> | Slide animation during show/hide. It doesn't work on iOS 15+. | 1.0.0 |
-| **`Fade`**  | <code>'FADE'</code>  | Fade animation during show/hide.                              | 1.0.0 |
+| 成员          | 值                | 描述                                                   | 始于 |
+| ------------- | ----------------- | ----------------------------------------------------- | ---- |
+| **`None`**    | <code>'NONE'</code> | 显示/隐藏时不使用动画。                                | 1.0.0 |
+| **`Slide`**   | <code>'SLIDE'</code> | 显示/隐藏时使用滑动动画（iOS 15+ 上无效）。            | 1.0.0 |
+| **`Fade`**    | <code>'FADE'</code> | 显示/隐藏时使用淡入淡出动画。                          | 1.0.0 |
 
 </docgen-api>

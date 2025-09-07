@@ -1,28 +1,28 @@
 ---
-title: Recommendations
-description: Visual Studio Code Extension for Capacitor
+title: 优化建议
+description: Capacitor的Visual Studio Code扩展插件
 contributors:
   - dtarnawsky
 slug: /vscode/recommendations
 ---
 
-The extension will make recommendations based on experience of common problems discovered by engineers at Ionic. Recommendations appear with a light bulb icon and can either be acted upon or ignored.
+本扩展会根据Ionic工程师在开发过程中发现的常见问题给出优化建议。这些建议会以灯泡图标显示，您可以选择采纳或忽略。
 
-## Common Recommendations
+## 常见建议场景
 
-The follow scenarios will show a recommendation:
-- When packages are deprecated or archived by their author in Github
-- When a plugin has a better officially supported Capacitor plugin
-- When a plugin has known issues and is no longer maintained by its author
-- When a project has problems in its [`browserlist`](https://github.com/browserslist/browserslist) support
-- When there are misconfigurations of `angular.json` found
-- When versions of Capacitor `cli`, `ios`, `android`, `core` are mismatched
-- If an incompatible plugin can be replaced by a Capacitor equivalent
-- When a plugins functionality is already built into Capacitor
-- When a dependency has been replaced (such as `ionic-native` -> `awesome-cordova-plugins`)
-- If a plugin or dependency has known security vulnerabilities that need to be addressed
-- When a plugin is not required (eg `cordova-plugin-add-swift-support`)
+以下情况会触发优化建议：
+- 当GitHub上的包作者已弃用或归档该包时
+- 当某个插件有官方支持的更优Capacitor替代方案时
+- 当插件存在已知问题且原作者已停止维护时
+- 当项目的[`browserlist`](https://github.com/browserslist/browserslist)配置存在兼容性问题时
+- 当检测到`angular.json`文件存在错误配置时
+- 当Capacitor的`cli`、`ios`、`android`、`core`版本不匹配时
+- 当存在可被Capacitor原生功能替代的不兼容插件时
+- 当插件功能已内置在Capacitor核心中时
+- 当依赖项已被替换（如`ionic-native`替换为`awesome-cordova-plugins`）时
+- 当插件或依赖项存在需要修复的安全漏洞时
+- 当插件已不再需要时（例如`cordova-plugin-add-swift-support`）
 
 :::note
-Not all scenarios are covered, so if there a fix you've needed to apply to your project that you think would be of benefit to other developers please [submit a suggestion](https://github.com/ionic-team/vscode-ionic/issues).
+当前建议覆盖范围有限，如果您发现某个项目修复方案对其他开发者有帮助，欢迎[提交建议](https://github.com/ionic-team/vscode-ionic/issues)。
 :::

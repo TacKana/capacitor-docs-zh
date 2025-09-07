@@ -1,24 +1,24 @@
 ---
 title: Screen Orientation Configuration
-description: Manage screen orientation settings in your Capacitor app
+description: 管理 Capacitor 应用中的屏幕方向设置
 contributors:
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/guides/screen-orientation
 ---
 
-## Screen Orientation in your Capacitor App
+## Capacitor 应用中的屏幕方向控制
 
-Many apps work well in portrait and landscape device orientations. However, many don't, and there are good reasons to require an app to function solely or occasionally in one mode or the other.
+许多应用能够很好地适配设备的竖屏（Portrait）和横屏（Landscape）方向。但有些应用不需要支持所有方向，有时出于特定需求，我们可能需要让应用仅支持单一方向或根据场景切换方向。
 
-## Global Orientation Settings
+## 全局方向设置
 
-To set a global setting for orientation in your Capacitor app, you'll set the configuration value necessary for the platform you're targeting.
+要为 Capacitor 应用配置全局屏幕方向，您需要针对目标平台进行相应设置。
 
-### iOS Configuration
+### iOS 配置
 
-iOS allows for different screen orientations to be supported on iPhones and iPads. To limit the allowed orientations for iOS, open Xcode and open the `Info.plist` file. Find the following keys: `Supported interface orientation` and `Supported interface orientation (iPad)`. Using these values, specify the different orientations you would like supported for iPhones and for iPads.
+iOS 允许为 iPhone 和 iPad 设置不同的支持方向。要限制 iOS 设备允许的方向，请打开 Xcode 并编辑 `Info.plist` 文件。找到以下键值：`Supported interface orientation` 和 `Supported interface orientation (iPad)`。通过这些设置，您可以分别为 iPhone 和 iPad 指定支持的方向。
 
-If editting the `Info.plist` file directly look for the following keys: `UISupportedInterfaceOrientations` and `UISupportedInterfaceOrientations~ipad`. For example, the following settings will limit the orientation to right-side-up `Portrait` on iPhones and either of the `Landscape` orientations on iPads:
+如果直接编辑 `Info.plist` 文件，请查找以下键：`UISupportedInterfaceOrientations` 和 `UISupportedInterfaceOrientations~ipad`。例如，以下配置将限制 iPhone 仅支持竖屏（Portrait），而 iPad 支持左右两种横屏（Landscape）方向：
 
 ```
   <key>UISupportedInterfaceOrientations</key>
@@ -32,29 +32,29 @@ If editting the `Info.plist` file directly look for the following keys: `UISuppo
   </array>
 ```
 
-### Android Configuration
+### Android 配置
 
-On Android, orientation can be set by modifying the `AndroidManifest.xml` and setting `android:screenOrientation` on the `<activity>` entry for your main app activity. See the [Android Manifest Documentation](https://developer.android.com/guide/topics/manifest/activity-element#screen) for details on the possible entries.
+在 Android 平台上，可以通过修改 `AndroidManifest.xml` 文件，在主 Activity 的 `<activity>` 标签中设置 `android:screenOrientation` 属性来控制方向。具体可用值请参考 [Android 清单文档](https://developer.android.com/guide/topics/manifest/activity-element#screen)。
 
-## Dynamic Orientation Settings
+## 动态方向控制
 
-Many apps need to support multiple orientations, with the ability to lock orientations occasionally depending on the content.
+许多应用需要支持多种方向，同时具备根据内容临时锁定方向的能力。
 
-Capacitor supports this through the `cordova-plugin-screen-orientation` plugin:
+Capacitor 通过 `cordova-plugin-screen-orientation` 插件提供这一功能：
 
 ```shell
 npm install cordova-plugin-screen-orientation
 npx cap update
 ```
 
-Then, use the `lock` and `unlock` methods available on `window.screen.orientation`:
+安装后，您可以使用 `window.screen.orientation` 上的 `lock` 和 `unlock` 方法：
 
 ```typescript
-window.screen.orientation.lock('portrait');
-window.screen.orientation.lock('landscape');
+window.screen.orientation.lock('portrait'); // 锁定为竖屏
+window.screen.orientation.lock('landscape'); // 锁定为横屏
 
-// To unlock orientation which will default back to the global setting:
+// 解除方向锁定，恢复为全局设置
 window.screen.orientation.unlock();
 ```
 
-See the [Orientation Plugin Docs](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-screen-orientation/) for the full range of possible orientation values and configuration options.
+完整的方向锁定选项和配置方法，请参阅 [方向插件文档](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-screen-orientation/)。

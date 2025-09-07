@@ -1,22 +1,22 @@
 ---
 title: Native Settings
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/native-settings
 ---
 
-Your native projects Version, Bundle Id and Display Name can be easily read and changed.
+您可以轻松查看和修改原生项目的版本号、Bundle ID 和显示名称。
 
-![Native Settings](/img/native-settings.png)
+![原生设置](/img/native-settings.png)
 
-Click `Configuration` > `Properties` to change:
+点击 `Configuration` > `Properties` 进行修改：
 
-- **Display Name** - The name shown underneath the icon on the home screen.
-- **Bundle Identifier** - The unique identifier for your application.
-- **Version Number** - The Major and minor version number (eg `2.5`).
-- **Build Number** - The build number usually associated with the version number (eg `3`).
+- **显示名称** - 在主屏幕图标下方显示的名称。
+- **Bundle Identifier** - 应用程序的唯一标识符。
+- **版本号** - 主版本号和次版本号（例如 `2.5`）。
+- **构建号** - 通常与版本号关联的构建号（例如 `3`）。
 
 :::note
-When changing one of these it will change both the `ios` and `android` native project so that both projects are in sync.
+修改其中任意一项将会同时更新 `ios` 和 `android` 原生项目，确保两个项目保持同步。
 :::
