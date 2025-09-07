@@ -13,14 +13,14 @@ module.exports = {
   url: `https://${HOSTNAME}`,
   baseUrl: `${BASE_URL}/`,
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-CN',
+    locales: ['zh-CN'],
     localeConfigs: {
-      en: { label: 'English' },
+      en: { label: '简体中文' },
     },
   },
   markdown: {
-    format: 'detect'
+    format: 'detect',
   },
   onBrokenAnchors: 'throw',
   onBrokenLinks: 'throw',
