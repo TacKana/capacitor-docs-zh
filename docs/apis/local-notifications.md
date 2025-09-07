@@ -1,6 +1,6 @@
 ---
-title: Local Notifications Capacitor Plugin API
-description: The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
+title: Local Notifications Capacitor 插件 API
+description: Local Notifications API 提供了一种在本地调度设备通知的方法（即无需服务器发送推送通知）。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/src/definitions.ts
 sidebar_label: Local Notifications
@@ -8,9 +8,9 @@ sidebar_label: Local Notifications
 
 # @capacitor/local-notifications
 
-The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
+Local Notifications API 提供了一种在本地调度设备通知的方法（即无需服务器发送推送通知）。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/local-notifications
@@ -19,42 +19,42 @@ npx cap sync
 
 ## Android
 
-Android 13 requires a permission check in order to send notifications.  You are required to call `checkPermissions()` and `requestPermissions()` accordingly.
+Android 13 需要进行权限检查才能发送通知。您需要相应地调用 `checkPermissions()` 和 `requestPermissions()`。
 
-On Android 12 and older it won't show a prompt and will just return as granted.
+在 Android 12 及更早版本上，它不会显示提示，只会返回已授权状态。
 
-Starting on Android 12, scheduled notifications won't be exact unless this permission is added to your `AndroidManifest.xml`:
+从 Android 12 开始，除非在 `AndroidManifest.xml` 中添加以下权限，否则计划通知将不精确：
 
 ```xml
 <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 ```
 
-Note that even if the permission is present, users can still disable exact notifications from the app settings.  Use `checkExactNotificationSetting()` to check the the value of the setting.  If a user disables this setting, the app will restart and any notification scheduled with an exact alarm will be deleted.  If your application depends on exact alarms, be sure to check this setting on app launch (for example, in [`App.appStateChange`](https://capacitorjs.com/docs/apis/app#addlistenerappstatechange-)) in order to provide fallbacks or alternative behavior.
+请注意，即使存在该权限，用户仍可以从应用设置中禁用精确通知。使用 `checkExactNotificationSetting()` 检查该设置的值。如果用户禁用此设置，应用将重新启动，并且任何使用精确闹钟调度的通知都将被删除。如果您的应用依赖精确闹钟，请务必在应用启动时检查此设置（例如，在 [`App.appStateChange`](https://capacitorjs.com/docs/apis/app#addlistenerappstatechange-) 中），以便提供备选方案或替代行为。
 
-On Android 14, there is a new permission called `USE_EXACT_ALARM`.  Use this permission to use exact alarms without needing to request permission from the user.  This should only be used if the use of exact alarms is central to your app's functionality.  Read more about the implications of using this permission [here](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM).
+在 Android 14 中，有一个名为 `USE_EXACT_ALARM` 的新权限。使用此权限可以在无需向用户请求权限的情况下使用精确闹钟。这仅应在精确闹钟的使用对应用功能至关重要时使用。有关使用此权限的影响的更多信息，请参阅[此处](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM)。
 
-From Android 15 onwards, users can install an app in the [Private space](https://developer.android.com/about/versions/15/features#private-space). Users can lock their private space at any time, which means that push notifications are not shown until the user unlocks it.
+从 Android 15 开始，用户可以在[私人空间](https://developer.android.com/about/versions/15/features#private-space)中安装应用。用户可以随时锁定其私人空间，这意味着推送通知在用户解锁之前不会显示。
 
-It is not possible to detect if an app is installed in the private space. Therefore, if your app shows any critical notifications, inform your users to avoid installing the app in the private space.
+无法检测应用是否安装在私人空间中。因此，如果您的应用显示任何关键通知，请告知用户避免将应用安装在私人空间中。
 
-For more information about the behavior changes of your app related to the private space, refer to [Android documentation](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes).
+有关与私人空间相关的应用行为更改的更多信息，请参阅 [Android 文档](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes)。
 
-## Configuration
+## 配置
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-On Android, the Local Notifications can be configured with the following options:
+在 Android 上，可以使用以下选项配置 Local Notifications：
 
-| Prop            | Type                | Description                                                                                                                                                                                                                                                                                                                  | Since |
-| --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`smallIcon`** | <code>string</code> | Set the default status bar icon for notifications. Icons should be placed in your app's `res/drawable` folder. The value for this option should be the drawable resource ID, which is the filename without an extension. Only available for Android.                                                                         | 1.0.0 |
-| **`iconColor`** | <code>string</code> | Set the default color of status bar icons for notifications. Only available for Android.                                                                                                                                                                                                                                     | 1.0.0 |
-| **`sound`**     | <code>string</code> | Set the default notification sound for notifications. On Android 26+ it sets the default channel sound and can't be changed unless the app is uninstalled. If the audio file is not found, it will result in the default system sound being played on Android 21-25 and no sound on Android 26+. Only available for Android. | 1.0.0 |
+| 属性             | 类型                 | 描述                                                                                                                                                                                                                                                                                                                  | 始于   |
+| ---------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`smallIcon`**  | <code>string</code>  | 设置通知的默认状态栏图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                              | 1.0.0 |
+| **`iconColor`**  | <code>string</code>  | 设置通知状态栏图标的默认颜色。仅适用于 Android。                                                                                                                                                                                                                                                            | 1.0.0 |
+| **`sound`**      | <code>string</code>  | 设置通知的默认通知声音。在 Android 26+ 上，它设置默认通道声音且无法更改，除非卸载应用。如果找不到音频文件，Android 21-25 将播放默认系统声音，Android 26+ 则无声音。仅适用于 Android。                                                                                 | 1.0.0 |
 
-### Examples
+### 示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -68,7 +68,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 /// <reference types="@capacitor/local-notifications" />
@@ -90,9 +90,9 @@ export default config;
 
 </docgen-config>
 
-## Doze
+## Doze 模式
 
-If the device has entered [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) mode, your application may have restricted capabilities. If you need your notification to fire even during Doze, schedule your notification by using `allowWhileIdle: true`. Make use of `allowWhileIdle` judiciously, as these notifications [can only fire once per 9 minutes, per app.](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)
+如果设备已进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，您的应用可能会受到功能限制。如果您需要在 Doze 模式下也能触发通知，请使用 `allowWhileIdle: true` 来调度通知。请谨慎使用 `allowWhileIdle`，因为这些通知[每个应用每 9 分钟只能触发一次](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)。
 
 ## API
 
@@ -116,9 +116,9 @@ If the device has entered [Doze](https://developer.android.com/training/monitori
 * [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
 * [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -131,15 +131,15 @@ If the device has entered [Doze](https://developer.android.com/training/monitori
 schedule(options: ScheduleOptions) => Promise<ScheduleResult>
 ```
 
-<a href="#schedule">Schedule</a> one or more local notifications.
+<a href="#schedule">调度</a>一个或多个本地通知。
 
-| Param         | Type                                                        |
-| ------------- | ----------------------------------------------------------- |
+| 参数          | 类型                                                          |
+| ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#scheduleoptions">ScheduleOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#scheduleresult">ScheduleResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#scheduleresult">ScheduleResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -150,11 +150,11 @@ schedule(options: ScheduleOptions) => Promise<ScheduleResult>
 getPending() => Promise<PendingResult>
 ```
 
-Get a list of pending notifications.
+获取待处理通知列表。
 
-**Returns:** <code>Promise&lt;<a href="#pendingresult">PendingResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pendingresult">PendingResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -165,15 +165,15 @@ Get a list of pending notifications.
 registerActionTypes(options: RegisterActionTypesOptions) => Promise<void>
 ```
 
-Register actions to take when notifications are displayed.
+注册在通知显示时要执行的操作。
 
-Only available for iOS and Android.
+仅适用于 iOS 和 Android。
 
-| Param         | Type                                                                              |
-| ------------- | --------------------------------------------------------------------------------- |
+| 参数          | 类型                                                                                |
+| ------------- | ----------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#registeractiontypesoptions">RegisterActionTypesOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -184,13 +184,13 @@ Only available for iOS and Android.
 cancel(options: CancelOptions) => Promise<void>
 ```
 
-Cancel pending notifications.
+取消待处理的通知。
 
-| Param         | Type                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#canceloptions">CancelOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -201,11 +201,11 @@ Cancel pending notifications.
 areEnabled() => Promise<EnabledResult>
 ```
 
-Check if notifications are enabled or not.
+检查通知是否已启用。
 
-**Returns:** <code>Promise&lt;<a href="#enabledresult">EnabledResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#enabledresult">EnabledResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -216,11 +216,11 @@ Check if notifications are enabled or not.
 getDeliveredNotifications() => Promise<DeliveredNotifications>
 ```
 
-Get a list of notifications that are visible on the notifications screen.
+获取通知屏幕上可见的通知列表。
 
-**Returns:** <code>Promise&lt;<a href="#deliverednotifications">DeliveredNotifications</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#deliverednotifications">DeliveredNotifications</a>&gt;</code>
 
-**Since:** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -231,13 +231,13 @@ Get a list of notifications that are visible on the notifications screen.
 removeDeliveredNotifications(delivered: DeliveredNotifications) => Promise<void>
 ```
 
-Remove the specified notifications from the notifications screen.
+从通知屏幕中移除指定的通知。
 
-| Param           | Type                                                                      |
+| 参数            | 类型                                                                      |
 | --------------- | ------------------------------------------------------------------------- |
 | **`delivered`** | <code><a href="#deliverednotifications">DeliveredNotifications</a></code> |
 
-**Since:** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -248,9 +248,9 @@ Remove the specified notifications from the notifications screen.
 removeAllDeliveredNotifications() => Promise<void>
 ```
 
-Remove all the notifications from the notifications screen.
+从通知屏幕中移除所有通知。
 
-**Since:** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -261,15 +261,15 @@ Remove all the notifications from the notifications screen.
 createChannel(channel: Channel) => Promise<void>
 ```
 
-Create a notification channel.
+创建通知通道。
 
-Only available for Android.
+仅适用于 Android。
 
-| Param         | Type                                        |
+| 参数          | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -280,15 +280,15 @@ Only available for Android.
 deleteChannel(args: { id: string; }) => Promise<void>
 ```
 
-Delete a notification channel.
+删除通知通道。
 
-Only available for Android.
+仅适用于 Android。
 
-| Param      | Type                         |
+| 参数       | 类型                         |
 | ---------- | ---------------------------- |
 | **`args`** | <code>{ id: string; }</code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -299,13 +299,13 @@ Only available for Android.
 listChannels() => Promise<ListChannelsResult>
 ```
 
-Get a list of notification channels.
+获取通知通道列表。
 
-Only available for Android.
+仅适用于 Android。
 
-**Returns:** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -316,11 +316,11 @@ Only available for Android.
 checkPermissions() => Promise<PermissionStatus>
 ```
 
-Check permission to display local notifications.
+检查显示本地通知的权限。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -331,11 +331,11 @@ Check permission to display local notifications.
 requestPermissions() => Promise<PermissionStatus>
 ```
 
-Request permission to display local notifications.
+请求显示本地通知的权限。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -346,19 +346,17 @@ Request permission to display local notifications.
 changeExactNotificationSetting() => Promise<SettingsPermissionStatus>
 ```
 
-Direct user to the application settings screen to configure exact alarms.
+引导用户进入应用设置屏幕以配置精确闹钟。
 
-In the event that a user changes the settings from granted to denied, the application
-will restart and any notification scheduled with an exact alarm will be deleted.
+如果用户将设置从授予更改为拒绝，应用将重新启动，并且任何使用精确闹钟调度的通知都将被删除。
 
-On Android &lt; 12, the user will NOT be directed to the application settings screen, instead this function will
-return `granted`.
+在 Android < 12 上，用户不会被引导至应用设置屏幕，而是此函数将返回 `granted`。
 
-Only available on Android.
+仅适用于 Android。
 
-**Returns:** <code>Promise&lt;<a href="#settingspermissionstatus">SettingsPermissionStatus</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#settingspermissionstatus">SettingsPermissionStatus</a>&gt;</code>
 
-**Since:** 6.0.0
+**始于：** 6.0.0
 
 --------------------
 
@@ -369,13 +367,13 @@ Only available on Android.
 checkExactNotificationSetting() => Promise<SettingsPermissionStatus>
 ```
 
-Check application setting for using exact alarms.
+检查使用精确闹钟的应用设置。
 
-Only available on Android.
+仅适用于 Android。
 
-**Returns:** <code>Promise&lt;<a href="#settingspermissionstatus">SettingsPermissionStatus</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#settingspermissionstatus">SettingsPermissionStatus</a>&gt;</code>
 
-**Since:** 6.0.0
+**始于：** 6.0.0
 
 --------------------
 
@@ -386,16 +384,16 @@ Only available on Android.
 addListener(eventName: 'localNotificationReceived', listenerFunc: (notification: LocalNotificationSchema) => void) => Promise<PluginListenerHandle>
 ```
 
-Listen for when notifications are displayed.
+监听通知显示事件。
 
-| Param              | Type                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------ |
+| 参数               | 类型                                                                                                     |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'localNotificationReceived'</code>                                                               |
 | **`listenerFunc`** | <code>(notification: <a href="#localnotificationschema">LocalNotificationSchema</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -406,16 +404,16 @@ Listen for when notifications are displayed.
 addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notificationAction: ActionPerformed) => void) => Promise<PluginListenerHandle>
 ```
 
-Listen for when an action is performed on a notification.
+监听在通知上执行操作的事件。
 
-| Param              | Type                                                                                         |
-| ------------------ | -------------------------------------------------------------------------------------------- |
+| 参数               | 类型                                                                                           |
+| ------------------ | ---------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'localNotificationActionPerformed'</code>                                              |
 | **`listenerFunc`** | <code>(notificationAction: <a href="#actionperformed">ActionPerformed</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -426,316 +424,316 @@ Listen for when an action is performed on a notification.
 removeAllListeners() => Promise<void>
 ```
 
-Remove all listeners for this plugin.
+移除此插件的所有监听器。
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ScheduleResult
 
-| Prop                | Type                                       | Description                          | Since |
-| ------------------- | ------------------------------------------ | ------------------------------------ | ----- |
-| **`notifications`** | <code>LocalNotificationDescriptor[]</code> | The list of scheduled notifications. | 1.0.0 |
+| 属性                  | 类型                                         | 描述               | 始于   |
+| --------------------- | -------------------------------------------- | ------------------ | ------ |
+| **`notifications`**   | <code>LocalNotificationDescriptor[]</code> | 已调度的通知列表。 | 1.0.0 |
 
 
 #### LocalNotificationDescriptor
 
-The object that describes a local notification.
+描述本地通知的对象。
 
-| Prop     | Type                | Description                  | Since |
-| -------- | ------------------- | ---------------------------- | ----- |
-| **`id`** | <code>number</code> | The notification identifier. | 1.0.0 |
+| 属性       | 类型                 | 描述               | 始于   |
+| ---------- | -------------------- | ------------------ | ------ |
+| **`id`**   | <code>number</code> | 通知标识符。       | 1.0.0 |
 
 
 #### ScheduleOptions
 
-| Prop                | Type                                   | Description                            | Since |
-| ------------------- | -------------------------------------- | -------------------------------------- | ----- |
-| **`notifications`** | <code>LocalNotificationSchema[]</code> | The list of notifications to schedule. | 1.0.0 |
+| 属性                  | 类型                                   | 描述                 | 始于   |
+| --------------------- | -------------------------------------- | -------------------- | ------ |
+| **`notifications`**   | <code>LocalNotificationSchema[]</code> | 要调度的通知列表。   | 1.0.0 |
 
 
 #### LocalNotificationSchema
 
-| Prop                   | Type                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Since |
-| ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**            | <code>string</code>                           | The title of the notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
-| **`body`**             | <code>string</code>                           | The body of the notification, shown below the title.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
-| **`largeBody`**        | <code>string</code>                           | Sets a multiline text block for display in a big text notification style.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
-| **`summaryText`**      | <code>string</code>                           | Used to set the summary text detail in inbox and big text notification styles. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
-| **`id`**               | <code>number</code>                           | The notification identifier. On Android it's a 32-bit int. So the value should be between -2147483648 and 2147483647 inclusive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
-| **`schedule`**         | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">Schedule</a> this notification for a later time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
-| **`sound`**            | <code>string</code>                           | Name of the audio file to play when this notification is displayed. Include the file extension with the filename. On iOS, the file should be in the app bundle. On Android, the file should be in res/raw folder. Recommended format is `.wav` because is supported by both iOS and Android. Only available for iOS and Android &lt; 26. For Android 26+ use channelId of a channel configured with the desired sound. If the sound file is not found, (i.e. empty string or wrong name) the default system notification sound will be used. If not provided, it will produce the default sound on Android and no sound on iOS. | 1.0.0 |
-| **`smallIcon`**        | <code>string</code>                           | Set a custom status bar icon. If set, this overrides the `smallIcon` option from Capacitor configuration. Icons should be placed in your app's `res/drawable` folder. The value for this option should be the drawable resource ID, which is the filename without an extension. Only available for Android.                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-| **`largeIcon`**        | <code>string</code>                           | Set a large icon for notifications. Icons should be placed in your app's `res/drawable` folder. The value for this option should be the drawable resource ID, which is the filename without an extension. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
-| **`iconColor`**        | <code>string</code>                           | Set the color of the notification icon. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
-| **`attachments`**      | <code>Attachment[]</code>                     | Set attachments for this notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`actionTypeId`**     | <code>string</code>                           | Associate an action type with this notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
-| **`extra`**            | <code>any</code>                              | Set extra data to store within this notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`threadIdentifier`** | <code>string</code>                           | Used to group multiple notifications. Sets `threadIdentifier` on the [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent). Only available for iOS.                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
-| **`summaryArgument`**  | <code>string</code>                           | The string this notification adds to the category's summary format string. Sets `summaryArgument` on the [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent). Only available for iOS.                                                                                                                                                                                                                                                                                                                                                                    | 1.0.0 |
-| **`group`**            | <code>string</code>                           | Used to group multiple notifications. Calls `setGroup()` on [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) with the provided value. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
-| **`groupSummary`**     | <code>boolean</code>                          | If true, this notification becomes the summary for a group of notifications. Calls `setGroupSummary()` on [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) with the provided value. Only available for Android when using `group`.                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`channelId`**        | <code>string</code>                           | Specifies the channel the notification should be delivered on. If channel with the given name does not exist then the notification will not fire. If not provided, it will use the default channel. Calls `setChannelId()` on [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) with the provided value. Only available for Android 26+.                                                                                                                                                                                                                     | 1.0.0 |
-| **`ongoing`**          | <code>boolean</code>                          | If true, the notification can't be swiped away. Calls `setOngoing()` on [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) with the provided value. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`autoCancel`**       | <code>boolean</code>                          | If true, the notification is canceled when the user clicks on it. Calls `setAutoCancel()` on [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) with the provided value. Only available for Android.                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`inboxList`**        | <code>string[]</code>                         | Sets a list of strings for display in an inbox style notification. Up to 5 strings are allowed. Only available for Android.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-| **`silent`**           | <code>boolean</code>                          | If true, notification will not appear while app is in the foreground. Only available for iOS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 5.0.0 |
+| 属性                    | 类型                                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 始于   |
+| ----------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`title`**             | <code>string</code>                              | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
+| **`body`**              | <code>string</code>                              | 通知的正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 1.0.0 |
+| **`largeBody`**         | <code>string</code>                              | 设置在大文本通知样式中显示的多行文本块。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
+| **`summaryText`**       | <code>string</code>                              | 用于在收件箱和大文本通知样式中设置摘要文本详细信息。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
+| **`id`**                | <code>number</code>                              | 通知标识符。在 Android 上为 32 位整数，因此值应在 -2147483648 到 2147483647 之间（包含）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
+| **`schedule`**          | <code><a href="#schedule">Schedule</a></code>    | <a href="#schedule">调度</a>此通知在稍后时间触发。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
+| **`sound`**             | <code>string</code>                              | 显示此通知时播放的音频文件名。包含文件扩展名。在 iOS 上，文件应位于应用包中。在 Android 上，文件应位于 res/raw 文件夹中。推荐格式为 `.wav`，因为它受 iOS 和 Android 支持。仅适用于 iOS 和 Android < 26。对于 Android 26+，使用配置了所需声音的通道的 channelId。如果找不到声音文件（例如空字符串或错误名称），将使用默认系统通知声音。如果未提供，Android 上将产生默认声音，iOS 上则无声音。                                                                                                                              | 1.0.0 |
+| **`smallIcon`**         | <code>string</code>                              | 设置自定义状态栏图标。如果设置，将覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
+| **`largeIcon`**         | <code>string</code>                              | 设置通知的大图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
+| **`iconColor`**         | <code>string</code>                              | 设置通知图标的颜色。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
+| **`attachments`**       | <code>Attachment[]</code>                        | 设置此通知的附件。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 1.0.0 |
+| **`actionTypeId`**      | <code>string</code>                              | 将此通知与操作类型关联。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 1.0.0 |
+| **`extra`**             | <code>any</code>                                 | 设置存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
+| **`threadIdentifier`**  | <code>string</code>                              | 用于分组多个通知。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `threadIdentifier`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
+| **`summaryArgument`**   | <code>string</code>                              | 此通知添加到类别摘要格式字符串的字符串。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `summaryArgument`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
+| **`group`**             | <code>string</code>                              | 用于分组多个通知。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroup()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                         | 1.0.0 |
+| **`groupSummary`**      | <code>boolean</code>                             | 如果为 true，此通知成为一组通知的摘要。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroupSummary()`。仅在使用 `group` 时适用于 Android。                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
+| **`channelId`**         | <code>string</code>                              | 指定通知应传递的通道。如果不存在具有给定名称的通道，则通知不会触发。如果未提供，将使用默认通道。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setChannelId()`。仅适用于 Android 26+。                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
+| **`ongoing`**           | <code>boolean</code>                             | 如果为 true，通知无法滑动清除。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setOngoing()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
+| **`autoCancel`**        | <code>boolean</code>                             | 如果为 true，用户点击通知时取消通知。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setAutoCancel()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                    | 1.0.0 |
+| **`inboxList`**         | <code>string[]</code>                            | 设置在收件箱样式通知中显示的字符串列表。最多允许 5 个字符串。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 1.0.0 |
+| **`silent`**            | <code>boolean</code>                             | 如果为 true，应用在前台时通知不会出现。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 5.0.0 |
 
 
 #### Schedule
 
-Represents a schedule for a notification.
+表示通知的调度。
 
-Use either `at`, `on`, or `every` to schedule notifications.
+使用 `at`、`on` 或 `every` 之一来调度通知。
 
-| Prop                 | Type                                                    | Description                                                                                                                                                                                                                                                                                                                             | Since |
-| -------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`at`**             | <code><a href="#date">Date</a></code>                   | <a href="#schedule">Schedule</a> a notification at a specific date and time.                                                                                                                                                                                                                                                            | 1.0.0 |
-| **`repeats`**        | <code>boolean</code>                                    | Repeat delivery of this notification at the date and time specified by `at`. Only available for iOS and Android.                                                                                                                                                                                                                        | 1.0.0 |
-| **`allowWhileIdle`** | <code>boolean</code>                                    | Allow this notification to fire while in [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) Only available for Android 23+. Note that these notifications can only fire [once per 9 minutes, per app](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app). | 1.0.0 |
-| **`on`**             | <code><a href="#scheduleon">ScheduleOn</a></code>       | <a href="#schedule">Schedule</a> a notification on particular interval(s). This is similar to scheduling [cron](https://en.wikipedia.org/wiki/Cron) jobs. Only available for iOS and Android.                                                                                                                                           | 1.0.0 |
-| **`every`**          | <code><a href="#scheduleevery">ScheduleEvery</a></code> | <a href="#schedule">Schedule</a> a notification on a particular interval.                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`count`**          | <code>number</code>                                     | Limit the number times a notification is delivered by the interval specified by `every`.                                                                                                                                                                                                                                                | 1.0.0 |
+| 属性                  | 类型                                                    | 描述                                                                                                                                                                                                                                                                                                                             | 始于   |
+| --------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`at`**              | <code><a href="#date">Date</a></code>                   | 在特定日期和时间<a href="#schedule">调度</a>通知。                                                                                                                                                                                                                                                                               | 1.0.0 |
+| **`repeats`**         | <code>boolean</code>                                    | 在 `at` 指定的日期和时间重复传递此通知。仅适用于 iOS 和 Android。                                                                                                                                                                                                                                                                 | 1.0.0 |
+| **`allowWhileIdle`**  | <code>boolean</code>                                    | 允许此通知在 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式下触发。仅适用于 Android 23+。请注意，这些通知只能[每个应用每 9 分钟触发一次](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)。                                                                          | 1.0.0 |
+| **`on`**              | <code><a href="#scheduleon">ScheduleOn</a></code>       | 在特定间隔<a href="#schedule">调度</a>通知。这类似于调度 [cron](https://en.wikipedia.org/wiki/Cron) 作业。仅适用于 iOS 和 Android。                                                                                                                                                                                              | 1.0.0 |
+| **`every`**           | <code><a href="#scheduleevery">ScheduleEvery</a></code> | 在特定间隔<a href="#schedule">调度</a>通知。                                                                                                                                                                                                                                                                                    | 1.0.0 |
+| **`count`**           | <code>number</code>                                     | 限制通过 `every` 指定的间隔传递通知的次数。                                                                                                                                                                                                                                                                                     | 1.0.0 |
 
 
 #### Date
 
-Enables basic storage and retrieval of dates and times.
+启用日期和时间的基本存储和检索。
 
-| Method                 | Signature                                                                                                    | Description                                                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **toString**           | () =&gt; string                                                                                              | Returns a string representation of a date. The format of the string depends on the locale.                                              |
-| **toDateString**       | () =&gt; string                                                                                              | Returns a date as a string value.                                                                                                       |
-| **toTimeString**       | () =&gt; string                                                                                              | Returns a time as a string value.                                                                                                       |
-| **toLocaleString**     | () =&gt; string                                                                                              | Returns a value as a string value appropriate to the host environment's current locale.                                                 |
-| **toLocaleDateString** | () =&gt; string                                                                                              | Returns a date as a string value appropriate to the host environment's current locale.                                                  |
-| **toLocaleTimeString** | () =&gt; string                                                                                              | Returns a time as a string value appropriate to the host environment's current locale.                                                  |
-| **valueOf**            | () =&gt; number                                                                                              | Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC.                                                      |
-| **getTime**            | () =&gt; number                                                                                              | Gets the time value in milliseconds.                                                                                                    |
-| **getFullYear**        | () =&gt; number                                                                                              | Gets the year, using local time.                                                                                                        |
-| **getUTCFullYear**     | () =&gt; number                                                                                              | Gets the year using Universal Coordinated Time (UTC).                                                                                   |
-| **getMonth**           | () =&gt; number                                                                                              | Gets the month, using local time.                                                                                                       |
-| **getUTCMonth**        | () =&gt; number                                                                                              | Gets the month of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                             |
-| **getDate**            | () =&gt; number                                                                                              | Gets the day-of-the-month, using local time.                                                                                            |
-| **getUTCDate**         | () =&gt; number                                                                                              | Gets the day-of-the-month, using Universal Coordinated Time (UTC).                                                                      |
-| **getDay**             | () =&gt; number                                                                                              | Gets the day of the week, using local time.                                                                                             |
-| **getUTCDay**          | () =&gt; number                                                                                              | Gets the day of the week using Universal Coordinated Time (UTC).                                                                        |
-| **getHours**           | () =&gt; number                                                                                              | Gets the hours in a date, using local time.                                                                                             |
-| **getUTCHours**        | () =&gt; number                                                                                              | Gets the hours value in a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                       |
-| **getMinutes**         | () =&gt; number                                                                                              | Gets the minutes of a <a href="#date">Date</a> object, using local time.                                                                |
-| **getUTCMinutes**      | () =&gt; number                                                                                              | Gets the minutes of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                           |
-| **getSeconds**         | () =&gt; number                                                                                              | Gets the seconds of a <a href="#date">Date</a> object, using local time.                                                                |
-| **getUTCSeconds**      | () =&gt; number                                                                                              | Gets the seconds of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                           |
-| **getMilliseconds**    | () =&gt; number                                                                                              | Gets the milliseconds of a <a href="#date">Date</a>, using local time.                                                                  |
-| **getUTCMilliseconds** | () =&gt; number                                                                                              | Gets the milliseconds of a <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                      |
-| **getTimezoneOffset**  | () =&gt; number                                                                                              | Gets the difference in minutes between the time on the local computer and Universal Coordinated Time (UTC).                             |
-| **setTime**            | (time: number) =&gt; number                                                                                  | Sets the date and time value in the <a href="#date">Date</a> object.                                                                    |
-| **setMilliseconds**    | (ms: number) =&gt; number                                                                                    | Sets the milliseconds value in the <a href="#date">Date</a> object using local time.                                                    |
-| **setUTCMilliseconds** | (ms: number) =&gt; number                                                                                    | Sets the milliseconds value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                              |
-| **setSeconds**         | (sec: number, ms?: number \| undefined) =&gt; number                                                         | Sets the seconds value in the <a href="#date">Date</a> object using local time.                                                         |
-| **setUTCSeconds**      | (sec: number, ms?: number \| undefined) =&gt; number                                                         | Sets the seconds value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                   |
-| **setMinutes**         | (min: number, sec?: number \| undefined, ms?: number \| undefined) =&gt; number                              | Sets the minutes value in the <a href="#date">Date</a> object using local time.                                                         |
-| **setUTCMinutes**      | (min: number, sec?: number \| undefined, ms?: number \| undefined) =&gt; number                              | Sets the minutes value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                   |
-| **setHours**           | (hours: number, min?: number \| undefined, sec?: number \| undefined, ms?: number \| undefined) =&gt; number | Sets the hour value in the <a href="#date">Date</a> object using local time.                                                            |
-| **setUTCHours**        | (hours: number, min?: number \| undefined, sec?: number \| undefined, ms?: number \| undefined) =&gt; number | Sets the hours value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                     |
-| **setDate**            | (date: number) =&gt; number                                                                                  | Sets the numeric day-of-the-month value of the <a href="#date">Date</a> object using local time.                                        |
-| **setUTCDate**         | (date: number) =&gt; number                                                                                  | Sets the numeric day of the month in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                        |
-| **setMonth**           | (month: number, date?: number \| undefined) =&gt; number                                                     | Sets the month value in the <a href="#date">Date</a> object using local time.                                                           |
-| **setUTCMonth**        | (month: number, date?: number \| undefined) =&gt; number                                                     | Sets the month value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                     |
-| **setFullYear**        | (year: number, month?: number \| undefined, date?: number \| undefined) =&gt; number                         | Sets the year of the <a href="#date">Date</a> object using local time.                                                                  |
-| **setUTCFullYear**     | (year: number, month?: number \| undefined, date?: number \| undefined) =&gt; number                         | Sets the year value in the <a href="#date">Date</a> object using Universal Coordinated Time (UTC).                                      |
-| **toUTCString**        | () =&gt; string                                                                                              | Returns a date converted to a string using Universal Coordinated Time (UTC).                                                            |
-| **toISOString**        | () =&gt; string                                                                                              | Returns a date as a string value in ISO format.                                                                                         |
-| **toJSON**             | (key?: any) =&gt; string                                                                                     | Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization. |
+| 方法                     | 签名                                                                                                      | 描述                                                                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **toString**             | () =&gt; string                                                                                           | 返回日期的字符串表示形式。字符串的格式取决于区域设置。                                                                          |
+| **toDateString**         | () =&gt; string                                                                                           | 返回日期作为字符串值。                                                                                                          |
+| **toTimeString**         | () =&gt; string                                                                                           | 返回时间作为字符串值。                                                                                                          |
+| **toLocaleString**       | () =&gt; string                                                                                           | 返回适合主机环境当前区域设置的字符串值。                                                                                        |
+| **toLocaleDateString**   | () =&gt; string                                                                                           | 返回适合主机环境当前区域设置的日期字符串值。                                                                                    |
+| **toLocaleTimeString**   | () =&gt; string                                                                                           | 返回适合主机环境当前区域设置的时间字符串值。                                                                                    |
+| **valueOf**              | () =&gt; number                                                                                           | 返回存储的时间值，自 1970 年 1 月 1 日 UTC 午夜以来的毫秒数。                                                                   |
+| **getTime**              | () =&gt; number                                                                                           | 获取时间值（毫秒）。                                                                                                            |
+| **getFullYear**          | () =&gt; number                                                                                           | 获取年份（本地时间）。                                                                                                          |
+| **getUTCFullYear**       | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取年份。                                                                                                 |
+| **getMonth**             | () =&gt; number                                                                                           | 获取月份（本地时间）。                                                                                                          |
+| **getUTCMonth**          | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取 <a href="#date">Date</a> 对象的月份。                                                                 |
+| **getDate**              | () =&gt; number                                                                                           | 获取月份中的日期（本地时间）。                                                                                                  |
+| **getUTCDate**           | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取月份中的日期。                                                                                         |
+| **getDay**               | () =&gt; number                                                                                           | 获取星期几（本地时间）。                                                                                                        |
+| **getUTCDay**            | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取星期几。                                                                                               |
+| **getHours**             | () =&gt; number                                                                                           | 获取日期中的小时（本地时间）。                                                                                                  |
+| **getUTCHours**          | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取 <a href="#date">Date</a> 对象的小时值。                                                               |
+| **getMinutes**           | () =&gt; number                                                                                           | 获取 <a href="#date">Date</a> 对象的分钟（本地时间）。                                                                          |
+| **getUTCMinutes**        | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取 <a href="#date">Date</a> 对象的分钟。                                                                 |
+| **getSeconds**           | () =&gt; number                                                                                           | 获取 <a href="#date">Date</a> 对象的秒（本地时间）。                                                                            |
+| **getUTCSeconds**        | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取 <a href="#date">Date</a> 对象的秒。                                                                   |
+| **getMilliseconds**      | () =&gt; number                                                                                           | 获取 <a href="#date">Date</a> 的毫秒（本地时间）。                                                                              |
+| **getUTCMilliseconds**   | () =&gt; number                                                                                           | 使用协调世界时 (UTC) 获取 <a href="#date">Date</a> 对象的毫秒。                                                                 |
+| **getTimezoneOffset**    | () =&gt; number                                                                                           | 获取本地计算机时间与协调世界时 (UTC) 之间的分钟差。                                                                             |
+| **setTime**              | (time: number) =&gt; number                                                                               | 设置 <a href="#date">Date</a> 对象中的日期和时间值。                                                                            |
+| **setMilliseconds**      | (ms: number) =&gt; number                                                                                 | 使用本地时间设置 <a href="#date">Date</a> 对象中的毫秒值。                                                                      |
+| **setUTCMilliseconds**   | (ms: number) =&gt; number                                                                                 | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的毫秒值。                                                             |
+| **setSeconds**           | (sec: number, ms?: number \| undefined) =&gt; number                                                      | 使用本地时间设置 <a href="#date">Date</a> 对象中的秒值。                                                                        |
+| **setUTCSeconds**        | (sec: number, ms?: number \| undefined) =&gt; number                                                      | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的秒值。                                                               |
+| **setMinutes**           | (min: number, sec?: number \| undefined, ms?: number \| undefined) =&gt; number                           | 使用本地时间设置 <a href="#date">Date</a> 对象中的分钟值。                                                                      |
+| **setUTCMinutes**        | (min: number, sec?: number \| undefined, ms?: number \| undefined) =&gt; number                           | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的分钟值。                                                             |
+| **setHours**             | (hours: number, min?: number \| undefined, sec?: number \| undefined, ms?: number \| undefined) =&gt; number | 使用本地时间设置 <a href="#date">Date</a> 对象中的小时值。                                                                      |
+| **setUTCHours**          | (hours: number, min?: number \| undefined, sec?: number \| undefined, ms?: number \| undefined) =&gt; number | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的小时值。                                                             |
+| **setDate**              | (date: number) =&gt; number                                                                               | 使用本地时间设置 <a href="#date">Date</a> 对象中的数字日期值。                                                                  |
+| **setUTCDate**           | (date: number) =&gt; number                                                                               | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的数字日期值。                                                         |
+| **setMonth**             | (month: number, date?: number \| undefined) =&gt; number                                                  | 使用本地时间设置 <a href="#date">Date</a> 对象中的月份值。                                                                      |
+| **setUTCMonth**          | (month: number, date?: number \| undefined) =&gt; number                                                  | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的月份值。                                                             |
+| **setFullYear**          | (year: number, month?: number \| undefined, date?: number \| undefined) =&gt; number                      | 使用本地时间设置 <a href="#date">Date</a> 对象的年份。                                                                          |
+| **setUTCFullYear**       | (year: number, month?: number \| undefined, date?: number \| undefined) =&gt; number                      | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的年份值。                                                             |
+| **toUTCString**          | () =&gt; string                                                                                           | 返回使用协调世界时 (UTC) 转换的日期字符串。                                                                                     |
+| **toISOString**          | () =&gt; string                                                                                           | 以 ISO 格式返回日期作为字符串值。                                                                                               |
+| **toJSON**               | (key?: any) =&gt; string                                                                                  | 由 JSON.stringify 方法使用，以启用对象数据的 JavaScript 对象表示法 (JSON) 序列化转换。                                           |
 
 
 #### ScheduleOn
 
-| Prop          | Type                                        |
-| ------------- | ------------------------------------------- |
-| **`year`**    | <code>number</code>                         |
-| **`month`**   | <code>number</code>                         |
-| **`day`**     | <code>number</code>                         |
-| **`weekday`** | <code><a href="#weekday">Weekday</a></code> |
-| **`hour`**    | <code>number</code>                         |
-| **`minute`**  | <code>number</code>                         |
-| **`second`**  | <code>number</code>                         |
+| 属性           | 类型                                        |
+| -------------- | ------------------------------------------- |
+| **`year`**     | <code>number</code>                         |
+| **`month`**    | <code>number</code>                         |
+| **`day`**      | <code>number</code>                         |
+| **`weekday`**  | <code><a href="#weekday">Weekday</a></code> |
+| **`hour`**     | <code>number</code>                         |
+| **`minute`**   | <code>number</code>                         |
+| **`second`**   | <code>number</code>                         |
 
 
 #### Attachment
 
-Represents a notification attachment.
+表示通知附件。
 
-| Prop          | Type                                                            | Description                                                                                                                           | Since |
-| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**      | <code>string</code>                                             | The attachment identifier.                                                                                                            | 1.0.0 |
-| **`url`**     | <code>string</code>                                             | The URL to the attachment. Use the `res` scheme to reference web assets, e.g. `res:///assets/img/icon.png`. Also accepts `file` URLs. | 1.0.0 |
-| **`options`** | <code><a href="#attachmentoptions">AttachmentOptions</a></code> | <a href="#attachment">Attachment</a> options.                                                                                         | 1.0.0 |
+| 属性           | 类型                                                            | 描述                                                                                                                           | 始于   |
+| -------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`id`**       | <code>string</code>                                             | 附件标识符。                                                                                                                  | 1.0.0 |
+| **`url`**      | <code>string</code>                                             | 附件的 URL。使用 `res` 方案引用网络资源，例如 `res:///assets/img/icon.png`。也接受 `file` URL。                                | 1.0.0 |
+| **`options`**  | <code><a href="#attachmentoptions">AttachmentOptions</a></code> | <a href="#attachment">附件</a>选项。                                                                                          | 1.0.0 |
 
 
 #### AttachmentOptions
 
-| Prop                                                             | Type                | Description                                                                                                                                                                                                                                   | Since |
-| ---------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`iosUNNotificationAttachmentOptionsTypeHintKey`**              | <code>string</code> | Sets the `UNNotificationAttachmentOptionsTypeHintKey` key in the hashable options of [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment). Only available for iOS.              | 1.0.0 |
-| **`iosUNNotificationAttachmentOptionsThumbnailHiddenKey`**       | <code>string</code> | Sets the `UNNotificationAttachmentOptionsThumbnailHiddenKey` key in the hashable options of [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment). Only available for iOS.       | 1.0.0 |
-| **`iosUNNotificationAttachmentOptionsThumbnailClippingRectKey`** | <code>string</code> | Sets the `UNNotificationAttachmentOptionsThumbnailClippingRectKey` key in the hashable options of [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment). Only available for iOS. | 1.0.0 |
-| **`iosUNNotificationAttachmentOptionsThumbnailTimeKey`**         | <code>string</code> | Sets the `UNNotificationAttachmentOptionsThumbnailTimeKey` key in the hashable options of [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment). Only available for iOS.         | 1.0.0 |
+| 属性                                                                  | 类型                | 描述                                                                                                                                                                                                                                   | 始于   |
+| --------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`iosUNNotificationAttachmentOptionsTypeHintKey`**                   | <code>string</code> | 在 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中设置 `UNNotificationAttachmentOptionsTypeHintKey` 键。仅适用于 iOS。              | 1.0.0 |
+| **`iosUNNotificationAttachmentOptionsThumbnailHiddenKey`**            | <code>string</code> | 在 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中设置 `UNNotificationAttachmentOptionsThumbnailHiddenKey` 键。仅适用于 iOS。       | 1.0.0 |
+| **`iosUNNotificationAttachmentOptionsThumbnailClippingRectKey`**      | <code>string</code> | 在 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中设置 `UNNotificationAttachmentOptionsThumbnailClippingRectKey` 键。仅适用于 iOS。 | 1.0.0 |
+| **`iosUNNotificationAttachmentOptionsThumbnailTimeKey`**              | <code>string</code> | 在 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中设置 `UNNotificationAttachmentOptionsThumbnailTimeKey` 键。仅适用于 iOS。         | 1.0.0 |
 
 
 #### PendingResult
 
-| Prop                | Type                                          | Description                        | Since |
-| ------------------- | --------------------------------------------- | ---------------------------------- | ----- |
-| **`notifications`** | <code>PendingLocalNotificationSchema[]</code> | The list of pending notifications. | 1.0.0 |
+| 属性                  | 类型                                          | 描述               | 始于   |
+| --------------------- | --------------------------------------------- | ------------------ | ------ |
+| **`notifications`**   | <code>PendingLocalNotificationSchema[]</code> | 待处理通知列表。   | 1.0.0 |
 
 
 #### PendingLocalNotificationSchema
 
-| Prop           | Type                                          | Description                                                          | Since |
-| -------------- | --------------------------------------------- | -------------------------------------------------------------------- | ----- |
-| **`title`**    | <code>string</code>                           | The title of the notification.                                       | 1.0.0 |
-| **`body`**     | <code>string</code>                           | The body of the notification, shown below the title.                 | 1.0.0 |
-| **`id`**       | <code>number</code>                           | The notification identifier.                                         | 1.0.0 |
-| **`schedule`** | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">Schedule</a> this notification for a later time. | 1.0.0 |
-| **`extra`**    | <code>any</code>                              | Set extra data to store within this notification.                    | 1.0.0 |
+| 属性            | 类型                                          | 描述                                                          | 始于   |
+| --------------- | --------------------------------------------- | ------------------------------------------------------------ | ------ |
+| **`title`**     | <code>string</code>                          | 通知的标题。                                                  | 1.0.0 |
+| **`body`**      | <code>string</code>                          | 通知的正文，显示在标题下方。                                  | 1.0.0 |
+| **`id`**        | <code>number</code>                          | 通知标识符。                                                  | 1.0.0 |
+| **`schedule`**  | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">调度</a>此通知在稍后时间触发。            | 1.0.0 |
+| **`extra`**     | <code>any</code>                             | 设置存储在此通知中的额外数据。                                | 1.0.0 |
 
 
 #### RegisterActionTypesOptions
 
-| Prop        | Type                      | Description                           | Since |
-| ----------- | ------------------------- | ------------------------------------- | ----- |
-| **`types`** | <code>ActionType[]</code> | The list of action types to register. | 1.0.0 |
+| 属性        | 类型                      | 描述                 | 始于   |
+| ----------- | ------------------------- | -------------------- | ------ |
+| **`types`** | <code>ActionType[]</code> | 要注册的操作类型列表。 | 1.0.0 |
 
 
 #### ActionType
 
-A collection of actions.
+操作的集合。
 
-| Prop                                   | Type                  | Description                                                                                                                                                                                     | Since |
-| -------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**                               | <code>string</code>   | The ID of the action type. Referenced in notifications by the `actionTypeId` key.                                                                                                               | 1.0.0 |
-| **`actions`**                          | <code>Action[]</code> | The list of actions associated with this action type.                                                                                                                                           | 1.0.0 |
-| **`iosHiddenPreviewsBodyPlaceholder`** | <code>string</code>   | Sets `hiddenPreviewsBodyPlaceholder` of the [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory). Only available for iOS.             | 1.0.0 |
-| **`iosCustomDismissAction`**           | <code>boolean</code>  | Sets `customDismissAction` in the options of the [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory). Only available for iOS.        | 1.0.0 |
-| **`iosAllowInCarPlay`**                | <code>boolean</code>  | Sets `allowInCarPlay` in the options of the [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory). Only available for iOS.             | 1.0.0 |
-| **`iosHiddenPreviewsShowTitle`**       | <code>boolean</code>  | Sets `hiddenPreviewsShowTitle` in the options of the [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory). Only available for iOS.    | 1.0.0 |
-| **`iosHiddenPreviewsShowSubtitle`**    | <code>boolean</code>  | Sets `hiddenPreviewsShowSubtitle` in the options of the [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory). Only available for iOS. | 1.0.0 |
+| 属性                                    | 类型                  | 描述                                                                                                                                                                                     | 始于   |
+| --------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`id`**                                | <code>string</code>   | 操作类型的 ID。在通知中通过 `actionTypeId` 键引用。                                                                                                                                       | 1.0.0 |
+| **`actions`**                           | <code>Action[]</code> | 与此操作类型关联的操作列表。                                                                                                                                                            | 1.0.0 |
+| **`iosHiddenPreviewsBodyPlaceholder`**  | <code>string</code>   | 设置 [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 的 `hiddenPreviewsBodyPlaceholder`。仅适用于 iOS。             | 1.0.0 |
+| **`iosCustomDismissAction`**            | <code>boolean</code>  | 在 [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 的选项中设置 `customDismissAction`。仅适用于 iOS。        | 1.0.0 |
+| **`iosAllowInCarPlay`**                 | <code>boolean</code>  | 在 [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 的选项中设置 `allowInCarPlay`。仅适用于 iOS。             | 1.0.0 |
+| **`iosHiddenPreviewsShowTitle`**        | <code>boolean</code>  | 在 [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 的选项中设置 `hiddenPreviewsShowTitle`。仅适用于 iOS。    | 1.0.0 |
+| **`iosHiddenPreviewsShowSubtitle`**     | <code>boolean</code>  | 在 [`UNNotificationCategory`](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 的选项中设置 `hiddenPreviewsShowSubtitle`。仅适用于 iOS。 | 1.0.0 |
 
 
 #### Action
 
-An action that can be taken when a notification is displayed.
+显示通知时可以执行的操作。
 
-| Prop                         | Type                 | Description                                                                                                                                                                                                     | Since |
-| ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**                     | <code>string</code>  | The action identifier. Referenced in the `'actionPerformed'` event as `actionId`.                                                                                                                               | 1.0.0 |
-| **`title`**                  | <code>string</code>  | The title text to display for this action.                                                                                                                                                                      | 1.0.0 |
-| **`requiresAuthentication`** | <code>boolean</code> | Sets `authenticationRequired` in the options of the [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction). Only available for iOS.                         | 1.0.0 |
-| **`foreground`**             | <code>boolean</code> | Sets `foreground` in the options of the [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction). Only available for iOS.                                     | 1.0.0 |
-| **`destructive`**            | <code>boolean</code> | Sets `destructive` in the options of the [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction). Only available for iOS.                                    | 1.0.0 |
-| **`input`**                  | <code>boolean</code> | Use a `UNTextInputNotificationAction` instead of a `UNNotificationAction`. Only available for iOS.                                                                                                              | 1.0.0 |
-| **`inputButtonTitle`**       | <code>string</code>  | Sets `textInputButtonTitle` on the [`UNTextInputNotificationAction`](https://developer.apple.com/documentation/usernotifications/untextinputnotificationaction). Only available for iOS when `input` is `true`. | 1.0.0 |
-| **`inputPlaceholder`**       | <code>string</code>  | Sets `textInputPlaceholder` on the [`UNTextInputNotificationAction`](https://developer.apple.com/documentation/usernotifications/untextinputnotificationaction). Only available for iOS when `input` is `true`. | 1.0.0 |
+| 属性                          | 类型                 | 描述                                                                                                                                                                                                     | 始于   |
+| ----------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`id`**                      | <code>string</code>  | 操作标识符。在 `'actionPerformed'` 事件中作为 `actionId` 引用。                                                                                                                               | 1.0.0 |
+| **`title`**                   | <code>string</code>  | 为此操作显示的标题文本。                                                                                                                                                                                  | 1.0.0 |
+| **`requiresAuthentication`**  | <code>boolean</code> | 在 [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction) 的选项中设置 `authenticationRequired`。仅适用于 iOS。                         | 1.0.0 |
+| **`foreground`**              | <code>boolean</code> | 在 [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction) 的选项中设置 `foreground`。仅适用于 iOS。                                     | 1.0.0 |
+| **`destructive`**             | <code>boolean</code> | 在 [`UNNotificationAction`](https://developer.apple.com/documentation/usernotifications/unnotificationaction) 的选项中设置 `destructive`。仅适用于 iOS。                                    | 1.0.0 |
+| **`input`**                   | <code>boolean</code> | 使用 `UNTextInputNotificationAction` 而不是 `UNNotificationAction`。仅适用于 iOS。                                                                                                              | 1.0.0 |
+| **`inputButtonTitle`**        | <code>string</code>  | 在 [`UNTextInputNotificationAction`](https://developer.apple.com/documentation/usernotifications/untextinputnotificationaction) 上设置 `textInputButtonTitle`。仅当 `input` 为 `true` 时适用于 iOS。 | 1.0.0 |
+| **`inputPlaceholder`**        | <code>string</code>  | 在 [`UNTextInputNotificationAction`](https://developer.apple.com/documentation/usernotifications/untextinputnotificationaction) 上设置 `textInputPlaceholder`。仅当 `input` 为 `true` 时适用于 iOS。 | 1.0.0 |
 
 
 #### CancelOptions
 
-| Prop                | Type                                       | Description                          | Since |
-| ------------------- | ------------------------------------------ | ------------------------------------ | ----- |
-| **`notifications`** | <code>LocalNotificationDescriptor[]</code> | The list of notifications to cancel. | 1.0.0 |
+| 属性                  | 类型                                         | 描述               | 始于   |
+| --------------------- | -------------------------------------------- | ------------------ | ------ |
+| **`notifications`**   | <code>LocalNotificationDescriptor[]</code> | 要取消的通知列表。 | 1.0.0 |
 
 
 #### EnabledResult
 
-| Prop        | Type                 | Description                                                | Since |
-| ----------- | -------------------- | ---------------------------------------------------------- | ----- |
-| **`value`** | <code>boolean</code> | Whether or not the device has local notifications enabled. | 1.0.0 |
+| 属性        | 类型                 | 描述                               | 始于   |
+| ----------- | -------------------- | ---------------------------------- | ------ |
+| **`value`** | <code>boolean</code> | 设备是否启用了本地通知。           | 1.0.0 |
 
 
 #### DeliveredNotifications
 
-| Prop                | Type                                       | Description                                                         | Since |
-| ------------------- | ------------------------------------------ | ------------------------------------------------------------------- | ----- |
-| **`notifications`** | <code>DeliveredNotificationSchema[]</code> | List of notifications that are visible on the notifications screen. | 1.0.0 |
+| 属性                  | 类型                                         | 描述                             | 始于   |
+| --------------------- | -------------------------------------------- | ------------------------------- | ------ |
+| **`notifications`**   | <code>DeliveredNotificationSchema[]</code> | 通知屏幕上可见的通知列表。       | 1.0.0 |
 
 
 #### DeliveredNotificationSchema
 
-| Prop               | Type                                          | Description                                                                                    | Since |
-| ------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------- | ----- |
-| **`id`**           | <code>number</code>                           | The notification identifier.                                                                   | 4.0.0 |
-| **`tag`**          | <code>string</code>                           | The notification tag. Only available on Android.                                               | 4.0.0 |
-| **`title`**        | <code>string</code>                           | The title of the notification.                                                                 | 4.0.0 |
-| **`body`**         | <code>string</code>                           | The body of the notification, shown below the title.                                           | 4.0.0 |
-| **`group`**        | <code>string</code>                           | The configured group of the notification. Only available for Android.                          | 4.0.0 |
-| **`groupSummary`** | <code>boolean</code>                          | If this notification is the summary for a group of notifications. Only available for Android.  | 4.0.0 |
-| **`data`**         | <code>any</code>                              | Any additional data that was included in the notification payload. Only available for Android. | 4.0.0 |
-| **`extra`**        | <code>any</code>                              | Extra data to store within this notification. Only available for iOS.                          | 4.0.0 |
-| **`attachments`**  | <code>Attachment[]</code>                     | The attachments for this notification. Only available for iOS.                                 | 1.0.0 |
-| **`actionTypeId`** | <code>string</code>                           | <a href="#action">Action</a> type ssociated with this notification. Only available for iOS.    | 4.0.0 |
-| **`schedule`**     | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">Schedule</a> used to fire this notification. Only available for iOS.       | 4.0.0 |
-| **`sound`**        | <code>string</code>                           | Sound that was used when the notification was displayed. Only available for iOS.               | 4.0.0 |
+| 属性                | 类型                                          | 描述                                                                                    | 始于   |
+| ------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------- | ------ |
+| **`id`**            | <code>number</code>                          | 通知标识符。                                                                            | 4.0.0 |
+| **`tag`**           | <code>string</code>                          | 通知标签。仅适用于 Android。                                                            | 4.0.0 |
+| **`title`**         | <code>string</code>                          | 通知的标题。                                                                            | 4.0.0 |
+| **`body`**          | <code>string</code>                          | 通知的正文，显示在标题下方。                                                            | 4.0.0 |
+| **`group`**         | <code>string</code>                          | 通知的配置组。仅适用于 Android。                                                        | 4.0.0 |
+| **`groupSummary`**  | <code>boolean</code>                         | 如果此通知是一组通知的摘要，则为 true。仅适用于 Android。                                 | 4.0.0 |
+| **`data`**          | <code>any</code>                             | 包含在通知负载中的任何附加数据。仅适用于 Android。                                       | 4.0.0 |
+| **`extra`**          | <code>any</code>                             | 存储在此通知中的额外数据。仅适用于 iOS。                                                | 4.0.0 |
+| **`attachments`**    | <code>Attachment[]</code>                    | 此通知的附件。仅适用于 iOS。                                                            | 1.0.0 |
+| **`actionTypeId`**   | <code>string</code>                          | 与此通知关联的<a href="#action">操作</a>类型。仅适用于 iOS。                            | 4.0.0 |
+| **`schedule`**       | <code><a href="#schedule">Schedule</a></code> | 用于触发此通知的<a href="#schedule">调度</a>。仅适用于 iOS。                            | 4.0.0 |
+| **`sound`**          | <code>string</code>                          | 显示通知时使用的声音。仅适用于 iOS。                                                    | 4.0.0 |
 
 
 #### Channel
 
-| Prop              | Type                                              | Description                                                                                                                                                                                                                                                                                                                                    | Default          | Since |
-| ----------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----- |
-| **`id`**          | <code>string</code>                               | The channel identifier.                                                                                                                                                                                                                                                                                                                        |                  | 1.0.0 |
-| **`name`**        | <code>string</code>                               | The human-friendly name of this channel (presented to the user).                                                                                                                                                                                                                                                                               |                  | 1.0.0 |
-| **`description`** | <code>string</code>                               | The description of this channel (presented to the user).                                                                                                                                                                                                                                                                                       |                  | 1.0.0 |
-| **`sound`**       | <code>string</code>                               | The sound that should be played for notifications posted to this channel. Notification channels with an importance of at least `3` should have a sound. The file name of a sound file should be specified relative to the android app `res/raw` directory. If the sound is not provided, or the sound file is not found no sound will be used. |                  | 1.0.0 |
-| **`importance`**  | <code><a href="#importance">Importance</a></code> | The level of interruption for notifications posted to this channel.                                                                                                                                                                                                                                                                            | <code>`3`</code> | 1.0.0 |
-| **`visibility`**  | <code><a href="#visibility">Visibility</a></code> | The visibility of notifications posted to this channel. This setting is for whether notifications posted to this channel appear on the lockscreen or not, and if so, whether they appear in a redacted form.                                                                                                                                   |                  | 1.0.0 |
-| **`lights`**      | <code>boolean</code>                              | Whether notifications posted to this channel should display notification lights, on devices that support it.                                                                                                                                                                                                                                   |                  | 1.0.0 |
-| **`lightColor`**  | <code>string</code>                               | The light color for notifications posted to this channel. Only supported if lights are enabled on this channel and the device supports it. Supported color formats are `#RRGGBB` and `#RRGGBBAA`.                                                                                                                                              |                  | 1.0.0 |
-| **`vibration`**   | <code>boolean</code>                              | Whether notifications posted to this channel should vibrate.                                                                                                                                                                                                                                                                                   |                  | 1.0.0 |
+| 属性              | 类型                                              | 描述                                                                                                                                                                                                                                                                                                                                    | 默认             | 始于   |
+| ----------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ |
+| **`id`**          | <code>string</code>                              | 通道标识符。                                                                                                                                                                                                                                                                                                                            |                  | 1.0.0 |
+| **`name`**        | <code>string</code>                              | 此通道的用户友好名称（向用户显示）。                                                                                                                                                                                                                                                                                                    |                  | 1.0.0 |
+| **`description`** | <code>string</code>                              | 此通道的描述（向用户显示）。                                                                                                                                                                                                                                                                                                            |                  | 1.0.0 |
+| **`sound`**       | <code>string</code>                              | 应为此通道发布的通知播放的声音。重要性至少为 `3` 的通知通道应具有声音。声音文件的文件名应相对于 Android 应用 `res/raw` 目录指定。如果未提供声音，或找不到声音文件，则不使用声音。                                                                                         |                  | 1.0.0 |
+| **`importance`**  | <code><a href="#importance">Importance</a></code> | 此通道发布的通知的中断级别。                                                                                                                                                                                                                                                                                                            | <code>`3`</code> | 1.0.0 |
+| **`visibility`**  | <code><a href="#visibility">Visibility</a></code> | 此通道发布的通知的可见性。此设置用于确定发布到此通道的通知是否出现在锁屏上，以及如果出现，是否以编辑形式显示。                                                                                                                                                                                                                          |                  | 1.0.0 |
+| **`lights`**      | <code>boolean</code>                             | 发布到此通道的通知是否应显示通知灯（在支持的设备上）。                                                                                                                                                                                                                                                                                  |                  | 1.0.0 |
+| **`lightColor`**  | <code>string</code>                              | 发布到此通道的通知的灯光颜色。仅当在此通道上启用了灯光且设备支持时才受支持。支持的颜色格式为 `#RRGGBB` 和 `#RRGGBBAA`。                                                                                                                                                                                                               |                  | 1.0.0 |
+| **`vibration`**   | <code>boolean</code>                             | 发布到此通道的通知是否应振动。                                                                                                                                                                                                                                                                                                          |                  | 1.0.0 |
 
 
 #### ListChannelsResult
 
-| Prop           | Type                   | Description                        | Since |
-| -------------- | ---------------------- | ---------------------------------- | ----- |
-| **`channels`** | <code>Channel[]</code> | The list of notification channels. | 1.0.0 |
+| 属性           | 类型                   | 描述               | 始于   |
+| -------------- | ---------------------- | ------------------ | ------ |
+| **`channels`** | <code>Channel[]</code> | 通知通道列表。     | 1.0.0 |
 
 
 #### PermissionStatus
 
-| Prop          | Type                                                        | Description                                   | Since |
-| ------------- | ----------------------------------------------------------- | --------------------------------------------- | ----- |
-| **`display`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state of displaying notifications. | 1.0.0 |
+| 属性          | 类型                                                        | 描述                                   | 始于   |
+| ------------- | ----------------------------------------------------------- | ------------------------------------- | ------ |
+| **`display`** | <code><a href="#permissionstate">PermissionState</a></code> | 显示通知的权限状态。                   | 1.0.0 |
 
 
 #### SettingsPermissionStatus
 
-| Prop              | Type                                                        | Description                             | Since |
-| ----------------- | ----------------------------------------------------------- | --------------------------------------- | ----- |
-| **`exact_alarm`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state of using exact alarms. | 6.0.0 |
+| 属性              | 类型                                                        | 描述                             | 始于   |
+| ----------------- | ----------------------------------------------------------- | ------------------------------- | ------ |
+| **`exact_alarm`** | <code><a href="#permissionstate">PermissionState</a></code> | 使用精确闹钟的权限状态。         | 6.0.0 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### ActionPerformed
 
-| Prop               | Type                                                                        | Description                                                                                                            | Since |
-| ------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`actionId`**     | <code>string</code>                                                         | The identifier of the performed action.                                                                                | 1.0.0 |
-| **`inputValue`**   | <code>string</code>                                                         | The value entered by the user on the notification. Only available on iOS for notifications with `input` set to `true`. | 1.0.0 |
-| **`notification`** | <code><a href="#localnotificationschema">LocalNotificationSchema</a></code> | The original notification schema.                                                                                      | 1.0.0 |
+| 属性               | 类型                                                                        | 描述                                                                                                            | 始于   |
+| ------------------ | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------ |
+| **`actionId`**     | <code>string</code>                                                        | 执行的操作的标识符。                                                                                            | 1.0.0 |
+| **`inputValue`**   | <code>string</code>                                                        | 用户在通知上输入的值。仅在 iOS 上适用于将 `input` 设置为 `true` 的通知。                                        | 1.0.0 |
+| **`notification`** | <code><a href="#localnotificationschema">LocalNotificationSchema</a></code> | 原始通知架构。                                                                                                  | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### ScheduleEvery
@@ -745,14 +743,14 @@ An action that can be taken when a notification is displayed.
 
 #### Importance
 
-The importance level. For more details, see the [Android Developer Docs](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
+重要性级别。有关更多详细信息，请参阅 [Android 开发者文档](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
 
 <code>1 | 2 | 3 | 4 | 5</code>
 
 
 #### Visibility
 
-The notification visibility. For more details, see the [Android Developer Docs](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE)
+通知可见性。有关更多详细信息，请参阅 [Android 开发者文档](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE)
 
 <code>-1 | 0 | 1</code>
 
@@ -762,13 +760,13 @@ The notification visibility. For more details, see the [Android Developer Docs](
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
 
-### Enums
+### 枚举
 
 
 #### Weekday
 
-| Members         | Value          |
-| --------------- | -------------- |
+| 成员           | 值            |
+| -------------- | ------------- |
 | **`Sunday`**    | <code>1</code> |
 | **`Monday`**    | <code>2</code> |
 | **`Tuesday`**   | <code>3</code> |

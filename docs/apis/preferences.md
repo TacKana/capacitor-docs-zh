@@ -1,6 +1,6 @@
 ---
 title: Preferences Capacitor Plugin API
-description: The Preferences API provides a simple key/value persistent store for lightweight data.
+description: Preferences API 提供了一个简单的键/值持久化存储，适用于轻量级数据。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/src/definitions.ts
 sidebar_label: Preferences
@@ -8,40 +8,32 @@ sidebar_label: Preferences
 
 # @capacitor/preferences
 
-The Preferences API provides a simple key/value persistent store for lightweight data.
+Preferences API 提供了一个简单的键/值持久化存储，适用于轻量级数据。
 
-Mobile OSs may periodically clear data set in `window.localStorage`, so this
-API should be used instead. This API will fall back to using `localStorage`
-when running as a Progressive Web App.
+移动操作系统可能会定期清除 `window.localStorage` 中设置的数据，因此应改用此 API。在作为渐进式 Web 应用（Progressive Web App）运行时，此 API 将回退使用 `localStorage`。
 
-This plugin will use
-[`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults)
-on iOS and
-[`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences)
-on Android. Stored data is cleared if the app is uninstalled.
+此插件在 iOS 上使用 [`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults)，在 Android 上使用 [`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences)。如果应用被卸载，存储的数据将被清除。
 
-**Note**: This API is _not_ meant to be used as a local database. If your app
-stores a lot of data, has high read/write load, or requires complex querying,
-we recommend taking a look at a SQLite-based solution. One such solution is [Ionic Secure Storage](https://ionic.io/docs/secure-storage), a SQLite-based engine with full encryption support. The [Capacitor Community](https://github.com/capacitor-community/) has also built a number of other storage engines.
+**注意**：此 API _不_ 适合用作本地数据库。如果您的应用需要存储大量数据、有高读写负载或需要复杂查询，建议考虑基于 SQLite 的解决方案。其中一个方案是 [Ionic Secure Storage](https://ionic.io/docs/secure-storage)，这是一个基于 SQLite 且支持全加密的引擎。[Capacitor 社区](https://github.com/capacitor-community/) 也构建了多种其他存储引擎。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/preferences
 npx cap sync
 ```
 
-## Apple Privacy Manifest Requirements
+## Apple 隐私清单要求
 
-Apple mandates that app developers now specify approved reasons for API usage to enhance user privacy. By May 1st, 2024, it's required to include these reasons when submitting apps to the App Store Connect.
+Apple 要求应用开发者现在必须为 API 使用指定批准的原因，以增强用户隐私。到 2024 年 5 月 1 日，向 App Store Connect 提交应用时必须包含这些原因。
 
-When using this specific plugin in your app, you must create a `PrivacyInfo.xcprivacy` file in `/ios/App` or use the VS Code Extension to generate it, specifying the usage reasons.
+当在应用中使用此特定插件时，您必须在 `/ios/App` 中创建一个 `PrivacyInfo.xcprivacy` 文件，或使用 VS Code 扩展生成它，并指定使用原因。
 
-For detailed steps on how to do this, please see the [Capacitor Docs](https://capacitorjs.com/docs/ios/privacy-manifest).
+有关如何执行此操作的详细步骤，请参阅 [Capacitor 文档](https://capacitorjs.com/docs/ios/privacy-manifest)。
 
-**For this plugin, the required dictionary key is [NSPrivacyAccessedAPICategoryUserDefaults](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401) and the recommended reason is [CA92.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401).**
+**对于此插件，必需的字典键是 [NSPrivacyAccessedAPICategoryUserDefaults](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401)，推荐的原因是 [CA92.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401)。**
 
-### Example PrivacyInfo.xcprivacy
+### 示例 PrivacyInfo.xcprivacy
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,7 +42,7 @@ For detailed steps on how to do this, please see the [Capacitor Docs](https://ca
   <dict>
     <key>NSPrivacyAccessedAPITypes</key>
     <array>
-      <!-- Add this dict entry to the array if the PrivacyInfo file already exists -->
+      <!-- 如果 PrivacyInfo 文件已存在，请将此字典条目添加到数组中 -->
       <dict>
         <key>NSPrivacyAccessedAPIType</key>
         <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
@@ -64,7 +56,7 @@ For detailed steps on how to do this, please see the [Capacitor Docs](https://ca
 </plist>
 ```
 
-## Example Plugin Usage
+## 插件使用示例
 
 ```typescript
 import { Preferences } from '@capacitor/preferences';
@@ -87,11 +79,11 @@ const removeName = async () => {
 };
 ```
 
-## Working with JSON
+## 处理 JSON
 
-The Preferences API only supports string values. You can, however, use JSON if you `JSON.stringify` the object before calling `set()`, then `JSON.parse` the value returned from `get()`.
+Preferences API 仅支持字符串值。但是，您可以在调用 `set()` 之前使用 `JSON.stringify` 处理对象，然后在 `get()` 返回的值上使用 `JSON.parse`，这样就可以使用 JSON。
 
-This method can also be used to store non-string values, such as numbers and booleans.
+此方法也可用于存储非字符串值，例如数字和布尔值。
 
 ## API
 
@@ -105,7 +97,7 @@ This method can also be used to store non-string values, such as numbers and boo
 * [`keys()`](#keys)
 * [`migrate()`](#migrate)
 * [`removeOld()`](#removeold)
-* [Interfaces](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
@@ -118,15 +110,15 @@ This method can also be used to store non-string values, such as numbers and boo
 configure(options: ConfigureOptions) => Promise<void>
 ```
 
-Configure the preferences plugin at runtime.
+在运行时配置偏好设置插件。
 
-Options that are `undefined` will not be used.
+值为 `undefined` 的选项将不会被使用。
 
-| Param         | Type                                                          |
+| 参数          | 类型                                                              |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#configureoptions">ConfigureOptions</a></code> |
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -137,15 +129,15 @@ Options that are `undefined` will not be used.
 get(options: GetOptions) => Promise<GetResult>
 ```
 
-Get the value from preferences of a given key.
+从偏好设置中获取指定键的值。
 
-| Param         | Type                                              |
+| 参数          | 类型                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code><a href="#getoptions">GetOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -156,13 +148,13 @@ Get the value from preferences of a given key.
 set(options: SetOptions) => Promise<void>
 ```
 
-Set the value in preferences for a given key.
+在偏好设置中设置指定键的值。
 
-| Param         | Type                                              |
+| 参数          | 类型                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code><a href="#setoptions">SetOptions</a></code> |
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -173,13 +165,13 @@ Set the value in preferences for a given key.
 remove(options: RemoveOptions) => Promise<void>
 ```
 
-Remove the value from preferences for a given key, if any.
+从偏好设置中移除指定键的值（如果有）。
 
-| Param         | Type                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#removeoptions">RemoveOptions</a></code> |
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -190,9 +182,9 @@ Remove the value from preferences for a given key, if any.
 clear() => Promise<void>
 ```
 
-Clear keys and values from preferences.
+清除偏好设置中的所有键和值。
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -203,11 +195,11 @@ Clear keys and values from preferences.
 keys() => Promise<KeysResult>
 ```
 
-Return the list of known keys in preferences.
+返回偏好设置中已知键的列表。
 
-**Returns:** <code>Promise&lt;<a href="#keysresult">KeysResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#keysresult">KeysResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -218,15 +210,14 @@ Return the list of known keys in preferences.
 migrate() => Promise<MigrateResult>
 ```
 
-Migrate data from the Capacitor 2 Storage plugin.
+从 Capacitor 2 Storage 插件迁移数据。
 
-This action is non-destructive. It will not remove old data and will only
-write new data if they key was not already set.
-To remove the old data after being migrated, call removeOld().
+此操作是非破坏性的。它不会删除旧数据，并且仅在键尚未设置时写入新数据。
+要在迁移后移除旧数据，请调用 removeOld()。
 
-**Returns:** <code>Promise&lt;<a href="#migrateresult">MigrateResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#migrateresult">MigrateResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -237,64 +228,64 @@ To remove the old data after being migrated, call removeOld().
 removeOld() => Promise<void>
 ```
 
-Removes old data with `_cap_` prefix from the Capacitor 2 Storage plugin.
+从 Capacitor 2 Storage 插件中移除带有 `_cap_` 前缀的旧数据。
 
-**Since:** 1.1.0
+**自从：** 1.1.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ConfigureOptions
 
-| Prop        | Type                | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Since |
+| 属性          | 类型                | 描述                                                                                                                                                                                                                                                                                                                                              | 默认值                       | 自从 |
 | ----------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ----- |
-| **`group`** | <code>string</code> | Set the preferences group. Preferences groups are used to organize key/value pairs. Using the value 'NativeStorage' provides backwards-compatibility with [`cordova-plugin-nativestorage`](https://www.npmjs.com/package/cordova-plugin-nativestorage). WARNING: The `clear()` method can delete unintended values when using the 'NativeStorage' group. | <code>CapacitorStorage</code> | 1.0.0 |
+| **`group`** | <code>string</code> | 设置偏好设置组。偏好设置组用于组织键/值对。使用值 'NativeStorage' 可提供与 [`cordova-plugin-nativestorage`](https://www.npmjs.com/package/cordova-plugin-nativestorage) 的向后兼容性。警告：使用 'NativeStorage' 组时，`clear()` 方法可能会删除意外的值。 | <code>CapacitorStorage</code> | 1.0.0 |
 
 
 #### GetResult
 
-| Prop        | Type                        | Description                                                                                                                       | Since |
+| 属性          | 类型                        | 描述                                                                                                                       | 自从 |
 | ----------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`value`** | <code>string \| null</code> | The value from preferences associated with the given key. If a value was not previously set or was removed, value will be `null`. | 1.0.0 |
+| **`value`** | <code>string \| null</code> | 与给定键关联的偏好设置中的值。如果之前未设置值或值已被移除，则 value 将为 `null`。 | 1.0.0 |
 
 
 #### GetOptions
 
-| Prop      | Type                | Description                                       | Since |
+| 属性      | 类型                | 描述                                       | 自从 |
 | --------- | ------------------- | ------------------------------------------------- | ----- |
-| **`key`** | <code>string</code> | The key whose value to retrieve from preferences. | 1.0.0 |
+| **`key`** | <code>string</code> | 要从偏好设置中检索值的键。 | 1.0.0 |
 
 
 #### SetOptions
 
-| Prop        | Type                | Description                                                   | Since |
+| 属性          | 类型                | 描述                                                   | 自从 |
 | ----------- | ------------------- | ------------------------------------------------------------- | ----- |
-| **`key`**   | <code>string</code> | The key to associate with the value being set in preferences. | 1.0.0 |
-| **`value`** | <code>string</code> | The value to set in preferences with the associated key.      | 1.0.0 |
+| **`key`**   | <code>string</code> | 要与偏好设置中设置的值关联的键。 | 1.0.0 |
+| **`value`** | <code>string</code> | 要与关联键一起设置在偏好设置中的值。      | 1.0.0 |
 
 
 #### RemoveOptions
 
-| Prop      | Type                | Description                                     | Since |
+| 属性      | 类型                | 描述                                     | 自从 |
 | --------- | ------------------- | ----------------------------------------------- | ----- |
-| **`key`** | <code>string</code> | The key whose value to remove from preferences. | 1.0.0 |
+| **`key`** | <code>string</code> | 要从偏好设置中移除值的键。 | 1.0.0 |
 
 
 #### KeysResult
 
-| Prop       | Type                  | Description                    | Since |
+| 属性       | 类型                  | 描述                    | 自从 |
 | ---------- | --------------------- | ------------------------------ | ----- |
-| **`keys`** | <code>string[]</code> | The known keys in preferences. | 1.0.0 |
+| **`keys`** | <code>string[]</code> | 偏好设置中的已知键。 | 1.0.0 |
 
 
 #### MigrateResult
 
-| Prop           | Type                  | Description                                                                                                                           | Since |
+| 属性           | 类型                  | 描述                                                                                                                           | 自从 |
 | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`migrated`** | <code>string[]</code> | An array of keys that were migrated.                                                                                                  | 1.0.0 |
-| **`existing`** | <code>string[]</code> | An array of keys that were already migrated or otherwise exist in preferences that had a value in the Capacitor 2 Preferences plugin. | 1.0.0 |
+| **`migrated`** | <code>string[]</code> | 已迁移的键的数组。                                                                                                  | 1.0.0 |
+| **`existing`** | <code>string[]</code> | 已迁移或已存在于偏好设置中且在 Capacitor 2 Preferences 插件中有值的键的数组。 | 1.0.0 |
 
 </docgen-api>

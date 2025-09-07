@@ -1,6 +1,6 @@
 ---
-title: Google Maps Capacitor Plugin API
-description: Google maps on Capacitor
+title: Google Maps Capacitor 插件 API
+description: 在 Capacitor 中使用 Google 地图
 custom_edit_url: https://github.com/ionic-team/capacitor-google-maps/blob/main/plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-google-maps/blob/main/plugin/src/definitions.ts
 sidebar_label: Google Maps
@@ -8,41 +8,41 @@ sidebar_label: Google Maps
 
 # @capacitor/google-maps
 
-Google maps on Capacitor
+在 Capacitor 中使用 Google 地图
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/google-maps
 npx cap sync
 ```
 
-## API Keys
+## API 密钥
 
-To use the Google Maps SDK on any platform, API keys associated with an account _with billing enabled_ are required. These can be obtained from the [Google Cloud Console](https://console.cloud.google.com). This is required for all three platforms, Android, iOS, and Javascript. Additional information about obtaining these API keys can be found in the [Google Maps documentation](https://developers.google.com/maps/documentation/android-sdk/overview) for each platform.
+要在任何平台上使用 Google Maps SDK，都需要使用关联到已启用计费的账户的 API 密钥。这些密钥可以从 [Google Cloud Console](https://console.cloud.google.com) 获取。Android、iOS 和 JavaScript 三个平台均需要此密钥。关于获取这些 API 密钥的更多信息，可在各平台的 [Google Maps 文档](https://developers.google.com/maps/documentation/android-sdk/overview) 中找到。
 
 ## iOS
 
-The Google Maps SDK supports the use of showing the users current location via `enableCurrentLocation(bool)`. To use this, Apple requires privacy descriptions to be specified in `Info.plist`:
+Google Maps SDK 支持通过 `enableCurrentLocation(bool)` 显示用户的当前位置。为此，Apple 要求在 `Info.plist` 中指定隐私描述：
 
-- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
+- `NSLocationWhenInUseUsageDescription` (`隐私 - 使用时位置访问说明`)
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
+请阅读 [iOS 指南](https://capacitorjs.com/docs/ios) 中的 [配置 `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 部分，了解更多关于在 Xcode 中设置 iOS 权限的信息。
 
-### Typescript Configuration
+### TypeScript 配置
 
-Your project will also need have `skipLibCheck` set to `true` in `tsconfig.json`.
+您的项目还需要在 `tsconfig.json` 中将 `skipLibCheck` 设置为 `true`。
 
-### Migrating from older versions
-> The main Google Maps SDK now supports running on simulators on Apple Silicon Macs, but make sure you have the latest version of [Google-Maps-iOS-Utils](https://github.com/googlemaps/google-maps-ios-utils) installed.
+### 从旧版本迁移
+> 主要的 Google Maps SDK 现在支持在 Apple Silicon Mac 的模拟器上运行，但请确保您安装了最新版本的 [Google-Maps-iOS-Utils](https://github.com/googlemaps/google-maps-ios-utils)。
 
-If you added the previous workaround for getting the unreleased version, you can delete it now by removing this line from `ios/App/Podfile`:
+如果您之前添加了获取未发布版本的特殊处理，现在可以通过从 `ios/App/Podfile` 中删除以下行来移除它：
 
 ```
 pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/googlemaps/google-maps-ios-utils.git', :commit => '637954e5bcb2a879c11a6f2cead153a6bad5339f'
 ```
 
-Then run `pod update Google-Maps-iOS-Utils` from the `ios/App/` folder:
+然后从 `ios/App/` 文件夹运行 `pod update Google-Maps-iOS-Utils`：
 
 ```
 cd ios/App
@@ -51,37 +51,36 @@ pod update Google-Maps-iOS-Utils
 
 ## Android
 
-The Google Maps SDK for Android requires you to add your API key to the AndroidManifest.xml file in your project.
+适用于 Android 的 Google Maps SDK 要求您将 API 密钥添加到项目中的 AndroidManifest.xml 文件。
 
 ```xml
 <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_API_KEY_HERE"/>
 ```
 
-To use certain location features, the SDK requires the following permissions to also be added to your AndroidManifest.xml:
+要使用某些定位功能，SDK 还要求将以下权限添加到您的 AndroidManifest.xml：
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-### Variables
+### 变量
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+此插件将使用以下项目变量（在您应用的 `variables.gradle` 文件中定义）：
 
-- `googleMapsPlayServicesVersion`: version of `com.google.android.gms:play-services-maps` (default: `18.2.0`)
-- `googleMapsUtilsVersion`: version of `com.google.maps.android:android-maps-utils` (default: `3.8.2`)
-- `googleMapsKtxVersion`: version of `com.google.maps.android:maps-ktx` (default: `5.0.0`)
-- `googleMapsUtilsKtxVersion`: version of `com.google.maps.android:maps-utils-ktx` (default: `5.0.0`)
-- `kotlinxCoroutinesVersion`: version of `org.jetbrains.kotlinx:kotlinx-coroutines-android` and `org.jetbrains.kotlinx:kotlinx-coroutines-core` (default: `1.7.3`)
-- `androidxCoreKTXVersion`: version of `androidx.core:core-ktx` (default: `1.12.0`)
-- `kotlin_version`: version of `org.jetbrains.kotlin:kotlin-stdlib` (default: `1.9.10`)
+- `googleMapsPlayServicesVersion`: `com.google.android.gms:play-services-maps` 的版本（默认：`18.2.0`）
+- `googleMapsUtilsVersion`: `com.google.maps.android:android-maps-utils` 的版本（默认：`3.8.2`）
+- `googleMapsKtxVersion`: `com.google.maps.android:maps-ktx` 的版本（默认：`5.0.0`）
+- `googleMapsUtilsKtxVersion`: `com.google.maps.android:maps-utils-ktx` 的版本（默认：`5.0.0`）
+- `kotlinxCoroutinesVersion`: `org.jetbrains.kotlinx:kotlinx-coroutines-android` 和 `org.jetbrains.kotlinx:kotlinx-coroutines-core` 的版本（默认：`1.7.3`）
+- `androidxCoreKTXVersion`: `androidx.core:core-ktx` 的版本（默认：`1.12.0`）
+- `kotlin_version`: `org.jetbrains.kotlin:kotlin-stdlib` 的版本（默认：`1.9.10`）
 
+## 使用方法
 
-## Usage
+Google Maps Capacitor 插件附带了一个 Web 组件，必须在您的应用程序中使用它来渲染地图，因为它使我们能够在 iOS 上更有效地嵌入原生视图。插件将自动注册此 Web 组件以供您在应用中使用。
 
-The Google Maps Capacitor plugin ships with a web component that must be used to render the map in your application as it enables us to embed the native view more effectively on iOS. The plugin will automatically register this web component for use in your application.
-
-> For Angular users, you will get an error warning that this web component is unknown to the Angular compiler. This is resolved by modifying the module that declares your component to allow for custom web components.
+> 对于 Angular 用户，您会收到一个错误警告，提示 Angular 编译器不认识此 Web 组件。这可以通过修改声明组件的模块以允许自定义 Web 组件来解决。
 >
 > ```typescript
 > import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -91,17 +90,17 @@ The Google Maps Capacitor plugin ships with a web component that must be used to
 > })
 > ```
 
-Include this component in your HTML and assign it an ID so that you can easily query for that element reference later.
+在您的 HTML 中包含此组件并为其分配一个 ID，以便稍后可以轻松查询该元素引用。
 
 ```html
 <capacitor-google-map id="map"></capacitor-google-map>
 ```
 
-> On Android, the map is rendered beneath the entire webview, and uses this component to manage its positioning during scrolling events. This means that as the developer, you _must_ ensure that the webview is transparent all the way through the layers to the very bottom. In a typically Ionic application, that means setting transparency on elements such as IonContent and the root HTML tag to ensure that it can be seen. If you can't see your map on Android, this should be the first thing you check.
+> 在 Android 上，地图是在整个 WebView 下方渲染的，并使用此组件在滚动事件期间管理其定位。这意味着作为开发者，您*必须*确保 WebView 从各层一直到最底部都是透明的。在典型的 Ionic 应用中，这意味着需要在诸如 IonContent 和根 HTML 标签等元素上设置透明度，以确保可以看到地图。如果在 Android 上看不到地图，这应该是您首先检查的事项。
 >
-> On iOS, we render the map directly into the webview and so the same transparency effects are not required. We are investigating alternate methods for Android still and hope to resolve this better in a future update.
+> 在 iOS 上，我们直接将地图渲染到 WebView 中，因此不需要相同的透明度效果。我们仍在研究 Android 的替代方法，并希望在未来的更新中更好地解决此问题。
 
-The Google Map element itself comes unstyled, so you should style it to fit within the layout of your page structure. Because we're rendering a view into this slot, by itself the element has no width or height, so be sure to set those explicitly.
+Google Map 元素本身是无样式的，因此您应该对其进行样式设置以使其适应页面结构的布局。因为我们正在将视图渲染到此插槽中，所以元素本身没有宽度或高度，请务必显式设置它们。
 
 ```css
 capacitor-google-map {
@@ -111,7 +110,7 @@ capacitor-google-map {
 }
 ```
 
-Next, we should create the map reference. This is done by importing the GoogleMap class from the Capacitor plugin and calling the create method, and passing in the required parameters.
+接下来，我们应该创建地图引用。这是通过从 Capacitor 插件导入 GoogleMap 类并调用 create 方法，并传入所需的参数来完成的。
 
 ```typescript
 import { GoogleMap } from '@capacitor/google-maps';
@@ -121,26 +120,26 @@ const apiKey = 'YOUR_API_KEY_HERE';
 const mapRef = document.getElementById('map');
 
 const newMap = await GoogleMap.create({
-  id: 'my-map', // Unique identifier for this map instance
-  element: mapRef, // reference to the capacitor-google-map element
-  apiKey: apiKey, // Your Google Maps API Key
+  id: 'my-map', // 此地图实例的唯一标识符
+  element: mapRef, // 对 capacitor-google-map 元素的引用
+  apiKey: apiKey, // 您的 Google Maps API 密钥
   config: {
     center: {
-      // The initial position to be rendered by the map
+      // 地图初始渲染位置
       lat: 33.6,
       lng: -117.9,
     },
-    zoom: 8, // The initial zoom level to be rendered by the map
+    zoom: 8, // 地图初始缩放级别
   },
 });
 ```
 
-At this point, your map should be created within your application. Using the returned reference to the map, you can easily interact with your map in a number of way, a few of which are shown here.
+此时，您的地图应该在应用程序中创建完成。使用返回的地图引用，您可以通过多种方式轻松地与地图交互，这里展示了其中一些方式。
 
 ```typescript
 const newMap = await GoogleMap.create({...});
 
-// Add a marker to the map
+// 向地图添加标记
 const markerId = await newMap.addMarker({
   coordinate: {
     lat: 33.6,
@@ -148,7 +147,7 @@ const markerId = await newMap.addMarker({
   }
 });
 
-// Move the map programmatically
+// 以编程方式移动地图
 await newMap.setCamera({
   coordinate: {
     lat: 33.6,
@@ -156,17 +155,17 @@ await newMap.setCamera({
   }
 });
 
-// Enable marker clustering
+// 启用标记聚类
 await newMap.enableClustering();
 
-// Handle marker click
+// 处理标记点击事件
 await newMap.setOnMarkerClickListener((event) => {...});
 
-// Clean up map reference
+// 清理地图引用
 await newMap.destroy();
 ```
 
-## Full Examples
+## 完整示例
 
 ### Angular
 
@@ -176,7 +175,7 @@ import { GoogleMap } from '@capacitor/google-maps';
 @Component({
   template: `
     <capacitor-google-map #map></capacitor-google-map>
-    <button (click)="createMap()">Create Map</button>
+    <button (click)="createMap()">创建地图</button>
   `,
   styles: [
     `
@@ -245,7 +244,7 @@ const MyMap: React.FC = () => {
         height: 400
       }}></capacitor-google-map>
 
-      <button onClick={createMap}>Create Map</button>
+      <button onClick={createMap}>创建地图</button>
     </div>
   )
 }
@@ -286,12 +285,12 @@ async function createMap() {
     ref="mapRef"
     style="display: inline-block; width: 275px; height: 400px"
   ></capacitor-google-map>
-  <button @click="createMap()">Create Map</button>
+  <button @click="createMap()">创建地图</button>
 </template>
 
 ```
 
-make sure you need enable [recognize native custom elements](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue) like 
+请确保您需要启用[识别原生自定义元素](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue)功能，例如：
 
 ```ts
 // vite.config.mts > plugins
@@ -304,11 +303,11 @@ Vue({
 }),
 ```
 
-### Javascript
+### JavaScript
 
 ```html
 <capacitor-google-map id="map"></capacitor-google-map>
-<button onclick="createMap()">Create Map</button>
+<button onclick="createMap()">创建地图</button>
 
 <style>
   capacitor-google-map {
@@ -325,16 +324,16 @@ Vue({
     const mapRef = document.getElementById('map');
 
     const newMap = await GoogleMap.create({
-      id: 'my-map', // Unique identifier for this map instance
-      element: mapRef, // reference to the capacitor-google-map element
-      apiKey: 'YOUR_API_KEY_HERE', // Your Google Maps API Key
+      id: 'my-map', // 此地图实例的唯一标识符
+      element: mapRef, // 对 capacitor-google-map 元素的引用
+      apiKey: 'YOUR_API_KEY_HERE', // 您的 Google Maps API 密钥
       config: {
         center: {
-          // The initial position to be rendered by the map
+          // 地图初始渲染位置
           lat: 33.6,
           lng: -117.9,
         },
-        zoom: 8, // The initial zoom level to be rendered by the map
+        zoom: 8, // 地图初始缩放级别
       },
     });
   };
@@ -389,9 +388,9 @@ Vue({
 * [`setOnMarkerDragEndListener(...)`](#setonmarkerdragendlistener)
 * [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
 * [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
+* [枚举](#enums)
 
 </docgen-index>
 
@@ -404,12 +403,12 @@ Vue({
 create(options: CreateMapArgs, callback?: MapListenerCallback<MapReadyCallbackData> | undefined) => Promise<GoogleMap>
 ```
 
-| Param          | Type                                                                                                                                |
+| 参数           | 类型                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`options`**  | <code><a href="#createmapargs">CreateMapArgs</a></code>                                                                             |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapreadycallbackdata">MapReadyCallbackData</a>&gt;</code> |
 
-**Returns:** <code>Promise&lt;GoogleMap&gt;</code>
+**返回值:** <code>Promise&lt;GoogleMap&gt;</code>
 
 --------------------
 
@@ -438,9 +437,9 @@ disableTouch() => Promise<void>
 enableClustering(minClusterSize?: number | undefined) => Promise<void>
 ```
 
-| Param                | Type                | Description                                                                             |
+| 参数                 | 类型                | 描述                                                                             |
 | -------------------- | ------------------- | --------------------------------------------------------------------------------------- |
-| **`minClusterSize`** | <code>number</code> | The minimum number of markers that can be clustered together. The default is 4 markers. |
+| **`minClusterSize`** | <code>number</code> | 可聚集在一起的最小标记数量。默认为 4 个标记。 |
 
 --------------------
 
@@ -460,11 +459,11 @@ disableClustering() => Promise<void>
 addTileOverlay(tileOverlay: TileOverlay) => Promise<{ id: string; }>
 ```
 
-| Param             | Type                                                |
-| ----------------- | --------------------------------------------------- |
+| 参数               | 类型                                                |
+| ------------------ | --------------------------------------------------- |
 | **`tileOverlay`** | <code><a href="#tileoverlay">TileOverlay</a></code> |
 
-**Returns:** <code>Promise&lt;{ id: string; }&gt;</code>
+**返回值:** <code>Promise&lt;{ id: string; }&gt;</code>
 
 --------------------
 
@@ -475,8 +474,8 @@ addTileOverlay(tileOverlay: TileOverlay) => Promise<{ id: string; }>
 removeTileOverlay(id: string) => Promise<void>
 ```
 
-| Param    | Type                |
-| -------- | ------------------- |
+| 参数      | 类型                |
+| --------- | ------------------- |
 | **`id`** | <code>string</code> |
 
 --------------------
@@ -488,11 +487,11 @@ removeTileOverlay(id: string) => Promise<void>
 addMarker(marker: Marker) => Promise<string>
 ```
 
-| Param        | Type                                      |
-| ------------ | ----------------------------------------- |
+| 参数          | 类型                                      |
+| ------------- | ----------------------------------------- |
 | **`marker`** | <code><a href="#marker">Marker</a></code> |
 
-**Returns:** <code>Promise&lt;string&gt;</code>
+**返回值:** <code>Promise&lt;string&gt;</code>
 
 --------------------
 
@@ -503,11 +502,11 @@ addMarker(marker: Marker) => Promise<string>
 addMarkers(markers: Marker[]) => Promise<string[]>
 ```
 
-| Param         | Type                  |
-| ------------- | --------------------- |
+| 参数           | 类型                  |
+| -------------- | --------------------- |
 | **`markers`** | <code>Marker[]</code> |
 
-**Returns:** <code>Promise&lt;string[]&gt;</code>
+**返回值:** <code>Promise&lt;string[]&gt;</code>
 
 --------------------
 
@@ -518,8 +517,8 @@ addMarkers(markers: Marker[]) => Promise<string[]>
 removeMarker(id: string) => Promise<void>
 ```
 
-| Param    | Type                |
-| -------- | ------------------- |
+| 参数      | 类型                |
+| --------- | ------------------- |
 | **`id`** | <code>string</code> |
 
 --------------------
@@ -531,8 +530,8 @@ removeMarker(id: string) => Promise<void>
 removeMarkers(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
-| --------- | --------------------- |
+| 参数       | 类型                  |
+| ---------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
 --------------------
@@ -544,11 +543,11 @@ removeMarkers(ids: string[]) => Promise<void>
 addPolygons(polygons: Polygon[]) => Promise<string[]>
 ```
 
-| Param          | Type                   |
-| -------------- | ---------------------- |
+| 参数            | 类型                   |
+| --------------- | ---------------------- |
 | **`polygons`** | <code>Polygon[]</code> |
 
-**Returns:** <code>Promise&lt;string[]&gt;</code>
+**返回值:** <code>Promise&lt;string[]&gt;</code>
 
 --------------------
 
@@ -559,8 +558,8 @@ addPolygons(polygons: Polygon[]) => Promise<string[]>
 removePolygons(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
-| --------- | --------------------- |
+| 参数       | 类型                  |
+| ---------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
 --------------------
@@ -572,11 +571,11 @@ removePolygons(ids: string[]) => Promise<void>
 addCircles(circles: Circle[]) => Promise<string[]>
 ```
 
-| Param         | Type                  |
-| ------------- | --------------------- |
+| 参数           | 类型                  |
+| -------------- | --------------------- |
 | **`circles`** | <code>Circle[]</code> |
 
-**Returns:** <code>Promise&lt;string[]&gt;</code>
+**返回值:** <code>Promise&lt;string[]&gt;</code>
 
 --------------------
 
@@ -587,8 +586,8 @@ addCircles(circles: Circle[]) => Promise<string[]>
 removeCircles(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
-| --------- | --------------------- |
+| 参数       | 类型                  |
+| ---------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
 --------------------
@@ -600,11 +599,11 @@ removeCircles(ids: string[]) => Promise<void>
 addPolylines(polylines: Polyline[]) => Promise<string[]>
 ```
 
-| Param           | Type                    |
-| --------------- | ----------------------- |
+| 参数             | 类型                    |
+| ---------------- | ----------------------- |
 | **`polylines`** | <code>Polyline[]</code> |
 
-**Returns:** <code>Promise&lt;string[]&gt;</code>
+**返回值:** <code>Promise&lt;string[]&gt;</code>
 
 --------------------
 
@@ -615,8 +614,8 @@ addPolylines(polylines: Polyline[]) => Promise<string[]>
 removePolylines(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
-| --------- | --------------------- |
+| 参数       | 类型                  |
+| ---------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
 --------------------
@@ -637,8 +636,8 @@ destroy() => Promise<void>
 setCamera(config: CameraConfig) => Promise<void>
 ```
 
-| Param        | Type                                                  |
-| ------------ | ----------------------------------------------------- |
+| 参数          | 类型                                                  |
+| ------------- | ----------------------------------------------------- |
 | **`config`** | <code><a href="#cameraconfig">CameraConfig</a></code> |
 
 --------------------
@@ -650,9 +649,9 @@ setCamera(config: CameraConfig) => Promise<void>
 getMapType() => Promise<MapType>
 ```
 
-Get current map type
+获取当前地图类型
 
-**Returns:** <code>Promise&lt;<a href="#maptype">MapType</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#maptype">MapType</a>&gt;</code>
 
 --------------------
 
@@ -663,8 +662,8 @@ Get current map type
 setMapType(mapType: MapType) => Promise<void>
 ```
 
-| Param         | Type                                        |
-| ------------- | ------------------------------------------- |
+| 参数           | 类型                                        |
+| -------------- | ------------------------------------------- |
 | **`mapType`** | <code><a href="#maptype">MapType</a></code> |
 
 --------------------
@@ -676,8 +675,8 @@ setMapType(mapType: MapType) => Promise<void>
 enableIndoorMaps(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
-| ------------- | -------------------- |
+| 参数           | 类型                 |
+| -------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
 --------------------
@@ -689,8 +688,8 @@ enableIndoorMaps(enabled: boolean) => Promise<void>
 enableTrafficLayer(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
-| ------------- | -------------------- |
+| 参数           | 类型                 |
+| -------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
 --------------------
@@ -702,8 +701,8 @@ enableTrafficLayer(enabled: boolean) => Promise<void>
 enableAccessibilityElements(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
-| ------------- | -------------------- |
+| 参数           | 类型                 |
+| -------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
 --------------------
@@ -715,8 +714,8 @@ enableAccessibilityElements(enabled: boolean) => Promise<void>
 enableCurrentLocation(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
-| ------------- | -------------------- |
+| 参数           | 类型                 |
+| -------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
 --------------------
@@ -728,8 +727,8 @@ enableCurrentLocation(enabled: boolean) => Promise<void>
 setPadding(padding: MapPadding) => Promise<void>
 ```
 
-| Param         | Type                                              |
-| ------------- | ------------------------------------------------- |
+| 参数           | 类型                                              |
+| -------------- | ------------------------------------------------- |
 | **`padding`** | <code><a href="#mappadding">MapPadding</a></code> |
 
 --------------------
@@ -741,9 +740,9 @@ setPadding(padding: MapPadding) => Promise<void>
 getMapBounds() => Promise<LatLngBounds>
 ```
 
-Get the map's current viewport latitude and longitude bounds.
+获取地图当前视口的经纬度边界。
 
-**Returns:** <code>Promise&lt;LatLngBounds&gt;</code>
+**返回值:** <code>Promise&lt;LatLngBounds&gt;</code>
 
 --------------------
 
@@ -754,12 +753,12 @@ Get the map's current viewport latitude and longitude bounds.
 fitBounds(bounds: LatLngBounds, padding?: number | undefined) => Promise<void>
 ```
 
-Sets the map viewport to contain the given bounds.
+设置地图视口以包含给定的边界。
 
-| Param         | Type                      | Description                                                                                                               |
-| ------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **`bounds`**  | <code>LatLngBounds</code> | The bounds to fit in the viewport.                                                                                        |
-| **`padding`** | <code>number</code>       | Optional padding to apply in pixels. The bounds will be fit in the part of the map that remains after padding is removed. |
+| 参数           | 类型                      | 描述                                                                                                               |
+| -------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **`bounds`**  | <code>LatLngBounds</code> | 要适应视口的边界。                                                                                        |
+| **`padding`** | <code>number</code>       | 可选的内边距（以像素为单位）。边界将适应在移除内边距后剩余的地图部分。 |
 
 --------------------
 
@@ -770,8 +769,8 @@ Sets the map viewport to contain the given bounds.
 setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                    |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
 
 --------------------
@@ -783,8 +782,8 @@ setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData
 setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                    |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
 
 --------------------
@@ -796,8 +795,8 @@ setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> |
 setOnCameraMoveStartedListener(callback?: MapListenerCallback<CameraMoveStartedCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                                  |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                                  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameramovestartedcallbackdata">CameraMoveStartedCallbackData</a>&gt;</code> |
 
 --------------------
@@ -809,8 +808,8 @@ setOnCameraMoveStartedListener(callback?: MapListenerCallback<CameraMoveStartedC
 setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -822,8 +821,8 @@ setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackDat
 setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -835,8 +834,8 @@ setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickC
 setOnInfoWindowClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -848,8 +847,8 @@ setOnInfoWindowClickListener(callback?: MapListenerCallback<MarkerClickCallbackD
 setOnMapClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -861,8 +860,8 @@ setOnMapClickListener(callback?: MapListenerCallback<MapClickCallbackData> | und
 setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -874,8 +873,8 @@ setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData>
 setOnPolygonClickListener(callback?: MapListenerCallback<PolygonClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#polygonclickcallbackdata">PolygonClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -887,8 +886,8 @@ setOnPolygonClickListener(callback?: MapListenerCallback<PolygonClickCallbackDat
 setOnCircleClickListener(callback?: MapListenerCallback<CircleClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#circleclickcallbackdata">CircleClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -900,8 +899,8 @@ setOnCircleClickListener(callback?: MapListenerCallback<CircleClickCallbackData>
 setOnPolylineClickListener(callback?: MapListenerCallback<PolylineCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#polylinecallbackdata">PolylineCallbackData</a>&gt;</code> |
 
 --------------------
@@ -913,8 +912,8 @@ setOnPolylineClickListener(callback?: MapListenerCallback<PolylineCallbackData> 
 setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -926,8 +925,8 @@ setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackD
 setOnMarkerDragListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -939,8 +938,8 @@ setOnMarkerDragListener(callback?: MapListenerCallback<MarkerClickCallbackData> 
 setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -952,8 +951,8 @@ setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackDat
 setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButtonClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mylocationbuttonclickcallbackdata">MyLocationButtonClickCallbackData</a>&gt;</code> |
 
 --------------------
@@ -965,208 +964,204 @@ setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButt
 setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 参数            | 类型                                                                                                                                |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CreateMapArgs
 
-An interface containing the options used when creating a map.
+一个包含创建地图时使用的选项的接口。
 
-| Prop              | Type                                                        | Description                                                                                                                                                                            | Default            |
-| ----------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **`id`**          | <code>string</code>                                         | A unique identifier for the map instance.                                                                                                                                              |                    |
-| **`apiKey`**      | <code>string</code>                                         | The Google Maps SDK API Key.                                                                                                                                                           |                    |
-| **`config`**      | <code><a href="#googlemapconfig">GoogleMapConfig</a></code> | The initial configuration settings for the map.                                                                                                                                        |                    |
-| **`element`**     | <code>HTMLElement</code>                                    | The DOM element that the Google Map View will be mounted on which determines size and positioning.                                                                                     |                    |
-| **`forceCreate`** | <code>boolean</code>                                        | Destroy and re-create the map instance if a map with the supplied id already exists                                                                                                    | <code>false</code> |
-| **`region`**      | <code>string</code>                                         | The region parameter alters your application to serve different map tiles or bias the application (such as biasing geocoding results towards the region). Only available for web.      |                    |
-| **`language`**    | <code>string</code>                                         | The language parameter affects the names of controls, copyright notices, driving directions, and control labels, as well as the responses to service requests. Only available for web. |                    |
+| 属性               | 类型                                                        | 描述                                                                                                                                                                            | 默认值            |
+| ------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| **`id`**          | <code>string</code>                                         | 地图实例的唯一标识符。                                                                                                                                              |                    |
+| **`apiKey`**      | <code>string</code>                                         | Google Maps SDK API 密钥。                                                                                                                                                           |                    |
+| **`config`**      | <code><a href="#googlemapconfig">GoogleMapConfig</a></code> | 地图的初始配置设置。                                                                                                                                        |                    |
+| **`element`**     | <code>HTMLElement</code>                                    | Google Map View 将挂载的 DOM 元素，决定大小和位置。                                                                                     |                    |
+| **`forceCreate`** | <code>boolean</code>                                        | 如果已存在具有所提供 id 的地图实例，则销毁并重新创建地图实例                                                                                                    | <code>false</code> |
+| **`region`**      | <code>string</code>                                         | region 参数会改变您的应用程序以提供不同的地图瓦片或偏置应用程序（例如将地理编码结果偏向该区域）。仅适用于 Web。      |                    |
+| **`language`**    | <code>string</code>                                         | language 参数会影响控件名称、版权声明、驾驶方向和控制标签，以及服务请求的响应。仅适用于 Web。 |                    |
 
 
 #### GoogleMapConfig
 
-For web, all the javascript Google Maps options are available as
-GoogleMapConfig extends google.maps.MapOptions.
-For iOS and Android only the config options declared on <a href="#googlemapconfig">GoogleMapConfig</a> are available.
+对于 Web，所有 JavaScript Google Maps 选项都可用，因为 GoogleMapConfig 扩展了 google.maps.MapOptions。
+对于 iOS 和 Android，只有声明在 <a href="#googlemapconfig">GoogleMapConfig</a> 上的配置选项可用。
 
-| Prop                   | Type                                      | Description                                                                                                                                                                                                                                                                                                                                               | Default            | Since |
+| 属性                   | 类型                                      | 描述                                                                                                                                                                                                                                                                                                                                               | 默认值            | 自版本 |
 | ---------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`width`**            | <code>number</code>                       | Override width for native map.                                                                                                                                                                                                                                                                                                                            |                    |       |
-| **`height`**           | <code>number</code>                       | Override height for native map.                                                                                                                                                                                                                                                                                                                           |                    |       |
-| **`x`**                | <code>number</code>                       | Override absolute x coordinate position for native map.                                                                                                                                                                                                                                                                                                   |                    |       |
-| **`y`**                | <code>number</code>                       | Override absolute y coordinate position for native map.                                                                                                                                                                                                                                                                                                   |                    |       |
-| **`center`**           | <code><a href="#latlng">LatLng</a></code> | Default location on the Earth towards which the camera points.                                                                                                                                                                                                                                                                                            |                    |       |
-| **`zoom`**             | <code>number</code>                       | Sets the zoom of the map.                                                                                                                                                                                                                                                                                                                                 |                    |       |
-| **`androidLiteMode`**  | <code>boolean</code>                      | Enables image-based lite mode on Android.                                                                                                                                                                                                                                                                                                                 | <code>false</code> |       |
-| **`devicePixelRatio`** | <code>number</code>                       | Override pixel ratio for native map.                                                                                                                                                                                                                                                                                                                      |                    |       |
-| **`styles`**           | <code>MapTypeStyle[] \| null</code>       | Styles to apply to each of the default map types. Note that for satellite, hybrid and terrain modes, these styles will only apply to labels and geometry.                                                                                                                                                                                                 |                    | 4.3.0 |
-| **`mapId`**            | <code>string</code>                       | A map id associated with a specific map style or feature. [Use Map IDs](https://developers.google.com/maps/documentation/get-map-id) Only for Web.                                                                                                                                                                                                        |                    | 5.4.0 |
-| **`androidMapId`**     | <code>string</code>                       | A map id associated with a specific map style or feature. [Use Map IDs](https://developers.google.com/maps/documentation/get-map-id) Only for Android.                                                                                                                                                                                                    |                    | 5.4.0 |
-| **`iOSMapId`**         | <code>string</code>                       | A map id associated with a specific map style or feature. [Use Map IDs](https://developers.google.com/maps/documentation/get-map-id) Only for iOS.                                                                                                                                                                                                        |                    | 5.4.0 |
-| **`maxZoom`**          | <code>number \| null</code>               | The maximum zoom level which will be displayed on the map. If omitted, or set to &lt;code&gt;null&lt;/code&gt;, the maximum zoom from the current map type is used instead. Valid zoom values are numbers from zero up to the supported &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;maximum zoom level&lt;/a&gt;. |                    |       |
-| **`minZoom`**          | <code>number \| null</code>               | The minimum zoom level which will be displayed on the map. If omitted, or set to &lt;code&gt;null&lt;/code&gt;, the minimum zoom from the current map type is used instead. Valid zoom values are numbers from zero up to the supported &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;maximum zoom level&lt;/a&gt;. |                    |       |
-| **`mapTypeId`**        | <code>string \| null</code>               | The initial Map mapTypeId. Defaults to &lt;code&gt;ROADMAP&lt;/code&gt;.                                                                                                                                                                                                                                                                                  |                    |       |
-| **`heading`**          | <code>number \| null</code>               | The heading for aerial imagery in degrees measured clockwise from cardinal direction North. Headings are snapped to the nearest available angle for which imagery is available.                                                                                                                                                                           |                    |       |
-| **`restriction`**      | <code>MapRestriction \| null</code>       | Defines a boundary that restricts the area of the map accessible to users. When set, a user can only pan and zoom while the camera view stays inside the limits of the boundary.                                                                                                                                                                          |                    |       |
+| **`width`**            | <code>number</code>                       | 覆盖原生地图的宽度。                                                                                                                                                                                                                                                                                                                            |                    |       |
+| **`height`**           | <code>number</code>                       | 覆盖原生地图的高度。                                                                                                                                                                                                                                                                                                                           |                    |       |
+| **`x`**                | <code>number</code>                       | 覆盖原生地图的绝对 x 坐标位置。                                                                                                                                                                                                                                                                                                   |                    |       |
+| **`y`**                | <code>number</code>                       | 覆盖原生地图的绝对 y 坐标位置。                                                                                                                                                                                                                                                                                                   |                    |       |
+| **`center`**           | <code><a href="#latlng">LatLng</a></code> | 相机指向的地球上的默认位置。                                                                                                                                                                                                                                                                                            |                    |       |
+| **`zoom`**             | <code>number</code>                       | 设置地图的缩放级别。                                                                                                                                                                                                                                                                                                                                 |                    |       |
+| **`androidLiteMode`**  | <code>boolean</code>                      | 在 Android 上启用基于图像的 Lite 模式。                                                                                                                                                                                                                                                                                                                 | <code>false</code> |       |
+| **`devicePixelRatio`** | <code>number</code>                       | 覆盖原生地图的像素比率。                                                                                                                                                                                                                                                                                                                      |                    |       |
+| **`styles`**           | <code>MapTypeStyle[] \| null</code>       | 应用于每种默认地图类型的样式。请注意，对于卫星、混合和地形模式，这些样式仅适用于标签和几何图形。                                                                                                                                                                                                 |                    | 4.3.0 |
+| **`mapId`**            | <code>string</code>                       | 与特定地图样式或功能关联的地图 ID。[使用地图 ID](https://developers.google.com/maps/documentation/get-map-id) 仅适用于 Web。                                                                                                                                                                                                        |                    | 5.4.0 |
+| **`androidMapId`**     | <code>string</code>                       | 与特定地图样式或功能关联的地图 ID。[使用地图 ID](https://developers.google.com/maps/documentation/get-map-id) 仅适用于 Android。                                                                                                                                                                                                    |                    | 5.4.0 |
+| **`iOSMapId`**         | <code>string</code>                       | 与特定地图样式或功能关联的地图 ID。[使用地图 ID](https://developers.google.com/maps/documentation/get-map-id) 仅适用于 iOS。                                                                                                                                                                                                        |                    | 5.4.0 |
+| **`maxZoom`**          | <code>number \| null</code>               | 地图上显示的最大缩放级别。如果省略或设置为 &lt;code&gt;null&lt;/code&gt;，则改用当前地图类型的最大缩放级别。有效的缩放值是从零到支持的 &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;最大缩放级别&lt;/a&gt; 的数字。 |                    |       |
+| **`minZoom`**          | <code>number \| null</code>               | 地图上显示的最小缩放级别。如果省略或设置为 &lt;code&gt;null&lt;/code&gt;，则改用当前地图类型的最小缩放级别。有效的缩放值是从零到支持的 &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;最大缩放级别&lt;/a&gt; 的数字。 |                    |       |
+| **`mapTypeId`**        | <code>string \| null</code>               | 初始地图 mapTypeId。默认为 &lt;code&gt;ROADMAP&lt;/code&gt;。                                                                                                                                                                                                                                                                                  |                    |       |
+| **`heading`**          | <code>number \| null</code>               | 航空影像的航向，以从正北方向顺时针测量的度数表示。航向会捕捉到有可用影像的最接近角度。                                                                                                                                                                           |                    |       |
+| **`restriction`**      | <code>MapRestriction \| null</code>       | 定义限制用户可访问地图区域的边界。设置后，用户只能在相机视图保持在边界限制内时进行平移和缩放。                                                                                                                                                                          |                    |       |
 
 
 #### LatLng
 
-An interface representing a pair of latitude and longitude coordinates.
+表示一对经纬度坐标的接口。
 
-| Prop      | Type                | Description                                                               |
-| --------- | ------------------- | ------------------------------------------------------------------------- |
-| **`lat`** | <code>number</code> | Coordinate latitude, in degrees. This value is in the range [-90, 90].    |
-| **`lng`** | <code>number</code> | Coordinate longitude, in degrees. This value is in the range [-180, 180]. |
+| 属性       | 类型                | 描述                                                               |
+| ---------- | ------------------- | ------------------------------------------------------------------------- |
+| **`lat`** | <code>number</code> | 坐标纬度，以度为单位。此值在 [-90, 90] 范围内。    |
+| **`lng`** | <code>number</code> | 坐标经度，以度为单位。此值在 [-180, 180] 范围内。 |
 
 
 #### MapReadyCallbackData
 
-| Prop        | Type                |
-| ----------- | ------------------- |
+| 属性          | 类型                |
+| ------------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
 
 #### TileOverlay
 
-A tile overlay is an image placed on top of your map at a specific zoom level. Available on iOS, Android and Web
+瓦片覆盖层是在特定缩放级别放置在地图顶部的图像。适用于 iOS、Android 和 Web
 
-| Prop          | Type                 | Description                                                                                                                                                               | Default                |
-| ------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| **`url`**     | <code>string</code>  | A string representing the tile url. Should contain `{x}`, `{y}` and `{z}` so they can be replaced with actual values for x, y and zoom. Available on iOS, Android and Web |                        |
-| **`opacity`** | <code>number</code>  | The opacity of the tile overlay, between 0 (completely transparent) and 1 inclusive. Available on iOS, Android and Web                                                    | <code>undefined</code> |
-| **`visible`** | <code>boolean</code> | Controls whether this tile overlay should be visible. Available only on Android                                                                                           | <code>undefined</code> |
-| **`zIndex`**  | <code>number</code>  | The zIndex of the tile overlay. Available on iOS and Android                                                                                                              | <code>undefined</code> |
+| 属性           | 类型                 | 描述                                                                                                                                                               | 默认值                |
+| -------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **`url`**     | <code>string</code>  | 表示瓦片 URL 的字符串。应包含 `{x}`、`{y}` 和 `{z}`，以便可以用 x、y 和缩放的实际值替换它们。适用于 iOS、Android 和 Web |                        |
+| **`opacity`** | <code>number</code>  | 瓦片覆盖层的不透明度，介于 0（完全透明）和 1（含）之间。适用于 iOS、Android 和 Web                                                    | <code>undefined</code> |
+| **`visible`** | <code>boolean</code> | 控制此瓦片覆盖层是否应可见。仅适用于 Android                                                                                           | <code>undefined</code> |
+| **`zIndex`**  | <code>number</code>  | 瓦片覆盖层的 zIndex。适用于 iOS 和 Android                                                                                                              | <code>undefined</code> |
 
 
 #### Marker
 
-A marker is an icon placed at a particular point on the map's surface.
+标记是放置在地图表面特定点的图标。
 
-| Prop             | Type                                                         | Description                                                                                                                                                                               | Default            | Since |
-| ---------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`coordinate`** | <code><a href="#latlng">LatLng</a></code>                    | <a href="#marker">Marker</a> position                                                                                                                                                     |                    |       |
-| **`opacity`**    | <code>number</code>                                          | Sets the opacity of the marker, between 0 (completely transparent) and 1 inclusive.                                                                                                       | <code>1</code>     |       |
-| **`title`**      | <code>string</code>                                          | Title, a short description of the overlay.                                                                                                                                                |                    |       |
-| **`snippet`**    | <code>string</code>                                          | Snippet text, shown beneath the title in the info window when selected.                                                                                                                   |                    |       |
-| **`isFlat`**     | <code>boolean</code>                                         | Controls whether this marker should be flat against the Earth's surface or a billboard facing the camera.                                                                                 | <code>false</code> |       |
-| **`iconUrl`**    | <code>string</code>                                          | Path to a marker icon to render. It can be relative to the web app public directory, or a https url of a remote marker icon. **SVGs are not supported on native platforms.**              |                    | 4.2.0 |
-| **`iconSize`**   | <code><a href="#size">Size</a></code>                        | Controls the scaled size of the marker image set in `iconUrl`.                                                                                                                            |                    | 4.2.0 |
-| **`iconOrigin`** | <code><a href="#point">Point</a></code>                      | The position of the image within a sprite, if any. By default, the origin is located at the top left corner of the image .                                                                |                    | 4.2.0 |
-| **`iconAnchor`** | <code><a href="#point">Point</a></code>                      | The position at which to anchor an image in correspondence to the location of the marker on the map. By default, the anchor is located along the center point of the bottom of the image. |                    | 4.2.0 |
-| **`tintColor`**  | <code>{ r: number; g: number; b: number; a: number; }</code> | Customizes the color of the default marker image. Each value must be between 0 and 255. Only for iOS and Android.                                                                         |                    | 4.2.0 |
-| **`draggable`**  | <code>boolean</code>                                         | Controls whether this marker can be dragged interactively                                                                                                                                 | <code>false</code> |       |
-| **`zIndex`**     | <code>number</code>                                          | Specifies the stack order of this marker, relative to other markers on the map. A marker with a high z-index is drawn on top of markers with lower z-indexes                              | <code>0</code>     |       |
+| 属性               | 类型                                                         | 描述                                                                                                                                                                               | 默认值            | 自版本 |
+| ------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`coordinate`** | <code><a href="#latlng">LatLng</a></code>                    | <a href="#marker">标记</a> 位置                                                                                                                                                     |                    |       |
+| **`opacity`**    | <code>number</code>                                          | 设置标记的不透明度，介于 0（完全透明）和 1（含）之间。                                                                                                       | <code>1</code>     |       |
+| **`title`**      | <code>string</code>                                          | 标题，覆盖层的简短描述。                                                                                                                                                |                    |       |
+| **`snippet`**    | <code>string</code>                                          | 片段文本，选择时在信息窗口中显示在标题下方。                                                                                                                   |                    |       |
+| **`isFlat`**     | <code>boolean</code>                                         | 控制此标记是应平贴在地球表面还是面向相机的广告牌。                                                                                 | <code>false</code> |       |
+| **`iconUrl`**    | <code>string</code>                                          | 要渲染的标记图标路径。可以是相对于 Web 应用公共目录的路径，也可以是远程标记图标的 https URL。**SVG 在原生平台上不受支持。**              |                    | 4.2.0 |
+| **`iconSize`**   | <code><a href="#size">Size</a></code>                        | 控制 `iconUrl` 中设置的标记图像的缩放大小。                                                                                                                            |                    | 4.2.0 |
+| **`iconOrigin`** | <code><a href="#point">Point</a></code>                      | 图像在精灵图中的位置（如果有）。默认情况下，原点位于图像的左上角。                                                                |                    | 4.2.0 |
+| **`iconAnchor`** | <code><a href="#point">Point</a></code>                      | 将图像锚定到地图上标记位置的位置。默认情况下，锚点位于图像底部中心点。 |                    | 4.2.0 |
+| **`tintColor`**  | <code>{ r: number; g: number; b: number; a: number; }</code> | 自定义默认标记图像的颜色。每个值必须在 0 到 255 之间。仅适用于 iOS 和 Android。                                                                         |                    | 4.2.0 |
+| **`draggable`**  | <code>boolean</code>                                         | 控制此标记是否可以通过交互拖动                                                                                                                                 | <code>false</code> |       |
+| **`zIndex`**     | <code>number</code>                                          | 指定此标记的堆叠顺序，相对于地图上的其他标记。z-index 较高的标记绘制在 z-index 较低的标记之上                              | <code>0</code>     |       |
 
 
 #### Size
 
-| Prop         | Type                |
-| ------------ | ------------------- |
+| 属性          | 类型                |
+| ------------- | ------------------- |
 | **`width`**  | <code>number</code> |
 | **`height`** | <code>number</code> |
 
 
 #### Point
 
-| Prop    | Type                |
-| ------- | ------------------- |
+| 属性      | 类型                |
+| --------- | ------------------- |
 | **`x`** | <code>number</code> |
 | **`y`** | <code>number</code> |
 
 
 #### Polygon
 
-For web, all the javascript <a href="#polygon">Polygon</a> options are available as
-Polygon extends google.maps.PolygonOptions.
-For iOS and Android only the config options declared on <a href="#polygon">Polygon</a> are available.
+对于 Web，所有 JavaScript <a href="#polygon">多边形</a> 选项都可用，因为 Polygon 扩展了 google.maps.PolygonOptions。
+对于 iOS 和 Android，只有声明在 <a href="#polygon">Polygon</a> 上的配置选项可用。
 
-| Prop                | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 属性                | 类型                                      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`paths`**         | <code>any[] \| MVCArray&lt;any&gt;</code> | The ordered sequence of coordinates that designates a closed loop. Unlike polylines, a polygon may consist of one or more paths. As a result, the paths property may specify one or more arrays of &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; coordinates. Paths are closed automatically; do not repeat the first vertex of the path as the last vertex. Simple polygons may be defined using a single array of &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt;s. More complex polygons may specify an array of arrays. Any simple arrays are converted into &lt;code&gt;&lt;a href="#MVCArray"&gt;MVCArray&lt;/a&gt;&lt;/code&gt;s. Inserting or removing &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt;s from the &lt;code&gt;MVCArray&lt;/code&gt; will automatically update the polygon on the map. |
-| **`strokeColor`**   | <code>string</code>                       | The stroke color. All CSS3 colors are supported except for extended named colors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **`strokeOpacity`** | <code>number</code>                       | The stroke opacity between 0.0 and 1.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`strokeWeight`**  | <code>number</code>                       | The stroke width in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **`fillColor`**     | <code>string</code>                       | The fill color. All CSS3 colors are supported except for extended named colors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **`fillOpacity`**   | <code>number</code>                       | The fill opacity between 0.0 and 1.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`geodesic`**      | <code>boolean</code>                      | When &lt;code&gt;true&lt;/code&gt;, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth. When &lt;code&gt;false&lt;/code&gt;, edges of the polygon are rendered as straight lines in screen space. Note that the shape of a geodesic polygon may appear to change when dragged, as the dimensions are maintained relative to the surface of the earth.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **`clickable`**     | <code>boolean</code>                      | Indicates whether this &lt;code&gt;<a href="#polygon">Polygon</a>&lt;/code&gt; handles mouse events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`title`**         | <code>string</code>                       | Title, a short description of the overlay. Some overlays, such as markers, will display the title on the map. The title is also the default accessibility text. Only available on iOS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`paths`**         | <code>any[] \| MVCArray&lt;any&gt;</code> | 指定闭合环的有序坐标序列。与折线不同，多边形可以由一个或多个路径组成。因此，paths 属性可以指定一个或多个 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; 坐标数组。路径会自动闭合；不要将路径的第一个顶点重复作为最后一个顶点。简单多边形可以使用单个 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; 数组定义。更复杂的多边形可以指定数组的数组。任何简单数组都会转换为 &lt;code&gt;&lt;a href="#MVCArray"&gt;MVCArray&lt;/a&gt;&lt;/code&gt;s。从 &lt;code&gt;MVCArray&lt;/code&gt; 插入或删除 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt;s 将自动更新地图上的多边形。 |
+| **`strokeColor`**   | <code>string</code>                       | 描边颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **`strokeOpacity`** | <code>number</code>                       | 描边不透明度，介于 0.0 和 1.0 之间                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`strokeWeight`**  | <code>number</code>                       | 描边宽度（以像素为单位）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **`fillColor`**     | <code>string</code>                       | 填充颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **`fillOpacity`**   | <code>number</code>                       | 填充不透明度，介于 0.0 和 1.0 之间                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **`geodesic`**      | <code>boolean</code>                      | 当 &lt;code&gt;true&lt;/code&gt; 时，多边形的边缘被解释为测地线，并将跟随地球的曲率。当 &lt;code&gt;false&lt;/code&gt; 时，多边形的边缘在屏幕空间中渲染为直线。请注意，测地线多边形的形状在拖动时可能会发生变化，因为尺寸相对于地球表面保持。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **`clickable`**     | <code>boolean</code>                      | 指示此 &lt;code&gt;<a href="#polygon">Polygon</a>&lt;/code&gt; 是否处理鼠标事件。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **`title`**         | <code>string</code>                       | 标题，覆盖层的简短描述。一些覆盖层（例如标记）会在地图上显示标题。标题也是默认的无障碍文本。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **`tag`**           | <code>string</code>                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
 #### Circle
 
-For web, all the javascript <a href="#circle">Circle</a> options are available as
-Circle extends google.maps.CircleOptions.
-For iOS and Android only the config options declared on <a href="#circle">Circle</a> are available.
+对于 Web，所有 JavaScript <a href="#circle">圆形</a> 选项都可用，因为 Circle 扩展了 google.maps.CircleOptions。
+对于 iOS 和 Android，只有声明在 <a href="#circle">Circle</a> 上的配置选项可用。
 
-| Prop               | Type                 | Description                                                                                                                                                                            |
+| 属性               | 类型                 | 描述                                                                                                                                                                            |
 | ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`fillColor`**    | <code>string</code>  | The fill color. All CSS3 colors are supported except for extended named colors.                                                                                                        |
-| **`fillOpacity`**  | <code>number</code>  | The fill opacity between 0.0 and 1.0.                                                                                                                                                  |
-| **`strokeColor`**  | <code>string</code>  | The stroke color. All CSS3 colors are supported except for extended named colors.                                                                                                      |
-| **`strokeWeight`** | <code>number</code>  | The stroke width in pixels.                                                                                                                                                            |
+| **`fillColor`**    | <code>string</code>  | 填充颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。                                                                                                        |
+| **`fillOpacity`**  | <code>number</code>  | 填充不透明度，介于 0.0 和 1.0 之间。                                                                                                                                                  |
+| **`strokeColor`**  | <code>string</code>  | 描边颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。                                                                                                      |
+| **`strokeWeight`** | <code>number</code>  | 描边宽度（以像素为单位）。                                                                                                                                                            |
 | **`geodesic`**     | <code>boolean</code> |                                                                                                                                                                                        |
-| **`clickable`**    | <code>boolean</code> | Indicates whether this &lt;code&gt;<a href="#circle">Circle</a>&lt;/code&gt; handles mouse events.                                                                                     |
-| **`title`**        | <code>string</code>  | Title, a short description of the overlay. Some overlays, such as markers, will display the title on the map. The title is also the default accessibility text. Only available on iOS. |
+| **`clickable`**    | <code>boolean</code> | 指示此 &lt;code&gt;<a href="#circle">Circle</a>&lt;/code&gt; 是否处理鼠标事件。                                                                                     |
+| **`title`**        | <code>string</code>  | 标题，覆盖层的简短描述。一些覆盖层（例如标记）会在地图上显示标题。标题也是默认的无障碍文本。仅适用于 iOS。 |
 | **`tag`**          | <code>string</code>  |                                                                                                                                                                                        |
 
 
 #### Polyline
 
-For web, all the javascript <a href="#polyline">Polyline</a> options are available as
-Polyline extends google.maps.PolylineOptions.
-For iOS and Android only the config options declared on <a href="#polyline">Polyline</a> are available.
+对于 Web，所有 JavaScript <a href="#polyline">折线</a> 选项都可用，因为 Polyline 扩展了 google.maps.PolylineOptions。
+对于 iOS 和 Android，只有声明在 <a href="#polyline">Polyline</a> 上的配置选项可用。
 
-| Prop                | Type                     | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| 属性                | 类型                     | 描述                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`strokeColor`**   | <code>string</code>      | The stroke color. All CSS3 colors are supported except for extended named colors.                                                                                                                                                                                                                                                                                                              |
-| **`strokeOpacity`** | <code>number</code>      | The stroke opacity between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                                                        |
-| **`strokeWeight`**  | <code>number</code>      | The stroke width in pixels.                                                                                                                                                                                                                                                                                                                                                                    |
-| **`geodesic`**      | <code>boolean</code>     | When &lt;code&gt;true&lt;/code&gt;, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth. When &lt;code&gt;false&lt;/code&gt;, edges of the polygon are rendered as straight lines in screen space. Note that the shape of a geodesic polygon may appear to change when dragged, as the dimensions are maintained relative to the surface of the earth. |
-| **`clickable`**     | <code>boolean</code>     | Indicates whether this &lt;code&gt;<a href="#polyline">Polyline</a>&lt;/code&gt; handles mouse events.                                                                                                                                                                                                                                                                                         |
+| **`strokeColor`**   | <code>string</code>      | 描边颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。                                                                                                                                                                                                                                                                                                              |
+| **`strokeOpacity`** | <code>number</code>      | 描边不透明度，介于 0.0 和 1.0 之间。                                                                                                                                                                                                                                                                                                                                                        |
+| **`strokeWeight`**  | <code>number</code>      | 描边宽度（以像素为单位）。                                                                                                                                                                                                                                                                                                                                                                    |
+| **`geodesic`**      | <code>boolean</code>     | 当 &lt;code&gt;true&lt;/code&gt; 时，多边形的边缘被解释为测地线，并将跟随地球的曲率。当 &lt;code&gt;false&lt;/code&gt; 时，多边形的边缘在屏幕空间中渲染为直线。请注意，测地线多边形的形状在拖动时可能会发生变化，因为尺寸相对于地球表面保持。 |
+| **`clickable`**     | <code>boolean</code>     | 指示此 &lt;code&gt;<a href="#polyline">Polyline</a>&lt;/code&gt; 是否处理鼠标事件。                                                                                                                                                                                                                                                                                         |
 | **`tag`**           | <code>string</code>      |                                                                                                                                                                                                                                                                                                                                                                                                |
-| **`styleSpans`**    | <code>StyleSpan[]</code> | Used to specify the color of one or more segments of a polyline. The styleSpans property is an array of <a href="#stylespan">StyleSpan</a> objects. Setting the spans property is the preferred way to change the color of a polyline. Only on iOS and Android.                                                                                                                                |
+| **`styleSpans`**    | <code>StyleSpan[]</code> | 用于指定折线一个或多个段的颜色。styleSpans 属性是 <a href="#stylespan">StyleSpan</a> 对象的数组。设置 spans 属性是更改折线颜色的首选方法。仅在 iOS 和 Android 上可用。                                                                                                                                |
 
 
 #### StyleSpan
 
-Describes the style for some region of a polyline.
+描述折线某些区域的样式。
 
-| Prop           | Type                | Description                                                                       |
-| -------------- | ------------------- | --------------------------------------------------------------------------------- |
-| **`color`**    | <code>string</code> | The stroke color. All CSS3 colors are supported except for extended named colors. |
-| **`segments`** | <code>number</code> | The length of this span in number of segments.                                    |
+| 属性            | 类型                | 描述                                                                       |
+| --------------- | ------------------- | --------------------------------------------------------------------------------- |
+| **`color`**    | <code>string</code> | 描边颜色。支持所有 CSS3 颜色，除了扩展的命名颜色。 |
+| **`segments`** | <code>number</code> | 此跨度的长度（以段数表示）。                                    |
 
 
 #### CameraConfig
 
-Configuration properties for a Google Map Camera
+Google Map 相机的配置属性
 
-| Prop                    | Type                                      | Description                                                                                                            | Default            |
+| 属性                    | 类型                                      | 描述                                                                                                            | 默认值            |
 | ----------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **`coordinate`**        | <code><a href="#latlng">LatLng</a></code> | Location on the Earth towards which the camera points.                                                                 |                    |
-| **`zoom`**              | <code>number</code>                       | Sets the zoom of the map.                                                                                              |                    |
-| **`bearing`**           | <code>number</code>                       | Bearing of the camera, in degrees clockwise from true north.                                                           | <code>0</code>     |
-| **`angle`**             | <code>number</code>                       | The angle, in degrees, of the camera from the nadir (directly facing the Earth). The only allowed values are 0 and 45. | <code>0</code>     |
-| **`animate`**           | <code>boolean</code>                      | Animate the transition to the new Camera properties.                                                                   | <code>false</code> |
-| **`animationDuration`** | <code>number</code>                       | This configuration option is not being used.                                                                           |                    |
+| **`coordinate`**        | <code><a href="#latlng">LatLng</a></code> | 相机指向的地球上的位置。                                                                 |                    |
+| **`zoom`**              | <code>number</code>                       | 设置地图的缩放级别。                                                                                              |                    |
+| **`bearing`**           | <code>number</code>                       | 相机的方位角，以从正北方向顺时针测量的度数表示。                                                           | <code>0</code>     |
+| **`angle`**             | <code>number</code>                       | 相机从天底（直接面向地球）的角度（以度为单位）。唯一允许的值是 0 和 45。 | <code>0</code>     |
+| **`animate`**           | <code>boolean</code>                      | 动画过渡到新的相机属性。                                                                   | <code>false</code> |
+| **`animationDuration`** | <code>number</code>                       | 此配置选项未被使用。                                                                           |                    |
 
 
 #### MapPadding
 
-Controls for setting padding on the 'visible' region of the view.
+控制视口“可见”区域的内边距设置。
 
-| Prop         | Type                |
-| ------------ | ------------------- |
+| 属性           | 类型                |
+| -------------- | ------------------- |
 | **`top`**    | <code>number</code> |
 | **`left`**   | <code>number</code> |
 | **`right`**  | <code>number</code> |
@@ -1175,8 +1170,8 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### CameraIdleCallbackData
 
-| Prop            | Type                      |
-| --------------- | ------------------------- |
+| 属性               | 类型                      |
+| ------------------ | ------------------------- |
 | **`mapId`**     | <code>string</code>       |
 | **`bounds`**    | <code>LatLngBounds</code> |
 | **`bearing`**   | <code>number</code>       |
@@ -1188,16 +1183,16 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### CameraMoveStartedCallbackData
 
-| Prop            | Type                 |
-| --------------- | -------------------- |
+| 属性               | 类型                 |
+| ------------------ | -------------------- |
 | **`mapId`**     | <code>string</code>  |
 | **`isGesture`** | <code>boolean</code> |
 
 
 #### ClusterClickCallbackData
 
-| Prop            | Type                              |
-| --------------- | --------------------------------- |
+| 属性               | 类型                              |
+| ------------------ | --------------------------------- |
 | **`mapId`**     | <code>string</code>               |
 | **`latitude`**  | <code>number</code>               |
 | **`longitude`** | <code>number</code>               |
@@ -1207,8 +1202,8 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### MarkerCallbackData
 
-| Prop            | Type                |
-| --------------- | ------------------- |
+| 属性               | 类型                |
+| ------------------ | ------------------- |
 | **`markerId`**  | <code>string</code> |
 | **`latitude`**  | <code>number</code> |
 | **`longitude`** | <code>number</code> |
@@ -1218,15 +1213,15 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### MarkerClickCallbackData
 
-| Prop        | Type                |
-| ----------- | ------------------- |
+| 属性          | 类型                |
+| ------------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
 
 #### MapClickCallbackData
 
-| Prop            | Type                |
-| --------------- | ------------------- |
+| 属性               | 类型                |
+| ------------------ | ------------------- |
 | **`mapId`**     | <code>string</code> |
 | **`latitude`**  | <code>number</code> |
 | **`longitude`** | <code>number</code> |
@@ -1234,8 +1229,8 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### PolygonClickCallbackData
 
-| Prop            | Type                |
-| --------------- | ------------------- |
+| 属性               | 类型                |
+| ------------------ | ------------------- |
 | **`mapId`**     | <code>string</code> |
 | **`polygonId`** | <code>string</code> |
 | **`tag`**       | <code>string</code> |
@@ -1243,8 +1238,8 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### CircleClickCallbackData
 
-| Prop           | Type                |
-| -------------- | ------------------- |
+| 属性            | 类型                |
+| --------------- | ------------------- |
 | **`mapId`**    | <code>string</code> |
 | **`circleId`** | <code>string</code> |
 | **`tag`**      | <code>string</code> |
@@ -1252,47 +1247,47 @@ Controls for setting padding on the 'visible' region of the view.
 
 #### PolylineCallbackData
 
-| Prop             | Type                |
-| ---------------- | ------------------- |
+| 属性              | 类型                |
+| ----------------- | ------------------- |
 | **`polylineId`** | <code>string</code> |
 | **`tag`**        | <code>string</code> |
 
 
 #### MyLocationButtonClickCallbackData
 
-| Prop        | Type                |
-| ----------- | ------------------- |
+| 属性          | 类型                |
+| ------------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### MapListenerCallback
 
-The callback function to be called when map events are emitted.
+地图事件发出时要调用的回调函数。
 
 <code>(data: T): void</code>
 
 
 #### Marker
 
-Supports markers of either either "legacy" or "advanced" types.
+支持“传统”或“高级”类型的标记。
 
 <code>google.maps.<a href="#marker">Marker</a> | google.maps.marker.AdvancedMarkerElement</code>
 
 
-### Enums
+### 枚举
 
 
 #### MapType
 
-| Members         | Value                    | Description                              |
-| --------------- | ------------------------ | ---------------------------------------- |
-| **`Normal`**    | <code>'Normal'</code>    | Basic map.                               |
-| **`Hybrid`**    | <code>'Hybrid'</code>    | Satellite imagery with roads and labels. |
-| **`Satellite`** | <code>'Satellite'</code> | Satellite imagery with no labels.        |
-| **`Terrain`**   | <code>'Terrain'</code>   | Topographic data.                        |
-| **`None`**      | <code>'None'</code>      | No base map tiles.                       |
+| 成员           | 值                    | 描述                              |
+| -------------- | ------------------------ | ---------------------------------------- |
+| **`Normal`**    | <code>'Normal'</code>    | 基本地图。                               |
+| **`Hybrid`**    | <code>'Hybrid'</code>    | 带有道路和标签的卫星图像。 |
+| **`Satellite`** | <code>'Satellite'</code> | 无标签的卫星图像。        |
+| **`Terrain`**   | <code>'Terrain'</code>   | 地形数据。                        |
+| **`None`**      | <code>'None'</code>      | 无底图瓦片。                       |
 
 </docgen-api>

@@ -81,7 +81,7 @@
   },
   "docs/apis/toast.md": {
     "source_hash": "26d555eea53b00adb2ba1828f2f290404d8a646f",
-    "last_translated_at": "2025-09-07T05:06:57.876Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v2/apis/storage.md": {
@@ -576,7 +576,7 @@
   },
   "docs/apis/camera.md": {
     "source_hash": "9c95109d991ed446f09121b0975c8f33664ee95a",
-    "last_translated_at": "2025-09-07T06:33:07.234Z",
+    "last_translated_at": "2025-09-07T15:45:04.596Z",
     "translator_version": "1.0"
   },
   "docs/apis/action-sheet.md": {
@@ -591,152 +591,152 @@
   },
   "docs/apis/app.md": {
     "source_hash": "a0fce90d76618a8a5e6fddaed917ade0d1fe78da",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:35:39.440Z",
     "translator_version": "1.0"
   },
   "docs/apis/background-runner.md": {
     "source_hash": "1c45e761c6dfd7456826272f3eab8fd720994474",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:39:53.089Z",
     "translator_version": "1.0"
   },
   "docs/apis/barcode-scanner.md": {
     "source_hash": "e56563d1126784300fafbcb6a9a0d3c25114f502",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:40:56.499Z",
     "translator_version": "1.0"
   },
   "docs/apis/browser.md": {
     "source_hash": "699706447f7eb3710a7c7480bdb97181117c0f50",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:42:08.229Z",
     "translator_version": "1.0"
   },
   "docs/apis/clipboard.md": {
     "source_hash": "e68a1cc2248f99b665a6a79a9a26e9b6fb590b77",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:45:37.010Z",
     "translator_version": "1.0"
   },
   "docs/apis/cookies.md": {
     "source_hash": "533125cdf8281317edfe867ce0a84578197776fe",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T15:46:48.249Z",
     "translator_version": "1.0"
   },
   "docs/apis/device.md": {
     "source_hash": "012d0a969ba229f07d6fdfba5402ac1e64a79144",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/dialog.md": {
     "source_hash": "765cfa40a14f6033fc4c848c883816e8b0152923",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/file-transfer.md": {
     "source_hash": "871a171ceecdec81b645c52d6a00bcdd26568a4b",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/file-viewer.md": {
     "source_hash": "a1fafeea522e4261f227b75909759e090115f798",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/filesystem.md": {
     "source_hash": "eff1c26e8cb66c2e21b00f6b03e5feafd226c097",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/geolocation.md": {
     "source_hash": "4dcb91963e881249e83b5cf036253c9b516fe69c",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/google-maps.md": {
     "source_hash": "c5eefe6c32813112208b60b556a9986ee3d598c3",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/haptics.md": {
     "source_hash": "00f70ebe3744fef19ef0b1d6f4da683d92888c65",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/http.md": {
     "source_hash": "49dbeaaa8afcc7c7a406a9fa446958b9f019659f",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/inappbrowser.md": {
     "source_hash": "ea7ebb01b904ad107cab2e9a718e7f19cb618e1b",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/keyboard.md": {
     "source_hash": "3eb8ac0586bbfa06696d8b80ed25fa5e146cd4ce",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/local-notifications.md": {
     "source_hash": "e356ee81eabbbc081a28ad120702e34ced46f753",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/motion.md": {
     "source_hash": "cd0a20db9a5d80a373233ffb0fd01b0a2ed34cfe",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/network.md": {
     "source_hash": "509d75e770520332ab2a16a5c1485db4aeb8ff65",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/preferences.md": {
     "source_hash": "ab3709c61f1d7781a31f7d6548292b54fb203c8d",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/privacy-screen.md": {
     "source_hash": "7b5580b613c2822510505607b28b960573031347",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/push-notifications.md": {
     "source_hash": "22de6c6079769e0a435bc0e434198fa147cc6caa",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/screen-orientation.md": {
     "source_hash": "794f72cd6c311e3ea4ebf1c142f025edbe76bcf6",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/screen-reader.md": {
     "source_hash": "055456e9ed7f98754002c7bb3ac0ca5f06727460",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/share.md": {
     "source_hash": "5e391eba3a8f89dbb1564f7cfb0ec79c49825087",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/splash-screen.md": {
     "source_hash": "087246c5667f46e8878bdca11ac5d248563c65ed",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/status-bar.md": {
     "source_hash": "a6cc6ebfa3937bb039c56dc6b922c021635ee767",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/text-zoom.md": {
     "source_hash": "0e1ad52fa4c4250c8b87c172568900c3296317a6",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/apis/watch.md": {
     "source_hash": "483537ce0fea99b4c2decf699af23d42237fcf5f",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-07T16:39:58.163Z",
     "translator_version": "1.0"
   },
   "docs/cli/commands/add.md": {
