@@ -1,5 +1,5 @@
 ---
-title: Push Notifications - Firebase
+title: 消息推送
 description: 学习如何在 Ionic 应用中实现 Firebase 云消息推送功能（支持 iOS 和 Android）
 contributors:
   - bryplano

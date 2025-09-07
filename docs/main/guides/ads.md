@@ -1,5 +1,5 @@
 ---
-title: Ads
+title: 广告
 description: 为你的Capacitor应用添加广告功能
 contributors:
   - mlynch

@@ -1,5 +1,5 @@
 ---
-title: Games
+title: 游戏
 description: 使用Capacitor进行游戏开发
 slug: /guides/games
 ---

@@ -1,5 +1,5 @@
 ---
-title: In App Purchases
+title: 注册和内购
 description: 如何在 Capacitor 应用中注册和使用应用内购买功能
 contributors:
   - mlynch

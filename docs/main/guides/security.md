@@ -1,5 +1,5 @@
 ---
-title: Security
+title: 应用安全
 description: Capacitor 应用安全最佳实践
 contributors:
   - mlynch

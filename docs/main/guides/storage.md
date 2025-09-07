@@ -1,5 +1,5 @@
 ---
-title: Storage
+title: 存储数据
 description: 在 Capacitor 中存储小至大量数据的解决方案
 contributors:
   - mlynch

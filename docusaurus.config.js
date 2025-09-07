@@ -3,7 +3,7 @@ const prismic = require('@prismicio/client');
 const fetch = require('node-fetch');
 const { themes } = require('prism-react-renderer');
 
-const HOSTNAME = 'capacitorjs.com';
+const HOSTNAME = 'capacitor.xuxo.top';
 const BASE_URL = '/docs';
 
 module.exports = {
@@ -56,13 +56,13 @@ module.exports = {
         {
           type: 'doc',
           docId: 'index',
-          label: 'Docs',
+          label: '文档',
           position: 'left',
         },
         {
           type: 'doc',
           docId: 'plugins',
-          label: 'Plugins',
+          label: '插件',
           position: 'left',
         },
         {
@@ -97,12 +97,12 @@ module.exports = {
               target: '_blank',
               rel: null,
             },
-            {
-              href: 'https://twitter.com/capacitorjs',
-              label: 'Twitter',
-              target: '_blank',
-              rel: null,
-            },
+            // {
+            //   href: 'https://twitter.com/capacitorjs',
+            //   label: 'Twitter',
+            //   target: '_blank',
+            //   rel: null,
+            // },
           ],
           className: 'navbar__link--community',
         },
@@ -141,6 +141,12 @@ module.exports = {
           position: 'right',
           dropdownItemsAfter: [
             {
+              to: 'https://capacitorjs.com/docs',
+              label: 'English',
+              target: '_blank',
+              rel: null,
+            },
+            {
               to: 'https://capacitorjs.jp/docs',
               label: '日本語',
               target: '_blank',
@@ -149,13 +155,13 @@ module.exports = {
           ],
           className: 'icon-link language navbar__item',
         },
-        {
-          href: 'https://twitter.com/capacitorjs',
-          position: 'right',
-          className: 'icon-link icon-link-mask icon-link-twitter',
-          'aria-label': 'Twitter',
-          target: '_blank',
-        },
+        // {
+        //   href: 'https://twitter.com/capacitorjs',
+        //   position: 'right',
+        //   className: 'icon-link icon-link-mask icon-link-twitter',
+        //   'aria-label': 'Twitter',
+        //   target: '_blank',
+        // },
         {
           href: 'https://ionic.link/discord',
           position: 'right',
@@ -201,14 +207,14 @@ module.exports = {
               rel: 'noopener nofollow',
             },
           },
-          {
-            key: 'twitter',
-            url: {
-              href: 'https://twitter.com/capacitorjs',
-              target: '_blank',
-              rel: 'noopener nofollow',
-            },
-          },
+          // {
+          //   key: 'twitter',
+          //   url: {
+          //     href: 'https://twitter.com/capacitorjs',
+          //     target: '_blank',
+          //     rel: 'noopener nofollow',
+          //   },
+          // },
         ],
       },
     },
@@ -271,7 +277,7 @@ module.exports = {
             const nativeRegexPath = nativeRegex.exec(docPath)?.[1];
 
             if (cliRegexPath) {
-              return `https://github.com/ionic-team/capacitor-docs/edit/main/docs/cli/commands/${cliRegexPath.replace(
+              return `https://github.com/TacKana/capacitor-docs-zh/edit/main/docs/cli/commands/${cliRegexPath.replace(
                 '-',
                 '/',
               )}.md`;
@@ -279,7 +285,7 @@ module.exports = {
             if (nativeRegexPath) {
               return `https://github.com/ionic-team/ionic-native/edit/master/src/@awesome-cordova-plugins/plugins/${nativeRegexPath}/index.ts`;
             }
-            return `https://github.com/ionic-team/capacitor-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/TacKana/capacitor-docs-zh/edit/main/${versionDocsDirPath}/${docPath}`;
           },
           breadcrumbs: false,
           exclude: ['README.md'],

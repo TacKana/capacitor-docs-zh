@@ -1,5 +1,5 @@
 ---
-title: Deep Links
+title: 深度链接
 description: 在 iOS 和 Android 应用中实现深度链接功能
 contributors:
   - dotNetkow
@@ -16,6 +16,7 @@ slug: /guides/deep-links
 当用户点击深度链接时，将直接跳转至您的应用，无需先经过设备浏览器或网站。如果应用未安装，则转至网站。若用户直接访问网站，则保持在网站中。这使得深度链接成为跨平台应用（网页/iOS/Android）的理想功能：提供无缝移动体验，同时优雅回退至网站。
 
 优势：
+
 - 安全性：使用HTTPS链接至您拥有的域名，确保其他应用无法冒用
 - 无缝体验：统一网址同时支持网站和应用，保证用户准确获取内容
 - 提升互动：可从邮件客户端、搜索引擎结果等场景直接打开
@@ -24,7 +25,14 @@ slug: /guides/deep-links
 
 实际效果展示（用户已安装原生应用）：从邮件点击应用链接直接跳转至应用内部。首先点击根链接（https://beerswift.app）进入应用主页，再点击深度链接（https://beerswift.app/tabs/tab3）跳转至Tab3页面。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vadlZ-d8wAI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/vadlZ-d8wAI"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
 
 ## 准备工作
 
@@ -233,6 +241,7 @@ keytool -list -v -keystore my-release-key.keystore
 ## 网站配置
 
 ### Angular
+
 将文件置于`src/.well-known`，在`angular.json`中添加：
 
 ```json
@@ -244,9 +253,11 @@ keytool -list -v -keystore my-release-key.keystore
 ```
 
 ### NuxtJS/React
+
 分别存放至`static/.well-known`或`public/.well-known`
 
 ### WordPress
+
 参考[此指南](https://devdactic.com/universal-links-ionic/)
 
 ## 验证

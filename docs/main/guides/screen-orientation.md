@@ -1,5 +1,5 @@
 ---
-title: Screen Orientation
+title: 屏幕方向
 description: 管理 Capacitor 应用中的屏幕方向设置
 contributors:
   - mlynch
