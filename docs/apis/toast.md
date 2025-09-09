@@ -1,14 +1,14 @@
 ---
-title: Toast Capacitor Plugin API
-description: Toast API 提供了一种通知弹出框，用于向用户显示重要信息。就像真实的吐司一样！
+title: Toast Capacitor 插件 API
+description: Toast API 提供通知弹出功能，用于向用户显示重要信息。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/src/definitions.ts
-sidebar_label: Toast
+sidebar_label: 弹出通知
 ---
 
 # @capacitor/toast
 
-Toast API 提供了一种通知弹出框，用于向用户显示重要信息。就像真实的吐司一样！
+Toast API 提供通知弹出功能，用于向用户显示重要信息。
 
 ## 安装
 
@@ -51,13 +51,13 @@ const showHelloToast = async () => {
 show(options: ShowOptions) => Promise<void>
 ```
 
-在屏幕上显示 Toast 通知
+在屏幕上显示 Toast
 
 | 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
-**Since:** 1.0.0
+**自从：** 1.0.0
 
 --------------------
 
@@ -67,10 +67,10 @@ show(options: ShowOptions) => Promise<void>
 
 #### ShowOptions
 
-| 属性            | 类型                                       | 描述                                                                               | 默认值                | Since |
+| 属性             | 类型                                       | 描述                                                                        | 默认值               | 自从   |
 | -------------- | ------------------------------------------ | ---------------------------------------------------------------------------------- | --------------------- | ----- |
-| **`text`**     | <code>string</code>                        | Toast 上显示的文本                                                                 |                       | 1.0.0 |
-| **`duration`** | <code>'short' \| 'long'</code>             | Toast 的显示时长，可选 'short' (2000毫秒) 或 'long' (3500毫秒)                     | <code>'short'</code>  | 1.0.0 |
-| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 的位置。在 Android 12 及更新版本中，所有 Toast 都显示在底部。                 | <code>'bottom'</code> | 1.0.0 |
+| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                                       |                       | 1.0.0 |
+| **`duration`** | <code>'short' \| 'long'</code>             | Toast 的持续时间，可选 'short' (2000毫秒) 或 'long' (3500毫秒)                  | <code>'short'</code>  | 1.0.0 |
+| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 的位置。在 Android 12 及更新版本中，所有 Toast 都显示在底部。 | <code>'bottom'</code> | 1.0.0 |
 
 </docgen-api>

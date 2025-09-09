@@ -9,14 +9,26 @@ sidebar_label: Watch 🧪
 # @capacitor/watch
 
 <p align="center">
-  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI"><img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" /></a>
+  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI">
+    <img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" />
+  </a>
 </p>
 <p align="center">
-  <a href="https://capacitorjs.com/docs"><img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" /></a>
-  <a href="https://twitter.com/capacitorjs"><img src="https://img.shields.io/twitter/follow/capacitorjs" /></a>
+  <a href="https://capacitorjs.com/docs">
+    <img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" />
+  </a>
+  <a href="https://twitter.com/capacitorjs">
+    <img src="https://img.shields.io/twitter/follow/capacitorjs" />
+  </a>
 </p>
 
 ---
@@ -161,7 +173,7 @@ struct watchddgg_Watch_AppApp: App {
 
 ```typescript
 async uploadMyWatchUI() {
-    const watchUI = 
+    const watchUI =
         `Text("Capacitor WATCH")
          Button("加一", "inc")`;
 
@@ -180,17 +192,17 @@ async uploadMyWatchUI() {
 在手机端，您可以使用 Capacitor 后台运行器插件（https://github.com/ionic-team/capacitor-background-runner）实现这些方法。目前 watch 插件主要处理 `didReceiveUserInfo` 方法，您可以在应用处于后台时使用以下代码在 runner.js 中接收来自手表的事件：
 
 ```javascript
-addEventListener("WatchConnectivity_didReceiveUserInfo", (args) => {
+addEventListener('WatchConnectivity_didReceiveUserInfo', (args) => {
   console.log(args.message.jsCommand);
-})
+});
 ```
 
 您还可以实现 `runCommand` 事件监听器以进行前台处理：
 
 ```typescript
-Watch.addListener("runCommand", (data: {command: string}) => {
-  console.log("手机收到命令 - " + data.command);
-})
+Watch.addListener('runCommand', (data: { command: string }) => {
+  console.log('手机收到命令 - ' + data.command);
+});
 ```
 
 命令是手表 UI 中 `Button()` 定义的第二个参数。可以是任何字符串。
@@ -207,12 +219,12 @@ Text("显示我的 $number")
 
 ```typescript
 var stateData = {
-  number: 0
-}
+  number: 0,
+};
 
 async function counterIncrement() {
-  stateData.counter++  
-  await Watch.updateWatchData({"data": convertValuesOfObjectToStringValues(stateData)})
+  stateData.counter++;
+  await Watch.updateWatchData({ data: convertValuesOfObjectToStringValues(stateData) });
 }
 ```
 
@@ -231,10 +243,10 @@ npx cap sync
 
 <docgen-index>
 
-* [`addListener('runCommand', ...)`](#addlistenerruncommand-)
-* [`updateWatchUI(...)`](#updatewatchui)
-* [`updateWatchData(...)`](#updatewatchdata)
-* [接口](#接口)
+- [`addListener('runCommand', ...)`](#addlistenerruncommand-)
+- [`updateWatchUI(...)`](#updatewatchui)
+- [`updateWatchData(...)`](#updatewatchdata)
+- [接口](#接口)
 
 </docgen-index>
 
@@ -249,15 +261,14 @@ addListener(eventName: 'runCommand', listenerFunc: (data: { command: string; }) 
 
 监听来自手表的命令
 
-| 参数                | 类型                                                    |
-| ------------------- | ------------------------------------------------------- |
-| **`eventName`**     | <code>'runCommand'</code>                               |
-| **`listenerFunc`**  | <code>(data: { command: string; }) =&gt; void</code>    |
+| 参数               | 类型                                                 |
+| ------------------ | ---------------------------------------------------- |
+| **`eventName`**    | <code>'runCommand'</code>                            |
+| **`listenerFunc`** | <code>(data: { command: string; }) =&gt; void</code> |
 
 **返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
---------------------
-
+---
 
 ### updateWatchUI(...)
 
@@ -267,12 +278,11 @@ updateWatchUI(options: { watchUI: string; }) => Promise<void>
 
 用 watchUI 替换当前手表 UI
 
-| 参数          | 类型                               |
-| ------------- | ---------------------------------- |
-| **`options`** | <code>{ watchUI: string; }</code>  |
+| 参数          | 类型                              |
+| ------------- | --------------------------------- |
+| **`options`** | <code>{ watchUI: string; }</code> |
 
---------------------
-
+---
 
 ### updateWatchData(...)
 
@@ -282,20 +292,18 @@ updateWatchData(options: { data: { [key: string]: string; }; }) => Promise<void>
 
 更新手表的状态数据
 
-| 参数          | 类型                                                  |
-| ------------- | ----------------------------------------------------- |
-| **`options`** | <code>{ data: { [key: string]: string; }; }</code>    |
+| 参数          | 类型                                               |
+| ------------- | -------------------------------------------------- |
+| **`options`** | <code>{ data: { [key: string]: string; }; }</code> |
 
---------------------
-
+---
 
 ### 接口
 
-
 #### PluginListenerHandle
 
-| 属性           | 类型                                       |
-| -------------- | ------------------------------------------ |
-| **`remove`**   | <code>() =&gt; Promise&lt;void&gt;</code>  |
+| 属性         | 类型                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>

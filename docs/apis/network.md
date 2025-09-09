@@ -3,7 +3,7 @@ title: Network Capacitor 插件 API
 description: Network API 提供网络和连接状态信息。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/network/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/network/src/definitions.ts
-sidebar_label: Network
+sidebar_label: 网络状态
 ---
 
 # @capacitor/network

@@ -81,7 +81,7 @@
   },
   "docs/apis/toast.md": {
     "source_hash": "26d555eea53b00adb2ba1828f2f290404d8a646f",
-    "last_translated_at": "2025-09-07T16:39:58.163Z",
+    "last_translated_at": "2025-09-09T11:49:57.420Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v2/apis/storage.md": {
@@ -590,8 +590,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/app.md": {
-    "source_hash": "a0fce90d76618a8a5e6fddaed917ade0d1fe78da",
-    "last_translated_at": "2025-09-07T15:35:39.440Z",
+    "source_hash": "d373f0f305a2bffa2e7c21ff4bcc384f6a99635b",
+    "last_translated_at": "2025-09-09T11:21:35.886Z",
     "translator_version": "1.0"
   },
   "docs/apis/background-runner.md": {
@@ -661,7 +661,7 @@
   },
   "docs/apis/http.md": {
     "source_hash": "49dbeaaa8afcc7c7a406a9fa446958b9f019659f",
-    "last_translated_at": "2025-09-07T16:39:58.163Z",
+    "last_translated_at": "2025-09-09T11:26:32.671Z",
     "translator_version": "1.0"
   },
   "docs/apis/inappbrowser.md": {
