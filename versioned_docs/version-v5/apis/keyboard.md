@@ -112,7 +112,7 @@ export default config;
 - [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 - [`removeAllListeners()`](#removealllisteners)
 - [接口](#interfaces)
-- [枚举类型](#enums)
+- [枚举](#enums)
 
 </docgen-index>
 

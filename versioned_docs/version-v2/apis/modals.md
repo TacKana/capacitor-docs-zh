@@ -15,7 +15,7 @@ contributors:
 - [`confirm(...)`](#confirm) - 确认对话框
 - [`showActions(...)`](#showactions) - 操作表
 - [接口定义](#interfaces)
-- [枚举类型](#enums)
+- [枚举](#enums)
 
 ## 示例
 

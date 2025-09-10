@@ -60,7 +60,7 @@ const showActions = async () => {
 
 - [`showActions(...)`](#showactions)
 - [接口定义](#interfaces)
-- [枚举类型](#enums)
+- [枚举](#enums)
 
 </docgen-index>
 

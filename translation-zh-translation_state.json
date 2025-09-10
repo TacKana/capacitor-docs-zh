@@ -961,7 +961,7 @@
   },
   "docs/main/ios/spm.md": {
     "source_hash": "e09a7f1cab7e7d47d0bde8cb3510a43d27a0b92a",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-10T10:46:56.232Z",
     "translator_version": "1.0"
   },
   "docs/main/ios/troubleshooting.md": {
@@ -1271,7 +1271,7 @@
   },
   "versioned_docs/version-v2/apis/local-notifications.md": {
     "source_hash": "9bab1dd90609c0f4ac1741249aae8574cd5f7fce",
-    "last_translated_at": "2025-09-07T06:59:13.199Z",
+    "last_translated_at": "2025-09-10T10:32:53.645Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v2/apis/modals.md": {
@@ -1616,7 +1616,7 @@
   },
   "versioned_docs/version-v3/apis/filesystem.md": {
     "source_hash": "1e11fdb6d9e292e7942ed86426726c96cec1cbf5",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T14:00:31.862Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/apis/geolocation.md": {
@@ -1626,7 +1626,7 @@
   },
   "versioned_docs/version-v3/apis/google-maps.md": {
     "source_hash": "61eae711dde816db97001b81e8ccfc2c2bc445eb",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T14:10:12.897Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/apis/haptics.md": {
@@ -1641,7 +1641,7 @@
   },
   "versioned_docs/version-v3/apis/local-notifications.md": {
     "source_hash": "27a66a7964799b64cc0f8dd402c9a6f0eb28dcc4",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T14:27:10.180Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/apis/motion.md": {
@@ -2701,7 +2701,7 @@
   },
   "versioned_docs/version-v5/apis/filesystem.md": {
     "source_hash": "af78941191fffb0198855a246f7e33533b2c1bd1",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T15:18:25.192Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/apis/geolocation.md": {
@@ -2731,7 +2731,7 @@
   },
   "versioned_docs/version-v5/apis/local-notifications.md": {
     "source_hash": "2433184f323d91a7a5286871c0a8364b60080712",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T11:04:16.268Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/apis/motion.md": {
@@ -2751,7 +2751,7 @@
   },
   "versioned_docs/version-v5/apis/push-notifications.md": {
     "source_hash": "3d012ed96b6a31ff103905411d7dc1532de3c961",
-    "last_translated_at": "2025-09-07T06:59:13.200Z",
+    "last_translated_at": "2025-09-10T15:18:25.192Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/apis/screen-orientation.md": {
@@ -3116,7 +3116,7 @@
   },
   "versioned_docs/version-v5/main/updating/3-0.md": {
     "source_hash": "cb2a474636c1fdab2074b65ac4c2af4171ac4330",
-    "last_translated_at": "2025-09-07T07:25:39.572Z",
+    "last_translated_at": "2025-09-10T10:13:40.783Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/main/updating/4-0.md": {
@@ -3346,7 +3346,7 @@
   },
   "versioned_docs/version-v6/apis/filesystem.md": {
     "source_hash": "75eef49b708ca9130fc8f71fbf1a3cd4f82a96e1",
-    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "last_translated_at": "2025-09-10T16:38:07.986Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/apis/geolocation.md": {
@@ -3381,7 +3381,7 @@
   },
   "versioned_docs/version-v6/apis/local-notifications.md": {
     "source_hash": "f3a0c167688eae0b969402abd549b2fbd74897c0",
-    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "last_translated_at": "2025-09-10T15:18:25.192Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/apis/motion.md": {
@@ -3401,7 +3401,7 @@
   },
   "versioned_docs/version-v6/apis/push-notifications.md": {
     "source_hash": "321d4c3c8c97ae04ca441cdc7a4a3145e5d9ec2d",
-    "last_translated_at": "2025-09-07T07:25:39.573Z",
+    "last_translated_at": "2025-09-10T15:18:25.192Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/apis/screen-orientation.md": {

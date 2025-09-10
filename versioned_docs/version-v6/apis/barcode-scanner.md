@@ -61,7 +61,7 @@ allprojects {
 
 - [`scanBarcode(...)`](#scanbarcode)
 - [类型别名](#type-aliases)
-- [枚举类型](#enums)
+- [枚举](#enums)
 
 </docgen-index>
 
