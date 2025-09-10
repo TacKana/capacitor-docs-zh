@@ -591,7 +591,7 @@
   },
   "docs/apis/app.md": {
     "source_hash": "d373f0f305a2bffa2e7c21ff4bcc384f6a99635b",
-    "last_translated_at": "2025-09-09T11:21:35.886Z",
+    "last_translated_at": "2025-09-10T03:36:17.037Z",
     "translator_version": "1.0"
   },
   "docs/apis/background-runner.md": {
@@ -600,8 +600,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/barcode-scanner.md": {
-    "source_hash": "e56563d1126784300fafbcb6a9a0d3c25114f502",
-    "last_translated_at": "2025-09-07T15:40:56.499Z",
+    "source_hash": "92f134c3e6a6d6accc0ef76a4484911a6cd8ea67",
+    "last_translated_at": "2025-09-10T03:31:27.618Z",
     "translator_version": "1.0"
   },
   "docs/apis/browser.md": {
