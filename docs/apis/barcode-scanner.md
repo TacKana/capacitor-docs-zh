@@ -27,9 +27,13 @@ ext {
 }
 ```
 
+Note: Android with `ZXING` scanning library supports all formats, while `MLKIT` supports all but `MAXICODE`, `RSS_14`, `RSS_EXPANDED` and `UPC_EAN_EXTENSION` - using one of these in `hint` will default to scanning any format.
+
 #### iOS
 
-条码扫描器需要使用设备的摄像头。请确保在 Info.plist 文件中配置了 Privacy - Camera Usage Description（隐私 - 相机使用说明），以便你的应用能够访问设备的摄像头。
+The barcode scanner uses the camera on the device. Ensure you configure the Privacy - Camera Usage Description in your Info.plist file so that your application can access the device's camera.
+
+Note: iOS supports all formats but `MAXICODE` and `UPC_EAN_EXTENSION` - using them in `hint` will default to scanning any format. Also, Apple Vision does not distinguish between `UPC_A` and `EAN_13`, so specifying one of these in `hint` will allow to scan both.
 
 ---
 
@@ -71,14 +75,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 
 定义条码扫描返回结果的结构。
 
-<code>{ ScanResult: string }</code>
-
-
-#### CapacitorBarcodeScannerOptions
-
-定义配置条码扫描的选项。
-
-<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
+<code>{ ScanResult: string; format: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; }</code>
 
 
 #### CapacitorBarcodeScannerTypeHint
@@ -89,6 +86,20 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 用于表示要扫描的条码类型的提示。
 
 <code><a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> | <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a></code>
+
+
+#### CapacitorBarcodeScannerOptions
+
+Defines the options for configuring a barcode scan.
+
+<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
+
+
+#### CapacitorBarcodeScannerOptions
+
+Defines the options for configuring a barcode scan.
+
+<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
 
 
 ### 枚举

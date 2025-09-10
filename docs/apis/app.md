@@ -74,18 +74,18 @@ const checkAppLaunchUrl = async () => {
 };
 ```
 
-## 配置
+## Configuration
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-| 属性                           | 类型                 | 描述                                                                     | 默认值            | 始于 |
-| ------------------------------ | -------------------- | ------------------------------------------------------------------------ | ------------------ | ----- |
-| **`disableBackButtonHandler`** | <code>boolean</code> | 禁用插件的默认返回按钮处理功能。仅适用于 Android。                        | <code>false</code> | 7.1.0 |
+| Prop                           | Type                 | Description                                                                    | Default            | Since |
+| ------------------------------ | -------------------- | ------------------------------------------------------------------------------ | ------------------ | ----- |
+| **`disableBackButtonHandler`** | <code>boolean</code> | Disable the plugin's default back button handling. Only available for Android. | <code>false</code> | 7.1.0 |
 
-### 示例
+### Examples
 
-在 `capacitor.config.json` 中：
+In `capacitor.config.json`:
 
 ```json
 {
@@ -97,7 +97,7 @@ const checkAppLaunchUrl = async () => {
 }
 ```
 
-在 `capacitor.config.ts` 中：
+In `capacitor.config.ts`:
 
 ```ts
 /// <reference types="@capacitor/app" />
@@ -232,6 +232,25 @@ toggleBackButtonHandler(options: ToggleBackButtonHandlerOptions) => Promise<void
 | **`options`** | <code><a href="#togglebackbuttonhandleroptions">ToggleBackButtonHandlerOptions</a></code> |
 
 **始于：** 7.1.0
+
+--------------------
+
+
+### toggleBackButtonHandler(...)
+
+```typescript
+toggleBackButtonHandler(options: ToggleBackButtonHandlerOptions) => Promise<void>
+```
+
+Enables or disables the plugin's back button handling during runtime.
+
+Only available for Android.
+
+| Param         | Type                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#togglebackbuttonhandleroptions">ToggleBackButtonHandlerOptions</a></code> |
+
+**Since:** 7.1.0
 
 --------------------
 
@@ -426,6 +445,13 @@ removeAllListeners() => Promise<void>
 | 属性          | 类型                 | 描述                                                          | 始于 |
 | ------------- | -------------------- | -------------------------------------------------------------------- | ----- |
 | **`enabled`** | <code>boolean</code> | 指示是否启用默认的返回按钮处理功能。 | 7.1.0 |
+
+
+#### ToggleBackButtonHandlerOptions
+
+| Prop          | Type                 | Description                                                          | Since |
+| ------------- | -------------------- | -------------------------------------------------------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | Indicates whether to enable or disable default back button handling. | 7.1.0 |
 
 
 #### PluginListenerHandle
