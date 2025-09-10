@@ -90,6 +90,7 @@ Keyboard.hide(); // 隐藏键盘
 
 - `resize`: 控制键盘出现时应用的调整方式
   可选值包括：
+
   - `none`: 不调整应用和WebView
   - `native`: （默认）键盘显示/隐藏时调整整个原生WebView，会影响`vh`相对单位
   - `body`: 仅调整HTML的`<body>`元素，视口不变因此不影响相对单位
@@ -138,8 +139,8 @@ setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 
 设置键盘辅助栏的可见性。建议在登录/注册等简短表单中禁用辅助栏以获得更简洁的UI
 
-| 参数          | 类型                                 |
-| ------------- | ------------------------------------ |
+| 参数          | 类型                      |
+| ------------- | ------------------------- |
 | **`options`** | `{ isVisible: boolean; }` |
 
 ---
@@ -152,8 +153,8 @@ setScroll(options: { isDisabled: boolean; }) => Promise<void>
 
 通过编程方式启用/禁用WebView滚动
 
-| 参数          | 类型                                  |
-| ------------- | ------------------------------------- |
+| 参数          | 类型                       |
+| ------------- | -------------------------- |
 | **`options`** | `{ isDisabled: boolean; }` |
 
 ---
@@ -256,7 +257,7 @@ removeAllListeners() => void
 
 ---
 
-### 接口
+### Interfaces
 
 #### KeyboardStyleOptions
 
@@ -282,18 +283,18 @@ removeAllListeners() => void
 | -------------------- | ------------------- |
 | **`keyboardHeight`** | <code>number</code> |
 
-### 枚举
+### Enums
 
 #### KeyboardStyle
 
-| 枚举值     | 值                |
+| 枚举值      | 值                   |
 | ----------- | -------------------- |
 | **`Dark`**  | <code>"DARK"</code>  |
 | **`Light`** | <code>"LIGHT"</code> |
 
 #### KeyboardResize
 
-| 枚举值      | 值                 |
+| 枚举值       | 值                    |
 | ------------ | --------------------- |
 | **`Body`**   | <code>"body"</code>   |
 | **`Ionic`**  | <code>"ionic"</code>  |

@@ -102,8 +102,8 @@ canOpenUrl(options: { url: string; }) => Promise<{ value: boolean; }>
 
 检查是否可以使用给定 URL 打开应用
 
-| 参数           | 类型                          |
-| ------------- | ----------------------------- |
+| 参数          | 类型               |
+| ------------- | ------------------ |
 | **`options`** | `{ url: string; }` |
 
 **返回值:** `Promise<{ value: boolean; }>`
@@ -118,8 +118,8 @@ openUrl(options: { url: string; }) => Promise<{ completed: boolean; }>
 
 使用给定 URL 打开应用
 
-| 参数           | 类型                          |
-| ------------- | ----------------------------- |
+| 参数          | 类型               |
+| ------------- | ------------------ |
 | **`options`** | `{ url: string; }` |
 
 **返回值:** `Promise<{ completed: boolean; }>`
@@ -159,9 +159,9 @@ addListener(eventName: 'appStateChange', listenerFunc: (state: AppState) => void
 监听应用活动状态的变化（应用是否在前台或后台）
 
 | 参数               | 类型                                                              |
-| ----------------- | ----------------------------------------------------------------- |
-| **`eventName`**   | <code>"appStateChange"</code>                                     |
-| **`listenerFunc`**| <code>(state: <a href="#appstate">AppState</a>) =&gt; void</code> |
+| ------------------ | ----------------------------------------------------------------- |
+| **`eventName`**    | <code>"appStateChange"</code>                                     |
+| **`listenerFunc`** | <code>(state: <a href="#appstate">AppState</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -176,9 +176,9 @@ addListener(eventName: 'appUrlOpen', listenerFunc: (data: AppUrlOpen) => void) =
 监听应用的 URL 打开事件。这既处理自定义 URL 方案链接，也处理您的应用处理的 URL（iOS 上的 Universal Links 和 Android 上的 App Links）
 
 | 参数               | 类型                                                                 |
-| ----------------- | -------------------------------------------------------------------- |
-| **`eventName`**   | <code>"appUrlOpen"</code>                                            |
-| **`listenerFunc`**| <code>(data: <a href="#appurlopen">AppUrlOpen</a>) =&gt; void</code> |
+| ------------------ | -------------------------------------------------------------------- |
+| **`eventName`**    | <code>"appUrlOpen"</code>                                            |
+| **`listenerFunc`** | <code>(data: <a href="#appurlopen">AppUrlOpen</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -193,9 +193,9 @@ addListener(eventName: 'appRestoredResult', listenerFunc: (data: AppRestoredResu
 如果应用启动时带有之前持久化的插件调用数据（例如在 Android 上当 Activity 返回到已关闭的应用时），此调用将返回应用启动时携带的任何数据，这些数据会被转换为插件调用的结果形式。
 
 | 参数               | 类型                                                                               |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| **`eventName`**   | <code>"appRestoredResult"</code>                                                   |
-| **`listenerFunc`**| <code>(data: <a href="#apprestoredresult">AppRestoredResult</a>) =&gt; void</code> |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"appRestoredResult"</code>                                                   |
+| **`listenerFunc`** | <code>(data: <a href="#apprestoredresult">AppRestoredResult</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -210,9 +210,9 @@ addListener(eventName: 'backButton', listenerFunc: (data: AppUrlOpen) => void) =
 监听硬件返回按钮事件（仅限 Android）。监听此事件会禁用默认的返回按钮行为，因此您可能需要手动调用 `window.history.back()`。如果要关闭应用，请调用 `App.exitApp()`。
 
 | 参数               | 类型                                                                 |
-| ----------------- | -------------------------------------------------------------------- |
-| **`eventName`**   | <code>"backButton"</code>                                            |
-| **`listenerFunc`**| <code>(data: <a href="#appurlopen">AppUrlOpen</a>) =&gt; void</code> |
+| ------------------ | -------------------------------------------------------------------- |
+| **`eventName`**    | <code>"backButton"</code>                                            |
+| **`listenerFunc`** | <code>(data: <a href="#appurlopen">AppUrlOpen</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -228,40 +228,40 @@ removeAllListeners() => void
 
 ---
 
-### 接口
+### Interfaces
 
 #### AppState
 
-| 属性            | 类型                 |
+| 属性           | 类型                 |
 | -------------- | -------------------- |
 | **`isActive`** | <code>boolean</code> |
 
 #### AppLaunchUrl
 
-| 属性       | 类型                |
+| 属性      | 类型                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 
 #### PluginListenerHandle
 
-| 属性          | 类型                       |
+| 属性         | 类型                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |
 
 #### AppUrlOpen
 
-| 属性                          | 类型                 | 描述                                                                                                                                                                        |
-| ----------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`url`**                     | <code>string</code>  | 应用打开的 URL                                                                                                                                                            |
-| **`iosSourceApplication`**    | <code>any</code>     | 打开应用的源应用程序（仅限 iOS） https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication                         |
-| **`iosOpenInPlace`**          | <code>boolean</code> | 应用是否应在原地打开传递的文档还是必须先复制它。 https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace |
+| 属性                       | 类型                 | 描述                                                                                                                                                |
+| -------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`url`**                  | <code>string</code>  | 应用打开的 URL                                                                                                                                      |
+| **`iosSourceApplication`** | <code>any</code>     | 打开应用的源应用程序（仅限 iOS） https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication           |
+| **`iosOpenInPlace`**       | <code>boolean</code> | 应用是否应在原地打开传递的文档还是必须先复制它。 https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace |
 
 #### AppRestoredResult
 
-| 属性              | 类型                              | 描述                                                                                                                                       |
-| ----------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`pluginId`**    | <code>string</code>               | 此结果对应的 pluginId。例如 `Camera`。                                                                                                   |
-| **`methodName`**  | <code>string</code>               | 此结果对应的 methodName。例如 `getPhoto`。                                                                                                |
-| **`data`**        | <code>any</code>                  | 从插件传递的结果数据。这将是您从正常调用插件方法时期望的结果。例如 `CameraPhoto`                                                        |
-| **`success`**     | <code>boolean</code>              | 布尔值，指示插件调用是否成功                                                                                                           |
-| **`error`**       | `{ message: string; }` | 如果插件调用未成功，它将包含错误消息                                                                                                    |
+| 属性             | 类型                   | 描述                                                                             |
+| ---------------- | ---------------------- | -------------------------------------------------------------------------------- |
+| **`pluginId`**   | <code>string</code>    | 此结果对应的 pluginId。例如 `Camera`。                                           |
+| **`methodName`** | <code>string</code>    | 此结果对应的 methodName。例如 `getPhoto`。                                       |
+| **`data`**       | <code>any</code>       | 从插件传递的结果数据。这将是您从正常调用插件方法时期望的结果。例如 `CameraPhoto` |
+| **`success`**    | <code>boolean</code>   | 布尔值，指示插件调用是否成功                                                     |
+| **`error`**      | `{ message: string; }` | 如果插件调用未成功，它将包含错误消息                                             |

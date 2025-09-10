@@ -25,7 +25,6 @@ npx cap sync
 import { PluginListenerHandle } from '@capacitor/core';
 import { Motion } from '@capacitor/motion';
 
-
 let accelHandler: PluginListenerHandle;
 
 myButton.addEventListener('click', async () => {
@@ -37,7 +36,7 @@ myButton.addEventListener('click', async () => {
   }
 
   // 用户授权后即可开始监听：
-  accelHandler = await Motion.addListener('accel', event => {
+  accelHandler = await Motion.addListener('accel', (event) => {
     console.log('设备运动事件:', event);
   });
 });
@@ -45,13 +44,13 @@ myButton.addEventListener('click', async () => {
 // 停止加速度监听
 const stopAcceleration = () => {
   if (accelHandler) {
- accelHandler.remove();
+    accelHandler.remove();
   }
 };
 
 // 移除所有监听器
 const removeListeners = () => {
- Motion.removeAllListeners();
+  Motion.removeAllListeners();
 };
 ```
 
@@ -61,11 +60,11 @@ const removeListeners = () => {
 
 <docgen-index>
 
-* [`addListener('accel', ...)`](#addlisteneraccel-)
-* [`addListener('orientation', ...)`](#addlistenerorientation-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`addListener('accel', ...)`](#addlisteneraccel-)
+- [`addListener('orientation', ...)`](#addlistenerorientation-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -89,8 +88,7 @@ addListener(eventName: 'accel', listenerFunc: AccelListener) => Promise<PluginLi
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### addListener('orientation', ...)
 
@@ -109,8 +107,7 @@ addListener(eventName: 'orientation', listenerFunc: OrientationListener) => Prom
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -122,11 +119,9 @@ removeAllListeners() => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PluginListenerHandle
 
@@ -134,50 +129,49 @@ removeAllListeners() => Promise<void>
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
 #### AccelListenerEvent
 
-| 属性                               | 类型                                                  | 描述                                                                                                                                                             | 版本 |
-| ---------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`acceleration`**                 | <code><a href="#acceleration">Acceleration</a></code> | 包含设备在 X、Y、Z 三轴上加速度的对象。<a href="#acceleration">Acceleration</a> 单位为 m/s²                                                                     | 1.0.0 |
-| **`accelerationIncludingGravity`** | <code><a href="#acceleration">Acceleration</a></code> | 包含设备在 X、Y、Z 三轴上重力加速度的对象。<a href="#acceleration">Acceleration</a> 单位为 m/s²                                                                | 1.0.0 |
-| **`rotationRate`**                 | <code><a href="#rotationrate">RotationRate</a></code> | 包含设备绕 alpha、beta、gamma 三个方向轴旋转角速度的对象。旋转角速度单位为度/秒                                                                                 | 1.0.0 |
-| **`interval`**                     | <code>number</code>                                   | 数值表示从设备获取数据的间隔时间（毫秒）                                                                                                                         | 1.0.0 |
-
+| 属性                               | 类型                                                  | 描述                                                                                            | 版本  |
+| ---------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----- |
+| **`acceleration`**                 | <code><a href="#acceleration">Acceleration</a></code> | 包含设备在 X、Y、Z 三轴上加速度的对象。<a href="#acceleration">Acceleration</a> 单位为 m/s²     | 1.0.0 |
+| **`accelerationIncludingGravity`** | <code><a href="#acceleration">Acceleration</a></code> | 包含设备在 X、Y、Z 三轴上重力加速度的对象。<a href="#acceleration">Acceleration</a> 单位为 m/s² | 1.0.0 |
+| **`rotationRate`**                 | <code><a href="#rotationrate">RotationRate</a></code> | 包含设备绕 alpha、beta、gamma 三个方向轴旋转角速度的对象。旋转角速度单位为度/秒                 | 1.0.0 |
+| **`interval`**                     | <code>number</code>                                   | 数值表示从设备获取数据的间隔时间（毫秒）                                                        | 1.0.0 |
 
 #### Acceleration
 
-| 属性    | 类型                | 描述                                  | 版本 |
-| ------- | ------------------- | -------------------------------------------- | ----- |
+| 属性    | 类型                | 描述               | 版本  |
+| ------- | ------------------- | ------------------ | ----- |
 | **`x`** | <code>number</code> | X 轴方向的加速度值 | 1.0.0 |
 | **`y`** | <code>number</code> | Y 轴方向的加速度值 | 1.0.0 |
 | **`z`** | <code>number</code> | Z 轴方向的加速度值 | 1.0.0 |
 
-
 #### RotationRate
 
-| 属性        | 类型                | 描述                                                      | 版本 |
-| ----------- | ------------------- | ---------------------------------------------------------------- | ----- |
+| 属性        | 类型                | 描述                             | 版本  |
+| ----------- | ------------------- | -------------------------------- | ----- |
 | **`alpha`** | <code>number</code> | 设备绕 Z 轴旋转的角速度（度/秒） | 1.0.0 |
 | **`beta`**  | <code>number</code> | 设备绕 X 轴旋转的角速度（度/秒） | 1.0.0 |
 | **`gamma`** | <code>number</code> | 设备绕 Y 轴旋转的角速度（度/秒） | 1.0.0 |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### AccelListener
 
-<code>(event: <a href="#accellistenerevent">AccelListenerEvent</a>): void</code>
-
+<code>
+  (event: <a href="#accellistenerevent">AccelListenerEvent</a>): void
+</code>
 
 #### OrientationListener
 
-<code>(event: <a href="#rotationrate">RotationRate</a>): void</code>
-
+<code>
+  (event: <a href="#rotationrate">RotationRate</a>): void
+</code>
 
 #### OrientationListenerEvent
 
-<code><a href="#rotationrate">RotationRate</a></code>
+<code>
+  <a href="#rotationrate">RotationRate</a>
+</code>
 
 </docgen-api>

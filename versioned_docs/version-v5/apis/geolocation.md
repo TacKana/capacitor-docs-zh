@@ -63,13 +63,13 @@ const printCurrentPosition = async () => {
 
 <docgen-index>
 
-* [`getCurrentPosition(...)`](#getcurrentposition)
-* [`watchPosition(...)`](#watchposition)
-* [`clearWatch(...)`](#clearwatch)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions(...)`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`getCurrentPosition(...)`](#getcurrentposition)
+- [`watchPosition(...)`](#watchposition)
+- [`clearWatch(...)`](#clearwatch)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions(...)`](#requestpermissions)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -92,8 +92,7 @@ getCurrentPosition(options?: PositionOptions | undefined) => Promise<Position>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### watchPosition(...)
 
@@ -112,8 +111,7 @@ watchPosition(options: PositionOptions, callback: WatchPositionCallback) => Prom
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### clearWatch(...)
 
@@ -129,8 +127,7 @@ clearWatch(options: ClearWatchOptions) => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -144,8 +141,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions(...)
 
@@ -163,28 +159,24 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### Position
 
-| 属性             | 类型                                                                                                                                                                                | 描述                                             | 版本 |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
-| **`timestamp`** | <code>number</code>                                                                                                                                                                 | 坐标创建时间戳                           | 1.0.0 |
+| 属性            | 类型                                                                                                                                                                                | 描述                | 版本  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
+| **`timestamp`** | <code>number</code>                                                                                                                                                                 | 坐标创建时间戳      | 1.0.0 |
 | **`coords`**    | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | GPS坐标及其数据精度 | 1.0.0 |
-
 
 #### PositionOptions
 
-| 属性                      | 类型                 | 描述                                                                                                                                                                           | 默认值            | 版本 |
-| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| 属性                     | 类型                 | 描述                                                                                                                             | 默认值             | 版本  |
+| ------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
 | **`enableHighAccuracy`** | <code>boolean</code> | 高精度模式（如启用GPS，若可用）。在Android 12+设备上，如果用户未授予ACCESS_FINE_LOCATION权限将被忽略（可通过location别名检查）。 | <code>false</code> | 1.0.0 |
-| **`timeout`**            | <code>number</code>  | 等待位置更新的最长时间（毫秒）。在Android平台，自插件4.0.0版本起，getCurrentPosition将忽略此超时设置。                               | <code>10000</code> | 1.0.0 |
-| **`maximumAge`**         | <code>number</code>  | 可接受的缓存位置的最大年龄（毫秒）                                                                                            | <code>0</code>     | 1.0.0 |
-
+| **`timeout`**            | <code>number</code>  | 等待位置更新的最长时间（毫秒）。在Android平台，自插件4.0.0版本起，getCurrentPosition将忽略此超时设置。                           | <code>10000</code> | 1.0.0 |
+| **`maximumAge`**         | <code>number</code>  | 可接受的缓存位置的最大年龄（毫秒）                                                                                               | <code>0</code>     | 1.0.0 |
 
 #### ClearWatchOptions
 
@@ -192,14 +184,12 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | -------- | ------------------------------------------------- |
 | **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
 
-
 #### PermissionStatus
 
-| 属性                 | 类型                                                        | 描述                                                                                                                                                                                                                                                                                                                                                        | 版本 |
-| -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | 位置别名的权限状态。在Android平台会同时请求/检查ACCESS_COARSE_LOCATION和ACCESS_FINE_LOCATION权限。在iOS和Web平台会请求/检查位置权限。                                                                                                                                                                        | 1.0.0 |
+| 属性                 | 类型                                                        | 描述                                                                                                                                                                                                                                                                      | 版本  |
+| -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | 位置别名的权限状态。在Android平台会同时请求/检查ACCESS_COARSE_LOCATION和ACCESS_FINE_LOCATION权限。在iOS和Web平台会请求/检查位置权限。                                                                                                                                     | 1.0.0 |
 | **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | coarseLocation别名的权限状态。在Android平台会请求/检查ACCESS_COARSE_LOCATION权限。在Android 12+上，用户可以选择"近似位置"(ACCESS_COARSE_LOCATION)或"精确位置"(ACCESS_FINE_LOCATION)，因此当应用不需要高精度时可以使用此别名。在iOS和Web平台将保持与location别名相同的值。 | 1.2.0 |
-
 
 #### GeolocationPluginPermissions
 
@@ -207,36 +197,29 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | ----------------- | ---------------------------------------- |
 | **`permissions`** | <code>GeolocationPermissionType[]</code> |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### Position
 
-<a href="#position">Position</a> 是坐标数组。
-遵循RFC 7946标准第3.1.1节
-https://tools.ietf.org/html/rfc7946#section-3.1.1
-数组应包含2-3个元素。
-之前的GeoJSON规范允许更多元素（例如可用来表示M值），
-但现行规范只允许定义X、Y和（可选的）Z坐标。
+<a href="#position">Position</a> 是坐标数组。 遵循RFC 7946标准第3.1.1节
+https://tools.ietf.org/html/rfc7946#section-3.1.1 数组应包含2-3个元素。
+之前的GeoJSON规范允许更多元素（例如可用来表示M值）， 但现行规范只允许定义X、Y和（可选的）Z坐标。
 
 <code>number[]</code>
 
-
 #### WatchPositionCallback
 
-<code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
-
+<code>
+  (position: <a href="#position">Position</a> | null, err?: any): void
+</code>
 
 #### CallbackID
 
 <code>string</code>
 
-
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
 
 #### GeolocationPermissionType
 

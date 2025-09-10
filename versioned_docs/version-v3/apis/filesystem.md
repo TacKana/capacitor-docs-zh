@@ -46,7 +46,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 const writeSecretFile = async () => {
   await Filesystem.writeFile({
     path: 'secrets/text.txt',
-    data: "这是一个测试",
+    data: '这是一个测试',
     directory: Directory.Documents,
     encoding: Encoding.UTF8,
   });
@@ -73,7 +73,7 @@ const readFilePath = async () => {
   // 这是一个通过完整路径读取文件的示例
   // 可用于从返回文件 URI 的插件（如相机）中读取二进制数据（base64 编码）
   const contents = await Filesystem.readFile({
-    path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt'
+    path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt',
   });
 
   console.log('文件数据:', contents);
@@ -84,22 +84,22 @@ const readFilePath = async () => {
 
 <docgen-index>
 
-* [`readFile(...)`](#readfile)
-* [`writeFile(...)`](#writefile)
-* [`appendFile(...)`](#appendfile)
-* [`deleteFile(...)`](#deletefile)
-* [`mkdir(...)`](#mkdir)
-* [`rmdir(...)`](#rmdir)
-* [`readdir(...)`](#readdir)
-* [`getUri(...)`](#geturi)
-* [`stat(...)`](#stat)
-* [`rename(...)`](#rename)
-* [`copy(...)`](#copy)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`readFile(...)`](#readfile)
+- [`writeFile(...)`](#writefile)
+- [`appendFile(...)`](#appendfile)
+- [`deleteFile(...)`](#deletefile)
+- [`mkdir(...)`](#mkdir)
+- [`rmdir(...)`](#rmdir)
+- [`readdir(...)`](#readdir)
+- [`getUri(...)`](#geturi)
+- [`stat(...)`](#stat)
+- [`rename(...)`](#rename)
+- [`copy(...)`](#copy)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -113,15 +113,15 @@ readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 
 从磁盘读取文件
 
-| 参数        | 类型                                                        |
-| ----------- | ---------------------------------------------------------- |
+| 参数          | 类型                                                        |
+| ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#readfileoptions">ReadFileOptions</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#readfileresult">ReadFileResult</a>&gt;</code>
 
 **版本:** 1.0.0
 
---------------------
+---
 
 ### writeFile(...)
 
@@ -131,36 +131,36 @@ writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 
 将文件写入设备指定位置
 
-| 参数        | 类型                                                          |
-| ----------- | ------------------------------------------------------------ |
+| 参数          | 类型                                                          |
+| ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#writefileoptions">WriteFileOptions</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#writefileresult">WriteFileResult</a>&gt;</code>
 
 **版本:** 1.0.0
 
---------------------
+---
 
 [以下API文档的翻译模式与上文保持一致，因篇幅限制仅展示部分内容...]
 
-### 接口
+### Interfaces
 
 #### ReadFileResult
 
-| 属性       | 类型                | 描述                       | 版本 |
-| ---------- | ------------------- | ------------------------- | ---- |
+| 属性       | 类型                | 描述                       | 版本  |
+| ---------- | ------------------- | -------------------------- | ----- |
 | **`data`** | <code>string</code> | 文件中数据的字符串表示形式 | 1.0.0 |
 
 [其余接口和枚举的翻译模式类似...]
 
-### 枚举
+### Enums
 
 #### Directory
 
-| 成员               | 值                           | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                       | 版本 |
-| ------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| **`Documents`**     | <code>'DOCUMENTS'</code>     | 文档目录。在 iOS 上是应用的 documents 目录，用于存储用户生成的内容。在 Android 上是公共文档文件夹，可被其他应用访问。在 Android 10 上不可访问，除非应用在 `AndroidManifest.xml` 的 `application` 标签中添加 `android:requestLegacyExternalStorage="true"`。在 Android 11 或更新版本上不可访问。 | 1.0.0 |
-| **`Data`**          | <code>'DATA'</code>          | 数据目录。在 iOS 上使用 Documents 目录。在 Android 上是存放应用文件的目录，应用卸载时文件会被删除。                                                                                                                                                                                                                                                                           | 1.0.0 |
+| 成员            | 值                       | 描述                                                                                                                                                                                                                                                                                            | 版本  |
+| --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`Documents`** | <code>'DOCUMENTS'</code> | 文档目录。在 iOS 上是应用的 documents 目录，用于存储用户生成的内容。在 Android 上是公共文档文件夹，可被其他应用访问。在 Android 10 上不可访问，除非应用在 `AndroidManifest.xml` 的 `application` 标签中添加 `android:requestLegacyExternalStorage="true"`。在 Android 11 或更新版本上不可访问。 | 1.0.0 |
+| **`Data`**      | <code>'DATA'</code>      | 数据目录。在 iOS 上使用 Documents 目录。在 Android 上是存放应用文件的目录，应用卸载时文件会被删除。                                                                                                                                                                                             | 1.0.0 |
 
 [其余枚举值的翻译模式类似...]
 

@@ -68,7 +68,7 @@ module.exports = {
         {
           type: 'doc',
           docId: 'cli/index',
-          label: 'CLI',
+          label: '命令行工具',
           position: 'left',
         },
         {

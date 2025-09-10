@@ -19,33 +19,33 @@ Permissions API 提供了一些方法，用于在请求权限之前检查某些�
 query(options: PermissionsOptions) => Promise<PermissionResult>
 ```
 
-| 参数            | 类型                                                                  |
-| --------------- | --------------------------------------------------------------------- |
-| **`options`**   | <code><a href="#permissionsoptions">PermissionsOptions</a></code>     |
+| 参数          | 类型                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#permissionsoptions">PermissionsOptions</a></code> |
 
 **返回值：** <code>Promise&lt;<a href="#permissionresult">PermissionResult</a>&gt;</code>
 
 ---
 
-### 接口
+### Interfaces
 
 #### PermissionResult
 
-| 属性          | 类型                                               |
-| ------------- | -------------------------------------------------- |
-| **`state`**   | <code>"denied" \| "granted" \| "prompt"</code>     |
+| 属性        | 类型                                           |
+| ----------- | ---------------------------------------------- |
+| **`state`** | <code>"denied" \| "granted" \| "prompt"</code> |
 
 #### PermissionsOptions
 
-| 属性         | 类型                                                      |
-| ------------ | --------------------------------------------------------- |
-| **`name`**   | <code><a href="#permissiontype">PermissionType</a></code> |
+| 属性       | 类型                                                      |
+| ---------- | --------------------------------------------------------- |
+| **`name`** | <code><a href="#permissiontype">PermissionType</a></code> |
 
-### 枚举
+### Enums
 
 #### PermissionType
 
-| 成员                 | 值                              |
+| 成员                 | 值                             |
 | -------------------- | ------------------------------ |
 | **`Camera`**         | <code>"camera"</code>          |
 | **`Photos`**         | <code>"photos"</code>          |

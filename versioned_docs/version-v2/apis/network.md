@@ -71,10 +71,10 @@ addListener(eventName: 'networkStatusChange', listenerFunc: (status: NetworkStat
 
 监听网络状态变更事件
 
-| 参数                 | 类型                                                                         |
-| -------------------- | ---------------------------------------------------------------------------- |
-| **`eventName`**      | <code>"networkStatusChange"</code>                                           |
-| **`listenerFunc`**   | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
+| 参数               | 类型                                                                         |
+| ------------------ | ---------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"networkStatusChange"</code>                                           |
+| **`listenerFunc`** | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -90,17 +90,17 @@ removeAllListeners() => void
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### NetworkStatus
 
-| 属性                  | 类型                                                     |
-| --------------------- | -------------------------------------------------------- |
-| **`connected`**       | <code>boolean</code>                                     |
-| **`connectionType`**  | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
+| 属性                 | 类型                                                     |
+| -------------------- | -------------------------------------------------------- |
+| **`connected`**      | <code>boolean</code>                                     |
+| **`connectionType`** | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
 
 #### PluginListenerHandle
 
-| 属性           | 类型                       |
-| -------------- | -------------------------- |
-| **`remove`**   | <code>() =&gt; void</code> |
+| 属性         | 类型                       |
+| ------------ | -------------------------- |
+| **`remove`** | <code>() =&gt; void</code> |

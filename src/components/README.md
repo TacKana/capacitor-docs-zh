@@ -1,11 +1,11 @@
-# Components folder
+# 组件文件夹
 
-This folder is meant to house components that are used across multiple versions. For components that are meant to be used in a specific version only, consider putting them directly in `/docs/` in the appropriate subfolder. [See here](/README.md#Versioning) for more details.
+此文件夹用于存放在多个版本中都会用到的组件。对于仅在特定版本中使用的组件，建议将其直接放在 `/docs/` 的相应子文件夹中。更多详情请参见[此处](/README.md#Versioning)。
 
-## Global
+## 全局组件
 
-Global components are used on many pages spanning many sections.
+全局组件会在许多页面和多个部分中使用。
 
-## Page
+## 页面组件
 
-Page components are confined to a section of pages or a single page. The layout of this directory is meant to mirror the [directory used for routing]()
+页面组件仅限于某一部分页面或单个页面使用。此目录的布局旨在与[用于路由的目录]()保持一致。

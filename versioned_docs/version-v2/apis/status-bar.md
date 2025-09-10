@@ -156,7 +156,7 @@ setOverlaysWebView(options: StatusBarOverlaysWebviewOptions) => Promise<void>
 
 ---
 
-### 接口
+### Interfaces
 
 #### StatusBarStyleOptions
 
@@ -172,38 +172,38 @@ setOverlaysWebView(options: StatusBarOverlaysWebviewOptions) => Promise<void>
 
 #### StatusBarAnimationOptions
 
-| 属性              | 类型                                                              | 描述                                                                 |
-| ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| **`animation`**   | <code><a href="#statusbaranimation">StatusBarAnimation</a></code> | 仅iOS。显示或隐藏状态栏时使用的动画类型。                             |
+| 属性            | 类型                                                              | 描述                                      |
+| --------------- | ----------------------------------------------------------------- | ----------------------------------------- |
+| **`animation`** | <code><a href="#statusbaranimation">StatusBarAnimation</a></code> | 仅iOS。显示或隐藏状态栏时使用的动画类型。 |
 
 #### StatusBarInfoResult
 
-| 属性            | 类型                                                      |
-| --------------- | --------------------------------------------------------- |
-| **`visible`**   | <code>boolean</code>                                      |
-| **`style`**     | <code><a href="#statusbarstyle">StatusBarStyle</a></code> |
-| **`color`**     | <code>string</code>                                       |
-| **`overlays`**  | <code>boolean</code>                                      |
+| 属性           | 类型                                                      |
+| -------------- | --------------------------------------------------------- |
+| **`visible`**  | <code>boolean</code>                                      |
+| **`style`**    | <code><a href="#statusbarstyle">StatusBarStyle</a></code> |
+| **`color`**    | <code>string</code>                                       |
+| **`overlays`** | <code>boolean</code>                                      |
 
 #### StatusBarOverlaysWebviewOptions
 
-| 属性           | 类型                 |
-| -------------- | -------------------- |
-| **`overlay`**  | <code>boolean</code> |
+| 属性          | 类型                 |
+| ------------- | -------------------- |
+| **`overlay`** | <code>boolean</code> |
 
-### 枚举
+### Enums
 
 #### StatusBarStyle
 
-| 枚举值       | 值                   | 描述                        |
-| ----------- | -------------------- | --------------------------- |
-| **`Dark`**  | <code>"DARK"</code>  | 深色背景使用浅色文字。      |
-| **`Light`** | <code>"LIGHT"</code> | 浅色背景使用深色文字。      |
+| 枚举值      | 值                   | 描述                   |
+| ----------- | -------------------- | ---------------------- |
+| **`Dark`**  | <code>"DARK"</code>  | 深色背景使用浅色文字。 |
+| **`Light`** | <code>"LIGHT"</code> | 浅色背景使用深色文字。 |
 
 #### StatusBarAnimation
 
-| 枚举值       | 值                   | 描述                        |
-| ----------- | -------------------- | --------------------------- |
-| **`None`**  | <code>"NONE"</code>  | 显示/隐藏时不使用动画。     |
-| **`Slide`** | <code>"SLIDE"</code> | 显示/隐藏时使用滑动动画。   |
+| 枚举值      | 值                   | 描述                          |
+| ----------- | -------------------- | ----------------------------- |
+| **`None`**  | <code>"NONE"</code>  | 显示/隐藏时不使用动画。       |
+| **`Slide`** | <code>"SLIDE"</code> | 显示/隐藏时使用滑动动画。     |
 | **`Fade`**  | <code>"FADE"</code>  | 显示/隐藏时使用淡入淡出动画。 |

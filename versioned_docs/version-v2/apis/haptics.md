@@ -138,34 +138,34 @@ selectionEnd() => void
 
 ---
 
-### 接口
+### Interfaces
 
 #### HapticsImpactOptions
 
-| 属性         | 类型                                                              |
-| ------------ | ----------------------------------------------------------------- |
-| **`style`**  | <code><a href="#hapticsimpactstyle">HapticsImpactStyle</a></code> |
+| 属性        | 类型                                                              |
+| ----------- | ----------------------------------------------------------------- |
+| **`style`** | <code><a href="#hapticsimpactstyle">HapticsImpactStyle</a></code> |
 
 #### HapticsNotificationOptions
 
-| 属性        | 类型                                                                        |
-| ----------- | --------------------------------------------------------------------------- |
-| **`type`**  | <code><a href="#hapticsnotificationtype">HapticsNotificationType</a></code> |
+| 属性       | 类型                                                                        |
+| ---------- | --------------------------------------------------------------------------- |
+| **`type`** | <code><a href="#hapticsnotificationtype">HapticsNotificationType</a></code> |
 
-### 枚举
+### Enums
 
 #### HapticsImpactStyle
 
-| 成员          | 值                   |
-| ------------- | -------------------- |
-| **`Heavy`**   | <code>"HEAVY"</code> |
-| **`Medium`**  | <code>"MEDIUM"</code>|
-| **`Light`**   | <code>"LIGHT"</code> |
+| 成员         | 值                    |
+| ------------ | --------------------- |
+| **`Heavy`**  | <code>"HEAVY"</code>  |
+| **`Medium`** | <code>"MEDIUM"</code> |
+| **`Light`**  | <code>"LIGHT"</code>  |
 
 #### HapticsNotificationType
 
-| 成员           | 值                    |
-| -------------- | --------------------- |
-| **`SUCCESS`**  | <code>"SUCCESS"</code>|
-| **`WARNING`**  | <code>"WARNING"</code>|
-| **`ERROR`**    | <code>"ERROR"</code>  |
+| 成员          | 值                     |
+| ------------- | ---------------------- |
+| **`SUCCESS`** | <code>"SUCCESS"</code> |
+| **`WARNING`** | <code>"WARNING"</code> |
+| **`ERROR`**   | <code>"ERROR"</code>   |

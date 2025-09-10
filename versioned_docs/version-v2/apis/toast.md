@@ -45,12 +45,12 @@ show(options: ToastShowOptions) => Promise<void>
 
 ---
 
-### 接口
+### Interfaces
 
 #### ToastShowOptions
 
-| 属性            | 类型                                       | 描述                                                                       |
-| -------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
-| **`text`**     | <code>string</code>                        | 显示的文本内容                                                             |
-| **`duration`** | <code>"short" \| "long"</code>             | 显示时长，'short'（2000毫秒，默认）或 'long'（3500毫秒）                   |
-| **`position`** | <code>"center" \| "bottom" \| "top"</code> | 显示位置                                                                   |
+| 属性           | 类型                                       | 描述                                                     |
+| -------------- | ------------------------------------------ | -------------------------------------------------------- |
+| **`text`**     | <code>string</code>                        | 显示的文本内容                                           |
+| **`duration`** | <code>"short" \| "long"</code>             | 显示时长，'short'（2000毫秒，默认）或 'long'（3500毫秒） |
+| **`position`** | <code>"center" \| "bottom" \| "top"</code> | 显示位置                                                 |

@@ -65,8 +65,6 @@ Apple 发送此邮件只是为了确认您没有错误地忘记启用推送功�
 }
 ```
 
-
-
 - [`register()`](#register)
 - [`requestPermission()`](#requestpermission)
 - [`getDeliveredNotifications()`](#getdeliverednotifications)
@@ -82,16 +80,11 @@ Apple 发送此邮件只是为了确认您没有错误地忘记启用推送功�
 - [`removeAllListeners()`](#removealllisteners)
 - [接口](#interfaces)
 
-
-
 ## 示例教程
 
 [在 Ionic Angular 应用中使用 Firebase 推送通知](/guides/push-notifications-firebase.md)
 
 ## API
-
-
-
 
 ### register()
 
@@ -140,9 +133,9 @@ removeDeliveredNotifications(delivered: PushNotificationDeliveredList) => Promis
 
 从通知中心移除指定的通知。
 
-| 参数             | 类型                                                                                    | 描述                   |
-| --------------- | --------------------------------------------------------------------------------------- | ---------------------- |
-| **`delivered`** | <code><a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a></code> | 待移除的通知列表。     |
+| 参数            | 类型                                                                                    | 描述               |
+| --------------- | --------------------------------------------------------------------------------------- | ------------------ |
+| **`delivered`** | <code><a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a></code> | 待移除的通知列表。 |
 
 ---
 
@@ -205,10 +198,10 @@ addListener(eventName: 'registration', listenerFunc: (token: PushNotificationTok
 当推送通知注册成功时触发的事件。
 提供推送通知令牌。
 
-| 参数               | 类型                                                                                        | 描述                      |
-| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------- |
-| **`eventName`**   | <code>"registration"</code>                                                                 | 注册事件                  |
-| **`listenerFunc`**| <code>(token: <a href="#pushnotificationtoken">PushNotificationToken</a>) =&gt; void</code> | 携带推送令牌的回调函数    |
+| 参数               | 类型                                                                                        | 描述                   |
+| ------------------ | ------------------------------------------------------------------------------------------- | ---------------------- |
+| **`eventName`**    | <code>"registration"</code>                                                                 | 注册事件               |
+| **`listenerFunc`** | <code>(token: <a href="#pushnotificationtoken">PushNotificationToken</a>) =&gt; void</code> | 携带推送令牌的回调函数 |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -223,10 +216,10 @@ addListener(eventName: 'registrationError', listenerFunc: (error: any) => void) 
 当推送通知注册失败时触发的事件。
 提供注册错误信息。
 
-| 参数               | 类型                                 | 描述                          |
-| ----------------- | ------------------------------------ | ----------------------------- |
-| **`eventName`**   | <code>"registrationError"</code>     | 注册错误事件                  |
-| **`listenerFunc`**| <code>(error: any) =&gt; void</code> | 携带注册错误的回调函数        |
+| 参数               | 类型                                 | 描述                   |
+| ------------------ | ------------------------------------ | ---------------------- |
+| **`eventName`**    | <code>"registrationError"</code>     | 注册错误事件           |
+| **`listenerFunc`** | <code>(error: any) =&gt; void</code> | 携带注册错误的回调函数 |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -240,10 +233,10 @@ addListener(eventName: 'pushNotificationReceived', listenerFunc: (notification: 
 
 当设备收到推送通知时触发的事件。
 
-| 参数               | 类型                                                                                     | 描述                             |
-| ----------------- | ---------------------------------------------------------------------------------------- | -------------------------------- |
-| **`eventName`**   | <code>"pushNotificationReceived"</code>                                                  | 推送通知接收事件                 |
-| **`listenerFunc`**| <code>(notification: <a href="#pushnotification">PushNotification</a>) =&gt; void</code> | 携带接收到的通知的回调函数       |
+| 参数               | 类型                                                                                     | 描述                       |
+| ------------------ | ---------------------------------------------------------------------------------------- | -------------------------- |
+| **`eventName`**    | <code>"pushNotificationReceived"</code>                                                  | 推送通知接收事件           |
+| **`listenerFunc`** | <code>(notification: <a href="#pushnotification">PushNotification</a>) =&gt; void</code> | 携带接收到的通知的回调函数 |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -257,10 +250,10 @@ addListener(eventName: 'pushNotificationActionPerformed', listenerFunc: (notific
 
 当用户对推送通知执行操作时触发的事件。
 
-| 参数               | 类型                                                                                                                   | 描述                           |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| **`eventName`**   | <code>"pushNotificationActionPerformed"</code>                                                                         | 推送通知操作执行事件           |
-| **`listenerFunc`**| <code>(notification: <a href="#pushnotificationactionperformed">PushNotificationActionPerformed</a>) =&gt; void</code> | 携带通知操作信息的回调函数     |
+| 参数               | 类型                                                                                                                   | 描述                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| **`eventName`**    | <code>"pushNotificationActionPerformed"</code>                                                                         | 推送通知操作执行事件       |
+| **`listenerFunc`** | <code>(notification: <a href="#pushnotificationactionperformed">PushNotificationActionPerformed</a>) =&gt; void</code> | 携带通知操作信息的回调函数 |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -276,7 +269,7 @@ removeAllListeners() => void
 
 ---
 
-### 接口
+### Interfaces
 
 #### NotificationPermissionResponse
 
@@ -292,19 +285,19 @@ removeAllListeners() => void
 
 #### PushNotification
 
-| 属性               | 类型                 | 描述                                                                                                      |
-| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------- |
-| **`title`**        | <code>string</code>  | 通知标题                                                                                                 |
-| **`subtitle`**     | <code>string</code>  | 通知副标题                                                                                               |
-| **`body`**         | <code>string</code>  | 通知正文                                                                                                 |
-| **`id`**           | <code>string</code>  | 通知ID                                                                                                   |
-| **`badge`**        | <code>number</code>  | 角标数                                                                                                   |
-| **`notification`** | <code>any</code>     | 原生通知对象                                                                                             |
-| **`data`**         | <code>any</code>     | 附加数据                                                                                                 |
-| **`click_action`** | <code>string</code>  | 点击动作                                                                                                 |
-| **`link`**         | <code>string</code>  | 链接地址                                                                                                 |
-| **`group`**        | <code>string</code>  | 仅Android：设置通知分组标识符，类似iOS的threadIdentifier                                                 |
-| **`groupSummary`** | <code>boolean</code> | 仅Android：将本通知设为分组摘要（需与`group`属性配合使用）                                                |
+| 属性               | 类型                 | 描述                                                       |
+| ------------------ | -------------------- | ---------------------------------------------------------- |
+| **`title`**        | <code>string</code>  | 通知标题                                                   |
+| **`subtitle`**     | <code>string</code>  | 通知副标题                                                 |
+| **`body`**         | <code>string</code>  | 通知正文                                                   |
+| **`id`**           | <code>string</code>  | 通知ID                                                     |
+| **`badge`**        | <code>number</code>  | 角标数                                                     |
+| **`notification`** | <code>any</code>     | 原生通知对象                                               |
+| **`data`**         | <code>any</code>     | 附加数据                                                   |
+| **`click_action`** | <code>string</code>  | 点击动作                                                   |
+| **`link`**         | <code>string</code>  | 链接地址                                                   |
+| **`group`**        | <code>string</code>  | 仅Android：设置通知分组标识符，类似iOS的threadIdentifier   |
+| **`groupSummary`** | <code>boolean</code> | 仅Android：将本通知设为分组摘要（需与`group`属性配合使用） |
 
 #### NotificationChannel
 

@@ -41,17 +41,16 @@ const openCapacitorSite = async () => {
 
 <docgen-index>
 
-* [`open(...)`](#open)
-* [`close()`](#close)
-* [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
-* [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口定义](#接口定义)
+- [`open(...)`](#open)
+- [`close()`](#close)
+- [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
+- [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口定义](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### open(...)
 
@@ -67,8 +66,7 @@ open(options: OpenOptions) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### close()
 
@@ -82,8 +80,7 @@ close() => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('browserFinished', ...)
 
@@ -103,8 +100,7 @@ addListener(eventName: 'browserFinished', listenerFunc: () => void) => Promise<P
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('browserPageLoaded', ...)
 
@@ -125,8 +121,7 @@ addListener(eventName: 'browserPageLoaded', listenerFunc: () => void) => Promise
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -138,29 +133,26 @@ removeAllListeners() => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口定义
-
+### Interfaces
 
 #### OpenOptions
 
 表示传递给 `open` 方法的选项。
 
-| 属性                     | 类型                                   | 描述                                                                                                                               | 版本  |
-| ----------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`url`**               | <code>string</code>                    | 要打开的浏览器 URL                                                                                                                | 1.0.0 |
-| **`windowName`**        | <code>string</code>                    | 仅限 Web 平台：可选浏览器打开目标。遵循 window.open 的 target 属性。默认为 _blank。其他平台忽略此选项。                           | 1.0.0 |
-| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的十六进制值                                                                                                        | 1.0.0 |
-| **`presentationStyle`** | <code>'fullscreen' \| 'popover'</code> | 仅限 iOS 平台：浏览器呈现样式。默认为全屏。其他平台忽略此选项。                                                                   | 1.0.0 |
-| **`width`**             | <code>number</code>                    | 仅限 iOS 平台：当在 iPad 上使用 'popover' 呈现样式时的浏览器宽度。其他平台忽略此选项。                                            | 4.0.0 |
-| **`height`**            | <code>number</code>                    | 仅限 iOS 平台：当在 iPad 上使用 'popover' 呈现样式时的浏览器高度。其他平台忽略此选项。                                            | 4.0.0 |
-
+| 属性                    | 类型                                   | 描述                                                                                                     | 版本  |
+| ----------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----- |
+| **`url`**               | <code>string</code>                    | 要打开的浏览器 URL                                                                                       | 1.0.0 |
+| **`windowName`**        | <code>string</code>                    | 仅限 Web 平台：可选浏览器打开目标。遵循 window.open 的 target 属性。默认为 \_blank。其他平台忽略此选项。 | 1.0.0 |
+| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的十六进制值                                                                               | 1.0.0 |
+| **`presentationStyle`** | <code>'fullscreen' \| 'popover'</code> | 仅限 iOS 平台：浏览器呈现样式。默认为全屏。其他平台忽略此选项。                                          | 1.0.0 |
+| **`width`**             | <code>number</code>                    | 仅限 iOS 平台：当在 iPad 上使用 'popover' 呈现样式时的浏览器宽度。其他平台忽略此选项。                   | 4.0.0 |
+| **`height`**            | <code>number</code>                    | 仅限 iOS 平台：当在 iPad 上使用 'popover' 呈现样式时的浏览器高度。其他平台忽略此选项。                   | 4.0.0 |
 
 #### PluginListenerHandle
 
-| 属性          | 类型                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 

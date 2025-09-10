@@ -40,13 +40,13 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 
 <docgen-index>
 
-* [`orientation()`](#orientation)
-* [`lock(...)`](#lock)
-* [`unlock()`](#unlock)
-* [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口定义](#interfaces)
-* [类型别名](#type-aliases)
+- [`orientation()`](#orientation)
+- [`lock(...)`](#lock)
+- [`unlock()`](#unlock)
+- [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口定义](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -65,8 +65,7 @@ orientation() => Promise<ScreenOrientationResult>
 
 **自版本:** 4.0.0
 
---------------------
-
+---
 
 ### lock(...)
 
@@ -82,8 +81,7 @@ lock(options: OrientationLockOptions) => Promise<void>
 
 **自版本:** 4.0.0
 
---------------------
-
+---
 
 ### unlock()
 
@@ -95,8 +93,7 @@ unlock() => Promise<void>
 
 **自版本:** 4uallyx0
 
---------------------
-
+---
 
 ### addListener('screenOrientationChange', ...)
 
@@ -115,8 +112,7 @@ addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: Sc
 
 **自版本:** 4.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -128,11 +124,9 @@ removeAllListeners() => Promise<void>
 
 **自版本:** 4.0.0
 
---------------------
+---
 
-
-### 接口定义
-
+### Interfaces
 
 #### ScreenOrientationResult
 
@@ -140,13 +134,11 @@ removeAllListeners() => Promise<void>
 | ---------- | ---------------------------- |
 | **`type`** | <code>OrientationType</code> |
 
-
 #### OrientationLockOptions
 
-| 属性               | 类型                                                                | 说明                                                                                                                           |
-| ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 属性              | 类型                                                                | 说明                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **`orientation`** | <code><a href="#orientationlocktype">OrientationLockType</a></code> | 注意：TypeScript v5.2+用户应从@capacitor/screen-orientation导入<a href="#orientationlocktype">OrientationLockType</a>类型定义。 |
-
 
 #### PluginListenerHandle
 
@@ -154,12 +146,13 @@ removeAllListeners() => Promise<void>
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### OrientationLockType
 
-<code>'any' | 'natural' | 'landscape' | 'portrait' | 'portrait-primary' | 'portrait-secondary' | 'landscape-primary' | 'landscape-secondary'</code>
+<code>
+  'any' | 'natural' | 'landscape' | 'portrait' | 'portrait-primary' | 'portrait-secondary' | 'landscape-primary' |
+  'landscape-secondary'
+</code>
 
 </docgen-api>

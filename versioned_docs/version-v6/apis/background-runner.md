@@ -34,6 +34,7 @@ Background Runner 支持多种需要用户授权后才能使用的设备 API。
 启用后台模式能力后，在你的应用 `AppDelegate.swift` 中添加以下内容：
 
 在文件顶部 `import Capacitor` 下方添加：
+
 ```swift
 import CapacitorBackgroundRunner
 ```
@@ -124,6 +125,7 @@ Android 13 需要权限检查才能发送通知。你需要相应地调用 `chec
 有关设置 Android 权限的更多信息，请阅读 [Android 指南](https://capacitorjs.com/docs/android)中的 [设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions)。
 
 ## 关于 Background Runner
+
 在构建复杂应用程序的过程中，有时需要在应用程序不在前台时执行工作。标准 Capacitor 应用程序的挑战在于，当这些后台事件发生时 WebView 不可用，需要编写原生代码来处理这些事件。这正是 Background Runner 插件的用武之地。
 
 Background Runner 让你可以轻松编写 JavaScript 代码来处理原生后台事件。你只需要创建运行器 JavaScript 文件并 [定义配置](#configuring-background-runner)，Background Runner 插件就会自动配置和调度一个原生后台任务，该任务将根据你的配置和平台规则执行。无需修改你的 UI 代码。
@@ -184,14 +186,14 @@ addEventListener('remoteNotification', (resolve, reject, args) => {
 
 加载时，Background Runner 会自动注册一个后台任务，该任务将在你的应用进入后台后调度并运行。
 
-| 属性            | 类型                 | 描述                                                                                                                                                                                          | 版本 |
-| --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`label`**     | <code>string</code>  | 运行器的名称，用于日志记录。                                                                                                                                                                | 1.0.0 |
-| **`src`**       | <code>string</code>  | 运行器 JavaScript 文件的路径，相对于应用包。                                                                                                                                  | 1.0.0 |
-| **`event`**     | <code>string</code>  | 当操作系统执行后台任务时将调用的事件名称。                                                                                                                  | 1.0.0 |
-| **`repeat`**    | <code>boolean</code> | 后台任务是否应根据 `interval` 中设置的间隔重复执行。                                                                                                                            | 1.0.0 |
+| 属性            | 类型                 | 描述                                                                                          | 版本  |
+| --------------- | -------------------- | --------------------------------------------------------------------------------------------- | ----- |
+| **`label`**     | <code>string</code>  | 运行器的名称，用于日志记录。                                                                  | 1.0.0 |
+| **`src`**       | <code>string</code>  | 运行器 JavaScript 文件的路径，相对于应用包。                                                  | 1.0.0 |
+| **`event`**     | <code>string</code>  | 当操作系统执行后台任务时将调用的事件名称。                                                    | 1.0.0 |
+| **`repeat`**    | <code>boolean</code> | 后台任务是否应根据 `interval` 中设置的间隔重复执行。                                          | 1.0.0 |
 | **`interval`**  | <code>number</code>  | 应用进入后台后开始执行后台任务的分钟数。如果 `repeat` 为 true，这也指定每次执行之间的分钟数。 | 1.0.0 |
-| **`autoStart`** | <code>boolean</code> | 是否在应用加载时自动注册和调度后台任务。                                                                                                                                     | 1.0.0 |
+| **`autoStart`** | <code>boolean</code> | 是否在应用加载时自动注册和调度后台任务。                                                      | 1.0.0 |
 
 ### 示例
 
@@ -222,9 +224,9 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   plugins: {
     BackgroundRunner: {
-      label: "com.example.background.task",
-      src: "runners/background.js",
-      event: "myCustomEvent",
+      label: 'com.example.background.task',
+      src: 'runners/background.js',
+      event: 'myCustomEvent',
       repeat: true,
       interval: 15,
       autoStart: true,
@@ -291,11 +293,11 @@ Background Runner 不是在浏览器或 WebView 中执行你的 JavaScript 代�
 
 <docgen-index>
 
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions(...)`](#requestpermissions)
-* [`dispatchEvent(...)`](#dispatchevent)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions(...)`](#requestpermissions)
+- [`dispatchEvent(...)`](#dispatchevent)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -314,8 +316,7 @@ checkPermissions() => any
 
 **版本:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions(...)
 
@@ -325,7 +326,7 @@ requestPermissions(options: RequestPermissionOptions) => any
 
 请求显示本地通知的权限。
 
-| 参数         | 类型                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#requestpermissionoptions">RequestPermissionOptions</a></code> |
 
@@ -333,8 +334,7 @@ requestPermissions(options: RequestPermissionOptions) => any
 
 **版本:** 1.0.0
 
---------------------
-
+---
 
 ### dispatchEvent(...)
 
@@ -344,7 +344,7 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 将事件分派到配置的运行器。
 
-| 参数         | 类型                                                                  |
+| 参数          | 类型                                                                  |
 | ------------- | --------------------------------------------------------------------- |
 | **`options`** | <code><a href="#dispatcheventoptions">DispatchEventOptions</a></code> |
 
@@ -352,11 +352,9 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 **版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PermissionStatus
 
@@ -365,30 +363,25 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`geolocation`**   | <code><a href="#permissionstate">PermissionState</a></code> |
 | **`notifications`** | <code><a href="#permissionstate">PermissionState</a></code> |
 
-
 #### RequestPermissionOptions
 
 | 属性       | 类型            |
 | ---------- | --------------- |
 | **`apis`** | <code>{}</code> |
 
-
 #### DispatchEventOptions
 
-| 属性          | 类型                                 | 描述                                | 版本 |
-| ------------- | ------------------------------------ | ------------------------------------------ | ----- |
-| **`label`**   | <code>string</code>                  | 要分派事件的运行器标签  | 1.0.0 |
+| 属性          | 类型                                 | 描述                     | 版本  |
+| ------------- | ------------------------------------ | ------------------------ | ----- |
+| **`label`**   | <code>string</code>                  | 要分派事件的运行器标签   | 1.0.0 |
 | **`event`**   | <code>string</code>                  | 已注册的事件监听器名称。 | 1.0.0 |
-| **`details`** | <code>{ [key: string]: any; }</code> |                                            |       |
+| **`details`** | <code>{ [key: string]: any; }</code> |                          |       |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
 
 #### API
 
@@ -402,18 +395,16 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### 接口
-
+### Interfaces
 
 #### CapacitorDevice
 
 获取设备信息，如网络连接和电池状态。
 
-| 属性                   | 类型                                                             | 描述                                    | 版本 |
-| ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | ----- |
+| 属性                   | 类型                                                             | 描述                     | 版本  |
+| ---------------------- | ---------------------------------------------------------------- | ------------------------ | ----- |
 | **`getBatteryStatus`** | <code>() =&gt; <a href="#batterystatus">BatteryStatus</a></code> | 获取设备的当前电池状态。 | 1.0.0 |
 | **`getNetworkStatus`** | <code>() =&gt; <a href="#networkstatus">NetworkStatus</a></code> | 获取设备的当前网络状态。 | 1.0.0 |
-
 
 #### BatteryStatus
 
@@ -422,7 +413,6 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`batteryLevel`** | <code>number</code>  |
 | **`isCharging`**   | <code>boolean</code> |
 
-
 #### NetworkStatus
 
 | 属性                 | 类型                 |
@@ -430,17 +420,15 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`connected`**      | <code>boolean</code> |
 | **`connectionType`** | <code>string</code>  |
 
-
 #### CapacitorKV
 
 一个简单的字符串键/值存储，在 iOS 上由 UserDefaults 支持，在 Android 上由 Shared Preferences 支持。
 
-| 属性         | 类型                                                 | 描述                            | 版本 |
-| ------------ | ---------------------------------------------------- | -------------------------------------- | ----- |
+| 属性         | 类型                                                 | 描述                       | 版本  |
+| ------------ | ---------------------------------------------------- | -------------------------- | ----- |
 | **`set`**    | <code>(key: string, value: string) =&gt; void</code> | 使用给定的键设置字符串值。 | 1.0.0 |
-| **`get`**    | <code>(key: string) =&gt; { value: string; }</code>  | 获取给定键的字符串值。  | 1.0.0 |
-| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。     | 1.0.0 |
-
+| **`get`**    | <code>(key: string) =&gt; { value: string; }</code>  | 获取给定键的字符串值。     | 1.0.0 |
+| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。           | 1.0.0 |
 
 #### CapacitorNotifications
 

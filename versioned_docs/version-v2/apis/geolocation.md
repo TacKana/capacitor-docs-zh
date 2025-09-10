@@ -72,8 +72,8 @@ getCurrentPosition(options?: GeolocationOptions) => Promise<GeolocationPosition>
 
 获取设备当前的 GPS 位置
 
-| 参数         | 类型                                                              |
-| ------------ | ----------------------------------------------------------------- |
+| 参数          | 类型                                                              |
+| ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#geolocationoptions">GeolocationOptions</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#geolocationposition">GeolocationPosition</a>&gt;</code>
@@ -105,19 +105,19 @@ clearWatch(options: { id: string; }) => Promise<void>
 
 清除指定的位置监听
 
-| 参数         | 类型                         |
-| ------------ | ---------------------------- |
+| 参数          | 类型              |
+| ------------- | ----------------- |
 | **`options`** | `{ id: string; }` |
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### GeolocationPosition
 
-| 属性            | 类型                                                                                                                                                    | 描述                                             |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| **`timestamp`** | <code>number</code>                                                                                                                                     | 坐标的创建时间戳                           |
+| 属性            | 类型                                                                                                                                         | 描述                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **`timestamp`** | <code>number</code>                                                                                                                          | 坐标的创建时间戳       |
 | **`coords`**    | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy?: number; altitude?: number; speed?: number; heading?: number; }` | GPS 坐标数据及其精确度 |
 
 #### GeolocationOptions

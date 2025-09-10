@@ -58,11 +58,11 @@ read() => Promise<ClipboardReadResult>
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### ClipboardWrite
 
-| 属性          | 类型                |
+| 属性         | 类型                |
 | ------------ | ------------------- |
 | **`string`** | <code>string</code> |
 | **`image`**  | <code>string</code> |
@@ -71,7 +71,7 @@ read() => Promise<ClipboardReadResult>
 
 #### ClipboardReadResult
 
-| 属性         | 类型                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`value`** | <code>string</code> |
 | **`type`**  | <code>string</code> |

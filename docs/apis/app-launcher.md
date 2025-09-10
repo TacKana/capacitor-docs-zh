@@ -104,7 +104,7 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### CanOpenURLResult

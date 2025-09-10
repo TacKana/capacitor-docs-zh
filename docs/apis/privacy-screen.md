@@ -22,7 +22,9 @@ npx cap sync
 ### 平台说明
 
 #### Android
+
 Android 上的隐私屏幕行为因使用的导航方式而异：
+
 - 使用手势导航或最近应用按钮时，隐私屏幕将按配置显示
 - 使用主页按钮退出应用时，系统必须回退到使用 [`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE)，因为这是在此场景下防止内容可见的唯一方法
 
@@ -30,10 +32,10 @@ Android 上的隐私屏幕行为因使用的导航方式而异：
 
 <docgen-index>
 
-* [`enable(...)`](#enable)
-* [`disable()`](#disable)
-* [`isEnabled()`](#isenabled)
-* [接口](#接口)
+- [`enable(...)`](#enable)
+- [`disable()`](#disable)
+- [`isEnabled()`](#isenabled)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -48,14 +50,13 @@ enable(config?: PrivacyScreenConfig | undefined) => Promise<{ success: boolean; 
 
 启用隐私屏幕保护功能
 
-| 参数          | 类型                                                                | 描述                           |
-| ------------ | ------------------------------------------------------------------- | ----------------------------------------------------- |
+| 参数         | 类型                                                                | 描述                       |
+| ------------ | ------------------------------------------------------------------- | -------------------------- |
 | **`config`** | <code><a href="#privacyscreenconfig">PrivacyScreenConfig</a></code> | 可选配置，用于平台特定行为 |
 
 **返回值：** <code>Promise&lt;{ success: boolean; }&gt;</code>
 
---------------------
-
+---
 
 ### disable()
 
@@ -67,8 +68,7 @@ disable() => Promise<{ success: boolean; }>
 
 **返回值：** <code>Promise&lt;{ success: boolean; }&gt;</code>
 
---------------------
-
+---
 
 ### isEnabled()
 
@@ -80,15 +80,13 @@ isEnabled() => Promise<{ enabled: boolean; }>
 
 **返回值：** <code>Promise&lt;{ enabled: boolean; }&gt;</code>
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PrivacyScreenConfig
 
-| 属性            | 类型                                                                                                                               |
+| 属性          | 类型                                                                                                                               |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | **`android`** | <code>{ dimBackground?: boolean; preventScreenshots?: boolean; privacyModeOnActivityHidden?: 'none' \| 'dim' \| 'splash'; }</code> |
 | **`ios`**     | <code>{ blurEffect?: 'none' \| 'light' \| 'dark'; }</code>                                                                         |

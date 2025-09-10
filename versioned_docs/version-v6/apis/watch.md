@@ -9,14 +9,26 @@ sidebar_label: Watch 🧪
 # @capacitor/watch
 
 <p align="center">
-  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI"><img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" /></a>
+  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI">
+    <img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch">
+    <img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" />
+  </a>
 </p>
 <p align="center">
-  <a href="https://capacitorjs.com/docs"><img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" /></a>
-  <a href="https://twitter.com/capacitorjs"><img src="https://img.shields.io/twitter/follow/capacitorjs" /></a>
+  <a href="https://capacitorjs.com/docs">
+    <img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" />
+  </a>
+  <a href="https://twitter.com/capacitorjs">
+    <img src="https://img.shields.io/twitter/follow/capacitorjs" />
+  </a>
 </p>
 
 ---
@@ -161,7 +173,7 @@ struct watchddgg_Watch_AppApp: App {
 
 ```typescript
 async uploadMyWatchUI() {
-    const watchUI = 
+    const watchUI =
         `Text("Capacitor WATCH")
          Button("Add One", "inc")`;
 
@@ -180,17 +192,17 @@ async uploadMyWatchUI() {
 在手机端，您可以使用 Capacitor Background Runner 插件（https://github.com/ionic-team/capacitor-background-runner）实现这些方法。目前 watch 插件主要处理 `didReceiveUserInfo` 方法，您可以在应用后台运行时通过 runner.js 中的以下代码接收来自手表的事件：
 
 ```javascript
-addEventListener("WatchConnectivity_didReceiveUserInfo", (args) => {
+addEventListener('WatchConnectivity_didReceiveUserInfo', (args) => {
   console.log(args.message.jsCommand);
-})
+});
 ```
 
 您还可以实现 `runCommand` 事件监听器进行前台处理：
 
 ```typescript
-Watch.addListener("runCommand", (data: {command: string}) => {
-  console.log("PHONE got command - " + data.command);
-})
+Watch.addListener('runCommand', (data: { command: string }) => {
+  console.log('PHONE got command - ' + data.command);
+});
 ```
 
 命令是手表界面 `Button()` 定义中的第二个参数。可以是任何字符串。
@@ -207,12 +219,12 @@ Text("Show my $number")
 
 ```typescript
 var stateData = {
-  number: 0
-}
+  number: 0,
+};
 
 async function counterIncrement() {
-  stateData.counter++  
-  await Watch.updateWatchData({"data": convertValuesOfObjectToStringValues(stateData)})
+  stateData.counter++;
+  await Watch.updateWatchData({ data: convertValuesOfObjectToStringValues(stateData) });
 }
 ```
 
@@ -231,10 +243,10 @@ npx cap sync
 
 <docgen-index>
 
-* [`addListener('runCommand', ...)`](#addlistenerruncommand-)
-* [`updateWatchUI(...)`](#updatewatchui)
-* [`updateWatchData(...)`](#updatewatchdata)
-* [接口](#interfaces)
+- [`addListener('runCommand', ...)`](#addlistenerruncommand-)
+- [`updateWatchUI(...)`](#updatewatchui)
+- [`updateWatchData(...)`](#updatewatchdata)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -256,8 +268,7 @@ addListener(eventName: 'runCommand', listenerFunc: (data: { command: string; }) 
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
---------------------
-
+---
 
 ### updateWatchUI(...)
 
@@ -271,8 +282,7 @@ updateWatchUI(options: { watchUI: string; }) => Promise<void>
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ watchUI: string; }</code> |
 
---------------------
-
+---
 
 ### updateWatchData(...)
 
@@ -286,15 +296,13 @@ updateWatchData(options: { data: { [key: string]: string; }; }) => Promise<void>
 | ------------- | -------------------------------------------------- |
 | **`options`** | <code>{ data: { [key: string]: string; }; }</code> |
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PluginListenerHandle
 
-| 属性          | 类型                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 

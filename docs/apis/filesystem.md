@@ -72,7 +72,7 @@ await Filesystem.downloadFile({
   url: 'https://example.com/file.pdf',
   path: 'downloaded-file.pdf',
   directory: Directory.Documents,
-  progress: true
+  progress: true,
 });
 
 // 进度事件
@@ -90,14 +90,14 @@ import { Filesystem, Directory } from '@capacitor/filesystem';
 // 首先使用Filesystem获取完整文件路径
 const fileInfo = await Filesystem.getUri({
   directory: Directory.Documents,
-  path: 'downloaded-file.pdf'
+  path: 'downloaded-file.pdf',
 });
 
 // 然后使用文件传输插件下载
 await FileTransfer.downloadFile({
   url: 'https://example.com/file.pdf',
   path: fileInfo.uri,
-  progress: true
+  progress: true,
 });
 
 // 进度事件
@@ -141,12 +141,12 @@ iOS和Android在文件之间有额外的分离层，例如备份到云的特殊�
 ## 示例
 
 ```typescript
-import { Filesystem, Directory, Encoding } from "@capacitor/filesystem";
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 const writeSecretFile = async () => {
   await Filesystem.writeFile({
-    path: "secrets/text.txt",
-    data: "这是一个测试",
+    path: 'secrets/text.txt',
+    data: '这是一个测试',
     directory: Directory.Documents,
     encoding: Encoding.UTF8,
   });
@@ -154,17 +154,17 @@ const writeSecretFile = async () => {
 
 const readSecretFile = async () => {
   const contents = await Filesystem.readFile({
-    path: "secrets/text.txt",
+    path: 'secrets/text.txt',
     directory: Directory.Documents,
     encoding: Encoding.UTF8,
   });
 
-  console.log("秘密:", contents);
+  console.log('秘密:', contents);
 };
 
 const deleteSecretFile = async () => {
   await Filesystem.deleteFile({
-    path: "secrets/text.txt",
+    path: 'secrets/text.txt',
     directory: Directory.Documents,
   });
 };
@@ -172,10 +172,10 @@ const deleteSecretFile = async () => {
 const readFilePath = async () => {
   // 这是一个读取完整文件路径文件的示例。使用此方法从返回文件URI的插件（如相机）读取二进制数据（base64编码）。
   const contents = await Filesystem.readFile({
-    path: "file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt",
+    path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt',
   });
 
-  console.log("数据:", contents);
+  console.log('数据:', contents);
 };
 ```
 
@@ -183,26 +183,26 @@ const readFilePath = async () => {
 
 <docgen-index>
 
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [`readFile(...)`](#readfile)
-* [`readFileInChunks(...)`](#readfileinchunks)
-* [`writeFile(...)`](#writefile)
-* [`appendFile(...)`](#appendfile)
-* [`deleteFile(...)`](#deletefile)
-* [`mkdir(...)`](#mkdir)
-* [`rmdir(...)`](#rmdir)
-* [`readdir(...)`](#readdir)
-* [`getUri(...)`](#geturi)
-* [`stat(...)`](#stat)
-* [`rename(...)`](#rename)
-* [`copy(...)`](#copy)
-* [`downloadFile(...)`](#downloadfile)
-* [`addListener('progress', ...)`](#addlistenerprogress-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [`readFile(...)`](#readfile)
+- [`readFileInChunks(...)`](#readfileinchunks)
+- [`writeFile(...)`](#writefile)
+- [`appendFile(...)`](#appendfile)
+- [`deleteFile(...)`](#deletefile)
+- [`mkdir(...)`](#mkdir)
+- [`rmdir(...)`](#rmdir)
+- [`readdir(...)`](#readdir)
+- [`getUri(...)`](#geturi)
+- [`stat(...)`](#stat)
+- [`rename(...)`](#rename)
+- [`copy(...)`](#copy)
+- [`downloadFile(...)`](#downloadfile)
+- [`addListener('progress', ...)`](#addlistenerprogress-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -225,8 +225,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -242,8 +241,7 @@ requestPermissions() => Promise<PermissionStatus>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### readFile(...)
 
@@ -261,8 +259,7 @@ readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### readFileInChunks(...)
 
@@ -284,8 +281,7 @@ readFileInChunks(options: ReadFileInChunksOptions, callback: ReadFileInChunksCal
 
 **Since:** 7.1.0
 
---------------------
-
+---
 
 ### writeFile(...)
 
@@ -303,8 +299,7 @@ writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### appendFile(...)
 
@@ -320,8 +315,7 @@ appendFile(options: AppendFileOptions) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### deleteFile(...)
 
@@ -337,8 +331,7 @@ deleteFile(options: DeleteFileOptions) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### mkdir(...)
 
@@ -354,8 +347,7 @@ mkdir(options: MkdirOptions) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### rmdir(...)
 
@@ -371,8 +363,7 @@ rmdir(options: RmdirOptions) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### readdir(...)
 
@@ -390,8 +381,7 @@ readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### getUri(...)
 
@@ -409,8 +399,7 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### stat(...)
 
@@ -428,8 +417,7 @@ stat(options: StatOptions) => Promise<StatResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### rename(...)
 
@@ -445,8 +433,7 @@ rename(options: RenameOptions) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### copy(...)
 
@@ -464,8 +451,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### downloadFile(...)
 
@@ -486,8 +472,7 @@ downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 
 **Since:** 5.1.0
 
---------------------
-
+---
 
 ### addListener('progress', ...)
 
@@ -509,8 +494,7 @@ addListener(eventName: 'progress', listenerFunc: ProgressListener) => Promise<Pl
 
 **Since:** 5.1.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -525,259 +509,234 @@ removeAllListeners() => Promise<void>
 
 **Since:** 5.2.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PermissionStatus
 
-| 属性                  | 类型                                                        |
-| --------------------- | ----------------------------------------------------------- |
+| 属性                | 类型                                                        |
+| ------------------- | ----------------------------------------------------------- |
 | **`publicStorage`** | <code><a href="#permissionstate">PermissionState</a></code> |
-
 
 #### ReadFileResult
 
-| 属性        | 类型                        | 描述                                                                                                                            | Since |
-| --------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| 属性       | 类型                        | 描述                                                                                   | Since |
+| ---------- | --------------------------- | -------------------------------------------------------------------------------------- | ----- |
 | **`data`** | <code>string \| Blob</code> | 文件中包含的数据表示形式 注意：Blob仅在Web上可用。在原生平台上，数据以字符串形式返回。 | 1.0.0 |
-
 
 #### ReadFileOptions
 
-| 属性             | 类型                                            | 描述                                                                                                                                                                 | Since |
-| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要读取的文件路径                                                                                                                                                | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 从中读取文件的<a href="#directory">`Directory`</a>                                                                                                              | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                                | Since |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要读取的文件路径                                                                                                                    | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 从中读取文件的<a href="#directory">`Directory`</a>                                                                                  | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 读取文件的编码方式，如果未提供，数据将作为二进制读取并返回base64编码。传递<a href="#encoding">Encoding.UTF8</a>以字符串形式读取数据 | 1.0.0 |
-
 
 #### ReadFileInChunksOptions
 
-| 属性             | 类型                | 描述                  | Since |
-| ---------------- | ------------------- | ---------------------------- | ----- |
+| 属性            | 类型                | 描述             | Since |
+| --------------- | ------------------- | ---------------- | ----- |
 | **`chunkSize`** | <code>number</code> | 块大小（字节）。 | 7.1.0 |
-
 
 #### WriteFileResult
 
-| 属性       | 类型                | 描述                             | Since |
-| --------- | ------------------- | --------------------------------------- | ----- |
+| 属性      | 类型                | 描述          | Since |
+| --------- | ------------------- | ------------- | ----- |
 | **`uri`** | <code>string</code> | 文件写入的uri | 1.0.0 |
-
 
 #### WriteFileOptions
 
-| 属性             | 类型                                            | 描述                                                                                                                                               | 默认值            | Since |
-| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**       | <code>string</code>                             | 要写入的文件路径                                                                                                                             |                    | 1.0.0 |
-| **`data`**       | <code>string \| Blob</code>                     | 要写入的数据 注意：Blob数据仅在Web上受支持。                                                                                               |                    | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的<a href="#directory">`Directory`</a>                                                                                             |                    | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                    | 默认值             | Since |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`path`**      | <code>string</code>                             | 要写入的文件路径                                                                                                        |                    | 1.0.0 |
+| **`data`**      | <code>string \| Blob</code>                     | 要写入的数据 注意：Blob数据仅在Web上受支持。                                                                            |                    | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的<a href="#directory">`Directory`</a>                                                                          |                    | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件的编码方式。如果未提供，数据将作为base64编码写入。传递<a href="#encoding">Encoding.UTF8</a>以字符串形式写入数据 |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否创建任何缺失的父目录。                                                                                                         | <code>false</code> | 1.0.0 |
-
+| **`recursive`** | <code>boolean</code>                            | 是否创建任何缺失的父目录。                                                                                              | <code>false</code> | 1.0.0 |
 
 #### AppendFileOptions
 
-| 属性             | 类型                                            | 描述                                                                                                                                               | Since |
-| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要追加的文件路径                                                                                                                            | 1.0.0 |
-| **`data`**       | <code>string</code>                             | 要写入的数据                                                                                                                                         | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的<a href="#directory">`Directory`</a>                                                                                             | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                    | Since |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要追加的文件路径                                                                                                        | 1.0.0 |
+| **`data`**      | <code>string</code>                             | 要写入的数据                                                                                                            | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的<a href="#directory">`Directory`</a>                                                                          | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件的编码方式。如果未提供，数据将作为base64编码写入。传递<a href="#encoding">Encoding.UTF8</a>以字符串形式写入数据 | 1.0.0 |
-
 
 #### DeleteFileOptions
 
-| 属性             | 类型                                            | 描述                                                      | Since |
-| ---------------- | ----------------------------------------------- | ---------------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要删除的文件路径                                   | 1.0.0 |
+| 属性            | 类型                                            | 描述                                               | Since |
+| --------------- | ----------------------------------------------- | -------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要删除的文件路径                                   | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 从中删除文件的<a href="#directory">`Directory`</a> | 1.0.0 |
-
 
 #### MkdirOptions
 
-| 属性             | 类型                                            | 描述                                                           | 默认值            | Since |
-| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**       | <code>string</code>                             | 新目录的路径                                         |                    | 1.0.0 |
+| 属性            | 类型                                            | 描述                                             | 默认值             | Since |
+| --------------- | ----------------------------------------------- | ------------------------------------------------ | ------------------ | ----- |
+| **`path`**      | <code>string</code>                             | 新目录的路径                                     |                    | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 创建新目录的<a href="#directory">`Directory`</a> |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否同时创建任何缺失的父目录。             | <code>false</code> | 1.0.0 |
-
+| **`recursive`** | <code>boolean</code>                            | 是否同时创建任何缺失的父目录。                   | <code>false</code> | 1.0.0 |
 
 #### RmdirOptions
 
-| 属性             | 类型                                            | 描述                                                           | 默认值            | Since |
-| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**       | <code>string</code>                             | 要删除的目录路径                                   |                    | 1.0.0 |
+| 属性            | 类型                                            | 描述                                               | 默认值             | Since |
+| --------------- | ----------------------------------------------- | -------------------------------------------------- | ------------------ | ----- |
+| **`path`**      | <code>string</code>                             | 要删除的目录路径                                   |                    | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 从中删除目录的<a href="#directory">`Directory`</a> |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否递归删除目录内容           | <code>false</code> | 1.0.0 |
-
+| **`recursive`** | <code>boolean</code>                            | 是否递归删除目录内容                               | <code>false</code> | 1.0.0 |
 
 #### ReaddirResult
 
-| 属性         | 类型                    | 描述                                        | Since |
-| ----------- | ----------------------- | -------------------------------------------------- | ----- |
+| 属性        | 类型                    | 描述                   | Since |
+| ----------- | ----------------------- | ---------------------- | ----- |
 | **`files`** | <code>FileInfo[]</code> | 目录内的文件和目录列表 | 1.0.0 |
-
 
 #### FileInfo
 
-| 属性         | 类型                               | 描述                                                                          | Since |
-| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------ | ----- |
-| **`name`**  | <code>string</code>                | 文件或目录的名称。                                                       | 7.1.0 |
-| **`type`**  | <code>'file' \| 'directory'</code> | 文件类型。                                                                    | 4.0.0 |
-| **`size`**  | <code>number</code>                | 文件大小（字节）。                                                           | 4.0.0 |
+| 属性        | 类型                               | 描述                                              | Since |
+| ----------- | ---------------------------------- | ------------------------------------------------- | ----- |
+| **`name`**  | <code>string</code>                | 文件或目录的名称。                                | 7.1.0 |
+| **`type`**  | <code>'file' \| 'directory'</code> | 文件类型。                                        | 4.0.0 |
+| **`size`**  | <code>number</code>                | 文件大小（字节）。                                | 4.0.0 |
 | **`ctime`** | <code>number</code>                | 创建时间（毫秒）。在Android 7及更早设备上不可用。 | 7.1.0 |
-| **`mtime`** | <code>number</code>                | 最后修改时间（毫秒）。                                           | 7.1.0 |
-| **`uri`**   | <code>string</code>                | 文件的uri。                                                                 | 4.0.0 |
-
+| **`mtime`** | <code>number</code>                | 最后修改时间（毫秒）。                            | 7.1.0 |
+| **`uri`**   | <code>string</code>                | 文件的uri。                                       | 4.0.0 |
 
 #### ReaddirOptions
 
-| 属性             | 类型                                            | 描述                                                 | Since |
-| ---------------- | ----------------------------------------------- | ----------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要读取的目录路径                           | 1.0.0 |
+| 属性            | 类型                                            | 描述                                               | Since |
+| --------------- | ----------------------------------------------- | -------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要读取的目录路径                                   | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 从中列出文件的<a href="#directory">`Directory`</a> | 1.0.0 |
-
 
 #### GetUriResult
 
-| 属性       | 类型                | 描述         | Since |
-| --------- | ------------------- | ------------------- | ----- |
+| 属性      | 类型                | 描述      | Since |
+| --------- | ------------------- | --------- | ----- |
 | **`uri`** | <code>string</code> | 文件的uri | 1.0.0 |
-
 
 #### GetUriOptions
 
-| 属性             | 类型                                            | 描述                                                    | Since |
-| ---------------- | ----------------------------------------------- | -------------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要获取URI的文件路径                        | 1.0.0 |
+| 属性            | 类型                                            | 描述                                           | Since |
+| --------------- | ----------------------------------------------- | ---------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要获取URI的文件路径                            | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 文件所在的<a href="#directory">`Directory`</a> | 1.0.0 |
-
 
 #### StatOptions
 
-| 属性             | 类型                                            | 描述                                                    | Since |
-| ---------------- | ----------------------------------------------- | -------------------------------------------------------------- | ----- |
-| **`path`**       | <code>string</code>                             | 要获取数据的文件路径                         | 1.0.0 |
+| 属性            | 类型                                            | 描述                                           | Since |
+| --------------- | ----------------------------------------------- | ---------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要获取数据的文件路径                           | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 文件所在的<a href="#directory">`Directory`</a> | 1.0.0 |
-
 
 #### CopyOptions
 
-| 属性               | 类型                                            | 描述                                                                                                                                                  | Since |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`from`**        | <code>string</code>                             | 现有文件或目录                                                                                                                               | 1.0.0 |
-| **`to`**          | <code>string</code>                             | 目标文件或目录                                                                                                                            | 1.0.0 |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 包含现有文件或目录的<a href="#directory">`Directory`</a>                                                                           | 1.0.0 |
+| 属性              | 类型                                            | 描述                                                                                                | Since |
+| ----------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **`from`**        | <code>string</code>                             | 现有文件或目录                                                                                      | 1.0.0 |
+| **`to`**          | <code>string</code>                             | 目标文件或目录                                                                                      | 1.0.0 |
+| **`directory`**   | <code><a href="#directory">Directory</a></code> | 包含现有文件或目录的<a href="#directory">`Directory`</a>                                            | 1.0.0 |
 | **`toDirectory`** | <code><a href="#directory">Directory</a></code> | 包含目标文件或目录的<a href="#directory">`Directory`</a>。如果未提供，将使用'directory'参数作为目标 | 1.0.0 |
-
 
 #### CopyResult
 
-| 属性       | 类型                | 描述                            | Since |
-| --------- | ------------------- | -------------------------------------- | ----- |
+| 属性      | 类型                | 描述            | Since |
+| --------- | ------------------- | --------------- | ----- |
 | **`uri`** | <code>string</code> | 文件复制到的uri | 4.0.0 |
-
 
 #### DownloadFileResult
 
-| 属性        | 类型                | 描述                                                          | Since |
-| --------- | ------------------- | -------------------------------------------------------------------- | ----- |
-| **`path`** | <code>string</code> | 文件下载到的路径。                                 | 5.1.0 |
+| 属性       | 类型                | 描述                                  | Since |
+| ---------- | ------------------- | ------------------------------------- | ----- |
+| **`path`** | <code>string</code> | 文件下载到的路径。                    | 5.1.0 |
 | **`blob`** | <code>Blob</code>   | 下载文件的blob数据。这仅在Web上可用。 | 5.1.0 |
-
 
 #### DownloadFileOptions
 
-| 属性             | 类型                                            | 描述                                                                                                                                                                                                                      | 默认值            | Since |
-| ---------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**       | <code>string</code>                             | 下载文件应移动到的路径。                                                                                                                                                                                 |                    | 5.1.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 写入文件的目录。如果使用此选项，filePath可以是相对路径而不是绝对路径。默认为`DATA`目录。                                                                           |                    | 5.1.0 |
+| 属性            | 类型                                            | 描述                                                                                                                                   | 默认值             | Since |
+| --------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`path`**      | <code>string</code>                             | 下载文件应移动到的路径。                                                                                                               |                    | 5.1.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 写入文件的目录。如果使用此选项，filePath可以是相对路径而不是绝对路径。默认为`DATA`目录。                                               |                    | 5.1.0 |
 | **`progress`**  | <code>boolean</code>                            | 可选监听器函数以接收下载进度事件。如果使用此选项，应在每个接收到的块上分派进度事件。在Android/iOS上，块被限制为每100ms一次以避免减速。 |                    | 5.1.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否创建任何缺失的父目录。                                                                                                                                                                                | <code>false</code> | 5.1.2 |
-
+| **`recursive`** | <code>boolean</code>                            | 是否创建任何缺失的父目录。                                                                                                             | <code>false</code> | 5.1.2 |
 
 #### PluginListenerHandle
 
-| 属性          | 类型                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
 #### ProgressStatus
 
-| 属性                  | 类型                | 描述                                          | Since |
-| --------------------- | ------------------- | ---------------------------------------------------- | ----- |
-| **`url`**           | <code>string</code> | 正在下载的文件的URL。                | 5.1.0 |
-| **`bytes`**         | <code>number</code> | 到目前为止下载的字节数。               | 5.1.0 |
+| 属性                | 类型                | 描述                     | Since |
+| ------------------- | ------------------- | ------------------------ | ----- |
+| **`url`**           | <code>string</code> | 正在下载的文件的URL。    | 5.1.0 |
+| **`bytes`**         | <code>number</code> | 到目前为止下载的字节数。 | 5.1.0 |
 | **`contentLength`** | <code>number</code> | 此文件要下载的总字节数。 | 5.1.0 |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
-
 #### ReadFileInChunksCallback
 
 用于接收从文件读取的块的回调，或在出现错误时接收错误。
 
-<code>(chunkRead: <a href="#readfileresult">ReadFileResult</a> | null, err?: any): void</code>
-
+<code>
+  (chunkRead: <a href="#readfileresult">ReadFileResult</a> | null, err?: any): void
+</code>
 
 #### CallbackID
 
 <code>string</code>
 
-
 #### StatResult
 
-<code><a href="#fileinfo">FileInfo</a></code>
-
+<code>
+  <a href="#fileinfo">FileInfo</a>
+</code>
 
 #### RenameOptions
 
-<code><a href="#copyoptions">CopyOptions</a></code>
-
+<code>
+  <a href="#copyoptions">CopyOptions</a>
+</code>
 
 #### ProgressListener
 
 接收进度事件的监听器函数。
 
-<code>(progress: <a href="#progressstatus">ProgressStatus</a>): void</code>
+<code>
+  (progress: <a href="#progressstatus">ProgressStatus</a>): void
+</code>
 
-
-### 枚举
-
+### Enums
 
 #### Directory
 
-| 成员               | 值                           | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Since |
-| --------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| 成员                  | 值                              | 描述                                                                                                                                                                                                                                                                                                                                   | Since |
+| --------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`Documents`**       | <code>'DOCUMENTS'</code>        | 文档目录。在iOS上是应用的文档目录。使用此目录存储用户生成的内容。在Android上是公共文档文件夹，因此可从其他应用访问。在Android 10上不可访问，除非应用通过在`AndroidManifest.xml`的`application`标签中添加`android:requestLegacyExternalStorage="true"`来启用旧版外部存储。在Android 11或更新版本上，应用只能访问应用创建的文件/文件夹。 | 1.0.0 |
-| **`Data`**            | <code>'DATA'</code>             | 数据目录。在iOS上将使用文档目录。在Android上是保存应用文件的目录。应用卸载时文件将被删除。                                                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
-| **`Library`**         | <code>'LIBRARY'</code>          | 库目录。在iOS上将使用库目录。在Android上是保存应用文件的目录。应用卸载时文件将被删除。                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.1.0 |
-| **`Cache`**           | <code>'CACHE'</code>            | 缓存目录。在低内存情况下可能被删除，因此使用此目录写入应用特定的文件，以便您的应用可以轻松重新创建。                                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`External`**        | <code>'EXTERNAL'</code>         | 外部目录。在iOS上将使用文档目录。在Android上是主共享/外部存储设备上的目录，应用可以在其中放置其拥有的持久文件。这些文件是应用内部的，通常不作为媒体对用户可见。应用卸载时文件将被删除。                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`ExternalStorage`** | <code>'EXTERNAL_STORAGE'</code> | 外部存储目录。在iOS上将使用文档目录。在Android上是主共享/外部存储目录。在Android 10上不可访问，除非应用通过在`AndroidManifest.xml`的`application`标签中添加`android:requestLegacyExternalStorage="true"`来启用旧版外部存储。在Android 11或更新版本上不可访问。                                                                                                                                                                                                                        | 1.0.0 |
-| **`ExternalCache`**   | <code>'EXTERNAL_CACHE'</code>   | 外部缓存目录。在iOS上将使用文档目录。在Android上是主共享/外部缓存。                                                                                                                                                                                                                                                                                                                                                                                                                               | 7.1.0 |
-| **`LibraryNoCloud`**  | <code>'LIBRARY_NO_CLOUD'</code> | 无云备份的库目录。在iOS上使用。在Android上是保存应用文件的目录。                                                                                                                                                                                                                                                                                                                                                                                                                                         | 7.1.0 |
-| **`Temporary`**       | <code>'TEMPORARY'</code>        | iOS的临时目录。在Android上是保存应用缓存的目录。                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 7.1.0 |
-
+| **`Data`**            | <code>'DATA'</code>             | 数据目录。在iOS上将使用文档目录。在Android上是保存应用文件的目录。应用卸载时文件将被删除。                                                                                                                                                                                                                                             | 1.0.0 |
+| **`Library`**         | <code>'LIBRARY'</code>          | 库目录。在iOS上将使用库目录。在Android上是保存应用文件的目录。应用卸载时文件将被删除。                                                                                                                                                                                                                                                 | 1.1.0 |
+| **`Cache`**           | <code>'CACHE'</code>            | 缓存目录。在低内存情况下可能被删除，因此使用此目录写入应用特定的文件，以便您的应用可以轻松重新创建。                                                                                                                                                                                                                                   | 1.0.0 |
+| **`External`**        | <code>'EXTERNAL'</code>         | 外部目录。在iOS上将使用文档目录。在Android上是主共享/外部存储设备上的目录，应用可以在其中放置其拥有的持久文件。这些文件是应用内部的，通常不作为媒体对用户可见。应用卸载时文件将被删除。                                                                                                                                                | 1.0.0 |
+| **`ExternalStorage`** | <code>'EXTERNAL_STORAGE'</code> | 外部存储目录。在iOS上将使用文档目录。在Android上是主共享/外部存储目录。在Android 10上不可访问，除非应用通过在`AndroidManifest.xml`的`application`标签中添加`android:requestLegacyExternalStorage="true"`来启用旧版外部存储。在Android 11或更新版本上不可访问。                                                                         | 1.0.0 |
+| **`ExternalCache`**   | <code>'EXTERNAL_CACHE'</code>   | 外部缓存目录。在iOS上将使用文档目录。在Android上是主共享/外部缓存。                                                                                                                                                                                                                                                                    | 7.1.0 |
+| **`LibraryNoCloud`**  | <code>'LIBRARY_NO_CLOUD'</code> | 无云备份的库目录。在iOS上使用。在Android上是保存应用文件的目录。                                                                                                                                                                                                                                                                       | 7.1.0 |
+| **`Temporary`**       | <code>'TEMPORARY'</code>        | iOS的临时目录。在Android上是保存应用缓存的目录。                                                                                                                                                                                                                                                                                       | 7.1.0 |
 
 #### Encoding
 
-| 成员      | 值                | 描述                                                                                                                              | Since |
-| ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`UTF8`**  | <code>'utf8'</code>  | 八位UCS转换格式                                                                                                      | 1.0.0 |
+| 成员        | 值                   | 描述                                                                                | Since |
+| ----------- | -------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`UTF8`**  | <code>'utf8'</code>  | 八位UCS转换格式                                                                     | 1.0.0 |
 | **`ASCII`** | <code>'ascii'</code> | 七位ASCII，又名ISO646-US，又名Unicode字符集的基本拉丁块 此编码仅在Android上受支持。 | 1.0.0 |
-| **`UTF16`** | <code>'utf16'</code> | 十六位UCS转换格式，字节顺序由可选的字节顺序标记标识 此编码仅在Android上受支持。  | 1.0.0 |
+| **`UTF16`** | <code>'utf16'</code> | 十六位UCS转换格式，字节顺序由可选的字节顺序标记标识 此编码仅在Android上受支持。     | 1.0.0 |
 
 </docgen-api>
 
@@ -787,15 +746,15 @@ removeAllListeners() => Promise<void>
 
 下表列出了所有插件错误：
 
-| 错误代码        | 平台      | 消息                      |
-|-------------------|------------------|------------------------------|
-| OS-PLUG-FILE-0004 | iOS              | Cordova / Capacitor桥未初始化。 |
-| OS-PLUG-FILE-0005 | Android, iOS     | 方法输入参数无效。 |
-| OS-PLUG-FILE-0006 | Android, iOS     | 提供的路径无效。 |
-| OS-PLUG-FILE-0007 | Android          | 无法执行文件操作，用户拒绝了权限请求。 |
-| OS-PLUG-FILE-0008 | Android, iOS     | 操作失败，因为文件不存在。 |
-| OS-PLUG-FILE-0009 | Android          | 不支持提供的输入操作。 |
-| OS-PLUG-FILE-0010 | Android, iOS     | 目录已存在，无法覆盖。 |
-| OS-PLUG-FILE-0011 | Android, iOS     | 缺少父目录 - 可能传递了recursive=false或父目录创建失败。 |
-| OS-PLUG-FILE-0012 | Android, iOS     | 无法删除包含子项的目录；收到recursive=false但目录有内容。 |
-| OS-PLUG-FILE-0013 | Android, iOS     | 操作失败并出现错误。 |
+| 错误代码          | 平台         | 消息                                                      |
+| ----------------- | ------------ | --------------------------------------------------------- |
+| OS-PLUG-FILE-0004 | iOS          | Cordova / Capacitor桥未初始化。                           |
+| OS-PLUG-FILE-0005 | Android, iOS | 方法输入参数无效。                                        |
+| OS-PLUG-FILE-0006 | Android, iOS | 提供的路径无效。                                          |
+| OS-PLUG-FILE-0007 | Android      | 无法执行文件操作，用户拒绝了权限请求。                    |
+| OS-PLUG-FILE-0008 | Android, iOS | 操作失败，因为文件不存在。                                |
+| OS-PLUG-FILE-0009 | Android      | 不支持提供的输入操作。                                    |
+| OS-PLUG-FILE-0010 | Android, iOS | 目录已存在，无法覆盖。                                    |
+| OS-PLUG-FILE-0011 | Android, iOS | 缺少父目录 - 可能传递了recursive=false或父目录创建失败。  |
+| OS-PLUG-FILE-0012 | Android, iOS | 无法删除包含子项的目录；收到recursive=false但目录有内容。 |
+| OS-PLUG-FILE-0013 | Android, iOS | 操作失败并出现错误。                                      |

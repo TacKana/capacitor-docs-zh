@@ -87,9 +87,9 @@ Android Studio 有一个图标生成器，可以用来创建推送通知图标�
 
 您可以配置应用在前台时推送通知的显示方式。
 
-| 属性                      | 类型                              | 描述                                                                                                                                                                                                                                                                                                                                                                                          | 自版本 |
-| ------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`presentationOptions`** | <code>PresentationOption[]</code> | 这是一个可以组合的字符串数组。数组中的可能值有： - `badge`：应用图标上的徽章计数更新（默认值） - `sound`：设备在收到推送通知时会响铃/振动 - `alert`：推送通知显示在原生对话框中 如果不希望使用任何选项，可以提供空数组。badge 仅适用于 iOS。 | 1.0.0 |
+| 属性                      | 类型                              | 描述                                                                                                                                                                                                                                         | 自版本 |
+| ------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **`presentationOptions`** | <code>PresentationOption[]</code> | 这是一个可以组合的字符串数组。数组中的可能值有： - `badge`：应用图标上的徽章计数更新（默认值） - `sound`：设备在收到推送通知时会响铃/振动 - `alert`：推送通知显示在原生对话框中 如果不希望使用任何选项，可以提供空数组。badge 仅适用于 iOS。 | 1.0.0  |
 
 ### 示例
 
@@ -115,7 +115,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   plugins: {
     PushNotifications: {
-      presentationOptions: ["badge", "sound", "alert"],
+      presentationOptions: ['badge', 'sound', 'alert'],
     },
   },
 };
@@ -126,17 +126,21 @@ export default config;
 </docgen-config>
 
 ## 静默推送通知 / 纯数据通知
+
 #### iOS
+
 此插件不支持 iOS 静默推送（远程通知）。我们建议使用原生代码解决方案来处理这些类型的通知，请参阅 [向应用推送后台更新](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)。
 
 #### Android
-此插件支持纯数据通知，但如果应用已被终止，则不会调用 `pushNotificationReceived`。要处理这种情况，您需要创建一个继承 `FirebaseMessagingService` 的服务，请参阅 [处理 FCM 消息](https://firebase.google.com/docs/cloud-messaging/android/receive)。 
+
+此插件支持纯数据通知，但如果应用已被终止，则不会调用 `pushNotificationReceived`。要处理这种情况，您需要创建一个继承 `FirebaseMessagingService` 的服务，请参阅 [处理 FCM 消息](https://firebase.google.com/docs/cloud-messaging/android/receive)。
 
 ## 常见问题
+
 在 Android 上，有多种系统和应用状态会影响推送通知的传递：
 
-* 如果设备已进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，您的应用可能会受到限制。为了增加通知被接收的机会，请考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
-* 开发和生产环境之间存在行为差异。尝试在 Android Studio 启动之外测试您的应用。更多信息请参阅 [此处](https://stackoverflow.com/a/50238790/1351469)。
+- 如果设备已进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，您的应用可能会受到限制。为了增加通知被接收的机会，请考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
+- 开发和生产环境之间存在行为差异。尝试在 Android Studio 启动之外测试您的应用。更多信息请参阅 [此处](https://stackoverflow.com/a/50238790/1351469)。
 
 ---
 
@@ -146,22 +150,22 @@ export default config;
 import { PushNotifications } from '@capacitor/push-notifications';
 
 const addListeners = async () => {
-  await PushNotifications.addListener('registration', token => {
+  await PushNotifications.addListener('registration', (token) => {
     console.info('注册令牌: ', token.value);
   });
 
-  await PushNotifications.addListener('registrationError', err => {
+  await PushNotifications.addListener('registrationError', (err) => {
     console.error('注册错误: ', err.error);
   });
 
-  await PushNotifications.addListener('pushNotificationReceived', notification => {
+  await PushNotifications.addListener('pushNotificationReceived', (notification) => {
     console.log('收到推送通知: ', notification);
   });
 
-  await PushNotifications.addListener('pushNotificationActionPerformed', notification => {
+  await PushNotifications.addListener('pushNotificationActionPerformed', (notification) => {
     console.log('推送通知操作执行', notification.actionId, notification.inputValue);
   });
-}
+};
 
 const registerNotifications = async () => {
   let permStatus = await PushNotifications.checkPermissions();
@@ -175,35 +179,35 @@ const registerNotifications = async () => {
   }
 
   await PushNotifications.register();
-}
+};
 
 const getDeliveredNotifications = async () => {
   const notificationList = await PushNotifications.getDeliveredNotifications();
   console.log('已送达的通知', notificationList);
-}
+};
 ```
 
 ## API
 
 <docgen-index>
 
-* [`register()`](#register)
-* [`unregister()`](#unregister)
-* [`getDeliveredNotifications()`](#getdeliverednotifications)
-* [`removeDeliveredNotifications(...)`](#removedeliverednotifications)
-* [`removeAllDeliveredNotifications()`](#removealldeliverednotifications)
-* [`createChannel(...)`](#createchannel)
-* [`deleteChannel(...)`](#deletechannel)
-* [`listChannels()`](#listchannels)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [`addListener('registration', ...)`](#addlistenerregistration-)
-* [`addListener('registrationError', ...)`](#addlistenerregistrationerror-)
-* [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
-* [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#接口)
-* [类型别名](#类型别名)
+- [`register()`](#register)
+- [`unregister()`](#unregister)
+- [`getDeliveredNotifications()`](#getdeliverednotifications)
+- [`removeDeliveredNotifications(...)`](#removedeliverednotifications)
+- [`removeAllDeliveredNotifications()`](#removealldeliverednotifications)
+- [`createChannel(...)`](#createchannel)
+- [`deleteChannel(...)`](#deletechannel)
+- [`listChannels()`](#listchannels)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [`addListener('registration', ...)`](#addlistenerregistration-)
+- [`addListener('registrationError', ...)`](#addlistenerregistrationerror-)
+- [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
+- [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -222,8 +226,7 @@ register() => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### unregister()
 
@@ -237,8 +240,7 @@ unregister() => Promise<void>
 
 **自版本：** 5.0.0
 
---------------------
-
+---
 
 ### getDeliveredNotifications()
 
@@ -252,8 +254,7 @@ getDeliveredNotifications() => Promise<DeliveredNotifications>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeDeliveredNotifications(...)
 
@@ -263,14 +264,13 @@ removeDeliveredNotifications(delivered: DeliveredNotifications) => Promise<void>
 
 从通知屏幕中移除指定的通知。
 
-| 参数           | 类型                                                                      |
+| 参数            | 类型                                                                      |
 | --------------- | ------------------------------------------------------------------------- |
 | **`delivered`** | <code><a href="#deliverednotifications">DeliveredNotifications</a></code> |
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeAllDeliveredNotifications()
 
@@ -282,8 +282,7 @@ removeAllDeliveredNotifications() => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### createChannel(...)
 
@@ -295,14 +294,13 @@ createChannel(channel: Channel) => Promise<void>
 
 仅适用于 Android O 或更高版本（SDK 26+）。
 
-| 参数         | 类型                                        |
+| 参数          | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### deleteChannel(...)
 
@@ -314,14 +312,13 @@ deleteChannel(args: { id: string; }) => Promise<void>
 
 仅适用于 Android O 或更高版本（SDK 26+）。
 
-| 参数      | 类型                         |
+| 参数       | 类型                         |
 | ---------- | ---------------------------- |
 | **`args`** | <code>{ id: string; }</code> |
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### listChannels()
 
@@ -337,8 +334,7 @@ listChannels() => Promise<ListChannelsResult>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -354,8 +350,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -373,8 +368,7 @@ requestPermissions() => Promise<PermissionStatus>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('registration', ...)
 
@@ -386,7 +380,7 @@ addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => 
 
 提供推送通知令牌。
 
-| 参数              | 类型                                                        |
+| 参数               | 类型                                                        |
 | ------------------ | ----------------------------------------------------------- |
 | **`eventName`**    | <code>'registration'</code>                                 |
 | **`listenerFunc`** | <code>(token: <a href="#token">Token</a>) =&gt; void</code> |
@@ -395,8 +389,7 @@ addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => 
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('registrationError', ...)
 
@@ -408,7 +401,7 @@ addListener(eventName: 'registrationError', listenerFunc: (error: RegistrationEr
 
 提供注册问题的错误信息。
 
-| 参数              | 类型                                                                                |
+| 参数               | 类型                                                                                |
 | ------------------ | ----------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'registrationError'</code>                                                    |
 | **`listenerFunc`** | <code>(error: <a href="#registrationerror">RegistrationError</a>) =&gt; void</code> |
@@ -417,8 +410,7 @@ addListener(eventName: 'registrationError', listenerFunc: (error: RegistrationEr
 
 **自版本：** 4.0.0
 
---------------------
-
+---
 
 ### addListener('pushNotificationReceived', ...)
 
@@ -428,7 +420,7 @@ addListener(eventName: 'pushNotificationReceived', listenerFunc: (notification: 
 
 当设备收到推送通知时调用。
 
-| 参数              | 类型                                                                                                 |
+| 参数               | 类型                                                                                                 |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'pushNotificationReceived'</code>                                                              |
 | **`listenerFunc`** | <code>(notification: <a href="#pushnotificationschema">PushNotificationSchema</a>) =&gt; void</code> |
@@ -437,8 +429,7 @@ addListener(eventName: 'pushNotificationReceived', listenerFunc: (notification: 
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('pushNotificationActionPerformed', ...)
 
@@ -448,7 +439,7 @@ addListener(eventName: 'pushNotificationActionPerformed', listenerFunc: (notific
 
 当对推送通知执行操作时调用。
 
-| 参数              | 类型                                                                                   |
+| 参数               | 类型                                                                                   |
 | ------------------ | -------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'pushNotificationActionPerformed'</code>                                         |
 | **`listenerFunc`** | <code>(notification: <a href="#actionperformed">ActionPerformed</a>) =&gt; void</code> |
@@ -457,8 +448,7 @@ addListener(eventName: 'pushNotificationActionPerformed', listenerFunc: (notific
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -470,28 +460,26 @@ removeAllListeners() => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### DeliveredNotifications
 
-| 属性                | 类型                                  | 描述                                                         | 自版本 |
-| ------------------- | ------------------------------------- | ------------------------------------------------------------------- | ----- |
-| **`notifications`** | <code>PushNotificationSchema[]</code> | 通知屏幕上可见的通知列表。 | 1.0.0 |
-
+| 属性                | 类型                                  | 描述                       | 自版本 |
+| ------------------- | ------------------------------------- | -------------------------- | ------ |
+| **`notifications`** | <code>PushNotificationSchema[]</code> | 通知屏幕上可见的通知列表。 | 1.0.0  |
 
 #### PushNotificationSchema
 
-| 属性               | 类型                 | 描述                                                                                                          | 自版本 |
-| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**        | <code>string</code>  | 通知标题。                                                                                              | 1.0.0 |
-| **`subtitle`**     | <code>string</code>  | 通知副标题。                                                                                           | 1.0.0 |
-| **`body`**         | <code>string</code>  | 通知的主要文本内容。                                                                          | 1.0.0 |
-| **`id`**           | <code>string</code>  | 通知标识符。                                                                                         | 1.0.0 |
-| **`tag`**          | <code>string</code>  | 通知标签。仅适用于 Android（来自推送通知）。                                           | 4.0.0 |
-| **`badge`**        | <code>number</code>  | 应用图标徽章上显示的数字。                                                                        | 1.0.0 |
-| **`notification`** | <code>any</code>     | 未返回。                                                                                             | 1.0.0 |
-| **`data`**        
+| 属性               | 类型                | 描述                                         | 自版本 |
+| ------------------ | ------------------- | -------------------------------------------- | ------ |
+| **`title`**        | <code>string</code> | 通知标题。                                   | 1.0.0  |
+| **`subtitle`**     | <code>string</code> | 通知副标题。                                 | 1.0.0  |
+| **`body`**         | <code>string</code> | 通知的主要文本内容。                         | 1.0.0  |
+| **`id`**           | <code>string</code> | 通知标识符。                                 | 1.0.0  |
+| **`tag`**          | <code>string</code> | 通知标签。仅适用于 Android（来自推送通知）。 | 4.0.0  |
+| **`badge`**        | <code>number</code> | 应用图标徽章上显示的数字。                   | 1.0.0  |
+| **`notification`** | <code>any</code>    | 未返回。                                     | 1.0.0  |
+
+| **`data`**

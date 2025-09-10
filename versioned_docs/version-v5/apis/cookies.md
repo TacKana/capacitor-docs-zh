@@ -13,9 +13,9 @@ Capacitor Cookies API 通过重写 `document.cookie` 使用原生库提供原生
 默认情况下，重写 `document.cookie` 使用原生库的功能是禁用的。
 如需启用此功能，请在 `capacitor.config` 文件中修改以下配置。
 
-| 属性          | 类型                 | 说明                                                                 | 默认值            |
-| ------------- | -------------------- | ------------------------------------------------------------------- | ----------------- |
-| **`enabled`** | <code>boolean</code> | 启用重写 `document.cookie` 以使用原生库替代浏览器默认实现。          | <code>false</code> |
+| 属性          | 类型                 | 说明                                                        | 默认值             |
+| ------------- | -------------------- | ----------------------------------------------------------- | ------------------ |
+| **`enabled`** | <code>boolean</code> | 启用重写 `document.cookie` 以使用原生库替代浏览器默认实现。 | <code>false</code> |
 
 ### 配置示例
 
@@ -120,7 +120,7 @@ setCookie(options: SetCookieOptions) => Promise<void>
 
 向设备写入一个 Cookie。
 
-| 参数         | 类型                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#setcookieoptions">SetCookieOptions</a></code> |
 
@@ -134,7 +134,7 @@ deleteCookie(options: DeleteCookieOptions) => Promise<void>
 
 从设备删除一个 Cookie。
 
-| 参数         | 类型                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecookieoptions">DeleteCookieOptions</a></code> |
 
@@ -148,7 +148,7 @@ clearCookies(options: ClearCookieOptions) => Promise<void>
 
 清除指定 URL 下的所有 Cookie。
 
-| 参数         | 类型                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearcookieoptions">ClearCookieOptions</a></code> |
 
@@ -164,13 +164,13 @@ clearAllCookies() => Promise<void>
 
 ---
 
-### 接口
+### Interfaces
 
 #### SetCookieOptions
 
-| 属性           | 类型                | 说明                      |
+| 属性           | 类型                | 说明                     |
 | -------------- | ------------------- | ------------------------ |
-| **`url?`**     | <code>string</code> | 写入 Cookie 的目标 URL。  |
+| **`url?`**     | <code>string</code> | 写入 Cookie 的目标 URL。 |
 | **`key`**      | <code>string</code> | Cookie 的键名。          |
 | **`value`**    | <code>string</code> | Cookie 的值。            |
 | **`path?`**    | <code>string</code> | Cookie 的有效路径。      |
@@ -178,15 +178,15 @@ clearAllCookies() => Promise<void>
 
 #### DeleteCookieOptions
 
-| 属性       | 类型                | 说明                        |
-| ---------- | ------------------- | -------------------------- |
-| **`url?`** | <code>string</code> | 删除 Cookie 的目标 URL。    |
-| **`key`**  | <code>string</code> | 要删除的 Cookie 的键名。    |
+| 属性       | 类型                | 说明                     |
+| ---------- | ------------------- | ------------------------ |
+| **`url?`** | <code>string</code> | 删除 Cookie 的目标 URL。 |
+| **`key`**  | <code>string</code> | 要删除的 Cookie 的键名。 |
 
 #### ClearCookieOptions
 
-| 属性       | 类型                | 说明                    |
-| ---------- | ------------------- | ---------------------- |
-| **`url?`** | <code>string</code> | 清除 Cookie 的目标 URL。|
+| 属性       | 类型                | 说明                     |
+| ---------- | ------------------- | ------------------------ |
+| **`url?`** | <code>string</code> | 清除 Cookie 的目标 URL。 |
 
 </docgen-api>

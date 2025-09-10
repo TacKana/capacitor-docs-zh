@@ -132,7 +132,7 @@ showActions(options: ActionSheetOptions) => Promise<ActionSheetResult>
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### AlertOptions
 
@@ -183,25 +183,25 @@ showActions(options: ActionSheetOptions) => Promise<ActionSheetResult>
 
 #### ActionSheetOptions
 
-| 属性          | 类型                             | 描述       |
-| ------------- | -------------------------------- | ---------- |
-| **`title`**   | <code>string</code>              |            |
-| **`message`** | <code>string</code>              | 仅限 iOS   |
+| 属性          | 类型                             | 描述         |
+| ------------- | -------------------------------- | ------------ |
+| **`title`**   | <code>string</code>              |              |
+| **`message`** | <code>string</code>              | 仅限 iOS     |
 | **`options`** | <code>ActionSheetOption[]</code> | 操作选项列表 |
 
 #### ActionSheetOption
 
-| 属性        | 类型                                                                      | 描述                                |
-| ----------- | ------------------------------------------------------------------------- | ----------------------------------- |
-| **`title`** | <code>string</code>                                                       | 选项标题                            |
-| **`style`** | <code><a href="#actionsheetoptionstyle">ActionSheetOptionStyle</a></code> | 样式类型                            |
-| **`icon`**  | <code>string</code>                                                       | Web 图标（使用 ionicon 命名规范）   |
+| 属性        | 类型                                                                      | 描述                              |
+| ----------- | ------------------------------------------------------------------------- | --------------------------------- |
+| **`title`** | <code>string</code>                                                       | 选项标题                          |
+| **`style`** | <code><a href="#actionsheetoptionstyle">ActionSheetOptionStyle</a></code> | 样式类型                          |
+| **`icon`**  | <code>string</code>                                                       | Web 图标（使用 ionicon 命名规范） |
 
-### 枚举类型
+### Enums类型
 
 #### ActionSheetOptionStyle
 
-| 枚举值           | 值                          |
+| 枚举值            | 值                         |
 | ----------------- | -------------------------- |
 | **`Default`**     | <code>"DEFAULT"</code>     |
 | **`Destructive`** | <code>"DESTRUCTIVE"</code> |

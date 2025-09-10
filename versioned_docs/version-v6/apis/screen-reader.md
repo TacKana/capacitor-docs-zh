@@ -41,12 +41,12 @@ const sayHello = async () => {
 
 <docgen-index>
 
-* [`isEnabled()`](#isenabled)
-* [`speak(...)`](#speak)
-* [`addListener('stateChange', ...)`](#addlistenerstatechange-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`isEnabled()`](#isenabled)
+- [`speak(...)`](#speak)
+- [`addListener('stateChange', ...)`](#addlistenerstatechange-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -67,8 +67,7 @@ isEnabled() => Promise<{ value: boolean; }>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### speak(...)
 
@@ -90,8 +89,7 @@ speak(options: SpeakOptions) => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### addListener('stateChange', ...)
 
@@ -114,8 +112,7 @@ addListener(eventName: 'stateChange', listener: StateChangeListener) => Promise<
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -127,39 +124,35 @@ removeAllListeners() => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### SpeakOptions
 
-| 属性            | 类型                | 描述                                                                                                                                                               | 版本 |
-| -------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`value`**    | <code>string</code> | 要朗读的文本内容                                                                                                                                                        | 1.0.0 |
+| 属性           | 类型                | 描述                                                                                                                                           | 版本  |
+| -------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`value`**    | <code>string</code> | 要朗读的文本内容                                                                                                                               | 1.0.0 |
 | **`language`** | <code>string</code> | 文本朗读的语言代码（使用 [ISO 639-1 标准](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)，例如 "en"）。该选项仅在 Android 平台受支持。 | 1.0.0 |
-
 
 #### PluginListenerHandle
 
-| 属性          | 类型                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
 #### ScreenReaderState
 
-| 属性         | 类型                 | 描述                                  | 版本 |
-| ----------- | -------------------- | -------------------------------------------- | ----- |
+| 属性        | 类型                 | 描述                             | 版本  |
+| ----------- | -------------------- | -------------------------------- | ----- |
 | **`value`** | <code>boolean</code> | 表示当前是否有屏幕阅读器正在运行 | 1.0.0 |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### StateChangeListener
 
-<code>(state: <a href="#screenreaderstate">ScreenReaderState</a>): void</code>
+<code>
+  (state: <a href="#screenreaderstate">ScreenReaderState</a>): void
+</code>
 
 </docgen-api>

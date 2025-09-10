@@ -59,11 +59,11 @@ App.addListener('appStateChange', ({ isActive }) => {
   console.log('应用状态变更。是否活跃？', isActive);
 });
 
-App.addListener('appUrlOpen', data => {
+App.addListener('appUrlOpen', (data) => {
   console.log('应用通过 URL 打开:', data);
 });
 
-App.addListener('appRestoredResult', data => {
+App.addListener('appRestoredResult', (data) => {
   console.log('恢复的状态:', data);
 });
 
@@ -78,25 +78,24 @@ const checkAppLaunchUrl = async () => {
 
 <docgen-index>
 
-* [`exitApp()`](#exitapp)
-* [`getInfo()`](#getinfo)
-* [`getState()`](#getstate)
-* [`getLaunchUrl()`](#getlaunchurl)
-* [`minimizeApp()`](#minimizeapp)
-* [`addListener('appStateChange', ...)`](#addlistenerappstatechange-)
-* [`addListener('pause', ...)`](#addlistenerpause-)
-* [`addListener('resume', ...)`](#addlistenerresume-)
-* [`addListener('appUrlOpen', ...)`](#addlistenerappurlopen-)
-* [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
-* [`addListener('backButton', ...)`](#addlistenerbackbutton-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#接口)
-* [类型别名](#类型别名)
+- [`exitApp()`](#exitapp)
+- [`getInfo()`](#getinfo)
+- [`getState()`](#getstate)
+- [`getLaunchUrl()`](#getlaunchurl)
+- [`minimizeApp()`](#minimizeapp)
+- [`addListener('appStateChange', ...)`](#addlistenerappstatechange-)
+- [`addListener('pause', ...)`](#addlistenerpause-)
+- [`addListener('resume', ...)`](#addlistenerresume-)
+- [`addListener('appUrlOpen', ...)`](#addlistenerappurlopen-)
+- [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
+- [`addListener('backButton', ...)`](#addlistenerbackbutton-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### exitApp()
 
@@ -110,8 +109,7 @@ exitApp() => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### getInfo()
 
@@ -125,8 +123,7 @@ getInfo() => Promise<AppInfo>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### getState()
 
@@ -140,8 +137,7 @@ getState() => Promise<AppState>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### getLaunchUrl()
 
@@ -155,8 +151,7 @@ getLaunchUrl() => Promise<AppLaunchUrl | undefined>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### minimizeApp()
 
@@ -168,8 +163,7 @@ minimizeApp() => Promise<void>
 
 **自版本:** 1.1.0
 
---------------------
-
+---
 
 ### addListener('appStateChange', ...)
 
@@ -180,20 +174,19 @@ addListener(eventName: 'appStateChange', listenerFunc: StateChangeListener) => P
 监听应用或活动状态变更。
 
 iOS：当原生 [UIApplication.willResignActiveNotification](https://developer.apple.com/documentation/uikit/uiapplication/1622973-willresignactivenotification) 和 [UIApplication.didBecomeActiveNotification](https://developer.apple.com/documentation/uikit/uiapplication/1622953-didbecomeactivenotification) 事件触发时  
-Android：当 Capacitor 的 Activity [onResume](https://developer.android.com/reference/android/app/Activity#onResume()) 和 [onStop](https://developer.android.com/reference/android/app/Activity#onStop()) 方法调用时  
+Android：当 Capacitor 的 Activity [onResume](<https://developer.android.com/reference/android/app/Activity#onResume()>) 和 [onStop](<https://developer.android.com/reference/android/app/Activity#onStop()>) 方法调用时  
 Web：当 document 的 visibilitychange 事件触发时
 
-| 参数                | 类型                                                                 |
-| ------------------- | -------------------------------------------------------------------- |
-| **`eventName`**     | <code>'appStateChange'</code>                                        |
-| **`listenerFunc`**  | <code><a href="#statechangelistener">StateChangeListener</a></code>  |
+| 参数               | 类型                                                                |
+| ------------------ | ------------------------------------------------------------------- |
+| **`eventName`**    | <code>'appStateChange'</code>                                       |
+| **`listenerFunc`** | <code><a href="#statechangelistener">StateChangeListener</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### addListener('pause', ...)
 
@@ -204,20 +197,19 @@ addListener(eventName: 'pause', listenerFunc: () => void) => Promise<PluginListe
 监听应用或活动暂停事件。
 
 iOS：当原生 [UIApplication.didEnterBackgroundNotification](https://developer.apple.com/documentation/uikit/uiapplication/1623071-didenterbackgroundnotification) 事件触发时  
-Android：当 Capacitor 的 Activity [onPause](https://developer.android.com/reference/android/app/Activity#onPause()) 方法调用时  
+Android：当 Capacitor 的 Activity [onPause](<https://developer.android.com/reference/android/app/Activity#onPause()>) 方法调用时  
 Web：当 document 的 visibilitychange 事件触发且 document.hidden 为 true 时
 
-| 参数                | 类型                       |
-| ------------------- | -------------------------- |
-| **`eventName`**     | <code>'pause'</code>       |
-| **`listenerFunc`**  | <code>() =&gt; void</code> |
+| 参数               | 类型                       |
+| ------------------ | -------------------------- |
+| **`eventName`**    | <code>'pause'</code>       |
+| **`listenerFunc`** | <code>() =&gt; void</code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 4.1.0
 
---------------------
-
+---
 
 ### addListener('resume', ...)
 
@@ -228,20 +220,19 @@ addListener(eventName: 'resume', listenerFunc: () => void) => Promise<PluginList
 监听应用或活动恢复事件。
 
 iOS：当原生 [UIApplication.willEnterForegroundNotification](https://developer.apple.com/documentation/uikit/uiapplication/1622944-willenterforegroundnotification) 事件触发时  
-Android：当 Capacitor 的 Activity [onResume](https://developer.android.com/reference/android/app/Activity#onResume()) 方法调用时（仅在 resume 事件首次触发后）  
+Android：当 Capacitor 的 Activity [onResume](<https://developer.android.com/reference/android/app/Activity#onResume()>) 方法调用时（仅在 resume 事件首次触发后）  
 Web：当 document 的 visibilitychange 事件触发且 document.hidden 为 false 时
 
-| 参数                | 类型                       |
-| ------------------- | -------------------------- |
-| **`eventName`**     | <code>'resume'</code>      |
-| **`listenerFunc`**  | <code>() =&gt; void</code> |
+| 参数               | 类型                       |
+| ------------------ | -------------------------- |
+| **`eventName`**    | <code>'resume'</code>      |
+| **`listenerFunc`** | <code>() =&gt; void</code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 4.1.0
 
---------------------
-
+---
 
 ### addListener('appUrlOpen', ...)
 
@@ -251,17 +242,16 @@ addListener(eventName: 'appUrlOpen', listenerFunc: URLOpenListener) => Promise<P
 
 监听应用通过 URL 打开的事件。既处理自定义协议链接，也处理应用关联的 URL（iOS 通用链接/Android 应用链接）
 
-| 参数                | 类型                                                      |
-| ------------------- | --------------------------------------------------------- |
-| **`eventName`**     | <code>'appUrlOpen'</code>                                 |
-| **`listenerFunc`**  | <code><a href="#urlopenlistener">URLOpenListener</a></code> |
+| 参数               | 类型                                                        |
+| ------------------ | ----------------------------------------------------------- |
+| **`eventName`**    | <code>'appUrlOpen'</code>                                   |
+| **`listenerFunc`** | <code><a href="#urlopenlistener">URLOpenListener</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### addListener('appRestoredResult', ...)
 
@@ -281,17 +271,16 @@ addListener(eventName: 'appRestoredResult', listenerFunc: RestoredListener) => P
 
 建议所有依赖外部活动（如 Camera）的 Android 应用都处理此事件。
 
-| 参数                | 类型                                                        |
-| ------------------- | ----------------------------------------------------------- |
-| **`eventName`**     | <code>'appRestoredResult'</code>                            |
-| **`listenerFunc`**  | <code><a href="#restoredlistener">RestoredListener</a></code> |
+| 参数               | 类型                                                          |
+| ------------------ | ------------------------------------------------------------- |
+| **`eventName`**    | <code>'appRestoredResult'</code>                              |
+| **`listenerFunc`** | <code><a href="#restoredlistener">RestoredListener</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### addListener('backButton', ...)
 
@@ -301,17 +290,16 @@ addListener(eventName: 'backButton', listenerFunc: BackButtonListener) => Promis
 
 监听硬件返回键事件（仅 Android）。监听此事件会禁用默认返回行为，可能需要手动调用 `window.history.back()`。如需关闭应用，请调用 `App.exitApp()`。
 
-| 参数                | 类型                                                            |
-| ------------------- | --------------------------------------------------------------- |
-| **`eventName`**     | <code>'backButton'</code>                                       |
-| **`listenerFunc`**  | <code><a href="#backbuttonlistener">BackButtonListener</a></code> |
+| 参数               | 类型                                                              |
+| ------------------ | ----------------------------------------------------------------- |
+| **`eventName`**    | <code>'backButton'</code>                                         |
+| **`listenerFunc`** | <code><a href="#backbuttonlistener">BackButtonListener</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -323,90 +311,85 @@ removeAllListeners() => Promise<void>
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### AppInfo
 
-| 属性           | 类型                | 描述                                                                                         | 自版本 |
-| -------------- | ------------------- | ------------------------------------------------------------------------------------------- | ------ |
-| **`name`**     | <code>string</code> | 应用名称                                                                                    | 1.0.0  |
-| **`id`**       | <code>string</code> | 应用标识符。iOS 上是 Bundle Identifier，Android 上是 Application ID                         | 1.0.0  |
-| **`build`**    | <code>string</code> | 构建版本号。iOS 上是 CFBundleVersion，Android 上是 versionCode                               | 1.0.0  |
-| **`version`**  | <code>string</code> | 应用版本号。iOS 上是 CFBundleShortVersionString，Android 上是 package 的 versionName         | 1.0.0  |
-
+| 属性          | 类型                | 描述                                                                                 | 自版本 |
+| ------------- | ------------------- | ------------------------------------------------------------------------------------ | ------ |
+| **`name`**    | <code>string</code> | 应用名称                                                                             | 1.0.0  |
+| **`id`**      | <code>string</code> | 应用标识符。iOS 上是 Bundle Identifier，Android 上是 Application ID                  | 1.0.0  |
+| **`build`**   | <code>string</code> | 构建版本号。iOS 上是 CFBundleVersion，Android 上是 versionCode                       | 1.0.0  |
+| **`version`** | <code>string</code> | 应用版本号。iOS 上是 CFBundleShortVersionString，Android 上是 package 的 versionName | 1.0.0  |
 
 #### AppState
 
-| 属性             | 类型                 | 描述                   | 自版本 |
-| ---------------- | -------------------- | --------------------- | ------ |
-| **`isActive`**   | <code>boolean</code> | 应用是否处于活跃状态   | 1.0.0  |
-
+| 属性           | 类型                 | 描述                 | 自版本 |
+| -------------- | -------------------- | -------------------- | ------ |
+| **`isActive`** | <code>boolean</code> | 应用是否处于活跃状态 | 1.0.0  |
 
 #### AppLaunchUrl
 
-| 属性        | 类型                | 描述                   | 自版本 |
-| ----------- | ------------------- | --------------------- | ------ |
-| **`url`**   | <code>string</code> | 用于打开应用的 URL     | 1.0.0  |
-
+| 属性      | 类型                | 描述               | 自版本 |
+| --------- | ------------------- | ------------------ | ------ |
+| **`url`** | <code>string</code> | 用于打开应用的 URL | 1.0.0  |
 
 #### PluginListenerHandle
 
-| 属性            | 类型                                      |
-| --------------- | ----------------------------------------- |
-| **`remove`**    | <code>() =&gt; Promise&lt;void&gt;</code> |
-
+| 属性         | 类型                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 #### URLOpenListenerEvent
 
-| 属性                          | 类型                 | 描述                                                                                                                                                                        | 自版本 |
-| ----------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **`url`**                     | <code>string</code>  | 打开应用时使用的 URL                                                                                                                                                       | 1.0.0  |
-| **`iosSourceApplication`**    | <code>any</code>     | 打开应用的源应用（仅 iOS）https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication                                         | 1.0.0  |
-| **`iosOpenInPlace`**          | <code>boolean</code> | 是否应在原位置打开文档或需先复制。https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace                                        | 1.0.0  |
-
+| 属性                       | 类型                 | 描述                                                                                                                                 | 自版本 |
+| -------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| **`url`**                  | <code>string</code>  | 打开应用时使用的 URL                                                                                                                 | 1.0.0  |
+| **`iosSourceApplication`** | <code>any</code>     | 打开应用的源应用（仅 iOS）https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication   | 1.0.0  |
+| **`iosOpenInPlace`**       | <code>boolean</code> | 是否应在原位置打开文档或需先复制。https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace | 1.0.0  |
 
 #### RestoredListenerEvent
 
-| 属性                | 类型                              | 描述                                                                                                                                       | 自版本 |
-| ------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **`pluginId`**     | <code>string</code>               | 对应结果的插件 ID，如 `Camera`                                                                                                            | 1.0.0  |
-| **`methodName`**   | <code>string</code>               | 对应结果的方法名，如 `getPhoto`                                                                                                           | 1.0.0  |
-| **`data`**         | <code>any</code>                  | 从插件传递的结果数据，通常与直接调用插件方法的结果一致，如 `CameraPhoto`                                                                  | 1.0.0  |
-| **`success`**      | <code>boolean</code>              | 标识插件调用是否成功                                                                                                                      | 1.0.0  |
-| **`error`**        | `{ message: string; }` | 若插件调用失败，包含错误信息                                                                                                              | 1.0.0  |
-
+| 属性             | 类型                   | 描述                                                                     | 自版本 |
+| ---------------- | ---------------------- | ------------------------------------------------------------------------ | ------ |
+| **`pluginId`**   | <code>string</code>    | 对应结果的插件 ID，如 `Camera`                                           | 1.0.0  |
+| **`methodName`** | <code>string</code>    | 对应结果的方法名，如 `getPhoto`                                          | 1.0.0  |
+| **`data`**       | <code>any</code>       | 从插件传递的结果数据，通常与直接调用插件方法的结果一致，如 `CameraPhoto` | 1.0.0  |
+| **`success`**    | <code>boolean</code>   | 标识插件调用是否成功                                                     | 1.0.0  |
+| **`error`**      | `{ message: string; }` | 若插件调用失败，包含错误信息                                             | 1.0.0  |
 
 #### BackButtonListenerEvent
 
-| 属性               | 类型                 | 描述                                                                                               | 自版本 |
-| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------- | ------ |
-| **`canGoBack`**    | <code>boolean</code> | 标识浏览器是否可以返回历史记录。当历史堆栈处于第一条记录时为 false                                 | 1.0.0  |
+| 属性            | 类型                 | 描述                                                               | 自版本 |
+| --------------- | -------------------- | ------------------------------------------------------------------ | ------ |
+| **`canGoBack`** | <code>boolean</code> | 标识浏览器是否可以返回历史记录。当历史堆栈处于第一条记录时为 false | 1.0.0  |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### StateChangeListener
 
-<code>(state: <a href="#appstate">AppState</a>): void</code>
-
+<code>
+  (state: <a href="#appstate">AppState</a>): void
+</code>
 
 #### URLOpenListener
 
-<code>(event: <a href="#urlopenlistenerevent">URLOpenListenerEvent</a>): void</code>
-
+<code>
+  (event: <a href="#urlopenlistenerevent">URLOpenListenerEvent</a>): void
+</code>
 
 #### RestoredListener
 
-<code>(event: <a href="#restoredlistenerevent">RestoredListenerEvent</a>): void</code>
-
+<code>
+  (event: <a href="#restoredlistenerevent">RestoredListenerEvent</a>): void
+</code>
 
 #### BackButtonListener
 
-<code>(event: <a href="#backbuttonlistenerevent">BackButtonListenerEvent</a>): void</code>
+<code>
+  (event: <a href="#backbuttonlistenerevent">BackButtonListenerEvent</a>): void
+</code>
 
 </docgen-api>

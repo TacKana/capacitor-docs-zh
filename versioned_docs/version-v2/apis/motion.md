@@ -54,10 +54,10 @@ addListener(eventName: 'accel', listenerFunc: (event: MotionEventResult) => void
 
 监听加速度计数据
 
-| 参数                | 类型                                                                                |
-| ------------------- | ----------------------------------------------------------------------------------- |
-| **`eventName`**     | <code>"accel"</code>                                                                |
-| **`listenerFunc`**  | <code>(event: <a href="#motioneventresult">MotionEventResult</a>) =&gt; void</code> |
+| 参数               | 类型                                                                                |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"accel"</code>                                                                |
+| **`listenerFunc`** | <code>(event: <a href="#motioneventresult">MotionEventResult</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -71,10 +71,10 @@ addListener(eventName: 'orientation', listenerFunc: (event: MotionOrientationEve
 
 监听设备方向变化（罗盘朝向等）
 
-| 参数                | 类型                                                                                                      |
-| ------------------- | --------------------------------------------------------------------------------------------------------- |
-| **`eventName`**     | <code>"orientation"</code>                                                                                |
-| **`listenerFunc`**  | <code>(event: <a href="#motionorientationeventresult">MotionOrientationEventResult</a>) =&gt; void</code> |
+| 参数               | 类型                                                                                                      |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"orientation"</code>                                                                                |
+| **`listenerFunc`** | <code>(event: <a href="#motionorientationeventresult">MotionOrientationEventResult</a>) =&gt; void</code> |
 
 **返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -90,27 +90,27 @@ removeAllListeners() => void
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### PluginListenerHandle
 
-| 属性            | 类型                       |
-| --------------- | -------------------------- |
-| **`remove`**    | <code>() =&gt; void</code> |
+| 属性         | 类型                       |
+| ------------ | -------------------------- |
+| **`remove`** | <code>() =&gt; void</code> |
 
 #### MotionEventResult
 
-| 属性                                | 类型                                                         |
-| ----------------------------------- | ------------------------------------------------------------ |
-| **`acceleration`**                  | `{ x: number; y: number; z: number; }`            |
-| **`accelerationIncludingGravity`**  | `{ x: number; y: number; z: number; }`            |
-| **`rotationRate`**                  | `{ alpha: number; beta: number; gamma: number; }` |
-| **`interval`**                      | <code>number</code>                                          |
+| 属性                               | 类型                                              |
+| ---------------------------------- | ------------------------------------------------- |
+| **`acceleration`**                 | `{ x: number; y: number; z: number; }`            |
+| **`accelerationIncludingGravity`** | `{ x: number; y: number; z: number; }`            |
+| **`rotationRate`**                 | `{ alpha: number; beta: number; gamma: number; }` |
+| **`interval`**                     | <code>number</code>                               |
 
 #### MotionOrientationEventResult
 
-| 属性         | 类型                |
-| ------------ | ------------------- |
-| **`alpha`**  | <code>number</code> |
-| **`beta`**   | <code>number</code> |
-| **`gamma`**  | <code>number</code> |
+| 属性        | 类型                |
+| ----------- | ------------------- |
+| **`alpha`** | <code>number</code> |
+| **`beta`**  | <code>number</code> |
+| **`gamma`** | <code>number</code> |

@@ -17,6 +17,7 @@ AppLauncher API 允许你的应用检查能否打开其他应用并执行打开�
 **注意：** 在 [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 及更高版本中，你需要在 `AndroidManifest.xml` 文件的 `queries` 标签内声明要查询的应用包名。
 
 示例：
+
 ```xml
 <queries>
   <package android:name="com.getcapacitor.myapp" />
@@ -50,9 +51,9 @@ const openPortfolioPage = async () => {
 
 <docgen-index>
 
-* [`canOpenUrl(...)`](#canopenurl)
-* [`openUrl(...)`](#openurl)
-* [接口](#interfaces)
+- [`canOpenUrl(...)`](#canopenurl)
+- [`openUrl(...)`](#openurl)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -71,7 +72,7 @@ canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 
 对于未声明的方案，无论是否有对应的应用安装，该方法都会返回 false。了解更多关于该键的信息，请参阅 [LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes)。
 
-| 参数         | 类型                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#canopenurloptions">CanOpenURLOptions</a></code> |
 
@@ -79,8 +80,7 @@ canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### openUrl(...)
 
@@ -92,7 +92,7 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 在iOS上，URL应为已知的URLScheme。
 在Android上，URL可以是已知的URLScheme或应用包名。
 
-| 参数         | 类型                                                      |
+| 参数          | 类型                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#openurloptions">OpenURLOptions</a></code> |
 
@@ -100,11 +100,9 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 
 **自版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### CanOpenURLResult
 
@@ -112,20 +110,17 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 | ----------- | -------------------- |
 | **`value`** | <code>boolean</code> |
 
-
 #### CanOpenURLOptions
 
 | 属性      | 类型                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 
-
 #### OpenURLResult
 
 | 属性            | 类型                 |
 | --------------- | -------------------- |
 | **`completed`** | <code>boolean</code> |
-
 
 #### OpenURLOptions
 

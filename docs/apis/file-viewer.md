@@ -162,7 +162,7 @@ previewMediaContentFromUrl(options: PreviewMediaFromUrlOptions) => Promise<void>
 
 ---
 
-### 接口
+### Interfaces
 
 #### OpenFromLocalPathOptions
 
@@ -182,7 +182,7 @@ previewMediaContentFromUrl(options: PreviewMediaFromUrlOptions) => Promise<void>
 | --------- | ------------------- | -------------------------- | ----- |
 | **`url`** | <code>string</code> | 指向要打开的文件的远程 URL | 1.0.0 |
 
-### 类型别名
+### Type Aliases
 
 #### PreviewMediaFromLocalPathOptions
 

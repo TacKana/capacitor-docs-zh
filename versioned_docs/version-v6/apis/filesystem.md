@@ -125,25 +125,25 @@ const readFilePath = async () => {
 
 <docgen-index>
 
-* [`readFile(...)`](#readfile)
-* [`writeFile(...)`](#writefile)
-* [`appendFile(...)`](#appendfile)
-* [`deleteFile(...)`](#deletefile)
-* [`mkdir(...)`](#mkdir)
-* [`rmdir(...)`](#rmdir)
-* [`readdir(...)`](#readdir)
-* [`getUri(...)`](#geturi)
-* [`stat(...)`](#stat)
-* [`rename(...)`](#rename)
-* [`copy(...)`](#copy)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [`downloadFile(...)`](#downloadfile)
-* [`addListener('progress', ...)`](#addlistenerprogress-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`readFile(...)`](#readfile)
+- [`writeFile(...)`](#writefile)
+- [`appendFile(...)`](#appendfile)
+- [`deleteFile(...)`](#deletefile)
+- [`mkdir(...)`](#mkdir)
+- [`rmdir(...)`](#rmdir)
+- [`readdir(...)`](#readdir)
+- [`getUri(...)`](#geturi)
+- [`stat(...)`](#stat)
+- [`rename(...)`](#rename)
+- [`copy(...)`](#copy)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [`downloadFile(...)`](#downloadfile)
+- [`addListener('progress', ...)`](#addlistenerprogress-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -158,7 +158,7 @@ readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 
 从磁盘读取文件
 
-| 参数         | 类型                                                        |
+| 参数          | 类型                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#readfileoptions">ReadFileOptions</a></code> |
 
@@ -166,8 +166,7 @@ readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### writeFile(...)
 
@@ -177,7 +176,7 @@ writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 
 将文件写入设备的指定位置
 
-| 参数         | 类型                                                          |
+| 参数          | 类型                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#writefileoptions">WriteFileOptions</a></code> |
 
@@ -185,8 +184,7 @@ writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### appendFile(...)
 
@@ -196,14 +194,13 @@ appendFile(options: AppendFileOptions) => Promise<void>
 
 追加内容到设备的指定文件中
 
-| 参数         | 类型                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#appendfileoptions">AppendFileOptions</a></code> |
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### deleteFile(...)
 
@@ -213,14 +210,13 @@ deleteFile(options: DeleteFileOptions) => Promise<void>
 
 从磁盘删除文件
 
-| 参数         | 类型                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletefileoptions">DeleteFileOptions</a></code> |
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### mkdir(...)
 
@@ -230,14 +226,13 @@ mkdir(options: MkdirOptions) => Promise<void>
 
 创建目录
 
-| 参数         | 类型                                                  |
+| 参数          | 类型                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#mkdiroptions">MkdirOptions</a></code> |
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### rmdir(...)
 
@@ -247,14 +242,13 @@ rmdir(options: RmdirOptions) => Promise<void>
 
 删除目录
 
-| 参数         | 类型                                                  |
+| 参数          | 类型                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#rmdiroptions">RmdirOptions</a></code> |
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### readdir(...)
 
@@ -264,7 +258,7 @@ readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 
 返回目录中的文件列表（非递归）
 
-| 参数         | 类型                                                      |
+| 参数          | 类型                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#readdiroptions">ReaddirOptions</a></code> |
 
@@ -272,8 +266,7 @@ readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### getUri(...)
 
@@ -283,7 +276,7 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 返回路径和目录的完整文件 URI
 
-| 参数         | 类型                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#geturioptions">GetUriOptions</a></code> |
 
@@ -291,8 +284,7 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### stat(...)
 
@@ -302,7 +294,7 @@ stat(options: StatOptions) => Promise<StatResult>
 
 返回文件相关信息
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#statoptions">StatOptions</a></code> |
 
@@ -310,8 +302,7 @@ stat(options: StatOptions) => Promise<StatResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### rename(...)
 
@@ -321,14 +312,13 @@ rename(options: RenameOptions) => Promise<void>
 
 重命名文件或目录
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> |
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### copy(...)
 
@@ -338,7 +328,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 复制文件或目录
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> |
 
@@ -346,8 +336,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -363,8 +352,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -380,8 +368,7 @@ requestPermissions() => Promise<PermissionStatus>
 
 **自:** 1.0.0
 
---------------------
-
+---
 
 ### downloadFile(...)
 
@@ -391,7 +378,7 @@ downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 
 向服务器发起 HTTP 请求并将文件下载到指定位置。
 
-| 参数         | 类型                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#downloadfileoptions">DownloadFileOptions</a></code> |
 
@@ -399,8 +386,7 @@ downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 
 **自:** 5.1.0
 
---------------------
-
+---
 
 ### addListener('progress', ...)
 
@@ -410,7 +396,7 @@ addListener(eventName: 'progress', listenerFunc: ProgressListener) => Promise<Pl
 
 添加文件下载进度事件监听器。
 
-| 参数              | 类型                                                          |
+| 参数               | 类型                                                          |
 | ------------------ | ------------------------------------------------------------- |
 | **`eventName`**    | <code>'progress'</code>                                       |
 | **`listenerFunc`** | <code><a href="#progresslistener">ProgressListener</a></code> |
@@ -419,8 +405,7 @@ addListener(eventName: 'progress', listenerFunc: ProgressListener) => Promise<Pl
 
 **自:** 5.1.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -432,64 +417,56 @@ removeAllListeners() => Promise<void>
 
 **自:** 5.2.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ReadFileResult
 
-| 属性       | 类型                        | 描述                                                                                                                            | 自 |
-| ---------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| 属性       | 类型                        | 描述                                                                                      | 自    |
+| ---------- | --------------------------- | ----------------------------------------------------------------------------------------- | ----- |
 | **`data`** | <code>string \| Blob</code> | 文件中包含的数据表示形式 注意：Blob 仅在 Web 上可用。在原生平台，数据会以字符串形式返回。 | 1.0.0 |
-
 
 #### ReadFileOptions
 
-| 属性            | 类型                                            | 描述                                                                                                                                                                 | 自 |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | 要读取的文件路径                                                                                                                                                | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 读取文件的 <a href="#directory">`Directory`</a>                                                                                                              | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                                  | 自    |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要读取的文件路径                                                                                                                      | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 读取文件的 <a href="#directory">`Directory`</a>                                                                                       | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 读取文件的编码方式，如未提供，数据将作为二进制读取并返回 base64 编码。传递 <a href="#encoding">Encoding.UTF8</a> 可将数据读取为字符串 | 1.0.0 |
-
 
 #### WriteFileResult
 
-| 属性      | 类型                | 描述                             | 自 |
-| --------- | ------------------- | --------------------------------------- | ----- |
+| 属性      | 类型                | 描述               | 自    |
+| --------- | ------------------- | ------------------ | ----- |
 | **`uri`** | <code>string</code> | 文件写入位置的 uri | 1.0.0 |
-
 
 #### WriteFileOptions
 
-| 属性            | 类型                                            | 描述                                                                                                                                               | 默认值            | 自 |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`path`**      | <code>string</code>                             | 要写入的文件路径                                                                                                                             |                    | 1.0.0 |
-| **`data`**      | <code>string \| Blob</code>                     | 要写入的数据 注意：Blob 数据仅在 Web 上支持。                                                                                               |                    | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                             |                    | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                | 默认值             | 自    |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`path`**      | <code>string</code>                             | 要写入的文件路径                                                                                                    |                    | 1.0.0 |
+| **`data`**      | <code>string \| Blob</code>                     | 要写入的数据 注意：Blob 数据仅在 Web 上支持。                                                                       |                    | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                     |                    | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 文件写入编码方式。如未提供，数据将作为 base64 写入。传递 <a href="#encoding">Encoding.UTF8</a> 可将数据写入为字符串 |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否创建所有缺失的父目录。                                                                                                         | <code>false</code> | 1.0.0 |
-
+| **`recursive`** | <code>boolean</code>                            | 是否创建所有缺失的父目录。                                                                                          | <code>false</code> | 1.0.0 |
 
 #### AppendFileOptions
 
-| 属性            | 类型                                            | 描述                                                                                                                                               | 自 |
-| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | 要追加内容的文件路径                                                                                                                            | 1.0.0 |
-| **`data`**      | <code>string</code>                             | 要写入的数据                                                                                                                                         | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                             | 1.0.0 |
+| 属性            | 类型                                            | 描述                                                                                                                | 自    |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要追加内容的文件路径                                                                                                | 1.0.0 |
+| **`data`**      | <code>string</code>                             | 要写入的数据                                                                                                        | 1.0.0 |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                     | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 文件写入编码方式。如未提供，数据将作为 base64 写入。传递 <a href="#encoding">Encoding.UTF8</a> 可将数据写入为字符串 | 1.0.0 |
-
 
 #### DeleteFileOptions
 
-| 属性            | 类型                                            | 描述                                                      | 自 |
-| --------------- | ----------------------------------------------- | ---------------------------------------------------------------- | ----- |
-| **`path`**      | <code>string</code>                             | 要删除的文件路径                                   | 1.0.0 |
+| 属性            | 类型                                            | 描述                                            | 自    |
+| --------------- | ----------------------------------------------- | ----------------------------------------------- | ----- |
+| **`path`**      | <code>string</code>                             | 要删除的文件路径                                | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 删除文件的 <a href="#directory">`Directory`</a> | 1.0.0 |
-
 
 #### MkdirOptions
 
-| 属性            | 类型                                            |
+| 属性 | 类型 |

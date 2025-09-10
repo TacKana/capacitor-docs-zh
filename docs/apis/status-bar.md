@@ -60,11 +60,11 @@ const showStatusBar = async () => {
 
 以下配置值可用：
 
-| 属性                  | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                       | 默认值              | 自版本 |
-| --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- |
-| **`overlaysWebView`** | <code>boolean</code> | 状态栏是否覆盖在 WebView 上。对于面向 Android 15 的应用程序，除非在应用程序布局文件中添加了 windowOptOutEdgeToEdgeEnforcement 属性，否则此属性无效。否则，应用程序始终假定 overlays 为 true。更多详情请参阅 https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement | <code>true</code>    | 1.0.0 |
-| **`style`**           | <code>string</code>  | 状态栏文本的<a href="#style">样式</a>。                                                                                                                                                                                                                                                                                                                                   | <code>default</code> | 1.0.0 |
-| **`backgroundColor`** | <code>string</code>  | 状态栏背景颜色，十六进制格式 #RRGGBB。如果 `overlaysWebView` 为 true，则无效。                                                                                                                                                                                                                                                                                            | <code>#000000</code> | 1.0.0 |
+| 属性                  | 类型                 | 描述                                                                                                                                                                                                                                                                                                 | 默认值               | 自版本 |
+| --------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| **`overlaysWebView`** | <code>boolean</code> | 状态栏是否覆盖在 WebView 上。对于面向 Android 15 的应用程序，除非在应用程序布局文件中添加了 windowOptOutEdgeToEdgeEnforcement 属性，否则此属性无效。否则，应用程序始终假定 overlays 为 true。更多详情请参阅 https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement | <code>true</code>    | 1.0.0  |
+| **`style`**           | <code>string</code>  | 状态栏文本的<a href="#style">样式</a>。                                                                                                                                                                                                                                                              | <code>default</code> | 1.0.0  |
+| **`backgroundColor`** | <code>string</code>  | 状态栏背景颜色，十六进制格式 #RRGGBB。如果 `overlaysWebView` 为 true，则无效。                                                                                                                                                                                                                       | <code>#000000</code> | 1.0.0  |
 
 ### 示例
 
@@ -93,8 +93,8 @@ const config: CapacitorConfig = {
   plugins: {
     StatusBar: {
       overlaysWebView: false,
-      style: "DARK",
-      backgroundColor: "#ffffffff",
+      style: 'DARK',
+      backgroundColor: '#ffffffff',
     },
   },
 };
@@ -108,14 +108,14 @@ export default config;
 
 <docgen-index>
 
-* [`setStyle(...)`](#setstyle)
-* [`setBackgroundColor(...)`](#setbackgroundcolor)
-* [`show(...)`](#show)
-* [`hide(...)`](#hide)
-* [`getInfo()`](#getinfo)
-* [`setOverlaysWebView(...)`](#setoverlayswebview)
-* [接口](#接口)
-* [枚举](#枚举)
+- [`setStyle(...)`](#setstyle)
+- [`setBackgroundColor(...)`](#setbackgroundcolor)
+- [`show(...)`](#show)
+- [`hide(...)`](#hide)
+- [`getInfo()`](#getinfo)
+- [`setOverlaysWebView(...)`](#setoverlayswebview)
+- [接口](#interfaces)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -136,8 +136,7 @@ setStyle(options: StyleOptions) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### setBackgroundColor(...)
 
@@ -153,8 +152,7 @@ setBackgroundColor(options: BackgroundColorOptions) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### show(...)
 
@@ -171,8 +169,7 @@ show(options?: AnimationOptions | undefined) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### hide(...)
 
@@ -188,8 +185,7 @@ hide(options?: AnimationOptions | undefined) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### getInfo()
 
@@ -203,8 +199,7 @@ getInfo() => Promise<StatusBarInfo>
 
 **自版本：** 1.0.0
 
---------------------
-
+---
 
 ### setOverlaysWebView(...)
 
@@ -220,68 +215,59 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### StyleOptions
 
-| 属性        | 类型                                    | 描述                                               | 自版本 |
-| ----------- | --------------------------------------- | -------------------------------------------------- | ----- |
-| **`style`** | <code><a href="#style">Style</a></code> | 状态栏文本的<a href="#style">样式</a>。            | 1.0.0 |
-
+| 属性        | 类型                                    | 描述                                    | 自版本 |
+| ----------- | --------------------------------------- | --------------------------------------- | ------ |
+| **`style`** | <code><a href="#style">Style</a></code> | 状态栏文本的<a href="#style">样式</a>。 | 1.0.0  |
 
 #### BackgroundColorOptions
 
-| 属性        | 类型                | 描述                                       | 自版本 |
-| ----------- | ------------------- | ------------------------------------------ | ----- |
-| **`color`** | <code>string</code> | 设置状态栏颜色的十六进制颜色值。           | 1.0.0 |
-
+| 属性        | 类型                | 描述                             | 自版本 |
+| ----------- | ------------------- | -------------------------------- | ------ |
+| **`color`** | <code>string</code> | 设置状态栏颜色的十六进制颜色值。 | 1.0.0  |
 
 #### AnimationOptions
 
-| 属性            | 类型                                            | 描述                                                                                         | 默认值                     | 自版本 |
-| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------- | ----- |
-| **`animation`** | <code><a href="#animation">Animation</a></code> | 显示或隐藏时使用的状态栏动画类型。此选项仅在 iOS 上受支持。                                  | <code>Animation.Fade</code> | 1.0.0 |
-
+| 属性            | 类型                                            | 描述                                                        | 默认值                      | 自版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------- | --------------------------- | ------ |
+| **`animation`** | <code><a href="#animation">Animation</a></code> | 显示或隐藏时使用的状态栏动画类型。此选项仅在 iOS 上受支持。 | <code>Animation.Fade</code> | 1.0.0  |
 
 #### StatusBarInfo
 
-| 属性           | 类型                                    | 描述                               | 自版本 |
-| -------------- | --------------------------------------- | ---------------------------------- | ----- |
-| **`visible`**  | <code>boolean</code>                    | 状态栏是否可见。                   | 1.0.0 |
-| **`style`**    | <code><a href="#style">Style</a></code> | 当前状态栏样式。                   | 1.0.0 |
-| **`color`**    | <code>string</code>                     | 当前状态栏颜色。                   | 1.0.0 |
-| **`overlays`** | <code>boolean</code>                    | 状态栏是否覆盖在 WebView 上。      | 1.0.0 |
-
+| 属性           | 类型                                    | 描述                          | 自版本 |
+| -------------- | --------------------------------------- | ----------------------------- | ------ |
+| **`visible`**  | <code>boolean</code>                    | 状态栏是否可见。              | 1.0.0  |
+| **`style`**    | <code><a href="#style">Style</a></code> | 当前状态栏样式。              | 1.0.0  |
+| **`color`**    | <code>string</code>                     | 当前状态栏颜色。              | 1.0.0  |
+| **`overlays`** | <code>boolean</code>                    | 状态栏是否覆盖在 WebView 上。 | 1.0.0  |
 
 #### SetOverlaysWebViewOptions
 
-| 属性          | 类型                 | 描述                               | 自版本 |
-| ------------- | -------------------- | ---------------------------------- | ----- |
-| **`overlay`** | <code>boolean</code> | 是否覆盖状态栏。                   | 1.0.0 |
+| 属性          | 类型                 | 描述             | 自版本 |
+| ------------- | -------------------- | ---------------- | ------ |
+| **`overlay`** | <code>boolean</code> | 是否覆盖状态栏。 | 1.0.0  |
 
-
-### 枚举
-
+### Enums
 
 #### Style
 
-| 成员        | 值                  | 描述                                                                                                                                                                          | 自版本 |
-| ----------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Dark`**  | <code>'DARK'</code> | 深色背景上的浅色文本。                                                                                                                                                       | 1.0.0 |
-| **`Light`** | <code>'LIGHT'</code> | 浅色背景上的深色文本。                                                                                                                                                       | 1.0.0 |
-| **`Default`** | <code>'DEFAULT'</code> | 样式基于设备外观。如果设备使用深色模式，状态栏文本将为浅色。如果设备使用浅色模式，状态栏文本将为深色。                                                                       | 1.0.0 |
-
+| 成员          | 值                     | 描述                                                                                                   | 自版本 |
+| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ | ------ |
+| **`Dark`**    | <code>'DARK'</code>    | 深色背景上的浅色文本。                                                                                 | 1.0.0  |
+| **`Light`**   | <code>'LIGHT'</code>   | 浅色背景上的深色文本。                                                                                 | 1.0.0  |
+| **`Default`** | <code>'DEFAULT'</code> | 样式基于设备外观。如果设备使用深色模式，状态栏文本将为浅色。如果设备使用浅色模式，状态栏文本将为深色。 | 1.0.0  |
 
 #### Animation
 
-| 成员      | 值                | 描述                                                   | 自版本 |
-| --------- | ----------------- | ------------------------------------------------------ | ----- |
-| **`None`**  | <code>'NONE'</code> | 显示/隐藏时无动画。                                    | 1.0.0 |
-| **`Slide`** | <code>'SLIDE'</code> | 显示/隐藏时使用滑动动画。在 iOS 15+ 上无效。           | 1.0.0 |
-| **`Fade`**  | <code>'FADE'</code> | 显示/隐藏时使用淡入淡出动画。                          | 1.0.0 |
+| 成员        | 值                   | 描述                                         | 自版本 |
+| ----------- | -------------------- | -------------------------------------------- | ------ |
+| **`None`**  | <code>'NONE'</code>  | 显示/隐藏时无动画。                          | 1.0.0  |
+| **`Slide`** | <code>'SLIDE'</code> | 显示/隐藏时使用滑动动画。在 iOS 15+ 上无效。 | 1.0.0  |
+| **`Fade`**  | <code>'FADE'</code>  | 显示/隐藏时使用淡入淡出动画。                | 1.0.0  |
 
 </docgen-api>

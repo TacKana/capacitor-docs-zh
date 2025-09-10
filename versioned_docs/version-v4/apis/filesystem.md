@@ -55,7 +55,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 const writeSecretFile = async () => {
   await Filesystem.writeFile({
     path: 'secrets/text.txt',
-    data: "这是一个测试",
+    data: '这是一个测试',
     directory: Directory.Documents,
     encoding: Encoding.UTF8,
   });
@@ -82,7 +82,7 @@ const readFilePath = async () => {
   // 以下示例展示了如何通过完整文件路径读取文件。这适用于从返回 File URI 的插件（如相机）
   // 读取二进制数据（base64 编码）
   const contents = await Filesystem.readFile({
-    path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt'
+    path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt',
   });
 
   console.log('数据:', contents);
@@ -93,27 +93,26 @@ const readFilePath = async () => {
 
 <docgen-index>
 
-* [`readFile(...)`](#readfile)
-* [`writeFile(...)`](#writefile)
-* [`appendFile(...)`](#appendfile)
-* [`deleteFile(...)`](#deletefile)
-* [`mkdir(...)`](#mkdir)
-* [`rmdir(...)`](#rmdir)
-* [`readdir(...)`](#readdir)
-* [`getUri(...)`](#geturi)
-* [`stat(...)`](#stat)
-* [`rename(...)`](#rename)
-* [`copy(...)`](#copy)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`readFile(...)`](#readfile)
+- [`writeFile(...)`](#writefile)
+- [`appendFile(...)`](#appendfile)
+- [`deleteFile(...)`](#deletefile)
+- [`mkdir(...)`](#mkdir)
+- [`rmdir(...)`](#rmdir)
+- [`readdir(...)`](#readdir)
+- [`getUri(...)`](#geturi)
+- [`stat(...)`](#stat)
+- [`rename(...)`](#rename)
+- [`copy(...)`](#copy)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### readFile(...)
 
@@ -131,8 +130,7 @@ readFile(options: ReadFileOptions) => Promise<ReadFileResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### writeFile(...)
 
@@ -150,8 +148,7 @@ writeFile(options: WriteFileOptions) => Promise<WriteFileResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### appendFile(...)
 
@@ -167,8 +164,7 @@ appendFile(options: AppendFileOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### deleteFile(...)
 
@@ -184,8 +180,7 @@ deleteFile(options: DeleteFileOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### mkdir(...)
 
@@ -201,8 +196,7 @@ mkdir(options: MkdirOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### rmdir(...)
 
@@ -218,8 +212,7 @@ rmdir(options: RmdirOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### readdir(...)
 
@@ -237,8 +230,7 @@ readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### getUri(...)
 
@@ -256,8 +248,7 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### stat(...)
 
@@ -275,8 +266,7 @@ stat(options: StatOptions) => Promise<StatResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### rename(...)
 
@@ -292,8 +282,7 @@ rename(options: RenameOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### copy(...)
 
@@ -311,8 +300,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -328,8 +316,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -345,111 +332,98 @@ requestPermissions() => Promise<PermissionStatus>
 
 **起始版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ReadFileResult
 
-| 属性        | 类型                | 描述                          | 起始版本 |
-| ----------- | ------------------- | ------------------------------ | -------- |
-| **`data`**  | <code>string</code> | 文件中包含数据的字符串表示形式 | 1.0.0    |
-
+| 属性       | 类型                | 描述                           | 起始版本 |
+| ---------- | ------------------- | ------------------------------ | -------- |
+| **`data`** | <code>string</code> | 文件中包含数据的字符串表示形式 | 1.0.0    |
 
 #### ReadFileOptions
 
-| 属性              | 类型                                            | 描述                                                                                                                                                                       | 起始版本 |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| **`path`**        | <code>string</code>                             | 要读取的文件路径                                                                                                                                                          | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 要从中读取文件的 <a href="#directory">`Directory`</a>                                                                                                                     | 1.0.0    |
-| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 读取文件时使用的编码格式，如未提供，则作为二进制数据读取并返回 base64 编码。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串读取                              | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                                                                                                          | 起始版本 |
+| --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **`path`**      | <code>string</code>                             | 要读取的文件路径                                                                                                                              | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 要从中读取文件的 <a href="#directory">`Directory`</a>                                                                                         | 1.0.0    |
+| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 读取文件时使用的编码格式，如未提供，则作为二进制数据读取并返回 base64 编码。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串读取 | 1.0.0    |
 
 #### WriteFileResult
 
-| 属性        | 类型                | 描述                 | 起始版本 |
-| ----------- | ------------------- | --------------------- | -------- |
-| **`uri`**   | <code>string</code> | 文件被写入的 URI 路径 | 1.0.0    |
-
+| 属性      | 类型                | 描述                  | 起始版本 |
+| --------- | ------------------- | --------------------- | -------- |
+| **`uri`** | <code>string</code> | 文件被写入的 URI 路径 | 1.0.0    |
 
 #### WriteFileOptions
 
-| 属性              | 类型                                            | 描述                                                                                                                                                                     | 默认值             | 起始版本 |
-| ----------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
-| **`path`**        | <code>string</code>                             | 要写入的文件路径                                                                                                                                                        |                    | 1.0.0    |
-| **`data`**        | <code>string</code>                             | 要写入的数据                                                                                                                                                            |                    | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                                                         |                    | 1.0.0    |
-| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码格式。如未提供，则作为 base64 编码写入。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串写入                                           |                    | 1.0.0    |
-| **`recursive`**   | <code>boolean</code>                            | 是否创建所有缺失的父目录                                                                                                                                                | <code>false</code> | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                                                                                          | 默认值             | 起始版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| **`path`**      | <code>string</code>                             | 要写入的文件路径                                                                                                              |                    | 1.0.0    |
+| **`data`**      | <code>string</code>                             | 要写入的数据                                                                                                                  |                    | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                               |                    | 1.0.0    |
+| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码格式。如未提供，则作为 base64 编码写入。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串写入 |                    | 1.0.0    |
+| **`recursive`** | <code>boolean</code>                            | 是否创建所有缺失的父目录                                                                                                      | <code>false</code> | 1.0.0    |
 
 #### AppendFileOptions
 
-| 属性              | 类型                                            | 描述                                                                                                                                                                     | 起始版本 |
-| ----------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| **`path`**        | <code>string</code>                             | 要追加内容的文件路径                                                                                                                                                    | 1.0.0    |
-| **`data`**        | <code>string</code>                             | 要追加的数据                                                                                                                                                            | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                                                         | 1.0.0    |
-| **`encoding`**    | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码格式。如未提供，则作为 base64 编码写入。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串写入                                           | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                                                                                          | 起始版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **`path`**      | <code>string</code>                             | 要追加内容的文件路径                                                                                                          | 1.0.0    |
+| **`data`**      | <code>string</code>                             | 要追加的数据                                                                                                                  | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                               | 1.0.0    |
+| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码格式。如未提供，则作为 base64 编码写入。传入 <a href="#encoding">Encoding.UTF8</a> 可将数据作为字符串写入 | 1.0.0    |
 
 #### DeleteFileOptions
 
-| 属性              | 类型                                            | 描述                                      | 起始版本 |
-| ----------------- | ----------------------------------------------- | ----------------------------------------- | -------- |
-| **`path`**        | <code>string</code>                             | 要删除的文件路径                          | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 要从中删除文件的 <a href="#directory">`Directory`</a> | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                  | 起始版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------- | -------- |
+| **`path`**      | <code>string</code>                             | 要删除的文件路径                                      | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 要从中删除文件的 <a href="#directory">`Directory`</a> | 1.0.0    |
 
 #### MkdirOptions
 
-| 属性              | 类型                                            | 描述                                               | 默认值             | 起始版本 |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------- | ------------------ | -------- |
-| **`path`**        | <code>string</code>                             | 新目录的路径                                       |                    | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 创建新目录的 <a href="#directory">`Directory`</a> |                    | 1.0.0    |
-| **`recursive`**   | <code>boolean</code>                            | 是否同时创建所有缺失的父目录                       | <code>false</code> | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                              | 默认值             | 起始版本 |
+| --------------- | ----------------------------------------------- | ------------------------------------------------- | ------------------ | -------- |
+| **`path`**      | <code>string</code>                             | 新目录的路径                                      |                    | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 创建新目录的 <a href="#directory">`Directory`</a> |                    | 1.0.0    |
+| **`recursive`** | <code>boolean</code>                            | 是否同时创建所有缺失的父目录                      | <code>false</code> | 1.0.0    |
 
 #### RmdirOptions
 
-| 属性              | 类型                                            | 描述                                               | 默认值             | 起始版本 |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------- | ------------------ | -------- |
-| **`path`**        | <code>string</code>                             | 要删除的目录路径                                   |                    | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 要从中删除目录的 <a href="#directory">`Directory`</a> |                    | 1.0.0    |
-| **`recursive`**   | <code>boolean</code>                            | 是否递归删除目录内容                               | <code>false</code> | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                  | 默认值             | 起始版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------- | ------------------ | -------- |
+| **`path`**      | <code>string</code>                             | 要删除的目录路径                                      |                    | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 要从中删除目录的 <a href="#directory">`Directory`</a> |                    | 1.0.0    |
+| **`recursive`** | <code>boolean</code>                            | 是否递归删除目录内容                                  | <code>false</code> | 1.0.0    |
 
 #### ReaddirResult
 
-| 属性          | 类型                    | 描述                   | 起始版本 |
-| ------------- | ----------------------- | ----------------------- | -------- |
-| **`files`**   | <code>FileInfo[]</code> | 目录中的文件和目录列表 | 1.0.0    |
-
+| 属性        | 类型                    | 描述                   | 起始版本 |
+| ----------- | ----------------------- | ---------------------- | -------- |
+| **`files`** | <code>FileInfo[]</code> | 目录中的文件和目录列表 | 1.0.0    |
 
 #### FileInfo
 
-| 属性          | 类型                               | 描述                                                                          | 起始版本 |
-| ------------- | ---------------------------------- | ---------------------------------------------------------------------------- | -------- |
-| **`name`**    | <code>string</code>                | 文件或目录名                                                                 |          |
-| **`type`**    | <code>'directory' \| 'file'</code> | 文件类型                                                                     | 4.0.0    |
-| **`size`**    | <code>number</code>                | 文件大小（字节）                                                             | 4.0.0    |
-| **`ctime`**   | <code>number</code>                | 创建时间（毫秒）。在 Android 7 及更早设备上不可用                            | 4.0.0    |
-| **`mtime`**   | <code>number</code>                | 最后修改时间（毫秒）                                                         | 4.0.0    |
-| **`uri`**     | <code>string</code>                | 文件 URI                                                                     | 4.0.0    |
-
+| 属性        | 类型                               | 描述                                              | 起始版本 |
+| ----------- | ---------------------------------- | ------------------------------------------------- | -------- |
+| **`name`**  | <code>string</code>                | 文件或目录名                                      |          |
+| **`type`**  | <code>'directory' \| 'file'</code> | 文件类型                                          | 4.0.0    |
+| **`size`**  | <code>number</code>                | 文件大小（字节）                                  | 4.0.0    |
+| **`ctime`** | <code>number</code>                | 创建时间（毫秒）。在 Android 7 及更早设备上不可用 | 4.0.0    |
+| **`mtime`** | <code>number</code>                | 最后修改时间（毫秒）                              | 4.0.0    |
+| **`uri`**   | <code>string</code>                | 文件 URI                                          | 4.0.0    |
 
 #### ReaddirOptions
 
-| 属性              | 类型                                            | 描述                                                | 起始版本 |
-| ----------------- | ----------------------------------------------- | -------------------------------------------------- | -------- |
-| **`path`**        | <code>string</code>                             | 要读取的目录路径                                    | 1.0.0    |
-| **`directory`**   | <code><a href="#directory">Directory</a></code> | 要从中列出文件的 <a href="#directory">`Directory`</a> | 1.0.0    |
-
+| 属性            | 类型                                            | 描述                                                  | 起始版本 |
+| --------------- | ----------------------------------------------- | ----------------------------------------------------- | -------- |
+| **`path`**      | <code>string</code>                             | 要读取的目录路径                                      | 1.0.0    |
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 要从中列出文件的 <a href="#directory">`Directory`</a> | 1.0.0    |
 
 #### GetUriResult
 
-| 属性        | 类型                | 描述       | 起始版本 |
-| ----------- | ------------------- | ---------- | -------- |
-| **`uri`**   | <code>
+| 属性      | 类型   | 描述 | 起始版本 |
+| --------- | ------ | ---- | -------- |
+| **`uri`** | <code> |

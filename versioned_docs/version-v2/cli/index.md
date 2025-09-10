@@ -4,6 +4,7 @@ description: Capacitor 命令行工具参考手册
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli
+slug: /cli
 ---
 
 # Capacitor CLI 参考指南

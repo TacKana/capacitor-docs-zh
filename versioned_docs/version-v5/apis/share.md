@@ -55,7 +55,7 @@ await Share.share({
 // 分享多个文件（通过files参数）
 const { photos } = await Camera.pickImages(options);
 await Share.share({
-  files: photos.map(photo => photo.path!),
+  files: photos.map((photo) => photo.path!),
 });
 ```
 
@@ -65,9 +65,9 @@ await Share.share({
 
 <docgen-index>
 
-* [`canShare()`](#canshare)
-* [`share(...)`](#share)
-* [接口定义](#interfaces)
+- [`canShare()`](#canshare)
+- [`share(...)`](#share)
+- [接口定义](#interfaces)
 
 </docgen-index>
 
@@ -86,8 +86,7 @@ canShare() => Promise<CanShareResult>
 
 **自版本:** 1.1.0
 
---------------------
-
+---
 
 ### share(...)
 
@@ -105,34 +104,30 @@ share(options: ShareOptions) => Promise<ShareResult>
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口定义
-
+### Interfaces
 
 #### CanShareResult
 
-| 属性         | 类型                 | 描述                       | 自版本 |
-| ----------- | -------------------- | ------------------------- | ----- |
-| **`value`** | <code>boolean</code> | 表示当前设备是否支持分享功能 | 1.1.0 |
-
+| 属性        | 类型                 | 描述                         | 自版本 |
+| ----------- | -------------------- | ---------------------------- | ------ |
+| **`value`** | <code>boolean</code> | 表示当前设备是否支持分享功能 | 1.1.0  |
 
 #### ShareResult
 
-| 属性                | 类型                | 描述                                                                                             | 自版本 |
-| ------------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ----- |
-| **`activityType`**  | <code>string</code> | 接收分享操作的应用标识符，某些情况下可能为空字符串。在Web平台上该值为undefined。                  | 1.0.0 |
-
+| 属性               | 类型                | 描述                                                                             | 自版本 |
+| ------------------ | ------------------- | -------------------------------------------------------------------------------- | ------ |
+| **`activityType`** | <code>string</code> | 接收分享操作的应用标识符，某些情况下可能为空字符串。在Web平台上该值为undefined。 | 1.0.0  |
 
 #### ShareOptions
 
-| 属性               | 类型                  | 描述                                                                                | 自版本 |
-| ----------------- | --------------------- | ---------------------------------------------------------------------------------- | ----- |
-| **`title`**       | <code>string</code>   | 设置消息标题（在邮件分享中作为主题）                                                | 1.0.0 |
-| **`text`**        | <code>string</code>   | 设置要分享的文本内容                                                               | 1.0.0 |
-| **`url`**         | <code>string</code>   | 设置要分享的URL（支持http、https或file://协议）                                    | 1.0.0 |
-| **`files`**       | <code>string[]</code> | 要分享的文件URL数组（file://协议），仅iOS和Android平台支持                         | 4.1.0 |
-| **`dialogTitle`** | <code>string</code>   | 设置分享对话框的标题（仅Android平台支持）                                           | 1.0.0 |
+| 属性              | 类型                  | 描述                                                       | 自版本 |
+| ----------------- | --------------------- | ---------------------------------------------------------- | ------ |
+| **`title`**       | <code>string</code>   | 设置消息标题（在邮件分享中作为主题）                       | 1.0.0  |
+| **`text`**        | <code>string</code>   | 设置要分享的文本内容                                       | 1.0.0  |
+| **`url`**         | <code>string</code>   | 设置要分享的URL（支持http、https或file://协议）            | 1.0.0  |
+| **`files`**       | <code>string[]</code> | 要分享的文件URL数组（file://协议），仅iOS和Android平台支持 | 4.1.0  |
+| **`dialogTitle`** | <code>string</code>   | 设置分享对话框的标题（仅Android平台支持）                  | 1.0.0  |
 
 </docgen-api>

@@ -141,7 +141,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### OpenOptions

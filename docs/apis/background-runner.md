@@ -34,6 +34,7 @@ npx cap sync
 启用后台模式能力后，将以下内容添加到您的应用程序的 `AppDelegate.swift` 中：
 
 在文件顶部，`import Capacitor` 下方添加：
+
 ```swift
 import CapacitorBackgroundRunner
 ```
@@ -124,6 +125,7 @@ Android 13 需要权限检查才能发送通知。您需要相应地调用 `chec
 阅读 [Android 指南](https://capacitorjs.com/docs/android) 中的 [设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions) 部分，了解更多关于设置 Android 权限的信息。
 
 ## 关于后台运行器
+
 在构建复杂应用程序的过程中，有时需要在应用程序不在前台时执行工作。标准 Capacitor 应用程序的挑战在于，当这些后台事件发生时，WebView 不可用，需要您编写原生代码来处理这些事件。这就是后台运行器插件的用武之地。
 
 后台运行器使编写 JavaScript 代码来处理原生后台事件变得容易。您只需要创建运行器 JavaScript 文件并 [定义您的配置](#configuring-background-runner)，然后后台运行器插件将自动配置和调度一个原生后台任务，该任务将根据您的配置和平台规则执行。无需修改您的 UI 代码。
@@ -184,14 +186,14 @@ addEventListener('remoteNotification', (resolve, reject, args) => {
 
 加载时，后台运行器将自动注册一个后台任务，该任务将在您的应用程序进入后台时被调度和执行。
 
-| 属性            | 类型                  | 描述                                                                                                                                                                                          | 始于 |
-| --------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`label`**     | <code>string</code>   | 运行器的名称，用于日志记录。                                                                                                                                                                | 1.0.0 |
-| **`src`**       | <code>string</code>   | 运行器 JavaScript 文件的路径，相对于应用程序包。                                                                                                                                            | 1.0.0 |
-| **`event`**     | <code>string</code>   | 当操作系统执行后台任务时将调用的事件的名称。                                                                                                                  | 1.0.0 |
-| **`repeat`**    | <code>boolean</code>  | 后台任务是否应根据 `interval` 中设置的间隔重复执行。                                                                                                                            | 1.0.0 |
-| **`interval`**  | <code>number</code>   | 应用程序进入后台后，后台任务应开始执行的分钟数。如果 `repeat` 为 true，则此值也指定每次执行之间的分钟数。 | 1.0.0 |
-| **`autoStart`** | <code>boolean</code>  | 在应用程序加载时自动注册和调度后台任务。                                                                                                                                     | 1.0.0 |
+| 属性            | 类型                 | 描述                                                                                                      | 始于  |
+| --------------- | -------------------- | --------------------------------------------------------------------------------------------------------- | ----- |
+| **`label`**     | <code>string</code>  | 运行器的名称，用于日志记录。                                                                              | 1.0.0 |
+| **`src`**       | <code>string</code>  | 运行器 JavaScript 文件的路径，相对于应用程序包。                                                          | 1.0.0 |
+| **`event`**     | <code>string</code>  | 当操作系统执行后台任务时将调用的事件的名称。                                                              | 1.0.0 |
+| **`repeat`**    | <code>boolean</code> | 后台任务是否应根据 `interval` 中设置的间隔重复执行。                                                      | 1.0.0 |
+| **`interval`**  | <code>number</code>  | 应用程序进入后台后，后台任务应开始执行的分钟数。如果 `repeat` 为 true，则此值也指定每次执行之间的分钟数。 | 1.0.0 |
+| **`autoStart`** | <code>boolean</code> | 在应用程序加载时自动注册和调度后台任务。                                                                  | 1.0.0 |
 
 ### 示例
 
@@ -222,9 +224,9 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   plugins: {
     BackgroundRunner: {
-      label: "com.example.background.task",
-      src: "runners/background.js",
-      event: "myCustomEvent",
+      label: 'com.example.background.task',
+      src: 'runners/background.js',
+      event: 'myCustomEvent',
       repeat: true,
       interval: 15,
       autoStart: true,
@@ -291,11 +293,11 @@ export default config;
 
 <docgen-index>
 
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions(...)`](#requestpermissions)
-* [`dispatchEvent(...)`](#dispatchevent)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions(...)`](#requestpermissions)
+- [`dispatchEvent(...)`](#dispatchevent)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -314,8 +316,7 @@ checkPermissions() => any
 
 **始于：** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions(...)
 
@@ -333,8 +334,7 @@ requestPermissions(options: RequestPermissionOptions) => any
 
 **始于：** 1.0.0
 
---------------------
-
+---
 
 ### dispatchEvent(...)
 
@@ -352,11 +352,9 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 **始于：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### PermissionStatus
 
@@ -365,30 +363,25 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`geolocation`**   | <code><a href="#permissionstate">PermissionState</a></code> |
 | **`notifications`** | <code><a href="#permissionstate">PermissionState</a></code> |
 
-
 #### RequestPermissionOptions
 
 | 属性       | 类型            |
 | ---------- | --------------- |
 | **`apis`** | <code>{}</code> |
 
-
 #### DispatchEventOptions
 
-| 属性          | 类型                                 | 描述                                | 始于 |
-| ------------- | ------------------------------------ | ------------------------------------------ | ----- |
-| **`label`**   | <code>string</code>                  | 要分发事件到的运行器标签  | 1.0.0 |
+| 属性          | 类型                                 | 描述                     | 始于  |
+| ------------- | ------------------------------------ | ------------------------ | ----- |
+| **`label`**   | <code>string</code>                  | 要分发事件到的运行器标签 | 1.0.0 |
 | **`event`**   | <code>string</code>                  | 注册的事件监听器的名称。 | 1.0.0 |
-| **`details`** | <code>{ [key: string]: any; }</code> |                                            |       |
+| **`details`** | <code>{ [key: string]: any; }</code> |                          |       |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
 
 #### API
 
@@ -402,18 +395,16 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### 接口
-
+### Interfaces
 
 #### CapacitorDevice
 
 获取设备信息，例如网络连接和电池状态。
 
-| 属性                   | 类型                                                             | 描述                                    | 始于 |
-| ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | ----- |
+| 属性                   | 类型                                                             | 描述                     | 始于  |
+| ---------------------- | ---------------------------------------------------------------- | ------------------------ | ----- |
 | **`getBatteryStatus`** | <code>() =&gt; <a href="#batterystatus">BatteryStatus</a></code> | 获取设备的当前电池状态。 | 1.0.0 |
 | **`getNetworkStatus`** | <code>() =&gt; <a href="#networkstatus">NetworkStatus</a></code> | 获取设备的当前网络状态。 | 1.0.0 |
-
 
 #### BatteryStatus
 
@@ -422,7 +413,6 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`batteryLevel`** | <code>number</code>  |
 | **`isCharging`**   | <code>boolean</code> |
 
-
 #### NetworkStatus
 
 | 属性                 | 类型                 |
@@ -430,83 +420,76 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`connected`**      | <code>boolean</code> |
 | **`connectionType`** | <code>string</code>  |
 
-
 #### CapacitorKV
 
 一个简单的字符串键/值存储，由 iOS 上的 UserDefaults 和 Android 上的 Shared Preferences 支持。
 
-| 属性         | 类型                                                 | 描述                            | 始于 |
-| ------------ | ---------------------------------------------------- | -------------------------------------- | ----- |
+| 属性         | 类型                                                 | 描述                     | 始于  |
+| ------------ | ---------------------------------------------------- | ------------------------ | ----- |
 | **`set`**    | <code>(key: string, value: string) =&gt; void</code> | 使用给定键设置字符串值。 | 1.0.0 |
-| **`get`**    | <code>(key: string) =&gt; { value: string; }</code>  | 获取给定键的字符串值。  | 1.0.0 |
-| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。     | 1.0.0 |
-
+| **`get`**    | <code>(key: string) =&gt; { value: string; }</code>  | 获取给定键的字符串值。   | 1.0.0 |
+| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。         | 1.0.0 |
 
 #### CapacitorNotifications
 
 发送基本的本地通知。
 
-| 属性             | 类型                                                                                                | 描述                        | 始于 |
-| ---------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------- | ----- |
-| **`schedule`**   | <code>(options: {}) =&gt; void</code>                                                               | 调度本地通知      | 1.0.0 |
-| **`setBadge`**   | <code>(options: <a href="#notificationbadgeoptions">NotificationBadgeOptions</a>) =&gt; void</code> | 设置应用程序徽章计数    | 2.0.0 |
+| 属性             | 类型                                                                                                | 描述                 | 始于  |
+| ---------------- | --------------------------------------------------------------------------------------------------- | -------------------- | ----- |
+| **`schedule`**   | <code>(options: {}) =&gt; void</code>                                                               | 调度本地通知         | 1.0.0 |
+| **`setBadge`**   | <code>(options: <a href="#notificationbadgeoptions">NotificationBadgeOptions</a>) =&gt; void</code> | 设置应用程序徽章计数 | 2.0.0 |
 | **`clearBadge`** | <code>() =&gt; void</code>                                                                          | 清除应用程序徽章计数 | 2.0.0 |
-
 
 #### NotificationScheduleOptions
 
-| 属性                   | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 始于 |
-| ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**               | <code>number</code>  | 通知标识符。在 Android 上，它是一个 32 位整数。因此，值应在 -2147483648 和 2147483647 之间（包含）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
-| **`title`**            | <code>string</code>  | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
-| **`body`**             | <code>string</code>  | 通知的正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
-| **`scheduleAt`**       | <code>Date</code>    | 发送此通知的日期。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
+| 属性                   | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                              | 始于  |
+| ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`id`**               | <code>number</code>  | 通知标识符。在 Android 上，它是一个 32 位整数。因此，值应在 -2147483648 和 2147483647 之间（包含）。                                                                                                                                                                                                                                                                                              | 1.0.0 |
+| **`title`**            | <code>string</code>  | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
+| **`body`**             | <code>string</code>  | 通知的正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
+| **`scheduleAt`**       | <code>Date</code>    | 发送此通知的日期。                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
 | **`sound`**            | <code>string</code>  | 显示此通知时播放的音频文件名。包含文件扩展名。在 iOS 上，文件应在应用程序包中。在 Android 上，文件应在 res/raw 文件夹中。推荐的格式是 `.wav`，因为它受 iOS 和 Android 支持。仅适用于 iOS 和 Android &lt; 26。对于 Android 26+，使用配置了所需声音的 channelId。如果找不到声音文件（例如空字符串或错误名称），将使用默认系统通知声音。如果未提供，在 Android 上会产生默认声音，在 iOS 上则无声音。 | 1.0.0 |
-| **`actionTypeId`**     | <code>string</code>  | 与此通知关联的操作类型。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
-| **`threadIdentifier`** | <code>string</code>  | 用于分组多个通知。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `threadIdentifier`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
-| **`summaryArgument`**  | <code>string</code>  | 此通知添加到类别摘要格式字符串中的字符串。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `summaryArgument`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                    | 1.0.0 |
-| **`group`**            | <code>string</code>  | 用于分组多个通知。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroup()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
-| **`groupSummary`**     | <code>string</code>  | 如果为 true，此通知将成为一组通知的摘要。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroupSummary()`。仅在使用 `group` 时适用于 Android。                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`extra`**            | <code>any</code>     | 设置存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`ongoing`**          | <code>boolean</code> | 如果为 true，通知无法被滑走。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setOngoing()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`autoCancel`**       | <code>boolean</code> | 如果为 true，当用户点击通知时，通知会被取消。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setAutoCancel()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`largeBody`**        | <code>string</code>  | 设置在大文本通知样式中显示的多行文本块。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
-| **`summaryText`**      | <code>string</code>  | 用于在收件箱和大文本通知样式中设置摘要文本详细信息。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
-| **`smallIcon`**        | <code>string</code>  | 设置自定义状态栏图标。如果设置，此选项将覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放在应用程序的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-| **`largeIcon`**        | <code>string</code>  | 设置通知的大图标。图标应放在应用程序的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
-| **`channelId`**        | <code>string</code>  | 指定通知应传递到的频道。如果具有给定名称的频道不存在，则通知不会触发。如果未提供，将使用默认频道。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setChannelId()`。仅适用于 Android 26+。                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-
+| **`actionTypeId`**     | <code>string</code>  | 与此通知关联的操作类型。                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
+| **`threadIdentifier`** | <code>string</code>  | 用于分组多个通知。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `threadIdentifier`。仅适用于 iOS。                                                                                                                                                                                                         | 1.0.0 |
+| **`summaryArgument`**  | <code>string</code>  | 此通知添加到类别摘要格式字符串中的字符串。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `summaryArgument`。仅适用于 iOS。                                                                                                                                                                                  | 1.0.0 |
+| **`group`**            | <code>string</code>  | 用于分组多个通知。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroup()`。仅适用于 Android。                                                                                                                                                                                                     | 1.0.0 |
+| **`groupSummary`**     | <code>string</code>  | 如果为 true，此通知将成为一组通知的摘要。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroupSummary()`。仅在使用 `group` 时适用于 Android。                                                                                                                                                      | 1.0.0 |
+| **`extra`**            | <code>any</code>     | 设置存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                    | 1.0.0 |
+| **`ongoing`**          | <code>boolean</code> | 如果为 true，通知无法被滑走。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setOngoing()`。仅适用于 Android。                                                                                                                                                                                        | 1.0.0 |
+| **`autoCancel`**       | <code>boolean</code> | 如果为 true，当用户点击通知时，通知会被取消。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setAutoCancel()`。仅适用于 Android。                                                                                                                                                                     | 1.0.0 |
+| **`largeBody`**        | <code>string</code>  | 设置在大文本通知样式中显示的多行文本块。                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
+| **`summaryText`**      | <code>string</code>  | 用于在收件箱和大文本通知样式中设置摘要文本详细信息。仅适用于 Android。                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
+| **`smallIcon`**        | <code>string</code>  | 设置自定义状态栏图标。如果设置，此选项将覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放在应用程序的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                             | 1.0.0 |
+| **`largeIcon`**        | <code>string</code>  | 设置通知的大图标。图标应放在应用程序的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                                                                                                                                                                                                             | 1.0.0 |
+| **`channelId`**        | <code>string</code>  | 指定通知应传递到的频道。如果具有给定名称的频道不存在，则通知不会触发。如果未提供，将使用默认频道。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setChannelId()`。仅适用于 Android 26+。                                                                                                             | 1.0.0 |
 
 #### NotificationBadgeOptions
 
-| 属性                       | 类型                | 描述                                                                           | 始于 |
-| -------------------------- | ------------------- | ------------------------------------------------------------------------------------- | ----- |
-| **`count`**                | <code>number</code> | 要在应用程序徽章上设置的数字。                                     | 2.0.0 |
+| 属性                       | 类型                | 描述                                                 | 始于  |
+| -------------------------- | ------------------- | ---------------------------------------------------- | ----- |
+| **`count`**                | <code>number</code> | 要在应用程序徽章上设置的数字。                       | 2.0.0 |
 | **`notificationTitle`**    | <code>string</code> | 关联徽章计数通知的 **必需** 标题。仅适用于 Android。 | 2.0.0 |
-| **`notificationSubtitle`** | <code>string</code> | 关联徽章计数通知的副标题。仅适用于 Android。           | 2.0.0 |
-
+| **`notificationSubtitle`** | <code>string</code> | 关联徽章计数通知的副标题。仅适用于 Android。         | 2.0.0 |
 
 #### CapacitorGeolocation
 
 获取设备位置信息。
 
-| 属性                     | 类型                                                                                   | 描述                          | 始于 |
-| ------------------------ | -------------------------------------------------------------------------------------- | ------------------------------------ | ----- |
+| 属性                     | 类型                                                                                   | 描述                   | 始于  |
+| ------------------------ | -------------------------------------------------------------------------------------- | ---------------------- | ----- |
 | **`getCurrentPosition`** | <code>() =&gt; <a href="#getcurrentpositionresult">GetCurrentPositionResult</a></code> | 获取设备最后已知的位置 | 1.0.0 |
-
 
 #### GetCurrentPositionResult
 
-| 属性                   | 类型                        | 描述                                                                                                           | 始于 |
-| ---------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`latitude`**         | <code>number</code>         | 十进制度的纬度                                                                                           | 1.0.0 |
-| **`longitude`**        | <code>number</code>         | 十进制度的经度                                                                                          | 1.0.0 |
-| **`accuracy`**         | <code>number</code>         | 经纬度坐标的精度级别，以米为单位                                                    | 1.0.0 |
-| **`altitude`**         | <code>number \| null</code> | 用户所在的海拔高度（如果可用）                                                                            | 1.0.0 |
+| 属性                   | 类型                        | 描述                                                                           | 始于  |
+| ---------------------- | --------------------------- | ------------------------------------------------------------------------------ | ----- |
+| **`latitude`**         | <code>number</code>         | 十进制度的纬度                                                                 | 1.0.0 |
+| **`longitude`**        | <code>number</code>         | 十进制度的经度                                                                 | 1.0.0 |
+| **`accuracy`**         | <code>number</code>         | 经纬度坐标的精度级别，以米为单位                                               | 1.0.0 |
+| **`altitude`**         | <code>number \| null</code> | 用户所在的海拔高度（如果可用）                                                 | 1.0.0 |
 | **`altitudeAccuracy`** | <code>number \| null</code> | 海拔坐标的精度级别，以米为单位，如果可用。适用于所有 iOS 版本和 Android 8.0+。 | 1.0.0 |
-| **`speed`**            | <code>number \| null</code> | 用户的移动速度（如果可用）                                                                        | 1.0.0 |
-| **`heading`**          | <code>number \| null</code> | 用户面对的方向（如果可用）                                                                         | 1.0.0 |
-
+| **`speed`**            | <code>number \| null</code> | 用户的移动速度（如果可用）                                                     | 1.0.0 |
+| **`heading`**          | <code>number \| null</code> | 用户面对的方向（如果可用）                                                     | 1.0.0 |
 
 #### CapacitorWatch
 
@@ -515,15 +498,14 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 sendMessage、transferUserInfo 和 updateApplicationContext 是 WCSession 委托方法的原始路由，但在 <a href="#capacitorwatch">CapacitorWatch</a> Watch 应用程序中目前没有效果。
 如果开发了本地 watch 应用作为 Capacitor 应用的伴侣应用，则可以使用它们。
 
-| 属性                           | 类型                                                                     | 描述                                                                                                                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`sendMessage`**              | <code>(options: []) =&gt; void</code>                                    | 使用 sendMessage() WCSession 委托方法向 watch 发送消息。这对 <a href="#capacitorwatch">CapacitorWatch</a> watch 应用没有影响                              |
-| **`transferUserInfo`**         | <code>(options: []) =&gt; void</code>                                    | 使用 transferUserInfo() WCSession 委托方法向 watch 发送信息。这对 <a href="#capacitorwatch">CapacitorWatch</a> watch 应用没有影响                       |
+| 属性                           | 类型                                                                     | 描述                                                                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`sendMessage`**              | <code>(options: []) =&gt; void</code>                                    | 使用 sendMessage() WCSession 委托方法向 watch 发送消息。这对 <a href="#capacitorwatch">CapacitorWatch</a> watch 应用没有影响                          |
+| **`transferUserInfo`**         | <code>(options: []) =&gt; void</code>                                    | 使用 transferUserInfo() WCSession 委托方法向 watch 发送信息。这对 <a href="#capacitorwatch">CapacitorWatch</a> watch 应用没有影响                     |
 | **`updateApplicationContext`** | <code>(options: []) =&gt; void</code>                                    | 使用 updateApplicationContext() WCSession 委托方法更新 watch 上的应用程序上下文。这对 <a href="#capacitorwatch">CapacitorWatch</a> watch 应用没有影响 |
-| **`isReachable`**              | <code>boolean</code>                                                     | 检查伴侣 watch 是否可达                                                                                                                                          |
-| **`updateWatchUI`**            | <code>(options: { watchUI: string; }) =&gt; void</code>                  | 使用此处指定的内容替换 watch 上的当前 UI。                                                                                                                         |
-| **`updateWatchData`**          | <code>(options: { data: { [key: string]: string; }; }) =&gt; void</code> | 更新 watch 用于在文本和按钮字段中显示变量的数据                                                                                                        |
-
+| **`isReachable`**              | <code>boolean</code>                                                     | 检查伴侣 watch 是否可达                                                                                                                               |
+| **`updateWatchUI`**            | <code>(options: { watchUI: string; }) =&gt; void</code>                  | 使用此处指定的内容替换 watch 上的当前 UI。                                                                                                            |
+| **`updateWatchData`**          | <code>(options: { data: { [key: string]: string; }; }) =&gt; void</code> | 更新 watch 用于在文本和按钮字段中显示变量的数据                                                                                                       |
 
 #### CapacitorApp
 
@@ -532,22 +514,19 @@ sendMessage、transferUserInfo 和 updateApplicationContext 是 WCSession 委托
 | **`getState`** | <code>() =&gt; <a href="#appstate">AppState</a></code> |
 | **`getInfo`**  | <code>() =&gt; <a href="#appinfo">AppInfo</a></code>   |
 
-
 #### AppState
 
-| 属性           | 类型                 | 描述                       | 始于 |
-| -------------- | -------------------- | --------------------------------- | ----- |
+| 属性           | 类型                 | 描述                       | 始于  |
+| -------------- | -------------------- | -------------------------- | ----- |
 | **`isActive`** | <code>boolean</code> | 应用程序是否处于活动状态。 | 1.0.0 |
-
 
 #### AppInfo
 
-| 属性          | 类型                | 描述                                                                                         | 始于 |
-| ------------- | ------------------- | --------------------------------------------------------------------------------------------------- | ----- |
-| **`name`**    | <code>string</code> | 应用程序的名称。                                                                                | 1.0.0 |
-| **`id`**      | <code>string</code> | 应用程序的标识符。在 iOS 上是 Bundle Identifier。在 Android 上是 Application ID    | 1.0.0 |
-| **`build`**   | <code>string</code> | 构建版本。在 iOS 上是 CFBundleVersion。在 Android 上是 versionCode。                | 1.0.0 |
+| 属性          | 类型                | 描述                                                                                           | 始于  |
+| ------------- | ------------------- | ---------------------------------------------------------------------------------------------- | ----- |
+| **`name`**    | <code>string</code> | 应用程序的名称。                                                                               | 1.0.0 |
+| **`id`**      | <code>string</code> | 应用程序的标识符。在 iOS 上是 Bundle Identifier。在 Android 上是 Application ID                | 1.0.0 |
+| **`build`**   | <code>string</code> | 构建版本。在 iOS 上是 CFBundleVersion。在 Android 上是 versionCode。                           | 1.0.0 |
 | **`version`** | <code>string</code> | 应用程序版本。在 iOS 上是 CFBundleShortVersionString。在 Android 上是 package 的 versionName。 | 1.0.0 |
-
 
 </capacitor-api-docs>

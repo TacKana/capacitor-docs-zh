@@ -14,9 +14,9 @@ Capacitor Cookies API 通过重写 `document.cookie` 来使用原生库，提供
 
 默认情况下，使用原生库重写 `document.cookie` 的功能是禁用的。如需启用该功能，请在 `capacitor.config` 文件中修改以下配置。
 
-| 属性           | 类型                  | 描述                                                                 | 默认值              |
-| -------------- | --------------------- | ------------------------------------------------------------------- | ------------------ |
-| **`enabled`**  | <code>boolean</code>  | 启用使用原生库替代 `document.cookie` 的功能                          | <code>false</code> |
+| 属性          | 类型                 | 描述                                        | 默认值             |
+| ------------- | -------------------- | ------------------------------------------- | ------------------ |
+| **`enabled`** | <code>boolean</code> | 启用使用原生库替代 `document.cookie` 的功能 | <code>false</code> |
 
 ### 配置示例
 
@@ -104,13 +104,13 @@ const clearAllCookies = async () => {
 
 <docgen-index>
 
-* [`getCookies(...)`](#getcookies)
-* [`setCookie(...)`](#setcookie)
-* [`deleteCookie(...)`](#deletecookie)
-* [`clearCookies(...)`](#clearcookies)
-* [`clearAllCookies()`](#clearallcookies)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`getCookies(...)`](#getcookies)
+- [`setCookie(...)`](#setcookie)
+- [`deleteCookie(...)`](#deletecookie)
+- [`clearCookies(...)`](#clearcookies)
+- [`clearAllCookies()`](#clearallcookies)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -129,8 +129,7 @@ getCookies(options?: GetCookieOptions) => Promise<HttpCookieMap>
 
 **返回值:** <code>Promise&lt;<a href="#httpcookiemap">HttpCookieMap</a>&gt;</code>
 
---------------------
-
+---
 
 ### setCookie(...)
 
@@ -144,8 +143,7 @@ setCookie(options: SetCookieOptions) => Promise<void>
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#setcookieoptions">SetCookieOptions</a></code> |
 
---------------------
-
+---
 
 ### deleteCookie(...)
 
@@ -159,8 +157,7 @@ deleteCookie(options: DeleteCookieOptions) => Promise<void>
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecookieoptions">DeleteCookieOptions</a></code> |
 
---------------------
-
+---
 
 ### clearCookies(...)
 
@@ -174,8 +171,7 @@ clearCookies(options: ClearCookieOptions) => Promise<void>
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearcookieoptions">ClearCookieOptions</a></code> |
 
---------------------
-
+---
 
 ### clearAllCookies()
 
@@ -185,53 +181,50 @@ clearAllCookies() => Promise<void>
 
 清除设备上所有 Cookie。
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### HttpCookieMap
 
-
 #### HttpCookie
 
-| 属性          | 类型                | 描述                  |
-| ------------- | ------------------- | -------------------- |
-| **`url`**     | <code>string</code> | Cookie 的 URL        |
-| **`key`**     | <code>string</code> | Cookie 的键名        |
-| **`value`**   | <code>string</code> | Cookie 的值          |
-
+| 属性        | 类型                | 描述          |
+| ----------- | ------------------- | ------------- |
+| **`url`**   | <code>string</code> | Cookie 的 URL |
+| **`key`**   | <code>string</code> | Cookie 的键名 |
+| **`value`** | <code>string</code> | Cookie 的值   |
 
 #### HttpCookieExtras
 
-| 属性            | 类型                | 描述                      |
-| --------------- | ------------------- | ------------------------ |
-| **`path`**      | <code>string</code> | Cookie 的写入路径        |
-| **`expires`**   | <code>string</code> | Cookie 的过期日期        |
+| 属性          | 类型                | 描述              |
+| ------------- | ------------------- | ----------------- |
+| **`path`**    | <code>string</code> | Cookie 的写入路径 |
+| **`expires`** | <code>string</code> | Cookie 的过期日期 |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### GetCookieOptions
 
-<code><a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'key' | 'value'&gt;</code>
-
+<code>
+  <a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'key' | 'value'&gt;
+</code>
 
 #### Omit
 
 构造一个类型，该类型从 T 中排除了 K 中的属性。
 
-<code><a href="#pick">Pick</a>&lt;T, <a href="#exclude">Exclude</a>&lt;keyof T, K&gt;&gt;</code>
-
+<code>
+  <a href="#pick">Pick</a>&lt;T, <a href="#exclude">Exclude</a>&lt;keyof T, K&gt;&gt;
+</code>
 
 #### Pick
 
 从 T 中选取一组键在联合类型 K 中的属性
 
-<code>{ [P in K]: T[P]; }</code>
-
+<code>{
+ [P in K]: T[P];
+ }</code>
 
 #### Exclude
 
@@ -239,19 +232,22 @@ clearAllCookies() => Promise<void>
 
 <code>T extends U ? never : T</code>
 
-
 #### SetCookieOptions
 
-<code><a href="#httpcookie">HttpCookie</a> & <a href="#httpcookieextras">HttpCookieExtras</a></code>
-
+<code>
+  <a href="#httpcookie">HttpCookie</a> & <a href="#httpcookieextras">HttpCookieExtras</a>
+</code>
 
 #### DeleteCookieOptions
 
-<code><a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'value'&gt;</code>
-
+<code>
+  <a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'value'&gt;
+</code>
 
 #### ClearCookieOptions
 
-<code><a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'key' | 'value'&gt;</code>
+<code>
+  <a href="#omit">Omit</a>&lt;<a href="#httpcookie">HttpCookie</a>, 'key' | 'value'&gt;
+</code>
 
 </docgen-api>

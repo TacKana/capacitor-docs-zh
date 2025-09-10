@@ -37,8 +37,8 @@ const showHelloToast = async () => {
 
 <docgen-index>
 
-* [`show(...)`](#show)
-* [接口](#interfaces)
+- [`show(...)`](#show)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -59,18 +59,16 @@ show(options: ShowOptions) => Promise<void>
 
 **自从：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ShowOptions
 
-| 属性             | 类型                                       | 描述                                                                        | 默认值               | 自从   |
-| -------------- | ------------------------------------------ | ---------------------------------------------------------------------------------- | --------------------- | ----- |
-| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                                       |                       | 1.0.0 |
-| **`duration`** | <code>'short' \| 'long'</code>             | Toast 的持续时间，可选 'short' (2000毫秒) 或 'long' (3500毫秒)                  | <code>'short'</code>  | 1.0.0 |
+| 属性           | 类型                                       | 描述                                                                | 默认值                | 自从  |
+| -------------- | ------------------------------------------ | ------------------------------------------------------------------- | --------------------- | ----- |
+| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                             |                       | 1.0.0 |
+| **`duration`** | <code>'short' \| 'long'</code>             | Toast 的持续时间，可选 'short' (2000毫秒) 或 'long' (3500毫秒)      | <code>'short'</code>  | 1.0.0 |
 | **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 的位置。在 Android 12 及更新版本中，所有 Toast 都显示在底部。 | <code>'bottom'</code> | 1.0.0 |
 
 </docgen-api>

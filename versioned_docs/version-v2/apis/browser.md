@@ -111,16 +111,16 @@ removeAllListeners() => void
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### BrowserOpenOptions
 
-| 属性                    | 类型                                   | 描述                                                                                                    |
-| ----------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **`url`**               | <code>string</code>                    | 要打开的浏览器URL地址                                                                                 |
+| 属性                    | 类型                                   | 描述                                                                        |
+| ----------------------- | -------------------------------------- | --------------------------------------------------------------------------- |
+| **`url`**               | <code>string</code>                    | 要打开的浏览器URL地址                                                       |
 | **`windowName`**        | <code>string</code>                    | 仅限Web端：可选浏览器打开目标。遵循window.open的`target`属性。默认为\_blank |
-| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的16进制色值                                                                       |
-| **`presentationStyle`** | <code>"fullscreen" \| "popover"</code> | 仅限iOS端：浏览器展示样式。默认为全屏(fullscreen)                                       |
+| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的16进制色值                                                  |
+| **`presentationStyle`** | <code>"fullscreen" \| "popover"</code> | 仅限iOS端：浏览器展示样式。默认为全屏(fullscreen)                           |
 
 #### BrowserPrefetchOptions
 

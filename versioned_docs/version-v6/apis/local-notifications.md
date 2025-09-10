@@ -18,6 +18,7 @@ npx cap sync
 ```
 
 ## Android
+
 Android 13 需要权限检查才能发送通知。您需要相应调用 `checkPermissions()` 和 `requestPermissions()`。
 
 在 Android 12 及更早版本上，不会显示提示，只会返回已授权状态。
@@ -39,10 +40,10 @@ Android 13 需要权限检查才能发送通知。您需要相应调用 `checkPe
 
 在 Android 上，Local Notifications 可以使用以下选项进行配置：
 
-| 属性            | 类型                | 描述                                                                                                                                                                                                                                                                                                                  | 版本 |
-| --------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`smallIcon`** | <code>string</code> | 设置通知的默认状态栏图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                                         | 1.0.0 |
-| **`iconColor`** | <code>string</code> | 设置通知状态栏图标的默认颜色。仅在 Android 上可用。                                                                                                                                                                                                                                     | 1.0.0 |
+| 属性            | 类型                | 描述                                                                                                                                                                                                     | 版本  |
+| --------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`smallIcon`** | <code>string</code> | 设置通知的默认状态栏图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                           | 1.0.0 |
+| **`iconColor`** | <code>string</code> | 设置通知状态栏图标的默认颜色。仅在 Android 上可用。                                                                                                                                                      | 1.0.0 |
 | **`sound`**     | <code>string</code> | 设置通知的默认通知声音。在 Android 26+ 上，它设置默认通道声音且除非卸载应用否则无法更改。如果找不到音频文件，则在 Android 21-25 上会播放默认系统声音，而在 Android 26+ 上则无声音。仅在 Android 上可用。 | 1.0.0 |
 
 ### 示例
@@ -71,9 +72,9 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   plugins: {
     LocalNotifications: {
-      smallIcon: "ic_stat_icon_config_sample",
-      iconColor: "#488AFF",
-      sound: "beep.wav",
+      smallIcon: 'ic_stat_icon_config_sample',
+      iconColor: '#488AFF',
+      sound: 'beep.wav',
     },
   },
 };
@@ -91,27 +92,27 @@ export default config;
 
 <docgen-index>
 
-* [`schedule(...)`](#schedule)
-* [`getPending()`](#getpending)
-* [`registerActionTypes(...)`](#registeractiontypes)
-* [`cancel(...)`](#cancel)
-* [`areEnabled()`](#areenabled)
-* [`getDeliveredNotifications()`](#getdeliverednotifications)
-* [`removeDeliveredNotifications(...)`](#removedeliverednotifications)
-* [`removeAllDeliveredNotifications()`](#removealldeliverednotifications)
-* [`createChannel(...)`](#createchannel)
-* [`deleteChannel(...)`](#deletechannel)
-* [`listChannels()`](#listchannels)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions()`](#requestpermissions)
-* [`changeExactNotificationSetting()`](#changeexactnotificationsetting)
-* [`checkExactNotificationSetting()`](#checkexactnotificationsetting)
-* [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
-* [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`schedule(...)`](#schedule)
+- [`getPending()`](#getpending)
+- [`registerActionTypes(...)`](#registeractiontypes)
+- [`cancel(...)`](#cancel)
+- [`areEnabled()`](#areenabled)
+- [`getDeliveredNotifications()`](#getdeliverednotifications)
+- [`removeDeliveredNotifications(...)`](#removedeliverednotifications)
+- [`removeAllDeliveredNotifications()`](#removealldeliverednotifications)
+- [`createChannel(...)`](#createchannel)
+- [`deleteChannel(...)`](#deletechannel)
+- [`listChannels()`](#listchannels)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions()`](#requestpermissions)
+- [`changeExactNotificationSetting()`](#changeexactnotificationsetting)
+- [`checkExactNotificationSetting()`](#checkexactnotificationsetting)
+- [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
+- [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -126,7 +127,7 @@ schedule(options: ScheduleOptions) => Promise<ScheduleResult>
 
 <a href="#schedule">调度</a>一个或多个本地通知。
 
-| 参数         | 类型                                                        |
+| 参数          | 类型                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#scheduleoptions">ScheduleOptions</a></code> |
 
@@ -134,8 +135,7 @@ schedule(options: ScheduleOptions) => Promise<ScheduleResult>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### getPending()
 
@@ -149,8 +149,7 @@ getPending() => Promise<PendingResult>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### registerActionTypes(...)
 
@@ -162,14 +161,13 @@ registerActionTypes(options: RegisterActionTypesOptions) => Promise<void>
 
 仅在 iOS 和 Android 上可用。
 
-| 参数         | 类型                                                                              |
+| 参数          | 类型                                                                              |
 | ------------- | --------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#registeractiontypesoptions">RegisterActionTypesOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### cancel(...)
 
@@ -179,14 +177,13 @@ cancel(options: CancelOptions) => Promise<void>
 
 取消待处理通知。
 
-| 参数         | 类型                                                    |
+| 参数          | 类型                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#canceloptions">CancelOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### areEnabled()
 
@@ -200,8 +197,7 @@ areEnabled() => Promise<EnabledResult>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### getDeliveredNotifications()
 
@@ -215,8 +211,7 @@ getDeliveredNotifications() => Promise<DeliveredNotifications>
 
 **版本：** 4.0.0
 
---------------------
-
+---
 
 ### removeDeliveredNotifications(...)
 
@@ -226,14 +221,13 @@ removeDeliveredNotifications(delivered: DeliveredNotifications) => Promise<void>
 
 从通知屏幕中移除指定的通知。
 
-| 参数           | 类型                                                                      |
+| 参数            | 类型                                                                      |
 | --------------- | ------------------------------------------------------------------------- |
 | **`delivered`** | <code><a href="#deliverednotifications">DeliveredNotifications</a></code> |
 
 **版本：** 4.0.0
 
---------------------
-
+---
 
 ### removeAllDeliveredNotifications()
 
@@ -245,8 +239,7 @@ removeAllDeliveredNotifications() => Promise<void>
 
 **版本：** 4.0.0
 
---------------------
-
+---
 
 ### createChannel(...)
 
@@ -258,14 +251,13 @@ createChannel(channel: Channel) => Promise<void>
 
 仅在 Android 上可用。
 
-| 参数         | 类型                                        |
+| 参数          | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### deleteChannel(...)
 
@@ -277,14 +269,13 @@ deleteChannel(args: { id: string; }) => Promise<void>
 
 仅在 Android 上可用。
 
-| 参数      | 类型                         |
+| 参数       | 类型                         |
 | ---------- | ---------------------------- |
 | **`args`** | <code>{ id: string; }</code> |
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### listChannels()
 
@@ -300,8 +291,7 @@ listChannels() => Promise<ListChannelsResult>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -315,8 +305,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions()
 
@@ -330,8 +319,7 @@ requestPermissions() => Promise<PermissionStatus>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### changeExactNotificationSetting()
 
@@ -351,8 +339,7 @@ changeExactNotificationSetting() => Promise<SettingsPermissionStatus>
 
 **版本：** 6.0.0
 
---------------------
-
+---
 
 ### checkExactNotificationSetting()
 
@@ -368,8 +355,7 @@ checkExactNotificationSetting() => Promise<SettingsPermissionStatus>
 
 **版本：** 6.0.0
 
---------------------
-
+---
 
 ### addListener('localNotificationReceived', ...)
 
@@ -379,7 +365,7 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 
 监听通知显示事件。
 
-| 参数              | 类型                                                                                                   |
+| 参数               | 类型                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'localNotificationReceived'</code>                                                               |
 | **`listenerFunc`** | <code>(notification: <a href="#localnotificationschema">LocalNotificationSchema</a>) =&gt; void</code> |
@@ -388,8 +374,7 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('localNotificationActionPerformed', ...)
 
@@ -399,7 +384,7 @@ addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notifi
 
 监听通知操作执行事件。
 
-| 参数              | 类型                                                                                         |
+| 参数               | 类型                                                                                         |
 | ------------------ | -------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'localNotificationActionPerformed'</code>                                              |
 | **`listenerFunc`** | <code>(notificationAction: <a href="#actionperformed">ActionPerformed</a>) =&gt; void</code> |
@@ -408,8 +393,7 @@ addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notifi
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -421,51 +405,46 @@ removeAllListeners() => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ScheduleResult
 
-| 属性                | 类型                                       | 描述                          | 版本 |
-| ------------------- | ------------------------------------------ | ------------------------------------ | ----- |
+| 属性                | 类型                                       | 描述               | 版本  |
+| ------------------- | ------------------------------------------ | ------------------ | ----- |
 | **`notifications`** | <code>LocalNotificationDescriptor[]</code> | 已调度的通知列表。 | 1.0.0 |
-
 
 #### LocalNotificationDescriptor
 
 描述本地通知的对象。
 
-| 属性     | 类型                | 描述                  | 版本 |
-| -------- | ------------------- | ---------------------------- | ----- |
+| 属性     | 类型                | 描述         | 版本  |
+| -------- | ------------------- | ------------ | ----- |
 | **`id`** | <code>number</code> | 通知标识符。 | 1.0.0 |
-
 
 #### ScheduleOptions
 
-| 属性                | 类型                                   | 描述                            | 版本 |
-| ------------------- | -------------------------------------- | -------------------------------------- | ----- |
+| 属性                | 类型                                   | 描述               | 版本  |
+| ------------------- | -------------------------------------- | ------------------ | ----- |
 | **`notifications`** | <code>LocalNotificationSchema[]</code> | 要调度的通知列表。 | 1.0.0 |
-
 
 #### LocalNotificationSchema
 
-| 属性                   | 类型                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 版本 |
-| ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**            | <code>string</code>                           | 通知标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
-| **`body`**             | <code>string</code>                           | 通知正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
-| **`largeBody`**        | <code>string</code>                           | 设置在大型文本通知样式中显示的多行文本块。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
-| **`summaryText`**      | <code>string</code>                           | 用于设置收件箱和大型文本通知样式中的摘要文本详情。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
-| **`id`**               | <code>number</code>                           | 通知标识符。在 Android 上为 32 位整数。因此值应在 -2147483648 和 2147483647 之间。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
-| **`schedule`**         | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">调度</a>此通知以便稍后触发。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
+| 属性                   | 类型                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                   | 版本  |
+| ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`title`**            | <code>string</code>                           | 通知标题。                                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
+| **`body`**             | <code>string</code>                           | 通知正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
+| **`largeBody`**        | <code>string</code>                           | 设置在大型文本通知样式中显示的多行文本块。                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
+| **`summaryText`**      | <code>string</code>                           | 用于设置收件箱和大型文本通知样式中的摘要文本详情。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
+| **`id`**               | <code>number</code>                           | 通知标识符。在 Android 上为 32 位整数。因此值应在 -2147483648 和 2147483647 之间。                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
+| **`schedule`**         | <code><a href="#schedule">Schedule</a></code> | <a href="#schedule">调度</a>此通知以便稍后触发。                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
 | **`sound`**            | <code>string</code>                           | 显示此通知时要播放的音频文件名。包含文件扩展名。在 iOS 上，文件应位于应用 bundle 中。在 Android 上，文件应位于 res/raw 文件夹中。推荐格式为 `.wav`，因为它同时支持 iOS 和 Android。仅在 iOS 和 Android < 26 上可用。对于 Android 26+，使用配置了所需声音的 channelId。如果找不到声音文件（即空字符串或错误名称），将使用默认系统通知声音。如果未提供，在 Android 上将产生默认声音，在 iOS 上则无声音。 | 1.0.0 |
-| **`smallIcon`**        | <code>string</code>                           | 设置自定义状态栏图标。如果设置，则覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-| **`largeIcon`**        | <code>string</code>                           | 设置通知的大图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 1.0.0 |
-| **`iconColor`**        | <code>string</code>                           | 设置通知图标的颜色。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
-| **`attachments`**      | <code>Attachment[]</code>                     | 设置此通知的附件。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
-| **`actionTypeId`**     | <code>string</code>                           | 将此通知与操作类型关联。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
-| **`extra`**            | <code>any</code>                              | 设置存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
-| **`threadIdentifier`** | <code>string</code>                           | 用于分组多个通知。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `threadIdentifier`。仅在 iOS 上可用。                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
+| **`smallIcon`**        | <code>string</code>                           | 设置自定义状态栏图标。如果设置，则覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                                                                                                                                                                       | 1.0.0 |
+| **`largeIcon`**        | <code>string</code>                           | 设置通知的大图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 上可用。                                                                                                                                                                                                                                                                 | 1.0.0 |
+| **`iconColor`**        | <code>string</code>                           | 设置通知图标的颜色。仅在 Android 上可用。                                                                                                                                                                                                                                                                                                                                                              | 1.0.0 |
+| **`attachments`**      | <code>Attachment[]</code>                     | 设置此通知的附件。                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
+| **`actionTypeId`**     | <code>string</code>                           | 将此通知与操作类型关联。                                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
+| **`extra`**            | <code>any</code>                              | 设置存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                         | 1.0.0 |
+| **`threadIdentifier`** | <code>string</code>                           | 用于分组多个通知。在 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上设置 `threadIdentifier`。仅在 iOS 上可用。                                                                                                                                                                                                           | 1.0.0 |
 | **`summaryArgument`**  |

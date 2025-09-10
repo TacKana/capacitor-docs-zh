@@ -53,14 +53,14 @@ const hapticsSelectionEnd = async () => {
 
 <docgen-index>
 
-* [`impact(...)`](#impact)
-* [`notification(...)`](#notification)
-* [`vibrate(...)`](#vibrate)
-* [`selectionStart()`](#selectionstart)
-* [`selectionChanged()`](#selectionchanged)
-* [`selectionEnd()`](#selectionend)
-* [接口](#interfaces)
-* [枚举](#enums)
+- [`impact(...)`](#impact)
+- [`notification(...)`](#notification)
+- [`vibrate(...)`](#vibrate)
+- [`selectionStart()`](#selectionstart)
+- [`selectionChanged()`](#selectionchanged)
+- [`selectionEnd()`](#selectionend)
+- [接口](#interfaces)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -81,8 +81,7 @@ impact(options?: ImpactOptions | undefined) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### notification(...)
 
@@ -98,8 +97,7 @@ notification(options?: NotificationOptions | undefined) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### vibrate(...)
 
@@ -115,8 +113,7 @@ vibrate(options?: VibrateOptions | undefined) => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### selectionStart()
 
@@ -128,8 +125,7 @@ selectionStart() => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### selectionChanged()
 
@@ -142,8 +138,7 @@ selectionChanged() => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
-
+---
 
 ### selectionEnd()
 
@@ -156,51 +151,44 @@ selectionEnd() => Promise<void>
 
 **Since:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ImpactOptions
 
-| 属性         | 类型                                                | 描述                                                                                                                                                                              | 默认值                        | Since |
-| ----------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
+| 属性        | 类型                                                | 描述                                                                                                                                        | 默认值                         | Since |
+| ----------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
 | **`style`** | <code><a href="#impactstyle">ImpactStyle</a></code> | 冲击反馈样式 通过 [UIImpactFeedbackGenerator](https://developer.apple.com/documentation/uikit/uiimpactfeedbackstyle) 模拟碰撞物体的质量效果 | <code>ImpactStyle.Heavy</code> | 1.0.0 |
-
 
 #### NotificationOptions
 
-| 属性        | 类型                                                          | 描述                                                                                                                                                                                       | 默认值                               | Since |
-| ---------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----- |
+| 属性       | 类型                                                          | 描述                                                                                                                                         | 默认值                                | Since |
+| ---------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----- |
 | **`type`** | <code><a href="#notificationtype">NotificationType</a></code> | 通知反馈类型 由 [UINotificationFeedbackGenerator](https://developer.apple.com/documentation/uikit/uinotificationfeedbacktype) 生成的反馈类型 | <code>NotificationType.SUCCESS</code> | 1.0.0 |
-
 
 #### VibrateOptions
 
-| 属性             | 类型                | 描述                                | 默认值          | Since |
-| -------------- | ------------------- | ------------------------------------------ | ---------------- | ----- |
+| 属性           | 类型                | 描述                 | 默认值           | Since |
+| -------------- | ------------------- | -------------------- | ---------------- | ----- |
 | **`duration`** | <code>number</code> | 振动持续时间（毫秒） | <code>300</code> | 1.0.0 |
 
-
-### 枚举
-
+### Enums
 
 #### ImpactStyle
 
-| 成员        | 值                 | 描述                                                  | Since |
-| ------------ | --------------------- | ------------------------------------------------------------ | ----- |
+| 成员         | 值                    | 描述                           | Since |
+| ------------ | --------------------- | ------------------------------ | ----- |
 | **`Heavy`**  | <code>'HEAVY'</code>  | 大型界面元素之间的碰撞效果     | 1.0.0 |
 | **`Medium`** | <code>'MEDIUM'</code> | 中等大小界面元素之间的碰撞效果 | 1.0.0 |
-| **`Light`**  | <code>'LIGHT'</code>  | 小型轻量界面元素之间的碰撞效果     | 1.0.0 |
-
+| **`Light`**  | <code>'LIGHT'</code>  | 小型轻量界面元素之间的碰撞效果 | 1.0.0 |
 
 #### NotificationType
 
-| 成员          | 值                  | 描述                                                                    | Since |
-| ------------- | ---------------------- | ------------------------------------------------------------------------------ | ----- |
+| 成员          | 值                     | 描述                             | Since |
+| ------------- | ---------------------- | -------------------------------- | ----- |
 | **`Success`** | <code>'SUCCESS'</code> | 表示任务已成功完成的通知反馈类型 | 1.0.0 |
-| **`Warning`** | <code>'WARNING'</code> | 表示任务产生警告的通知反馈类型     | 1.0.0 |
-| **`Error`**   | <code>'ERROR'</code>   | 表示任务失败的通知反馈类型                 | 1.0.0 |
+| **`Warning`** | <code>'WARNING'</code> | 表示任务产生警告的通知反馈类型   | 1.0.0 |
+| **`Error`**   | <code>'ERROR'</code>   | 表示任务失败的通知反馈类型       | 1.0.0 |
 
 </docgen-api>

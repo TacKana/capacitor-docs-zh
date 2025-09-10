@@ -1,4 +1,3 @@
-
 ---
 title: 分享
 description: 分享 API
@@ -43,21 +42,21 @@ share(options: ShareOptions) => Promise<any>
 
 显示分享模态框，用于在您的应用与其他应用之间分享内容
 
-| 参数           | 类型                                                      |
-| -------------- | --------------------------------------------------------- |
+| 参数          | 类型                                                  |
+| ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
 **返回值:** <code>Promise&lt;any&gt;</code>
 
 ---
 
-### 接口
+### Interfaces
 
 #### ShareOptions
 
-| 属性              | 类型                | 描述                                                               |
-| ----------------- | ------------------- | ------------------------------------------------------------------------- |
+| 属性              | 类型                | 描述                                               |
+| ----------------- | ------------------- | -------------------------------------------------- |
 | **`title`**       | <code>string</code> | 设置消息标题。如果是通过邮件分享，这将作为邮件主题 |
-| **`text`**        | <code>string</code> | 设置要分享的文本内容                                                    |
-| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或文件 URL                        |
-| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题。仅限 Android 平台                             |
+| **`text`**        | <code>string</code> | 设置要分享的文本内容                               |
+| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或文件 URL    |
+| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题。仅限 Android 平台            |

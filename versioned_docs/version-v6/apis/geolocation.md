@@ -36,7 +36,7 @@ npx cap sync
 <uses-feature android:name="android.hardware.location.gps" />
 ```
 
-前两个权限分别请求精确定位和粗略定位数据，最后一行是可选的，但如果你的应用_必须_使用GPS功能则必须添加。你可以选择省略，但要注意这可能导致应用安装在没有GPS硬件的设备上。
+前两个权限分别请求精确定位和粗略定位数据，最后一行是可选的，但如果你的应用*必须*使用GPS功能则必须添加。你可以选择省略，但要注意这可能导致应用安装在没有GPS硬件的设备上。
 
 更多关于设置Android权限的信息，请阅读[Android指南](https://capacitorjs.com/docs/android)中的[设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions)章节。
 
@@ -62,13 +62,13 @@ const printCurrentPosition = async () => {
 
 <docgen-index>
 
-* [`getCurrentPosition(...)`](#getcurrentposition)
-* [`watchPosition(...)`](#watchposition)
-* [`clearWatch(...)`](#clearwatch)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions(...)`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+- [`getCurrentPosition(...)`](#getcurrentposition)
+- [`watchPosition(...)`](#watchposition)
+- [`clearWatch(...)`](#clearwatch)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions(...)`](#requestpermissions)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -91,8 +91,7 @@ getCurrentPosition(options?: PositionOptions | undefined) => Promise<Position>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### watchPosition(...)
 
@@ -111,8 +110,7 @@ watchPosition(options: PositionOptions, callback: WatchPositionCallback) => Prom
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### clearWatch(...)
 
@@ -128,8 +126,7 @@ clearWatch(options: ClearWatchOptions) => Promise<void>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -143,8 +140,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **起始版本:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions(...)
 
@@ -162,69 +158,60 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 
 **起始版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### Position
 
-| 属性              | 类型                                                                                                                                                                                | 描述                                           | 起始版本 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------- |
-| **`timestamp`**   | <code>number</code>                                                                                                                                                                 | 坐标生成时间戳                                 | 1.0.0    |
-| **`coords`**      | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | GPS坐标数据及其精度信息                        | 1.0.0    |
-
+| 属性            | 类型                                                                                                                                                                                | 描述                    | 起始版本 |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------- |
+| **`timestamp`** | <code>number</code>                                                                                                                                                                 | 坐标生成时间戳          | 1.0.0    |
+| **`coords`**    | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | GPS坐标数据及其精度信息 | 1.0.0    |
 
 #### PositionOptions
 
-| 属性                          | 类型                 | 描述                                                                                                                                                                                                                                                                                                     | 默认值            | 起始版本 |
-| ----------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------- |
-| **`enableHighAccuracy`**      | <code>boolean</code> | 高精度模式（如启用GPS等）。在Android 12+设备上，如果用户未授予ACCESS_FINE_LOCATION权限（可通过location别名检查），此设置将被忽略。                                                                                                                                                                       | <code>false</code> | 1.0.0    |
-| **`timeout`**                 | <code>number</code>  | 等待位置更新的最长时间（毫秒）。在Android平台上，从插件4.0.0版本开始，getCurrentPosition方法将忽略此超时设置。                                                                                                                                                                                           | <code>10000</code> | 1.0.0    |
-| **`maximumAge`**              | <code>number</code>  | 可接受的缓存位置的最大年龄（毫秒）                                                                                                                                                                                                                                                                      | <code>0</code>     | 1.0.0    |
-| **`minimumUpdateInterval`**   | <code>number</code>  | 位置更新的最小间隔时间（毫秒）。如果位置更新比此间隔更快，则只有在上次更新超过最小间隔后才会触发更新。此参数仅适用于Android平台，对iOS和Web平台无效。                                                                                                                                                     | <code>5000</code>  | 6.1.0    |
-
+| 属性                        | 类型                 | 描述                                                                                                                                                  | 默认值             | 起始版本 |
+| --------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| **`enableHighAccuracy`**    | <code>boolean</code> | 高精度模式（如启用GPS等）。在Android 12+设备上，如果用户未授予ACCESS_FINE_LOCATION权限（可通过location别名检查），此设置将被忽略。                    | <code>false</code> | 1.0.0    |
+| **`timeout`**               | <code>number</code>  | 等待位置更新的最长时间（毫秒）。在Android平台上，从插件4.0.0版本开始，getCurrentPosition方法将忽略此超时设置。                                        | <code>10000</code> | 1.0.0    |
+| **`maximumAge`**            | <code>number</code>  | 可接受的缓存位置的最大年龄（毫秒）                                                                                                                    | <code>0</code>     | 1.0.0    |
+| **`minimumUpdateInterval`** | <code>number</code>  | 位置更新的最小间隔时间（毫秒）。如果位置更新比此间隔更快，则只有在上次更新超过最小间隔后才会触发更新。此参数仅适用于Android平台，对iOS和Web平台无效。 | <code>5000</code>  | 6.1.0    |
 
 #### ClearWatchOptions
 
-| 属性      | 类型                                              |
+| 属性     | 类型                                              |
 | -------- | ------------------------------------------------- |
 | **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
 
-
 #### PermissionStatus
 
-| 属性                    | 类型                                                        | 描述                                                                                                                                                                                                                                                                                                                                                        | 起始版本 |
-| ----------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| **`location`**          | <code><a href="#permissionstate">PermissionState</a></code> | location别名的权限状态。在Android上会同时请求/检查ACCESS_COARSE_LOCATION和ACCESS_FINE_LOCATION权限。在iOS和Web上会请求/检查位置权限。                                                                                                                                                                                                                      | 1.0.0    |
-| **`coarseLocation`**    | <code><a href="#permissionstate">PermissionState</a></code> | coarseLocation别名的权限状态。在Android上请求/检查ACCESS_COARSE_LOCATION权限。在Android 12+上，用户可以选择"大致位置"(ACCESS_COARSE_LOCATION)或"精确位置"(ACCESS_FINE_LOCATION)，因此当应用不需要高精度时可以使用此别名。在iOS和Web上，其值与location别名相同。                                                                                            | 1.2.0    |
-
+| 属性                 | 类型                                                        | 描述                                                                                                                                                                                                                                                            | 起始版本 |
+| -------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | location别名的权限状态。在Android上会同时请求/检查ACCESS_COARSE_LOCATION和ACCESS_FINE_LOCATION权限。在iOS和Web上会请求/检查位置权限。                                                                                                                           | 1.0.0    |
+| **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | coarseLocation别名的权限状态。在Android上请求/检查ACCESS_COARSE_LOCATION权限。在Android 12+上，用户可以选择"大致位置"(ACCESS_COARSE_LOCATION)或"精确位置"(ACCESS_FINE_LOCATION)，因此当应用不需要高精度时可以使用此别名。在iOS和Web上，其值与location别名相同。 | 1.2.0    |
 
 #### GeolocationPluginPermissions
 
-| 属性                | 类型                                     |
-| ------------------- | ---------------------------------------- |
-| **`permissions`**   | <code>GeolocationPermissionType[]</code> |
+| 属性              | 类型                                     |
+| ----------------- | ---------------------------------------- |
+| **`permissions`** | <code>GeolocationPermissionType[]</code> |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### WatchPositionCallback
 
-<code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
-
+<code>
+  (position: <a href="#position">Position</a> | null, err?: any): void
+</code>
 
 #### CallbackID
 
 <code>string</code>
 
-
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
 
 #### GeolocationPermissionType
 

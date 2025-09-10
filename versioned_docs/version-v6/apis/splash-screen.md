@@ -102,22 +102,22 @@ iOS 的 `iosSpinnerStyle` 有以下选项：
 
 可用配置项：
 
-| 属性                            | 类型                                                                                                                          | 描述                                                                                                                                                                                                                                             | 默认值             | 版本 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动闪屏显示的时长（毫秒）                                                                                                                                                                              | <code>500</code>    | 1.0.0 |
-| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏闪屏。                                                                                                                                                                                               | <code>true</code>   | 1.0.0 |
-| **`launchFadeOutDuration`**     | <code>number</code>                                                                                                           | 启动闪屏淡出动画的持续时间（毫秒）仅在使用 Android 12 Splash Screen API 时适用于 Android。                                                                                                        | <code>200</code>    | 4.2.0 |
-| **`backgroundColor`**           | <code>string</code>                                                                                                           | 闪屏背景颜色，格式为 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                       |                     | 1.0.0 |
-| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | 用作闪屏的资源名称。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                                                      | <code>splash</code> | 1.points0 |
-| **`androidScaleType`**          | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType) 用于缩放闪屏图像。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。仅适用于 Android。 | <code>FIT_XY</code> | 1.0.0 |
-| **`showSpinner`**               | <code>boolean</code>                                                                                                          | 是否在闪屏上显示加载指示器。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                                                            |                     | 1.0.0 |
-| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Android 加载指示器样式。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                                                                           | <code>large</code>  | 1.0.0 |
-| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | iOS 加载指示器样式。当 `useDialog` 为 true 时无效。仅适用于 iOS。                                                                                                                                                                   | <code>large</code>  | 1.0.0 |
-| **`spinnerColor`**              | <code>string</code>                                                                                                           | 加载指示器颜色，格式为 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                                               |                     | 1.0.0 |
-| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | 是否在闪屏上隐藏状态栏。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                                                              |                     | 1.0.0 |
-| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 是否在闪屏上隐藏状态栏和软件导航按钮。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                          |                     | 1.0.0 |
-| **`layoutName`**                | <code>string</code>                                                                                                           | 当 `useDialog` 设为 true 时，配置对话框布局。若 `useDialog` 未设置或为 false，则使用布局替代 ImageView。在 Android 12 API 启动时无效。仅适用于 Android。                                 |                     | 1.1.0 |
-| **`useDialog`**                 | <code>boolean</code>                                                                                                          | 使用对话框替代 ImageView。若未配置 `layoutName`，将使用以闪屏图像为背景的布局。在 Android 12 API 启动时无效。仅适用于 Android。                                |                     | 1.1.0 |
+| 属性                            | 类型                                                                                                                          | 描述                                                                                                                                                                                          | 默认值              | 版本      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | --------- |
+| **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动闪屏显示的时长（毫秒）                                                                                                                                                | <code>500</code>    | 1.0.0     |
+| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏闪屏。                                                                                                                                                    | <code>true</code>   | 1.0.0     |
+| **`launchFadeOutDuration`**     | <code>number</code>                                                                                                           | 启动闪屏淡出动画的持续时间（毫秒）仅在使用 Android 12 Splash Screen API 时适用于 Android。                                                                                                    | <code>200</code>    | 4.2.0     |
+| **`backgroundColor`**           | <code>string</code>                                                                                                           | 闪屏背景颜色，格式为 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                            |                     | 1.0.0     |
+| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | 用作闪屏的资源名称。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                                                          | <code>splash</code> | 1.points0 |
+| **`androidScaleType`**          | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType) 用于缩放闪屏图像。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。仅适用于 Android。 | <code>FIT_XY</code> | 1.0.0     |
+| **`showSpinner`**               | <code>boolean</code>                                                                                                          | 是否在闪屏上显示加载指示器。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                                           |                     | 1.0.0     |
+| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Android 加载指示器样式。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                                               | <code>large</code>  | 1.0.0     |
+| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | iOS 加载指示器样式。当 `useDialog` 为 true 时无效。仅适用于 iOS。                                                                                                                             | <code>large</code>  | 1.0.0     |
+| **`spinnerColor`**              | <code>string</code>                                                                                                           | 加载指示器颜色，格式为 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在 Android 12 API 启动时无效。                                                                                          |                     | 1.0.0     |
+| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | 是否在闪屏上隐藏状态栏。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                                                      |                     | 1.0.0     |
+| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 是否在闪屏上隐藏状态栏和软件导航按钮。在 Android 12 API 启动时无效。仅适用于 Android。                                                                                                        |                     | 1.0.0     |
+| **`layoutName`**                | <code>string</code>                                                                                                           | 当 `useDialog` 设为 true 时，配置对话框布局。若 `useDialog` 未设置或为 false，则使用布局替代 ImageView。在 Android 12 API 启动时无效。仅适用于 Android。                                      |                     | 1.1.0     |
+| **`useDialog`**                 | <code>boolean</code>                                                                                                          | 使用对话框替代 ImageView。若未配置 `layoutName`，将使用以闪屏图像为背景的布局。在 Android 12 API 启动时无效。仅适用于 Android。                                                               |                     | 1.1.0     |
 
 ### 配置示例
 
@@ -159,16 +159,16 @@ const config: CapacitorConfig = {
       launchShowDuration: 3000,
       launchAutoHide: true,
       launchFadeOutDuration: 3000,
-      backgroundColor: "#ffffffff",
-      androidSplashResourceName: "splash",
-      androidScaleType: "CENTER_CROP",
+      backgroundColor: '#ffffffff',
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
       showSpinner: true,
-      androidSpinnerStyle: "large",
-      iosSpinnerStyle: "small",
-      spinnerColor: "#999999",
+      androidSpinnerStyle: 'large',
+      iosSpinnerStyle: 'small',
+      spinnerColor: '#999999',
       splashFullScreen: true,
       splashImmersive: true,
-      layoutName: "launch_screen",
+      layoutName: 'launch_screen',
       useDialog: true,
     },
   },
@@ -205,9 +205,9 @@ export default config;
 
 <docgen-index>
 
-* [`show(...)`](#show)
-* [`hide(...)`](#hide)
-* [接口](#interfaces)
+- [`show(...)`](#show)
+- [`hide(...)`](#hide)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -222,14 +222,13 @@ show(options?: ShowOptions | undefined) => Promise<void>
 
 显示闪屏画面
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### hide(...)
 
@@ -239,32 +238,29 @@ hide(options?: HideOptions | undefined) => Promise<void>
 
 隐藏闪屏画面
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#hideoptions">HideOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ShowOptions
 
-| 属性                  | 类型                 | 描述                                                         | 默认值           | 版本 |
-| --------------------- | -------------------- | ------------------------------------------------------------------- | ----------------- | ----- |
-| **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏闪屏                  |                   | 1.0.0 |
-| **`fadeInDuration`**  | <code>number</code>  | 淡入时间（毫秒）                                        | <code>200</code>  | 1.0.0 |
-| **`fadeOutDuration`** | <code>number</code>  | 淡出时间（毫秒）                                       | <code>200</code>  | 1.0.0 |
+| 属性                  | 类型                 | 描述                                       | 默认值            | 版本  |
+| --------------------- | -------------------- | ------------------------------------------ | ----------------- | ----- |
+| **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏闪屏         |                   | 1.0.0 |
+| **`fadeInDuration`**  | <code>number</code>  | 淡入时间（毫秒）                           | <code>200</code>  | 1.0.0 |
+| **`fadeOutDuration`** | <code>number</code>  | 淡出时间（毫秒）                           | <code>200</code>  | 1.0.0 |
 | **`showDuration`**    | <code>number</code>  | 当 autoHide 启用时，闪屏显示的时长（毫秒） | <code>3000</code> | 1.0.0 |
-
 
 #### HideOptions
 
-| 属性                  | 类型                | 描述                                                                                                                                                       | 默认值          | 版本 |
-| --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----- |
+| 属性                  | 类型                | 描述                                                                                                                        | 默认值           | 版本  |
+| --------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----- |
 | **`fadeOutDuration`** | <code>number</code> | 淡出时间（毫秒）。在 Android 上，如果使用 Android 12 Splash Screen API，此参数无效，请改用 launchFadeOutDuration 配置选项。 | <code>200</code> | 1.0.0 |
 
 </docgen-api>

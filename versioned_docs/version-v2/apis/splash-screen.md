@@ -94,6 +94,7 @@ SplashScreen.show({
 您可以通过以下配置自定义加载指示器的外观。
 
 Android平台的`androidSpinnerStyle`可选值：
+
 - horizontal
 - small
 - large（默认）
@@ -102,6 +103,7 @@ Android平台的`androidSpinnerStyle`可选值：
 - largeInverse
 
 iOS平台的`iosSpinnerStyle`可选值：
+
 - large（默认）
 - small
 
@@ -163,10 +165,10 @@ show(options?: SplashScreenShowOptions, callback?: Function) => Promise<void>
 
 显示启动屏
 
-| 参数            | 类型                                                                        |
-| --------------- | --------------------------------------------------------------------------- |
-| **`options`**   | <code><a href="#splashscreenshowoptions">SplashScreenShowOptions</a></code> |
-| **`callback`**  | <code><a href="#function">Function</a></code>                               |
+| 参数           | 类型                                                                        |
+| -------------- | --------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#splashscreenshowoptions">SplashScreenShowOptions</a></code> |
+| **`callback`** | <code><a href="#function">Function</a></code>                               |
 
 ---
 
@@ -178,44 +180,44 @@ hide(options?: SplashScreenHideOptions, callback?: Function) => Promise<void>
 
 隐藏启动屏
 
-| 参数            | 类型                                                                        |
-| --------------- | --------------------------------------------------------------------------- |
-| **`options`**   | <code><a href="#splashscreenhideoptions">SplashScreenHideOptions</a></code> |
-| **`callback`**  | <code><a href="#function">Function</a></code>                               |
+| 参数           | 类型                                                                        |
+| -------------- | --------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#splashscreenhideoptions">SplashScreenHideOptions</a></code> |
+| **`callback`** | <code><a href="#function">Function</a></code>                               |
 
 ---
 
-### 接口
+### Interfaces
 
 #### SplashScreenShowOptions
 
-| 属性                    | 类型                 | 描述                                                                 |
-| ----------------------- | -------------------- | ------------------------------------------------------------------- |
-| **`autoHide`**          | <code>boolean</code> | 是否在showDuration后自动隐藏启动屏                                  |
-| **`fadeInDuration`**    | <code>number</code>  | 淡入时长（毫秒），默认200ms                                        |
-| **`fadeOutDuration`**   | <code>number</code>  | 淡出时长（毫秒），默认200ms                                        |
-| **`showDuration`**      | <code>number</code>  | 当autoHide启用时显示启动屏的时长（毫秒），默认3000ms               |
+| 属性                  | 类型                 | 描述                                                 |
+| --------------------- | -------------------- | ---------------------------------------------------- |
+| **`autoHide`**        | <code>boolean</code> | 是否在showDuration后自动隐藏启动屏                   |
+| **`fadeInDuration`**  | <code>number</code>  | 淡入时长（毫秒），默认200ms                          |
+| **`fadeOutDuration`** | <code>number</code>  | 淡出时长（毫秒），默认200ms                          |
+| **`showDuration`**    | <code>number</code>  | 当autoHide启用时显示启动屏的时长（毫秒），默认3000ms |
 
 #### Function
 
 创建一个新函数。
 
-| 属性              | 类型                                          |
-| ----------------- | --------------------------------------------- |
-| **`prototype`**   | <code>any</code>                              |
-| **`length`**      | <code>number</code>                           |
-| **`arguments`**   | <code>any</code>                              |
-| **`caller`**      | <code><a href="#function">Function</a></code> |
+| 属性            | 类型                                          |
+| --------------- | --------------------------------------------- |
+| **`prototype`** | <code>any</code>                              |
+| **`length`**    | <code>number</code>                           |
+| **`arguments`** | <code>any</code>                              |
+| **`caller`**    | <code><a href="#function">Function</a></code> |
 
-| 方法            | 签名                                                                            | 描述                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| **apply**       | (this: <a href="#function">Function</a>, thisArg: any, argArray?: any) =&gt; any | 调用函数，用指定对象替换函数的this值，用指定数组替换函数的参数                                                          |
-| **call**        | (this: <a href="#function">Function</a>, thisArg: any, ...argArray: any[]) =&gt; any | 调用对象的方法，用另一个对象替换当前对象                                                                                |
-| **bind**        | (this: <a href="#function">Function</a>, thisArg: any, ...argArray: any[]) =&gt; any | 为给定函数创建一个绑定函数，该绑定函数与原始函数具有相同的函数体。绑定函数的this对象与指定对象关联，并具有指定的初始参数 |
-| **toString**    | () =&gt; string                                                                 | 返回函数的字符串表示形式                                                                                                |
+| 方法         | 签名                                                                                 | 描述                                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| **apply**    | (this: <a href="#function">Function</a>, thisArg: any, argArray?: any) =&gt; any     | 调用函数，用指定对象替换函数的this值，用指定数组替换函数的参数                                                           |
+| **call**     | (this: <a href="#function">Function</a>, thisArg: any, ...argArray: any[]) =&gt; any | 调用对象的方法，用另一个对象替换当前对象                                                                                 |
+| **bind**     | (this: <a href="#function">Function</a>, thisArg: any, ...argArray: any[]) =&gt; any | 为给定函数创建一个绑定函数，该绑定函数与原始函数具有相同的函数体。绑定函数的this对象与指定对象关联，并具有指定的初始参数 |
+| **toString** | () =&gt; string                                                                      | 返回函数的字符串表示形式                                                                                                 |
 
 #### SplashScreenHideOptions
 
-| 属性                    | 类型                | 描述                                   |
-| ----------------------- | ------------------- | ------------------------------------- |
-| **`fadeOutDuration`**   | <code>number</code> | 淡出时长（毫秒），默认200ms           |
+| 属性                  | 类型                | 描述                        |
+| --------------------- | ------------------- | --------------------------- |
+| **`fadeOutDuration`** | <code>number</code> | 淡出时长（毫秒），默认200ms |

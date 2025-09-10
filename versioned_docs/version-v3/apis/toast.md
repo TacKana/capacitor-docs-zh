@@ -37,13 +37,12 @@ const showHelloToast = async () => {
 
 <docgen-index>
 
-* [`show(...)`](#show)
-* [接口](#interfaces)
+- [`show(...)`](#show)
+- [接口](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### show(...)
 
@@ -59,18 +58,16 @@ show(options: ShowOptions) => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ShowOptions
 
-| 属性            | 类型                                       | 说明                                                           | 默认值               | 版本  |
-| -------------- | ------------------------------------------ | ------------------------------------------------------------- | --------------------- | ----- |
-| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                        |                       | 1.0.0 |
-| **`duration`** | <code>'short' \| 'long'</code>             | Toast 显示时长，可选 'short' (2000毫秒) 或 'long' (3500毫秒)  | <code>'short'</code>  | 1.0.0 |
-| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 显示位置                                                | <code>'bottom'</code> | 1.0.0 |
+| 属性           | 类型                                       | 说明                                                         | 默认值                | 版本  |
+| -------------- | ------------------------------------------ | ------------------------------------------------------------ | --------------------- | ----- |
+| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                      |                       | 1.0.0 |
+| **`duration`** | <code>'short' \| 'long'</code>             | Toast 显示时长，可选 'short' (2000毫秒) 或 'long' (3500毫秒) | <code>'short'</code>  | 1.0.0 |
+| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 显示位置                                               | <code>'bottom'</code> | 1.0.0 |
 
 </docgen-api>

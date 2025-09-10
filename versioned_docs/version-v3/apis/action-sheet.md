@@ -58,14 +58,13 @@ const showActions = async () => {
 
 <docgen-index>
 
-* [`showActions(...)`](#showactions)
-* [接口](#interfaces)
-* [枚举](#enums)
+- [`showActions(...)`](#showactions)
+- [接口](#interfaces)
+- [枚举](#enums)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### showActions(...)
 
@@ -75,54 +74,48 @@ showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 
 显示一个 Action Sheet 风格的模态框，包含用户可以选择的多种选项。
 
-| 参数          | 类型                                                                  |
-| ------------- | -------------------------------------------------------------------- |
-| **`options`** | <code><a href="#showactionsoptions">ShowActionsOptions</a></code>    |
+| 参数          | 类型                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#showactionsoptions">ShowActionsOptions</a></code> |
 
 **返回值:** <code>Promise&lt;<a href="#showactionsresult">ShowActionsResult</a>&gt;</code>
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### ShowActionsResult
 
-| 属性          | 类型                | 描述                                      | 版本   |
-| ------------- | ------------------- | ---------------------------------------- | ------ |
-| **`index`**   | <code>number</code> | 被点击选项的索引（从零开始）              | 1.0.0  |
-
+| 属性        | 类型                | 描述                         | 版本  |
+| ----------- | ------------------- | ---------------------------- | ----- |
+| **`index`** | <code>number</code> | 被点击选项的索引（从零开始） | 1.0.0 |
 
 #### ShowActionsOptions
 
-| 属性            | 类型                             | 描述                                                                 | 版本   |
-| --------------- | -------------------------------- | ------------------------------------------------------------------- | ------ |
-| **`title`**     | <code>string</code>              | 操作表的标题                                                        | 1.0.0  |
-| **`message`**   | <code>string</code>              | 标题下方显示的提示信息（仅 iOS 平台支持）                           | 1.0.0  |
-| **`options`**   | <code>ActionSheetButton[]</code> | 用户可选择的选项列表                                                | 1.0.0  |
-
+| 属性          | 类型                             | 描述                                      | 版本  |
+| ------------- | -------------------------------- | ----------------------------------------- | ----- |
+| **`title`**   | <code>string</code>              | 操作表的标题                              | 1.0.0 |
+| **`message`** | <code>string</code>              | 标题下方显示的提示信息（仅 iOS 平台支持） | 1.0.0 |
+| **`options`** | <code>ActionSheetButton[]</code> | 用户可选择的选项列表                      | 1.0.0 |
 
 #### ActionSheetButton
 
-| 属性            | 类型                                                                      | 描述                                                                                     | 版本   |
-| --------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------ |
-| **`title`**     | <code>string</code>                                                       | 选项的标题                                                                              | 1.0.0  |
-| **`style`**     | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | 选项的样式（仅 iOS 平台支持）                                                           | 1.0.0  |
-| **`icon`**      | <code>string</code>                                                       | 选项的图标（使用 ionicon 命名规范，仅 Web 平台支持）                                     | 1.0.0  |
+| 属性        | 类型                                                                      | 描述                                                 | 版本  |
+| ----------- | ------------------------------------------------------------------------- | ---------------------------------------------------- | ----- |
+| **`title`** | <code>string</code>                                                       | 选项的标题                                           | 1.0.0 |
+| **`style`** | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | 选项的样式（仅 iOS 平台支持）                        | 1.0.0 |
+| **`icon`**  | <code>string</code>                                                       | 选项的图标（使用 ionicon 命名规范，仅 Web 平台支持） | 1.0.0 |
 
-
-### 枚举
-
+### Enums
 
 #### ActionSheetButtonStyle
 
-| 成员              | 值                       | 描述                                                                                                   | 版本   |
-| ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- | ------ |
-| **`Default`**     | <code>'DEFAULT'</code>   | 默认选项样式                                                                                          | 1.0.0  |
-| **`Destructive`** | <code>'DESTRUCTIVE'</code> | 用于破坏性操作的样式                                                                                  | 1.0.0  |
-| **`Cancel`**      | <code>'CANCEL'</code>    | 用于取消操作表的样式。如果使用此样式，应该放在最后一个可选项上。                                      | 1.0.0  |
+| 成员              | 值                         | 描述                                                             | 版本  |
+| ----------------- | -------------------------- | ---------------------------------------------------------------- | ----- |
+| **`Default`**     | <code>'DEFAULT'</code>     | 默认选项样式                                                     | 1.0.0 |
+| **`Destructive`** | <code>'DESTRUCTIVE'</code> | 用于破坏性操作的样式                                             | 1.0.0 |
+| **`Cancel`**      | <code>'CANCEL'</code>      | 用于取消操作表的样式。如果使用此样式，应该放在最后一个可选项上。 | 1.0.0 |
 
 </docgen-api>

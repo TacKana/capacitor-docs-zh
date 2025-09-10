@@ -59,9 +59,9 @@ allprojects {
 
 <docgen-index>
 
-* [`scanBarcode(...)`](#scanbarcode)
-* [类型别名](#type-aliases)
-* [枚举类型](#enums)
+- [`scanBarcode(...)`](#scanbarcode)
+- [类型别名](#type-aliases)
+- [枚举类型](#enums)
 
 </docgen-index>
 
@@ -83,11 +83,9 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 
 **返回值:** <code>Promise&lt;<a href="#capacitorbarcodescannerscanresult">CapacitorBarcodeScannerScanResult</a>&gt;</code>
 
---------------------
+---
 
-
-### 类型别名
-
+### Type Aliases
 
 #### CapacitorBarcodeScannerScanResult
 
@@ -95,28 +93,27 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 
 <code>{ ScanResult: string }</code>
 
-
 #### CapacitorBarcodeScannerOptions
 
 定义条码扫描的配置选项。
 
 <code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
 
-
 #### CapacitorBarcodeScannerTypeHint
 
 扩展Html5Qrcode支持的格式，新增'ALL'选项表示支持所有条码类型。
 结合<a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a>和OSBarcodeTypeHintALLOption的类型定义，表示要扫描的条码类型提示。
 
-<code><a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> | <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a></code>
+<code>
+  <a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> |{' '}
+  <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a>
+</code>
 
-
-### 枚举类型
-
+### Enums类型
 
 #### Html5QrcodeSupportedFormats
 
-| 成员                 | 值           |
+| 成员                    | 值              |
 | ----------------------- | --------------- |
 | **`QR_CODE`**           | <code>0</code>  |
 | **`AZTEC`**             | <code>1</code>  |
@@ -136,36 +133,32 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 | **`UPC_E`**             | <code>15</code> |
 | **`UPC_EAN_EXTENSION`** | <code>16</code> |
 
-
 #### CapacitorBarcodeScannerTypeHintALLOption
 
-| 成员   | 值           |
+| 成员      | 值              |
 | --------- | --------------- |
 | **`ALL`** | <code>17</code> |
 
-
 #### CapacitorBarcodeScannerCameraDirection
 
-| 成员     | 值          |
+| 成员        | 值             |
 | ----------- | -------------- |
 | **`BACK`**  | <code>1</code> |
 | **`FRONT`** | <code>2</code> |
 
-
 #### CapacitorBarcodeScannerScanOrientation
 
-| 成员         | 值          |
+| 成员            | 值             |
 | --------------- | -------------- |
 | **`PORTRAIT`**  | <code>1</code> |
 | **`LANDSCAPE`** | <code>2</code> |
 | **`ADAPTIVE`**  | <code>3</code> |
 
-
 #### CapacitorBarcodeScannerAndroidScanningLibrary
 
-| 成员     | 值                |
-| ----------- | -------------------- |
+| 成员        | 值                     |
+| ----------- | ---------------------- |
 | **`ZXING`** | <code>'zxingly'</code> |
-| **`MLKIT`** | <code>'mlkit'</code> |
+| **`MLKIT`** | <code>'mlkit'</code>   |
 
 </docgen-api>

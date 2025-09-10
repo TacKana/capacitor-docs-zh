@@ -40,12 +40,12 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 
 <docgen-index>
 
-* [`orientation()`](#orientation)
-* [`lock(...)`](#lock)
-* [`unlock()`](#unlock)
-* [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口定义](#interfaces)
+- [`orientation()`](#orientation)
+- [`lock(...)`](#lock)
+- [`unlock()`](#unlock)
+- [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口定义](#interfaces)
 
 </docgen-index>
 
@@ -63,7 +63,7 @@ orientation() => Promise<ScreenOrientationResult>
 
 **自版本:** 4.0.0
 
---------------------
+---
 
 ### lock(...)
 
@@ -79,7 +79,7 @@ lock(options: OrientationLockOptions) => Promise<void>
 
 **自版本:** 4.0.0
 
---------------------
+---
 
 ### unlock()
 
@@ -91,7 +91,7 @@ unlock() => Promise<void>
 
 **自版本:** 4.0.0
 
---------------------
+---
 
 ### addListener('screenOrientationChange', ...)
 
@@ -110,7 +110,7 @@ addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: Sc
 
 **自版本:** 4.0.0
 
---------------------
+---
 
 ### removeAllListeners()
 
@@ -122,10 +122,9 @@ removeAllListeners() => Promise<void>
 
 **自版本:** 4.0.0
 
---------------------
+---
 
-### 接口定义
-
+### Interfaces
 
 #### ScreenOrientationResult
 
@@ -133,13 +132,11 @@ removeAllListeners() => Promise<void>
 | ---------- | ---------------------------- |
 | **`type`** | <code>OrientationType</code> |
 
-
 #### OrientationLockOptions
 
 | 属性              | 类型                             |
 | ----------------- | -------------------------------- |
 | **`orientation`** | <code>OrientationLockType</code> |
-
 
 #### PluginListenerHandle
 

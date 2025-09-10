@@ -17,6 +17,7 @@ AppLauncher API 允许您的应用检查并打开其他应用。
 **注意：** 在 [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 及更高版本中，您需要在 `AndroidManifest.xml` 的 `queries` 标签中添加要查询的应用包名。
 
 示例：
+
 ```xml
 <queries>
   <package android:name="com.getcapacitor.myapp" />
@@ -50,9 +51,9 @@ const openPortfolioPage = async () => {
 
 <docgen-index>
 
-* [`canOpenUrl(...)`](#canopenurl)
-* [`openUrl(...)`](#openurl)
-* [接口](#interfaces)
+- [`canOpenUrl(...)`](#canopenurl)
+- [`openUrl(...)`](#openurl)
+- [接口](#interfaces)
 
 </docgen-index>
 
@@ -80,8 +81,7 @@ canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 
 **自：** 1.0.0
 
---------------------
-
+---
 
 ### openUrl(...)
 
@@ -101,36 +101,31 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 
 **自：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### CanOpenURLResult
 
-| 属性         | 类型                 |
+| 属性        | 类型                 |
 | ----------- | -------------------- |
 | **`value`** | <code>boolean</code> |
 
-
 #### CanOpenURLOptions
 
-| 属性       | 类型                |
+| 属性      | 类型                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 
-
 #### OpenURLResult
 
-| 属性             | 类型                 |
+| 属性            | 类型                 |
 | --------------- | -------------------- |
 | **`completed`** | <code>boolean</code> |
 
-
 #### OpenURLOptions
 
-| 属性       | 类型                |
+| 属性      | 类型                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 

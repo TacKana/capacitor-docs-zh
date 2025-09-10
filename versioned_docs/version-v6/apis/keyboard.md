@@ -22,11 +22,11 @@ npx cap sync
 ```typescript
 import { Keyboard } from '@capacitor/keyboard';
 
-Keyboard.addListener('keyboardWillShow', info => {
+Keyboard.addListener('keyboardWillShow', (info) => {
   console.log('键盘即将显示，高度为：', info.keyboardHeight);
 });
 
-Keyboard.addListener('keyboardDidShow', info => {
+Keyboard.addListener('keyboardDidShow', (info) => {
   console.log('键盘已显示，高度为：', info.keyboardHeight);
 });
 
@@ -43,10 +43,10 @@ Keyboard.addListener('keyboardDidHide', () => {
 
 在 iOS 平台，键盘可以通过以下选项进行配置：
 
-| 属性                     | 类型                                                      | 说明                                                                                                                                                                                                                                                                                                       | 默认值             | 版本  |
-| ------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | 配置键盘出现时应用的调整方式。仅 iOS 平台可用                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
-| **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | 当应用不支持暗黑/明亮主题切换时，可强制设置键盘样式。未设置时，键盘样式将跟随设备外观。仅 iOS 平台可用                                                                                                                                                                                                     |                     | 1.0.0 |
+| 属性                     | 类型                                                      | 说明                                                                                                                                               | 默认值              | 版本  |
+| ------------------------ | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
+| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | 配置键盘出现时应用的调整方式。仅 iOS 平台可用                                                                                                      | <code>native</code> | 1.0.0 |
+| **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | 当应用不支持暗黑/明亮主题切换时，可强制设置键盘样式。未设置时，键盘样式将跟随设备外观。仅 iOS 平台可用                                             |                     | 1.0.0 |
 | **`resizeOnFullScreen`** | <code>boolean</code>                                      | 修复 Android 系统在应用全屏模式下（如使用 StatusBar 插件覆盖状态栏时）无法调整 WebView 尺寸的 bug。设为 true 可启用该修复方案。仅 Android 平台可用 |                     | 1.1.0 |
 
 ### 配置示例
@@ -100,20 +100,20 @@ export default config;
 
 <docgen-index>
 
-* [`show()`](#show)
-* [`hide()`](#hide)
-* [`setAccessoryBarVisible(...)`](#setaccessorybarvisible)
-* [`setScroll(...)`](#setscroll)
-* [`setStyle(...)`](#setstyle)
-* [`setResizeMode(...)`](#setresizemode)
-* [`getResizeMode()`](#getresizemode)
-* [`addListener('keyboardWillShow', ...)`](#addlistenerkeyboardwillshow-)
-* [`addListener('keyboardDidShow', ...)`](#addlistenerkeyboarddidshow-)
-* [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
-* [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
-* [`removeAllListeners()`](#removealllisteners)
-* [接口](#接口)
-* [枚举](#枚举)
+- [`show()`](#show)
+- [`hide()`](#hide)
+- [`setAccessoryBarVisible(...)`](#setaccessorybarvisible)
+- [`setScroll(...)`](#setscroll)
+- [`setStyle(...)`](#setstyle)
+- [`setResizeMode(...)`](#setresizemode)
+- [`getResizeMode()`](#getresizemode)
+- [`addListener('keyboardWillShow', ...)`](#addlistenerkeyboardwillshow-)
+- [`addListener('keyboardDidShow', ...)`](#addlistenerkeyboarddidshow-)
+- [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
+- [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
+- [`removeAllListeners()`](#removealllisteners)
+- [接口](#interfaces)
+- [枚举](#enums)
 
 </docgen-index>
 
@@ -132,8 +132,7 @@ show() => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### hide()
 
@@ -145,8 +144,7 @@ hide() => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### setAccessoryBarVisible(...)
 
@@ -164,8 +162,7 @@ setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### setScroll(...)
 
@@ -183,8 +180,7 @@ setScroll(options: { isDisabled: boolean; }) => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### setStyle(...)
 
@@ -202,8 +198,7 @@ setStyle(options: KeyboardStyleOptions) => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### setResizeMode(...)
 
@@ -221,8 +216,7 @@ setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### getResizeMode()
 
@@ -238,8 +232,7 @@ getResizeMode() => Promise<KeyboardResizeOptions>
 
 **版本：** 4.0.0
 
---------------------
-
+---
 
 ### addListener('keyboardWillShow', ...)
 
@@ -260,8 +253,7 @@ addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) =>
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('keyboardDidShow', ...)
 
@@ -282,8 +274,7 @@ addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => 
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('keyboardWillHide', ...)
 
@@ -304,8 +295,7 @@ addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => Promise<
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### addListener('keyboardDidHide', ...)
 
@@ -326,8 +316,7 @@ addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => Promise<P
 
 **版本：** 1.0.0
 
---------------------
-
+---
 
 ### removeAllListeners()
 
@@ -339,25 +328,21 @@ removeAllListeners() => Promise<void>
 
 **版本：** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### KeyboardStyleOptions
 
-| 属性        | 类型                                                    | 说明            | 默认值                            | 版本  |
-| ----------- | ------------------------------------------------------- | ---------------------- | ---------------------------------- | ----- |
+| 属性        | 类型                                                    | 说明     | 默认值                             | 版本  |
+| ----------- | ------------------------------------------------------- | -------- | ---------------------------------- | ----- |
 | **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> | 键盘样式 | <code>KeyboardStyle.Default</code> | 1.0.0 |
-
 
 #### KeyboardResizeOptions
 
-| 属性       | 类型                                                      | 说明                                             | 版本  |
-| ---------- | --------------------------------------------------------- | ------------------------------------------------------- | ----- |
+| 属性       | 类型                                                      | 说明                   | 版本  |
+| ---------- | --------------------------------------------------------- | ---------------------- | ----- |
 | **`mode`** | <code><a href="#keyboardresize">KeyboardResize</a></code> | 键盘出现时元素调整方式 | 1.0.0 |
-
 
 #### PluginListenerHandle
 
@@ -365,33 +350,29 @@ removeAllListeners() => Promise<void>
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
 #### KeyboardInfo
 
-| 属性                 | 类型                | 说明             | 版本  |
-| -------------------- | ------------------- | ----------------------- | ----- |
+| 属性                 | 类型                | 说明     | 版本  |
+| -------------------- | ------------------- | -------- | ----- |
 | **`keyboardHeight`** | <code>number</code> | 键盘高度 | 1.0.0 |
 
-
-### 枚举
-
+### Enums
 
 #### KeyboardStyle
 
-| 枚举值       | 值                  | 说明                                                                                                                                                                                                                                 | 版本  |
-| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Dark`**    | <code>'DARK'</code>    | 暗黑风格键盘                                                                                                                                                                                                                              | 1.0.0 |
-| **`Light`**   | <code>'LIGHT'</code>   | 明亮风格键盘                                                                                                                                                                                                                             | 1.0.0 |
+| 枚举值        | 值                     | 说明                                                                                                        | 版本  |
+| ------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------- | ----- |
+| **`Dark`**    | <code>'DARK'</code>    | 暗黑风格键盘                                                                                                | 1.0.0 |
+| **`Light`**   | <code>'LIGHT'</code>   | 明亮风格键盘                                                                                                | 1.0.0 |
 | **`Default`** | <code>'DEFAULT'</code> | iOS 13+ 设备根据系统外观自动切换（暗黑模式显示暗黑键盘，明亮模式显示明亮键盘），iOS 12 设备固定显示明亮键盘 | 1.0.0 |
-
 
 #### KeyboardResize
 
-| 枚举值      | 值                 | 说明                                                                                                          | 版本  |
-| ------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- |
+| 枚举值       | 值                    | 说明                                                    | 版本  |
+| ------------ | --------------------- | ------------------------------------------------------- | ----- |
 | **`Body`**   | <code>'body'</code>   | 仅调整 `body` HTML 元素（因视口不变，相对单位不受影响） | 1.0.0 |
-| **`Ionic`**  | <code>'ionic'</code>  | 仅调整 `ion-app` HTML 元素（仅适用于 Ionic 框架应用）                               | 1.0.0 |
-| **`Native`** | <code>'native'</code> | 调整整个原生 Web View（会影响 `vh` 相对单位）        | 1.0.0 |
-| **`None`**   | <code>'none'</code>   | 不调整应用和 Web View                                                                        | 1.0.0 |
+| **`Ionic`**  | <code>'ionic'</code>  | 仅调整 `ion-app` HTML 元素（仅适用于 Ionic 框架应用）   | 1.0.0 |
+| **`Native`** | <code>'native'</code> | 调整整个原生 Web View（会影响 `vh` 相对单位）           | 1.0.0 |
+| **`None`**   | <code>'none'</code>   | 不调整应用和 Web View                                   | 1.0.0 |
 
 </docgen-api>

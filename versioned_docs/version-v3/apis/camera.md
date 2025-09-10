@@ -62,7 +62,7 @@ const takePicture = async () => {
   const image = await Camera.getPhoto({
     quality: 90,
     allowEditing: true,
-    resultType: CameraResultType.Uri
+    resultType: CameraResultType.Uri,
   });
 
   // image.webPath 包含可用作图片 src 的路径
@@ -79,18 +79,17 @@ const takePicture = async () => {
 
 <docgen-index>
 
-* [`getPhoto(...)`](#getphoto)
-* [`pickImages(...)`](#pickimages)
-* [`checkPermissions()`](#checkpermissions)
-* [`requestPermissions(...)`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+- [`getPhoto(...)`](#getphoto)
+- [`pickImages(...)`](#pickimages)
+- [`checkPermissions()`](#checkpermissions)
+- [`requestPermissions(...)`](#requestpermissions)
+- [接口](#interfaces)
+- [类型别名](#type-aliases)
+- [枚举](#enums)
 
 </docgen-index>
 
 <docgen-api>
-
 
 ### getPhoto(...)
 
@@ -108,8 +107,7 @@ getPhoto(options: ImageOptions) => Promise<Photo>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### pickImages(...)
 
@@ -128,8 +126,7 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 
 **自版本:** 1.2.0
 
---------------------
-
+---
 
 ### checkPermissions()
 
@@ -143,8 +140,7 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自版本:** 1.0.0
 
---------------------
-
+---
 
 ### requestPermissions(...)
 
@@ -162,75 +158,68 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 
 **自版本:** 1.0.0
 
---------------------
+---
 
-
-### 接口
-
+### Interfaces
 
 #### Photo
 
-| 属性               | 类型                 | 描述                                                                                                                                                                                                      | 自版本 |
-| ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`base64String`** | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.Base64</a> 时，返回的 base64 编码图像字符串                                                                                                                 | 1.0.0 |
-| **`dataUrl`**      | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.DataUrl</a> 时，返回以 'data:image/jpeg;base64,' 开头的 base64 编码数据 URL                                                                                | 1.0.0 |
-| **`path`**         | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.Uri</a> 时，返回完整的平台特定文件 URL，可通过 Filesystem API 读取                                                                                          | 1.0.0 |
-| **`webPath`**      | <code>string</code>  | 返回可用作图片 src 属性的路径，用于高效加载和渲染                                                                                                                                                           | 1.0.0 |
-| **`exif`**         | <code>any</code>     | 从图像中获取的 Exif 数据（如果有）                                                                                                                                                                          | 1.0.0 |
-| **`format`**       | <code>string</code>  | 图像格式，如 jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg 和 png。gif 仅在文件输入时支持                                                                                                        | 1.0.0 |
-| **`saved`**        | <code>boolean</code> | 图像是否已保存到相册。在 Android 和 iOS 上，如果用户未授予必要权限，保存到相册可能会失败。Web 上没有相册，因此始终返回 false。                                                                               | 1.1.0 |
-
+| 属性               | 类型                 | 描述                                                                                                                           | 自版本 |
+| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| **`base64String`** | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.Base64</a> 时，返回的 base64 编码图像字符串                                  | 1.0.0  |
+| **`dataUrl`**      | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.DataUrl</a> 时，返回以 'data:image/jpeg;base64,' 开头的 base64 编码数据 URL  | 1.0.0  |
+| **`path`**         | <code>string</code>  | 使用 <a href="#cameraresulttype">CameraResultType.Uri</a> 时，返回完整的平台特定文件 URL，可通过 Filesystem API 读取           | 1.0.0  |
+| **`webPath`**      | <code>string</code>  | 返回可用作图片 src 属性的路径，用于高效加载和渲染                                                                              | 1.0.0  |
+| **`exif`**         | <code>any</code>     | 从图像中获取的 Exif 数据（如果有）                                                                                             | 1.0.0  |
+| **`format`**       | <code>string</code>  | 图像格式，如 jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg 和 png。gif 仅在文件输入时支持                          | 1.0.0  |
+| **`saved`**        | <code>boolean</code> | 图像是否已保存到相册。在 Android 和 iOS 上，如果用户未授予必要权限，保存到相册可能会失败。Web 上没有相册，因此始终返回 false。 | 1.1.0  |
 
 #### ImageOptions
 
-| 属性                      | 类型                                                          | 描述                                                                                                                                                                                                                                                            | 默认值                             | 自版本 |
-| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ----- |
-| **`quality`**             | <code>number</code>                                           | JPEG 图像质量，0-100                                                                                                                                                                                                                                          |                                     | 1.0.0 |
-| **`allowEditing`**        | <code>boolean</code>                                          | 是否允许用户裁剪或进行小幅编辑（平台特定）。在 iOS 14+ 上，仅支持 <a href="#camerasource">CameraSource.Camera</a>，不支持 <a href="#camerasource">CameraSource.Photos</a>。                                                                                    |                                     | 1.0.0 |
-| **`resultType`**          | <code><a href="#cameraresulttype">CameraResultType</a></code> | 返回数据的方式。目前仅支持 'Base64'、'DataUrl' 或 'Uri'                                                                                                                                                                                                       |                                     | 1.0.0 |
-| **`saveToGallery`**       | <code>boolean</code>                                          | 是否将照片保存到相册。如果照片是从相册选取的，则仅在编辑后才会保存。                                                                                                                                                                                          | <code>: false</code>                | 1.0.0 |
-| **`width`**               | <code>number</code>                                           | 保存图像的宽度                                                                                                                                                                                                                                                 |                                     | 1.0.0 |
-| **`height`**              | <code>number</code>                                           | 保存图像的高度                                                                                                                                                                                                                                                 |                                     | 1.0.0 |
-| **`preserveAspectRatio`** | <code>boolean</code>                                          | 此设置无效。图片调整大小始终会保持宽高比。                                                                                                                                                                                                                     |                                     | 1.0.0 |
-| **`correctOrientation`**  | <code>boolean</code>                                          | 是否自动将竖屏模式下的图像旋转至"向上"正确方向                                                                                                                                                                                                                 | <code>: true</code>                 | 1.0.0 |
-| **`source`**              | <code><a href="#camerasource">CameraSource</a></code>         | 获取照片的来源。默认提示用户选择相册或拍照。                                                                                                                                                                                                                   | <code>: CameraSource.Prompt</code>  | 1.0.0 |
-| **`direction`**           | <code><a href="#cameradirection">CameraDirection</a></code>   | 仅 iOS 和 Web：相机方向。                                                                                                                                                                                                                                      | <code>: CameraDirection.Rear</code> | 1.0.0 |
-| **`presentationStyle`**   | <code>'fullscreen' \| 'popover'</code>                        | 仅 iOS：相机的呈现样式。                                                                                                                                                                                                                                       | <code>: 'fullscreen'</code>         | 1.0.0 |
-| **`webUseInput`**         | <code>boolean</code>                                          | 仅 Web：使用 PWA Element 体验还是文件输入。默认使用已安装的 PWA Elements，如果未安装则回退到文件输入。要始终使用文件输入，将此设为 `true`。了解更多关于 PWA Elements: https://capacitorjs.com/docs/v3/pwa-elements                                                    |                                     | 1.0.0 |
-| **`promptLabelHeader`**   | <code>string</code>                                           | 显示提示时使用的文本值。                                                                                                                                                                                                                                       | <code>: 'Photo'</code>              | 1.0.0 |
-| **`promptLabelCancel`**   | <code>string</code>                                           | 显示提示时使用的文本值。仅 iOS：'取消'按钮的标签。                                                                                                                                                                                                             | <code>: 'Cancel'</code>             | 1.0.0 |
-| **`promptLabelPhoto`**    | <code>string</code>                                           | 显示提示时使用的文本值。选择已保存图片按钮的标签。                                                                                                                                                                                                             | <code>: 'From Photos'</code>        | 1.0.0 |
-| **`promptLabelPicture`**  | <code>string</code>                                           | 显示提示时使用的文本值。打开相机按钮的标签。                                                                                                                                                                                                                   | <code>: 'Take Picture'</code>       | 1.0.0 |
-
+| 属性                      | 类型                                                          | 描述                                                                                                                                                                                                               | 默认值                              | 自版本 |
+| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ------ |
+| **`quality`**             | <code>number</code>                                           | JPEG 图像质量，0-100                                                                                                                                                                                               |                                     | 1.0.0  |
+| **`allowEditing`**        | <code>boolean</code>                                          | 是否允许用户裁剪或进行小幅编辑（平台特定）。在 iOS 14+ 上，仅支持 <a href="#camerasource">CameraSource.Camera</a>，不支持 <a href="#camerasource">CameraSource.Photos</a>。                                        |                                     | 1.0.0  |
+| **`resultType`**          | <code><a href="#cameraresulttype">CameraResultType</a></code> | 返回数据的方式。目前仅支持 'Base64'、'DataUrl' 或 'Uri'                                                                                                                                                            |                                     | 1.0.0  |
+| **`saveToGallery`**       | <code>boolean</code>                                          | 是否将照片保存到相册。如果照片是从相册选取的，则仅在编辑后才会保存。                                                                                                                                               | <code>: false</code>                | 1.0.0  |
+| **`width`**               | <code>number</code>                                           | 保存图像的宽度                                                                                                                                                                                                     |                                     | 1.0.0  |
+| **`height`**              | <code>number</code>                                           | 保存图像的高度                                                                                                                                                                                                     |                                     | 1.0.0  |
+| **`preserveAspectRatio`** | <code>boolean</code>                                          | 此设置无效。图片调整大小始终会保持宽高比。                                                                                                                                                                         |                                     | 1.0.0  |
+| **`correctOrientation`**  | <code>boolean</code>                                          | 是否自动将竖屏模式下的图像旋转至"向上"正确方向                                                                                                                                                                     | <code>: true</code>                 | 1.0.0  |
+| **`source`**              | <code><a href="#camerasource">CameraSource</a></code>         | 获取照片的来源。默认提示用户选择相册或拍照。                                                                                                                                                                       | <code>: CameraSource.Prompt</code>  | 1.0.0  |
+| **`direction`**           | <code><a href="#cameradirection">CameraDirection</a></code>   | 仅 iOS 和 Web：相机方向。                                                                                                                                                                                          | <code>: CameraDirection.Rear</code> | 1.0.0  |
+| **`presentationStyle`**   | <code>'fullscreen' \| 'popover'</code>                        | 仅 iOS：相机的呈现样式。                                                                                                                                                                                           | <code>: 'fullscreen'</code>         | 1.0.0  |
+| **`webUseInput`**         | <code>boolean</code>                                          | 仅 Web：使用 PWA Element 体验还是文件输入。默认使用已安装的 PWA Elements，如果未安装则回退到文件输入。要始终使用文件输入，将此设为 `true`。了解更多关于 PWA Elements: https://capacitorjs.com/docs/v3/pwa-elements |                                     | 1.0.0  |
+| **`promptLabelHeader`**   | <code>string</code>                                           | 显示提示时使用的文本值。                                                                                                                                                                                           | <code>: 'Photo'</code>              | 1.0.0  |
+| **`promptLabelCancel`**   | <code>string</code>                                           | 显示提示时使用的文本值。仅 iOS：'取消'按钮的标签。                                                                                                                                                                 | <code>: 'Cancel'</code>             | 1.0.0  |
+| **`promptLabelPhoto`**    | <code>string</code>                                           | 显示提示时使用的文本值。选择已保存图片按钮的标签。                                                                                                                                                                 | <code>: 'From Photos'</code>        | 1.0.0  |
+| **`promptLabelPicture`**  | <code>string</code>                                           | 显示提示时使用的文本值。打开相机按钮的标签。                                                                                                                                                                       | <code>: 'Take Picture'</code>       | 1.0.0  |
 
 #### GalleryPhotos
 
-| 属性         | 类型                        | 描述                     | 自版本 |
-| ------------ | --------------------------- | ------------------------------- | ----- |
-| **`photos`** | <code>GalleryPhoto[]</code> | 所有已选图片的数组。 | 1.2.0 |
-
+| 属性         | 类型                        | 描述                 | 自版本 |
+| ------------ | --------------------------- | -------------------- | ------ |
+| **`photos`** | <code>GalleryPhoto[]</code> | 所有已选图片的数组。 | 1.2.0  |
 
 #### GalleryPhoto
 
-| 属性          | 类型                | 描述                                                                                                       | 自版本 |
-| ------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- | ----- |
-| **`path`**    | <code>string</code> | 完整的平台特定文件 URL，可通过 Filesystem API 读取。                                 | 1.2.0 |
-| **`webPath`** | <code>string</code> | 返回可用作图片 src 属性的路径，用于高效加载和渲染。 | 1.2.0 |
-| **`exif`**    | <code>any</code>    | 从图像中获取的 Exif 数据（如果有）                                                                       | 1.2.0 |
-| **`format`**  | <code>string</code> | 图像格式，如 jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg、png 和 gif。   | 1.2.0 |
-
+| 属性          | 类型                | 描述                                                                                 | 自版本 |
+| ------------- | ------------------- | ------------------------------------------------------------------------------------ | ------ |
+| **`path`**    | <code>string</code> | 完整的平台特定文件 URL，可通过 Filesystem API 读取。                                 | 1.2.0  |
+| **`webPath`** | <code>string</code> | 返回可用作图片 src 属性的路径，用于高效加载和渲染。                                  | 1.2.0  |
+| **`exif`**    | <code>any</code>    | 从图像中获取的 Exif 数据（如果有）                                                   | 1.2.0  |
+| **`format`**  | <code>string</code> | 图像格式，如 jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg、png 和 gif。 | 1.2.0  |
 
 #### GalleryImageOptions
 
-| 属性                     | 类型                                   | 描述                                                                                | 默认值                     | 自版本 |
-| ------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------- | ----- |
-| **`quality`**            | <code>number</code>                    | JPEG 图像质量，0-100                                         |                             | 1.2.0 |
-| **`width`**              | <code>number</code>                    | 保存图像的宽度                                                               |                             | 1.2.0 |
-| **`height`**             | <code>number</code>                    | 保存图像的高度                                                              |                             | 1.2.0 |
-| **`correctOrientation`** | <code>boolean</code>                   | 是否自动将竖屏模式下的图像旋转至"向上"正确方向 | <code>: true</code>         | 1.2.0 |
-| **`presentationStyle`**  | <code>'fullscreen' \| 'popover'</code> | 仅 iOS：相机的呈现样式。                                            | <code>: 'fullscreen'</code> | 1.2.0 |
-| **`limit`**              | <code>number</code>                    | 仅 iOS：用户最多可选择的图片数量。                      | <code>0 (无限制)</code>  | 1.2.0 |
-
+| 属性                     | 类型                                   | 描述                                           | 默认值                      | 自版本 |
+| ------------------------ | -------------------------------------- | ---------------------------------------------- | --------------------------- | ------ |
+| **`quality`**            | <code>number</code>                    | JPEG 图像质量，0-100                           |                             | 1.2.0  |
+| **`width`**              | <code>number</code>                    | 保存图像的宽度                                 |                             | 1.2.0  |
+| **`height`**             | <code>number</code>                    | 保存图像的高度                                 |                             | 1.2.0  |
+| **`correctOrientation`** | <code>boolean</code>                   | 是否自动将竖屏模式下的图像旋转至"向上"正确方向 | <code>: true</code>         | 1.2.0  |
+| **`presentationStyle`**  | <code>'fullscreen' \| 'popover'</code> | 仅 iOS：相机的呈现样式。                       | <code>: 'fullscreen'</code> | 1.2.0  |
+| **`limit`**              | <code>number</code>                    | 仅 iOS：用户最多可选择的图片数量。             | <code>0 (无限制)</code>     | 1.2.0  |
 
 #### PermissionStatus
 
@@ -239,56 +228,49 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`camera`** | <code><a href="#camerapermissionstate">CameraPermissionState</a></code> |
 | **`photos`** | <code><a href="#camerapermissionstate">CameraPermissionState</a></code> |
 
-
 #### CameraPluginPermissions
 
 | 属性              | 类型                                |
 | ----------------- | ----------------------------------- |
 | **`permissions`** | <code>CameraPermissionType[]</code> |
 
-
-### 类型别名
-
+### Type Aliases
 
 #### CameraPermissionState
 
-<code><a href="#permissionstate">PermissionState</a> | 'limited'</code>
-
+<code>
+  <a href="#permissionstate">PermissionState</a> | 'limited'
+</code>
 
 #### PermissionState
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
-
 #### CameraPermissionType
 
 <code>'camera' | 'photos'</code>
 
-
-### 枚举
-
+### Enums
 
 #### CameraResultType
 
-| 成员       | 值                  |
+| 成员          | 值                     |
 | ------------- | ---------------------- |
 | **`Uri`**     | <code>'uri'</code>     |
 | **`Base64`**  | <code>'base64'</code>  |
 | **`DataUrl`** | <code>'dataUrl'</code> |
 
-
 #### CameraSource
 
-| 成员      | 值                 | 描述                                                        |
-| ------------ | --------------------- | ------------------------------------------------------------------ |
-| **`Prompt`** | <code>'PROMPT'</code> | 提示用户选择相册或拍照 |
-| **`Camera`** | <code>'CAMERA'</code> | 使用摄像头拍摄新照片 |
+| 成员         | 值                    | 描述                       |
+| ------------ | --------------------- | -------------------------- |
+| **`Prompt`** | <code>'PROMPT'</code> | 提示用户选择相册或拍照     |
+| **`Camera`** | <code>'CAMERA'</code> | 使用摄像头拍摄新照片       |
 | **`Photos`** | <code>'PHOTOS'</code> | 从相册或图库中选择现有照片 |
-
 
 #### CameraDirection
 
-| 成员     | 值                |
+| 成员        | 值                   |
 | ----------- | -------------------- |
 | **`Rear`**  | <code>'REAR'</code>  |
 | **`Front`** | <code>'FRONT'</code> |

@@ -27,13 +27,13 @@ await SplashScreen.hide();
 
 // 无限期显示启动画面：
 await SplashScreen.show({
-  autoHide: false
+  autoHide: false,
 });
 
 // 显示启动画面2秒后自动隐藏：
 await SplashScreen.show({
   showDuration: 2000,
-  autoHide: true
+  autoHide: true,
 });
 ```
 
@@ -58,6 +58,7 @@ await SplashScreen.show({
 可通过以下配置自定义加载指示器的外观：
 
 对于 Android，`androidSpinnerStyle` 可选值：
+
 - `horizontal`
 - `small`
 - `large`（默认）
@@ -66,6 +67,7 @@ await SplashScreen.show({
 - `largeInverse`
 
 对于 iOS，`iosSpinnerStyle` 可选值：
+
 - `large`（默认）
 - `small`
 
@@ -77,21 +79,21 @@ await SplashScreen.show({
 
 可用配置值：
 
-| 属性                            | 类型                                                                                                                          | 描述                                                                                                                                                                                                  | 默认值             | 版本 |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | ----- |
-| **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动画面显示时长（毫秒）                                                                                                                                   | <code>500</code>    | 1.0.0 |
-| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏启动画面                                                                                                                                                    | <code>true</code>   | 1.0.0 |
-| **`backgroundColor`**           | <code>string</code>                                                                                                           | 启动画面背景色，十六进制格式 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 时无效                                                                                       |                     | 1.0.0 |
-| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | 用作启动画面的资源名称。仅限 Android                                                                                                                                 | <code>splash</code> | 1.0.0 |
+| 属性                            | 类型                                                                                                                          | 描述                                                                                                                                                              | 默认值              | 版本  |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
+| **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动画面显示时长（毫秒）                                                                                                                      | <code>500</code>    | 1.0.0 |
+| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏启动画面                                                                                                                      | <code>true</code>   | 1.0.0 |
+| **`backgroundColor`**           | <code>string</code>                                                                                                           | 启动画面背景色，十六进制格式 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 时无效                                                                                  |                     | 1.0.0 |
+| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | 用作启动画面的资源名称。仅限 Android                                                                                                                              | <code>splash</code> | 1.0.0 |
 | **`androidScaleType`**          | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | 用于缩放启动画面的 [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType)。当 `useDialog` 为 true 时无效。仅限 Android | <code>FIT_XY</code> | 1.0.0 |
-| **`showSpinner`**               | <code>boolean</code>                                                                                                          | 是否在启动画面上显示加载指示器。当 `useDialog` 为 true 时无效                                                                                                                            |                     | 1.0.0 |
-| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Android 加载指示器样式。当 `useDialog` 为 true 时无效                                                                                                                                           | <code>large</code>  | 1.0.0 |
-| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | iOS 加载指示器样式。当 `useDialog` 为 true 时无效。仅限 iOS                                                                                                                        | <code>large</code>  | 1.0.0 |
-| **`spinnerColor`**              | <code>string</code>                                                                                                           | 加载指示器颜色，十六进制格式 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 时无效                                                                                                               |                     | 1.0.0 |
-| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | 是否全屏显示启动画面（隐藏状态栏）。仅限 Android                                                                                                                                         |                     | 1.0.0 |
-| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 是否沉浸式显示启动画面（隐藏状态栏和虚拟导航键）。仅限 Android                                                                                                     |                     | 1.0.0 |
-| **`layoutName`**                | <code>string</code>                                                                                                           | 当 `useDialog` 为 true 时配置对话框布局。当 `useDialog` 为 false 或未设置时，使用布局而非 ImageView。仅限 Android                                            |                     | 1.1.0 |
-| **`useDialog`**                 | <code>boolean</code>                                                                                                          | 是否使用对话框替代 ImageView。如果未配置 `layoutName`，则使用以启动图片为背景的布局。仅限 Android                                           |                     | 1.1.0 |
+| **`showSpinner`**               | <code>boolean</code>                                                                                                          | 是否在启动画面上显示加载指示器。当 `useDialog` 为 true 时无效                                                                                                     |                     | 1.0.0 |
+| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Android 加载指示器样式。当 `useDialog` 为 true 时无效                                                                                                             | <code>large</code>  | 1.0.0 |
+| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | iOS 加载指示器样式。当 `useDialog` 为 true 时无效。仅限 iOS                                                                                                       | <code>large</code>  | 1.0.0 |
+| **`spinnerColor`**              | <code>string</code>                                                                                                           | 加载指示器颜色，十六进制格式 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 时无效                                                                                  |                     | 1.0.0 |
+| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | 是否全屏显示启动画面（隐藏状态栏）。仅限 Android                                                                                                                  |                     | 1.0.0 |
+| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 是否沉浸式显示启动画面（隐藏状态栏和虚拟导航键）。仅限 Android                                                                                                    |                     | 1.0.0 |
+| **`layoutName`**                | <code>string</code>                                                                                                           | 当 `useDialog` 为 true 时配置对话框布局。当 `useDialog` 为 false 或未设置时，使用布局而非 ImageView。仅限 Android                                                 |                     | 1.1.0 |
+| **`useDialog`**                 | <code>boolean</code>                                                                                                          | 是否使用对话框替代 ImageView。如果未配置 `layoutName`，则使用以启动图片为背景的布局。仅限 Android                                                                 |                     | 1.1.0 |
 
 ### 配置示例
 
@@ -131,16 +133,16 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchShowDuration: 3000,
       launchAutoHide: true,
-      backgroundColor: "#ffffffff",
-      androidSplashResourceName: "splash",
-      androidScaleType: "CENTER_CROP",
+      backgroundColor: '#ffffffff',
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
       showSpinner: true,
-      androidSpinnerStyle: "large",
-      iosSpinnerStyle: "small",
-      spinnerColor: "#999999",
+      androidSpinnerStyle: 'large',
+      iosSpinnerStyle: 'small',
+      spinnerColor: '#999999',
       splashFullScreen: true,
       splashImmersive: true,
-      layoutName: "launch_screen",
+      layoutName: 'launch_screen',
       useDialog: true,
     },
   },
@@ -171,9 +173,9 @@ export default config;
 
 <docgen-index>
 
-* [`show(...)`](#显示启动画面)
-* [`hide(...)`](#隐藏启动画面)
-* [接口定义](#接口定义)
+- [`show(...)`](#显示启动画面)
+- [`hide(...)`](#隐藏启动画面)
+- [接口定义](#interfaces)
 
 </docgen-index>
 
@@ -187,13 +189,13 @@ show(options?: ShowOptions | undefined) => Promise<void>
 
 显示启动画面
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
+---
 
 ### 隐藏启动画面
 
@@ -203,29 +205,29 @@ hide(options?: HideOptions | undefined) => Promise<void>
 
 隐藏启动画面
 
-| 参数         | 类型                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#hideoptions">HideOptions</a></code> |
 
 **版本：** 1.0.0
 
---------------------
+---
 
-### 接口定义
+### Interfaces
 
 #### ShowOptions 显示选项
 
-| 属性                  | 类型                 | 描述                                                         | 默认值           | 版本 |
-| --------------------- | -------------------- | ------------------------------------------------------------------- | ----------------- | ----- |
-| **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏                  |                   | 1.0.0 |
-| **`fadeInDuration`**  | <code>number</code>  | 淡入时长（毫秒）                                        | <code>200</code>  | 1.0.0 |
-| **`fadeOutDuration`** | <code>number</code>  | 淡出时长（毫秒）                                       | <code>200</code>  | 1.0.0 |
+| 属性                  | 类型                 | 描述                                       | 默认值            | 版本  |
+| --------------------- | -------------------- | ------------------------------------------ | ----------------- | ----- |
+| **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏             |                   | 1.0.0 |
+| **`fadeInDuration`**  | <code>number</code>  | 淡入时长（毫秒）                           | <code>200</code>  | 1.0.0 |
+| **`fadeOutDuration`** | <code>number</code>  | 淡出时长（毫秒）                           | <code>200</code>  | 1.0.0 |
 | **`showDuration`**    | <code>number</code>  | 当 autoHide 启用时启动画面显示时长（毫秒） | <code>3000</code> | 1.0.0 |
 
 #### HideOptions 隐藏选项
 
-| 属性                  | 类型                | 描述                   | 默认值          | 版本 |
-| --------------------- | ------------------- | ----------------------------- | ---------------- | ----- |
+| 属性                  | 类型                | 描述             | 默认值           | 版本  |
+| --------------------- | ------------------- | ---------------- | ---------------- | ----- |
 | **`fadeOutDuration`** | <code>number</code> | 淡出时长（毫秒） | <code>200</code> | 1.0.0 |
 
 </docgen-api>

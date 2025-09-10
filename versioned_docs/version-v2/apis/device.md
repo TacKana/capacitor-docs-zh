@@ -92,34 +92,34 @@ getLanguageCode() => Promise<DeviceLanguageCodeResult>
 
 ---
 
-### 接口定义
+### Interfaces
 
 #### DeviceInfo
 
-| 属性                  | 类型                                                               | 描述                                                                                                                                  |
-| --------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`name`**            | <code>string</code>                                                | 注意：此属性仅iOS可用。设备名称，例如"John's iPhone"                                                                                        |
-| **`model`**           | <code>string</code>                                                | 设备型号，例如"iPhone"                                                                                                      |
-| **`platform`**        | <code>"ios" \| "android" \| "electron" \| "web"</code>             | 设备平台(小写形式)                                                                                                             |
+| 属性                  | 类型                                                               | 描述                                                                                         |
+| --------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| **`name`**            | <code>string</code>                                                | 注意：此属性仅iOS可用。设备名称，例如"John's iPhone"                                         |
+| **`model`**           | <code>string</code>                                                | 设备型号，例如"iPhone"                                                                       |
+| **`platform`**        | <code>"ios" \| "android" \| "electron" \| "web"</code>             | 设备平台(小写形式)                                                                           |
 | **`uuid`**            | <code>string</code>                                                | 应用程序可访问的设备UUID。在现代移动平台上，此标识符可能会变化(因系统仅允许按应用安装UUID)。 |
-| **`appVersion`**      | <code>string</code>                                                | 当前应用的版本号                                                                                                        |
-| **`appBuild`**        | <code>string</code>                                                | 当前应用的构建号                                                                                                          |
-| **`appId`**           | <code>string</code>                                                | 应用的包ID                                                                                                                     |
-| **`appName`**         | <code>string</code>                                                | 应用的显示名称                                                                                                                  |
-| **`operatingSystem`** | <code>"unknown" \| "ios" \| "android" \| "windows" \| "mac"</code> | 设备操作系统                                                                                                           |
-| **`osVersion`**       | <code>string</code>                                                | 设备操作系统版本                                                                                                                 |
-| **`manufacturer`**    | <code>string</code>                                                | 设备制造商                                                                                                               |
-| **`isVirtual`**       | <code>boolean</code>                                               | 应用是否运行在模拟器/仿真器中                                                                                           |
-| **`memUsed`**         | <code>number</code>                                                | 当前应用占用的近似内存(字节数)。除以1048576可转换为MB单位。                                       |
+| **`appVersion`**      | <code>string</code>                                                | 当前应用的版本号                                                                             |
+| **`appBuild`**        | <code>string</code>                                                | 当前应用的构建号                                                                             |
+| **`appId`**           | <code>string</code>                                                | 应用的包ID                                                                                   |
+| **`appName`**         | <code>string</code>                                                | 应用的显示名称                                                                               |
+| **`operatingSystem`** | <code>"unknown" \| "ios" \| "android" \| "windows" \| "mac"</code> | 设备操作系统                                                                                 |
+| **`osVersion`**       | <code>string</code>                                                | 设备操作系统版本                                                                             |
+| **`manufacturer`**    | <code>string</code>                                                | 设备制造商                                                                                   |
+| **`isVirtual`**       | <code>boolean</code>                                               | 应用是否运行在模拟器/仿真器中                                                                |
+| **`memUsed`**         | <code>number</code>                                                | 当前应用占用的近似内存(字节数)。除以1048576可转换为MB单位。                                  |
 | **`diskFree`**        | <code>number</code>                                                | 操作系统常规数据存储路径的可用空间大小(字节数)                                               |
-| **`diskTotal`**       | <code>number</code>                                                | 操作系统常规数据存储路径的总大小(字节数)                                                                          |
+| **`diskTotal`**       | <code>number</code>                                                | 操作系统常规数据存储路径的总大小(字节数)                                                     |
 
 #### DeviceBatteryInfo
 
-| 属性               | 类型                 | 描述                                                      |
-| ------------------ | -------------------- | ---------------------------------------------------------------- |
+| 属性               | 类型                 | 描述                     |
+| ------------------ | -------------------- | ------------------------ |
 | **`batteryLevel`** | <code>number</code>  | 电池电量百分比(0到1之间) |
-| **`isCharging`**   | <code>boolean</code> | 设备是否正在充电                                   |
+| **`isCharging`**   | <code>boolean</code> | 设备是否正在充电         |
 
 #### DeviceLanguageCodeResult
 
