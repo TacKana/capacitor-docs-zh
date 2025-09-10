@@ -1,6 +1,6 @@
 ---
-title: 注册和内购
-description: 如何在 Capacitor 应用中注册和使用应用内购买功能
+title: 内购
+description: Capacitor 使用应用内购买功能
 contributors:
   - mlynch
 slug: /guides/in-app-purchases
@@ -20,6 +20,7 @@ npx cap update
 ## 设置商品与消耗型项目
 
 在 Capacitor 应用中实现应用内购买的主要工作量集中在以下几个方面：
+
 - 为 iOS 和 Android 平台注册商品及消耗型项目
 - 建立正确的应用内注册和消费流程
 

@@ -1,5 +1,5 @@
 ---
-title: Automated Configuration
+title: 自动化配置管理
 description: 实现 Capacitor 项目的自动化配置与管理，包括插件集成、品牌定制、CI/CD流程等场景
 contributors:
   - mlynch

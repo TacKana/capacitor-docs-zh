@@ -1,5 +1,5 @@
 ---
-title: Mocking Plugins
+title: 为 Capacitor 插件创建模拟对象
 description: 如何为 Capacitor 插件创建模拟对象
 contributors:
   - kensodemann

@@ -3,7 +3,7 @@ title: Privacy Screen Capacitor Plugin API
 description: 隐私屏幕插件提供防止敏感信息在应用切换器和离开应用时可见的功能。
 custom_edit_url: https://github.com/ionic-team/capacitor-privacy-screen/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-privacy-screen/blob/main/src/definitions.ts
-sidebar_label: Privacy Screen
+sidebar_label: 隐私屏幕
 ---
 
 # @capacitor/privacy-screen
