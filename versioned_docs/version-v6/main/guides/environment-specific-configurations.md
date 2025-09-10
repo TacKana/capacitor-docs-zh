@@ -1,36 +1,38 @@
 ---
-title: Environment Specific Configurations
-description: Creating environment specific configurations
+title: 环境特定配置
+description: 创建环境特定的配置方案
 contributors:
   - eric-horodyski
 slug: /guides/environment-specific-configurations
 ---
 
-# Creating Environment Specific Configurations
+# 创建环境特定的配置方案
 
-**Platforms:** iOS, Android
+**支持平台:** iOS, Android
 
-Many software development teams utilize different environments during the software development lifecycle. Configuration may differ between environments, such as bundle IDs, deep-link schemes, or icons and splash screens.
+在软件开发周期中，许多团队会使用不同的环境。不同环境下的配置可能存在差异，例如包名（bundle ID）、深度链接方案、应用图标和启动画面等。
 
-The Capacitor configuration file handles high-level options for Capacitor tooling and plugin configuration. iOS schemes and Android product flavors allow developers to provide differing app values for different environments. By combining the two, developers can use the Capacitor CLI to build apps for different environments.
+Capacitor 配置文件负责处理工具链和插件配置的高层选项。通过 iOS 的 schemes 和 Android 的产品变体（product flavors），开发者可以为不同环境提供差异化的应用配置。结合 Capacitor CLI，开发者能够为不同环境构建应用。
 
-This guide will walk you through setting up a QA environment configuration alongside the default environment configuration provided out-of-the-box. To demonstrate differences between each environment, the app name and bundle ID will differ between the two.
+本指南将带您配置一个 QA 测试环境，与默认环境配置共存。为展示环境差异，我们将使两个环境的应用名称和包名各不相同。
 
-## Prepare a Capacitor App
+## 准备 Capacitor 应用
 
-You will need a Capacitor app with both iOS and Android platforms added. If you have an existing Capacitor app with both platforms added, skip this section.
+首先需要已添加 iOS 和 Android 平台的 Capacitor 应用。若已有现成项目，可跳过本节。
 
-Depending on your preference, you can either [add Capacitor to an existing web application](/main/getting-started/installation.md) or [create a new Capacitor application with the Ionic Framework](/main/getting-started/with-ionic.md).
+您可以选择：
+- [为现有网页应用添加 Capacitor](/main/getting-started/installation.md)
+- [使用 Ionic 框架新建 Capacitor 应用](/main/getting-started/with-ionic.md)
 
-The Capacitor app must use TypeScript for configuration. This guide uses `capacitor.config.ts` to dynamically export different configurations.
+配置需使用 TypeScript，本指南将使用 `capacitor.config.ts` 动态导出不同配置。
 
-Before adding any native platforms to the project, you must build the Capacitor App at least once.
+添加原生平台前，必须先构建项目：
 
 ```bash
 npm run build
 ```
 
-Once built, you can add the platforms.
+构建完成后添加平台：
 
 ```bash
 npm install @capacitor/ios @capacitor/android
@@ -38,62 +40,51 @@ npx cap add ios
 npx cap add android
 ```
 
-## Setup a new iOS scheme
+## 配置 iOS 环境方案
 
-### Create a new Xcode target
+### 创建 Xcode 新目标
 
-Start by opening the native iOS project in Xcode: `npx cap open ios`.
+用 Xcode 打开项目：`npx cap open ios`
 
-1. Go to the project's settings in the Project Navigator panel. Under the _Targets_ section, right-click the "App" target and select **Duplicate** to copy the existing target.
-2. Click the new "App copy" target and press the `Enter` key to rename it. Set the target's name to "App QA".
+1. 在项目导航面板中进入项目设置
+2. 右键点击"App"目标选择**复制**
+3. 重命名新目标为"App QA"
 
-This process created an additional "App copy" scheme and added a new file called `App copy-Info.plist`.
+此操作会创建"App copy"方案和 `App copy-Info.plist` 文件。
 
-You can find additional information on iOS targets [at this link](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/WorkingwithTargets.html).
+[详细了解 iOS 目标](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/WorkingwithTargets.html)
 
-### Rename the new scheme and Plist file
+### 重命名方案和 Plist 文件
 
-1. Select **Manage Schemes...** from the Scheme menu.
-2. Find the "App copy" scheme and press the `Enter` key to rename it. Set the name to "App QA" and close the dialog.
-3. Find the "App copy-Info" file in the Project Navigator panel and press the `Enter` key to rename it. Set the file's name to "App QA-Info.plist".
-4. Return to the project's settings. Ensuring that the "App QA" target is selected, open the _Build Settings_ section. Scroll down to Packaging and change the **Info.plist File** entry to "App QA-Info.plist".
+1. 在 Scheme 菜单中选择**管理方案...**
+2. 将"App copy"重命名为"App QA"
+3. 将 `App copy-Info.plist` 重命名为 `App QA-Info.plist`
+4. 在"App QA"目标的构建设置中，更新 Info.plist 文件路径
 
-The iOS project now has two runnable schemes: "App" and "App QA". Capacitor's configuration file allows you to supply which scheme to build during the `run` command.
+现在项目包含两个可运行方案："App"和"App QA"。Capacitor 配置文件可指定构建方案。
 
-You can find additional information on iOS schemes [at this link](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/ManagingSchemes.html).
+[详细了解 iOS 方案](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/ManagingSchemes.html)
 
-### Set environment-specific values
+### 设置环境特定值
 
-Return to the _General_ portion of the project's settings. Ensure you have the "App QA" target selected and change the **Display Name** and **Bundle Identifier**.
+在"App QA"目标的通用设置中，修改**显示名称**和**包标识符**，确保与默认目标不同。这些值会保存在对应的 `Info.plist` 中。
 
-Make sure these values are different than what exists for the default "App" target. Target-specific values get stored in the target's associated `Info.plist` file. Following this guide, that file is `App QA-Info.plist`.
+### 更新 Podfile 并同步
 
-### Update the Podfile and sync the App
-
-Exit Xcode; you can use your preferred IDE going forward.
-
-Open `/ios/App/Podfile` and duplicate the code block for the "App" target, replacing "App" with "App QA" for the duplicate entry like so:
+编辑 `/ios/App/Podfile`，复制"App"目标配置块并修改为：
 
 ```ruby
-...snip...
-target 'App' do
-  capacitor_pods
-  # Add your Pods here
-end
-
 target 'App QA' do
   capacitor_pods
-  # Add your Pods here
+  # 在此添加依赖
 end
 ```
 
-Run `npx cap sync` to sync plugins with the "App QA" target.
+运行 `npx cap sync` 同步插件。
 
-### Add iOS-specific Capacitor configuration
+### 添加 iOS 专属配置
 
-With the target and scheme for the QA environment created, the Capacitor configuration needs to be updated to use them.
-
-Add the property below to the configuration object in `capacitor.config.ts`:
+在 `capacitor.config.ts` 中添加：
 
 ```typescript
 ios: {
@@ -101,15 +92,13 @@ ios: {
 }
 ```
 
-The `scheme` property tells Capacitor which iOS scheme to use for the `run` command. Test this out; run `npx cap run ios` and you'll see that the app name is different.
+测试运行：`npx cap run ios`，可见应用名称已变化。
 
-## Setup Android product flavors
+## 配置 Android 产品变体
 
-### Modify the App's Gradle file
+### 修改 Gradle 文件
 
-Android projects contain multiple `build.gradle` files; the one to modify to set up product flavors resides in the `/android/app` folder.
-
-Open `/android/app/build.gradle` and add the following code within the `android` block:
+编辑 `/android/app/build.gradle`，在 `android` 块中添加：
 
 ```groovy
 flavorDimensions = ["environment"]
@@ -126,35 +115,20 @@ productFlavors {
 }
 ```
 
-This code requires some explanation:
+说明：
+1. "dev"代表非 QA 环境
+2. `applicationIdSuffix` 会在包名后追加 `.qa`
+3. `manifestPlaceholders` 可在清单文件中使用
 
-1. Android does not provide a "default" flavor. In this guide, the non-QA environment is called "dev".
-2. `applicationIdSuffix` will append `.qa` to the end of the bundle ID.
-3. `manifestPlaceholders` are values that are usable in `AndroidManifest.xml`.
+[详细了解产品变体](https://developer.android.com/studio/build/build-variants)
 
-> **Note:** You are free to modify the bundle ID and display name values to your liking.
+### 更新 Android 清单文件
 
-You can find additional information on Android product flavors [at this link](https://developer.android.com/studio/build/build-variants).
+将 `AndroidManifest.xml` 中的 `android:label` 值改为 `${displayName}`。
 
-### Update the Android manifest
+### 添加 Android 专属配置
 
-In the last section, you created a placeholder, `displayName`. Open `AndroidManifest.xml` and change the value of `android:label` to `${displayName}` within the `application` and `activity` nodes.
-
-```xml
-<application
-  ...snip...
-  android:label="${displayName}">
-
-  <activity
-    ...snip...
-    android:label="${displayName}">
-```
-
-### Add Android-specific Capacitor configuration
-
-Like iOS, you must update the Capacitor configuration to use the QA product flavor.
-
-Add the property below to the configuration object in `capacitor.config.ts`:
+在 `capacitor.config.ts` 中添加：
 
 ```typescript
 android: {
@@ -162,15 +136,13 @@ android: {
  },
 ```
 
-Test this out; run `npx cap run android` and you'll see that the app name is different.
+测试运行：`npx cap run android`，观察应用名称变化。
 
-## Dynamically build for different environments
+## 动态构建不同环境
 
-### Export environment-specific Capacitor configuration
+### 导出环境特定配置
 
-All the pieces in place, now `capacitor.config.ts` can be written such that it exports a different configuration object based on a particular value.
-
-Open `capacitor.config.ts` and modify the code like so:
+修改 `capacitor.config.ts`：
 
 ```typescript
 import { CapacitorConfig } from '@capacitor/cli';
@@ -212,26 +184,24 @@ switch (process.env.NODE_ENV) {
 export default config;
 ```
 
-When `NODE_ENV` equals `qa`, Capacitor will use configuration pointing to the "App QA" scheme and "qa" product flavor. Otherwise, Capacitor uses configuration pointing to the "App" scheme and the "dev" product flavor.
+### 运行不同环境构建
 
-### Run the App for different environments
-
-You can run a build using the QA environment-specific configuration by prepending `NODE_ENV=qa` to the `npx cap copy` and `npx cap run` commands.
+构建 QA 环境：
 
 ```bash
 NODE_ENV=qa npx cap copy
 NODE_ENV=qa npx cap run ios 	#NODE_ENV=qa npx cap run android
 ```
 
-To run a build using the “default” environment-specific configuration, use the Capacitor commands as you would normally.
+构建默认环境：
 
 ```bash
 npx cap copy
 npx cap run ios 	#npx cap run android
 ```
 
-Go ahead and test it out! If you’ve followed the guide correctly, you'll be able to run builds for both environments and see that the app name differs depending on the environment-specific configuration used.
+测试运行后，可见不同环境的应用名称差异。
 
-## Additional environments and configuration options
+## 扩展方案
 
-Use the information provided in this guide as a foundation to build upon. The Capacitor CLI has no limitation on how many schemes or product flavors can be used, and you can configure each one as deep as iOS and Android allow you to. You can also provide different environment-specific configuration values for Capacitor plugins! The sky’s the limit.
+本指南提供的基础方案可无限扩展。Capacitor CLI 对 schemes 和 product flavors 数量没有限制，您可以根据 iOS 和 Android 的能力进行深度配置，甚至为不同环境的插件提供差异化配置，可能性无限广阔。

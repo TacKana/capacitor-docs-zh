@@ -1,24 +1,24 @@
 ---
 title: Capacitor Community Plugins
-description: Capacitor Community Plugins
-sidebar_label: Community Plugins
+description: Capacitor 社区插件
+sidebar_label: 社区插件
 slug: /plugins/community
 ---
 
-# Capacitor Community Plugins
+# Capacitor 社区插件
 
-The community has built a number of Capacitor plugins to add functionality to your app.
+社区已经开发了大量 Capacitor 插件来为您的应用增添功能。
 
-There are a number of ways to find community plugins: Search the web or npm to find any published plugins, or explore the official [Capacitor Community](https://github.com/capacitor-community) GitHub org and [npm scope](https://npmjs.com/~capacitor-community) for a curated list of quality, community-supported Capacitor plugins.
+有多种方式可以找到社区插件：您可以通过网络搜索或 npm 查找已发布的插件，或者浏览官方的 [Capacitor Community](https://github.com/capacitor-community) GitHub 组织和 [npm 作用域](https://npmjs.com/~capacitor-community)，这里汇集了经过筛选的高质量社区支持的 Capacitor 插件。
 
-## Capacitor Community
+## Capacitor 社区
 
-The official [Capacitor Community](https://github.com/capacitor-community) GitHub org and [npm scope](https://npmjs.com/~capacitor-community) is a new effort to curate the best Capacitor community-supported plugins and provide consistent project and code conventions. The Capacitor core team facilitates work but does not officially maintain any plugins in this org.
+官方的 [Capacitor Community](https://github.com/capacitor-community) GitHub 组织和 [npm 作用域](https://npmjs.com/~capacitor-community) 是一个新举措，旨在汇集最佳的 Capacitor 社区支持插件，并提供一致的项目和代码规范。Capacitor 核心团队会协调工作，但并不官方维护该组织中的任何插件。
 
-[Explore the Capacitor Community &#8250;](https://github.com/capacitor-community)
+[探索 Capacitor 社区 &#8250;](https://github.com/capacitor-community)
 
-## Cordova Ecosystem
+## Cordova 生态系统
 
-Capacitor has support for most Cordova plugins, so developers can use the [hundreds of existing Cordova plugins](https://cordova.apache.org/plugins/) in their Capacitor apps. While certain Cordova plugins are [not compatible](/plugins/cordova.md#known-incompatible-plugins) with Capacitor, most are, so it's worth trying one if there's no existing Capacitor-specific plugin available.
+Capacitor 支持大多数 Cordova 插件，因此开发者可以在他们的 Capacitor 应用中使用[数百个现有的 Cordova 插件](https://cordova.apache.org/plugins/)。虽然某些 Cordova 插件[与 Capacitor 不兼容](/plugins/cordova.md#known-incompatible-plugins)，但大多数都是兼容的，所以如果没有现成的 Capacitor 专用插件，值得尝试使用 Cordova 插件。
 
-Also see the [Ionic Native Community](https://ionicframework.com/docs/v3/native/community) plugins for a list of primarily Cordova plugins with convenient wrappers to make them easier to use in your apps. Feel free to use the Ionic Native Community wrappers or simply use the list as a reference for quality Cordova plugins.
+另请参阅 [Ionic Native Community](https://ionicframework.com/docs/v3/native/community) 插件列表，这里主要包含 Cordova 插件及其便捷包装器，使它们更容易在您的应用中使用。您可以随意使用 Ionic Native Community 包装器，或者仅将该列表作为高质量 Cordova 插件的参考。

@@ -1,53 +1,48 @@
 ---
 title: Updating Your Capacitor iOS Project
-description: Updating Your Capacitor iOS Project
+description: 更新您的Capacitor iOS项目
 contributors:
   - mlynch
 ---
 
-# Updating Your Capacitor iOS Project
+# 更新您的Capacitor iOS项目
 
-Occasionally, you'll need to make Capacitor updates to your iOS app, including updating the version of Capacitor used in your app, or using new ways of interfacing with Capacitor inside of your iOS codebase (for example, with new iOS API changes).
+在某些情况下，您需要对iOS应用进行Capacitor更新，包括升级应用中使用的Capacitor版本，或是在iOS代码库中使用新的Capacitor交互方式（例如适配新的iOS API变更）。
 
-## Updating Capacitor iOS Library
+## 更新Capacitor iOS库
 
-To update the version of @capacitor/ios used in your app, just npm install latest version:
+要更新应用中使用的@capacitor/ios版本，只需通过npm安装最新版本：
 
 ```bash
 npm install @capacitor/ios@2
 ```
 
-Then sync the native project:
+然后同步原生项目：
 
 ```bash
 npx cap sync ios
 ```
 
-## Updating iOS Project
+## 更新iOS项目结构
 
-To update the base structure of your Xcode project, view the [ios-template](https://github.com/ionic-team/capacitor/tree/2.x/ios-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
+如需更新Xcode项目的基础结构，请访问Capacitor代码库中的[ios-template](https://github.com/ionic-team/capacitor/tree/2.x/ios-template)项目，查看与Capacitor最新稳定版对应的标签页。核心项目有意保持简洁设计，您只需少量时间就能发现与您项目的差异。
 
-In particular, [AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/2.x/ios-template/App/App/AppDelegate.swift) should be checked regularly for possible changes to iOS events.
+特别建议定期检查[AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/2.x/ios-template/App/App/AppDelegate.swift)文件，了解iOS事件处理的潜在变更。
 
-### From 1.0.0 to 1.1.0
+### 从1.0.0升级至1.1.0
 
-Recommended change:
+建议变更：
+- 按照[本次提交](https://github.com/ionic-team/capacitor/commit/91941975ea5fe5389e0b09bb8331d5cb16ea6a78#diff-ea346566a7f09b5e88ed28d3d6362ec3)更新`ios`文件夹内的`.gitignore`文件
 
-- Update `.gitignore` file inside `ios` folder with [this changes](https://github.com/ionic-team/capacitor/commit/91941975ea5fe5389e0b09bb8331d5cb16ea6a78#diff-ea346566a7f09b5e88ed28d3d6362ec3)
+### 从≤1.5.1升级至2.0.0
 
-### From &lt;= 1.5.1 to 2.0.0
+建议变更：
+- 将原生项目迁移至Swift 5
 
-Recommended change:
+  Capacitor 2.0采用Swift 5，建议您同步升级原生项目：
+  1. 在Xcode中点击`编辑 -> 转换 -> 至当前Swift语法`
+  2. 选择App.app后点击`下一步`
+  3. 系统将提示`无需源代码修改`
+  4. 最后点击`更新`按钮
 
-- Update native project to Swift 5
-
-  Capacitor 2.0 uses Swift 5, it's recommended to update your native project to also use Swift 5.
-  To do so, from Xcode click `Edit -> Convert -> To Current Swift Syntax`.
-
-  App.app will appear selected, click `Next` button.
-
-  Then a message will say `No source changes necessary`.
-
-  Finally, click the `Update` button.
-
-For API changes, check the [Release Notes](https://github.com/ionic-team/capacitor/releases/tag/2.0.0).
+完整API变更请参阅[版本发布说明](https://github.com/ionic-team/capacitor/releases/tag/2.0.0)。

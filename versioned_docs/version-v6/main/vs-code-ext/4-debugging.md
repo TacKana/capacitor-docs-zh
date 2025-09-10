@@ -1,69 +1,79 @@
 ---
 title: Debugging
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/debugging
 ---
 
-Debug your application using either [the extension](#debug-in-vs-code) or [attaching to the web view](#attach-to-web-view). You can alternatively use [Remote Logging](#remote-logging) to perform `console.log` style debugging.
+您可以通过两种方式调试应用：[使用扩展](#debug-in-vs-code) 或 [附加到 WebView](#attach-to-web-view)。此外还可以使用 [远程日志](#remote-logging) 功能实现类似 `console.log` 的调试方式。
 
 :::tip
-You can press `⌥` + D to debug your app (`ALT` + `D` on Windows).
+快捷键提示：按 `⌥` + D 可快速启动调试（Windows 上是 `ALT` + `D`）。
 :::
 
-## Debug in VS Code
+## 在 VS Code 中调试
 
-Click the `Debug` item to launch a web browser or attach to a running Android web view for debugging.
+点击 `Debug` 菜单项可以启动浏览器调试，或者附加到正在运行的 Android WebView 进行调试。
 
-Click `Debug` > `Web` to launch a _debuggable_ web browser such as Chrome or MS Edge. This will build your app then put VS Code into debugging mode allowing you to set breakpoints, inspect variables etc. 
+选择 `Debug` > `Web` 会启动可调试的浏览器（如 Chrome 或 Edge）。这将构建您的应用并使 VS Code 进入调试模式，支持设置断点、检查变量等操作。
 
 :::note
-You can choose which browser to debug from `Settings` > `Advanced` > `Browser`.
+您可以在 `Settings` > `Advanced` > `Browser` 中选择要调试的浏览器类型。
 :::
 
-## Attach to Web View
+## 附加到 WebView
 
-You can debug a running real or emulated Android Device by first running for Android by either clicking `Run` > `Android` or running the app in Android Studio.
-
-Click the `Debug` item and all running Android web views will appear, click one to start a debugging session for that view.
+要对真实设备或模拟器上运行的 Android 应用进行调试：
+1. 首先通过点击 `Run` > `Android` 或在 Android Studio 中运行应用
+2. 点击 `Debug` 菜单项
+3. 所有正在运行的 Android WebView 都会显示，选择其中一个即可开始调试会话
 
 :::note
-You can also attach to Web View using Chrome or Safari and use their built in debugging and inspection tools.
+您也可以使用 Chrome 或 Safari 附加到 WebView，利用它们内置的调试和检查工具。
 :::
 
-### Use Chrome Inspect
+### 使用 Chrome 检查工具
 
-When you have run your app from `Run` > `Android` or Android Studio:
-- Open **Google Chrome** and enter into the url bar: `chrome://inspect` and press enter.
-- Any running web views will appear as remote targets which you can open
-- Use Chrome's debugging and inspection tools.
+当您通过 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Google Chrome** 浏览器
+- 在地址栏输入：`chrome://inspect` 并回车
+- 所有运行的 WebView 会显示为可连接的远程目标
+- 使用 Chrome 的调试和检查工具
 
-### Use Edge Inspect
+### 使用 Edge 检查工具
 
-When you have run your app from `Run` > `Android` or Android Studio:
-- Open **Microsoft Edge** and enter into the url bar: `edge://inspect` and press enter.
-- Any running web views will appear as remote targets which you can open
-- Use Edge's debugging and inspection tools.
+当您通过 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Microsoft Edge** 浏览器
+- 在地址栏输入：`edge://inspect` 并回车
+- 所有运行的 WebView 会显示为可连接的远程目标
+- 使用 Edge 的调试和检查工具
 
-### Use Safari
+### 使用 Safari 调试 iOS
 
-When you have run your app from `Run` > `iOS` or XCode:
-- Open **Safari** and select the iOS Device from the `Develop` menu
-- Use Safari's debugging and inspection tools.
+当您通过 `Run` > `iOS` 或 XCode 运行应用后：
+- 打开 **Safari** 浏览器
+- 从 `Develop` 菜单中选择对应的 iOS 设备
+- 使用 Safari 的调试和检查工具
 
 :::note
-You will need to turn on the development mode for Safari by going to the `Safari` menu > `Settings`, `Advanced` and check the box `Show Develop menu in menu bar`.
+使用前需要开启 Safari 开发者模式：
+1. 点击 `Safari` 菜单 > `设置`
+2. 进入 `高级` 标签页
+3. 勾选 `在菜单栏中显示"开发"菜单`
 
-You'll also need to ensure your mobile device has been enabled for debugging.
+同时请确保您的移动设备已启用调试功能。
 :::
 
-## Remote Logging
+## 远程日志
 
-The remote logging feature will send all calls to `console.log` (and `console.error` etc) to the VS Code `output` window. This makes debugging your app when it is running on a device easier as you do not have to attach to its web view.
+远程日志功能会将所有 `console.log`（以及 `console.error` 等）调用输出到 VS Code 的 `output` 窗口。这使得在设备上运行应用时无需附加 WebView 即可轻松调试。
 
-To use this feature install Nexus Browser on the device ([App Store](https://apps.apple.com/us/app/nexus-web-browser/id6445866986) or [Play Store](https://play.google.com/store/apps/details?id=com.nexusconcepts.nexus)) and Run your app for web in VS Code. If the device is on the same Wifi network it will detect your app and allow you to launch it.
+使用方法：
+1. 在设备上安装 Nexus Browser（[App Store](https://apps.apple.com/us/app/nexus-web-browser/id6445866986) 或 [Play Store](https://play.google.com/store/apps/details?id=com.nexusconcepts.nexus)）
+2. 在 VS Code 中以 Web 模式运行应用
+3. 如果设备在同一 WiFi 网络下，Nexus Browser 会自动检测到您的应用
 
 :::tip
-Select `Settings` > `Logging` to filter what is logged to the output window.
+通过 `Settings` > `Logging` 可以过滤输出到日志窗口的内容。
 :::

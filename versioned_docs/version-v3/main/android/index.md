@@ -1,81 +1,89 @@
 ---
-title: Capacitor Android Documentation
-sidebar_label: Getting Started
+title: Capacitor Android 文档
+sidebar_label: 入门指南
 slug: /android
-description: Capacitor Android Documentation
+description: Capacitor Android 文档
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor Android Documentation
+# Capacitor Android 文档
 
-Capacitor features a native Android runtime that enables developers to communicate between JavaScript and Native Java or Kotlin code.
+Capacitor 提供了原生 Android 运行时环境，使开发者能够在 JavaScript 与原生 Java/Kotlin 代码之间进行通信。
 
-Capacitor Android apps are configured and managed through Android Studio.
+Capacitor Android 应用通过 Android Studio 进行配置和管理。
 
-## Android Support
+## Android 兼容性
 
-API 21+ (Android 5 or later) is supported, which represents [over 99% of the Android market](https://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide). Capacitor requires an Android WebView with Chrome version 60 or later. On Android 5-6, and 10+ Capacitor uses the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview). On Android 7-9, [Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) provides the WebView.
+支持 API 21+（Android 5 及以上版本），覆盖 [全球 99% 以上的 Android 设备](https://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide)。Capacitor 要求 Android WebView 使用 Chrome 60 或更高版本：
+- Android 5-6 和 10+ 系统使用 [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview)
+- Android 7-9 系统使用 [Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) 提供的 WebView
 
-## Adding the Android Platform
+## 添加 Android 平台
 
-First, install the `@capacitor/android` package.
+首先安装 `@capacitor/android` 包：
 
 ```bash
 npm install @capacitor/android
 ```
 
-Then, add the Android platform.
+然后添加 Android 平台：
 
 ```bash
 npx cap add android
 ```
 
-## Opening the Android Project
+## 打开 Android 项目
 
-To open the project in Android Studio, run:
+在 Android Studio 中打开项目：
 
 ```bash
 npx cap open android
 ```
 
-Alternatively, you can open Android Studio and import the `android/` directory as an Android Studio project.
+或者直接通过 Android Studio 导入 `android/` 目录。
 
-## Running Your App
+## 运行应用
 
-You can either run your app on the command-line or with Android Studio.
+可通过命令行或 Android Studio 运行应用：
 
-> To use an Android Emulator you must use an API 24+ system image. The System WebView does not automatically update on emulators. Physical devices should work as low as API 21 as long as their System WebView is updated.
+> 使用 Android 模拟器时需选择 API 24+ 系统镜像。注意模拟器上的 System WebView 不会自动更新，而物理设备只要保持 System WebView 更新，最低可支持 API 21。
 
-### Running on the Command-Line
+### 命令行运行
 
-To run the project on a device or emulator, run:
+在设备或模拟器上运行：
 
 ```bash
 npx cap run android
 ```
 
-The command will prompt you to select a target. [Learn more about `run`](/cli/commands/run.md).
+运行时会提示选择目标设备，[了解 `run` 命令详情](/cli/commands/run.md)。
 
-### Running with Android Studio
+### 通过 Android Studio 运行
 
-In Android Studio, first select the device or emulator and then click the run or debug button to run your app. Unless you're debugging Java or Kotlin code, the run button is preferred.
+在 Android Studio 中选择设备或模拟器后，点击运行或调试按钮。除非需要调试 Java/Kotlin 代码，否则建议使用运行按钮。
 
-![Running App](../../../../static/img/v3/docs/android/running.png)
+![运行应用](../../../../static/img/v3/docs/android/running.png)
 
-## Troubleshooting
+## 问题排查
 
-If you encountered any issues while getting started, you can consult the [Android Troubleshooting Guide](/main/android/troubleshooting.md). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
+如遇问题可参考 [Android 问题排查指南](/main/android/troubleshooting.md)，也可 [发起讨论](https://github.com/ionic-team/capacitor/discussions/) 寻求帮助。
 
-## Next Steps
+## 后续步骤
 
-If your app ran you are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
+成功运行应用后，您可以通过以下方式继续开发：
+- 使用各类 Capacitor API
+- 集成 Capacitor 或 Cordova 插件
+- 编写自定义原生代码
 
-## Further Reading
+## 扩展阅读
 
-Follow these Android-specific guides for more information on setting permissions for your app, updating dependencies, building plugins, and more:
+以下 Android 专项指南将帮助您：
+- 配置应用权限
+- 更新依赖项
+- 开发原生插件等：
 
-[Configuring and setting permissions for Android &#8250;](/main/android/configuration.md)
+[配置 Android 应用权限 &#8250;](/main/android/configuration.md)
 
-[Building Native Plugins for Android &#8250;](/plugins.mdx)
+[开发 Android 原生插件 &#8250;](/plugins.mdx)

@@ -1,27 +1,27 @@
 ---
 title: Http Capacitor Plugin API
-description: The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries.
+description: Capacitor Http API 通过修补 `fetch` 和 `XMLHttpRequest` 来使用原生库，提供原生 HTTP 支持。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/http.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
-sidebar_label: Http
+sidebar_label: 原生HTTP
 ---
 
 # CapacitorHttp
 
-The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries. It also provides helper methods for native http requests without the use of `fetch` and `XMLHttpRequest`. This plugin is bundled with `@capacitor/core`.
+Capacitor Http API 通过修补 `fetch` 和 `XMLHttpRequest` 来使用原生库，提供原生 HTTP 支持。它还提供了无需使用 `fetch` 和 `XMLHttpRequest` 的原生 HTTP 请求辅助方法。此插件与 `@capacitor/core` 捆绑提供。
 
-## Configuration
+## 配置
 
-By default, the patching of `window.fetch` and `XMLHttpRequest` to use native libraries is disabled.
-If you would like to enable this feature, modify the configuration below in the `capacitor.config` file.
+默认情况下，修补 `window.fetch` 和 `XMLHttpRequest` 以使用原生库的功能是禁用的。
+如果您希望启用此功能，请在 `capacitor.config` 文件中修改以下配置。
 
-| Prop          | Type                 | Description                                                                          | Default            |
+| 属性          | 类型                 | 描述                                                                          | 默认值            |
 | ------------- | -------------------- | ------------------------------------------------------------------------------------ | ------------------ |
-| **`enabled`** | <code>boolean</code> | Enable the patching of `fetch` and `XMLHttpRequest` to use native libraries instead. | <code>false</code> |
+| **`enabled`** | <code>boolean</code> | 启用修补 `fetch` 和 `XMLHttpRequest` 以使用原生库。 | <code>false</code> |
 
-### Example Configuration
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -33,7 +33,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -49,12 +49,12 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { CapacitorHttp } from '@capacitor/core';
 
-// Example of a GET request
+// GET 请求示例
 const doGet = () => {
   const options = {
     url: 'https://example.com/my/api',
@@ -64,12 +64,11 @@ const doGet = () => {
 
   const response: HttpResponse = await CapacitorHttp.get(options);
 
-  // or...
+  // 或者...
   // const response = await CapacitorHttp.request({ ...options, method: 'GET' })
 };
 
-// Example of a POST request. Note: data
-// can be passed as a raw JS Object (must be JSON serializable)
+// POST 请求示例。注意：数据可以作为原始 JS 对象传递（必须是可 JSON 序列化的）
 const doPost = () => {
   const options = {
     url: 'https://example.com/my/api',
@@ -79,14 +78,14 @@ const doPost = () => {
 
   const response: HttpResponse = await CapacitorHttp.post(options);
 
-  // or...
+  // 或者...
   // const response = await CapacitorHttp.request({ ...options, method: 'POST' })
 };
 ```
 
-## Large File Support
+## 大文件支持
 
-Due to the nature of the bridge, parsing and transferring large amount of data from native to the web can cause issues. Support for downloading and uploading files to the native device is planned to be added to the `@capacitor/filesystem` plugin in the near future. One way to potentially circumvent the issue of running out of memory in the meantime (specifically on Android) is to edit the `AndroidManifest.xml` and add `android:largeHeap="true"` to the `application` element. Most apps should not need this and should instead focus on reducing their overall memory usage for improved performance. Enabling this also does not guarantee a fixed increase in available memory, because some devices are constrained by their total available memory.
+由于桥接的特性，从原生环境解析和传输大量数据到 Web 环境可能会导致问题。计划在不久的将来将下载和上传文件到原生设备的功能添加到 `@capacitor/filesystem` 插件中。与此同时，一种可能规避内存耗尽问题的方法（特别是在 Android 上）是编辑 `AndroidManifest.xml` 并在 `application` 元素中添加 `android:largeHeap="true"`。大多数应用程序不需要这样做，而应专注于减少整体内存使用以提高性能。启用此功能也不能保证固定增加可用内存，因为某些设备受其总可用内存的限制。
 
 ## API
 
@@ -98,15 +97,15 @@ Due to the nature of the bridge, parsing and transferring large amount of data f
 * [`put(...)`](#put)
 * [`patch(...)`](#patch)
 * [`delete(...)`](#delete)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-****** HTTP PLUGIN *******
+****** HTTP 插件 *******
 
 ### request(...)
 
@@ -114,13 +113,13 @@ Due to the nature of the bridge, parsing and transferring large amount of data f
 request(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http Request to a server using native libraries.
+使用原生库向服务器发出 HTTP 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
@@ -131,13 +130,13 @@ Make a Http Request to a server using native libraries.
 get(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http GET Request to a server using native libraries.
+使用原生库向服务器发出 HTTP GET 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
@@ -148,13 +147,13 @@ Make a Http GET Request to a server using native libraries.
 post(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http POST Request to a server using native libraries.
+使用原生库向服务器发出 HTTP POST 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
@@ -165,13 +164,13 @@ Make a Http POST Request to a server using native libraries.
 put(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http PUT Request to a server using native libraries.
+使用原生库向服务器发出 HTTP PUT 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
@@ -182,13 +181,13 @@ Make a Http PUT Request to a server using native libraries.
 patch(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http PATCH Request to a server using native libraries.
+使用原生库向服务器发出 HTTP PATCH 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
@@ -199,28 +198,28 @@ Make a Http PATCH Request to a server using native libraries.
 delete(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http DELETE Request to a server using native libraries.
+使用原生库向服务器发出 HTTP DELETE 请求。
 
-| Param         | Type                                                |
+| 参数         | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#httpresponse">HttpResponse</a>&gt;</code>
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### HttpResponse
 
-| Prop          | Type                                                | Description                                       |
+| 属性          | 类型                                                | 描述                                       |
 | ------------- | --------------------------------------------------- | ------------------------------------------------- |
-| **`data`**    | <code>any</code>                                    | Additional data received with the Http response.  |
-| **`status`**  | <code>number</code>                                 | The status code received from the Http response.  |
-| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | The headers received from the Http response.      |
-| **`url`**     | <code>string</code>                                 | The response URL recieved from the Http response. |
+| **`data`**    | <code>any</code>                                    | 随 HTTP 响应接收的额外数据。  |
+| **`status`**  | <code>number</code>                                 | 从 HTTP 响应接收的状态码。  |
+| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | 从 HTTP 响应接收的标头。      |
+| **`url`**     | <code>string</code>                                 | 从 HTTP 响应接收的响应 URL。 |
 
 
 #### HttpHeaders
@@ -228,20 +227,20 @@ Make a Http DELETE Request to a server using native libraries.
 
 #### HttpOptions
 
-| Prop                        | Type                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 属性                        | 类型                                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`url`**                   | <code>string</code>                                           | The URL to send the request to.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **`method`**                | <code>string</code>                                           | The Http Request method to run. (Default is GET)                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>             | URL parameters to append to the request.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **`data`**                  | <code>any</code>                                              | Note: On Android and iOS, data can only be a string or a JSON. FormData, <a href="#blob">Blob</a>, <a href="#arraybuffer">ArrayBuffer</a>, and other complex types are only directly supported on web or through enabling `CapacitorHttp` in the config and using the patched `window.fetch` or `XMLHttpRequest`. If you need to send a complex type, you should serialize the data to base64 and set the `headers["Content-Type"]` and `dataType` attributes accordingly. |
-| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code>           | Http Request headers to send with the request.                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`readTimeout`**           | <code>number</code>                                           | How long to wait to read additional data in milliseconds. Resets each time new data is received.                                                                                                                                                                                                                                                                                                                                                                           |
-| **`connectTimeout`**        | <code>number</code>                                           | How long to wait for the initial connection in milliseconds.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **`disableRedirects`**      | <code>boolean</code>                                          | Sets whether automatic HTTP redirects should be disabled                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **`webFetchExtra`**         | <code><a href="#requestinit">RequestInit</a></code>           | Extra arguments for fetch when running on the web                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **`responseType`**          | <code><a href="#httpresponsetype">HttpResponseType</a></code> | This is used to parse the response appropriately before returning it to the requestee. If the response content-type is "json", this value is ignored.                                                                                                                                                                                                                                                                                                                      |
-| **`shouldEncodeUrlParams`** | <code>boolean</code>                                          | Use this option if you need to keep the URL unencoded in certain cases (already encoded, azure/firebase testing, etc.). The default is _true_.                                                                                                                                                                                                                                                                                                                             |
-| **`dataType`**              | <code>'file' \| 'formData'</code>                             | This is used if we've had to convert the data from a JS type that needs special handling in the native layer                                                                                                                                                                                                                                                                                                                                                               |
+| **`url`**                   | <code>string</code>                                           | 要发送请求的 URL。                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **`method`**                | <code>string</code>                                           | 要运行的 HTTP 请求方法。（默认为 GET）                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>             | 要附加到请求的 URL 参数。                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **`data`**                  | <code>any</code>                                              | 注意：在 Android 和 iOS 上，数据只能是字符串或 JSON。FormData、<a href="#blob">Blob</a>、<a href="#arraybuffer">ArrayBuffer</a> 和其他复杂类型仅直接在 Web 上支持，或通过启用配置中的 `CapacitorHttp` 并使用修补的 `window.fetch` 或 `XMLHttpRequest` 来支持。如果您需要发送复杂类型，应将数据序列化为 base64 并相应设置 `headers["Content-Type"]` 和 `dataType` 属性。 |
+| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code>           | 要随请求发送的 HTTP 请求标头。                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **`readTimeout`**           | <code>number</code>                                           | 等待读取额外数据的超时时间（毫秒）。每次接收到新数据时重置。                                                                                                                                                                                                                                                                                                                                                                           |
+| **`connectTimeout`**        | <code>number</code>                                           | 初始连接的超时时间（毫秒）。                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **`disableRedirects`**      | <code>boolean</code>                                          | 设置是否禁用自动 HTTP 重定向                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **`webFetchExtra`**         | <code><a href="#requestinit">RequestInit</a></code>           | 在 Web 上运行时用于 fetch 的额外参数                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`responseType`**          | <code><a href="#httpresponsetype">HttpResponseType</a></code> | 用于在将响应返回给请求者之前适当解析响应。如果响应内容类型为 "json"，则忽略此值。                                                                                                                                                                                                                                                                                                                                                                                      |
+| **`shouldEncodeUrlParams`** | <code>boolean</code>                                          | 如果您需要在某些情况下保持 URL 未编码（已编码、azure/firebase 测试等），请使用此选项。默认值为 _true_。                                                                                                                                                                                                                                                                                                                             |
+| **`dataType`**              | <code>'file' \| 'formData'</code>                             | 如果我们必须从需要在本机层特殊处理的 JS 类型转换数据，则使用此选项                                                                                                                                                                                                                                                                                                                                                               |
 
 
 #### HttpParams
@@ -249,35 +248,35 @@ Make a Http DELETE Request to a server using native libraries.
 
 #### RequestInit
 
-| Prop                 | Type                                                              | Description                                                                                                                                                                       |
+| 属性                 | 类型                                                              | 描述                                                                                                                                                                       |
 | -------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`body`**           | <code><a href="#bodyinit">BodyInit</a></code>                     | A <a href="#bodyinit">BodyInit</a> object or null to set request's body.                                                                                                          |
-| **`cache`**          | <code><a href="#requestcache">RequestCache</a></code>             | A string indicating how the request will interact with the browser's cache to set request's cache.                                                                                |
-| **`credentials`**    | <code><a href="#requestcredentials">RequestCredentials</a></code> | A string indicating whether credentials will be sent with the request always, never, or only when sent to a same-origin URL. Sets request's credentials.                          |
-| **`headers`**        | <code><a href="#headersinit">HeadersInit</a></code>               | A <a href="#headers">Headers</a> object, an object literal, or an array of two-item arrays to set request's headers.                                                              |
-| **`integrity`**      | <code>string</code>                                               | A cryptographic hash of the resource to be fetched by request. Sets request's integrity.                                                                                          |
-| **`keepalive`**      | <code>boolean</code>                                              | A boolean to set request's keepalive.                                                                                                                                             |
-| **`method`**         | <code>string</code>                                               | A string to set request's method.                                                                                                                                                 |
-| **`mode`**           | <code><a href="#requestmode">RequestMode</a></code>               | A string to indicate whether the request will use CORS, or will be restricted to same-origin URLs. Sets request's mode.                                                           |
-| **`redirect`**       | <code><a href="#requestredirect">RequestRedirect</a></code>       | A string indicating whether request follows redirects, results in an error upon encountering a redirect, or returns the redirect (in an opaque fashion). Sets request's redirect. |
-| **`referrer`**       | <code>string</code>                                               | A string whose value is a same-origin URL, "about:client", or the empty string, to set request's referrer.                                                                        |
-| **`referrerPolicy`** | <code><a href="#referrerpolicy">ReferrerPolicy</a></code>         | A referrer policy to set request's referrerPolicy.                                                                                                                                |
-| **`signal`**         | <code><a href="#abortsignal">AbortSignal</a></code>               | An <a href="#abortsignal">AbortSignal</a> to set request's signal.                                                                                                                |
-| **`window`**         | <code>any</code>                                                  | Can only be null. Used to disassociate request from any Window.                                                                                                                   |
+| **`body`**           | <code><a href="#bodyinit">BodyInit</a></code>                     | 一个 <a href="#bodyinit">BodyInit</a> 对象或 null 以设置请求的正文。                                                                                                          |
+| **`cache`**          | <code><a href="#requestcache">RequestCache</a></code>             | 一个字符串，指示请求如何与浏览器的缓存交互以设置请求的缓存。                                                                                |
+| **`credentials`**    | <code><a href="#requestcredentials">RequestCredentials</a></code> | 一个字符串，指示是否总是、从不或仅在发送到同源 URL 时发送凭据。设置请求的凭据。                          |
+| **`headers`**        | <code><a href="#headersinit">HeadersInit</a></code>               | 一个 <a href="#headers">Headers</a> 对象、对象字面量或二元数组的数组以设置请求的标头。                                                              |
+| **`integrity`**      | <code>string</code>                                               | 要由请求获取的资源的加密哈希。设置请求的完整性。                                                                                          |
+| **`keepalive`**      | <code>boolean</code>                                              | 一个布尔值以设置请求的 keepalive。                                                                                                                                             |
+| **`method`**         | <code>string</code>                                               | 一个字符串以设置请求的方法。                                                                                                                                                 |
+| **`mode`**           | <code><a href="#requestmode">RequestMode</a></code>               | 一个字符串，指示请求是否使用 CORS，或是否限制为同源 URL。设置请求的模式。                                                           |
+| **`redirect`**       | <code><a href="#requestredirect">RequestRedirect</a></code>       | 一个字符串，指示请求是否遵循重定向、在遇到重定向时出错或返回重定向（以不透明的方式）。设置请求的重定向。 |
+| **`referrer`**       | <code>string</code>                                               | 一个字符串，其值是同源 URL、"about:client" 或空字符串，以设置请求的引用者。                                                                        |
+| **`referrerPolicy`** | <code><a href="#referrerpolicy">ReferrerPolicy</a></code>         | 一个引用者策略以设置请求的 referrerPolicy。                                                                                                                                |
+| **`signal`**         | <code><a href="#abortsignal">AbortSignal</a></code>               | 一个 <a href="#abortsignal">AbortSignal</a> 以设置请求的信号。                                                                                                                |
+| **`window`**         | <code>any</code>                                                  | 只能为 null。用于将请求与任何窗口分离。                                                                                                                   |
 
 
 #### Blob
 
-A file-like object of immutable, raw data. Blobs represent data that isn't necessarily in a JavaScript-native format. The <a href="#file">File</a> interface is based on <a href="#blob">Blob</a>, inheriting blob functionality and expanding it to support files on the user's system.
-`Blob` class is a global reference for `require('node:buffer').Blob`
+一个不可变的原始数据文件类对象。Blob 表示不一定处于 JavaScript 原生格式的数据。<a href="#file">File</a> 接口基于 <a href="#blob">Blob</a>，继承 blob 功能并将其扩展以支持用户系统上的文件。
+`Blob` 类是 `require('node:buffer').Blob` 的全局引用
 https://nodejs.org/api/buffer.html#class-blob
 
-| Prop       | Type                |
+| 属性       | 类型                |
 | ---------- | ------------------- |
 | **`size`** | <code>number</code> |
 | **`type`** | <code>string</code> |
 
-| Method          | Signature                                                                           |
+| 方法          | 签名                                                                           |
 | --------------- | ----------------------------------------------------------------------------------- |
 | **arrayBuffer** | () =&gt; Promise&lt;<a href="#arraybuffer">ArrayBuffer</a>&gt;                      |
 | **slice**       | (start?: number, end?: number, contentType?: string) =&gt; <a href="#blob">Blob</a> |
@@ -287,29 +286,26 @@ https://nodejs.org/api/buffer.html#class-blob
 
 #### ArrayBuffer
 
-Represents a raw buffer of binary data, which is used to store data for the
-different typed arrays. ArrayBuffers cannot be read from or written to directly,
-but can be passed to a typed array or DataView Object to interpret the raw
-buffer as needed.
+表示二进制数据的原始缓冲区，用于存储不同类型数组的数据。ArrayBuffers 不能直接读取或写入，但可以传递给类型化数组或 DataView 对象以根据需要解释原始缓冲区。
 
-| Prop             | Type                | Description                                                                     |
+| 属性             | 类型                | 描述                                                                     |
 | ---------------- | ------------------- | ------------------------------------------------------------------------------- |
-| **`byteLength`** | <code>number</code> | Read-only. The length of the <a href="#arraybuffer">ArrayBuffer</a> (in bytes). |
+| **`byteLength`** | <code>number</code> | 只读。<a href="#arraybuffer">ArrayBuffer</a> 的长度（字节）。 |
 
-| Method    | Signature                                                                  | Description                                                     |
+| 方法    | 签名                                                                  | 描述                                                     |
 | --------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| **slice** | (begin: number, end?: number) =&gt; <a href="#arraybuffer">ArrayBuffer</a> | Returns a section of an <a href="#arraybuffer">ArrayBuffer</a>. |
+| **slice** | (begin: number, end?: number) =&gt; <a href="#arraybuffer">ArrayBuffer</a> | 返回 <a href="#arraybuffer">ArrayBuffer</a> 的一个部分。 |
 
 
 #### ReadableStream
 
-This Streams API interface represents a readable stream of byte data. The Fetch API offers a concrete instance of a <a href="#readablestream">ReadableStream</a> through the body property of a Response object.
+此 Streams API 接口表示字节数据的可读流。Fetch API 通过 Response 对象的 body 属性提供 <a href="#readablestream">ReadableStream</a> 的具体实例。
 
-| Prop         | Type                 |
+| 属性         | 类型                 |
 | ------------ | -------------------- |
 | **`locked`** | <code>boolean</code> |
 
-| Method          | Signature                                                                                                                                                                                                            |
+| 方法          | 签名                                                                                                                                                                                                            |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **cancel**      | (reason?: any) =&gt; Promise&lt;void&gt;                                                                                                                                                                             |
 | **getReader**   | () =&gt; <a href="#readablestreamdefaultreader">ReadableStreamDefaultReader</a>&lt;R&gt;                                                                                                                             |
@@ -320,7 +316,7 @@ This Streams API interface represents a readable stream of byte data. The Fetch 
 
 #### ReadableStreamDefaultReader
 
-| Method          | Signature                                                                                                       |
+| 方法          | 签名                                                                                                       |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | **read**        | () =&gt; Promise&lt;<a href="#readablestreamdefaultreadresult">ReadableStreamDefaultReadResult</a>&lt;R&gt;&gt; |
 | **releaseLock** | () =&gt; void                                                                                                   |
@@ -328,7 +324,7 @@ This Streams API interface represents a readable stream of byte data. The Fetch 
 
 #### ReadableStreamDefaultReadValueResult
 
-| Prop        | Type               |
+| 属性        | 类型               |
 | ----------- | ------------------ |
 | **`done`**  | <code>false</code> |
 | **`value`** | <code>T</code>     |
@@ -336,7 +332,7 @@ This Streams API interface represents a readable stream of byte data. The Fetch 
 
 #### ReadableStreamDefaultReadDoneResult
 
-| Prop        | Type              |
+| 属性        | 类型              |
 | ----------- | ----------------- |
 | **`done`**  | <code>true</code> |
 | **`value`** |                   |
@@ -344,21 +340,21 @@ This Streams API interface represents a readable stream of byte data. The Fetch 
 
 #### ReadableWritablePair
 
-| Prop           | Type                                                               | Description                                                                                                                                                                                                                                                                                                                                                                         |
+| 属性           | 类型                                                               | 描述                                                                                                                                                                                                                                                                                                                                                                         |
 | -------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`readable`** | <code><a href="#readablestream">ReadableStream</a>&lt;R&gt;</code> |                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`writable`** | <code><a href="#writablestream">WritableStream</a>&lt;W&gt;</code> | Provides a convenient, chainable way of piping this readable stream through a transform stream (or any other { writable, readable } pair). It simply pipes the stream into the writable side of the supplied pair, and returns the readable side for further use. Piping a stream will lock it for the duration of the pipe, preventing any other consumer from acquiring a reader. |
+| **`writable`** | <code><a href="#writablestream">WritableStream</a>&lt;W&gt;</code> | 提供一种方便、可链式的方式将此可读流通过转换流（或任何其他 { writable, readable } 对）进行管道传输。它简单地将流传输到所提供对的可写侧，并返回可读侧以供进一步使用。管道传输流将在管道期间锁定它，防止任何其他消费者获取读取器。 |
 
 
 #### WritableStream
 
-This Streams API interface provides a standard abstraction for writing streaming data to a destination, known as a sink. This object comes with built-in backpressure and queuing.
+此 Streams API 接口提供了一个标准抽象，用于将流数据写入目标（称为接收器）。此对象内置了背压和队列功能。
 
-| Prop         | Type                 |
+| 属性         | 类型                 |
 | ------------ | -------------------- |
 | **`locked`** | <code>boolean</code> |
 
-| Method        | Signature                                                                                |
+| 方法        | 签名                                                                                |
 | ------------- | ---------------------------------------------------------------------------------------- |
 | **abort**     | (reason?: any) =&gt; Promise&lt;void&gt;                                                 |
 | **getWriter** | () =&gt; <a href="#writablestreamdefaultwriter">WritableStreamDefaultWriter</a>&lt;W&gt; |
@@ -366,15 +362,15 @@ This Streams API interface provides a standard abstraction for writing streamin
 
 #### WritableStreamDefaultWriter
 
-This Streams API interface is the object returned by <a href="#writablestream">WritableStream.getWriter</a>() and once created locks the &lt; writer to the <a href="#writablestream">WritableStream</a> ensuring that no other streams can write to the underlying sink.
+此 Streams API 接口是 <a href="#writablestream">WritableStream.getWriter</a>() 返回的对象，一旦创建，就将写入器锁定到 <a href="#writablestream">WritableStream</a>，确保没有其他流可以写入底层接收器。
 
-| Prop              | Type                                  |
+| 属性              | 类型                                  |
 | ----------------- | ------------------------------------- |
 | **`closed`**      | <code>Promise&lt;undefined&gt;</code> |
 | **`desiredSize`** | <code>number</code>                   |
 | **`ready`**       | <code>Promise&lt;undefined&gt;</code> |
 
-| Method          | Signature                                |
+| 方法          | 签名                                |
 | --------------- | ---------------------------------------- |
 | **abort**       | (reason?: any) =&gt; Promise&lt;void&gt; |
 | **close**       | () =&gt; Promise&lt;void&gt;             |
@@ -384,82 +380,82 @@ This Streams API interface is the object returned by <a href="#writablestream">W
 
 #### StreamPipeOptions
 
-| Prop                | Type                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 属性                | 类型                                                | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`preventAbort`**  | <code>boolean</code>                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **`preventCancel`** | <code>boolean</code>                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **`preventClose`**  | <code>boolean</code>                                | Pipes this readable stream to a given writable stream destination. The way in which the piping process behaves under various error conditions can be customized with a number of passed options. It returns a promise that fulfills when the piping process completes successfully, or rejects if any errors were encountered. Piping a stream will lock it for the duration of the pipe, preventing any other consumer from acquiring a reader. Errors and closures of the source and destination streams propagate as follows: An error in this source readable stream will abort destination, unless preventAbort is truthy. The returned promise will be rejected with the source's error, or with any error that occurs during aborting the destination. An error in destination will cancel this source readable stream, unless preventCancel is truthy. The returned promise will be rejected with the destination's error, or with any error that occurs during canceling the source. When this source readable stream closes, destination will be closed, unless preventClose is truthy. The returned promise will be fulfilled once this process completes, unless an error is encountered while closing the destination, in which case it will be rejected with that error. If destination starts out closed or closing, this source readable stream will be canceled, unless preventCancel is true. The returned promise will be rejected with an error indicating piping to a closed stream failed, or with any error that occurs during canceling the source. The signal option can be set to an <a href="#abortsignal">AbortSignal</a> to allow aborting an ongoing pipe operation via the corresponding AbortController. In this case, this source readable stream will be canceled, and destination aborted, unless the respective options preventCancel or preventAbort are set. |
+| **`preventClose`**  | <code>boolean</code>                                | 将此可读流管道传输到给定的可写流目标。可以通过传递的选项自定义管道过程在各种错误条件下的行为。它返回一个在管道过程成功完成时履行的 promise，或者在遇到任何错误时拒绝。管道传输流将在管道期间锁定它，防止任何其他消费者获取读取器。源和目标流的错误和关闭传播如下：此源可读流中的错误将中止目标，除非 preventAbort 为真。返回的 promise 将被源的错误或中止目标期间发生的任何错误拒绝。目标中的错误将取消此源可读流，除非 preventCancel 为真。返回的 promise 将被目标的错误或取消源期间发生的任何错误拒绝。当此源可读流关闭时，目标将被关闭，除非 preventClose 为真。返回的 promise 将在此过程完成时履行，除非在关闭目标时遇到错误，在这种情况下它将因该错误而被拒绝。如果目标一开始就关闭或正在关闭，此源可读流将被取消，除非 preventCancel 为 true。返回的 promise 将因指示管道传输到关闭流失败的错误或取消源期间发生的任何错误而被拒绝。signal 选项可以设置为 <a href="#abortsignal">AbortSignal</a> 以允许通过相应的 AbortController 中止正在进行的管道操作。在这种情况下，此源可读流将被取消，目标将被中止，除非 respective options preventCancel 或 preventAbort 已设置。 |
 | **`signal`**        | <code><a href="#abortsignal">AbortSignal</a></code> |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
 #### AbortSignal
 
-A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object.
+一个信号对象，允许您与 DOM 请求（如 Fetch）通信，并在需要时通过 AbortController 对象中止它。
 
-| Prop          | Type                                                                                                  | Description                                                                                                               |
+| 属性          | 类型                                                                                                  | 描述                                                                                                               |
 | ------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **`aborted`** | <code>boolean</code>                                                                                  | Returns true if this <a href="#abortsignal">AbortSignal</a>'s AbortController has signaled to abort, and false otherwise. |
+| **`aborted`** | <code>boolean</code>                                                                                  | 如果此 <a href="#abortsignal">AbortSignal</a> 的 AbortController 已发出中止信号，则返回 true，否则返回 false。 |
 | **`onabort`** | <code>(this: <a href="#abortsignal">AbortSignal</a>, ev: <a href="#event">Event</a>) =&gt; any</code> |                                                                                                                           |
 
-| Method                  | Signature                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 方法                  | 签名                                                                                                                                                                                                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **addEventListener**    | &lt;K extends "abort"&gt;(type: K, listener: (this: <a href="#abortsignal">AbortSignal</a>, ev: AbortSignalEventMap[K]) =&gt; any, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void | Appends an event listener for events whose type attribute value is type. The callback argument sets the callback that will be invoked when the event is dispatched. The options argument sets listener-specific options. For compatibility this can be a boolean, in which case the method behaves exactly as if the value was specified as options's capture. When set to true, options's capture prevents callback from being invoked when the event's eventPhase attribute value is BUBBLING_PHASE. When false (or not present), callback will not be invoked when event's eventPhase attribute value is CAPTURING_PHASE. Either way, callback will be invoked if event's eventPhase attribute value is AT_TARGET. When set to true, options's passive indicates that the callback will not cancel the event by invoking preventDefault(). This is used to enable performance optimizations described in § 2.8 Observing event listeners. When set to true, options's once indicates that the callback will only be invoked once after which the event listener will be removed. The event listener is appended to target's event listener list and is not appended if it has the same type, callback, and capture. |
-| **addEventListener**    | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a>, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void                     | Appends an event listener for events whose type attribute value is type. The callback argument sets the callback that will be invoked when the event is dispatched. The options argument sets listener-specific options. For compatibility this can be a boolean, in which case the method behaves exactly as if the value was specified as options's capture. When set to true, options's capture prevents callback from being invoked when the event's eventPhase attribute value is BUBBLING_PHASE. When false (or not present), callback will not be invoked when event's eventPhase attribute value is CAPTURING_PHASE. Either way, callback will be invoked if event's eventPhase attribute value is AT_TARGET. When set to true, options's passive indicates that the callback will not cancel the event by invoking preventDefault(). This is used to enable performance optimizations described in § 2.8 Observing event listeners. When set to true, options's once indicates that the callback will only be invoked once after which the event listener will be removed. The event listener is appended to target's event listener list and is not appended if it has the same type, callback, and capture. |
-| **removeEventListener** | &lt;K extends "abort"&gt;(type: K, listener: (this: <a href="#abortsignal">AbortSignal</a>, ev: AbortSignalEventMap[K]) =&gt; any, options?: boolean \| <a href="#eventlisteneroptions">EventListenerOptions</a>) =&gt; void       | Removes the event listener in target's event listener list with the same type, callback, and options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **removeEventListener** | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a>, options?: boolean \| <a href="#eventlisteneroptions">EventListenerOptions</a>) =&gt; void                           | Removes the event listener in target's event listener list with the same type, callback, and options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **addEventListener**    | &lt;K extends "abort"&gt;(type: K, listener: (this: <a href="#abortsignal">AbortSignal</a>, ev: AbortSignalEventMap[K]) =&gt; any, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void | 为类型属性值为 type 的事件追加事件监听器。callback 参数设置事件被分派时将调用的回调。options 参数设置监听器特定的选项。为了兼容性，这可以是一个布尔值，在这种情况下，该方法的行为完全如同值被指定为 options 的 capture。当设置为 true 时，options 的 capture 阻止 callback 在事件的事件阶段属性值为 BUBBLING_PHASE 时被调用。当为 false（或不存在）时，callback 在事件的事件阶段属性值为 CAPTURING_PHASE 时不会被调用。无论哪种方式，callback 将在事件的事件阶段属性值为 AT_TARGET 时被调用。当设置为 true 时，options 的 passive 表示 callback 不会通过调用 preventDefault() 来取消事件。这用于启用 §2.8 观察事件监听器中描述的性能优化。当设置为 true 时，options 的 once 表示 callback 只会被调用一次，之后事件监听器将被移除。事件监听器被追加到目标的事件监听器列表中，如果它具有相同的类型、回调和捕获，则不会被追加。 |
+| **addEventListener**    | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a>, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void                     | 为类型属性值为 type 的事件追加事件监听器。callback 参数设置事件被分派时将调用的回调。options 参数设置监听器特定的选项。为了兼容性，这可以是一个布尔值，在这种情况下，该方法的行为完全如同值被指定为 options 的 capture。当设置为 true 时，options 的 capture 阻止 callback 在事件的事件阶段属性值为 BUBBLING_PHASE 时被调用。当为 false（或不存在）时，callback 在事件的事件阶段属性值为 CAPTURING_PHASE 时不会被调用。无论哪种方式，callback 将在事件的事件阶段属性值为 AT_TARGET 时被调用。当设置为 true 时，options 的 passive 表示 callback 不会通过调用 preventDefault() 来取消事件。这用于启用 §2.8 观察事件监听器中描述的性能优化。当设置为 true 时，options 的 once 表示 callback 只会被调用一次，之后事件监听器将被移除。事件监听器被追加到目标的事件监听器列表中，如果它具有相同的类型、回调和捕获，则不会被追加。 |
+| **removeEventListener** | &lt;K extends "abort"&gt;(type: K, listener: (this: <a href="#abortsignal">AbortSignal</a>, ev: AbortSignalEventMap[K]) =&gt; any, options?: boolean \| <a href="#eventlisteneroptions">EventListenerOptions</a>) =&gt; void       | 从目标的事件监听器列表中移除具有相同类型、回调和选项的事件监听器。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **removeEventListener** | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a>, options?: boolean \| <a href="#eventlisteneroptions">EventListenerOptions</a>) =&gt; void                           | 从目标的事件监听器列表中移除具有相同类型、回调和选项的事件监听器。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
 #### AbortSignalEventMap
 
-| Prop          | Type                                    |
+| 属性          | 类型                                    |
 | ------------- | --------------------------------------- |
 | **`"abort"`** | <code><a href="#event">Event</a></code> |
 
 
 #### Event
 
-An event which takes place in the DOM.
+在 DOM 中发生的事件。
 
-| Prop                   | Type                                                | Description                                                                                                                                                                                                                                                |
+| 属性                   | 类型                                                | 描述                                                                                                                                                                                                                                                |
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`bubbles`**          | <code>boolean</code>                                | Returns true or false depending on how event was initialized. True if event goes through its target's ancestors in reverse tree order, and false otherwise.                                                                                                |
+| **`bubbles`**          | <code>boolean</code>                                | 根据事件的初始化方式返回 true 或 false。如果事件以其目标的祖先的反向树顺序进行，则为 true，否则为 false。                                                                                                |
 | **`cancelBubble`**     | <code>boolean</code>                                |                                                                                                                                                                                                                                                            |
-| **`cancelable`**       | <code>boolean</code>                                | Returns true or false depending on how event was initialized. Its return value does not always carry meaning, but true can indicate that part of the operation during which event was dispatched, can be canceled by invoking the preventDefault() method. |
-| **`composed`**         | <code>boolean</code>                                | Returns true or false depending on how event was initialized. True if event invokes listeners past a ShadowRoot node that is the root of its target, and false otherwise.                                                                                  |
-| **`currentTarget`**    | <code><a href="#eventtarget">EventTarget</a></code> | Returns the object whose event listener's callback is currently being invoked.                                                                                                                                                                             |
-| **`defaultPrevented`** | <code>boolean</code>                                | Returns true if preventDefault() was invoked successfully to indicate cancelation, and false otherwise.                                                                                                                                                    |
-| **`eventPhase`**       | <code>number</code>                                 | Returns the event's phase, which is one of NONE, CAPTURING_PHASE, AT_TARGET, and BUBBLING_PHASE.                                                                                                                                                           |
-| **`isTrusted`**        | <code>boolean</code>                                | Returns true if event was dispatched by the user agent, and false otherwise.                                                                                                                                                                               |
+| **`cancelable`**       | <code>boolean</code>                                | 根据事件的初始化方式返回 true 或 false。其返回值并不总是有意义，但 true 可以表示事件被分派期间的操作部分可以通过调用 preventDefault() 方法取消。 |
+| **`composed`**         | <code>boolean</code>                                | 根据事件的初始化方式返回 true 或 false。如果事件调用其目标的 ShadowRoot 节点之外的监听器，则为 true，否则为 false。                                                                                  |
+| **`currentTarget`**    | <code><a href="#eventtarget">EventTarget</a></code> | 返回当前正在调用其事件监听器回调的对象。                                                                                                                                                                             |
+| **`defaultPrevented`** | <code>boolean</code>                                | 如果 preventDefault() 被成功调用以指示取消，则返回 true，否则返回 false。                                                                                                                                                    |
+| **`eventPhase`**       | <code>number</code>                                 | 返回事件的阶段，即 NONE、CAPTURING_PHASE、AT_TARGET 和 BUBBLING_PHASE 之一。                                                                                                                                                           |
+| **`isTrusted`**        | <code>boolean</code>                                | 如果事件由用户代理分派，则返回 true，否则返回 false。                                                                                                                                                                               |
 | **`returnValue`**      | <code>boolean</code>                                |                                                                                                                                                                                                                                                            |
 | **`srcElement`**       | <code><a href="#eventtarget">EventTarget</a></code> |                                                                                                                                                                                                                                                            |
-| **`target`**           | <code><a href="#eventtarget">EventTarget</a></code> | Returns the object to which event is dispatched (its target).                                                                                                                                                                                              |
-| **`timeStamp`**        | <code>number</code>                                 | Returns the event's timestamp as the number of milliseconds measured relative to the time origin.                                                                                                                                                          |
-| **`type`**             | <code>string</code>                                 | Returns the type of event, e.g. "click", "hashchange", or "submit".                                                                                                                                                                                        |
+| **`target`**           | <code><a href="#eventtarget">EventTarget</a></code> | 返回事件被分派到的对象（其目标）。                                                                                                                                                                                              |
+| **`timeStamp`**        | <code>number</code>                                 | 返回事件的时间戳，作为相对于时间原点测量的毫秒数。                                                                                                                                                          |
+| **`type`**             | <code>string</code>                                 | 返回事件的类型，例如 "click"、"hashchange" 或 "submit"。                                                                                                                                                                                        |
 | **`AT_TARGET`**        | <code>number</code>                                 |                                                                                                                                                                                                                                                            |
 | **`BUBBLING_PHASE`**   | <code>number</code>                                 |                                                                                                                                                                                                                                                            |
 | **`CAPTURING_PHASE`**  | <code>number</code>                                 |                                                                                                                                                                                                                                                            |
 | **`NONE`**             | <code>number</code>                                 |                                                                                                                                                                                                                                                            |
 
-| Method                       | Signature                                                          | Description                                                                                                                                                                                                                             |
+| 方法                       | 签名                                                          | 描述                                                                                                                                                                                                                             |
 | ---------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **composedPath**             | () =&gt; EventTarget[]                                             | Returns the invocation target objects of event's path (objects on which listeners will be invoked), except for any nodes in shadow trees of which the shadow root's mode is "closed" that are not reachable from event's currentTarget. |
+| **composedPath**             | () =&gt; EventTarget[]                                             | 返回事件路径的调用目标对象（将调用监听器的对象），除了任何影子树中模式为 "closed" 且无法从事件的 currentTarget 访问的节点。 |
 | **initEvent**                | (type: string, bubbles?: boolean, cancelable?: boolean) =&gt; void |                                                                                                                                                                                                                                         |
-| **preventDefault**           | () =&gt; void                                                      | If invoked when the cancelable attribute value is true, and while executing a listener for the event with passive set to false, signals to the operation that caused event to be dispatched that it needs to be canceled.               |
-| **stopImmediatePropagation** | () =&gt; void                                                      | Invoking this method prevents event from reaching any registered event listeners after the current one finishes running and, when dispatched in a tree, also prevents event from reaching any other objects.                            |
-| **stopPropagation**          | () =&gt; void                                                      | When dispatched in a tree, invoking this method prevents event from reaching any objects other than the current object.                                                                                                                 |
+| **preventDefault**           | () =&gt; void                                                      | 如果在可取消属性值为 true 时调用，并且在执行事件的监听器时 passive 设置为 false，则向导致事件被分派的操作发出信号，表示需要取消。               |
+| **stopImmediatePropagation** | () =&gt; void                                                      | 调用此方法阻止事件到达当前监听器完成后任何已注册的事件监听器，并且在树中分派时，也阻止事件到达任何其他对象。                            |
+| **stopPropagation**          | () =&gt; void                                                      | 在树中分派时，调用此方法阻止事件到达当前对象之外的任何对象。                                                                                                                 |
 
 
 #### EventTarget
 
-<a href="#eventtarget">EventTarget</a> is a DOM interface implemented by objects that can receive events and may have listeners for them.
-EventTarget is a DOM interface implemented by objects that can
-receive events and may have listeners for them.
+<a href="#eventtarget">EventTarget</a> 是一个 DOM 接口，由可以接收事件并可能具有监听器的对象实现。
+EventTarget 是一个 DOM 接口，由可以
+接收事件并可能具有监听器的对象实现。
 
-| Method                  | Signature                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **addEventListener**    | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a> \| null, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void | Appends an event listener for events whose type attribute value is type. The callback argument sets the callback that will be invoked when the event is dispatched. The options argument sets listener-specific options. For compatibility this can be a boolean, in which case the method behaves exactly as if the value was specified as options's capture. When set to true, options's capture prevents callback from being invoked when the event's eventPhase attribute value is BUBBLING_PHASE. When false (or not present), callback will not be invoked when event's eventPhase attribute value is CAPTURING_PHASE. Either way, callback will be invoked if event's eventPhase attribute value is AT_TARGET. When set to true, options's passive indicates that the callback will not cancel the event by invoking preventDefault(). This is used to enable performance optimizations described in § 2.8 Observing event listeners. When set to true, options's once indicates that the callback will only be invoked once after which the event listener will be removed. The event listener is appended to target's event listener list and is not appended if it has the same type, callback, and capture. |
-| **dispatchEvent**       | (event: <a href="#event">Event</a>) =&gt; boolean                                                                                                                                                                      | Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **removeEventListener** | (type: string, callback: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a> \| null, options?: <a href="#eventlisteneroptions">EventListenerOptions</a> \| boolean) =&gt; void       | Removes the event listener in target's event listener list with the same type, callback, and options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 方法                  | 签名                                                                                                                                                                                                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **addEventListener**    | (type: string, listener: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a> \| null, options?: boolean \| <a href="#addeventlisteneroptions">AddEventListenerOptions</a>) =&gt; void | 为类型属性值为 type 的事件追加事件监听器。callback 参数设置事件被分派时将调用的回调。options 参数设置监听器特定的选项。为了兼容性，这可以是一个布尔值，在这种情况下，该方法的行为完全如同值被指定为 options 的 capture。当设置为 true 时，options 的 capture 阻止 callback 在事件的事件阶段属性值为 BUBBLING_PHASE 时被调用。当为 false（或不存在）时，callback 在事件的事件阶段属性值为 CAPTURING_PHASE 时不会被调用。无论哪种方式，callback 将在事件的事件阶段属性值为 AT_TARGET 时被调用。当设置为 true 时，options 的 passive 表示 callback 不会通过调用 preventDefault() 来取消事件。这用于启用 §2.8 观察事件监听器中描述的性能优化。当设置为 true 时，options 的 once 表示 callback 只会被调用一次，之后事件监听器将被移除。事件监听器被追加到目标的事件监听器列表中，如果它具有相同的类型、回调和捕获，则不会被追加。 |
+| **dispatchEvent**       | (event: <a href="#event">Event</a>) =&gt; boolean                                                                                                                                                                      | 将合成事件 event 分派到目标，如果事件的 cancelable 属性值为 false 或其 preventDefault() 方法未被调用，则返回 true，否则返回 false。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **removeEventListener** | (type: string, callback: <a href="#eventlisteneroreventlistenerobject">EventListenerOrEventListenerObject</a> \| null, options?: <a href="#eventlisteneroptions">EventListenerOptions</a> \| boolean) =&gt; void       | 从目标的事件监听器列表中移除具有相同类型、回调和选项的事件监听器。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
 #### EventListener
@@ -467,14 +463,14 @@ receive events and may have listeners for them.
 
 #### EventListenerObject
 
-| Method          | Signature                                    |
+| 方法          | 签名                                    |
 | --------------- | -------------------------------------------- |
 | **handleEvent** | (evt: <a href="#event">Event</a>) =&gt; void |
 
 
 #### AddEventListenerOptions
 
-| Prop          | Type                 |
+| 属性          | 类型                 |
 | ------------- | -------------------- |
 | **`once`**    | <code>boolean</code> |
 | **`passive`** | <code>boolean</code> |
@@ -482,34 +478,34 @@ receive events and may have listeners for them.
 
 #### EventListenerOptions
 
-| Prop          | Type                 |
+| 属性          | 类型                 |
 | ------------- | -------------------- |
 | **`capture`** | <code>boolean</code> |
 
 
 #### ArrayBufferView
 
-| Prop             | Type                                                        | Description                                                                  |
+| 属性             | 类型                                                        | 描述                                                                  |
 | ---------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`buffer`**     | <code><a href="#arraybufferlike">ArrayBufferLike</a></code> | The <a href="#arraybuffer">ArrayBuffer</a> instance referenced by the array. |
-| **`byteLength`** | <code>number</code>                                         | The length in bytes of the array.                                            |
-| **`byteOffset`** | <code>number</code>                                         | The offset in bytes of the array.                                            |
+| **`buffer`**     | <code><a href="#arraybufferlike">ArrayBufferLike</a></code> | 数组引用的 <a href="#arraybuffer">ArrayBuffer</a> 实例。 |
+| **`byteLength`** | <code>number</code>                                         | 数组的长度（字节）。                                            |
+| **`byteOffset`** | <code>number</code>                                         | 数组的偏移量（字节）。                                            |
 
 
 #### ArrayBufferTypes
 
-Allowed <a href="#arraybuffer">ArrayBuffer</a> types for the buffer of an <a href="#arraybufferview">ArrayBufferView</a> and related Typed Arrays.
+允许的 <a href="#arraybuffer">ArrayBuffer</a> 类型，用于 <a href="#arraybufferview">ArrayBufferView</a> 和相关类型化数组的缓冲区。
 
-| Prop              | Type                                                |
+| 属性              | 类型                                                |
 | ----------------- | --------------------------------------------------- |
 | **`ArrayBuffer`** | <code><a href="#arraybuffer">ArrayBuffer</a></code> |
 
 
 #### FormData
 
-Provides a way to easily construct a set of key/value pairs representing form fields and their values, which can then be easily sent using the XMLHttpRequest.send() method. It uses the same format a form would use if the encoding type were set to "multipart/form-data".
+提供了一种简单的方式来构造一组键/值对，表示表单字段及其值，然后可以使用 XMLHttpRequest.send() 方法轻松发送。它使用与表单相同的格式，如果编码类型设置为 "multipart/form-data"。
 
-| Method      | Signature                                                                                                                                                               |
+| 方法      | 签名                                                                                                                                                               |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **append**  | (name: string, value: string \| <a href="#blob">Blob</a>, fileName?: string) =&gt; void                                                                                 |
 | **delete**  | (name: string) =&gt; void                                                                                                                                               |
@@ -522,9 +518,9 @@ Provides a way to easily construct a set of key/value pairs representing form fi
 
 #### File
 
-Provides information about files and allows JavaScript in a web page to access their content.
+提供有关文件的信息，并允许网页中的 JavaScript 访问其内容。
 
-| Prop               | Type                |
+| 属性               | 类型                |
 | ------------------ | ------------------- |
 | **`lastModified`** | <code>number</code> |
 | **`name`**         | <code>string</code> |
@@ -532,77 +528,77 @@ Provides information about files and allows JavaScript in a web page to access t
 
 #### URLSearchParams
 
-<a href="#urlsearchparams">`URLSearchParams`</a> class is a global reference for `require('url').URLSearchParams`
+<a href="#urlsearchparams">`URLSearchParams`</a> 类是 `require('url').URLSearchParams` 的全局引用
 https://nodejs.org/api/url.html#class-urlsearchparams
 
-| Method       | Signature                                                                                                                               | Description                                                                                                                |
+| 方法       | 签名                                                                                                                               | 描述                                                                                                                |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| **append**   | (name: string, value: string) =&gt; void                                                                                                | Appends a specified key/value pair as a new search parameter.                                                              |
-| **delete**   | (name: string) =&gt; void                                                                                                               | Deletes the given search parameter, and its associated value, from the list of all search parameters.                      |
-| **get**      | (name: string) =&gt; string \| null                                                                                                     | Returns the first value associated to the given search parameter.                                                          |
-| **getAll**   | (name: string) =&gt; string[]                                                                                                           | Returns all the values association with a given search parameter.                                                          |
-| **has**      | (name: string) =&gt; boolean                                                                                                            | Returns a Boolean indicating if such a search parameter exists.                                                            |
-| **set**      | (name: string, value: string) =&gt; void                                                                                                | Sets the value associated to a given search parameter to the given value. If there were several values, delete the others. |
+| **append**   | (name: string, value: string) =&gt; void                                                                                                | 将指定的键/值对作为新的搜索参数追加。                                                              |
+| **delete**   | (name: string) =&gt; void                                                                                                               | 从所有搜索参数列表中删除给定的搜索参数及其关联值。                      |
+| **get**      | (name: string) =&gt; string \| null                                                                                                     | 返回与给定搜索参数关联的第一个值。                                                          |
+| **getAll**   | (name: string) =&gt; string[]                                                                                                           | 返回与给定搜索参数关联的所有值。                                                          |
+| **has**      | (name: string) =&gt; boolean                                                                                                            | 返回一个布尔值，指示是否存在这样的搜索参数。                                                            |
+| **set**      | (name: string, value: string) =&gt; void                                                                                                | 将与给定搜索参数关联的值设置为给定值。如果有多个值，则删除其他值。 |
 | **sort**     | () =&gt; void                                                                                                                           |                                                                                                                            |
-| **toString** | () =&gt; string                                                                                                                         | Returns a string containing a query string suitable for use in a URL. Does not include the question mark.                  |
+| **toString** | () =&gt; string                                                                                                                         | 返回包含适合在 URL 中使用的查询字符串的字符串。不包括问号。                  |
 | **forEach**  | (callbackfn: (value: string, key: string, parent: <a href="#urlsearchparams">URLSearchParams</a>) =&gt; void, thisArg?: any) =&gt; void |                                                                                                                            |
 
 
 #### Uint8Array
 
-A typed array of 8-bit unsigned integer values. The contents are initialized to 0. If the
-requested number of bytes could not be allocated an exception is raised.
+一个 8 位无符号整数值的类型化数组。内容初始化为 0。如果
+请求的字节数无法分配，则会引发异常。
 
-| Prop                    | Type                                                        | Description                                                                  |
+| 属性                    | 类型                                                        | 描述                                                                  |
 | ----------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`BYTES_PER_ELEMENT`** | <code>number</code>                                         | The size in bytes of each element in the array.                              |
-| **`buffer`**            | <code><a href="#arraybufferlike">ArrayBufferLike</a></code> | The <a href="#arraybuffer">ArrayBuffer</a> instance referenced by the array. |
-| **`byteLength`**        | <code>number</code>                                         | The length in bytes of the array.                                            |
-| **`byteOffset`**        | <code>number</code>                                         | The offset in bytes of the array.                                            |
-| **`length`**            | <code>number</code>                                         | The length of the array.                                                     |
+| **`BYTES_PER_ELEMENT`** | <code>number</code>                                         | 数组中每个元素的大小（字节）。                              |
+| **`buffer`**            | <code><a href="#arraybufferlike">ArrayBufferLike</a></code> | 数组引用的 <a href="#arraybuffer">ArrayBuffer</a> 实例。 |
+| **`byteLength`**        | <code>number</code>                                         | 数组的长度（字节）。                                            |
+| **`byteOffset`**        | <code>number</code>                                         | 数组的偏移量（字节）。                                            |
+| **`length`**            | <code>number</code>                                         | 数组的长度。                                                     |
 
-| Method             | Signature                                                                                                                                                                      | Description                                                                                                                                                                                                                                 |
+| 方法             | 签名                                                                                                                                                                      | 描述                                                                                                                                                                                                                                 |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **copyWithin**     | (target: number, start: number, end?: number) =&gt; this                                                                                                                       | Returns the this object after copying a section of the array identified by start and end to the same array starting at position target                                                                                                      |
-| **every**          | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; unknown, thisArg?: any) =&gt; boolean                                            | Determines whether all the members of an array satisfy the specified test.                                                                                                                                                                  |
-| **fill**           | (value: number, start?: number, end?: number) =&gt; this                                                                                                                       | Returns the this object after filling the section identified by start and end with value                                                                                                                                                    |
-| **filter**         | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; any, thisArg?: any) =&gt; <a href="#uint8array">Uint8Array</a>                   | Returns the elements of an array that meet the condition specified in a callback function.                                                                                                                                                  |
-| **find**           | (predicate: (value: number, index: number, obj: <a href="#uint8array">Uint8Array</a>) =&gt; boolean, thisArg?: any) =&gt; number \| undefined                                  | Returns the value of the first element in the array where predicate is true, and undefined otherwise.                                                                                                                                       |
-| **findIndex**      | (predicate: (value: number, index: number, obj: <a href="#uint8array">Uint8Array</a>) =&gt; boolean, thisArg?: any) =&gt; number                                               | Returns the index of the first element in the array where predicate is true, and -1 otherwise.                                                                                                                                              |
-| **forEach**        | (callbackfn: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; void, thisArg?: any) =&gt; void                                                 | Performs the specified action for each element in an array.                                                                                                                                                                                 |
-| **indexOf**        | (searchElement: number, fromIndex?: number) =&gt; number                                                                                                                       | Returns the index of the first occurrence of a value in an array.                                                                                                                                                                           |
-| **join**           | (separator?: string) =&gt; string                                                                                                                                              | Adds all the elements of an array separated by the specified separator string.                                                                                                                                                              |
-| **lastIndexOf**    | (searchElement: number, fromIndex?: number) =&gt; number                                                                                                                       | Returns the index of the last occurrence of a value in an array.                                                                                                                                                                            |
-| **map**            | (callbackfn: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number, thisArg?: any) =&gt; <a href="#uint8array">Uint8Array</a>               | Calls a defined callback function on each element of an array, and returns an array that contains the results.                                                                                                                              |
-| **reduce**         | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number) =&gt; number                       | Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.                      |
+| **copyWithin**     | (target: number, start: number, end?: number) =&gt; this                                                                                                                       | 在将数组中以 start 和 end 标识的部分复制到从位置 target 开始的同一数组后返回此对象                                                                                                      |
+| **every**          | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; unknown, thisArg?: any) =&gt; boolean                                            | 确定数组的所有成员是否满足指定的测试。                                                                                                                                                                  |
+| **fill**           | (value: number, start?: number, end?: number) =&gt; this                                                                                                                       | 在将以 start 和 end 标识的部分填充 value 后返回此对象                                                                                                                                                    |
+| **filter**         | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; any, thisArg?: any) =&gt; <a href="#uint8array">Uint8Array</a>                   | 返回数组中满足回调函数中指定条件的元素。                                                                                                                                                  |
+| **find**           | (predicate: (value: number, index: number, obj: <a href="#uint8array">Uint8Array</a>) =&gt; boolean, thisArg?: any) =&gt; number \| undefined                                  | 返回数组中第一个谓词为 true 的元素的值，否则返回 undefined。                                                                                                                                       |
+| **findIndex**      | (predicate: (value: number, index: number, obj: <a href="#uint8array">Uint8Array</a>) =&gt; boolean, thisArg?: any) =&gt; number                                               | 返回数组中第一个谓词为 true 的元素的索引，否则返回 -1。                                                                                                                                              |
+| **forEach**        | (callbackfn: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; void, thisArg?: any) =&gt; void                                                 | 对数组中的每个元素执行指定的操作。                                                                                                                                                                                 |
+| **indexOf**        | (searchElement: number, fromIndex?: number) =&gt; number                                                                                                                       | 返回数组中第一次出现值的索引。                                                                                                                                                                           |
+| **join**           | (separator?: string) =&gt; string                                                                                                                                              | 将数组的所有元素添加由指定分隔符字符串分隔。                                                                                                                                                              |
+| **lastIndexOf**    | (searchElement: number, fromIndex?: number) =&gt; number                                                                                                                       | 返回数组中最后一次出现值的索引。                                                                                                                                                                            |
+| **map**            | (callbackfn: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number, thisArg?: any) =&gt; <a href="#uint8array">Uint8Array</a>               | 对数组的每个元素调用定义的回调函数，并返回包含结果的数组。                                                                                                                              |
+| **reduce**         | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number) =&gt; number                       | 为数组中的所有元素调用指定的回调函数。回调函数的返回值是累积结果，并作为参数在下次调用回调函数时提供。                      |
 | **reduce**         | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number, initialValue: number) =&gt; number |                                                                                                                                                                                                                                             |
-| **reduce**         | &lt;U&gt;(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; U, initialValue: U) =&gt; U            | Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.                      |
-| **reduceRight**    | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number) =&gt; number                       | Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function. |
+| **reduce**         | &lt;U&gt;(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; U, initialValue: U) =&gt; U            | 为数组中的所有元素调用指定的回调函数。回调函数的返回值是累积结果，并作为参数在下次调用回调函数时提供。                      |
+| **reduceRight**    | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number) =&gt; number                       | 以降序为数组中的所有元素调用指定的回调函数。回调函数的返回值是累积结果，并作为参数在下次调用回调函数时提供。 |
 | **reduceRight**    | (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; number, initialValue: number) =&gt; number |                                                                                                                                                                                                                                             |
-| **reduceRight**    | &lt;U&gt;(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; U, initialValue: U) =&gt; U            | Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function. |
-| **reverse**        | () =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                                                  | Reverses the elements in an Array.                                                                                                                                                                                                          |
-| **set**            | (array: <a href="#arraylike">ArrayLike</a>&lt;number&gt;, offset?: number) =&gt; void                                                                                          | Sets a value or an array of values.                                                                                                                                                                                                         |
-| **slice**          | (start?: number, end?: number) =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                      | Returns a section of an array.                                                                                                                                                                                                              |
-| **some**           | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; unknown, thisArg?: any) =&gt; boolean                                            | Determines whether the specified callback function returns true for any element of an array.                                                                                                                                                |
-| **sort**           | (compareFn?: (a: number, b: number) =&gt; number) =&gt; this                                                                                                                   | Sorts an array.                                                                                                                                                                                                                             |
-| **subarray**       | (begin?: number, end?: number) =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                      | Gets a new <a href="#uint8array">Uint8Array</a> view of the <a href="#arraybuffer">ArrayBuffer</a> store for this array, referencing the elements at begin, inclusive, up to end, exclusive.                                                |
-| **toLocaleString** | () =&gt; string                                                                                                                                                                | Converts a number to a string by using the current locale.                                                                                                                                                                                  |
-| **toString**       | () =&gt; string                                                                                                                                                                | Returns a string representation of an array.                                                                                                                                                                                                |
-| **valueOf**        | () =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                                                  | Returns the primitive value of the specified object.                                                                                                                                                                                        |
+| **reduceRight**    | &lt;U&gt;(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; U, initialValue: U) =&gt; U            | 以降序为数组中的所有元素调用指定的回调函数。回调函数的返回值是累积结果，并作为参数在下次调用回调函数时提供。 |
+| **reverse**        | () =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                                                  | 反转数组中的元素。                                                                                                                                                                                                          |
+| **set**            | (array: <a href="#arraylike">ArrayLike</a>&lt;number&gt;, offset?: number) =&gt; void                                                                                          | 设置一个值或值数组。                                                                                                                                                                                                         |
+| **slice**          | (start?: number, end?: number) =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                      | 返回数组的一个部分。                                                                                                                                                                                                              |
+| **some**           | (predicate: (value: number, index: number, array: <a href="#uint8array">Uint8Array</a>) =&gt; unknown, thisArg?: any) =&gt; boolean                                            | 确定指定的回调函数是否对数组的任何元素返回 true。                                                                                                                                                |
+| **sort**           | (compareFn?: (a: number, b: number) =&gt; number) =&gt; this                                                                                                                   | 对数组进行排序。                                                                                                                                                                                                                             |
+| **subarray**       | (begin?: number, end?: number) =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                      | 获取此数组的 <a href="#arraybuffer">ArrayBuffer</a> 存储的新 <a href="#uint8array">Uint8Array</a> 视图，引用从 begin（包含）到 end（不包含）的元素。                                                |
+| **toLocaleString** | () =&gt; string                                                                                                                                                                | 使用当前区域设置将数字转换为字符串。                                                                                                                                                                                  |
+| **toString**       | () =&gt; string                                                                                                                                                                | 返回数组的字符串表示形式。                                                                                                                                                                                                |
+| **valueOf**        | () =&gt; <a href="#uint8array">Uint8Array</a>                                                                                                                                  | 返回指定对象的原始值。                                                                                                                                                                                                        |
 
 
 #### ArrayLike
 
-| Prop         | Type                |
+| 属性         | 类型                |
 | ------------ | ------------------- |
 | **`length`** | <code>number</code> |
 
 
 #### Headers
 
-This Fetch API interface allows you to perform various actions on HTTP request and response headers. These actions include retrieving, setting, adding to, and removing. A <a href="#headers">Headers</a> object has an associated header list, which is initially empty and consists of zero or more name and value pairs.  You can add to this using methods like append() (see Examples.) In all methods of this interface, header names are matched by case-insensitive byte sequence.
+此 Fetch API 接口允许您对 HTTP 请求和响应标头执行各种操作。这些操作包括检索、设置、添加和删除。<a href="#headers">Headers</a> 对象有一个关联的标头列表，最初为空，由零个或多个名称和值对组成。您可以使用 append() 等方法添加到此列表（参见示例。）在此接口的所有方法中，标头名称通过不区分大小写的字节序列匹配。
 
-| Method      | Signature                                                                                                               |
+| 方法      | 签名                                                                                                               |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
 | **append**  | (name: string, value: string) =&gt; void                                                                                |
 | **delete**  | (name: string) =&gt; void                                                                                               |
@@ -612,7 +608,7 @@ This Fetch API interface allows you to perform various actions on HTTP request a
 | **forEach** | (callbackfn: (value: string, key: string, parent: <a href="#headers">Headers</a>) =&gt; void, thisArg?: any) =&gt; void |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### BodyInit
@@ -662,9 +658,11 @@ This Fetch API interface allows you to perform various actions on HTTP request a
 
 #### Record
 
-Construct a type with a set of properties K of type T
+用一组类型为 T 的属性 K 构造一个类型
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### RequestMode
@@ -684,7 +682,7 @@ Construct a type with a set of properties K of type T
 
 #### HttpResponseType
 
-How to parse the Http response before returning it to the client.
+如何在将 HTTP 响应返回给客户端之前解析它。
 
 <code>'arraybuffer' | 'blob' | 'json' | 'text' | 'document'</code>
 

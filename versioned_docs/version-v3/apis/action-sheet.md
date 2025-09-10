@@ -1,56 +1,56 @@
 ---
-title: Action Sheet Capacitor Plugin API
-description: The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
+title: Action Sheet Capacitor 插件 API
+description: Action Sheet API 提供了对原生操作表的访问，这些操作表从屏幕底部弹出，显示用户可以执行的操作。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/src/definitions.ts
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/mainaction-sheet/src/definitions.ts
 sidebar_label: Action Sheet
 ---
 
 # @capacitor/action-sheet
 
-The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
+Action Sheet API 提供了对原生操作表的访问，这些操作表从屏幕底部弹出，显示用户可以执行的操作。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/action-sheet
 npx cap sync
 ```
 
-### Variables
+### 变量配置
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+本插件会使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
 
-- `$androidxMaterialVersion`: version of `com.google.android.material:material` (default: `1.3.0`)
+- `$androidxMaterialVersion`: `com.google.android.material:material` 的版本号（默认值：`1.3.0`）
 
-## PWA Notes
+## PWA 注意事项
 
-[PWA Elements](https://capacitorjs.com/docs/v3/web/pwa-elements) are required for Action Sheet plugin to work.
+Action Sheet 插件需要 [PWA Elements](https://capacitorjs.com/docs/v3/web/pwa-elements) 才能正常工作。
 
-## Example
+## 示例
 
 ```typescript
 import { ActionSheet, ActionSheetButtonStyle } from '@capacitor/action-sheet';
 
 const showActions = async () => {
   const result = await ActionSheet.showActions({
-    title: 'Photo Options',
-    message: 'Select an option to perform',
+    title: '照片选项',
+    message: '请选择要执行的操作',
     options: [
       {
-        title: 'Upload',
+        title: '上传',
       },
       {
-        title: 'Share',
+        title: '分享',
       },
       {
-        title: 'Remove',
+        title: '删除',
         style: ActionSheetButtonStyle.Destructive,
       },
     ],
   });
 
-  console.log('Action Sheet result:', result);
+  console.log('操作表结果:', result);
 };
 ```
 
@@ -59,8 +59,8 @@ const showActions = async () => {
 <docgen-index>
 
 * [`showActions(...)`](#showactions)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [接口](#interfaces)
+* [枚举](#enums)
 
 </docgen-index>
 
@@ -73,57 +73,56 @@ const showActions = async () => {
 showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 ```
 
-Show an Action Sheet style modal with various options for the user
-to select.
+显示一个 Action Sheet 风格的模态框，包含用户可以选择的多种选项。
 
-| Param         | Type                                                              |
-| ------------- | ----------------------------------------------------------------- |
-| **`options`** | <code><a href="#showactionsoptions">ShowActionsOptions</a></code> |
+| 参数          | 类型                                                                  |
+| ------------- | -------------------------------------------------------------------- |
+| **`options`** | <code><a href="#showactionsoptions">ShowActionsOptions</a></code>    |
 
-**Returns:** <code>Promise&lt;<a href="#showactionsresult">ShowActionsResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#showactionsresult">ShowActionsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowActionsResult
 
-| Prop        | Type                | Description                                  | Since |
-| ----------- | ------------------- | -------------------------------------------- | ----- |
-| **`index`** | <code>number</code> | The index of the clicked option (Zero-based) | 1.0.0 |
+| 属性          | 类型                | 描述                                      | 版本   |
+| ------------- | ------------------- | ---------------------------------------- | ------ |
+| **`index`**   | <code>number</code> | 被点击选项的索引（从零开始）              | 1.0.0  |
 
 
 #### ShowActionsOptions
 
-| Prop          | Type                             | Description                                                              | Since |
-| ------------- | -------------------------------- | ------------------------------------------------------------------------ | ----- |
-| **`title`**   | <code>string</code>              | The title of the Action Sheet.                                           | 1.0.0 |
-| **`message`** | <code>string</code>              | A message to show under the title. This option is only supported on iOS. | 1.0.0 |
-| **`options`** | <code>ActionSheetButton[]</code> | Options the user can choose from.                                        | 1.0.0 |
+| 属性            | 类型                             | 描述                                                                 | 版本   |
+| --------------- | -------------------------------- | ------------------------------------------------------------------- | ------ |
+| **`title`**     | <code>string</code>              | 操作表的标题                                                        | 1.0.0  |
+| **`message`**   | <code>string</code>              | 标题下方显示的提示信息（仅 iOS 平台支持）                           | 1.0.0  |
+| **`options`**   | <code>ActionSheetButton[]</code> | 用户可选择的选项列表                                                | 1.0.0  |
 
 
 #### ActionSheetButton
 
-| Prop        | Type                                                                      | Description                                                                           | Since |
-| ----------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----- |
-| **`title`** | <code>string</code>                                                       | The title of the option                                                               | 1.0.0 |
-| **`style`** | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | The style of the option This option is only supported on iOS.                         | 1.0.0 |
-| **`icon`**  | <code>string</code>                                                       | Icon for the option (ionicon naming convention) This option is only supported on Web. | 1.0.0 |
+| 属性            | 类型                                                                      | 描述                                                                                     | 版本   |
+| --------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------ |
+| **`title`**     | <code>string</code>                                                       | 选项的标题                                                                              | 1.0.0  |
+| **`style`**     | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | 选项的样式（仅 iOS 平台支持）                                                           | 1.0.0  |
+| **`icon`**      | <code>string</code>                                                       | 选项的图标（使用 ionicon 命名规范，仅 Web 平台支持）                                     | 1.0.0  |
 
 
-### Enums
+### 枚举
 
 
 #### ActionSheetButtonStyle
 
-| Members           | Value                      | Description                                                                                                 | Since |
-| ----------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ----- |
-| **`Default`**     | <code>'DEFAULT'</code>     | Default style of the option.                                                                                | 1.0.0 |
-| **`Destructive`** | <code>'DESTRUCTIVE'</code> | Style to use on destructive options.                                                                        | 1.0.0 |
-| **`Cancel`**      | <code>'CANCEL'</code>      | Style to use on the option that cancels the Action Sheet. If used, should be on the latest availabe option. | 1.0.0 |
+| 成员              | 值                       | 描述                                                                                                   | 版本   |
+| ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- | ------ |
+| **`Default`**     | <code>'DEFAULT'</code>   | 默认选项样式                                                                                          | 1.0.0  |
+| **`Destructive`** | <code>'DESTRUCTIVE'</code> | 用于破坏性操作的样式                                                                                  | 1.0.0  |
+| **`Cancel`**      | <code>'CANCEL'</code>    | 用于取消操作表的样式。如果使用此样式，应该放在最后一个可选项上。                                      | 1.0.0  |
 
 </docgen-api>

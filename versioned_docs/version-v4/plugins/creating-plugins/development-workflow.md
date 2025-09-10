@@ -1,21 +1,21 @@
 ---
-title: Plugin Development Workflow
-description: Capacitor Plugin Development Workflow
+title: 插件开发工作流
+description: Capacitor 插件开发工作流程
 contributors:
   - dotNetkow
-sidebar_label: Development Workflow
+sidebar_label: 开发工作流
 slug: /plugins/workflow
 ---
 
-# Plugin Development Workflow
+# 插件开发工作流
 
-With the new plugin created, you can begin implementing functionality across a variety of platforms.
+创建新插件后，您可以开始在各种平台上实现功能。
 
-## Implementing a New Method
+## 实现新方法
 
-To implement new functionality in your plugin, begin by defining the method's signature in the exported TypeScript interface for your plugin in `src/definitions.ts`.
+要在插件中添加新功能，首先需要在 `src/definitions.ts` 中为插件导出的 TypeScript 接口定义方法签名。
 
-In the example below, the `openMap()` method is added which takes a `latitude` and `longitude`. It is good practice to define interfaces for method parameters that can be imported and used in apps.
+下面的示例添加了接收 `latitude` 和 `longitude` 参数的 `openMap()` 方法。最佳实践是为方法参数定义接口，以便在应用中导入使用。
 
 ```diff
  export interface EchoPlugin {
@@ -29,7 +29,7 @@ In the example below, the `openMap()` method is added which takes a `latitude` a
 +}
 ```
 
-Implement the web implementation in `src/web.ts`:
+在 `src/web.ts` 中实现 Web 端功能：
 
 ```diff
  import type {
@@ -41,18 +41,18 @@ Implement the web implementation in `src/web.ts`:
    // other methods
 
 +  async openMap(location: OpenMapOptions): Promise<void> {
-+    // logic here
++    // 此处添加逻辑
 +  }
  }
 ```
 
-To compile the plugin, navigate into the plugin directory then run:
+编译插件时，进入插件目录并运行：
 
 ```bash
 npm run build
 ```
 
-Implement [Android functionality](./android-guide.md) in `android/src/main/[nested folders]/EchoPlugin.java`:
+在 `android/src/main/[嵌套目录]/EchoPlugin.java` 中实现 [Android 功能](./android-guide.md)：
 
 ```java
 @PluginMethod()
@@ -60,82 +60,82 @@ public void openMap(PluginCall call) {
   Double latitude = call.getDouble("latitude");
   Double longitude = call.getDouble("longitude");
 
-  // more logic
+  // 更多逻辑
 
   call.resolve();
 }
 ```
 
-Implement [iOS functionality](./ios-guide.md) in `ios/Plugin/EchoPlugin.swift`:
+在 `ios/Plugin/EchoPlugin.swift` 中实现 [iOS 功能](./ios-guide.md)：
 
 ```swift
 @objc func openMap(_ call: CAPPluginCall) {
   let latitude = call.getString("latitude")
   let longitude = call.getNumber("longitude")
 
-  // more logic
+  // 更多逻辑
 
   call.resolve()
 }
 ```
 
-> Remember to [register plugin methods](./ios-guide.md#export-to-capacitor) in your `.m` file.
+> 记得在 `.m` 文件中 [注册插件方法](./ios-guide.md#export-to-capacitor)
 
-This example contains the most common type of method in plugins but details about all the supported types [can be found here.](./method-types.md)
+该示例展示了插件中最常见的方法类型，所有支持类型的详细信息 [可在此处查看](./method-types.md)
 
-## Local Testing
+## 本地测试
 
-To test the plugin locally while developing it, link the plugin folder to your app using `npm install` with the path to your plugin.
+开发过程中如需本地测试插件，可使用 `npm install` 将插件文件夹链接到应用中：
 
 ```bash
 npm install ../path/to/echo
 ```
 
-The project's `package.json` file now shows the plugin package link in the dependencies list:
+项目的 `package.json` 文件将在依赖项列表中显示插件包的链接：
 
 ```json
 "echo": "file:../path/to/echo",
 ```
 
-Finally, run `npx cap sync` to make the native projects aware of your plugin. If it was detected correctly, it will print something like this:
+最后运行 `npx cap sync` 使原生项目识别您的插件。如果检测成功，将输出类似信息：
 
 ```bash
 [info] Found 1 Capacitor plugin for android:
     - echo (0.0.1)
 ```
 
-### Unlinking the Plugin
+### 解除插件链接
 
-To unlink the local plugin from your app, use `npm uninstall` with the package name of your plugin.
+要从应用中解除本地插件链接，使用 `npm uninstall` 加上插件包名：
 
 ```bash
 npm uninstall echo
 ```
 
-## Package Scripts
+## 包脚本
 
-The plugin template ships with a variety of scripts in `package.json`.
+插件模板在 `package.json` 中提供了多种脚本：
 
-- `verify`: builds and tests web and native code
-- `lint`: lints web and native code
-- `fmt`: autoformats web and native code
-- `docgen`: generates documentation from plugin interface (see [Documentation](#documentation))
-- `build`: builds web code into ESM and bundle distributions
+- `verify`: 构建并测试 Web 和原生代码
+- `lint`: 检查 Web 和原生代码规范
+- `fmt`: 自动格式化 Web 和原生代码
+- `docgen`: 从插件接口生成文档（参见 [文档](#文档)）
+- `build`: 将 Web 代码构建为 ESM 和打包版本
 
-## Documentation
+## 文档
 
-To document plugin functionality, add [JSDoc](https://jsdoc.app) comment blocks to methods and properties.
+要为插件功能添加文档，请在方法和属性前添加 [JSDoc](https://jsdoc.app) 注释块。
 
-> It is usually not necessary to include type information with the `@param` and `@returns` JSDoc tags in TypeScript files.
+> 在 TypeScript 文件中，通常不需要使用 `@param` 和 `@returns` JSDoc 标签包含类型信息。
 
-Using our `openMap()` method as an example, open `src/definitions.ts` and start documenting!
+以 `openMap()` 方法为例，打开 `src/definitions.ts` 开始编写文档：
 
 ```diff
  export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 
 +  /**
-+   * Opens the map at a given location.
++   * 在指定位置打开地图
 +   *
 +   * @since 1.1.0
 +   */
@@ -144,31 +144,31 @@ Using our `openMap()` method as an example, open `src/definitions.ts` and start 
 
  export interface OpenMapOptions {
 +  /**
-+   * The latitude at which to open the map.
++   * 打开地图的纬度坐标
 +   */
    latitude: number;
 
 +  /**
-+   * The longitude at which to open the map.
++   * 打开地图的经度坐标
 +   */
    longitude: number;
  }
 ```
 
-The plugin template ships with [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen), which writes generated documentation to `README.md`. Documentation is generated during `npm run build`. You can also run it manually:
+插件模板内置了 [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen)，可将生成的文档写入 `README.md`。文档在 `npm run build` 时生成，也可手动运行：
 
 ```bash
 npm run docgen
 ```
 
-## Publishing
+## 发布
 
-Whenever you are ready to publish your plugin, just use:
+准备就绪后，直接使用以下命令发布插件：
 
 ```bash
 npm publish
 ```
 
-This will build the JS portion of your plugin and publish the rest of your plugin files to npm.
+这将构建插件的 JS 部分，并将其余文件发布到 npm。
 
-Your package can now be installed using `npm install echo` in any Capacitor app.
+现在任何 Capacitor 应用都可以通过 `npm install echo` 安装您的插件包。

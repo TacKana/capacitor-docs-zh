@@ -1,71 +1,68 @@
 ---
 title: Swift Package Manager
-description: SPM Basics
+description: SPM 基础指南
 contributors:
   - giralte-ionic
 slug: /ios/spm
 ---
 
-# Swift Package Manager
+# Swift 包管理器
 
-Swift Packages are Apple's new first-party tool for software dependencies. Traditionally Capacitor has used CocoaPods for managing dependencies internally and for plugins, however now is the time to move to a supported solution.
+Swift Packages 是苹果官方推出的新型软件依赖管理工具。虽然 Capacitor 传统上使用 CocoaPods 来管理内部依赖和插件，但现在正是转向官方支持方案的最佳时机。
 
-In Capacitor 6, you can now choose between using CocoaPods or Swift Package Manager (SPM). Almost all current capacitor-team supported plugins support SPM, namely the plugins in <a href="https://github.com/ionic-team/capacitor-plugins">capacitor-plugins</a>.
+在 Capacitor 6 中，您可以选择使用 CocoaPods 或 Swift Package Manager (SPM)。目前几乎所有由 capacitor-team 官方维护的插件都已支持 SPM，特别是 <a href="https://github.com/ionic-team/capacitor-plugins">capacitor-plugins</a> 仓库中的插件。
 
-We've tried our best to make sure you don't have to change much about how you work with Capacitor to use SPM, but there are a few things to understand.
+我们已尽力确保您无需大幅改变工作流程即可使用 SPM，但仍有一些要点需要了解。
 
-### How it works
+### 工作原理
 
-When a Capacitor project is using SPM we use a 'Base SPM' package that will serve as the place that references all of your projects dependencies:
+当 Capacitor 项目使用 SPM 时，我们会创建一个"基础 SPM"包作为所有项目依赖的引用中心：
 
-![Base SPM Picture](/img/v6/docs/ios/spm/base-spm.png)
+![基础 SPM 示意图](/img/v6/docs/ios/spm/base-spm.png)
 
-The Capacitor CLI will modify the CapAPP-SPM package when you sync new plugins. It is important you do not touch the contents here because the CLI can and will change things.
+Capacitor CLI 会在同步新插件时修改 CapAPP-SPM 包。请注意不要手动修改此处内容，因为 CLI 会动态调整这些配置。
 
-### Using SPM in a new Capacitor project
+### 在新项目中启用 SPM
 
-First we'll start with our normal `npm init @capacitor/app`:
+首先通过常规命令创建项目：
+`npm init @capacitor/app`
 
-![Demo Step 1](/img/v6/docs/ios/spm/demo-step1.png)
+![演示步骤1](/img/v6/docs/ios/spm/demo-step1.png)
 
-Now we want to add the iOS platform to our project:
-
+添加 iOS 平台支持：
 `npm install @capacitor/ios`
 
-Next let's build the web project:
-
+构建 web 项目：
 `npm run build`
 
-After that is complete we can add the iOS project. We need to add the option `--packagemanager SPM` to the normal add command:
-
+添加 iOS 项目时需指定包管理器参数：
 `npx cap add ios --packagemanager SPM`
 
-Now you can use `npx cap open ios` to open the iOS project and run your app from there.
+现在可以使用 `npx cap open ios` 打开 iOS 项目并运行应用。
 
 ---
 
-### Add and use a Capactior Plugin with SPM
+### 添加并使用 SPM 插件
 
-So let's add a plugin to this project and do something with that plugin.
+让我们为项目添加一个插件并实际应用它。
 
-Start with installing the Capacitor App plugin:
-
+首先安装 App 插件：
 `npm install @capacitor/app`
 
-Then let's sync the web app. This will add the App plugin SPM to the iOS project:
-
+同步 web 应用（会自动将插件添加到 iOS 项目）：
 `npx cap sync`
 
-You can now use the App plugin normally.
+现在即可正常使用 App 插件功能。
 
-<em>More details coming soon</em>
+<em>更多细节即将推出</em>
 
-### Converting existing plugins to SPM
+### 将现有插件转换为 SPM
 
-More details soon, but check this repository out: https://github.com/ionic-team/capacitor-plugin-converter
+详情即将公布，可先参考此仓库：
+https://github.com/ionic-team/capacitor-plugin-converter
 
-### Troubleshooting
+### 故障排查
 
-After adding plugins try to 'reset package caches' in Xcode:
+添加插件后，建议在 Xcode 中执行"重置包缓存"操作：
 
-![Demo Step 1](/img/v6/docs/ios/spm/reset-package.png)
+![演示步骤1](/img/v6/docs/ios/spm/reset-package.png)

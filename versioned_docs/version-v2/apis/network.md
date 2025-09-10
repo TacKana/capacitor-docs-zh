@@ -1,6 +1,6 @@
 ---
 title: Network
-description: Network API
+description: 网络 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,14 +9,14 @@ canonicalUrl: https://capacitorjs.com/docs/apis/network
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Network API provides events for monitoring network status changes, along with querying the current state of the network.
+Network API 提供了一系列事件来监听网络状态变化，并支持查询当前网络状态。
 
 - [`getStatus()`](#getstatus)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+- [接口定义](#interfaces)
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -24,32 +24,32 @@ import { Plugins } from '@capacitor/core';
 const { Network } = Plugins;
 
 let handler = Network.addListener('networkStatusChange', (status) => {
-  console.log("Network status changed", status);
+  console.log("网络状态已变更", status);
 });
-// To stop listening:
+// 停止监听:
 // handler.remove();
 
-// Get the current network status
+// 获取当前网络状态
 let status = await Network.getStatus();
 
-// Example output:
+// 输出示例:
 {
   "connected": true,
   "connectionType": "wifi"
 }
 ```
 
-## Android Note
+## Android 注意事项
 
-The Network API requires the following permission be added to your `AndroidManifest.xml`:
+使用 Network API 需要在 `AndroidManifest.xml` 中添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-This permission allows the app to access information about the current network, such as whether it is connected to wifi or cellular.
+该权限允许应用访问当前网络信息，例如是否连接到 WiFi 或蜂窝网络。
 
-## API
+## API 参考
 
 ### getStatus()
 
@@ -57,9 +57,9 @@ This permission allows the app to access information about the current network, 
 getStatus() => Promise<NetworkStatus>
 ```
 
-Query the current network status
+查询当前网络状态
 
-**Returns:** <code>Promise&lt;<a href="#networkstatus">NetworkStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#networkstatus">NetworkStatus</a>&gt;</code>
 
 ---
 
@@ -69,14 +69,14 @@ Query the current network status
 addListener(eventName: 'networkStatusChange', listenerFunc: (status: NetworkStatus) => void) => PluginListenerHandle
 ```
 
-Listen for network status change events
+监听网络状态变更事件
 
-| Param              | Type                                                                         |
-| ------------------ | ---------------------------------------------------------------------------- |
-| **`eventName`**    | <code>"networkStatusChange"</code>                                           |
-| **`listenerFunc`** | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
+| 参数                 | 类型                                                                         |
+| -------------------- | ---------------------------------------------------------------------------- |
+| **`eventName`**      | <code>"networkStatusChange"</code>                                           |
+| **`listenerFunc`**   | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -86,21 +86,21 @@ Listen for network status change events
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin
+移除该插件的所有原生监听器
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### NetworkStatus
 
-| Prop                 | Type                                                     |
-| -------------------- | -------------------------------------------------------- |
-| **`connected`**      | <code>boolean</code>                                     |
-| **`connectionType`** | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
+| 属性                  | 类型                                                     |
+| --------------------- | -------------------------------------------------------- |
+| **`connected`**       | <code>boolean</code>                                     |
+| **`connectionType`**  | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
-| ------------ | -------------------------- |
-| **`remove`** | <code>() =&gt; void</code> |
+| 属性           | 类型                       |
+| -------------- | -------------------------- |
+| **`remove`**   | <code>() =&gt; void</code> |

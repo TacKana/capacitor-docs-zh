@@ -1,6 +1,6 @@
 ---
-title: CLI Command - cap sync
-description: Capacitor CLI command - cap sync
+title: CLI 命令 - cap sync
+description: Capacitor CLI 命令 - cap sync
 contributors:
   - dotNetkow
 sidebar_label: sync
@@ -8,25 +8,25 @@ sidebar_label: sync
 
 # Capacitor CLI - cap sync
 
-This command runs [`copy`](/cli/commands/copy.md) and then [`update`](/cli/commands/update.md).
+该命令会先执行 [`copy`](/cli/commands/copy.md) 然后执行 [`update`](/cli/commands/update.md)。
 
 ```bash
 npx cap sync [options] [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (optional): `android`, `ios`
+- `platform` (可选): `android`, `ios`
 
-<strong>Options:</strong>
+<strong>选项：</strong>
 
-- `--deployment`: Podfile.lock won't be deleted and pod install will use `--deployment` option.
+- `--deployment`: 不删除 Podfile.lock 文件，并且 pod install 会使用 `--deployment` 选项。
 
-## Hooks
+## 钩子函数
 
-The following hooks are available for sync command:
+sync 命令支持以下钩子函数：
 
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-[More information](../hooks.md)
+[了解更多](../hooks.md)

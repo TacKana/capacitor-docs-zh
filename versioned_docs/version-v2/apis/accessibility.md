@@ -1,6 +1,6 @@
 ---
 title: Accessibility
-description: Accessibility API
+description: 无障碍功能 API
 pluginapi: AccessibilityPlugin
 contributors:
   - mlynch
@@ -9,16 +9,15 @@ contributors:
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Accessibility API makes it easy to know when a user has a screen reader enabled, as well as programmatically speaking
-labels through the connected screen reader.
+无障碍功能 API 可以轻松检测用户是否启用了屏幕阅读器，同时支持通过已连接的屏幕阅读器以编程方式朗读文本标签。
 
 - [`isScreenReaderEnabled()`](#isscreenreaderenabled)
 - [`speak(...)`](#speak)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+- [接口定义](#interfaces)
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -36,15 +35,15 @@ async isVoiceOverEnabled() {
 
 async speak() {
   var value = await Modals.prompt({
-    title: "Value to speak",
-    message: "Enter the value to speak"
+    title: "待朗读内容",
+    message: "请输入要朗读的文本"
   });
 
   Accessibility.speak({value: value.value});
 }
 ```
 
-## API>
+## API
 
 ### isScreenReaderEnabled()
 
@@ -52,9 +51,9 @@ async speak() {
 isScreenReaderEnabled() => Promise<ScreenReaderEnabledResult>
 ```
 
-Check if a screen reader is enabled on the device
+检测设备是否启用了屏幕阅读器
 
-**Returns:** <code>Promise&lt;<a href="#screenreaderenabledresult">ScreenReaderEnabledResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#screenreaderenabledresult">ScreenReaderEnabledResult</a>&gt;</code>
 
 ---
 
@@ -64,10 +63,10 @@ Check if a screen reader is enabled on the device
 speak(options: AccessibilitySpeakOptions) => Promise<void>
 ```
 
-Speak a string with a connected screen reader.
+通过连接的屏幕阅读器朗读指定字符串。
 
-| Param         | Type                                                                            |
-| ------------- | ------------------------------------------------------------------------------- |
+| 参数         | 类型                                                                            |
+| ------------ | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#accessibilityspeakoptions">AccessibilitySpeakOptions</a></code> |
 
 ---
@@ -78,14 +77,14 @@ Speak a string with a connected screen reader.
 addListener(eventName: 'accessibilityScreenReaderStateChange', listenerFunc: ScreenReaderStateChangeCallback) => PluginListenerHandle
 ```
 
-Listen for screen reader state change (on/off)
+监听屏幕阅读器状态变化（开启/关闭）
 
-| Param              | Type                                                                                                |
-| ------------------ | --------------------------------------------------------------------------------------------------- |
+| 参数              | 类型                                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>"accessibilityScreenReaderStateChange"</code>                                                 |
 | **`listenerFunc`** | <code>(state: <a href="#screenreaderenabledresult">ScreenReaderEnabledResult</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -95,27 +94,27 @@ Listen for screen reader state change (on/off)
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin
+移除该插件所有原生监听器
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### ScreenReaderEnabledResult
 
-| Prop        | Type                 |
+| 属性        | 类型                 |
 | ----------- | -------------------- |
 | **`value`** | <code>boolean</code> |
 
 #### AccessibilitySpeakOptions
 
-| Prop           | Type                | Description                                                                                                                                                             |
+| 属性           | 类型                | 描述                                                                                                                                                             |
 | -------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`value`**    | <code>string</code> | The string to speak                                                                                                                                                     |
-| **`language`** | <code>string</code> | The language to speak the string in, as its [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) (ex: "en"). Currently only supported on Android. |
+| **`value`**    | <code>string</code> | 待朗读的字符串                                                                                                                                                     |
+| **`language`** | <code>string</code> | 朗读使用的语言代码（ISO 639-1 标准），例如"en"。目前仅 Android 平台支持此参数。 |
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
+| 属性         | 类型                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |

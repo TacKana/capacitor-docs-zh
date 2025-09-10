@@ -1,33 +1,33 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for iOS
+title: 构建 Capacitor 插件
+description: 构建 Capacitor 插件 - iOS 实现方案
 contributors:
   - eric-horodyski
-sidebar_label: Implementing for iOS
+sidebar_label: iOS 实现
 slug: /plugins/tutorial/ios-implementation
 ---
 
-# Implementing for iOS
+# iOS 实现方案
 
-The decision to implement iOS before Android is arbitrary - in all honesty, you could have written the Android implementation first, then iOS, then web. Or any combination of the three. It just so happens that this tutorial implements iOS before Android.
+本教程选择先实现 iOS 再实现 Android 完全是随机的——实际上你可以先写 Android 实现，再写 iOS 和 web 端，或者任意组合顺序。这里只是碰巧先展示了 iOS 实现。
 
-You may want to implement the web first because it sits closer to the plugin’s API definition. If any tweaks need to be made to the API, it’s far easier to uncover them while working in the web layer.
+一般来说，先实现 web 端可能更合理，因为它更接近插件的 API 定义。如果在 API 设计上需要调整，在 web 层工作时更容易发现这些问题。
 
-## Register the plugin with Capacitor
+## 向 Capacitor 注册插件
 
-> **Prerequisite:** Familiarize yourself with the <a href="https://capacitorjs.com/docs/v3/ios/custom-code" target="_blank">Capacitor Custom Native iOS Code documentation</a> before continuing.
+> **必备知识：** 继续之前请先熟悉 <a href="https://capacitorjs.com/docs/v3/ios/custom-code" target="_blank">Capacitor 自定义 iOS 原生代码文档</a>。
 
-Open up the Capacitor application’s iOS project in Xcode by running `npx cap open ios`. Right-click the **App** group (under the **App** target) and select **New Group** from the context menu. Name this new group **plugins**. Add a new group to **plugins** and name it **ScreenOrientation**.
+通过运行 `npx cap open ios` 在 Xcode 中打开应用的 iOS 项目。右键点击 **App** 分组（位于 **App** 目标下），选择 **New Group**。命名新分组为 **plugins**，然后在其中再创建 **ScreenOrientation** 子分组。
 
-Once complete, you'll have a path `/App/App/plugins/ScreenOrientation/`. Add the following files by right-clicking the **ScreenOrientation** group and selecting **New File…** from the context menu:
+完成后路径应为 `/App/App/plugins/ScreenOrientation/`。右键点击 **ScreenOrientation** 分组选择 **New File…** 添加以下文件：
 
 `ScreenOrientation.swift`
 `ScreenOrientationPlugin.swift`
 `ScreenOrientationPlugin.m`
 
-If prompted by Xcode to create a Bridging Header, click **Create Bridging Header**.
+如果 Xcode 提示创建桥接头文件，点击 **Create Bridging Header**。
 
-Copy the following code into `ScreenOrientationPlugin.m`:
+将以下代码复制到 `ScreenOrientationPlugin.m`：
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -40,9 +40,9 @@ CAP_PLUGIN(ScreenOrientationPlugin, "ScreenOrientation",
 )
 ```
 
-These Objective-C macros register the plugin with Capacitor, making `ScreenOrientationPlugin` and its methods available to JavaScript.
+这些 Objective-C 宏将插件注册到 Capacitor，使 JavaScript 可以调用 `ScreenOrientationPlugin` 及其方法。
 
-Copy the following code into `ScreenOrientationPlugin.swift`:
+复制以下代码到 `ScreenOrientationPlugin.swift`：
 
 ```swift
 import Foundation
@@ -65,11 +65,11 @@ public class ScreenOrientationPlugin: CAPPlugin {
 }
 ```
 
-Note the use of `@objc` decorators; these are required to make sure Capacitor can see the class and its methods at runtime.
+注意 `@objc` 装饰器的使用，它们确保 Capacitor 能在运行时识别这个类及其方法。
 
-## Getting the current screen orientation
+## 获取当前屏幕方向
 
-Let’s tackle the task of getting the current screen orientation first. Open up `ScreenOrientation.swift` to set up the class and write a method to get the current orientation:
+首先处理获取当前屏幕方向的功能。在 `ScreenOrientation.swift` 中创建类并添加获取方向的方法：
 
 ```swift
 import Foundation
@@ -89,9 +89,9 @@ public class ScreenOrientation: NSObject {
     case .landscapeRight:
       return "landscape-secondary"
     case .portraitUpsideDown:
-      return "portrait-secondary"
+ return "portrait-secondary"
     default:
-      // Case: portrait
+      // 默认情况：竖屏
       return "portrait-primary"
     }
   }
@@ -99,7 +99,7 @@ public class ScreenOrientation: NSObject {
 }
 ```
 
-Next, wire up the `orientation` method in `ScreenOrientationPlugin.swift` to call the implementation class’s method:
+然后在 `ScreenOrientationPlugin.swift` 中连接 `orientation` 方法：
 
 ```Swift
 @objc(ScreenOrientationPlugin)
@@ -112,30 +112,28 @@ public class ScreenOrientationPlugin: CAPPlugin {
     call.resolve(["type": orientationType])
   }
 
-  /* Remaining code omitted for brevity */
+  /* 其余代码已省略 */
 }
 ```
 
-Go ahead and run the app from Xcode, either on an actual device or an iOS simulator. Once it finishes loading, you should see the following logs printed to the console:
+在 Xcode 中运行应用（真机或模拟器），加载完成后控制台会输出类似日志：
 
 ```bash
 ⚡️  To Native ->  ScreenOrientation orientation 115962915
 ⚡️  TO JS {"type":"portrait-primary"}
 ```
 
-> **Note:** The exact value of the logs will be different for you. In this example, `115962915` is an arbitrary ID assigned to the method call made from the plugin.
+> **注意：** 日志中的具体数值会不同，这里的 `115962915` 只是插件方法调用的随机 ID。
 
-You’ve successfully bridged native iOS code to the web application! 🎉
+你已成功将 iOS 原生代码桥接到 web 应用！🎉
 
-## Listening for screen orientation changes
+## 监听屏幕方向变化
 
-iOS will let us know when a user rotates their device through the <a href="https://developer.apple.com/documentation/foundation/notificationcenter" target="_blank">NotificationCenter</a>, when UIDevice fires the `orientationDidChangeNotification` event.
+iOS 通过 <a href="https://developer.apple.com/documentation/foundation/notificationcenter" target="_blank">NotificationCenter</a> 在设备旋转时发送 `orientationDidChangeNotification` 事件。
 
-The `load()` method is the proper place to register an observer for this event. Likewise, the `deinit()` method is the appropriate place to remove the observer.
+`load()` 方法是注册观察者的理想位置，而 `deinit()` 则是移除观察者的合适时机。在观察者回调中，我们需要将方向变化通过 `screenOrientationChange` 事件通知给监听者。
 
-Within the observer registration, we need to provide a method to return the changed orientation to our plugin’s listeners listening for the `screenOrientationChange` event we defined as part of our plugin’s API. We can reuse the `getCurrentOrientationType()` method to obtain the changed screen orientation.
-
-Add the following methods to the `ScreenOrientationPlugin` class:
+在 `ScreenOrientationPlugin` 类中添加以下方法：
 
 ```swift
 override public func load() {
@@ -151,7 +149,7 @@ deinit {
 }
 
 @objc private func orientationDidChange() {
-  // Ignore changes in orientation if unknown, face up, or face down
+  // 忽略未知、朝上或朝下的方向变化
   if(UIDevice.current.orientation.isValidInterfaceOrientation) {
     let orientation = implementation.getCurrentOrientationType()
     notifyListeners("screenOrientationChange", data: ["type": orientation])
@@ -159,13 +157,11 @@ deinit {
 }
 ```
 
-iOS will detect changes in orientation in three dimensions. As the code comment mentions, we’ll ignore notifying listeners when orientation changes don’t reference landscape or portrait orientations.
+## 锁定与解锁屏幕方向
 
-## Locking and unlocking the screen orientation
+iOS 并不直接提供"锁定"或"解锁"屏幕方向的功能，而是允许程序控制允许的方向。
 
-iOS doesn’t exactly provide a mechanism to “lock” or “unlock” a screen orientation. Instead, it allows you to set which orientations are allowed programmatically.
-
-To achieve this, we need to add a method to the `AppDelegate` class in `AppDelegate.swift`:
+首先在 `AppDelegate.swift` 中添加方法：
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -173,15 +169,13 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
   }
 ```
 
-Notice that the function returns `ScreenOrientationPlugin.supportedOrientations`. This property doesn’t exist yet, so let’s add it to the `ScreenOrientationPlugin` class as a private static class member:
+然后在 `ScreenOrientationPlugin` 类中添加静态属性：
 
 ```swift
 public static var supportedOrientations = UIInterfaceOrientationMask.all
 ```
 
-By setting up the code above, we tell iOS that we only want to support orientations defined by the value of `ScreenOrientationPlugin.supportedOrientations`. As you might imagine, the `UIInterfaceOrientationMask.all` enumeration value supports all orientations. We will pick a more restrictive enumeration value when we write code to lock the screen orientation.
-
-We’ll need a function that maps an OrientationType to its corresponding UIInterfaceOrientationMask enumeration value. Add the following method to the `ScreenOrientation` class:
+添加方向类型到 UIInterfaceOrientationMask 的转换方法：
 
 ```swift
 private func fromOrientationTypeToMask(_ orientationType: String) -> UIInterfaceOrientationMask {
@@ -193,13 +187,13 @@ private func fromOrientationTypeToMask(_ orientationType: String) -> UIInterface
   case "portrait-secondary":
     return UIInterfaceOrientationMask.portraitUpsideDown
   default:
-    // Case: portrait-primary
+    // 默认：竖屏
     return UIInterfaceOrientationMask.portrait
   }
 }
 ```
 
-Forecasting into the future, we will also need a method that maps an OrientationType to an `Int`, so we’ll add it now into the `ScreenOrientation` class:
+同时添加方向类型到 Int 的转换方法：
 
 ```swift
 private func fromOrientationTypeToInt(_ orientationType: String) -> Int {
@@ -211,13 +205,13 @@ private func fromOrientationTypeToInt(_ orientationType: String) -> Int {
   case "portrait-secondary":
     return UIInterfaceOrientation.portraitUpsideDown.rawValue
   default:
-    // Case: portrait-primary
+    // 默认：竖屏
     return UIInterfaceOrientation.portrait.rawValue
   }
 }
 ```
 
-Now that all the setup is out of the way, we can implement the `lock()` method. Add the following method to the `ScreenOrientation` class:
+实现锁定方向的 `lock()` 方法：
 
 ```swift
 public func lock(_ orientationType: String, completion: @escaping (UIInterfaceOrientationMask) -> Void) {
@@ -231,19 +225,18 @@ public func lock(_ orientationType: String, completion: @escaping (UIInterfaceOr
 }
 ```
 
-This is a complicated method; let’s walk through essential parts of it:
+关键点说明：
+1. 使用完成回调返回 UIInterfaceOrientationMask
+2. 设置设备方向但不旋转屏幕
+3. 尝试旋转到指定方向
+4. 在 UI 线程异步执行
 
-1. `completion: @escaping (UIInterfaceOrientationMask) -> Void` tells callers of this method that they must provide a function that will be called when the method finishes execution, and we will pass the function an `UIInterfaceOrientationMask` value, by way of `completion(mask)`.
-2. `UIDevice.current.setValue(orientation, forKey: "orientation")` sets a screen orientation for the device, but does not rotate the screen to it.
-3. `UINavigationController.attemptRotationToDeviceOrientation()` will attempt to rotate the application to the screen orientation set in the previous line of code.
-4. We wrap the code in `DispatchQueue.main.async` to prevent blocking the UI thread.
-
-This method needs to get called from the `ScreenOrientationPlugin` class, and afterward, update `ScreenOrientationPlugin.supportedOrientations` so iOS knows we only want to support one specific screen orientation at this time:
+在插件类中调用并更新支持的方向：
 
 ```swift
 ​​@objc public func lock(_ call: CAPPluginCall) {
   guard let lockToOrientation = call.getString("orientation") else {
-    call.reject("Input option 'orientation' must be provided.")
+    call.reject("必须提供'orientation'参数")
     return
   }
   implementation.lock(lockToOrientation, completion: { (mask) -> Void in
@@ -253,9 +246,7 @@ This method needs to get called from the `ScreenOrientationPlugin` class, and af
 }
 ```
 
-The `lock()` method also introduces a guard to prevent anyone from calling it without an `orientation` input parameter. It’s best practice to reject any calls to plugin methods that are missing any required input parameters.
-
-To unlock the screen orientation, we walk back the steps we took the lock it. Add the following method to the `ScreenOrientation` class:
+实现解锁方法：
 
 ```swift
 public func unlock(completion: @escaping () -> Void) {
@@ -268,7 +259,7 @@ public func unlock(completion: @escaping () -> Void) {
 }
 ```
 
-By setting the current orientation value to `UIInterfaceOrientation.unknown`, iOS attempts to auto-correct its orientation. In the `ScreenOrientationPlugin` class, we’ll revert `supportedOrientations` to `UIInterfaceOrientationMask.all`:
+在插件类中恢复支持所有方向：
 
 ```swift
 @objc public func unlock(_ call: CAPPluginCall) {
@@ -279,8 +270,11 @@ By setting the current orientation value to `UIInterfaceOrientation.unknown`, iO
 }
 ```
 
-## Give it a test drive!
+## 测试运行！
 
-In Xcode, run the app on either a device or a simulator. The plugin functions as intended! Pressing the “Rotate My Device” button will rotate the screen orientation into landscape mode, and if you rotate further, you will see that the screen orientation is locked. Pressing “Confirm Signature“ will unlock the screen orientation.
+在 Xcode 中使用设备或模拟器运行应用。插件功能应该正常工作了：
+- 点击"Rotate My Device"按钮会旋转到横屏模式
+- 继续旋转设备会发现方向已锁定
+- 点击"Confirm Signature"会解锁方向
 
-The penultimate step to this tutorial is: the Android implementation.
+本教程的最后一步将是：Android 实现。

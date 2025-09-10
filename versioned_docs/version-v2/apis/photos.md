@@ -1,6 +1,6 @@
 ---
 title: Photos
-description: Photos API
+description: 相册 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -8,7 +8,7 @@ contributors:
 
 <plugin-platforms platforms="ios,android"></plugin-platforms>
 
-The Photos API provides methods to load photos and albums from the user's photo library, along with saving photos.
+相册 API 提供了从用户照片库中加载照片和相册的方法，并支持保存照片。
 
 ## API
 
@@ -18,13 +18,13 @@ The Photos API provides methods to load photos and albums from the user's photo 
 getPhotos(options?: PhotosFetchOptions) => Promise<PhotosResult>
 ```
 
-Get photos from the user's photo library
+从用户的照片库中获取照片
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#photosfetchoptions">PhotosFetchOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#photosresult">PhotosResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#photosresult">PhotosResult</a>&gt;</code>
 
 ---
 
@@ -34,13 +34,13 @@ Get photos from the user's photo library
 getAlbums(options?: PhotosAlbumsFetchOptions) => Promise<PhotosAlbumsResult>
 ```
 
-Get albums from the user's photo library
+从用户的照片库中获取相册
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#photosalbumsfetchoptions">PhotosAlbumsFetchOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#photosalbumsresult">PhotosAlbumsResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#photosalbumsresult">PhotosAlbumsResult</a>&gt;</code>
 
 ---
 
@@ -50,13 +50,13 @@ Get albums from the user's photo library
 savePhoto(options?: PhotosSaveOptions) => Promise<PhotosSaveResult>
 ```
 
-Save a photo the the user's photo library
+将照片保存到用户的照片库
 
-| Param         | Type                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#photossaveoptions">PhotosSaveOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#photossaveresult">PhotosSaveResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#photossaveresult">PhotosSaveResult</a>&gt;</code>
 
 ---
 
@@ -66,102 +66,102 @@ Save a photo the the user's photo library
 createAlbum(options: PhotosCreateAlbumOptions) => Promise<void>
 ```
 
-Create an album in the user's photo library
+在用户的照片库中创建相册
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#photoscreatealbumoptions">PhotosCreateAlbumOptions</a></code> |
 
 ---
 
-### Interfaces
+### 接口
 
 #### PhotosResult
 
-| Prop         | Type                      | Description                                  |
-| ------------ | ------------------------- | -------------------------------------------- |
-| **`photos`** | <code>PhotoAsset[]</code> | The list of photos returned from the library |
+| 属性          | 类型                      | 描述                                   |
+| ------------ | ------------------------- | -------------------------------------- |
+| **`photos`** | <code>PhotoAsset[]</code> | 从照片库返回的照片列表                 |
 
 #### PhotoAsset
 
-| Prop                  | Type                                                    | Description                                                             |
-| --------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------- |
-| **`identifier`**      | <code>string</code>                                     | Platform-specific identifier                                            |
-| **`data`**            | <code>string</code>                                     | Data for a photo asset as a base64 encoded string (JPEG only supported) |
-| **`creationDate`**    | <code>string</code>                                     | ISO date string for creation date of asset                              |
-| **`fullWidth`**       | <code>number</code>                                     | Full width of original asset                                            |
-| **`fullHeight`**      | <code>number</code>                                     | Full height of original asset                                           |
-| **`thumbnailWidth`**  | <code>number</code>                                     | Width of thumbnail preview                                              |
-| **`thumbnailHeight`** | <code>number</code>                                     | Height of thumbnail preview                                             |
-| **`location`**        | <code><a href="#photolocation">PhotoLocation</a></code> | Location metadata for the asset                                         |
+| 属性                   | 类型                                                    | 描述                                                                 |
+| ---------------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
+| **`identifier`**       | <code>string</code>                                     | 平台特定的标识符                                                    |
+| **`data`**             | <code>string</code>                                     | 照片资源的 base64 编码数据（仅支持 JPEG 格式）                      |
+| **`creationDate`**     | <code>string</code>                                     | 资源创建日期的 ISO 日期字符串                                       |
+| **`fullWidth`**        | <code>number</code>                                     | 原始资源的完整宽度                                                  |
+| **`fullHeight`**       | <code>number</code>                                     | 原始资源的完整高度                                                  |
+| **`thumbnailWidth`**   | <code>number</code>                                     | 缩略图预览的宽度                                                    |
+| **`thumbnailHeight`**  | <code>number</code>                                     | 缩略图预览的高度                                                    |
+| **`location`**         | <code><a href="#photolocation">PhotoLocation</a></code> | 资源的位置元数据                                                    |
 
 #### PhotoLocation
 
-| Prop            | Type                | Description                              |
-| --------------- | ------------------- | ---------------------------------------- |
-| **`latitude`**  | <code>number</code> | GPS latitude image was taken at          |
-| **`longitude`** | <code>number</code> | GPS longitude image was taken at         |
-| **`heading`**   | <code>number</code> | Heading of user at time image was taken  |
-| **`altitude`**  | <code>number</code> | Altitude of user at time image was taken |
-| **`speed`**     | <code>number</code> | Speed of user at time image was taken    |
+| 属性             | 类型                | 描述                                |
+| ---------------- | ------------------- | ----------------------------------- |
+| **`latitude`**   | <code>number</code> | 拍摄照片时的 GPS 纬度               |
+| **`longitude`**  | <code>number</code> | 拍摄照片时的 GPS 经度               |
+| **`heading`**    | <code>number</code> | 拍摄照片时用户的朝向                |
+| **`altitude`**   | <code>number</code> | 拍摄照片时用户的海拔高度            |
+| **`speed`**      | <code>number</code> | 拍摄照片时用户的速度                |
 
 #### PhotosFetchOptions
 
-| Prop                   | Type                | Description                                                           |
-| ---------------------- | ------------------- | --------------------------------------------------------------------- |
-| **`quantity`**         | <code>number</code> | The number of photos to fetch, sorted by last created date descending |
-| **`thumbnailWidth`**   | <code>number</code> | The width of thumbnail to return                                      |
-| **`thumbnailHeight`**  | <code>number</code> | The height of thumbnail to return                                     |
-| **`thumbnailQuality`** | <code>number</code> | The quality of thumbnail to return as JPEG (0-100)                    |
-| **`types`**            | <code>string</code> | Which types of assets to return (currently only supports "photos")    |
-| **`albumIdentifier`**  | <code>string</code> | Which album identifier to query in (get identifier with getAlbums())  |
+| 属性                    | 类型                | 描述                                                                 |
+| ----------------------- | ------------------- | ------------------------------------------------------------------- |
+| **`quantity`**          | <code>number</code> | 要获取的照片数量，按最后创建日期降序排列                            |
+| **`thumbnailWidth`**    | <code>number</code> | 返回缩略图的宽度                                                    |
+| **`thumbnailHeight`**   | <code>number</code> | 返回缩略图的高度                                                    |
+| **`thumbnailQuality`**  | <code>number</code> | 返回缩略图的 JPEG 质量（0-100）                                     |
+| **`types`**             | <code>string</code> | 要返回的资源类型（当前仅支持 "photos"）                             |
+| **`albumIdentifier`**   | <code>string</code> | 查询的相册标识符（可通过 getAlbums() 获取标识符）                   |
 
 #### PhotosAlbumsResult
 
-| Prop         | Type                       | Description                                |
-| ------------ | -------------------------- | ------------------------------------------ |
-| **`albums`** | <code>PhotosAlbum[]</code> | The list of albums returned from the query |
+| 属性          | 类型                       | 描述                                     |
+| ------------ | -------------------------- | ---------------------------------------- |
+| **`albums`** | <code>PhotosAlbum[]</code> | 从查询返回的相册列表                     |
 
 #### PhotosAlbum
 
-| Prop             | Type                                                        | Description                    |
-| ---------------- | ----------------------------------------------------------- | ------------------------------ |
-| **`identifier`** | <code>string</code>                                         | Local identifier for the album |
-| **`name`**       | <code>string</code>                                         | Name of the album              |
-| **`count`**      | <code>number</code>                                         | Number of items in the album   |
-| **`type`**       | <code><a href="#photosalbumtype">PhotosAlbumType</a></code> | The type of album              |
+| 属性               | 类型                                                        | 描述                        |
+| ------------------ | ----------------------------------------------------------- | --------------------------- |
+| **`identifier`**   | <code>string</code>                                         | 相册的本地标识符            |
+| **`name`**         | <code>string</code>                                         | 相册名称                    |
+| **`count`**        | <code>number</code>                                         | 相册中的项目数量            |
+| **`type`**         | <code><a href="#photosalbumtype">PhotosAlbumType</a></code> | 相册类型                    |
 
 #### PhotosAlbumsFetchOptions
 
-| Prop             | Type                 | Description                         |
-| ---------------- | -------------------- | ----------------------------------- |
-| **`loadShared`** | <code>boolean</code> | Whether to load cloud shared albums |
+| 属性              | 类型                 | 描述                         |
+| ----------------- | -------------------- | ---------------------------- |
+| **`loadShared`**  | <code>boolean</code> | 是否加载云共享相册           |
 
 #### PhotosSaveResult
 
-| Prop          | Type                 | Description                   |
-| ------------- | -------------------- | ----------------------------- |
-| **`success`** | <code>boolean</code> | Whether the photo was created |
+| 属性            | 类型                 | 描述                     |
+| --------------- | -------------------- | ------------------------ |
+| **`success`**   | <code>boolean</code> | 照片是否创建成功         |
 
 #### PhotosSaveOptions
 
-| Prop                  | Type                | Description                                                                           |
-| --------------------- | ------------------- | ------------------------------------------------------------------------------------- |
-| **`data`**            | <code>string</code> | The base64-encoded JPEG data for a photo (note: do not add HTML data-uri type prefix) |
-| **`albumIdentifier`** | <code>string</code> | The optional album identifier to save this photo in                                   |
+| 属性                   | 类型                | 描述                                                                           |
+| ---------------------- | ------------------- | ------------------------------------------------------------------------------ |
+| **`data`**             | <code>string</code> | 照片的 base64 编码 JPEG 数据（注意：不要添加 HTML data-uri 类型前缀）          |
+| **`albumIdentifier`**  | <code>string</code> | 可选的要保存照片的相册标识符                                                   |
 
 #### PhotosCreateAlbumOptions
 
-| Prop       | Type                |
-| ---------- | ------------------- |
-| **`name`** | <code>string</code> |
+| 属性        | 类型                |
+| ----------- | ------------------- |
+| **`name`**  | <code>string</code> |
 
-### Enums
+### 枚举
 
 #### PhotosAlbumType
 
-| Members      | Value                 | Description                                                    |
-| ------------ | --------------------- | -------------------------------------------------------------- |
-| **`Smart`**  | <code>"smart"</code>  | Album is a "smart" album (such as Favorites or Recently Added) |
-| **`Shared`** | <code>"shared"</code> | Album is a cloud-shared album                                  |
-| **`User`**   | <code>"user"</code>   | Album is a user-created album                                  |
+| 成员         | 值                   | 描述                                                    |
+| ----------- | -------------------- | ------------------------------------------------------- |
+| **`Smart`** | <code>"smart"</code> | 智能相册（如"收藏夹"或"最近添加"）                      |
+| **`Shared`**| <code>"shared"</code>| 云共享相册                                              |
+| **`User`**  | <code>"user"</code>  | 用户创建的相册                                          |

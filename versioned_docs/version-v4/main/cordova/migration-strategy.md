@@ -1,45 +1,45 @@
 ---
-title: Migrating Strategy
-description: Migration Strategy
+title: 迁移策略
+description: 迁移方案
 contributors:
   - dotNetkow
 slug: /cordova/migration-strategy
 ---
 
-# Migration Strategy
+# 迁移策略
 
-Migrating from Cordova to Capacitor can occur over time or can be fully replaced in many cases. The effort involved will largely depend on the complexity of the app.
+从 Cordova 迁移到 Capacitor 可以分阶段进行，也可以直接完全替换，具体取决于应用的复杂度。
 
-## Why Migrate?
+## 为什么要迁移？
 
-Long-term stability and peace of mind.
+为了长期的稳定性和开发无忧。
 
-Capacitor is [backed by Ionic](https://ionicframework.com/), a long-term contributor to Cordova and the larger open source ecosystem. Ionic still uses Cordova heavily and will continue to invest in the platform for a long time to come.
+Capacitor 由 [Ionic 官方维护](https://ionicframework.com/)，而 Ionic 长期为 Cordova 和开源生态贡献力量。虽然 Ionic 自身仍重度依赖 Cordova 并会持续投入，但 Capacitor 提供了更好的未来。
 
-It's backward-compatible with Cordova, so you can comfortably switch your existing web apps to it whenever you're ready. Capacitor was designed from the start to support the rich Cordova plugin ecosystem out of the box. Thus, using Cordova plugins in Capacitor is easy.
+它完全兼容 Cordova，您可以在准备好的时候无缝迁移现有应用。Capacitor 从设计之初就支持丰富的 Cordova 插件生态，因此使用 Cordova 插件非常便捷。
 
-## Why Use Ionic Framework with Capacitor?
+## 为什么推荐 Ionic 框架与 Capacitor 配合使用？
 
-Capacitor is the officially supported native runtime for Ionic Framework. Using Ionic and Capacitor together is the best way to build a great app experience, since Ionic Framework provides UI and UX enhancements that Capacitor does not have. Additionally, it works with your favorite web app framework, including Angular, React, and Vue.
+Capacitor 是 Ionic 框架官方支持的原生运行时。结合使用 Ionic 和 Capacitor 能打造最佳应用体验，因为 Ionic 框架提供了 Capacitor 所不具备的 UI/UX 增强能力，同时完美兼容 Angular、React 和 Vue 等主流前端框架。
 
-With the release of Capacitor, Ionic now controls almost all of its technology stack. When you build an Ionic app today, we now control the native runtime layer (Capacitor), the UI controls ([Ionic Framework](https://ionicframework.com)), and the "framework" used to build the controls (web components powered by [Stencil](https://stenciljs.com/)). This is significant: If there's an issue in any part of the stack that we control, we can fix it right away. The only part we don't control is the frontend framework you use on top (Angular, React, Vue, or plain JavaScript).
+随着 Capacitor 的发布，Ionic 几乎掌控了整个技术栈。如今构建 Ionic 应用时，我们掌控着原生运行时层（Capacitor）、UI 控件库（[Ionic 框架](https://ionicframework.com)）和控件开发框架（基于 [Stencil](https://stenciljs.com/) 的 Web Components）。这意味着：技术栈中任何环节出现问题，我们都能快速响应。唯一不受控的只有您选择的前端框架（Angular/React/Vue 或原生 JavaScript）。
 
-## Migration Process Overview
+## 迁移流程概览
 
-### Utilize the Ionic VS Code Extension
+### 使用 Ionic VS Code 扩展
 
-The [Ionic VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) provides tools to help assist your migration from Cordova to Capacitor by installing Capacitor's dependencies, replacing equivalent plugins, and more. It is a helpful tool that will automate much of the process of moving to Capacitor.
+[Ionic VS Code 扩展](https://marketplace.visualstudio.com/items?itemName=ionic.ionic)提供自动化迁移工具，可帮助安装 Capacitor 依赖、替换等效插件等，大幅简化迁移过程。
 
-### Audit Then Migrate Existing Cordova Plugins
+### 审计并迁移现有 Cordova 插件
 
-Begin by auditing your existing Cordova plugins. It's possible that you may be able to remove ones that are no longer needed.
+首先审计现有 Cordova 插件，可能有些已不再需要。
 
-Next, review all of Capacitor's [official plugins](/plugins/official.md) as well as [community plugins](/plugins/community.md). You may be able to switch to the Capacitor-equivalent Cordova plugin.
+接着查阅 Capacitor 的[官方插件](/plugins/official.md)和[社区插件](/plugins/community.md)，很多都有对应的替代方案。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+部分插件功能可能不完全匹配，但根据实际需求可能影响不大。
 
-### Continue to Use Cordova if Needed
+### 按需继续使用 Cordova
 
-To leverage Cordova plugins in your Capacitor app, [see here](/plugins/cordova.md). If a replacement plugin doesn't exist, continue to use the Cordova plugin as-is. If there's a plugin you'd like to see supported, open a [plugin proposal](https://github.com/capacitor-community/proposals)!
+要在 Capacitor 应用中使用 Cordova 插件，[参见此处](/plugins/cordova.md)。若暂无替代方案，可继续使用原 Cordova 插件。如需某插件支持，欢迎提交[插件提案](https://github.com/capacitor-community/proposals)！
 
-Ready to [migrate to Capacitor](/main/cordova/migrating-from-cordova-to-capacitor.md)?
+准备好[迁移到 Capacitor](/main/cordova/migrating-from-cordova-to-capacitor.md)了吗？

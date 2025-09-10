@@ -1,27 +1,26 @@
 ---
 title: In App Purchases
-description: How to register and consume In App Purchases in your Capacitor app or game
+description: 如何在Capacitor应用中注册和使用应用内购功能
 contributors:
   - mlynch
 slug: /guides/in-app-purchases
 ---
 
-# In App Purchases in Capacitor
+# Capacitor中的应用内购功能
 
-Most apps need to create and consume In App Purchases in order to generate revenue and enable upgrades. Adding In App Purchase support to your Capacitor app is straightforward, but requires a fair amount of work configuring and registering your own app products.
+大多数应用需要通过创建和使用应用内购（In App Purchases）来实现盈利和功能升级。为Capacitor应用添加内购支持虽然流程清晰，但需要进行大量的产品配置和注册工作。
 
-To do this, we will use the [cordova-plugin-purchase](https://github.com/j3k0/cordova-plugin-purchase) plugin.
+我们将使用[cordova-plugin-purchase](https://github.com/j3k0/cordova-plugin-purchase)插件来实现这一功能。
 
 ```shell
 npm install cordova-plugin-purchase
 npx cap update
 ```
 
-## Setting up products and consumables
+## 设置商品与消耗品
 
-The bulk of the work in setting up In App Purchases in your Capacitor app comes in registering your products and consumables for iOS and Android, and then setting up the proper flow to register and consume those items in your app.
+在Capacitor应用中配置应用内购的主要工作集中在为iOS和Android平台注册商品与消耗品，并在应用中建立正确的注册和使用流程。
 
-This is a fairly complicated process, and we recommend the following guides as next steps:
-
-- [In App Purchase Plugin Guide](https://purchase.cordova.fovea.cc/)
-- [How to use In App Purchase with Capacitor](https://devdactic.com/ionic-in-app-purchase-capacitor/)
+这个过程较为复杂，建议参考以下进阶指南：
+- [应用内购插件使用指南](https://purchase.cordova.fovea.cc/)
+- [如何在Capacitor中使用应用内购](https://devdactic.com/ionic-in-app-purchase-capacitor/)

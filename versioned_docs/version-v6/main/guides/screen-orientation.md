@@ -1,24 +1,24 @@
 ---
 title: Screen Orientation
-description: Manage screen orientation settings in your Capacitor app
+description: 在 Capacitor 应用中管理屏幕方向设置
 contributors:
   - mlynch
 slug: /guides/screen-orientation
 ---
 
-## Screen Orientation in your Capacitor App
+## Capacitor 应用中的屏幕方向控制
 
-Many apps work well in portrait and landscape device orientations. However, many don't, and there are good reasons to require an app to function solely or occasionally in one mode or the other.
+大多数应用都能良好适配设备的竖屏和横屏模式。但有些应用由于特殊需求，可能需要固定或偶尔切换至特定方向运行。
 
-## Global Orientation Settings
+## 全局方向设置
 
-To set a global setting for orientation in your Capacitor app, you'll set the configuration value necessary for the platform you're targeting.
+要为 Capacitor 应用设置全局屏幕方向，需要针对目标平台进行配置。
 
-### iOS Configuration
+### iOS 配置
 
-iOS allows for different screen orientations to be supported on iPhones and iPads. To limit the allowed orientations for iOS, open Xcode and open the `Info.plist` file. Find the following keys: `Supported interface orientation` and `Supported interface orientation (iPad)`. Using these values, specify the different orientations you would like supported for iPhones and for iPads.
+iOS 允许为 iPhone 和 iPad 分别设置支持的屏幕方向。打开 Xcode 并编辑 `Info.plist` 文件，找到 `Supported interface orientation` 和 `Supported interface orientation (iPad)` 键值。通过这些设置可指定不同设备支持的方向。
 
-If editting the `Info.plist` file directly look for the following keys: `UISupportedInterfaceOrientations` and `UISupportedInterfaceOrientations~ipad`. For example, the following settings will limit the orientation to right-side-up `Portrait` on iPhones and either of the `Landscape` orientations on iPads:
+若直接编辑 `Info.plist` 文件，需查找以下键名：`UISupportedInterfaceOrientations` 和 `UISupportedInterfaceOrientations~ipad`。例如下方配置将限制 iPhone 仅支持竖屏，iPad 支持左右横屏：
 
 ```
   <key>UISupportedInterfaceOrientations</key>
@@ -32,22 +32,22 @@ If editting the `Info.plist` file directly look for the following keys: `UISuppo
   </array>
 ```
 
-### Android Configuration
+### Android 配置
 
-On Android, orientation can be set by modifying the `AndroidManifest.xml` and setting `android:screenOrientation` on the `<activity>` entry for your main app activity. See the [Android Manifest Documentation](https://developer.android.com/guide/topics/manifest/activity-element#screen) for details on the possible entries.
+Android 平台可通过修改 `AndroidManifest.xml` 文件，在主 Activity 的 `<activity>` 标签中设置 `android:screenOrientation` 属性。具体可选值请参阅 [Android Manifest 文档](https://developer.android.com/guide/topics/manifest/activity-element#screen)。
 
-## Dynamic Orientation Settings
+## 动态方向控制
 
-Many apps need to support multiple orientations, with the ability to lock orientations occasionally depending on the content.
+许多应用需要支持多方向显示，同时能根据内容需求临时锁定方向。
 
-Capacitor supports this through the `@capacitor/screen-orientation` plugin:
+Capacitor 通过 `@capacitor/screen-orientation` 插件提供此功能：
 
 ```shell
 npm install @capacitor/screen-orientation
 npx cap sync
 ```
 
-Then, use the `lock` and `unlock` methods:
+使用 `lock` 和 `unlock` 方法实现动态控制：
 
 ```typescript
 import { ScreenOrientation } from '@capacitor/screen-orientation';
@@ -55,15 +55,15 @@ import { ScreenOrientation } from '@capacitor/screen-orientation';
 await ScreenOrientation.lock({ orientation: 'portrait' });
 await ScreenOrientation.lock({ orientation: 'landscape' });
 
-// To unlock orientation which will default back to the global setting:
+// 解除锁定后将恢复全局设置：
 await ScreenOrientation.unlock();
 ```
 
-See the [Orientation Plugin Docs](https://capacitorjs.com/docs/apis/screen-orientation) for the full range of possible orientation values and configuration options.
+完整的方向参数和配置选项请参考 [屏幕方向插件文档](https://capacitorjs.com/docs/apis/screen-orientation)。
 
-### iPad Orientation Lock
+### iPad 方向锁定说明
 
-By default, an iPad allows Multitasking and its orientation cannot be locked. If you need to lock orientation on an iPad set the option `Requires Full Screen` to `YES` by adding the following to `Info.plist`:
+iPad 默认支持多任务分屏，其方向无法直接锁定。如需强制锁定方向，需在 `Info.plist` 中添加以下配置启用全屏模式：
 
 ```
 	<key>UIRequiresFullScreen</key>

@@ -1,6 +1,6 @@
 ---
 title: Keyboard Capacitor Plugin API
-description: The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+description: Keyboard API 提供键盘显示与可见性控制功能，并能追踪键盘显示和隐藏事件。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/src/definitions.ts
 sidebar_label: Keyboard
@@ -8,53 +8,52 @@ sidebar_label: Keyboard
 
 # @capacitor/keyboard
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+Keyboard API 提供键盘显示与可见性控制功能，并能追踪键盘显示和隐藏事件。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/keyboard
 npx cap sync
 ```
 
-## Example
+## 使用示例
 
 ```typescript
 import { Keyboard } from '@capacitor/keyboard';
 
 Keyboard.addListener('keyboardWillShow', info => {
-  console.log('keyboard will show with height:', info.keyboardHeight);
+  console.log('键盘即将显示，高度为:', info.keyboardHeight);
 });
 
 Keyboard.addListener('keyboardDidShow', info => {
-  console.log('keyboard did show with height:', info.keyboardHeight);
+  console.log('键盘已显示，高度为:', info.keyboardHeight);
 });
 
 Keyboard.addListener('keyboardWillHide', () => {
-  console.log('keyboard will hide');
+  console.log('键盘即将隐藏');
 });
 
 Keyboard.addListener('keyboardDidHide', () => {
-  console.log('keyboard did hide');
+  console.log('键盘已隐藏');
 });
 ```
 
-## Configuration
+## 配置项
 
 <docgen-config>
 
+在 iOS 平台上，键盘可通过以下选项进行配置：
 
-On iOS, the keyboard can be configured with the following options:
-
-| Prop                     | Type                                                      | Description                                                                                                                                                                                                                                                                                                       | Default             | Since |
+| 属性                     | 类型                                                      | 描述                                                                                                                                                                                                                                                                                                       | 默认值             | 版本   |
 | ------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | Configure the way the app is resized when the Keyboard appears. Only available on iOS.                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
-| **`style`**              | <code>'dark' \| 'light'</code>                            | Override the keyboard style if your app doesn't support dark/light theme changes. If not set, the keyboard style will depend on the device appearance. Only available on iOS.                                                                                                                                     |                     | 1.0.0 |
-| **`resizeOnFullScreen`** | <code>boolean</code>                                      | There is an Android bug that prevents the keyboard from resizing the WebView when the app is in full screen (i.e. if StatusBar plugin is used to overlay the status bar). This setting, if set to true, add a workaround that resizes the WebView even when the app is in full screen. Only available for Android |                     | 1.1.0 |
+| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | 配置键盘出现时应用窗口的调整方式。仅限 iOS 平台                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
+| **`style`**              | <code>'dark' \| 'light'</code>                            | 如果应用不支持深色/浅色主题切换，可强制设置键盘样式。未设置时，键盘样式将跟随设备外观。仅限 iOS 平台                                                                                                                                                                                                     |                     | 1.0.0 |
+| **`resizeOnFullScreen`** | <code>boolean</code>                                      | Android 存在一个系统缺陷：当应用处于全屏模式时（如使用 StatusBar 插件覆盖状态栏），键盘无法调整 WebView 尺寸。将此设置设为 true 可启用一个解决方案，即使在全屏模式下也能调整 WebView 尺寸。仅限 Android 平台 |                     | 1.1.0 |
 
-### Examples
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -68,7 +67,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 /// <reference types="@capacitor/keyboard" />
@@ -79,7 +78,7 @@ const config: CapacitorConfig = {
   plugins: {
     Keyboard: {
       resize: "body",
-      style: "dark",
+ decorates: "dark",
       resizeOnFullScreen: true,
     },
   },
@@ -90,18 +89,17 @@ export default config;
 
 </docgen-config>
 
-## Compatibility with `cordova-plugin-ionic-keyboard`
+## 与 `cordova-plugin-ionic-keyboard` 的兼容性
 
-To maintain compatibility with
-[`cordova-plugin-ionic-keyboard`](https://github.com/ionic-team/cordova-plugin-ionic-keyboard),
-the following events also work with `window.addEventListener`:
+为保持与 [`cordova-plugin-ionic-keyboard`](https://github.com/ionic-team/cordova-plugin-ionic-keyboard) 的兼容性，
+以下事件也可通过 `window.addEventListener` 监听：
 
 - `keyboardWillShow`
 - `keyboardDidShow`
 - `keyboardWillHide`
 - `keyboardDidHide`
 
-## API
+## API 参考
 
 <docgen-index>
 
@@ -116,8 +114,8 @@ the following events also work with `window.addEventListener`:
 * [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
 * [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -130,11 +128,11 @@ the following events also work with `window.addEventListener`:
 show() => Promise<void>
 ```
 
-Show the keyboard. This method is alpha and may have issues.
+显示键盘。此方法为 alpha 版本，可能存在缺陷。
 
-This method is only supported on Android.
+仅在 Android 平台支持。
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -145,9 +143,9 @@ This method is only supported on Android.
 hide() => Promise<void>
 ```
 
-Hide the keyboard.
+隐藏键盘。
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -158,16 +156,15 @@ Hide the keyboard.
 setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 ```
 
-Set whether the accessory bar should be visible on the keyboard. We recommend disabling
-the accessory bar for short forms (login, signup, etc.) to provide a cleaner UI.
+设置键盘附属工具栏是否可见。对于短表单（登录、注册等），我们建议禁用附属工具栏以获得更简洁的 UI。
 
-This method is only supported on iPhone devices.
+仅在 iPhone 设备支持。
 
-| Param         | Type                                 |
+| 参数         | 类型                                 |
 | ------------- | ------------------------------------ |
 | **`options`** | `{ isVisible: boolean; }` |
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -178,15 +175,15 @@ This method is only supported on iPhone devices.
 setScroll(options: { isDisabled: boolean; }) => Promise<void>
 ```
 
-Programmatically enable or disable the WebView scroll.
+以编程方式启用或禁用 WebView 滚动。
 
-This method is only supported on iOS.
+仅在 iOS 平台支持。
 
-| Param         | Type                                  |
+| 参数         | 类型                                  |
 | ------------- | ------------------------------------- |
 | **`options`** | `{ isDisabled: boolean; }` |
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -197,15 +194,15 @@ This method is only supported on iOS.
 setStyle(options: KeyboardStyleOptions) => Promise<void>
 ```
 
-Programmatically set the keyboard style.
+以编程方式设置键盘样式。
 
-This method is only supported on iOS.
+仅在 iOS 平台支持。
 
-| Param         | Type                                                                  |
+| 参数         | Type                                                                  |
 | ------------- | --------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardstyleoptions">KeyboardStyleOptions</a></code> |
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -216,15 +213,15 @@ This method is only supported on iOS.
 setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 ```
 
-Programmatically set the resize mode.
+以编程方式设置调整模式。
 
-This method is only supported on iOS.
+仅在 iOS 平台支持。
 
-| Param         | Type                                                                    |
+| 参数         | Type                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardresizeoptions">KeyboardResizeOptions</a></code> |
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -235,16 +232,16 @@ This method is only supported on iOS.
 addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for when the keyboard is about to be shown.
+监听键盘即将显示事件。
 
-| Param              | Type                                                                     |
+| 参数              | Type                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'keyboardWillShow'</code>                                          |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -255,16 +252,16 @@ Listen for when the keyboard is about to be shown.
 addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for when the keyboard is shown.
+监听键盘已显示事件。
 
-| Param              | Type                                                                     |
+| 参数              | Type                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'keyboardDidShow'</code>                                           |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -275,16 +272,16 @@ Listen for when the keyboard is shown.
 addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for when the keyboard is about to be hidden.
+监听键盘即将隐藏事件。
 
-| Param              | Type                            |
+| 参数              | Type                            |
 | ------------------ | ------------------------------- |
 | **`eventName`**    | <code>'keyboardWillHide'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>      |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -295,16 +292,16 @@ Listen for when the keyboard is about to be hidden.
 addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Listen for when the keyboard is hidden.
+监听键盘已隐藏事件。
 
-| Param              | Type                           |
+| 参数              | Type                           |
 | ------------------ | ------------------------------ |
 | **`eventName`**    | <code>'keyboardDidHide'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>     |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
@@ -315,63 +312,63 @@ Listen for when the keyboard is hidden.
 removeAllListeners() => Promise<void>
 ```
 
-Remove all native listeners for this plugin.
+移除本插件的所有原生监听器。
 
-**Since:** 1.0.0
+**版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### KeyboardStyleOptions
 
-| Prop        | Type                                                    | Description            | Default                            | Since |
+| 属性        | 类型                                                    | 描述            | 默认值                            | 版本   |
 | ----------- | ------------------------------------------------------- | ---------------------- | ---------------------------------- | ----- |
-| **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> | Style of the keyboard. | <code>KeyboardStyle.Default</code> | 1.0.0 |
+| **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> | 键盘样式 | <code>KeyboardStyle.Default</code> | 1.0.0 |
 
 
 #### KeyboardResizeOptions
 
-| Prop       | Type                                                      | Description                                             | Since |
+| 属性       | 类型                                                      | 描述                                             | 版本   |
 | ---------- | --------------------------------------------------------- | ------------------------------------------------------- | ----- |
-| **`mode`** | <code><a href="#keyboardresize">KeyboardResize</a></code> | Mode used to resize elements when the keyboard appears. | 1.0.0 |
+| **`mode`** | <code><a href="#keyboardresize">KeyboardResize</a></code> | 键盘出现时调整元素的模式 | 1.0.0 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### KeyboardInfo
 
-| Prop                 | Type                | Description             | Since |
+| 属性                 | 类型                | 描述             | 版本   |
 | -------------------- | ------------------- | ----------------------- | ----- |
-| **`keyboardHeight`** | <code>number</code> | Height of the heyboard. | 1.0.0 |
+| **`keyboardHeight`** | <code>number</code> | 键盘高度 | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### KeyboardStyle
 
-| Members       | Value                  | Description                                                                                                                                                                                                                                 | Since |
+| 枚举值       | 值                  | 描述                                                                                                                                                                                                                                 | 版本   |
 | ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Dark`**    | <code>'DARK'</code>    | Dark keyboard.                                                                                                                                                                                                                              | 1.0.0 |
-| **`Light`**   | <code>'LIGHT'</code>   | Light keyboard.                                                                                                                                                                                                                             | 1.0.0 |
-| **`Default`** | <code>'DEFAULT'</code> | On iOS 13 and newer the keyboard style is based on the device appearance. If the device is using Dark mode, the keyboard will be dark. If the device is using Light mode, the keyboard will be light. On iOS 12 the keyboard will be light. | 1.0.0 |
+| **`Dark`**    | <code>'DARK'</code>    | 深色键盘                                                                                                                                                                                                                              | 1.0.0 |
+| **`Light`**   | <code>'LIGHT'</code>   | 浅色键盘                                                                                                                                                                                                                             | 1.0.0 |
+| **`Default`** | <code>'DEFAULT'</code> | 在 iOS 13 及以上版本中，键盘样式基于设备外观。如设备使用深色模式，键盘则为深色；如使用浅色模式，键盘则为浅色。在 iOS 12 中键盘始终为浅色。 | 1.0.0 |
 
 
 #### KeyboardResize
 
-| Members      | Value                 | Description                                                                                                          | Since |
+| 枚举值      | 值                 | 描述                                                                                                          | 版本   |
 | ------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Body`**   | <code>'body'</code>   | Only the `body` HTML element will be resized. Relative units are not affected, because the viewport does not change. | 1.0.0 |
-| **`Ionic`**  | <code>'ionic'</code>  | Only the `ion-app` HTML element will be resized. Use it only for Ionic Framework apps.                               | 1.0.0 |
-| **`Native`** | <code>'native'</code> | The whole native Web View will be resized when the keyboard shows/hides. This affects the `vh` relative unit.        | 1.0.0 |
-| **`None`**   | <code>'none'</code>   | Neither the app nor the Web View are resized.                                                                        | 1.0.0 |
+| **`Body`**   | <code>'body'</code>   | 仅调整 `body` HTML 元素尺寸。相对单位不受影响，因为视口未改变。 | 1.0.0 |
+| **`Ionic`**  | <code>'ionic'</code>  | 仅调整 `ion-app` HTML 元素尺寸。仅适用于 Ionic Framework 应用。                               | 1.0.0 |
+| **`Native`** | <code>'native'</code> | 键盘显示/隐藏时将调整整个原生 WebView 尺寸。这会影响 `vh` 相对单位。        | 1.0.0 |
+| **`None`**   | <code>'none'</code>   | 应用和 WebView 都不调整尺寸                                                                        | 1.0.0 |
 
 </docgen-api>

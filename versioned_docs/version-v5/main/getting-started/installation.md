@@ -1,90 +1,89 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: 安装 Capacitor
+description: Capacitor 安装指南
 slug: /getting-started
 ---
 
-# Installing Capacitor
+# 安装 Capacitor
 
-You can create a new Capacitor application or add Capacitor to your existing web project. This can be done via CLI or using the [VS Code extension](vscode/getting-started).
+您既可以创建一个全新的 Capacitor 应用，也可以将 Capacitor 集成到现有的 Web 项目中。这可以通过 CLI 或使用 [VS Code 扩展](vscode/getting-started) 来完成。
 
-Remember to make sure your [environment is set up](/main/getting-started/environment-setup.md) for the platforms you will be building for.
+请确保您已根据目标平台完成 [环境配置](/main/getting-started/environment-setup.md)。
 
-## Create a new Capacitor app
+## 创建新 Capacitor 应用
 
-The `@capacitor/create-app` package can be used to quickly create a Capacitor application. You can run the following command in an empty directory to scaffold a new Capacitor application.
+使用 `@capacitor/create-app` 包可以快速搭建 Capacitor 应用。在空目录中执行以下命令即可创建新项目骨架：
 
 ```bash
 npm init @capacitor/app
 ```
 
-## Add Capacitor to your web app
+## 为现有 Web 应用添加 Capacitor
 
-Capacitor was designed to drop into any modern JavaScript web app. However, your project needs to have the following three requirements in order to use Capacitor with your existing application:
+Capacitor 设计用于与任何现代 JavaScript Web 应用无缝集成。要使现有项目支持 Capacitor，需满足以下三个条件：
 
-- A `package.json` file
-- A separate directory for built web assets such as `dist` or `www`
-- An `index.html` file at the root of your web assets directory
+- 存在 `package.json` 文件
+- 有独立的静态资源目录（如 `dist` 或 `www`）
+- 静态资源目录根路径存在 `index.html` 文件
 
 :::info
-Your `index.html` file must have a `<head>` tag in order to properly inject Capacitor. If you do not have a
-`<head>` in your Html, Capacitor plugins will not work.
+为保证 Capacitor 正确注入，您的 `index.html` 必须包含 `<head>` 标签。若无此标签，Capacitor 插件将无法正常工作。
 :::
 
-### Install Capacitor
+### 安装 Capacitor
 
-In the root of your app, install Capacitor's main npm dependencies: the core JavaScript runtime and the command line interface (CLI).
+在项目根目录安装 Capacitor 的核心 npm 依赖：JavaScript 运行时和命令行工具（CLI）。
 
 ```bash
 npm i @capacitor/core
 npm i -D @capacitor/cli
 ```
 
-### Initialize your Capacitor config
+### 初始化配置
 
-Then, initialize Capacitor using the CLI questionnaire:
+通过 CLI 问答向导初始化 Capacitor 配置：
 
 ```bash
 npx cap init
 ```
 
-The CLI will ask you a few questions, starting with your app name, and the package ID you would like to use for your app.
+CLI 将询问应用名称和包 ID 等基本信息。
 
-### Create your Android and iOS projects
+### 创建 Android/iOS 项目
 
-After the Capacitor core runtime is installed, you can install the Android and iOS platforms.
+安装核心运行时后，可添加 Android 和 iOS 平台支持：
 
 ```bash
 npm i @capacitor/android @capacitor/ios
 ```
 
-Once the platforms have been added to your `package.json`, you can run the following commands to create your Android and iOS projects for your native application.
+平台依赖添加到 `package.json` 后，运行以下命令创建原生项目：
 
 ```bash
 npx cap add android
 npx cap add ios
 ```
 
-### Sync your web code to your native project
+### 同步 Web 代码到原生项目
 
-Once you've created your native projects, you can sync your web application to your native project by running the following command.
+创建原生项目后，执行同步命令将 Web 应用代码部署到原生工程：
 
 ```bash
 npx cap sync
 ```
 
-`npx cap sync` will copy your built web application, by default `www`, to your native project and install the native projects dependencies.
+该命令默认会将 `www` 目录下的构建产物复制到原生项目，并安装原生依赖。
 
 :::info
-You can customize what folder is copied over by modifying the `webDir` variable in your [Capacitor Config](/main/reference/config.md) file that is created during `npx cap init`.
+如需修改默认的同步目录，可在 `npx cap init` 生成的 [Capacitor 配置文件](/main/reference/config.md) 中调整 `webDir` 参数。
 :::
 
-## Where to go next
+## 后续步骤
 
-With your environment setup, and your project structure set up properly, you're ready to go! You can follow any of the links below if you need more specific documentation.
+完成环境配置和项目初始化后，您可以继续深入探索：
 
-[Get started with iOS &#8250;](/main/ios/index.md)
+[iOS 开发指南 &#8250;](/main/ios/index.md)
 
-[Get started with Android &#8250;](/main/android/index.md)
+[Android 开发指南 &#8250;](/main/android/index.md)
 
-[Developer Workflow Guide &#8250;](/main/basics/workflow.md)
+[开发工作流详解 &#8250;](/main/basics/workflow.md)

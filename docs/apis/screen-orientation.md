@@ -1,16 +1,16 @@
 ---
 title: Screen Orientation Capacitor Plugin API
-description: The Screen Orientation API provides methods to lock and unlock the screen orientation.
+description: 屏幕方向 API 提供了锁定与解锁屏幕方向的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/src/definitions.ts
-sidebar_label: Screen Orientation
+sidebar_label: 屏幕方向
 ---
 
 # @capacitor/screen-orientation
 
-The Screen Orientation API provides information and functionality related to the orientation of the screen.
+屏幕方向 API 提供与屏幕方向相关的信息与功能。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/screen-orientation
@@ -19,8 +19,8 @@ npx cap sync
 
 ## iOS
 
-Locking the Screen Orientation only works for the Capacitor View Controller only, but not other View Controllers being presented (such as the one presented by Browser plugin).
-For also lock presented View Controllers, this code can be added to the app's `AppDelegate.swift` file:
+锁定屏幕方向仅对 Capacitor View Controller 有效，而对其他呈现的视图控制器（例如由 Browser 插件呈现的控制器）无效。
+若需同时锁定已呈现的视图控制器，可将以下代码添加到应用的 `AppDelegate.swift` 文件中：
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -28,9 +28,9 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 }
 ```
 
-### iPad Orientation Lock
+### iPad 方向锁定
 
-By default, an iPad allows Multitasking and its orientation cannot be locked. If you need to lock orientation on an iPad set the option `Requires Full Screen` to `YES` by adding the following to `Info.plist`:
+默认情况下，iPad 支持多任务处理且其方向无法被锁定。如需在 iPad 上锁定方向，请将 `Requires Full Screen` 选项设置为 `YES`，即在 `Info.plist` 中添加以下内容：
 
 ```
   <key>UIRequiresFullScreen</key>
@@ -46,8 +46,8 @@ By default, an iPad allows Multitasking and its orientation cannot be locked. If
 * [`unlock()`](#unlock)
 * [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -60,11 +60,11 @@ By default, an iPad allows Multitasking and its orientation cannot be locked. If
 orientation() => Promise<ScreenOrientationResult>
 ```
 
-Returns the current screen orientation.
+返回当前屏幕方向。
 
-**Returns:** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
 
-**Since:** 4.0.0
+**自版本：** 4.0.0
 
 --------------------
 
@@ -75,13 +75,13 @@ Returns the current screen orientation.
 lock(options: OrientationLockOptions) => Promise<void>
 ```
 
-Locks the screen orientation.
+锁定屏幕方向。
 
-| Param         | Type                                                                      |
+| 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#orientationlockoptions">OrientationLockOptions</a></code> |
 
-**Since:** 4.0.0
+**自版本：** 4.0.0
 
 --------------------
 
@@ -92,9 +92,9 @@ Locks the screen orientation.
 unlock() => Promise<void>
 ```
 
-Unlocks the screen's orientation.
+解锁屏幕方向。
 
-**Since:** 4.0.0
+**自版本：** 4.0.0
 
 --------------------
 
@@ -105,16 +105,16 @@ Unlocks the screen's orientation.
 addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: ScreenOrientationResult) => void) => Promise<PluginListenerHandle>
 ```
 
-Listens for screen orientation changes.
+监听屏幕方向变化。
 
-| Param              | Type                                                                                                  |
+| 参数               | 类型                                                                                                  |
 | ------------------ | ----------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'screenOrientationChange'</code>                                                                |
 | **`listenerFunc`** | <code>(orientation: <a href="#screenorientationresult">ScreenOrientationResult</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**Since:** 4.0.0
+**自版本：** 4.0.0
 
 --------------------
 
@@ -125,38 +125,38 @@ Listens for screen orientation changes.
 removeAllListeners() => Promise<void>
 ```
 
-Removes all listeners.
+移除所有监听器。
 
-**Since:** 4.0.0
+**自版本：** 4.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ScreenOrientationResult
 
-| Prop       | Type                         |
+| 属性         | 类型                         |
 | ---------- | ---------------------------- |
 | **`type`** | <code>OrientationType</code> |
 
 
 #### OrientationLockOptions
 
-| Prop              | Type                                                                | Description                                                                                                                           |
+| 属性                 | 类型                                                                | 描述                                                                                                                           |
 | ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **`orientation`** | <code><a href="#orientationlocktype">OrientationLockType</a></code> | Note: Typescript v5.2+ users should import <a href="#orientationlocktype">OrientationLockType</a> from @capacitor/screen-orientation. |
+| **`orientation`** | <code><a href="#orientationlocktype">OrientationLockType</a></code> | 注意：TypeScript v5.2+ 用户应从 @capacitor/screen-orientation 导入 <a href="#orientationlocktype">OrientationLockType</a>。 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性           | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### OrientationLockType

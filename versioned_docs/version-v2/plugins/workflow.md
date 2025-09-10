@@ -1,21 +1,20 @@
 ---
-title: Plugin Development Workflow
-description: Capacitor Plugin Development Workflow
+title: 插件开发工作流程
+description: Capacitor 插件开发工作流程
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/plugins/workflow
 ---
 
-# Plugin Development Workflow
+# 插件开发工作流程
 
-With the new plugin created, you can begin implementing functionality across a variety of platforms.
+创建新插件后，您可以开始为多种平台实现功能。
 
-## Implementing a New Function
+## 实现新功能
 
-Each plugin comes with some TypeScript files that provide typing to TypeScript consumers of your plugin.
+每个插件都包含一些 TypeScript 文件，为插件的 TypeScript 使用者提供类型支持。
 
-Starting with the TypeScript interface is a good way to build out the API for your plugin. For example,
-here's the default interface for our Plugin located in `src/definitions.ts`:
+从 TypeScript 接口开始是构建插件 API 的好方法。例如，这是我们插件在 `src/definitions.ts` 中的默认接口：
 
 ```typescript
 declare module '@capacitor/core' {
@@ -29,7 +28,7 @@ export interface EchoPlugin {
 }
 ```
 
-To implement new functionality in your plugin, begin by defining a new function in the exported interface:
+要在插件中实现新功能，首先在导出的接口中定义新函数：
 
 ```typescript
 export interface EchoPlugin {
@@ -38,21 +37,21 @@ export interface EchoPlugin {
 }
 ```
 
-Implement the web implementation in `src/web.ts`:
+在 `src/web.ts` 中实现网页端功能：
 
 ```typescript
 async openMap(location: { latitude: number, longitude: number}): Promise<void> {
-  // logic here
+  // 此处添加逻辑
 }
 ```
 
-To compile the plugin, navigate into the plugin directory then run:
+要编译插件，请进入插件目录并运行：
 
 ```bash
 $ npm run build
 ```
 
-Implement [Android functionality](./android) in `android/src/main/[nested folders]/PluginName.java`:
+在 `android/src/main/[嵌套文件夹]/PluginName.java` 中实现 [Android 功能](./android)：
 
 ```java
 @PluginMethod()
@@ -60,66 +59,66 @@ public void openMap(PluginCall call) {
   Double latitude = call.getDouble("latitude");
   Double longitude = call.getDouble("longitude");
 
-  // more logic
+  // 更多逻辑
 }
 ```
 
-Implement [iOS functionality](./ios) in `ios/Plugin/Plugin.swift`:
+在 `ios/Plugin/Plugin.swift` 中实现 [iOS 功能](./ios)：
 
 ```swift
 @objc func openMap(_ call: CAPPluginCall) {
   let latitude = call.getString("latitude")
   let longitude = call.getNumber("longitude")
 
-  // more logic
+  // 更多逻辑
 }
 ```
 
-> Remember to export the plugin to Capacitor (to make it aware of the plugin) on [iOS](/plugins/ios.md#export-to-capacitor) and [Android](/plugins/android.md#export-to-capacitor).
+> 记得在 [iOS](/plugins/ios.md#export-to-capacitor) 和 [Android](/plugins/android.md#export-to-capacitor) 上将插件导出到 Capacitor（使其感知该插件）。
 
-## Local Testing
+## 本地测试
 
-To test the plugin locally while developing it, link the plugin folder to your app project using the [npm link command](https://docs.npmjs.com/cli/link).
+开发过程中要本地测试插件，可以使用 [npm link 命令](https://docs.npmjs.com/cli/link) 将插件文件夹链接到应用项目。
 
-First, within the plugin folder, run:
+首先，在插件文件夹内运行：
 
 ```bash
 $ npm link
 ```
 
-Then, within the project that will test the plugin, run:
+然后，在要测试插件的项目中运行：
 
 ```bash
 $ npm link plugin-name
 $ npm install plugin-name
 ```
 
-The project's `package.json` file now shows the plugin package link in the dependencies list:
+项目的 `package.json` 文件现在会在依赖项列表中显示插件包的链接：
 
 ```json
 "my-plugin": "file:my-plugin",
 ```
 
-Finally, run `npx cap sync` to make the native projects aware of your plugin. If it was detected correctly, it will print something similar to:
+最后运行 `npx cap sync` 让原生项目识别您的插件。如果检测成功，会输出类似以下内容：
 
-> Found 1 Capacitor plugin for android: my-plugin (0.0.1)
+> 为 android 找到 1 个 Capacitor 插件：my-plugin (0.0.1)
 
-### Unlinking the Plugin
+### 解除插件链接
 
-Once you're done with local testing, be sure to unlink the plugin. Otherwise, subsequent `npm install`s will install the local plugin, not the published version on npm (assuming you publish it).
+完成本地测试后，务必解除插件链接。否则后续的 `npm install` 会安装本地插件，而不是 npm 上发布的版本（假设您已发布）。
 
-First, run `npm unlink --no-save plugin-name` in the app project folder.
+首先，在应用项目文件夹中运行 `npm unlink --no-save plugin-name`。
 
-Next, run `npm unlink` in the plugin folder.
+接着，在插件文件夹中运行 `npm unlink`。
 
-## Publishing
+## 发布
 
-Whenever you are ready to publish your plugin, just use:
+准备好发布插件时，只需使用：
 
 ```bash
 npm publish
 ```
 
-This will build the JS portion of your plugin and publish the rest of your plugin files to npm.
+这将构建插件的 JS 部分，并将其余插件文件发布到 npm。
 
-Your package can now be installed using `npm install your-plugin` in any Capacitor app.
+现在任何 Capacitor 应用都可以通过 `npm install your-plugin` 安装您的包了。

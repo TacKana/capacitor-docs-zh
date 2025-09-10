@@ -1,38 +1,38 @@
 ---
-title: Capacitor Web Documentation
-description: Web Getting Started
-sidebar_label: Getting Started
+title: Capacitor Web 文档
+description: Web 入门指南
+sidebar_label: 入门指南
 slug: /web
 contributors:
   - mlynch
 ---
 
-# Using Capacitor in a Web Project
+# 在 Web 项目中使用 Capacitor
 
-Capacitor fully supports traditional web and Progressive Web Apps. In fact, using Capacitor makes it easy to ship a PWA version of your iOS and Android app store apps with minimal work.
+Capacitor 全面支持传统 Web 应用和渐进式 Web 应用（PWA）。实际上，使用 Capacitor 可以轻松地将 iOS 和 Android 应用商店应用以 PWA 版本发布，只需极少的工作量。
 
-## Browser Support
+## 浏览器支持
 
-Capacitor core and plugins build for ES2017. This newer JavaScript syntax is supported in all modern browsers (including those that power PWAs on iOS and Android), but will not work in IE11 without additional JavaScript transformations, e.g. with [Babel](https://babeljs.io).
+Capacitor 核心库和插件基于 ES2017 构建。所有现代浏览器（包括 iOS 和 Android 上支持 PWA 的浏览器）都支持这种新的 JavaScript 语法，但在 IE11 中需要额外的 JavaScript 转换（例如使用 [Babel](https://babeljs.io)）才能运行。
 
-Plugins with web support will perform feature detection and throw exceptions if a browser does not support a particular Web API.
+支持 Web 的插件会进行功能检测，如果浏览器不支持特定的 Web API，将会抛出异常。
 
-## Installation
+## 安装
 
-If you're already building with Capacitor for iOS or Android, there are no additional installation steps!
+如果你已经在为 iOS 或 Android 使用 Capacitor 进行构建，无需额外的安装步骤！
 
-Otherwise, see the [Installation](/main/getting-started/installation.md) guide before continuing.
+否则，请先查看[安装指南](/main/getting-started/installation.md)再继续。
 
-### Using Capacitor as a Module
+### 将 Capacitor 作为模块使用
 
-Most commonly, apps will be using a framework with a build system that supports importing JavaScript modules. By importing from `@capacitor/core`, or by importing a plugin, the Capacitor JavaScript runtime will be loaded with your app.
+大多数情况下，应用会使用带有构建系统的框架来支持导入 JavaScript 模块。通过从 `@capacitor/core` 导入或导入插件，Capacitor JavaScript 运行时将随你的应用一起加载。
 
-### Using Capacitor as a Script Include
+### 将 Capacitor 作为脚本引入
 
-This option is no longer available, please, use a JavaScript module bundler.
+此选项已不再可用，请使用 JavaScript 模块打包工具。
 
-## Going Live
+## 上线发布
 
-When you're ready to publish your Progressive Web App and share it with the world, just upload the contents of your web assets directory.
+当你准备好发布渐进式 Web 应用并与全世界分享时，只需上传 Web 资源目录的内容即可。
 
-That will contain everything you need to run your app!
+该目录包含运行应用所需的一切！

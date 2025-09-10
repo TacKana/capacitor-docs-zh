@@ -1,25 +1,25 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Packaging the Plugin
+title: 构建 Capacitor 插件
+description: 构建 Capacitor 插件 - 插件打包
 contributors:
   - eric-horodyski
-sidebar_label: Packaging the Plugin
+sidebar_label: 插件打包
 slug: /plugins/tutorial/packaging-the-plugin
 ---
 
-# Packaging the Plugin
+# 插件打包
 
-The `ScreenOrientation` plugin is functionally complete and integrated into the Capacitor application as a local plugin. However, the `ScreenOrientation` plugin can’t be used by other Capacitor applications in its current state.
+`ScreenOrientation` 插件功能已完备，并作为本地插件集成到了 Capacitor 应用中。然而，当前状态的 `ScreenOrientation` 插件无法被其他 Capacitor 应用使用。
 
-Let’s go ahead and package the plugin for publishing to make the `ScreenOrientation` plugin globally available.
+现在，让我们着手打包插件以便发布，使 `ScreenOrientation` 插件能够全局可用。
 
-> **Note:** This section references steps and procedures from the <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">Creating Capacitor Plugins</a> portion of the Capacitor documentation. Please refer to the documentation for details beyond the scope of this tutorial.
+> **注意：** 本节内容参考了 Capacitor 文档中<a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">创建 Capacitor 插件</a>部分的步骤和流程。若需了解本教程范围之外的详细信息，请参阅相关文档。
 
-## Generating a new plugin project
+## 生成新的插件项目
 
-Capacitor has a <a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">a plugin generator</a> we can use to scaffold a project in a format suitable for publishing a global plugin.
+Capacitor 提供了<a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">插件生成器</a>，可用于搭建适合发布全局插件的项目结构。
 
-In a new terminal, run the following command:
+在新终端中运行以下命令：
 
 ```bash
 npx @capacitor/create-plugin \
@@ -28,48 +28,48 @@ npx @capacitor/create-plugin \
   --class-name ScreenOrientation \
   --repo "https://ionic.io" \
   --license "MIT" \
-  --description "Work with the screen orientation in a common way for iOS, Android, and web"
+  --description "以统一方式处理 iOS、Android 和网页端的屏幕方向"
 ```
 
-When prompted to provide a directory, use the default by pressing Enter. When asked for the author’s name, use your own!
+当提示输入目录时，按回车键使用默认值。询问作者姓名时，请填写您自己的名字！
 
-## Port the plugin code
+## 迁移插件代码
 
-Take a look at the generated project’s structure; it looks very similar to the structure built for the Capacitor application, doesn't it? 🤔
+观察生成项目的结构，它与为 Capacitor 应用构建的结构非常相似，不是吗？🤔
 
-Obviously, this was intentional to easily port plugin code from the Capacitor application’s codebase into the generated plugin project.
+显然，这是有意为之，以便轻松地将插件代码从 Capacitor 应用代码库迁移到生成的插件项目中。
 
-Copy the contents of the files in `src/plugins/screen-orientation` into their equivalent `web.ts`, `index.ts`, and `definitions.ts` files in the plugin project.
+将 `src/plugins/screen-orientation` 中的文件内容复制到插件项目对应的 `web.ts`、`index.ts` 和 `definitions.ts` 文件中。
 
-Next, copy the contents of `ScreenOrientation.swift`, `ScreenOrientationPlugin.m`, and `ScreenOrientationPlugin.swift` from one codebase to the other.
+接下来，将 `ScreenOrientation.swift`、`ScreenOrientationPlugin.m` 和 `ScreenOrientationPlugin.swift` 的内容从一个代码库复制到另一个。
 
-Then, do the same for `ScreenOrientation.java` and `ScreenOrientationPlugin.java`. Afterward, update the package of these files in the plugin project:
+然后，对 `ScreenOrientation.java` 和 `ScreenOrientationPlugin.java` 执行相同操作。完成后，在插件项目中更新这些文件的包名：
 
 ```java
 package io.ionic.plugins.screenorientation
 ```
 
-The package name above was supplied when generating the plugin project, and any Android files in the project should use this package name.
+上述包名是在生成插件项目时提供的，项目中的任何 Android 文件都应使用此包名。
 
-Finally, let’s verify that no issues occurred when porting over the code by running the following command:
+最后，运行以下命令验证代码迁移过程中未出现任何问题：
 
 ```bash
 npm run verify
 ```
 
-> **Note:** You can test the plugin before publishing it by linking the plugin folder to a Capacitor project. See <a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">Plugin Development Workflow</a> for details.
+> **注意：** 您可以在发布插件前，通过将插件文件夹链接到 Capacitor 项目进行测试。详情请参阅<a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">插件开发工作流程</a>。
 
-## Update the plugin documentation
+## 更新插件文档
 
-Take a look at the plugin project’s `README.md` file; it was updated to document the plugin’s API. This update happened when we ran `npm run verify`. Any changes made to source file JSDoc comments can be reflected within the readme file’s API section by running `npm run docgen`.
+查看插件项目的 `README.md` 文件；它已更新以记录插件的 API。这一更新是在我们运行 `npm run verify` 时完成的。对源文件 JSDoc 注释的任何更改，都可以通过运行 `npm run docgen` 反映在自述文件的 API 部分中。
 
-The plugin requires developers to modify their Capacitor application’s `AppDelegate.swift` file, so instructions on how to do so should be included in the plugin’s documentation.
+该插件要求开发者修改其 Capacitor 应用的 `AppDelegate.swift` 文件，因此应在插件文档中包含相关操作说明。
 
-> **Note:** Always document any modifications developers will need to make when installing or configuring plugins you build.
+> **注意：** 务必记录开发者在安装或配置您构建的插件时需要进行的任何修改。
 
-Replace the “Install” section of `README.md` with the following markdown:
+将 `README.md` 的“安装”部分替换为以下 Markdown 内容：
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor-community/screen-orientation
@@ -78,7 +78,7 @@ npx cap sync
 
 ### iOS
 
-For iOS, you must make the following adjustments to your `AppDelegate.swift` file:
+对于 iOS 平台，您必须按以下方式调整 `AppDelegate.swift` 文件：
 
 ```diff
 import UIKit
@@ -92,16 +92,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## Publishing the plugin
+## 发布插件
 
-The plugin is in a state where it can be published to an npm registry. We won’t do that in this tutorial, but note that the command to publish a Capacitor plugin project is the same as publishing any other npm package: `npm publish`.
+插件当前已具备发布到 npm 注册表的条件。虽然本教程不会实际发布，但请注意发布 Capacitor 插件项目的命令与发布其他 npm 包相同：`npm publish`。
 
-You can publish a global Capacitor plugin to the public npm registry, a private registry, or just link it to a bunch of projects locally on your machine. Whatever fits your use-case.
+您可以将全局 Capacitor 插件发布到公共 npm 注册表、私有注册表，或仅将其链接到本地机器上的多个项目。具体方式取决于您的使用场景。
 
-What’s more, there is a <a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub organization</a> where you can get your plugin hosted and work closely with the community and Capacitor team as you continue development and maintenance on your plugin.
+此外，还有一个<a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub 组织</a>，您可以在其中托管插件，并在持续开发和维护过程中与社区及 Capacitor 团队紧密合作。
 
-## Conclusion
+## 结语
 
-Capacitor’s Plugin API is a flexible and robust solution to supplement Capacitor applications with native functionality unavailable to the web, whether the need is to add custom native code to a specific application or reuse native code between a fleet of apps.
+Capacitor 的插件 API 是一个灵活而强大的解决方案，能够为 Capacitor 应用补充网页端无法实现的原生功能。无论您是需要为特定应用添加自定义原生代码，还是要在多个应用间复用原生代码，它都能满足需求。
 
-Looking forward to the plugin you develop next! 🎉
+期待您下一步开发的插件！🎉

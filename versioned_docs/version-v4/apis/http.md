@@ -1,25 +1,24 @@
 ---
-title: Capacitor Http Plugin API
-description: The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries.
+title: Capacitor Http 插件 API
+description: Capacitor Http API 通过重写 `fetch` 和 `XMLHttpRequest` 以使用原生库的方式提供原生 HTTP 支持。
 sidebar_label: Http
 ---
 
 # CapacitorHttp
 
-The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries. It also provides helper methods for native http requests without the use of `fetch` and `XMLHttpRequest`. This plugin is bundled with `@capacitor/core`.
+Capacitor Http API 通过重写 `fetch` 和 `XMLHttpRequest` 以使用原生库的方式提供原生 HTTP 支持。该插件还提供了无需使用 `fetch` 和 `XMLHttpRequest` 的原生 HTTP 请求辅助方法。本插件已内置于 `@capacitor/core` 中。
 
-## Configuration
+## 配置说明
 
-By default, the patching of `window.fetch` and `XMLHttpRequest` to use native libraries is disabled.
-If you would like to enable this feature, modify the configuration below in the `capacitor.config` file.
+默认情况下，重写 `window.fetch` 和 `XMLHttpRequest` 以使用原生库的功能处于禁用状态。如需启用此功能，请在 `capacitor.config` 文件中修改以下配置：
 
-| Prop          | Type                 | Description                                                                          | Default            |
-| ------------- | -------------------- | ------------------------------------------------------------------------------------ | ------------------ |
-| **`enabled`** | <code>boolean</code> | Enable the patching of `fetch` and `XMLHttpRequest` to use native libraries instead. | <code>false</code> |
+| 属性          | 类型                 | 描述                                                                 | 默认值            |
+| ------------- | -------------------- | ------------------------------------------------------------------- | ------------------ |
+| **`enabled`** | <code>boolean</code> | 是否启用重写 `fetch` 和 `XMLHttpRequest` 以使用原生库的功能         | <code>false</code> |
 
-### Example Configuration
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中:
 
 ```json
 {
@@ -31,7 +30,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中:
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -47,12 +46,12 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-## Example
+## 使用示例
 
 ```typescript
 import { CapacitorHttp } from '@capacitor/core';
 
-// Example of a GET request
+// GET 请求示例
 const doGet = () => {
   const options = {
     url: 'https://example.com/my/api',
@@ -62,12 +61,11 @@ const doGet = () => {
 
   const response: HttpResponse = await CapacitorHttp.get(options);
 
-  // or...
+  // 或者使用通用请求方式...
   // const response = await CapacitorHttp.request({ ...options, method: 'GET' })
 };
 
-// Example of a POST request. Note: data
-// can be passed as a raw JS Object (must be JSON serializable)
+// POST 请求示例。注意：data 参数可以传递原始 JS 对象（必须可 JSON 序列化）
 const doPost = () => {
   const options = {
     url: 'https://example.com/my/api',
@@ -77,16 +75,16 @@ const doPost = () => {
 
   const response: HttpResponse = await CapacitorHttp.post(options);
 
-  // or...
+  // 或者使用通用请求方式...
   // const response = await CapacitorHttp.request({ ...options, method: 'POST' })
 };
 ```
 
-## Large File Support
+## 大文件支持说明
 
-Due to the nature of the bridge, parsing and transferring large amount of data from native to the web can cause issues. Support for downloading and uploading files to the native device is planned to be added to the `@capacitor/filesystem` plugin in the near future. One way to potentially circumvent the issue of running out of memory in the meantime (specifically on Android) is to edit the `AndroidManifest.xml` and add `android:largeHeap="true"` to the `application` element. Most apps should not need this and should instead focus on reducing their overall memory usage for improved performance. Enabling this also does not guarantee a fixed increase in available memory, because some devices are constrained by their total available memory.
+由于桥接机制的特性，在原生代码和 Web 之间解析和传输大量数据可能会导致问题。计划在不久的将来将文件下载和上传到本地设备的功能添加到 `@capacitor/filesystem` 插件中。目前（特别是 Android 平台）一种可能的临时解决方案是编辑 `AndroidManifest.xml` 文件，在 `application` 元素中添加 `android:largeHeap="true"`。大多数应用并不需要这样做，应该专注于减少整体内存使用以提高性能。启用此选项也不能保证固定增加可用内存，因为某些设备会受到总可用内存的限制。
 
-## API
+## API 参考
 
 <docgen-index>
 
@@ -107,10 +105,10 @@ Due to the nature of the bridge, parsing and transferring large amount of data f
 request(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http Request to a server using native libraries.
+使用原生库向服务器发起 HTTP 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
@@ -121,10 +119,10 @@ Make a Http Request to a server using native libraries.
 get(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http GET Request to a server using native libraries.
+使用原生库向服务器发起 HTTP GET 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
@@ -135,10 +133,10 @@ Make a Http GET Request to a server using native libraries.
 post(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http POST Request to a server using native libraries.
+使用原生库向服务器发起 HTTP POST 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
@@ -149,10 +147,10 @@ Make a Http POST Request to a server using native libraries.
 put(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http PUT Request to a server using native libraries.
+使用原生库向服务器发起 HTTP PUT 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
@@ -163,10 +161,10 @@ Make a Http PUT Request to a server using native libraries.
 patch(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http PATCH Request to a server using native libraries.
+使用原生库向服务器发起 HTTP PATCH 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
@@ -177,57 +175,57 @@ Make a Http PATCH Request to a server using native libraries.
 delete(options: HttpOptions) => Promise<HttpResponse>
 ```
 
-Make a Http DELETE Request to a server using native libraries.
+使用原生库向服务器发起 HTTP DELETE 请求。
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
+| 参数         | 类型                                                |
+| ------------ | --------------------------------------------------- |
 | **`options`** | <code><a href="#httpoptions">HttpOptions</a></code> |
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### HttpOptions
 
-| Prop                         | Type                                                          | Description                                                                                                                        |
+| 属性                         | 类型                                                          | 描述                                                                                                                        |
 | ---------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **`url`**                    | <code>string</code>                                           | The URL to send the request to.                                                                                                    |
-| **`method?`**                | <code>string</code>                                           | The Http Request method to run. (Default is `GET`)                                                                                 |
-| **`params?`**                | <code><a href="#httpparams">HttpParams</a></code>             | URL parameters to append to the request.                                                                                           |
-| **`data?`**                  | <code>any</code>                                              | JSON data to send with the request.                                                                                                |
-| **`headers?`**               | <code><a href="#httpheaders">HttpHeaders</a></code>           | Http Request headers to send with the request.                                                                                     |
-| **`readTimeout?`**           | <code>number</code>                                           | How long to wait to read additional data. Resets each time new data is received.                                                   |
-| **`connectTimeout?`**        | <code>number</code>                                           | How long to wait for the initial connection.                                                                                       |
-| **`disableRedirects?`**      | <code>boolean</code>                                          | Sets whether automatic Http redirects should be disabled.                                                                          |
-| **`webFetchExtra?`**         | <code>RequestInit</code>                                      | Extra arguments for fetch when running on the web.                                                                                 |
-| **`responseType?`**          | <code><a href="#httpresponsetype">HttpResponseType</a></code> | Parse the response appropriately before returning it to the client. If the response content-type is `json`, this value is ignored. |
-| **`shouldEncodeUrlParams?`** | <code>boolean</code>                                          | A option to keep the URL unencoded if necessary (already encoded, azure/firebase testing, etc.). (Default is `true`)               |
+| **`url`**                    | <code>string</code>                                           | 请求的目标 URL                                                                                                                    |
+| **`method?`**                | <code>string</code>                                           | HTTP 请求方法（默认为 `GET`）                                                                                                     |
+| **`params?`**                | <code><a href="#httpparams">HttpParams</a></code>             | 附加到请求的 URL 参数                                                                                                             |
+| **`data?`**                  | <code>any</code>                                              | 随请求发送的 JSON 数据                                                                                                            |
+| **`headers?`**               | <code><a href="#httpheaders">HttpHeaders</a></code>           | 随请求发送的 HTTP 头信息                                                                                                          |
+| **`readTimeout?`**           | <code>number</code>                                           | 等待读取额外数据的超时时间（每次接收到新数据时重置）                                                                              |
+| **`connectTimeout?`**        | <code>number</code>                                           | 初始连接等待超时时间                                                                                                              |
+| **`disableRedirects?`**      | <code>boolean</code>                                          | 是否禁用自动 HTTP 重定向                                                                                                          |
+| **`webFetchExtra?`**         | <code>RequestInit</code>                                      | 在 Web 环境下运行 fetch 时的额外参数                                                                                              |
+| **`responseType?`**          | <code><a href="#httpresponsetype">HttpResponseType</a></code> | 在返回给客户端前如何解析响应。如果响应 content-type 是 `json`，此值将被忽略                                                       |
+| **`shouldEncodeUrlParams?`** | <code>boolean</code>                                          | 是否保持 URL 参数不编码（适用于已编码参数、Azure/Firebase 测试等场景。默认为 `true`）                                             |
 
 #### HttpParams
 
-| Type                                    | Description                                      |
-| --------------------------------------- | ------------------------------------------------ |
-| **`[key: string]: string or string[]`** | A key/value dictionary of URL parameters to set. |
+| 类型                                    | 描述                                      |
+| --------------------------------------- | ---------------------------------------- |
+| **`[key: string]: string or string[]`** | 键值对形式的 URL 参数字典                 |
 
 #### HttpHeaders
 
-| Type                        | Description                             |
-| --------------------------- | --------------------------------------- |
-| **`[key: string]: string`** | A key/value dictionary of Http headers. |
+| 类型                        | 描述                             |
+| --------------------------- | ------------------------------- |
+| **`[key: string]: string`** | 键值对形式的 HTTP 头信息字典      |
 
 #### HttpResponseType
 
-| Type                                                            | Description                                                       |
-| --------------------------------------------------------------- | ----------------------------------------------------------------- |
-| **`'arraybuffer' or 'blob' or 'json' or 'text' or 'document'`** | How to parse the Http response before returning it to the client. |
+| 类型                                                            | 描述                                                       |
+| --------------------------------------------------------------- | --------------------------------------------------------- |
+| **`'arraybuffer' or 'blob' or 'json' or 'text' or 'document'`** | 返回给客户端前如何解析 HTTP 响应                           |
 
 #### HttpResponse
 
-| Prop          | Type                                                | Description                                       |
-| ------------- | --------------------------------------------------- | ------------------------------------------------- |
-| **`url`**     | <code>string</code>                                 | The response URL recieved from the Http response. |
-| **`status`**  | <code>number</code>                                 | The status code received from the Http response.  |
-| **`data`**    | <code>any</code>                                    | Additional data received with the Http response.  |
-| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | The headers received from the Http response.      |
+| 属性          | 类型                                                | 描述                                       |
+| ------------- | --------------------------------------------------- | ----------------------------------------- |
+| **`url`**     | <code>string</code>                                 | 从 HTTP 响应中接收的 URL                   |
+| **`status`**  | <code>number</code>                                 | 从 HTTP 响应中接收的状态码                 |
+| **`data`**    | <code>any</code>                                    | 从 HTTP 响应中接收的附加数据               |
+| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | 从 HTTP 响应中接收的头信息                 |
 
 </docgen-api>

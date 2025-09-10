@@ -1,74 +1,70 @@
 ---
 title: Development Workflow
-description: Capacitor Workflow
+description: Capacitor 工作流程
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/basics/workflow
 ---
 
-# Capacitor Workflow
+# Capacitor 工作流程
 
-The Capacitor workflow involves a few consistent tasks:
+Capacitor 的工作流程主要包含以下几个常规任务：
 
-## 1. Develop and build your Web App
+## 1. 开发并构建 Web 应用
 
-Capacitor turns your web app into a native binary for each platform. Thus, much of your work will consist of developing and then building a mobile-focused web app.
+Capacitor 会将您的 Web 应用转换为各平台的原生应用包。因此，大部分工作将围绕开发并构建适合移动端的 Web 应用展开。
 
-You will interact with the native platform underneath using Capacitor's plugins (such as [Camera](/apis/camera.md)), or by using existing Cordova plugins with Capacitor's [Cordova Compatibility](/cordova/index.md).
+您可以通过以下方式与底层原生平台交互：
+- 使用 Capacitor 原生插件（如[相机插件](/apis/camera.md)）
+- 通过 Capacitor 的[Cordova 兼容层](/cordova/index.md)使用现有 Cordova 插件
 
-As a final step, you will build your application using a command similar to:
-
+最后使用以下命令构建应用：
 ```bash
 npm run build
 ```
 
-If you are using a framework, follow your framework's build process. If, for example, you are using [Ionic](https://ionicframework.com/), this would be:
-
+如果使用前端框架，请遵循框架的构建流程。例如使用 [Ionic](https://ionicframework.com/) 时：
 ```bash
 ionic build
 ```
 
-## 2. Copy your Web Assets
+## 2. 同步 Web 资源
 
-When you are ready to run your app natively on a device or in a simulator, copy your built web assets using:
-
+当需要在真机或模拟器上运行应用时，使用以下命令同步构建好的 Web 资源：
 ```bash
 npx cap copy
 ```
 
-## 3. Open your Native IDE
+## 3. 启动原生集成开发环境
 
-Capacitor uses the Native IDEs to build, simulate, and run your app. To open one, run:
-
+Capacitor 依赖原生 IDE 进行应用构建、模拟和运行。使用以下命令打开对应 IDE：
 ```bash
 npx cap open
 ```
 
-## 4. Update the native project
+## 4. 更新原生工程
 
-In some cases, the Capacitor app needs to be updated, such as when installing new plugins.
-
-To install new plugins (including Cordova ones), run:
-
+以下情况需要更新 Capacitor 原生工程（例如安装新插件时）：
 ```bash
 npm install really-cool-plugin
 npx cap update
 ```
 
-## 5. Updating Capacitor
+## 5. 升级 Capacitor
 
-To check if there are any new updates to Capacitor itself, run `npx cap doctor` to print out the current installed dependencies as well view the latest available.
+检查 Capacitor 更新：
+```bash
+npx cap doctor
+```
 
-To update Capacitor Core and CLI:
-
+升级核心模块和命令行工具：
 ```bash
 npm install @capacitor/cli@2
 npm install @capacitor/core@2
 ```
 
-To update any or all of the platforms you are using:
-
+升级各平台支持：
 ```bash
 npm install @capacitor/ios@2
 npm install @capacitor/android@2

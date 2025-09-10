@@ -1,29 +1,29 @@
 ---
 title: Framework Features
-description: Visual Studio Code Extension for Capacitor
+description: 适用于 Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/framework
 ---
 
-The extension has additional features when using frameworks like Angular, Vue and React. Features like error assistance is common but there are also some framework specific features.
+当使用 Angular、Vue 和 React 等框架时，本扩展提供额外功能。虽然错误辅助等特性是通用的，但也包含一些框架专属功能。
 
 ## Angular
 
-#### Creating Components & More
+#### 创建组件及其他
 
-Angular projects will get a `+ New` item under `Project` where you can choose from:
-- **Page** - Create a new Ionic Page
-- **Component** - Create a new Angular Component
-- **Service** - Create a new Angular Service
-- **Module** - Create a new Angular Module
-- **Class** - Create a typescript Class
-- **Directive** - Create an Angular Directive
+Angular 项目会在 `Project` 下显示一个 `+ New` 选项，您可以选择创建：
+- **Page** - 新建 Ionic 页面
+- **Component** - 新建 Angular 组件
+- **Service** - 新建 Angular 服务
+- **Module** - 新建 Angular 模块
+- **Class** - 新建 TypeScript 类
+- **Directive** - 新建 Angular 指令
 
-#### Migrating Versions
+#### 版本迁移
 
-You can migrate to the latest minor version, or next major version of Angular by clicking `Packages` > `@Angular`.
+点击 `Packages` > `@Angular` 可将项目迁移至 Angular 的最新次要版本或下一个主版本。
 
-#### Use HTTPS
+#### 使用 HTTPS
 
-Angular projects can be run on a development web server that uses HTTPS by clicking `Settings` > `Use HTTPS`. More information can be found [here](build-and-run#using-https).
+通过点击 `Settings` > `Use HTTPS`，Angular 项目可在启用 HTTPS 的开发服务器上运行。更多信息请参阅[此文档](build-and-run#using-https)。

@@ -1,29 +1,29 @@
 ---
-title: Using Plugins
-description: How to use plugins in Capacitor
+title: 使用插件
+description: 如何在Capacitor中使用插件
 slug: /basics/using-plugins
 ---
 
-# Using Plugins
+# 使用插件
 
-The WebView and the Capacitor runtime communicate through the use of **Capacitor Plugins**. Plugins provide access to native APIs such as camera, geolocation, and filesystem access in your web app.
+WebView与Capacitor运行时通过**Capacitor插件**进行通信。插件为您的Web应用提供了访问原生API的能力，如摄像头、地理位置和文件系统等。
 
-## Capacitor Plugins
+## Capacitor插件
 
-The Capacitor team maintains [a set of Capacitor plugins](/plugins/official.md) for commonly used APIs. There is also a large set of Capacitor plugins available from [the Capacitor Community](https://github.com/capacitor-community/). If you have a suggestion for a Capacitor plugin, you can use [the Capacitor Community proposals repo](https://github.com/capacitor-community/proposals/).
+Capacitor团队维护了[一组官方插件](/plugins/official.md)用于常见的API需求。同时[Capacitor社区](https://github.com/capacitor-community/)也提供了大量可选插件。如果您有插件建议，可以使用[社区提案仓库](https://github.com/capacitor-community/proposals/)提交想法。
 
-[Learn more about Capacitor plugins &#8250;](/plugins.mdx)
+[了解更多关于Capacitor插件的信息 &#8250;](/plugins.mdx)
 
 :::info
-Do you want to **make** Capacitor plugins? Browse the same proposal repo and try to make one [following our plugin creation guides](/plugins/creating-plugins/overview.md)!
+想要**开发**Capacitor插件？浏览相同的提案仓库，并尝试按照[我们的插件创建指南](/plugins/creating-plugins/overview.md)来开发一个吧！
 :::
 
-## Cordova Plugins
+## Cordova插件
 
-Can't find the exact Web API or Capacitor plugin for your project? Or maybe you're [migrating off of Cordova and onto Capacitor](/main/cordova/migration-strategy.md)? Capacitor has a Cordova compatibility layer that attempts to mimic Cordova plugin functionality. Capacitor has compatibility with most Cordova plugins, but there may be additional steps when installing them.
+在项目中找不到合适的Web API或Capacitor插件？或者您正在[从Cordova迁移到Capacitor](/main/cordova/migration-strategy.md)？Capacitor提供了Cordova兼容层来模拟Cordova插件的功能。虽然Capacitor兼容大多数Cordova插件，但在安装时可能需要额外步骤。
 
-[Learn more about using Cordova plugins in Capacitor apps &#8250;](/plugins/cordova.md)
+[了解如何在Capacitor应用中使用Cordova插件 &#8250;](/plugins/cordova.md)
 
 :::info
-If you use a Cordova plugin because you weren't able to find a suitable Capacitor plugin, would you mind [creating a proposal for the Capacitor Community](https://github.com/capacitor-community/proposals/)?
+如果您因找不到合适的Capacitor插件而使用Cordova插件，是否愿意[为Capacitor社区创建提案](https://github.com/capacitor-community/proposals/)？
 :::

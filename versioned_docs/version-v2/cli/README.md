@@ -1,14 +1,14 @@
-# CLI Table of Contents (v2)
+# CLI 目录（v2）
 
-- Command Reference
-  - [CLI Overview](index.md)
-  - [Add](add.md)
-  - [Cap](cap.md)
-  - [Copy](copy.md)
-  - [Create](create.md)
-  - [ls](ls.md)
-  - [Open](open.md)
-  - [Plugin Generate](plugin-generate.md)
-  - [Serve](serve.md)
-  - [Sync](sync.md)
-  - [Update](update.md)
+- 命令参考
+  - [CLI 概述](index.md)
+  - [添加](add.md)
+  - [容量](cap.md)
+  - [复制](copy.md)
+  - [创建](create.md)
+  - [列表](ls.md)
+  - [打开](open.md)
+  - [插件生成](plugin-generate.md)
+  - [服务](serve.md)
+  - [同步](sync.md)
+  - [更新](update.md)

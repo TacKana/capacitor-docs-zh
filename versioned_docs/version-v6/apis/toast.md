@@ -1,6 +1,6 @@
 ---
-title: Toast Capacitor Plugin API
-description: The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
+title: Toast Capacitor 插件 API
+description: Toast API 提供通知弹窗功能，用于向用户显示重要信息。就像真实的吐司面包一样简单直接！
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/toast/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/toast/src/definitions.ts
 sidebar_label: Toast
@@ -8,27 +8,27 @@ sidebar_label: Toast
 
 # @capacitor/toast
 
-The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
+Toast API 提供通知弹窗功能，用于向用户显示重要信息。就像真实的吐司面包一样简单直接！
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/toast
 npx cap sync
 ```
 
-## PWA Notes
+## PWA 注意事项
 
-[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) are required for the Toast plugin to work.
+Toast 插件需要配合 [PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) 使用。
 
-## Example
+## 示例
 
 ```typescript
 import { Toast } from '@capacitor/toast';
 
 const showHelloToast = async () => {
   await Toast.show({
-    text: 'Hello!',
+    text: '你好！',
   });
 };
 ```
@@ -38,7 +38,7 @@ const showHelloToast = async () => {
 <docgen-index>
 
 * [`show(...)`](#show)
-* [Interfaces](#interfaces)
+* [接口](#interfaces)
 
 </docgen-index>
 
@@ -51,26 +51,26 @@ const showHelloToast = async () => {
 show(options: ShowOptions) => Promise<void>
 ```
 
-Shows a Toast on the screen
+在屏幕上显示 Toast 通知
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions
 
-| Prop           | Type                                       | Description                                                                        | Default               | Since |
+| 属性            | 类型                                       | 描述                                                                                | 默认值                | 版本   |
 | -------------- | ------------------------------------------ | ---------------------------------------------------------------------------------- | --------------------- | ----- |
-| **`text`**     | <code>string</code>                        | Text to display on the Toast                                                       |                       | 1.0.0 |
-| **`duration`** | <code>'short' \| 'long'</code>             | Duration of the Toast, either 'short' (2000ms) or 'long' (3500ms)                  | <code>'short'</code>  | 1.0.0 |
-| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Position of the Toast. On Android 12 and newer all toasts are shown at the bottom. | <code>'bottom'</code> | 1.0.0 |
+| **`text`**     | <code>string</code>                        | Toast 显示的文本内容                                                               |                       | 1.0.0 |
+| **`duration`** | <code>'short' \| 'long'</code>             | Toast 显示时长，可选 'short' (2000毫秒) 或 'long' (3500毫秒)                        | <code>'short'</code>  | 1.0.0 |
+| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 显示位置。在 Android 12 及以上版本中，所有 Toast 默认显示在底部。             | <code>'bottom'</code> | 1.0.0 |
 
 </docgen-api>

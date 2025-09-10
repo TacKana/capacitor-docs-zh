@@ -1,6 +1,6 @@
 ---
-title: CLI Command - cap copy
-description: Capacitor CLI command - cap copy
+title: CLI 命令 - cap copy
+description: Capacitor CLI 命令 - cap copy
 contributors:
   - dotNetkow
 sidebar_label: copy
@@ -8,21 +8,21 @@ sidebar_label: copy
 
 # Capacitor CLI - cap copy
 
-Copy the web app build and Capacitor configuration file into the native platform project. Run this each time you make changes to your web app or change a configuration value.
+将 web 应用构建文件和 Capacitor 配置文件复制到原生平台项目中。每次修改 web 应用或更改配置值时都需要运行此命令。
 
 ```bash
 npx cap copy [<platform>]
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数:</strong>
 
-- `platform` (optional): `android`, `ios`
+- `platform` (可选): `android`, `ios`
 
-## Hooks
+## 钩子函数
 
-The following hooks are available for copy command:
+copy 命令可用的钩子函数如下：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`
 
-[More information](../hooks.md)
+[了解更多](../hooks.md)

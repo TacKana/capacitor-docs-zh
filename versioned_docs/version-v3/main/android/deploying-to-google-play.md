@@ -1,21 +1,21 @@
 ---
-title: Deploying to Google Play
-description: How to deploy Android Capacitor apps to the Google Play Store
+title: 发布到 Google Play
+description: 如何将基于 Capacitor 的 Android 应用发布至 Google Play 商店
 contributors:
   - mlynch
 slug: /android/deploying-to-google-play
 ---
 
-# Deploying your Capacitor Android App to the Google Play Store
+# 将 Capacitor Android 应用发布至 Google Play 商店
 
-Because Capacitor apps are normal native apps at the end of the day, the way they are deployed to the Google Play Store is just like any other native Android app.
+Capacitor 应用本质上是标准的原生应用，因此其发布流程与常规 Android 应用完全一致。
 
-To start, consult the official Google documentation on the [launch checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist) to get your app ready for submission. [See here](/main/guides/splash-screens-and-icons.md) for details on generating splash screens and icons for your app.
+首先，请参考 Google 官方的 [发布清单指南](https://developer.android.com/distribute/best-practices/launch/launch-checklist) 做好应用提交准备。[此处](/main/guides/splash-screens-and-icons.md) 提供了为应用生成启动画面和应用图标的详细指南。
 
-For a guide with some Capacitor-specific considerations, see [Josh Morony's wonderful guide](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/) on the topic.
+如需了解 Capacitor 特有的注意事项，推荐阅读 [Josh Morony 的详尽指南](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/)。
 
-## Automating Deployments
+## 自动化发布流程
 
-For teams that wish to streamline their Google Play Store (and Apple App Store) submissions and even automate them with integration into their CI/CD workflow, Capacitor's parent company, Ionic, offers a powerful Mobile DevOps service called [Appflow](https://useappflow.com/) that offers end-to-end app development and deployment capabilities.
+对于希望简化 Google Play 商店（及 Apple App Store）发布流程，甚至希望通过 CI/CD 工作流实现自动化的团队，Capacitor 的母公司 Ionic 提供了强大的移动开发运维服务 [Appflow](https://useappflow.com/)，该服务支持端到端的应用开发和发布能力。
 
-Interested? Check out this [brief guide](/main/guides/deploying-updates.md) on how it works and how you can use it with Capacitor today, or view the official [Appflow Documentation](https://ionicframework.com/docs/v3/appflow/).
+感兴趣吗？可通过 [本简明指南](/main/guides/deploying-updates.md) 了解其工作原理及如何与 Capacitor 配合使用，或查阅官方 [Appflow 文档](https://ionicframework.com/docs/v3/appflow/)。

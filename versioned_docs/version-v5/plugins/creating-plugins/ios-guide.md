@@ -1,345 +1,201 @@
----
-title: Capacitor iOS Plugin Guide
-description: Capacitor iOS Plugin Guide
-contributors:
-  - mlynch
-  - jcesarmobile
-sidebar_label: iOS Guide
-slug: /plugins/ios
----
+---  
+title: Capacitor iOS 插件开发指南  
+description: Capacitor iOS 插件开发指南  
+contributors:  
+  - mlynch  
+  - jcesarmobile  
+sidebar_label: iOS 指南  
+slug: /plugins/ios  
+---  
 
-# Capacitor iOS Plugin Guide
+# Capacitor iOS 插件开发指南  
 
-Building Capacitor plugins for iOS involves writing Swift (or Objective-C) to interface with Apple's iOS SDKs.
+开发 Capacitor iOS 插件需要使用 Swift（或 Objective-C）与苹果 iOS SDK 进行交互。  
 
-## Getting Started
+## 快速开始  
 
-To get started, first generate a plugin as shown in the [Getting Started](/plugins/creating-plugins/overview.md) section of the Plugin guide.
+首先按照插件指南中的[起步章节](/plugins/creating-plugins/overview.md)生成插件模板。  
 
-Next, open `echo/ios/Plugin.xcworkspace` in Xcode. You then want to navigate to the .swift file for your plugin.
+接着在 Xcode 中打开 `echo/ios/Plugin.xcworkspace`，导航到插件的 .swift 文件。  
 
-For example, for a plugin with the Plugin Class Name `Echo`, you should open `EchoPlugin.swift`.
+例如，若插件类名为 `Echo`，则应打开 `EchoPlugin.swift`。  
 
-## Plugin Basics
+## 插件基础  
 
-A Capacitor plugin for iOS is a simple Swift class that extends `CAPPlugin` and
-has some exported methods that will be callable from JavaScript.
+Capacitor iOS 插件是一个继承自 `CAPPlugin` 的 Swift 类，其中包含可供 JavaScript 调用的导出方法。  
 
-### Simple Example
+### 简单示例  
 
-In the generated example, there is a simple echo plugin with an `echo` function that simply returns a value that it was given.
+生成的示例中包含一个简单的回声插件，其 `echo` 方法会直接返回接收到的参数：  
 
-This example demonstrates a few core components of Capacitor plugins: receiving data from a Plugin Call, and returning
-data back to the caller:
+`EchoPlugin.swift`  
 
-`EchoPlugin.swift`
+```swift  
+import Capacitor  
 
-```swift
-import Capacitor
+@objc(EchoPlugin)  
+public class EchoPlugin: CAPPlugin {  
+  @objc func echo(_ call: CAPPluginCall) {  
+    let value = call.getString("value") ?? ""  
+    call.resolve([  
+        "value": value  
+    ])  
+  }  
+}  
+```  
 
-@objc(EchoPlugin)
-public class EchoPlugin: CAPPlugin {
-  @objc func echo(_ call: CAPPluginCall) {
-    let value = call.getString("value") ?? ""
-    call.resolve([
-        "value": value
-    ])
-  }
-}
-```
+### 访问调用数据  
 
-### Accessing Call Data
+每个插件方法都会接收一个 `CAPPluginCall` 实例，包含来自客户端的调用信息。  
 
-Each plugin method receives an instance of `CAPPluginCall` containing all the information of the plugin method invocation from the client.
+客户端可以发送任何可 JSON 序列化的数据（数字、文本、布尔值、对象和数组），这些数据可通过 `options` 字段或便捷方法如 `getString`、`getObject` 获取。关于数据传递的特殊注意事项请参阅[数据类型指南](/main/reference/core-apis/data-types.md#ios)。  
 
-A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `options` field of the call instance, or by using convenience methods such as `getString` or `getObject`. Passing and accessing some of these values has some peculiarities to be aware of, as discussed [separately](/main/reference/core-apis/data-types.md#ios).
+示例：  
 
-For example, here is how you'd get data passed to your method:
+```swift  
+@objc func storeContact(_ call: CAPPluginCall) {  
+  let name = call.getString("yourName") ?? "default name"  
+  let address = call.getObject("address") ?? [:]  
+  let isAwesome = call.getBool("isAwesome") ?? false  
 
-```swift
-@objc func storeContact(_ call: CAPPluginCall) {
-  let name = call.getString("yourName") ?? "default name"
-  let address = call.getObject("address") ?? [:]
-  let isAwesome = call.getBool("isAwesome") ?? false
+  guard let id = call.options["id"] as? String else {  
+    call.reject("必须提供 id")  
+    return  
+  }  
 
-  guard let id = call.options["id"] as? String else {
-    call.reject("Must provide an id")
-    return
-  }
+  // ...  
 
-  // ...
+  call.resolve()  
+}  
+```  
 
-  call.resolve()
-}
-```
+### 返回数据  
 
-Notice the various ways data can be accessed on the `CAPPluginCall` instance, including how to require
-options using `guard`.
+插件调用可通过 `resolve()` 返回成功结果（可选数据），或通过 `reject()` 返回错误信息：  
 
-### Returning Data Back
+```swift  
+call.resolve([  
+  "added": true,  
+  "info": [  
+    "id": id  
+  ]  
+])  
 
-A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
+call.reject(error.localizedDescription, nil, error)  
+```  
 
-The `resolve()` method of `CAPPluginCall` takes a dictionary and supports JSON-serializable data types. Here's an example of returning data back to the client:
+### 插件加载时执行代码  
 
-```swift
-call.resolve([
-  "added": true,
-  "info": [
-    "id": id
-  ]
-])
-```
+重写 `load()` 方法可在插件加载时运行代码（如设置通知中心处理器）：  
 
-To fail, or reject a call, call `reject()`, passing an error string and optionally an error code and `Error` instance:
+```swift  
+override public func load() {  
+}  
+```  
 
-```swift
-call.reject(error.localizedDescription, nil, error)
-```
+### 导出到 Capacitor  
 
-### Running Code on Plugin Load
+插件生成器会通过以下步骤实现插件导出：  
+1. 使用 `@objc(EchoPlugin)` 导出 Swift 类  
+2. 在 `.m` 文件中用宏注册插件和方法  
 
-Occasionally, plugins may need to run some code when the plugin is first loaded. For example, this would be a good place to set up any Notification Center event handlers.
+`EchoPlugin.m` 示例：  
 
-To do this, provide an implementation for the `load()` method:
+```objectivec  
+#import <Capacitor/Capacitor.h>  
 
-```swift
-override public func load() {
-}
-```
+CAP_PLUGIN(EchoPlugin, "Echo",  
+  CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);  
+)  
+```  
 
-### Export to Capacitor
+## 权限系统  
 
-To make sure Capacitor can see your plugin, the plugin generator do two things: export your Swift class to Objective-C, and register it using the provided Capacitor Objective-C Macros.
+若插件涉及 iOS 权限申请，需实现权限检查模式。  
 
-To export your Swift class to Objective-C, the plugin generator adds `@objc(EchoPlugin)` above your Swift class, and add `@objc` before the `echo` method.
+### 实现权限方法  
 
-To register the plugin, the plugin generator creates a file with a `.m` extension corresponding to your plugin (such as `EchoPlugin.m`) and use the `CAP_PLUGIN` to register the plugin and the `CAP_PLUGIN_METHOD` macro to register the `echo` method.
+在插件类中添加权限检查与申请方法：  
 
-```objectivec
-#import <Capacitor/Capacitor.h>
+```swift  
+@objc override func checkPermissions(_ call: CAPPluginCall) {  
+    let locationState: String  
 
-CAP_PLUGIN(EchoPlugin, "Echo",
-  CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
-)
-```
+    switch CLLocationManager.authorizationStatus() {  
+    case .notDetermined:  
+        locationState = "prompt"  
+    case .restricted, .denied:  
+        locationState = "denied"  
+    case .authorizedAlways, .authorizedWhenInUse:  
+        locationState = "granted"  
+    @unknown default:  
+        locationState = "prompt"  
+    }  
 
-This makes `Echo` plugin, and the `echo` method available to the Capacitor web runtime, indicating to Capacitor that the echo method will return a Promise.
+    call.resolve(["location": locationState])  
+}  
 
-To add more methods to your plugin, create them in the `.swift` plugin class with the `@objc` before the `func` keyword and add a new `CAP_PLUGIN_METHOD` entry in the `.m` file.
+@objc override func requestPermissions(_ call: CAPPluginCall) {  
+    AVCaptureDevice.requestAccess(for: .video) { [weak self] _ in  
+        self?.checkPermissions(call)  
+    }  
+}  
+```  
 
-## Permissions
+### 多权限处理  
 
-If your plugin has functionality on iOS that requires permissions from the end user, then you will need to implement the permissions pattern.
+使用 `DispatchGroup` 同步多个权限请求：  
 
-Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/plugins/creating-plugins/web-guide.md#permissions).
+```swift  
+let group = DispatchGroup()  
+permissions.forEach { perm in  
+    group.enter()  
+    // 请求各个权限  
+    group.leave()  
+}  
+group.notify(queue: .main) {  
+    self.checkPermissions(call)  
+}  
+```  
 
-### Implementing Permissions
+## 高级功能  
 
-Add the `checkPermissions()` and `requestPermissions()` methods to your Swift plugin class.
+### 持久化插件调用  
 
-```diff
- import Capacitor
+对于持续返回数据（如实时定位）的场景，需要保存调用实例。详见[保存调用指南](/main/reference/core-apis/saving-calls.md)。  
 
- @objc(EchoPlugin)
- public class EchoPlugin: CAPPlugin {
-     ...
+### 错误处理  
 
-+    @objc override public func checkPermissions(_ call: CAPPluginCall) {
-+        // TODO
-+    }
+```swift  
+// 功能不可用  
+call.unavailable("iOS 13 及更低版本不支持")  
 
-+    @objc override public func requestPermissions(_ call: CAPPluginCall) {
-+        // TODO
-+    }
- }
-```
+// 平台未实现  
+call.unimplemented("iOS 端未实现此功能")  
+```  
 
-#### `checkPermissions()`
+### 插件事件  
 
-This method should return the current status of permissions in your plugin, which should be a dictionary that matches the structure of the [permission status definition](/plugins/creating-plugins/web-guide.md#permission-status-definitions) you defined. Typically, this information is available directly on the frameworks you're using.
+触发事件：  
 
-In the example below, we map the current authorization status from location services into a permission state and associate the `location` alias with that state.
+```swift  
+self.notifyListeners("myPluginEvent", data: [:])  
+```  
 
-```swift
-@objc override func checkPermissions(_ call: CAPPluginCall) {
-    let locationState: String
+### 原生界面展示  
 
-    switch CLLocationManager.authorizationStatus() {
-    case .notDetermined:
-        locationState = "prompt"
-    case .restricted, .denied:
-        locationState = "denied"
-    case .authorizedAlways, .authorizedWhenInUse:
-        locationState = "granted"
-    @unknown default:
-        locationState = "prompt"
-    }
+使用 [`UIViewController` 接口](/main/reference/core-apis/ios.md#viewcontroller)展示原生界面。  
 
-    call.resolve(["location": locationState])
-}
-```
+### 导航控制  
 
-#### `requestPermissions()`
+重写以下方法可拦截 WebView 导航：  
 
-**Block-based APIs**
+```objectivec  
+- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction {  
+    return @YES; // 取消加载  
+}  
+```  
 
-If the framework supports a block-based API for requesting permission, it's possible to complete the operation within the single method.
+## 高级配置  
 
-In the example below, we request video access from `AVCaptureDevice` and then use our own `checkPermissions` method to check the current status of permissions and then fulfill the call.
-
-```swift
-@objc override func requestPermissions(_ call: CAPPluginCall) {
-    AVCaptureDevice.requestAccess(for: .video) { [weak self] _ in
-        self?.checkPermissions(call)
-    }
-}
-```
-
-**Delegate-based APIs**
-
-If the framework uses a delegate (or callback) API, completing the operation means that the original call will need to be saved and then retrieved once the callback has been invoked.
-
-```swift
-var permissionCallID: String?
-var locationManager: CLLocationManager?
-
-@objc override func requestPermissions(_ call: CAPPluginCall) {
-    if let manager = locationManager, CLLocationManager.locationServicesEnabled() {
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            bridge?.saveCall(call)
-            permissionCallID = call.callbackId
-            manager.requestWhenInUseAuthorization()
-        } else {
-            checkPermissions(call)
-        }
-    } else {
-        call.reject("Location services are disabled")
-    }
-}
-
-public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    if let callID = permissionCallID, let call = bridge?.getSavedCall(callID) {
-        checkPermissions(call)
-        bridge?.releaseCall(call)
-    }
-}
-```
-
-**Multiple Permissions**
-
-When several types of permissions are required, a [DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) is a convenient way to synchronize the multiple calls.
-
-```swift
-let store = CNContactStore()
-
-@objc override func requestPermissions(_ call: CAPPluginCall) {
-    // get the permissions to check or default to all of them
-    var permissions = call.getArray("types", String.self) ?? []
-    if permissions.isEmpty {
-        permissions = ["contacts", "camera"]
-    }
-
-    let group = DispatchGroup()
-    if permissions.contains("contacts") {
-        group.enter()
-        store.requestAccess(for: .contacts) { (_, _) in
-            group.leave()
-        }
-    }
-    if permissions.contains("camera") {
-        group.enter()
-        AVCaptureDevice.requestAccess(for: .video) { _ in
-            group.leave()
-        }
-    }
-    group.notify(queue: DispatchQueue.main) {
-        self.checkPermissions(call)
-    }
-}
-```
-
-### Persisting a Plugin Call
-
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
-
-See [this guide on saving plugin calls](/main/reference/core-apis/saving-calls.md) for more details on how to persist plugin calls.
-
-## Error Handling
-
-### Unavailable
-
-This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer iOS version.
-
-```swift
-@objc override func methodThatUsesNewIOSFramework(_ call: CAPPluginCall) {
-    if #available(iOS 14, *) {
-        // TODO implementation
-    } else {
-        call.unavailable("Not available in iOS 13 or earlier.")
-    }
-}
-```
-
-> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
-
-### Unimplemented
-
-Use this error to indicate that a method can't be implemented for iOS.
-
-```swift
-@objc override func methodThatRequiresAndroid(_ call: CAPPluginCall) {
-    call.unimplemented("Not implemented on iOS.")
-}
-```
-
-## Plugin Events
-
-Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
-
-```typescript
-import { MyPlugin } from 'my-plugin';
-
-MyPlugin.addListener('myPluginEvent', (info: any) => {
-  console.log('myPluginEvent was fired');
-});
-```
-
-To emit the event from the Swift plugin class:
-
-```swift
-self.notifyListeners("myPluginEvent", data: [:])
-```
-
-To remove a listener from the plugin object:
-
-```typescript
-import { MyPlugin } from 'my-plugin';
-
-const myPluginEventListener = await MyPlugin.addListener(
-  'myPluginEvent',
-  (info: any) => {
-    console.log('myPluginEvent was fired');
-  },
-);
-
-myPluginEventListener.remove();
-```
-
-> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/main/reference/core-apis/ios.md#triggerjsevent).
-
-## Presenting Native Screens
-
-You can present native screens over the app by using [Capacitor's `UIViewController`](/main/reference/core-apis/ios.md#viewcontroller).
-
-## Override navigation
-
-Capacitor plugins can override the webview navigation. For that the plugin can override `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` method.
-Returning `true` causes the WebView to abort loading the URL.
-Returning `false` causes the WebView to continue loading the URL.
-Returning `nil` will defer to the default Capacitor policy.
-
-## Advanced configuration
-
-Capacitor iOS plugins are CocoaPods libraries, so to add dependencies, required frameworks or any other advanced configurations you have to edit the `.podspec` file created by the plugin generator, check the [podspec reference](https://guides.cocoapods.org/syntax/podspec.html) to see all possible options.
+通过编辑插件的 `.podspec` 文件可添加依赖或框架，详见 [podspec 参考文档](https://guides.cocoapods.org/syntax/podspec.html)。

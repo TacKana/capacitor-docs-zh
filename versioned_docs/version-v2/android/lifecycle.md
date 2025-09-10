@@ -1,21 +1,21 @@
 ---
 title: Android Lifecycle
-description: Android Lifecycle
+description: Android 生命周期
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Android Lifecycle
+# Android 生命周期
 
-Understanding the Android Activity Lifecycle is crucial for building apps that act the way Android users expect.
+理解 Android Activity 生命周期对于构建符合用户预期的应用至关重要。
 
-This document attempts to explain the lifecycle as it pertains to Capacitor. For more information, the [Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.html) reference on the official Android docs is the best resource out there.
+本文档将重点解释与 Capacitor 相关的生命周期机制。如需更全面的信息，请参考 Android 官方文档中的 [Activity 生命周期指南](https://developer.android.com/guide/components/activities/activity-lifecycle.html)。
 
-## Handling App Restarts
+## 处理应用重启
 
-Android apps often utilize other apps (or Activities) for features that are too complicated to include in their own app, such as camera or browser features.
+Android 应用经常需要调用其他应用（或 Activity）来实现复杂功能，例如相机或浏览器功能。
 
-In some cases, when a device is low on memory, launching a new Activity may cause your app to be killed in order to free up memory.
+在某些内存不足的情况下，启动新 Activity 可能导致当前应用被系统终止以释放内存。
 
-In this case, when the new Activity returns data back to your app, your app will want to show the user a state of the app that resumes what the user was just doing.
+此时，当新 Activity 返回数据时，您的应用需要恢复用户之前的状态，确保体验的连贯性。

@@ -1,66 +1,66 @@
 ---
-title: Creating Capacitor Plugins
-description: Creating Capacitor Plugins
+title: 创建 Capacitor 插件
+description: 开发 Capacitor 插件指南
 contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
-sidebar_label: Overview
+sidebar_label: 概述
 slug: /plugins/creating-plugins
 ---
 
-# Creating Capacitor Plugins
+# 创建 Capacitor 插件
 
-Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
+Capacitor 插件能让 JavaScript 直接调用原生平台 API。
 
-This guide will help you get started creating a shareable Capacitor plugin which will be published on npm. You can also create Capacitor plugins local to your app. See the custom native code guides for [iOS](/main/ios/custom-code.md) and [Android](/main/android/custom-code.md).
+本指南将帮助你开始创建一个可发布到 npm 的共享 Capacitor 插件。你也可以为应用创建本地插件，具体参考 [iOS](/main/ios/custom-code.md) 和 [Android](/main/android/custom-code.md) 的自定义原生代码指南。
 
-## Philosophies
+## 设计理念
 
-If your plugin is intended for the public, we have a few philosophies about Capacitor plugins to share before you get started.
+如果你计划开发公开插件，我们有一些关于 Capacitor 插件的核心理念需要分享。
 
-### Working Together
+### 协作开发
 
-We believe cooperation is going to yield higher quality plugins than competition. This is one of the reasons we created the [Capacitor Community GitHub organization](https://github.com/capacitor-community), which facilitates easier cooperation among the community than if plugins were hosted in personal repositories.
+我们相信协作能比竞争产生更高质量的插件。这正是我们创建 [Capacitor 社区 GitHub 组织](https://github.com/capacitor-community) 的原因之一，相比个人仓库，该组织能更便捷地促进社区协作。
 
-If a plugin exists for a particular topic within the [Capacitor Community](https://github.com/capacitor-community), please consider contributing to it! If a plugin is missing a primary maintainer, the Capacitor team would be happy to consider adding you to the GitHub organization.
+如果 [Capacitor 社区](https://github.com/capacitor-community) 中已存在某个功能的插件，请考虑为其贡献代码！若某个插件缺少主要维护者，Capacitor 团队很乐意邀请你加入 GitHub 组织。
 
-### Small in Scope
+### 小而专注
 
-We believe Capacitor plugins should be reasonably small in scope. Capacitor plugins add native code to apps that may or may not be used. By keeping the scope of plugins small, we can ensure apps have a minimal amount of native code that they need. This avoids unnecessary app bloat and warnings/rejections from the App Store due to APIs without usage descriptions, etc.
+我们建议 Capacitor 插件应保持合理的功能范围。插件会为应用添加可能用不到的原生代码，保持小巧的体积能确保应用只包含必要的原生代码，避免不必要的应用膨胀，以及应用商店因未使用的 API 描述等问题发出的警告或拒绝。
 
-Of course, having a small scope yields other benefits such as quicker deployment, easier cooperation, maintainability, etc.
+当然，小巧的插件还能带来更快的部署、更轻松的协作、更好的可维护性等优势。
 
-### Unified and Idiomatic
+### 统一与符合习惯
 
-Capacitor plugins should strive to provide a unified experience across platforms that is familiar to JavaScript developers. This means values from native platforms may need to be coerced.
+Capacitor 插件应致力于为 JavaScript 开发者提供跨平台的统一体验，这意味着可能需要转换原生平台返回的值。
 
-Here are a few guidelines with examples to demonstrate how to create a unified and idiomatic experience:
+以下是通过示例说明如何创建统一且符合习惯的体验：
 
-- **Prefer `undefined` over `null` and other nonvalues.** Example: If an Android API returns `0.0` to denote "no value", then the value should be coerced to `undefined` for the JavaScript layer.
-- **Prefer identical units.** Example: If an iOS API uses Celsius and an Android API uses Fahrenheit, then the value should be coerced to one or the other before it reaches the JavaScript consumer.
-- **Prefer ISO 8601 datetimes with timezones over other formats.** Example: It is easy to get an accurate JavaScript `Date` from a string like `"2020-12-13T20:21:58.415Z"`, but confusing if given a Unix timestamp (JavaScript timestamps are in milliseconds). Always include the timezone, otherwise datetimes may be interpreted inaccurately from different locales.
+- **优先使用 `undefined` 而非 `null` 或其他空值**。例如：若 Android API 返回 `0.0` 表示"无值"，应将其转换为 JavaScript 层的 `undefined`。
+- **保持单位一致**。例如：若 iOS API 使用摄氏度而 Android API 使用华氏度，应在数据到达 JavaScript 前统一转换。
+- **优先使用带时区的 ISO 8601 时间格式**。例如：从 `"2020-12-13T20:21:58.415Z"` 这样的字符串可以准确获取 JavaScript `Date` 对象，而 Unix 时间戳（JavaScript 使用毫秒）则容易造成混淆。务必包含时区，否则不同地区可能对时间产生不同解读。
 
-## Plugin Generator
+## 插件生成器
 
-Ready to begin? Capacitor has [a plugin generator](https://github.com/ionic-team/create-capacitor-plugin) that you can use to begin working on your plugin.
+准备好开始了吗？Capacitor 提供 [插件生成器](https://github.com/ionic-team/create-capacitor-plugin) 帮助你快速搭建插件项目。
 
-> Before continuing, you may want to make sure you're using the latest Node LTS version and npm 6+.
+> 继续之前，请确保你使用的是最新的 Node LTS 版本和 npm 6+。
 
-In a new terminal, run the following:
+在新终端中运行以下命令：
 
 ```bash
 npm init @capacitor/plugin
 ```
 
-The generator will prompt you for input. You can also supply command-line options (see the [GitHub repo](https://github.com/ionic-team/create-capacitor-plugin/)).
+生成器会提示你输入信息。你也可以通过命令行参数指定选项（参见 [GitHub 仓库](https://github.com/ionic-team/create-capacitor-plugin/)）。
 
-## Next Steps
+## 后续步骤
 
-[Learn about the Capacitor plugin development workflow &#8250;](/plugins/creating-plugins/development-workflow.md)
+[了解 Capacitor 插件开发工作流程 &#8250;](/plugins/creating-plugins/development-workflow.md)
 
-[Learn about building Android plugins for Capacitor &#8250;](/plugins/creating-plugins/android-guide.md)
+[学习构建 Android 平台插件 &#8250;](/plugins/creating-plugins/android-guide.md)
 
-[Learn about building iOS plugins for Capacitor &#8250;](/plugins/creating-plugins/ios-guide.md)
+[学习构建 iOS 平台插件 &#8250;](/plugins/creating-plugins/ios-guide.md)
 
-[Learn about building Web/PWA plugins for Capacitor &#8250;](/plugins/creating-plugins/web-guide.md)
+[学习构建 Web/PWA 平台插件 &#8250;](/plugins/creating-plugins/web-guide.md)

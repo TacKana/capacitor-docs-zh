@@ -1,6 +1,6 @@
 ---
-title: Device Capacitor Plugin API
-description: The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
+title: Device Capacitor 插件 API
+description: Device API 提供了设备的内部信息，例如型号和操作系统版本，以及用户信息如唯一标识符。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/device/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/device/src/definitions.ts
 sidebar_label: Device
@@ -8,16 +8,16 @@ sidebar_label: Device
 
 # @capacitor/device
 
-The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
+Device API 提供了设备的内部信息，例如型号和操作系统版本，以及用户信息如唯一标识符。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/device
 npx cap sync
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { Device } from '@capacitor/device';
@@ -43,8 +43,8 @@ const logBatteryInfo = async () => {
 * [`getInfo()`](#getinfo)
 * [`getBatteryInfo()`](#getbatteryinfo)
 * [`getLanguageCode()`](#getlanguagecode)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -57,11 +57,11 @@ const logBatteryInfo = async () => {
 getId() => Promise<DeviceId>
 ```
 
-Return an unique identifier for the device.
+返回设备的唯一标识符。
 
-**Returns:** <code>Promise&lt;<a href="#deviceid">DeviceId</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#deviceid">DeviceId</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本：** 1.0.0
 
 --------------------
 
@@ -72,11 +72,11 @@ Return an unique identifier for the device.
 getInfo() => Promise<DeviceInfo>
 ```
 
-Return information about the underlying device/os/platform.
+返回底层设备/操作系统/平台的相关信息。
 
-**Returns:** <code>Promise&lt;<a href="#deviceinfo">DeviceInfo</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#deviceinfo">DeviceInfo</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本：** 1.0.0
 
 --------------------
 
@@ -87,11 +87,11 @@ Return information about the underlying device/os/platform.
 getBatteryInfo() => Promise<BatteryInfo>
 ```
 
-Return information about the battery.
+返回电池相关信息。
 
-**Returns:** <code>Promise&lt;<a href="#batteryinfo">BatteryInfo</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#batteryinfo">BatteryInfo</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本：** 1.0.0
 
 --------------------
 
@@ -102,60 +102,60 @@ Return information about the battery.
 getLanguageCode() => Promise<GetLanguageCodeResult>
 ```
 
-Get the device's current language locale code.
+获取设备当前的语言区域代码。
 
-**Returns:** <code>Promise&lt;<a href="#getlanguagecoderesult">GetLanguageCodeResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#getlanguagecoderesult">GetLanguageCodeResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### DeviceId
 
-| Prop       | Type                | Description                                                                                                                                                                                                                            | Since |
+| 属性       | 类型                | 描述                                                                                                                                                                                                                            | 版本 |
 | ---------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`uuid`** | <code>string</code> | The UUID of the device as available to the app. This identifier may change on modern mobile platforms that only allow per-app install UUIDs. On web, a random identifier is generated and stored on localStorage for subsequent calls. | 1.0.0 |
+| **`uuid`** | <code>string</code> | 设备对应用可用的 UUID。在现代移动平台上，此标识符可能会因每次应用安装而变化。在 Web 端，会生成随机标识符并存储在 localStorage 中以供后续调用使用。 | 1.0.0 |
 
 
 #### DeviceInfo
 
-| Prop                  | Type                                                        | Description                                                                                                                                                                                                                         | Since |
+| 属性                  | 类型                                                        | 描述                                                                                                                                                                                                                         | 版本 |
 | --------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`name`**            | <code>string</code>                                         | The name of the device. For example, "John's iPhone". This is only supported on iOS and Android 7.1 or above.                                                                                                                       | 1.0.0 |
-| **`model`**           | <code>string</code>                                         | The device model. For example, "iPhone".                                                                                                                                                                                            | 1.0.0 |
-| **`platform`**        | <code>'ios' \| 'android' \| 'web'</code>                    | The device platform (lowercase).                                                                                                                                                                                                    | 1.0.0 |
-| **`operatingSystem`** | <code><a href="#operatingsystem">OperatingSystem</a></code> | The operating system of the device.                                                                                                                                                                                                 | 1.0.0 |
-| **`osVersion`**       | <code>string</code>                                         | The version of the device OS.                                                                                                                                                                                                       | 1.0.0 |
-| **`manufacturer`**    | <code>string</code>                                         | The manufacturer of the device.                                                                                                                                                                                                     | 1.0.0 |
-| **`isVirtual`**       | <code>boolean</code>                                        | Whether the app is running in a simulator/emulator.                                                                                                                                                                                 | 1.0.0 |
-| **`memUsed`**         | <code>number</code>                                         | Approximate memory used by the current app, in bytes. Divide by 1048576 to get the number of MBs used.                                                                                                                              | 1.0.0 |
-| **`diskFree`**        | <code>number</code>                                         | How much free disk space is available on the the normal data storage path for the os, in bytes. On Android it returns the free disk space on the "system" partition holding the core Android OS. On iOS this value is not accurate. | 1.0.0 |
-| **`diskTotal`**       | <code>number</code>                                         | The total size of the normal data storage path for the OS, in bytes. On Android it returns the disk space on the "system" partition holding the core Android OS.                                                                    | 1.0.0 |
-| **`realDiskFree`**    | <code>number</code>                                         | How much free disk space is available on the the normal data storage, in bytes.                                                                                                                                                     | 1.1.0 |
-| **`realDiskTotal`**   | <code>number</code>                                         | The total size of the normal data storage path, in bytes.                                                                                                                                                                           | 1.1.0 |
-| **`webViewVersion`**  | <code>string</code>                                         | The web view browser version                                                                                                                                                                                                        | 1.0.0 |
+| **`name`**            | <code>string</code>                                         | 设备名称。例如："John的iPhone"。仅在 iOS 和 Android 7.1 及以上版本支持。                                                                                                                       | 1.0.0 |
+| **`model`**           | <code>string</code>                                         | 设备型号。例如："iPhone"。                                                                                                                                                                                            | 1.0.0 |
+| **`platform`**        | <code>'ios' \| 'android' \| 'web'</code>                    | 设备平台（小写）。                                                                                                                                                                                                    | 1.0.0 |
+| **`operatingSystem`** | <code><a href="#operatingsystem">OperatingSystem</a></code> | 设备的操作系统。                                                                                                                                                                                                 | 1.0.0 |
+| **`osVersion`**       | <code>string</code>                                         | 设备操作系统版本。                                                                                                                                                                                                       | 1.0.0 |
+| **`manufacturer`**    | <code>string</code>                                         | 设备制造商。                                                                                                                                                                                                     | 1.0.0 |
+| **`isVirtual`**       | <code>boolean</code>                                        | 应用是否运行在模拟器/仿真器中。                                                                                                                                                                                 | 1.0.0 |
+| **`memUsed`**         | <code>number</code>                                         | 当前应用占用的近似内存，单位字节。除以 1048576 可得到 MB 值。                                                                                                                              | 1.0.0 |
+| **`diskFree`**        | <code>number</code>                                         | 操作系统常规数据存储路径的可用磁盘空间，单位字节。在 Android 上返回核心 Android OS 所在"系统"分区的可用空间。iOS 上此值不准确。 | 1.0.0 |
+| **`diskTotal`**       | <code>number</code>                                         | 操作系统常规数据存储路径的总大小，单位字节。在 Android 上返回核心 Android OS 所在"系统"分区的总空间大小。                                                                    | 1.0.0 |
+| **`realDiskFree`**    | <code>number</code>                                         | 常规数据存储路径的可用磁盘空间，单位字节。                                                                                                                                                     | 1.1.0 |
+| **`realDiskTotal`**   | <code>number</code>                                         | 常规数据存储路径的总大小，单位字节。                                                                                                                                                                           | 1.1.0 |
+| **`webViewVersion`**  | <code>string</code>                                         | WebView 浏览器版本                                                                                                                                                                                                        | 1.0.0 |
 
 
 #### BatteryInfo
 
-| Prop               | Type                 | Description                                                       | Since |
+| 属性               | 类型                 | 描述                                                       | 版本 |
 | ------------------ | -------------------- | ----------------------------------------------------------------- | ----- |
-| **`batteryLevel`** | <code>number</code>  | A percentage (0 to 1) indicating how much the battery is charged. | 1.0.0 |
-| **`isCharging`**   | <code>boolean</code> | Whether the device is charging.                                   | 1.0.0 |
+| **`batteryLevel`** | <code>number</code>  | 电池电量百分比（0到1之间）。 | 1.0.0 |
+| **`isCharging`**   | <code>boolean</code> | 设备是否正在充电。                                   | 1.0.0 |
 
 
 #### GetLanguageCodeResult
 
-| Prop        | Type                | Description                  | Since |
+| 属性        | 类型                | 描述                  | 版本 |
 | ----------- | ------------------- | ---------------------------- | ----- |
-| **`value`** | <code>string</code> | Two character language code. | 1.0.0 |
+| **`value`** | <code>string</code> | 两位字符的语言代码。 | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### OperatingSystem

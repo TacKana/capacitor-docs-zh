@@ -1,20 +1,20 @@
 ---
 title: CLI Command - cap
-description: Capacitor CLI command - cap
+description: Capacitor CLI 命令 - cap
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/cap
 ---
 
-# Capacitor CLI - cap
+# Capacitor CLI - cap 命令
 
-View all available CLI commands and options.
+查看所有可用的 CLI 命令及选项。
 
 ```bash
 npx cap [-V] [-h]
 ```
 
-<strong>Options:</strong>
+<strong>选项参数：</strong>
 
-- `-V, --version` (optional): Output the version number
-- `-h, --help` (optional): Output usage information. Can be used with individual commands too.
+- `-V, --version` (可选)：显示版本号
+- `-h, --help` (可选)：显示帮助信息。该选项也可用于单个命令查询。

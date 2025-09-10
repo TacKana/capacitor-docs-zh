@@ -3,38 +3,38 @@ const prismic = require('@prismicio/client');
 const fetch = require('node-fetch');
 const { themes } = require('prism-react-renderer');
 
-const HOSTNAME = 'capacitorjs.com';
+const HOSTNAME = 'capacitor.xuxo.top';
 const BASE_URL = '/docs';
 
 module.exports = {
-  title: 'Capacitor Documentation',
+  title: 'Capacitor 官方中文文档',
   tagline:
-    'Capacitor is a cross-platform native runtime that makes it easy to build modern web apps that run natively on iOS, Android, and the Web.',
+    'Capacitor 是一个跨平台的原生运行时，它能让构建可在 iOS、Android 和网页端原生运行的现代 Web 应用变得轻松简单。',
   url: `https://${HOSTNAME}`,
   baseUrl: `${BASE_URL}/`,
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
     localeConfigs: {
-      en: { label: 'English' },
+      'zh-Hans': { label: '简体中文' },
     },
   },
   markdown: {
-    format: 'detect'
+    format: 'detect',
   },
-  onBrokenAnchors: 'throw',
+  onBrokenAnchors: 'log',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/meta/favicon.png',
   organizationName: 'ionic-team',
   projectName: 'capacitor-docs',
   themeConfig: {
-    announcementBar: {
-      id: 'announcement-bar',
-      content:
-        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: 'announcement-bar',
+    //   content:
+    //     '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
+    //   isCloseable: false,
+    // },
     colorMode: {
       defaultMode: 'light',
     },
@@ -56,13 +56,13 @@ module.exports = {
         {
           type: 'doc',
           docId: 'index',
-          label: 'Docs',
+          label: '文档',
           position: 'left',
         },
         {
           type: 'doc',
           docId: 'plugins',
-          label: 'Plugins',
+          label: '插件',
           position: 'left',
         },
         {
@@ -97,12 +97,12 @@ module.exports = {
               target: '_blank',
               rel: null,
             },
-            {
-              href: 'https://twitter.com/capacitorjs',
-              label: 'Twitter',
-              target: '_blank',
-              rel: null,
-            },
+            // {
+            //   href: 'https://twitter.com/capacitorjs',
+            //   label: 'Twitter',
+            //   target: '_blank',
+            //   rel: null,
+            // },
           ],
           className: 'navbar__link--community',
         },
@@ -141,6 +141,12 @@ module.exports = {
           position: 'right',
           dropdownItemsAfter: [
             {
+              to: 'https://capacitorjs.com/docs',
+              label: 'English',
+              target: '_blank',
+              rel: null,
+            },
+            {
               to: 'https://capacitorjs.jp/docs',
               label: '日本語',
               target: '_blank',
@@ -149,13 +155,13 @@ module.exports = {
           ],
           className: 'icon-link language navbar__item',
         },
-        {
-          href: 'https://twitter.com/capacitorjs',
-          position: 'right',
-          className: 'icon-link icon-link-mask icon-link-twitter',
-          'aria-label': 'Twitter',
-          target: '_blank',
-        },
+        // {
+        //   href: 'https://twitter.com/capacitorjs',
+        //   position: 'right',
+        //   className: 'icon-link icon-link-mask icon-link-twitter',
+        //   'aria-label': 'Twitter',
+        //   target: '_blank',
+        // },
         {
           href: 'https://ionic.link/discord',
           position: 'right',
@@ -201,14 +207,14 @@ module.exports = {
               rel: 'noopener nofollow',
             },
           },
-          {
-            key: 'twitter',
-            url: {
-              href: 'https://twitter.com/capacitorjs',
-              target: '_blank',
-              rel: 'noopener nofollow',
-            },
-          },
+          // {
+          //   key: 'twitter',
+          //   url: {
+          //     href: 'https://twitter.com/capacitorjs',
+          //     target: '_blank',
+          //     rel: 'noopener nofollow',
+          //   },
+          // },
         ],
       },
     },
@@ -230,9 +236,9 @@ module.exports = {
       ],
     },
     algolia: {
-      appId: '3IVALO5OU4',
-      apiKey: '5fdbbcbd186f2a1265494810dd0bf09c',
-      indexName: 'capacitorjs',
+      appId: 'CUK9BLM17N',
+      apiKey: 'aa5fcbd5bc4b815ec5d351b6e85b536c',
+      indexName: 'capacitorjs中文文档',
       contextualSearch: true,
     },
   },
@@ -271,7 +277,7 @@ module.exports = {
             const nativeRegexPath = nativeRegex.exec(docPath)?.[1];
 
             if (cliRegexPath) {
-              return `https://github.com/ionic-team/capacitor-docs/edit/main/docs/cli/commands/${cliRegexPath.replace(
+              return `https://github.com/TacKana/capacitor-docs-zh/edit/main/docs/cli/commands/${cliRegexPath.replace(
                 '-',
                 '/',
               )}.md`;
@@ -279,7 +285,7 @@ module.exports = {
             if (nativeRegexPath) {
               return `https://github.com/ionic-team/ionic-native/edit/master/src/@awesome-cordova-plugins/plugins/${nativeRegexPath}/index.ts`;
             }
-            return `https://github.com/ionic-team/capacitor-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/TacKana/capacitor-docs-zh/edit/main/${versionDocsDirPath}/${docPath}`;
           },
           breadcrumbs: false,
           exclude: ['README.md'],

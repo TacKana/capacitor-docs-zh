@@ -1,48 +1,55 @@
 ---
-title: Deep Links
-description: Implement deep linking functionality in an iOS and Android app
+title: 深度链接
+description: 在 iOS 和 Android 应用中实现深度链接功能
 contributors:
   - dotNetkow
   - jaydrogers
 slug: /guides/deep-links
 ---
 
-# Deep Linking with Universal and App Links
+# 使用通用链接和应用链接实现深度链接
 
-**Platforms**: iOS, Android
+**平台**: iOS, Android
 
-Universal links (iOS) and App Links (Android) offer the ability to take users directly to specific content within a native app (commonly known as deep linking).
+通用链接（iOS）和应用链接（Android）能够将用户直接引导至原生应用内的特定内容（通常称为深度链接）。
 
-When users tap or click on a deep link, the user is sent directly into your app without routing through the device's web browser or website first. If the app isn't installed, then the user is directed to the website. If the user navigates directly to the website, they remain on the website. This makes deep links an excellent feature for cross-platform apps built for the web, iOS, and Android: a seamless mobile experience, with graceful fallback to the website.
+当用户点击深度链接时，将直接进入您的应用，无需先经过设备的网页浏览器或网站。如果应用未安装，用户将被引导至网站。如果用户直接访问网站，他们将停留在网站上。这使得深度链接成为为 Web、iOS 和 Android 构建的跨平台应用的绝佳功能：提供无缝的移动体验，并优雅地回退至网站。
 
-Benefits:
+优势：
 
-- Secure: Universal/App Links use HTTPS URLs that link to a website domain that you own, ensuring that no other app can use your links.
-- Seamless experience: One URL works for both your website and app, ensuring that users can successfully access the content they're looking for without errors.
-- Increase Engagement: Links can be opened from email clients, search engine results, and more.
+- 安全：通用链接/应用链接使用您拥有的网站域名的 HTTPS URL，确保其他应用无法使用您的链接。
+- 无缝体验：一个 URL 同时适用于您的网站和应用，确保用户能够成功访问所需内容，不会出错。
+- 提高参与度：链接可以从电子邮件客户端、搜索引擎结果等处打开。
 
-## Demo Video
+## 演示视频
 
-Here's what it looks like in practice. In this example, the user has the native app installed. They tap on app links from an email and are brought directly into the app itself. First, the root link is tapped (https://beerswift.app), which directs the user to the main app page. Next, a deep link is tapped (https://beerswift.app/tabs/tab3) bringing the user to the Tab3 page.
+以下是实际效果。在此示例中，用户已安装原生应用。他们从电子邮件中点击应用链接，直接进入应用本身。首先点击根链接 (https://beerswift.app) ，将用户引导至应用主页。接着点击深度链接 (https://beerswift.app/tabs/tab3) ，将用户带至 Tab3 页面。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vadlZ-d8wAI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/vadlZ-d8wAI"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
 
-## Prerequisites
+## 前置条件
 
-- A pre-configured [Capacitor app](/main/getting-started/installation.md).
-- For iOS, enrollment in the Apple Developer Program.
+- 预先配置好的 [Capacitor 应用](/main/getting-started/installation.md)。
+- 对于 iOS，需要注册 Apple Developer Program。
 
-For illustrative purposes, https://beerswift.app will be used as the web app link.
+为便于说明，将使用 https://beerswift.app 作为 Web 应用链接。
 
-## Deep Link Routing using the Capacitor App API
+## 使用 Capacitor App API 实现深度链接路由
 
-When the native app is opened after a deep link is clicked, the mobile OS doesn't automatically know where to route the user. This must be implemented within the app itself using the Capacitor [App API](/apis/app.md) on app startup.
+点击深度链接打开原生应用后，移动操作系统不会自动知道将用户路由到哪里。这必须在应用启动时使用 Capacitor [App API](/apis/app.md) 在应用内部实现。
 
-If your website and app paths don't match, you will need to implement more advanced url pattern matching (see [this guide](https://devdactic.com/universal-links-ionic/) for examples). If your mobile app and web app use the same codebase though, this is very straightforward - just redirect to the same URL. The following examples assume this.
+如果您的网站和应用路径不匹配，您需要实现更高级的 URL 模式匹配（有关示例，请参阅[本指南](https://devdactic.com/universal-links-ionic/)）。但如果您的移动应用和 Web 应用使用相同的代码库，这将非常直接——只需重定向到相同的 URL。以下示例假设如此。
 
 ### Angular
 
-Routing should be implemented in `app.component.ts`. Start by importing `NgZone` and `Router` from Angular, then `App` from Capacitor:
+路由应在 `app.component.ts` 中实现。首先从 Angular 导入 `NgZone` 和 `Router`，然后从 Capacitor 导入 `App`：
 
 ```typescript
 import { Component, NgZone } from '@angular/core';
@@ -50,7 +57,7 @@ import { Router } from '@angular/router';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 ```
 
-Next, add `Router` and `NgZone` to the constructor:
+接下来，将 `Router` 和 `NgZone` 添加到构造函数中：
 
 ```typescript
 constructor(private router: Router, private zone: NgZone) {
@@ -58,20 +65,19 @@ constructor(private router: Router, private zone: NgZone) {
 }
 ```
 
-Last, listen for the `appUrlOpen` event, and redirect when a deep link is found:
+最后，监听 `appUrlOpen` 事件，并在找到深度链接时重定向：
 
 ```typescript
 initializeApp() {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
         this.zone.run(() => {
-            // Example url: https://beerswift.app/tabs/tab2
+            // 示例 URL: https://beerswift.app/tabs/tab2
             // slug = /tabs/tab2
             const slug = event.url.split(".app").pop();
             if (slug) {
                 this.router.navigateByUrl(slug);
             }
-            // If no match, do nothing - let regular routing
-            // logic take over
+            // 如果不匹配，什么也不做 - 让常规路由逻辑接管
         });
     });
 }
@@ -79,7 +85,7 @@ initializeApp() {
 
 ### React
 
-There's a variety of options for React. One approach is to wrap the App API listener functionality in a new component, then add it inside of `App.tsx`. Start by creating `AppUrlListener.tsx` then import the React Router `useHistory` hook as well as the Capacitor App API:
+React 有多种选择。一种方法是将 App API 监听器功能包装在一个新组件中，然后将其添加到 `App.tsx` 中。首先创建 `AppUrlListener.tsx`，然后导入 React Router 的 `useHistory` 钩子以及 Capacitor App API：
 
 ```typescript
 import React, { useEffect } from 'react';
@@ -87,21 +93,20 @@ import { useHistory } from 'react-router-dom';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 ```
 
-Next, define the AppUrlListener component, listening for the `appUrlOpen` event then redirecting when a deep link is found:
+接下来，定义 AppUrlListener 组件，监听 `appUrlOpen` 事件，然后在找到深度链接时重定向：
 
 ```typescript
 const AppUrlListener: React.FC<any> = () => {
   let history = useHistory();
   useEffect(() => {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
-      // Example url: https://beerswift.app/tabs/tab2
+      // 示例 URL: https://beerswift.app/tabs/tab2
       // slug = /tabs/tab2
       const slug = event.url.split('.app').pop();
       if (slug) {
         history.push(slug);
       }
-      // If no match, do nothing - let regular routing
-      // logic take over
+      // 如果不匹配，什么也不做 - 让常规路由逻辑接管
     });
   }, []);
 
@@ -111,13 +116,13 @@ const AppUrlListener: React.FC<any> = () => {
 export default AppUrlListener;
 ```
 
-Over in `App.tsx`, import the new component:
+在 `App.tsx` 中，导入新组件：
 
 ```typescript
 import AppUrlListener from './pages/AppUrlListener';
 ```
 
-Then add it inside of `IonReactRouter` (or wherever your app is bootstrapped, just ensure that the History hook is available):
+然后将其添加到 `IonReactRouter` 内部（或应用启动的任何地方，只需确保 History 钩子可用）：
 
 ```tsx
 const App: React.FC = () => {
@@ -137,9 +142,9 @@ const App: React.FC = () => {
 
 ### Vue
 
-VueJS offers a first party routing system that integrates natively with Vue called Vue Router. To set up deep linking with Vue Router, start in the file that you used to configure all of your routes (usually `routes.js` or something similar).
+VueJS 提供了一个名为 Vue Router 的第一方路由系统，与 Vue 原生集成。要设置 Vue Router 的深度链接，请从用于配置所有路由的文件开始（通常是 `routes.js` 或类似文件）。
 
-First we import the capacitor `App` from plugins along with `Vue` and `VueRouter`.
+首先我们从插件中导入 capacitor `App`，以及 `Vue` 和 `VueRouter`。
 
 ```typescript
 import { App, URLOpenListenerEvent } from '@capacitor/app';
@@ -147,7 +152,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 ```
 
-Next, configure your routes using the Vue Router (more information on [Getting Started with Vue Router](https://router.vuejs.org/guide/#javascript)).
+接下来，使用 Vue Router 配置您的路由（更多信息请参见[Vue Router 入门指南](https://router.vuejs.org/guide/#javascript)）。
 
 ```typescript
 const router = new VueRouter({
@@ -155,9 +160,9 @@ const router = new VueRouter({
 });
 ```
 
-It's recommended to use `mode: history` so you don't have to deal with the `#`.
+建议使用 `mode: history`，这样就不需要处理 `#`。
 
-Let Vue know that you are using Vue Router and register the router within Vue:
+让 Vue 知道您正在使用 Vue Router，并在 Vue 中注册路由器：
 
 ```typescript
 const VueApp = new Vue({
@@ -165,15 +170,15 @@ const VueApp = new Vue({
 }).$mount('#app');
 ```
 
-Finally, we need to register our app for deep linking. To do that, we add an event listener to the `appUrlOpen` event on the Capacitor App. Capacitor will pick this up, then we hand it off to Vue Router to navigate to the page requested.
+最后，我们需要为深度链接注册我们的应用。为此，我们在 Capacitor App 上为 `appUrlOpen` 事件添加一个事件监听器。Capacitor 将捕获此事件，然后我们将其交给 Vue Router 以导航到请求的页面。
 
 ```typescript
 App.addListener('appUrlOpen', function (event: URLOpenListenerEvent) {
-  // Example url: https://beerswift.app/tabs/tabs2
+  // 示例 URL: https://beerswift.app/tabs/tabs2
   // slug = /tabs/tabs2
   const slug = event.url.split('.app').pop();
 
-  // We only push to the route if there is a slug present
+  // 仅当存在 slug 时才推送路由
   if (slug) {
     router.push({
       path: slug,
@@ -182,29 +187,29 @@ App.addListener('appUrlOpen', function (event: URLOpenListenerEvent) {
 });
 ```
 
-## Creating Site Association Files
+## 创建网站关联文件
 
-In order for Apple and Google to permit deep links to open your app, a two-way association between your website and app must be created. One file for each must be created and placed within a `.well-known` folder on your website, like so: https://beerswift.app/.well-known/.
+为了让 Apple 和 Google 允许深度链接打开您的应用，必须在您的网站和应用之间建立双向关联。必须为每个平台创建一个文件，并将其放置在您网站上的 `.well-known` 文件夹中，例如：https://beerswift.app/.well-known/。
 
-Continue on for iOS and Android configuration details.
+继续阅读 iOS 和 Android 配置详情。
 
-## iOS Configuration
+## iOS 配置
 
-iOS configuration involves creating a site association file and configuring the native app to recognize the app domain.
+iOS 配置涉及创建网站关联文件并配置原生应用以识别应用域。
 
-> You must be enrolled in the Apple Developer Program.
+> 您必须注册 Apple Developer Program。
 
-### Create Site Association File
+### 创建网站关联文件
 
-First, log into the [Apple Developer site](https://developer.apple.com). Navigate to the "Certificates, Identifiers, & Profiles" section and select your app's identifier. Note the Team ID and Bundle ID, and under Capabilities, toggle "Associated Domains" then save:
+首先，登录 [Apple Developer 网站](https://developer.apple.com)。导航至“Certificates, Identifiers, & Profiles”部分，选择您的应用标识符。记下团队 ID 和捆绑包 ID，并在“Capabilities”下切换“Associated Domains”，然后保存：
 
-![iOS Identifier Config](../../../static/img/v6/docs/guides/deep-links/ios-config.png)
+![iOS 标识符配置](../../../static/img/v6/docs/guides/deep-links/ios-config.png)
 
-Next, create the site association file (`apple-app-site-association`).
+接下来，创建网站关联文件（`apple-app-site-association`）。
 
-> Note: Despite being a JSON file, do not save it with a file extension.
+> 注意：尽管是 JSON 文件，但不要使用文件扩展名保存。
 
-An example of the `apple-app-site-association` file is below. Be sure to replace `TEAMID.BUNDLEID` with your own IDs (example: `8L65AZE66A.com.netkosoft.beerswift`).
+以下是 `apple-app-site-association` 文件的示例。确保将 `TEAMID.BUNDLEID` 替换为您自己的 ID（例如：`8L65AZE66A.com.netkosoft.beerswift`）。
 
 ```json
 {
@@ -220,43 +225,43 @@ An example of the `apple-app-site-association` file is below. Be sure to replace
 }
 ```
 
-Next, upload the file to your web site (hosted on HTTPS), then validate that it's configured correctly using Apple's tool [here](https://search.developer.apple.com/appsearch-validation-tool/). The URL should follow this format: https://beerswift.app/.well-known/apple-app-site-association
+接下来，将文件上传到您的网站（通过 HTTPS 托管），然后使用 Apple 的[工具](https://search.developer.apple.com/appsearch-validation-tool/)验证配置是否正确。URL 应遵循以下格式：https://beerswift.app/.well-known/apple-app-site-association
 
-### Add Associated Domain
+### 添加关联域
 
-The final step is to configure the iOS app to recognize incoming links. Open Xcode, then navigate to Signing & Capabilities. Click "+ Capability", then choose Associated Domains. In the Domains entry that appears, edit it using the format `applinks:yourdomain.com`:
+最后一步是配置 iOS 应用以识别传入链接。打开 Xcode，然后导航至 Signing & Capabilities。点击“+ Capability”，然后选择 Associated Domains。在出现的 Domains 条目中，使用格式 `applinks:yourdomain.com` 进行编辑：
 
-![Xcode Associated Domain](../../../static/img/v6/docs/guides/deep-links/xcode-associated-domain.png)
+![Xcode 关联域](../../../static/img/v6/docs/guides/deep-links/xcode-associated-domain.png)
 
-## Android Configuration
+## Android 配置
 
-Android configuration involves creating a site association file and configuring the native app to recognize app links using an intent filter.
+Android 配置涉及创建网站关联文件并配置原生应用使用意图过滤器识别应用链接。
 
-### Create Site Association File
+### 创建网站关联文件
 
-The Site Association file requires the SHA256 fingerprint of your Android certificate.
+网站关联文件需要您的 Android 证书的 SHA256 指纹。
 
-If you don’t have one, create a certificate:
+如果您没有证书，请创建一个：
 
 ```shell
 keytool -genkey -v -keystore KEY-NAME.keystore -alias ALIAS -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-Using your existing (or newly created) Keystore certificate, use the keytool command to list the keystore's details:
+使用您现有的（或新创建的）Keystore 证书，使用 keytool 命令列出 keystore 的详细信息：
 
 ```shell
 keytool -list -v -keystore my-release-key.keystore
 ```
 
-The printed output will include the SHA256 fingerprint:
+打印的输出将包含 SHA256 指纹：
 
-![Keytool output](../../../static/img/v6/docs/guides/deep-links/keystore-sha256.png)
+![Keytool 输出](../../../static/img/v6/docs/guides/deep-links/keystore-sha256.png)
 
-Next, use Google's [Asset Links tool](https://developers.google.com/digital-asset-links/tools/generator) to create the Site Association file. Fill in the website domain, app package name, and SHA256 fingerprint, then click "Generate statement":
+接下来，使用 Google 的 [Asset Links 工具](https://developers.google.com/digital-asset-links/tools/generator)创建网站关联文件。填写网站域名、应用包名和 SHA256 指纹，然后点击“Generate statement”：
 
-![Android Identifier Config](../../../static/img/v6/docs/guides/deep-links/android-config.png)
+![Android 标识符配置](../../../static/img/v6/docs/guides/deep-links/android-config.png)
 
-Copy the JSON output into a new local file under `.well-known/assetlinks.json`.
+将 JSON 输出复制到 `.well-known/assetlinks.json` 下的新本地文件中。
 
 ```json
 // assetlinks.json
@@ -272,13 +277,13 @@ Copy the JSON output into a new local file under `.well-known/assetlinks.json`.
 ]
 ```
 
-Deploy the file to your website (hosted on HTTPS), then verify it by clicking the "Test statement" button in the Asset Link tool. If it's configured correctly, a Success message will appear:
+将文件部署到您的网站（通过 HTTPS 托管），然后通过点击 Asset Link 工具中的“Test statement”按钮进行验证。如果配置正确，将出现成功消息：
 
-> Success! Host [website] grants app deep linking to [app package].
+> 成功！主机 [网站] 授予应用深度链接到 [应用包]。
 
-### Add Intent Filter
+### 添加意图过滤器
 
-The final step is to configure the Android app to recognize incoming links. To do so, [add a new Intent Filter](https://developer.android.com/training/app-links/deep-linking#adding-filters) to `AndroidManifest.xml` within the `<activity>` element:
+最后一步是配置 Android 应用以识别传入链接。为此，[添加一个新的意图过滤器](https://developer.android.com/training/app-links/deep-linking#adding-filters)到 `AndroidManifest.xml` 中的 `<activity>` 元素内：
 
 ```xml
 <intent-filter android:autoVerify="true">
@@ -289,7 +294,7 @@ The final step is to configure the Android app to recognize incoming links. To d
 </intent-filter>
 ```
 
-The complete Activity should look similar to this:
+完整的 Activity 应类似于以下内容：
 
 ```xml
 <activity
@@ -313,13 +318,13 @@ The complete Activity should look similar to this:
 </activity>
 ```
 
-## Website Configuration
+## 网站配置
 
-Website configuration will vary based on the tools and backend used. A few suggestions are below.
+网站配置将根据使用的工具和后端而有所不同。以下是一些建议。
 
 ### Angular
 
-Place the association files under `src/.well-known`. Next, configure the build process to deploy these files exactly as-is (ensuring that Apple/Google can read them correctly). Open `angular.json` and under `architect => assets`, add a new entry to the array:
+将关联文件放在 `src/.well-known` 下。接下来，配置构建过程以完全按原样部署这些文件（确保 Apple/Google 可以正确读取它们）。打开 `angular.json`，在 `architect => assets` 下，向数组添加一个新条目：
 
 ```json
 {
@@ -329,29 +334,29 @@ Place the association files under `src/.well-known`. Next, configure the build p
 }
 ```
 
-Build then deploy the site.
+构建然后部署网站。
 
 ### NuxtJS
 
-Place the association files under `static/.well-known`. No additional steps are necessary; simply build then deploy the site.
+将关联文件放在 `static/.well-known` 下。无需额外步骤；只需构建然后部署网站。
 
 ### React
 
-Place the association files under `public/.well-known`. No additional steps are necessary; simply build then deploy the site.
+将关联文件放在 `public/.well-known` 下。无需额外步骤；只需构建然后部署网站。
 
 ### WordPress
 
-See [here](https://devdactic.com/universal-links-ionic/) for WordPress instructions.
+有关 WordPress 的说明，请参见[此处](https://devdactic.com/universal-links-ionic/)。
 
-## Verification
+## 验证
 
-To verify that the websites and the native apps are configured correctly, the website needs to host the Site Association files but the apps do not need to be in the app stores.
+要验证网站和原生应用是否配置正确，网站需要托管网站关联文件，但应用不需要在应用商店中。
 
-Connect a device to your computer, build and deploy the native apps, then test by tapping on website links. If the native app opens, all steps have been implemented correctly.
+将设备连接到计算机，构建并部署原生应用，然后通过点击网站链接进行测试。如果原生应用打开，则所有步骤都已正确实施。
 
-## Resources
+## 资源
 
-- Branch.io: [What is Deep Linking?](https://branch.io/what-is-deep-linking/)
-- Android: [App Links](https://developer.android.com/training/app-links)
-- iOS: [Universal Links](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content)
-- iOS: [Supporting Universal Links in Your App](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)
+- Branch.io: [什么是深度链接？](https://branch.io/what-is-deep-linking/)
+- Android: [应用链接](https://developer.android.com/training/app-links)
+- iOS: [通用链接](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content)
+- iOS: [在您的应用中支持通用链接](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)

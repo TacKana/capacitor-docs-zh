@@ -1,50 +1,48 @@
 ---
-title: Build and Run
-description: Visual Studio Code Extension for Capacitor
+title: 构建与运行
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/build-and-run
 ---
 
-There are a few different ways to build or run your app depending on your preference and whether you want to test in a web browser or a real or emulated mobile device.
+根据您的偏好以及是否希望在 Web 浏览器、真实移动设备或模拟器中进行测试，有几种不同的方式来构建或运行您的应用。
 
 :::tip
-You can press `⌥` + R to run your app (`ALT` + `R` on Windows).
+您可以按 `⌥` + R 来运行应用（Windows 系统为 `ALT` + `R`）。
 :::
 
-## Testing for Web
-Click `Run` > `Web` to build and launch in the default web browser.
+## Web 测试
+点击 `运行` > `Web`，即可在默认的 Web 浏览器中构建并启动应用。
 
 :::note
-You can preview your app inside the VS Code editor by clicking the `...` next to `Web` and choose `Open App in Editor`.
+您可以通过点击 `Web` 旁的 `...` 并选择 `在编辑器中打开应用`，在 VS Code 编辑器内预览应用。
 :::
 
-## Testing on Device
+## 设备测试
 
-Testing using an emulator or real mobile device can be done in one of these ways:
-- **Native IDE** - Click `Build` in the VS Code extension then run the app in XCode or Android Studio.
-- **Using VS Code** - Click `Run` > `iOS` or `Android`, select the device to launch.
+使用模拟器或真实移动设备进行测试可以通过以下方式之一实现：
+- **原生 IDE** - 在 VS Code 扩展中点击 `构建`，然后在 XCode 或 Android Studio 中运行应用。
+- **使用 VS Code** - 点击 `运行` > `iOS` 或 `Android`，选择要启动的设备。
 
-## Live Reload
+## 实时重载
 
-The **Live Reload** feature allows you to run your app on a mobile device and whenever a code change is made in VS Code and saved it will reload the application.
+**实时重载**功能允许您在移动设备上运行应用，每当在 VS Code 中进行代码更改并保存时，应用将重新加载。
 
-To turn on this feature click `Settings` > `Live Reload`
+要开启此功能，请点击 `设置` > `实时重载`
 
-## Debugging
-You can debug (use breakpoints, inspect variables etc) by clicking the `Debug` item and choosing:
-- **`Web`** - To launch Chrome or Edge and begin a debugging session.
-- **`Android`** - To attach to a running Android web view and begin a debugging session.
-- **`iOS`** - iOS is not currently supported in VS Code. You can use [Safari](debugging#use-safari).
+## 调试
+您可以通过点击 `调试` 项并选择以下选项来进行调试（使用断点、检查变量等）：
+- **`Web`** - 启动 Chrome 或 Edge 并开始调试会话。
+- **`Android`** - 附加到正在运行的 Android WebView 并开始调试会话。
+- **`iOS`** - VS Code 目前不支持 iOS 调试。您可以使用 [Safari](debugging#use-safari) 进行调试。
 
+## 使用 HTTPS
 
-## Using HTTPS
+此功能（`设置` > `使用 HTTPS`）将创建证书并使用 HTTPS 提供您的应用。界面上会显示在 Web、iOS 和 Android 上信任证书的说明。
 
-The feature (`Settings` > `Use HTTPS`) will create a certificate and serve your application using HTTPS. Instructions to trust the certificate on web, iOS and Android are displayed.
-
-The option to serve your application via `HTTPS` is required if you make Web API calls that require a [secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) like [Geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation).
+如果您需要调用要求[安全上下文](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts)的 Web API（如[地理位置](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)），则必须通过 `HTTPS` 提供应用。
 
 :::note
-This feature is currently only available with Angular projects and will temporarily install [a plugin](https://github.com/jcesarmobile/ssl-skip) due to a quirk with the Android web view not trusting user installed CA Certificates.
+此功能目前仅适用于 Angular 项目，并且由于 Android WebView 不信任用户安装的 CA 证书的特殊性，会临时安装[一个插件](https://github.com/jcesarmobile/ssl-skip)。
 :::
-

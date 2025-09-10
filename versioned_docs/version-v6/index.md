@@ -1,22 +1,22 @@
 ---
-title: Capacitor - Cross-platform Native Runtime for Web Apps
-sidebar_label: Introduction
-description: A cross-platform native runtime for building Native Progressive Web Apps for iOS, Android, and beyond
+title: Capacitor - 跨平台Web应用原生运行时
+sidebar_label: 简介
+description: 用于为iOS、Android等平台构建原生渐进式Web应用的跨平台运行时
 hide_table_of_contents: true
 ---
 
-# Capacitor: Cross-platform Native Runtime for Web Apps
+# Capacitor：跨平台Web应用原生运行时
 
-Capacitor is a cross-platform native runtime that makes it easy to build performant mobile applications that run natively on iOS, Android, and more using modern web tooling. Representing the next evolution of Hybrid apps, Capacitor creates **Web Native apps**, providing a modern native container approach for teams who want to build web-first without sacrificing full access to native SDKs when they need it.
+Capacitor是一款跨平台原生运行时，能帮助开发者轻松构建高性能移动应用，这些应用可以原生运行在iOS、Android等平台，同时使用现代化的Web开发工具。作为混合应用的新一代演进，Capacitor创造了**Web原生应用**，为希望采用Web优先开发策略的团队提供了现代化的原生容器方案，同时在他们需要时仍能完全访问原生SDK。
 
-![Capacitor Logo and background](/img/v6/docs/capacitor-index.png)
+![Capacitor标志与背景](/img/v6/docs/capacitor-index.png)
 
-## Introduction
+## 简介
 
-Capacitor provides a consistent, web-focused set of APIs that enable an app to stay as close to web standards as possible, while accessing rich native device features on platforms that support them. If it works in the browser, it probably works in a mobile app when using Capacitor. Adding native functionality is straightforward with a Plugin API for Swift on iOS, Java on Android, and JavaScript for the web.
+Capacitor提供了一套以Web为核心的统一API，让应用既能尽可能遵循Web标准，又能在支持的平台上访问丰富的原生设备功能。如果某个功能能在浏览器中运行，那么使用Capacitor时它很可能也能在移动应用中运行。通过为iOS的Swift、Android的Java以及Web的JavaScript提供的插件API，添加原生功能变得简单直接。
 
-## Get Started
+## 快速开始
 
-Getting started with Capacitor is easy! Capacitor can be dropped into any existing modern JavaScript project, or a fresh Capacitor project can be created from scratch.
+开始使用Capacitor非常简单！您可以将Capacitor集成到任何现有的现代化JavaScript项目中，也可以从头创建一个全新的Capacitor项目。
 
-Follow the [Installation guide](/main/getting-started/installation.md) to get started building your app.
+按照[安装指南](/main/getting-started/installation.md)开始构建您的应用。

@@ -1,57 +1,52 @@
 ---
-title: Troubleshooting Android Issues
-sidebar_label: Troubleshooting
-description: Troubleshooting Android Issues
+title: Android 问题排查指南
+sidebar_label: 问题排查
+description: Android 开发常见问题解决方案
 contributors:
   - mlynch
   - jcesarmobile
 slug: /android/troubleshooting
 ---
 
-# Troubleshooting Android Issues
+# Android 常见问题排查
 
-Creating a 100% perfect native management tool is nearly impossible, and sooner or later you'll run into various issues with some part of the Android workflow.
+要打造一个完美无缺的原生开发工具几乎是不可能的，在 Android 开发流程中总会遇到各种问题。
 
-This guide attempts to document common Android issues with possible solutions.
+本文档记录了常见的 Android 问题及其解决方案。
 
-## Android Toolbox
+## Android 调试工具箱
 
-Every Android developer learns a few common techniques for debugging Android issues, and you should incorporate these into your workflow:
+每位 Android 开发者都应掌握以下基本调试技巧：
 
-### Google, Google, Google
+### 善用搜索引擎
 
-Any time you encounter an issue with Android, or Gradle, or Emulators, your first step should be to copy and paste the error into a Google search.
+遇到任何 Android、Gradle 或模拟器相关问题时，第一步都应该将错误信息复制到 Google 进行搜索。
 
-Capacitor uses the standard Android toolkit, so chances are if you run into something, many Android developers have as well, and there's a solution out there.
+由于 Capacitor 使用的是标准 Android 工具链，因此大多数问题都能在开发者社区找到解决方案——可能只需更新依赖、同步 Gradle 或清除缓存即可解决。
 
-It could be as simple as updating a dependency, running Gradle sync, or invalidating caches.
+### Gradle 同步
 
-### Gradle Sync
+当通过 npm 安装新插件后无法在 Android 项目中使用时，可以点击 Android Studio 右上角的 "Sync Project with Gradle Files" 按钮（图标是大象形状）。这将重新同步原生代码以包含新插件。更多细节可参考 [Github 上的这个 issue](https://github.com/ionic-team/capacitor/issues/4012)。
 
-If you have installed a new Plugin from npm and are unable to use or see the plugins in your Android build, try using the "Sync Project with Gradle Files" button in the top right of Android Studio (the icon looks like an elephant). This will re-sync your native Android code to include the new plugin code and should allow use of your new plugin. For more info, see [this issue on Github](https://github.com/ionic-team/capacitor/issues/4012).
+Gradle 同步也能解决许多看似随机的问题，因此遇到构建问题时都应优先尝试此操作。
 
-It can also help with many other seemingly random issues, so running "Sync Project with Gradle Files" is always a good first step when running into most Android build issues.
+### 清理/重建项目
 
-### Clean/Rebuild
+清理并重新构建能解决多种构建问题：
 
-Cleaning and rebuilding can fix a number of build issues:
+![Android 清理与重建](../../../../static/img/v4/docs/android/clean-rebuild.png)
 
-![Android Clean and Build](../../../../static/img/v4/docs/android/clean-rebuild.png)
+### 清除缓存并重启
 
-### Invalidate Caches/Restart
+当你确认已修复问题但 Android Studio 或 Gradle 仍报错时，通常需要清除 IDE 缓存：
 
-If you're confident you fixed an issue, but Android Studio or Gradle doesn't agree, often the solution is to have Android Studio invalidate its caches and restart the program.
+![清除 Android Studio 缓存](../../../../static/img/v4/docs/android/invalidate-caches.png)
 
-That can be done easily from the File menu:
+## 错误："package android.support.* 不存在"
 
-![Android Invalidate Caches](../../../../static/img/v4/docs/android/invalidate-caches.png)
+此错误通常由某些 Cordova 或 Capacitor 插件仍在使用旧的 Android 支持库（而非 AndroidX）导致。建议向插件仓库提交 issue 促使维护者更新依赖。
 
-## Error: "package android.support.\* does not exist"
-
-This error occurs when some Cordova or Capacitor plugin has old android support dependencies instead of using the new AndroidX equivalent.
-You should report the issue in the plugin repository so the maintainers can update the plugin to use AndroidX dependencies.
-
-As a workaround, you can also patch the plugin using jetifier:
+临时解决方案是使用 jetifier 工具转换依赖：
 
 ```bash
 npm install jetifier
@@ -59,81 +54,72 @@ npx jetify
 npx cap sync android
 ```
 
-## Error: "Please select Android SDK"
+## 错误："请选择 Android SDK"
 
-This error is often due to Gradle needing to be synced, something you'll need to do
-periodically after updating dependencies and changing project settings.
+该问题通常源于 Gradle 需要同步，在更新依赖或修改项目设置后常会出现。
 
-To manually sync Gradle, open File -> Sync Project with Gradle Files from the main menu bar:
+手动同步方法：点击菜单栏 File -> Sync Project with Gradle Files：
 
-![Sync Gradle](../../../../static/img/v4/docs/android/sync-gradle.png)
+![同步 Gradle](../../../../static/img/v4/docs/android/sync-gradle.png)
 
-## Error: "APK Can't be installed"
+## 错误："无法安装 APK"
 
-An APK not installing to an Emulator or Device is often due to having an existing app with the same package name. You may see an error like this when trying to run your app:
+APK 无法安装到模拟器或设备通常是因为存在相同包名的应用。运行时可能看到如下错误：
 
-![Android APK Failed](../../../../static/img/v4/docs/android/apk-failed.png)
+![APK 安装失败](../../../../static/img/v4/docs/android/apk-failed.png)
 
-The solution is to remove any old apps and make sure your package name is up to date in `AndroidManifest.xml` and not conflicting with other apps you are developing.
+解决方案是删除旧应用，并确保 `AndroidManifest.xml` 中的包名唯一且不与其他开发中的应用冲突。最后执行一次清理和重建。
 
-Finally, do a clean and rebuild just in case.
+## 错误："找不到 Java 运行时环境"
 
-## Error: "Unable to locate a Java Runtime"
+执行 `run` 命令时若未设置 `JAVA_HOME` 环境变量会出现此错误。
 
-This error may occur when using the `run` command if the `JAVA_HOME` environment variable is not set. 
+解决方法：在 Android Studio 的 Preferences > Build, Execution, Deployment, Build Tools > Gradle > Gradle JDK 中查看 JDK 路径并设置为环境变量：
 
-To resolve, set `JAVA_HOME` as an environment or system variable using the path found in Android Studio under Preferences > Build, Execution, Deployment, Build Tools > Gradle > Gradle JDK.
+![Android Studio 中的 JDK 路径](../../../../static/img/v4/docs/android/jdk-path.png)
 
-![JDK Path in Android Studio](../../../../static/img/v4/docs/android/jdk-path.png)
-
-On Mac, this can be updated in your `.zshrc` or `.bashrc` file or exported in your environment.
-
+Mac 用户可在 `.zshrc` 或 `.bashrc` 中添加：
 ```bash
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
 ```
 
-On Windows, you can set `JAVA_HOME` as a System Variable under your Environment Variables settings.
+Windows 用户需在系统环境变量中设置 `JAVA_HOME`。
 
-## Recreating your project
+## 项目重建指南
 
-Capacitor lets you manage your own Android project. Like any IDE-backed project, sometimes things get so out of sync that the only solution is to rebuild the project.
+当 Android 项目严重不同步时，可能需要完全重建：
 
-To do this, follow these steps:
+1. 备份自定义代码（如 `app/android/src` 中的 Java 文件、清单文件和资源文件）
+2. 确保使用最新 Capacitor CLI：`npm install @capacitor/cli@latest`
+3. 删除 android 目录：`rm -rf android/`
+4. 重新生成项目：`npx cap add android`
+5. 将备份的代码复制回项目
 
-1. Copy any source code you created (such as Java files in `app/android/src`, manifest files, or resource files) into a safe location outside of `app/android`.
-2. Next, make sure you are running an updated version of the Capacitor CLI: `npm install @capacitor/cli@latest`
-3. Remove the android directory: `rm -rf android/`
-4. Re-create the Android app from Capacitor: `npx cap add android`
-5. Copy your saved source files back into the project
+## 插件未实现错误
 
-## Plugin Not Implemented
+在 Android 上出现此错误通常是因为 Capacitor 无法找到插件或注入 WebView 代码失败。
 
-On Android, this can happen if Capacitor doesn't find the plugins or can't inject its code into the WebView.
+排查步骤：
+1. 确认插件已安装并出现在 `package.json`
+2. 执行 `npx cap sync android`
+3. 点击 Android Studio 右上角的 Gradle 同步按钮（大象图标）
 
-First of all, make sure the plugin is installed and appears in the `package.json`.
+如果是 Capacitor 1/2 迁移项目，确保已启用 [自动插件加载](https://capacitorjs.com/docs/updating/3-0#switch-to-automatic-android-plugin-loading)。
 
-Then, run `npx cap sync android`.
+若仍报错，请检查是否使用了 Service Worker（会阻止代码注入），可参考 [此临时解决方案](https://github.com/ionic-team/capacitor/issues/1655#issuecomment-579229390)。
 
-Finally, use the "Sync Project with Gradle Files" button in the top right of Android Studio (the icon looks like an elephant). This will re-sync your native Android code to include the new plugin code and should allow use of your new plugin.
+## ProGuard 使用注意事项
 
-Also, if you are migrating from Capacitor 1 or 2, make sure you enabled the [automatic plugin loading](https://capacitorjs.com/docs/updating/3-0#switch-to-automatic-android-plugin-loading).
+ProGuard 是用于代码压缩和混淆的工具，通过在 `build.gradle` 中设置 `minifyEnabled true` 启用。但可能会影响依赖反射等运行时特性的插件。
 
-If still getting the "Plugin not implemented" error, make sure you are not using service workers, that prevents Capacitor's and Plugins code from injecting. Or if you want to use them, you can use [this workaround](https://github.com/ionic-team/capacitor/issues/1655#issuecomment-579229390) for making the injection work.
+从 Capacitor v3.2.3 开始已内置 ProGuard 规则覆盖核心功能。旧版本需手动将 [这些规则](https://github.com/ionic-team/capacitor/blob/4.x/android/capacitor/proguard-rules.pro) 添加到项目的 `proguard-rules.pro` 文件中。
 
-## Using Proguard
-
-ProGuard is a tool used to shrink, obfuscate, and reduce the size of your app. It is enabled by setting the `minifyEnabled` option in `build.gradle` to `true`. This process can sometimes lead to issues in Capacitor when using a plugin or some custom native code that relies on its code being being readable at run time, such as code reflection. ProGuard scans code to try and optimize and shink the size of an app and sometimes this process can remove classes or methods that are important for the functionality of a plugin.
-
-As of Capacitor v3.2.3 there are ProGuard rules included in Capacitor that cover the core functionality of Capacitor plugins, permissions, and activity results. If you are using an earlier version of Capacitor than v3.2.3, add [the following rules](https://github.com/ionic-team/capacitor/blob/4.x/android/capacitor/proguard-rules.pro) to your Android project's `proguard-rules.pro` file. Those rules should resolve problems with any of the core Capacitor features and core plugins.
-
-If you still encounter any issues after adding those rules, try to identify the source plugin or native code and add a rule to cover the specific plugin code, for example:
-
+若仍有问题，可为特定插件添加保留规则：
 ```
 -keep class com.mythirdpartyplugin.** { *; }
 ```
 
-If you are certain a Capacitor plugin is causing the ProGuard issue the following ProGuard rule will cover any plugin class code, if you don't mind all plugins being exempt from ProGuard processing:
-
+或为所有 Capacitor 插件添加通用规则：
 ```
 -keep public class * extends com.getcapacitor.Plugin
 ```

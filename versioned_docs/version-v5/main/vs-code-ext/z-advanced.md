@@ -1,45 +1,44 @@
 ---
 title: Advanced Topics
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/advanced
 ---
 
-The extension has some advanced features that you may be interested in.
+本扩展提供了一些您可能会感兴趣的高级功能。
 
-### Exporting Project Information
+### 导出项目信息
 
-Click `Configuration` > `Export` to create a markdown file that describes the dependencies and plugins of your project. This includes the version number used and latest version available. 
+点击 `Configuration` > `Export` 可生成一个描述项目依赖和插件的 Markdown 文件。该文件包含当前使用的版本号以及最新可用版本信息。
 
-If a recommendation is made it will be described. A list of files in your project that do not match the standard naming convention will also be listed.
+如存在版本更新建议，文件中将给出说明。同时还会列出项目中不符合标准命名规范的文件清单。
 
+### 键盘快捷键
 
-### Keyboard Shortcuts
+可使用以下键盘快捷键：
 
-The following keyboard shortcuts can be used:
-
-| Mac Shortcut | Windows Shortcut | Action |
+| Mac 快捷键 | Windows 快捷键 | 操作          |
 | --- | --- | ----------- |
-| `⌥` + R | `ALT` + R | Run the app |
-| `⌥` + B | `ALT` + B | Build the app for web |
-| `⌥` + D | `ALT` + D | Debug the app for web |
+| `⌥` + R | `ALT` + R | 运行应用 |
+| `⌥` + B | `ALT` + B | 构建 Web 应用 |
+| `⌥` + D | `ALT` + D | 调试 Web 应用 |
 
-### Set Android Studio Location
+### 设置 Android Studio 路径
 
-The extension will guess the location of Android Studio to be able to find the location for Java. You can set an alternative location by clicking `Settings` > `Advanced` and setting `Java Home` to another path. The default location is usually `/Applications/Android Studio.app/Contents/jre/Contents/Home`.
+扩展会尝试自动定位 Android Studio 以获取 Java 路径。如需手动设置，请点击 `Settings` > `Advanced`，然后修改 `Java Home` 路径。默认路径通常为 `/Applications/Android Studio.app/Contents/jre/Contents/Home`。
 
-### Set Shell Path
+### 设置 Shell 路径
 
-The default shell is `/bin/sh` on a Mac or `cmd` on Windows. You can change the default shell used by clicking `Setting` > `Advanced` and setting `Shell Path`. For example: `/bin/zsh`.
+Mac 系统默认 Shell 为 `/bin/sh`，Windows 系统为 `cmd`。点击 `Setting` > `Advanced` 并设置 `Shell Path` 可修改默认 Shell，例如设置为 `/bin/zsh`。
 
-### ADB Path
+### ADB 路径配置
 
-ADB is used when debugging Android devices. The Location of the Android Debug Bridge (ADB) can be change by clicking `Settings` > `Advanced` and setting `Adb Path`.
+调试 Android 设备时会使用 ADB。如需修改 Android Debug Bridge (ADB) 的路径，请点击 `Settings` > `Advanced` 设置 `Adb Path`。
 
-### Other Features
+### 其他功能
 
-Click the `...` button next to `Project` to show a list of expermental features:
-- **Migrate from NPM to PNPM** - Your project will be switched to use pnpm as its package manager.
-- **Switch from WebPack to ESBuild** - Your Angular project will be switched to use the ESBuild option.
-- **Rebuild Node Modules** - The `node_modules` folder will be deleted and `npm install` will be run to restore the folder.
+点击 `Project` 旁的 `...` 按钮可显示实验性功能列表：
+- **从 NPM 迁移到 PNPM** - 将项目的包管理工具切换为 pnpm
+- **从 WebPack 切换到 ESBuild** - 将 Angular 项目的构建工具切换为 ESBuild 方案
+- **重建 Node Modules** - 删除 `node_modules` 文件夹并执行 `npm install` 重新安装依赖

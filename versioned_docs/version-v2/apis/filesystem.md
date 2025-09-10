@@ -1,6 +1,6 @@
 ---
-title: Filesystem
-description: Filesystem API
+title: 文件系统
+description: 文件系统 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/filesystem
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+文件系统 API 提供了类似 NodeJS 的接口，用于操作设备上的文件。
 
 - [`readFile(...)`](#readfile)
 - [`writeFile(...)`](#writefile)
@@ -22,17 +22,16 @@ The Filesystem API provides a NodeJS-like API for working with files on the devi
 - [`stat(...)`](#stat)
 - [`rename(...)`](#rename)
 - [`copy(...)`](#copy)
-- [Interfaces](#interfaces)
-- [Enums](#enums)
+- [接口](#interfaces)
+- [枚举](#enums)
 
-## Understanding Directories and Files
+## 理解目录与文件
 
-iOS and Android have additional layers of separation between files, such as special directories that are backed up to the Cloud, or ones for storing Documents. The Filesystem API offers a simple way to scope each operation to a specific special directory on the device.
+iOS 和 Android 对文件有额外的隔离层级，比如有专用于云备份的特殊目录，或是存放文档的目录。文件系统 API 提供了简便的方法，可以将操作限定在设备的特定目录中。
 
-Additionally, the Filesystem API supports using full `file://` paths, or reading `content://` files on Android. Simply
-leave out the `directory` param to use a full file path.
+此外，文件系统 API 支持使用完整的 `file://` 路径，或在 Android 上读取 `content://` 文件。只需省略 `directory` 参数即可使用完整文件路径。
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
@@ -47,9 +46,9 @@ async fileWrite() {
       directory: FilesystemDirectory.Documents,
       encoding: FilesystemEncoding.UTF8
     })
-    console.log('Wrote file', result);
+    console.log('写入文件', result);
   } catch(e) {
-    console.error('Unable to write file', e);
+    console.error('无法写入文件', e);
   }
 }
 
@@ -65,7 +64,7 @@ async fileRead() {
 async fileAppend() {
   await Filesystem.appendFile({
     path: 'secrets/text.txt',
-    data: "MORE TESTS",
+    data: "更多测试",
     directory: FilesystemDirectory.Documents,
     encoding: FilesystemEncoding.UTF8
   });
@@ -83,10 +82,10 @@ async mkdir() {
     let ret = await Filesystem.mkdir({
       path: 'secrets',
       directory: FilesystemDirectory.Documents,
-      recursive: false // like mkdir -p
+      recursive: false // 类似 mkdir -p
     });
   } catch(e) {
-    console.error('Unable to make directory', e);
+    console.error('无法创建目录', e);
   }
 }
 
@@ -98,7 +97,7 @@ async rmdir() {
       recursive: false,
     });
   } catch(e) {
-    console.error('Unable to remove directory', e);
+    console.error('无法删除目录', e);
   }
 }
 
@@ -109,7 +108,7 @@ async readdir() {
       directory: FilesystemDirectory.Documents
     });
   } catch(e) {
-    console.error('Unable to read dir', e);
+    console.error('无法读取目录', e);
   }
 }
 
@@ -120,14 +119,12 @@ async stat() {
       directory: FilesystemDirectory.Documents
     });
   } catch(e) {
-    console.error('Unable to stat file', e);
+    console.error('无法获取文件状态', e);
   }
 }
 
 async readFilePath() {
-  // Here's an example of reading a file with a full file path. Use this to
-  // read binary data (base64 encoded) from plugins that return File URIs, such as
-  // the Camera.
+  // 这是读取完整文件路径的示例。可用于读取返回 File URI 的插件（如相机）中的二进制数据（base64 编码）
   try {
     let data = await Filesystem.readFile({
       path: 'file:///var/mobile/Containers/Data/Application/22A433FD-D82D-4989-8BE6-9FC49DEA20BB/Documents/text.txt'
@@ -137,27 +134,27 @@ async readFilePath() {
 
 async rename() {
   try {
-    // This example moves the file within the same 'directory'
+    // 此示例在同一目录内移动文件
     let ret = await Filesystem.rename({
       from: 'text.txt',
       to: 'text2.txt',
       directory: FilesystemDirectory.Documents
     });
   } catch(e) {
-    console.error('Unable to rename file', e);
+    console.error('无法重命名文件', e);
   }
 }
 
 async copy() {
   try {
-    // This example copies a file within the documents directory
+    // 此示例在文档目录内复制文件
     let ret = await Filesystem.copy({
       from: 'text.txt',
       to: 'text2.txt',
       directory: FilesystemDirectory.Documents
     });
   } catch(e) {
-    console.error('Unable to copy file', e);
+    console.error('无法复制文件', e);
   }
 }
 ```
@@ -170,13 +167,13 @@ async copy() {
 readFile(options: FileReadOptions) => Promise<FileReadResult>
 ```
 
-Read a file from disk
+从磁盘读取文件
 
-| Param         | Type                                                        | Description               |
-| ------------- | ----------------------------------------------------------- | ------------------------- |
-| **`options`** | <code><a href="#filereadoptions">FileReadOptions</a></code> | options for the file read |
+| 参数          | 类型                                                        | 描述               |
+| ------------- | ----------------------------------------------------------- | ------------------ |
+| **`options`** | <code><a href="#filereadoptions">FileReadOptions</a></code> | 文件读取选项       |
 
-**Returns:** <code>Promise&lt;<a href="#filereadresult">FileReadResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#filereadresult">FileReadResult</a>&gt;</code>
 
 ---
 
@@ -186,13 +183,13 @@ Read a file from disk
 writeFile(options: FileWriteOptions) => Promise<FileWriteResult>
 ```
 
-Write a file to disk in the specified location on device
+将文件写入设备的指定位置
 
-| Param         | Type                                                          | Description                |
-| ------------- | ------------------------------------------------------------- | -------------------------- |
-| **`options`** | <code><a href="#filewriteoptions">FileWriteOptions</a></code> | options for the file write |
+| 参数          | 类型                                                          | 描述                |
+| ------------- | ------------------------------------------------------------- | ------------------- |
+| **`options`** | <code><a href="#filewriteoptions">FileWriteOptions</a></code> | 文件写入选项        |
 
-**Returns:** <code>Promise&lt;<a href="#filewriteresult">FileWriteResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#filewriteresult">FileWriteResult</a>&gt;</code>
 
 ---
 
@@ -202,13 +199,13 @@ Write a file to disk in the specified location on device
 appendFile(options: FileAppendOptions) => Promise<FileAppendResult>
 ```
 
-Append to a file on disk in the specified location on device
+向设备的指定位置的文件追加内容
 
-| Param         | Type                                                            | Description                 |
-| ------------- | --------------------------------------------------------------- | --------------------------- |
-| **`options`** | <code><a href="#fileappendoptions">FileAppendOptions</a></code> | options for the file append |
+| 参数          | 类型                                                            | 描述                 |
+| ------------- | --------------------------------------------------------------- | -------------------- |
+| **`options`** | <code><a href="#fileappendoptions">FileAppendOptions</a></code> | 文件追加选项         |
 
-**Returns:** <code>Promise&lt;<a href="#fileappendresult">FileAppendResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#fileappendresult">FileAppendResult</a>&gt;</code>
 
 ---
 
@@ -218,13 +215,13 @@ Append to a file on disk in the specified location on device
 deleteFile(options: FileDeleteOptions) => Promise<FileDeleteResult>
 ```
 
-Delete a file from disk
+从磁盘删除文件
 
-| Param         | Type                                                            | Description                 |
-| ------------- | --------------------------------------------------------------- | --------------------------- |
-| **`options`** | <code><a href="#filedeleteoptions">FileDeleteOptions</a></code> | options for the file delete |
+| 参数          | 类型                                                            | 描述                 |
+| ------------- | --------------------------------------------------------------- | -------------------- |
+| **`options`** | <code><a href="#filedeleteoptions">FileDeleteOptions</a></code> | 文件删除选项         |
 
-**Returns:** <code>Promise&lt;<a href="#filedeleteresult">FileDeleteResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#filedeleteresult">FileDeleteResult</a>&gt;</code>
 
 ---
 
@@ -234,13 +231,13 @@ Delete a file from disk
 mkdir(options: MkdirOptions) => Promise<MkdirResult>
 ```
 
-Create a directory.
+创建目录
 
-| Param         | Type                                                  | Description           |
-| ------------- | ----------------------------------------------------- | --------------------- |
-| **`options`** | <code><a href="#mkdiroptions">MkdirOptions</a></code> | options for the mkdir |
+| 参数          | 类型                                                  | 描述           |
+| ------------- | ----------------------------------------------------- | -------------- |
+| **`options`** | <code><a href="#mkdiroptions">MkdirOptions</a></code> | 创建目录选项   |
 
-**Returns:** <code>Promise&lt;<a href="#mkdirresult">MkdirResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#mkdirresult">MkdirResult</a>&gt;</code>
 
 ---
 
@@ -250,13 +247,13 @@ Create a directory.
 rmdir(options: RmdirOptions) => Promise<RmdirResult>
 ```
 
-Remove a directory
+删除目录
 
-| Param         | Type                                                  | Description                          |
-| ------------- | ----------------------------------------------------- | ------------------------------------ |
-| **`options`** | <code><a href="#rmdiroptions">RmdirOptions</a></code> | the options for the directory remove |
+| 参数          | 类型                                                  | 描述                          |
+| ------------- | ----------------------------------------------------- | ----------------------------- |
+| **`options`** | <code><a href="#rmdiroptions">RmdirOptions</a></code> | 目录删除选项                  |
 
-**Returns:** <code>Promise&lt;<a href="#rmdirresult">RmdirResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#rmdirresult">RmdirResult</a>&gt;</code>
 
 ---
 
@@ -266,13 +263,13 @@ Remove a directory
 readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 ```
 
-Return a list of files from the directory (not recursive)
+返回目录中的文件列表（非递归）
 
-| Param         | Type                                                      | Description                           |
-| ------------- | --------------------------------------------------------- | ------------------------------------- |
-| **`options`** | <code><a href="#readdiroptions">ReaddirOptions</a></code> | the options for the readdir operation |
+| 参数          | 类型                                                      | 描述                           |
+| ------------- | --------------------------------------------------------- | ------------------------------ |
+| **`options`** | <code><a href="#readdiroptions">ReaddirOptions</a></code> | 读取目录选项                   |
 
-**Returns:** <code>Promise&lt;<a href="#readdirresult">ReaddirResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#readdirresult">ReaddirResult</a>&gt;</code>
 
 ---
 
@@ -282,13 +279,13 @@ Return a list of files from the directory (not recursive)
 getUri(options: GetUriOptions) => Promise<GetUriResult>
 ```
 
-Return full File URI for a path and directory
+返回路径和目录对应的完整 File URI
 
-| Param         | Type                                                    | Description                        |
-| ------------- | ------------------------------------------------------- | ---------------------------------- |
-| **`options`** | <code><a href="#geturioptions">GetUriOptions</a></code> | the options for the stat operation |
+| 参数          | 类型                                                    | 描述                        |
+| ------------- | ------------------------------------------------------- | --------------------------- |
+| **`options`** | <code><a href="#geturioptions">GetUriOptions</a></code> | 获取 URI 选项               |
 
-**Returns:** <code>Promise&lt;<a href="#geturiresult">GetUriResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#geturiresult">GetUriResult</a>&gt;</code>
 
 ---
 
@@ -298,13 +295,13 @@ Return full File URI for a path and directory
 stat(options: StatOptions) => Promise<StatResult>
 ```
 
-Return data about a file
+返回文件的相关信息
 
-| Param         | Type                                                | Description                        |
-| ------------- | --------------------------------------------------- | ---------------------------------- |
-| **`options`** | <code><a href="#statoptions">StatOptions</a></code> | the options for the stat operation |
+| 参数          | 类型                                                | 描述                        |
+| ------------- | --------------------------------------------------- | --------------------------- |
+| **`options`** | <code><a href="#statoptions">StatOptions</a></code> | 文件状态查询选项            |
 
-**Returns:** <code>Promise&lt;<a href="#statresult">StatResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#statresult">StatResult</a>&gt;</code>
 
 ---
 
@@ -314,13 +311,13 @@ Return data about a file
 rename(options: RenameOptions) => Promise<RenameResult>
 ```
 
-Rename a file or directory
+重命名文件或目录
 
-| Param         | Type                                                    | Description                          |
-| ------------- | ------------------------------------------------------- | ------------------------------------ |
-| **`options`** | <code><a href="#renameoptions">RenameOptions</a></code> | the options for the rename operation |
+| 参数          | 类型                                                    | 描述                          |
+| ------------- | ------------------------------------------------------- | ----------------------------- |
+| **`options`** | <code><a href="#renameoptions">RenameOptions</a></code> | 重命名选项                    |
 
-**Returns:** <code>Promise&lt;<a href="#renameresult">RenameResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#renameresult">RenameResult</a>&gt;</code>
 
 ---
 
@@ -330,117 +327,117 @@ Rename a file or directory
 copy(options: CopyOptions) => Promise<CopyResult>
 ```
 
-Copy a file or directory
+复制文件或目录
 
-| Param         | Type                                                | Description                        |
-| ------------- | --------------------------------------------------- | ---------------------------------- |
-| **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> | the options for the copy operation |
+| 参数          | 类型                                                | 描述                        |
+| ------------- | --------------------------------------------------- | --------------------------- |
+| **`options`** | <code><a href="#copyoptions">CopyOptions</a></code> | 复制选项                    |
 
-**Returns:** <code>Promise&lt;<a href="#copyresult">CopyResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#copyresult">CopyResult</a>&gt;</code>
 
 ---
 
-### Interfaces
+### 接口
 
 #### FileReadResult
 
-| Prop       | Type                |
+| 属性       | 类型                |
 | ---------- | ------------------- |
 | **`data`** | <code>string</code> |
 
 #### FileReadOptions
 
-| Prop            | Type                                                                | Description                                                                                                                                                                                          |
-| --------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The filename to read                                                                                                                                                                                 |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to read the file from                                                                                                                     |
-| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | The encoding to read the file in, if not provided, data is read as binary and returned as base64 encoded data. Pass <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> to read data as string |
+| 属性            | 类型                                                                | 描述                                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要读取的文件名                                                                                                                                                                               |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件所在目录                                                                                                                                                                                 |
+| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | 文件编码格式。如未提供，将读取为二进制数据并返回 base64 编码。传递 <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> 将数据读取为字符串                                               |
 
 #### FileWriteResult
 
-| Prop      | Type                |
+| 属性      | 类型                |
 | --------- | ------------------- |
 | **`uri`** | <code>string</code> |
 
 #### FileWriteOptions
 
-| Prop            | Type                                                                | Description                                                                                                                                                                        |
-| --------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The filename to write                                                                                                                                                              |
-| **`data`**      | <code>string</code>                                                 | The data to write                                                                                                                                                                  |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to store the file in                                                                                                    |
-| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | The encoding to write the file in. If not provided, data is written as base64 encoded data. Pass <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> to write data as string |
-| **`recursive`** | <code>boolean</code>                                                | Whether to create any missing parent directories. Defaults to false                                                                                                                |
+| 属性            | 类型                                                                | 描述                                                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要写入的文件名                                                                                                                                                              |
+| **`data`**      | <code>string</code>                                                 | 要写入的数据                                                                                                                                                                |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件存储目录                                                                                                                                                                |
+| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | 文件编码格式。如未提供，数据将作为 base64 编码写入。传递 <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> 将数据作为字符串写入                                      |
+| **`recursive`** | <code>boolean</code>                                                | 是否创建缺少的父目录。默认为 false                                                                                                                                          |
 
 #### FileAppendResult
 
 #### FileAppendOptions
 
-| Prop            | Type                                                                | Description                                                                                                                                                                        |
-| --------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The filename to write                                                                                                                                                              |
-| **`data`**      | <code>string</code>                                                 | The data to write                                                                                                                                                                  |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to store the file in                                                                                                    |
-| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | The encoding to write the file in. If not provided, data is written as base64 encoded data. Pass <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> to write data as string |
+| 属性            | 类型                                                                | 描述                                                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要追加的文件名                                                                                                                                                              |
+| **`data`**      | <code>string</code>                                                 | 要追加的数据                                                                                                                                                                |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件存储目录                                                                                                                                                                |
+| **`encoding`**  | <code><a href="#filesystemencoding">FilesystemEncoding</a></code>   | 文件编码格式。如未提供，数据将作为 base64 编码写入。传递 <a href="#filesystemencoding">FilesystemEncoding.UTF8</a> 将数据作为字符串写入                                      |
 
 #### FileDeleteResult
 
 #### FileDeleteOptions
 
-| Prop            | Type                                                                | Description                                                                        |
-| --------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The filename to delete                                                             |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to delete the file from |
+| 属性            | 类型                                                                | 描述                                                                        |
+| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要删除的文件名                                                              |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件所在目录                                                                |
 
 #### MkdirResult
 
 #### MkdirOptions
 
-| Prop            | Type                                                                | Description                                                                             |
-| --------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The path of the new directory                                                           |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to make the new directory in |
-| **`recursive`** | <code>boolean</code>                                                | Whether to create any missing parent directories as well. Defaults to false             |
+| 属性            | 类型                                                                | 描述                                                                             |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 新目录路径                                                                       |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 新目录所在位置                                                                   |
+| **`recursive`** | <code>boolean</code>                                                | 是否同时创建缺失的父目录。默认为 false                                           |
 
 #### RmdirResult
 
 #### RmdirOptions
 
-| Prop            | Type                                                                | Description                                                                             |
-| --------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The path of the directory to remove                                                     |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to remove the directory from |
-| **`recursive`** | <code>boolean</code>                                                | Whether to recursively remove the contents of the directory Defaults to false           |
+| 属性            | 类型                                                                | 描述                                                                             |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要删除的目录路径                                                                 |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 目录所在位置                                                                     |
+| **`recursive`** | <code>boolean</code>                                                | 是否递归删除目录内容。默认为 false                                               |
 
 #### ReaddirResult
 
-| Prop        | Type                  |
+| 属性        | 类型                  |
 | ----------- | --------------------- |
 | **`files`** | <code>string[]</code> |
 
 #### ReaddirOptions
 
-| Prop            | Type                                                                | Description                                                                   |
-| --------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The path of the directory to read                                             |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to list files from |
+| 属性            | 类型                                                                | 描述                                                                   |
+| --------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **`path`**      | <code>string</code>                                                 | 要读取的目录路径                                                       |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 目录所在位置                                                           |
 
 #### GetUriResult
 
-| Prop      | Type                |
+| 属性      | 类型                |
 | --------- | ------------------- |
 | **`uri`** | <code>string</code> |
 
 #### GetUriOptions
 
-| Prop            | Type                                                                | Description                                                                      |
-| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The path of the file to get the URI for                                          |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to get the file under |
+| 属性            | 类型                                                                | 描述                                                                      |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **`path`**      | <code>string</code>                                                 | 要获取 URI 的文件路径                                                     |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件所在目录                                                              |
 
 #### StatResult
 
-| Prop        | Type                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`type`**  | <code>string</code> |
 | **`size`**  | <code>number</code> |
@@ -450,10 +447,10 @@ Copy a file or directory
 
 #### StatOptions
 
-| Prop            | Type                                                                | Description                                                                      |
-| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **`path`**      | <code>string</code>                                                 | The path of the file to get data about                                           |
-| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> to get the file under |
+| 属性            | 类型                                                                | 描述                                                                      |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **`path`**      | <code>string</code>                                                 | 要查询的文件路径                                                          |
+| **`directory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 文件所在目录                                                              |
 
 #### RenameResult
 
@@ -463,29 +460,17 @@ Copy a file or directory
 
 #### CopyOptions
 
-| Prop              | Type                                                                | Description                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`from`**        | <code>string</code>                                                 | The existing file or directory                                                                                                                                                 |
-| **`to`**          | <code>string</code>                                                 | The destination file or directory                                                                                                                                              |
-| **`directory`**   | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> containing the existing file or directory                                                                           |
-| **`toDirectory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | The <a href="#filesystemdirectory">FilesystemDirectory</a> containing the destination file or directory. If not supplied will use the 'directory' parameter as the destination |
+| 属性              | 类型                                                                | 描述                                                                                                                                                                    |
+| ----------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`from`**        | <code>string</code>                                                 | 现有文件或目录                                                                                                                                                         |
+| **`to`**          | <code>string</code>                                                 | 目标文件或目录                                                                                                                                                         |
+| **`directory`**   | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 现有文件或目录所在位置                                                                                                                                                 |
+| **`toDirectory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 目标文件或目录所在位置。如未提供，将使用 'directory' 参数作为目标位置                                                                                                    |
 
-### Enums
+### 枚举
 
 #### FilesystemDirectory
 
-| Members               | Value                           | Description                                                                                                                                                                                                                                                                                                                                                                                           |
+| 成员               | 值                           | 描述                                                                                                                                                                                                                                                                                                                                                                                           |
 | --------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`Documents`**       | <code>"DOCUMENTS"</code>        | The Documents directory On iOS it's the app's documents directory. Use this directory to store user-generated content. On Android it's the Public Documents folder, so it's accessible from other apps. It's not accesible on Android 10 unless the app enables legacy External Storage by adding `android:requestLegacyExternalStorage="true"` in the `application` tag in the `AndroidManifest.xml` |
-| **`Data`**            | <code>"DATA"</code>             | The Data directory On iOS it will use the Documents directory On Android it's the directory holding application files. Files will be deleted when the application is uninstalled.                                                                                                                                                                                                                     |
-| **`Cache`**           | <code>"CACHE"</code>            | The Cache directory Can be deleted in cases of low memory, so use this directory to write app-specific files that your app can re-create easily.                                                                                                                                                                                                                                                      |
-| **`External`**        | <code>"EXTERNAL"</code>         | The external directory On iOS it will use the Documents directory On Android it's the directory on the primary shared/external storage device where the application can place persistent files it owns. These files are internal to the applications, and not typically visible to the user as media. Files will be deleted when the application is uninstalled.                                      |
-| **`ExternalStorage`** | <code>"EXTERNAL_STORAGE"</code> | The external storage directory On iOS it will use the Documents directory On Android it's the primary shared/external storage directory. It's not accesible on Android 10 unless the app enables legacy External Storage by adding `android:requestLegacyExternalStorage="true"` in the `application` tag in the `AndroidManifest.xml`                                                                |
-
-#### FilesystemEncoding
-
-| Members     | Value                |
-| ----------- | -------------------- |
-| **`UTF8`**  | <code>"utf8"</code>  |
-| **`ASCII`** | <code>"ascii"</code> |
-| **`UTF16`** | <code>"utf16"</code> |
+| **`Documents`**       | <code>"DOCUMENTS"</code>        | 文档目录 iOS上是应用的文档目录，用于存储用户生成的内容 Android上是公共文档文件夹，其他应用可访问。在 Android 10 上不可访问，除非应用在AndroidManifest.xml的application标签中添加android:requestLegacyExternalStorage="true"启用旧

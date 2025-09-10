@@ -1,25 +1,23 @@
 ---
-title: Custom Native iOS Code
-description: Custom Native iOS Code
+title: 自定义原生 iOS 代码
+description: 自定义原生 iOS 代码
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/ios/custom-code
 ---
 
-# Custom Native iOS Code
+# 自定义原生 iOS 代码
 
-Many apps will want to add custom Swift (or Objective-C) code to implement native features, without the overhead of building and publishing a proper Capacitor plugin.
+许多应用需要添加自定义 Swift（或 Objective-C）代码来实现原生功能，但又不想承担构建和发布完整 Capacitor 插件的开销。
 
-We strongly recommend using Swift to build plugins, as the iOS ecosystem has embraced Swift and you'll be able to find help and developers more easily, but Objective-C works just as well.
+我们强烈推荐使用 Swift 构建插件，因为 iOS 生态已全面拥抱 Swift，更容易找到帮助和开发者，当然 Objective-C 也同样适用。
 
-There are two ways to add custom code depending on whether or not you need to access that code from the WebView:
+根据是否需要从 WebView 访问代码，有两种添加自定义代码的方式：
 
-## WebView Accessible Native Code
+## WebView 可访问的原生代码
 
-The easiest way to build custom native code that needs to be accessible in the WebView is to build
-a local Capacitor plugin for it. In this case, building the plugin is as simple as building a new class
-and registering it with Capacitor.
+要为 WebView 构建可访问的自定义原生代码，最简单的方式是创建本地 Capacitor 插件。这种情况下，只需新建一个类并在 Capacitor 中注册即可。
 
 `MyPlugin.swift`
 
@@ -37,11 +35,11 @@ public class MyPlugin: CAPPlugin {
 }
 ```
 
-The `@objc` decorators are required to make sure Capacitor's runtime (which must use Obj-C for dynamic plugin support) can see it.
+`@objc` 装饰器确保 Capacitor 运行时（需要使用 Obj-C 实现动态插件支持）能够识别它。
 
-Next, you'll need to create a new Objective-C file (with a `.m` extension, _not_ `.h`!) corresponding to your plugin (such as `MyPlugin.m`). Important: you _must_ use the New File dialog in Xcode to do this. You'll then be prompted by Xcode to create a Bridging Header, which you should do.
+接下来需要创建对应的 Objective-C 文件（扩展名为 `.m`，而不是 `.h`！例如 `MyPlugin.m`）。重要提示：必须使用 Xcode 的新建文件对话框操作，Xcode 会提示创建桥接头文件，请选择创建。
 
-Finally, register the plugin by adding the required Capacitor plugin macros into your new `.m` file:
+最后通过在新建的 `.m` 文件中添加必要的 Capacitor 插件宏来注册插件：
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -51,7 +49,7 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-This makes `MyPlugin`, and the `echo` method available to the Capacitor web runtime like this:
+这样 `MyPlugin` 和 `echo` 方法就可以在 Capacitor Web 运行时中这样调用：
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -61,9 +59,8 @@ const result = await MyPlugin.echo({ value: 'Hello World!' });
 console.log(result.value);
 ```
 
-## Private Native Code
+## 私有原生代码
 
-If your code doesn't need to be accessible from the WebView, then simply add your code anywhere it needs to go. With Capacitor, you have full
-control over your native project.
+如果代码不需要从 WebView 访问，那么直接在任何需要的地方添加即可。使用 Capacitor 时，您可以完全掌控原生项目。
 
-Need to add a new event handler in `AppDelegate`? Just add it! Capacitor won't touch your code.
+需要在 `AppDelegate` 中添加新的事件处理程序？直接添加！Capacitor 不会干涉您的代码。

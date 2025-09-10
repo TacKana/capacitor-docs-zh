@@ -1,24 +1,24 @@
 ---
-title: Capacitor JavaScript Plugin Guide
-description: Capacitor JavaScript Plugin Guide
+title: Capacitor JavaScript 插件开发指南
+description: Capacitor JavaScript 插件开发指南
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor JavaScript Plugin Guide
+# Capacitor JavaScript 插件开发指南
 
-In Capacitor, Native Plugins have all of their methods automatically made available to JavaScript at runtime, so the majority of plugins won't need any JavaScript for their plugin at all.
+在 Capacitor 中，原生插件的所有方法都会在运行时自动暴露给 JavaScript，因此大多数插件完全不需要编写任何 JavaScript 代码。
 
-However, if your plugin requires some special JavaScript, or you'd like to provide a custom API for your plugin, you can easily add a JavaScript frontend to your Capacitor plugin.
+不过，如果您的插件需要特定的 JavaScript 逻辑，或者您希望为插件提供自定义 API，可以轻松地为 Capacitor 插件添加 JavaScript 前端。
 
-## Getting Started
+## 快速开始
 
-To build a custom JavaScript frontend for Capacitor, first follow the [Getting Started](/plugins.md) section of the plugin guide.
+要为 Capacitor 构建自定义 JavaScript 前端，请先阅读插件指南中的[快速开始](/plugins.md)部分。
 
-Next, build out your plugin any way you see fit! The generated plugin template comes with TypeScript and a simple build process ready to go. You can adopt that (recommended) or remove those files and start fresh.
+接下来，按照您喜欢的方式构建插件！生成的插件模板已预置 TypeScript 和简易构建流程，您可以直接使用（推荐）或删除这些文件重新开始。
 
-To call your plugin, you'll be able to access it directly after importing from `@capacitor/core`:
+调用插件时，您可以直接从 `@capacitor/core` 导入后访问：
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -33,13 +33,13 @@ export class CustomSuperPlugin {
 }
 ```
 
-## Publishing
+## 发布插件
 
-To publish your plugin, just `npm publish` it!
+只需执行 `npm publish` 即可发布您的插件！
 
-## Consuming your Plugin
+## 使用插件
 
-One of the differences with custom JS plugins is how developers "consume" it. Instead of accessing `Plugins.SuperGreatPlugin` directly, developers will instead import from your npm package directly:
+自定义 JS 插件的一个不同之处在于开发者如何"使用"它。开发者不再直接通过 `Plugins.SuperGreatPlugin` 访问，而是直接从 npm 包导入：
 
 ```typescript
 import { CustomSuperPlugin } from 'super-great-plugin';

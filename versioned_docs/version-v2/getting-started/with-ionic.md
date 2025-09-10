@@ -1,81 +1,81 @@
 ---
-title: Using Capacitor with Ionic
-description: Using Capacitor with Ionic
+title: 在Ionic中使用Capacitor
+description: 在Ionic项目中集成Capacitor
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/getting-started/with-ionic
 ---
 
-# Using Capacitor with Ionic
+# 在Ionic中使用Capacitor
 
-## Install Capacitor into an Ionic project
+## 在Ionic项目中安装Capacitor
 
-Capacitor is easily installed directly into any Ionic project (1.0-4.x+).
+Capacitor可以轻松集成到任何版本的Ionic项目中（1.0-4.x+）。
 
-### New Ionic Project
+### 新建Ionic项目
 
 ```bash
 ionic start myApp tabs --capacitor
 cd myApp
 ```
 
-### Existing Ionic Project
+### 已有Ionic项目
 
 ```bash
 cd myApp
 ionic integrations enable capacitor
 ```
 
-### Initialize Capacitor with your app information
+### 初始化Capacitor应用信息
 
-_Note: `npx` is a new utility available in npm 5 or above that executes local binaries/scripts to avoid global installs._
+_注意：`npx`是npm 5及以上版本提供的新工具，用于执行本地二进制文件/脚本，避免全局安装。_
 
 ```bash
 npx cap init [appName] [appId]
 ```
 
-where `appName` is the name of your app, and `appId` is the domain identifier of your app (ex: `com.example.app`).
+其中`appName`是您的应用名称，`appId`是应用的域名标识符（例如：`com.example.app`）。
 
-_Note: Use the native IDEs to change these properties after initial configuration._
+_注意：初始配置后，请使用原生IDE来修改这些属性。_
 
-### Build your Ionic App
+### 构建Ionic应用
 
-You must build your Ionic project at least once before adding any native platforms.
+在添加任何原生平台前，您必须至少构建一次Ionic项目。
 
 ```bash
 ionic build
 ```
 
-This creates the `www` folder that Capacitor has been [automatically configured](/basics/configuring-your-app.md) to use as the `webDir` in `capacitor.config.json`.
+这会创建`www`文件夹，Capacitor已[自动配置](/basics/configuring-your-app.md)将其作为`capacitor.config.json`中的`webDir`。
 
-### Add Platforms
+### 添加平台
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-Both `android` and `ios` folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your Ionic app (i.e., check them into source control, edit them in their own IDEs, etc.).
+这将在项目根目录创建`android`和`ios`文件夹。这些都是完全独立的原生项目产物，应视为Ionic应用的一部分（即纳入版本控制、在各自IDE中编辑等）。
 
-### Open IDE to build, run, and deploy
+### 打开IDE进行构建、运行和部署
 
 ```bash
 npx cap open ios
 npx cap open android
 ```
 
-The native iOS and Android projects are opened in their standard IDEs (Xcode and Android Studio, respectively). Use the IDEs to run and deploy your app.
+原生iOS和Android项目将在各自的IDE中打开（分别是Xcode和Android Studio）。使用这些IDE来运行和部署您的应用。
 
-## Syncing your app with Capacitor
+## 使用Capacitor同步应用
 
-Every time you perform a build (e.g. `ionic build`) that changes your web directory (default: `www`), you'll need to copy those changes down to your native projects:
+每次执行构建命令（如`ionic build`）并更改了web目录（默认：`www`）后，都需要将这些更改同步到原生项目：
 
 ```bash
 npx cap copy
 ```
 
-## Using Cordova and Ionic Native Plugins
+## 使用Cordova和Ionic Native插件
 
-Cordova and [Ionic Native](https://ionicframework.com/docs/native/) plugins are supported in Capacitor. See the [Using Cordova Plugins](/cordova/using-cordova-plugins.md) guide for more information.
+Capacitor支持Cordova和[Ionic Native](https://ionicframework.com/docs/native/)插件。更多信息请参阅[使用Cordova插件](/cordova/using-cordova-plugins.md)指南。
 
-Want to start using Capacitor in an Ionic app immediately? [Check out this guide](/guides/ionic-framework-app.md).
+想立即在Ionic应用中使用Capacitor？[查看本指南](/guides/ionic-framework-app.md)

@@ -1,31 +1,31 @@
 ---
 title: Splash Screen & Icon
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/splash-icon
 ---
 
-The extension allows you to set a splash screen and icon image and [generate](https://github.com/ionic-team/capacitor-assets) the necessary assets for your native iOS and Android projects.
+该扩展可以帮助您设置启动屏和图标，并自动为原生 iOS 和 Android 项目[生成](https://github.com/ionic-team/capacitor-assets)所需资源。
 
-### Setting a Splash Screen
+### 设置启动屏
 
-- Click `Configuration` > `Splash Screen & Icon`
-- Click `Splash Screen` to select a Splash Screen file
+- 点击 `Configuration` > `Splash Screen & Icon`
+- 点击 `Splash Screen` 选择启动屏文件
 
-Your splash screen should be a 2732 x 2732 pixel png file. After you have set both a Splash and Icon file the extension will generate all necessary assets for the native projects.
+启动屏应为 2732 x 2732 像素的 PNG 格式文件。设置完成后，扩展会自动为原生项目生成所有必要资源。
 
-### Setting an Icon
+### 设置应用图标
 
-- Click `Configuration` > `Splash Screen & Icon`
-- Click `Icon` to select an Icon File
+- 点击 `Configuration` > `Splash Screen & Icon`
+- 点击 `Icon` 选择图标文件
 
-Your Icon should be a 1024 x 1024 pixel png file. After you have set both a Splash and Icon file the extension will generate all necessary assets for the native projects.
+应用图标应为 1024 x 1024 像素的 PNG 格式文件。设置完成后，扩展会自动为原生项目生成所有必要资源。
 
-### Rebuilding Assets
+### 重新生成资源
 
-Hover over the `Splash Screen & Icon` item and click the `Rebuild` button to regenerate the assets for the native projects.
+将鼠标悬停在 `Splash Screen & Icon` 选项上，点击 `Rebuild` 按钮即可重新为原生项目生成资源。
 
-### Adaptive Icons
+### 自适应图标
 
-[Adaptive Icons](https://github.com/ionic-team/capacitor-assets#adaptive-icons) are an Android concept used for some Android devices that have either circular or rounded icons. You can define these by clicking `Icon Foreground` or `Icon Background`. Although these are optional, it is recommended to set these.
+[自适应图标](https://github.com/ionic-team/capacitor-assets#adaptive-icons)是 Android 的概念，适用于需要圆形或圆角图标的设备。您可以通过点击 `Icon Foreground` 或 `Icon Background` 进行设置。虽然这些是可选项，但建议进行配置。

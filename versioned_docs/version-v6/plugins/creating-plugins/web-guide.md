@@ -1,27 +1,27 @@
 ---
-title: Capacitor Web/PWA Plugin Guide
-description: Capacitor Web/PWA Plugin Guide
+title: Capacitor Web/PWA 插件指南
+description: Capacitor Web/PWA 插件指南
 contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
-sidebar_label: Web/PWA Guide
+sidebar_label: Web/PWA 指南
 slug: /plugins/web
 ---
 
-# Capacitor Web/PWA Plugin Guide
+# Capacitor Web/PWA 插件指南
 
-Capacitor utilizes a web/native compatibility layer, making it easy to build plugins that have functionality when running natively as well as when running in a PWA on the Web.
+Capacitor 采用了 Web/原生兼容层架构，使得开发插件时能够轻松实现原生运行与 Web 端 PWA 环境下的功能兼容。
 
-## Getting Started
+## 快速开始
 
-To get started, first generate a plugin as shown in the [Getting Started](/plugins/creating-plugins/overview.md#plugin-generator) section of the Plugin guide.
+首先，按照插件指南中的[入门章节](/plugins/creating-plugins/overview.md#plugin-generator)所示生成一个插件。
 
-Next, open `echo/src/web.ts` in your editor of choice.
+接着，在你选择的编辑器中打开 `echo/src/web.ts` 文件。
 
-## Example
+## 示例
 
-The basic structure of a web plugin for Capacitor looks like this:
+Capacitor 的 Web 插件基本结构如下所示：
 
 ```typescript
 import { WebPlugin } from '@capacitor/core';
@@ -36,43 +36,43 @@ export class EchoWeb extends WebPlugin implements EchoPlugin {
 }
 ```
 
-The `EchoPlugin` interface defines the method signatures of your plugin. In TypeScript, we can ensure the web implementation (the `EchoWeb` class) correctly implements the interface.
+`EchoPlugin` 接口定义了插件的方法签名。在 TypeScript 中，我们可以确保 Web 实现（即 `EchoWeb` 类）正确实现了该接口。
 
-## Permissions
+## 权限管理
 
-If your plugin has functionality on web that requires permissions from the end user, then you will need to implement the permissions pattern.
+如果你的插件在 Web 端需要获取终端用户的权限，则需要实现权限管理机制。
 
-### Aliases
+### 权限别名
 
-You will need to develop one or more aliases for abstracting and grouping permissions that your plugin requires. These aliases are used to convey permission state. By default, an alias can be in one of the following states:
+你需要设计一个或多个别名，用于抽象和分组插件所需的权限。这些别名用于传达权限状态。默认情况下，别名可处于以下状态之一：
 
-- `granted`: Every permission in this alias has been granted by the end user (or prompting is not necessary).
-- `denied`: One or more permissions in this alias have been denied by the end user.
-- `prompt`: The end user should be prompted for permission, because it has neither been granted nor denied.
-- `prompt-with-rationale`: The end user has denied permission before, but has not blocked the prompt yet.
+- `granted`：该别名下的所有权限均已获得终端用户授权（或无需提示）。
+- `denied`：该别名下的一个或多个权限已被终端用户拒绝。
+- `prompt`：应向终端用户请求权限，因为当前既未授权也未拒绝。
+- `prompt-with-rationale`：终端用户先前已拒绝权限，但尚未阻止提示。
 
-These are represented by the `PermissionState` type exported from `@capacitor/core`.
+这些状态由从 `@capacitor/core` 导出的 `PermissionState` 类型表示。
 
-It is also possible to define custom states for aliases, if need be. For example, the official [Camera plugin](/apis/camera.md) also defines a `limited` state for the `camera` and `photos` aliases.
+如有需要，也可以为别名定义自定义状态。例如，官方的[相机插件](/apis/camera.md)还为 `camera` 和 `photos` 别名定义了 `limited` 状态。
 
-Aliases are cross-platform, so make sure to take iOS, Android, and web permissions into account when deciding on the aliases for your plugin.
+权限别名是跨平台的，因此在确定插件别名时，请务必考虑 iOS、Android 和 Web 的权限差异。
 
-### Permission Status Definitions
+### 权限状态定义
 
-In `src/definitions.ts`, import `PermissionState` from Capacitor and define a `PermissionStatus` interface which represents the status of permissions in your plugin, keyed by the alias(es) you came up with.
+在 `src/definitions.ts` 中，从 Capacitor 导入 `PermissionState`，并定义一个 `PermissionStatus` 接口，该接口表示插件中权限的状态，以你设计的别名作为键。
 
-In the example below, the permission status can be entirely represented by a `location` alias which can be `granted`, `denied`, etc.
+以下示例中，权限状态完全可由 `location` 别名表示，其状态可为 `granted`、`denied` 等。
 
 ```typescript
 import type { PermissionState } from '@capacitor/core';
 
 export interface PermissionStatus {
-  // TODO: change 'location' to the actual name of your alias!
+  // 实际使用时请将 'location' 替换为你的别名！
   location: PermissionState;
 }
 ```
 
-Then, add the definitions for `checkPermissions()` and `requestPermissions()` in your plugin interface. Both of these methods will return the current status of permissions in your plugin as defined by `PermissionStatus`.
+然后，在你的插件接口中添加 `checkPermissions()` 和 `requestPermissions()` 的定义。这两个方法都将返回插件中权限的当前状态，由 `PermissionStatus` 定义。
 
 ```diff
  export interface EchoPlugin {
@@ -82,11 +82,11 @@ Then, add the definitions for `checkPermissions()` and `requestPermissions()` in
  }
 ```
 
-Because these methods are added to your plugin interface, they must be implemented on all platforms that your plugin supports.
+由于这些方法已添加到插件接口中，因此必须在插件支持的所有平台上实现它们。
 
-### Implementing Permissions
+### 实现权限管理
 
-In `src/web.ts`, add the `checkPermissions()` and `requestPermissions()` methods to your web implementation.
+在 `src/web.ts` 中，将 `checkPermissions()` 和 `requestPermissions()` 方法添加到你的 Web 实现中。
 
 ```diff
 +import { PermissionStatus } from './definitions';
@@ -97,78 +97,78 @@ In `src/web.ts`, add the `checkPermissions()` and `requestPermissions()` methods
    }
 
 +  async checkPermissions(): Promise<PermissionStatus> {
-+    // TODO
++    // 待实现
 +  }
 
 +  async requestPermissions(): Promise<PermissionStatus> {
-+    // TODO
++    // 待实现
 +  }
  }
 ```
 
 #### `checkPermissions()`
 
-This method should return the current status of permissions in your plugin. This information may be available on the specific web API directly, or from the [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API).
+此方法应返回插件中权限的当前状态。此信息可能直接来自特定的 Web API，或通过[权限 API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API) 获取。
 
-Remember, when working with web APIs with spotty browser adoption (such as the Permissions API), you should implement feature detection and throw an appropriate error when the end user's browser is not supported.
+请注意，在使用浏览器支持程度不一的 Web API（如权限 API）时，应实现特性检测，并在终端用户的浏览器不支持时抛出适当的错误。
 
 ```diff
  async checkPermissions(): Promise<PermissionStatus> {
 +  if (typeof navigator === 'undefined' || !navigator.permissions) {
-+    throw this.unavailable('Permissions API not available in this browser.');
++    throw this.unavailable('此浏览器不支持权限 API。');
 +  }
 
    const permission = await navigator.permissions.query( ... );
 
-   // TODO
+   // 待实现
  }
 ```
 
 #### `requestPermissions()`
 
-This method should prompt the end user for permission to use the platform APIs that your plugin requires. Then, it should return the new state of permissions in your plugin after prompting (just like with the `checkPermissions()` method).
+此方法应提示终端用户授权插件所需的平台 API。然后，它应返回提示后插件中权限的新状态（类似于 `checkPermissions()` 方法）。
 
-On web, is it sometimes not possible to separate the requesting of permission from the actual call. For example, the Geolocation API only requests permission at the time a location is requested. For situations like this, we recommended throwing the unimplemented exception.
+在 Web 端，有时无法将权限请求与实际调用分开。例如，Geolocation API 仅在请求位置时才请求权限。对于这种情况，建议抛出未实现的异常。
 
 ```typescript
 async requestPermissions(): Promise<PermissionStatus> {
-  // TODO: does the web support requesting permissions for my plugin?
-  throw this.unimplemented('Not implemented on web.');
+  // 待确认：Web 端是否支持请求此插件所需的权限？
+  throw this.unimplemented('Web 端未实现此功能。');
 }
 ```
 
-## Error Handling
+## 错误处理
 
-Capacitor plugins for web often work with APIs that haven't been adopted in some browsers or even remotely standardized. Despite this, it is common to take a best-effort approach for the web implementation of your plugin and gracefully fail when APIs are unavailable. This is why error handling is especially important on web!
+Capacitor 的 Web 插件通常需要处理某些浏览器尚未支持或尚未标准化的 API。尽管如此，通常会对插件的 Web 实现采取尽力而为的策略，并在 API 不可用时优雅地降级处理。因此，错误处理在 Web 端尤其重要！
 
-### Unavailable
+### 不可用 (Unavailable)
 
-This error should be thrown to indicate that the functionality can't be used right now.
+此错误表示当前无法使用该功能。
 
-Reasons for this include:
+可能的原因包括：
 
-- It is currently missing a prerequisite, such as network connectivity.
-- It requires a browser that has implemented the underlying API.
+- 当前缺少先决条件，例如网络连接。
+- 需要支持底层 API 的浏览器。
 
-In the example below, we first check that `geolocation` is defined on `navigator`. If it does not, it means the browser does not support Geolocation and we should throw the "unavailable" error. Otherwise, we can proceed with the implementation.
+以下示例中，我们首先检查 `navigator` 上是否定义了 `geolocation`。如果未定义，则表示浏览器不支持 Geolocation，应抛出“不可用”错误。否则，继续执行实现。
 
 ```typescript
 async getLocation(): Promise<Location> {
   if (typeof navigator === 'undefined' || !navigator.geolocation) {
-    throw this.unavailable('Geolocation API not available in this browser.');
+    throw this.unavailable('此浏览器不支持 Geolocation API。');
   }
 
-  // TODO: actual web implementation
+  // 实际 Web 实现待完成
 }
 
 ```
 
-### Unimplemented
+### 未实现 (Unimplemented)
 
-This error can be thrown to indicate that the functionality is not implemented. You can use this to stub out your methods on web for a later implementation or use it to indicate the functionality can't be implemented on a certain platform.
+此错误表示功能尚未实现。你可以使用此错误在 Web 端暂存方法以供后续实现，或用于指示某些平台无法实现该功能。
 
 ```typescript
 async getLocation(): Promise<Location> {
-  throw this.unimplemented('Not implemented on web.');
+  throw this.unimplemented('Web 端未实现此功能。');
 }
 ```

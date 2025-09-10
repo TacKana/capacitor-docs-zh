@@ -1,51 +1,51 @@
 ---
-title: Community Guides
-description: Community Guides
+title: 社区指南
+description: 社区指南
 contributors:
   - dotNetkow
 slug: /guides/community
 ---
 
-# Community Guides
+# 社区指南
 
-## General
+## 通用教程
 
-[How to Build an Ionic Chat App with React and Stream &#8250;](https://levelup.gitconnected.com/how-to-build-an-ionic-chat-app-with-react-and-stream-739b67611280)
+[如何使用React和Stream构建Ionic聊天应用 &#8250;](https://levelup.gitconnected.com/how-to-build-an-ionic-chat-app-with-react-and-stream-739b67611280)
 
-[Capacitor: Five Apps in Five Minutes &#8250;](https://angularfirebase.com/lessons/capacitor-five-apps-in-five-minutes/)
+[Capacitor：五分钟构建五个应用 &#8250;](https://angularfirebase.com/lessons/capacitor-five-apps-in-five-minutes/)
 
-[Create an Ionic 4 PWA with Capacitor &#8250;](https://blog.jscrambler.com/create-an-ionic-4-pwa-with-capacitor/)
+[使用Capacitor创建Ionic 4 PWA应用 &#8250;](https://blog.jscrambler.com/create-an-ionic-4-pwa-with-capacitor/)
 
-[Capacitor Workflow for iOS and Android Apps &#8250;](https://www.youtube.com/watch?v=oXbRcpsytGQ)
+[iOS与Android应用中的Capacitor工作流 &#8250;](https://www.youtube.com/watch?v=oXbRcpsytGQ)
 
-[Using the Capacitor in Vue.js app &#8250;](https://akhromieiev.com/tutorials/using-capacitor-in-vue-js-app/)
+[在Vue.js应用中使用Capacitor &#8250;](https://akhromieiev.com/tutorials/using-capacitor-in-vue-js-app/)
 
-## APIs
+## API指南
 
-[Camera: Building an Ionic Framework Camera App](/main/guides/ionic-framework-app.md)
+[相机功能：构建Ionic Framework相机应用](/main/guides/ionic-framework-app.md)
 
-[Push Notifications: Using Push Notifications with Firebase in an Ionic Angular App](/main/guides/push-notifications-firebase.md)
+[推送通知：在Ionic Angular应用中使用Firebase推送通知](/main/guides/push-notifications-firebase.md)
 
-[Splash Screen: Creating a Dynamic/Adaptable Splash Screen for Capacitor (Android) &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
+[启动页：为Capacitor创建动态/自适应启动页（Android版） &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
 
-[Using the Capacitor Share API in IOS app &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-share-api-in-ios-app/)
+[在iOS应用中使用Capacitor分享API &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-share-api-in-ios-app/)
 
-[Using the Capacitor Browser API to open urls &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-browser-api-to-open-links/)
+[使用Capacitor浏览器API打开链接 &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-browser-api-to-open-links/)
 
-[Network Detection with Capacitor in Ionic project &#8250;](https://akhromieiev.com/tutorials/network-detection-capacitor/)
+[在Ionic项目中使用Capacitor实现网络检测 &#8250;](https://akhromieiev.com/tutorials/network-detection-capacitor/)
 
-## Integrations
+## 集成方案
 
-[Using Google Maps and Geolocation in Ionic with Capacitor &#8250;](https://www.joshmorony.com/using-google-maps-and-geolocation-in-ionic-with-capacitor)
+[在Ionic中使用Capacitor集成Google地图和定位功能 &#8250;](https://www.joshmorony.com/using-google-maps-and-geolocation-in-ionic-with-capacitor)
 
-[Create Native HTML5 Games with Phaser and Capacitor &#8250;](https://www.joshmorony.com/create-native-html5-games-with-phaser-and-capacitor)
+[使用Phaser和Capacitor创建原生HTML5游戏 &#8250;](https://www.joshmorony.com/create-native-html5-games-with-phaser-and-capacitor)
 
-[Integrating the Scanbot SDK in a Capacitor App with Ionic &#8250;](https://scanbot.io/blog/capacitor-app/)
+[在Capacitor应用中集成Scanbot SDK（Ionic版） &#8250;](https://scanbot.io/blog/capacitor-app/)
 
-[Music Playback in Capacitor App with Ionic &#8250;](https://enappd.com/blog/play-music-in-ionic-capacitor-apps/112)
+[使用Ionic实现Capacitor应用的音乐播放功能 &#8250;](https://enappd.com/blog/play-music-in-ionic-capacitor-apps/112)
 
-[Facebook Login in Capacitor App with Ionic React &#8250;](https://enappd.com/blog/facebook-login-in-ionic-react-capacitor-apps/118)
+[在Ionic React的Capacitor应用中实现Facebook登录 &#8250;](https://enappd.com/blog/facebook-login-in-ionic-react-capacitor-apps/118)
 
-[Google Login in Capacitor Apps with Ionic React &#8250;](https://enappd.com/blog/google-login-in-ionic-react-capacitor-apps/122)
+[在Ionic React的Capacitor应用中实现Google登录 &#8250;](https://enappd.com/blog/google-login-in-ionic-react-capacitor-apps/122)
 
-[Twitter Login in Capacitor Apps with Ionic React &#8250;](https://enappd.com/blog/twitter-login-in-ionic-react-capacitor-app/121)
+[在Ionic React的Capacitor应用中实现Twitter登录 &#8250;](https://enappd.com/blog/twitter-login-in-ionic-react-capacitor-app/121)

@@ -1,6 +1,6 @@
 ---
 title: Capacitor Plugins
-description: Capacitor Plugins
+description: Capacitor 插件
 contributors:
   - mlynch
   - jcesarmobile
@@ -8,12 +8,12 @@ contributors:
 canonicalUrl: https://capacitorjs.com/docs/plugins
 ---
 
-# Capacitor Plugins
+# Capacitor 插件
 
-Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
+Capacitor 中的插件让 JavaScript 能够直接与原生 API 进行交互。
 
-With Plugins, a web app can access the full power of the Native APIs, doing everything a traditional native app can. Plugins are especially great for wrapping common native operations that might use very different APIs across platforms, while exposing a consistent, cross-platform API to JavaScript.
+通过插件，Web 应用可以充分利用原生 API 的全部能力，实现传统原生应用所能做的一切。插件特别适合封装那些在不同平台上可能使用完全不同 API 的常见原生操作，同时向 JavaScript 暴露出一致、跨平台的 API。
 
-Additionally, the Plugin capability in Capacitor makes it possible for teams with a mix of traditional native developers and web developers to work together on different parts of the app.
+此外，Capacitor 的插件功能使得传统原生开发者和 Web 开发者组成的团队能够协同工作，各自负责应用的不同部分。
 
-Capacitor auto generates JavaScript hooks on the client, so most plugins only need to build a native Swift/Obj-C plugin for iOS, and/or a Java one for Android. Of course, adding custom JavaScript for a plugin is possible, and is just like providing a JavaScript npm package.
+Capacitor 会在客户端自动生成 JavaScript 钩子，因此大多数插件只需要为 iOS 构建一个原生的 Swift/Obj-C 插件，和/或为 Android 构建一个 Java 插件。当然，为插件添加自定义 JavaScript 也是可行的，就像提供一个 JavaScript npm 包一样简单。

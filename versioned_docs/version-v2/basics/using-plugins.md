@@ -1,26 +1,26 @@
 ---
-title: Using Capacitor Plugins
-description: How to use Capacitor Plugins
+title: 使用 Capacitor 插件
+description: 如何使用 Capacitor 插件
 contributors:
   - jcesarmobile
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/basics/using-plugins
 ---
 
-# Using Capacitor Plugins
+# 使用 Capacitor 插件
 
-Capacitor ships with a number of built-in plugins, such as [Camera](/apis/camera.md) and [Filesystem](/apis/filesystem.md).
+Capacitor 内置了多个核心插件，例如[相机插件](/apis/camera.md)和[文件系统插件](/apis/filesystem.md)。
 
-However, chances are your app will need to access more native functionality than provided out of the box in Capacitor.
+不过在实际开发中，您的应用可能需要访问更多原生的功能，而不仅仅局限于 Capacitor 默认提供的那些。
 
-Fortunately, you can quickly add your own native functionality by writing a small amount of native code then exposing it as a Capacitor plugin by following the [Plugin Guide](/plugins.md).
+幸运的是，您可以轻松扩展原生功能：只需编写少量原生代码，然后按照[插件开发指南](/plugins.md)将其封装成 Capacitor 插件即可。
 
-## Finding Plugins
+## 查找插件
 
-The community has built a number of plugins for various native functionality and you can easily add them to your app.
+社区已经为各种原生功能开发了大量现成的插件，您可以直接集成到应用中。
 
-See our [Community Plugins](/plugins/community.md) list for some options.
+可以参考我们的[社区插件列表](/plugins/community.md)来选择合适的插件。
 
-## Using Cordova and Ionic Native Plugins
+## 使用 Cordova 和 Ionic Native 插件
 
-Capacitor also supports a wide range of [Cordova plugins](/cordova/using-cordova-plugins.md), so there are a lot to choose from.
+Capacitor 还兼容大量[Cordova 插件](/cordova/using-cordova-plugins.md)，这为您提供了更丰富的选择空间。

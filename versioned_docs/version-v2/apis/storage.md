@@ -9,13 +9,13 @@ canonicalUrl: https://capacitorjs.com/docs/apis/storage
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Storage API provides a key-value store for simple data.
+Storage API 提供了一个简单的键值对数据存储方案。
 
-Mobile OS's may periodically clear data set in `window.localStorage`, so this API should be used instead of `window.localStorage`. This API will fall back to using `localStorage` when running as a Progressive Web App.
+移动操作系统可能会定期清理 `window.localStorage` 中设置的数据，因此应使用此 API 而非 `window.localStorage`。当作为渐进式 Web 应用（PWA）运行时，此 API 会自动回退到使用 `localStorage`。
 
-On iOS this plugin will use [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) and on Android [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences). Stored data is cleared if the app is uninstalled.
+在 iOS 上，该插件使用 [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)，在 Android 上则使用 [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences)。如果应用被卸载，存储的数据将被清除。
 
-Note: this API is not meant for high-performance data storage applications. Take a look at using SQLite or a separate data engine if your application will store a lot of items, have high read/write load, or require complex querying.
+注意：此 API 不适用于高性能数据存储场景。如果您的应用需要存储大量数据、具有高读写负载或需要复杂查询，请考虑使用 SQLite 或独立的数据引擎。
 
 - [`get(...)`](#get)
 - [`set(...)`](#set)
@@ -23,22 +23,20 @@ Note: this API is not meant for high-performance data storage applications. Take
 - [`clear()`](#clear)
 - [`keys()`](#keys)
 
-## Working with JSON
+## JSON 数据处理
 
-`Storage` works on Strings only. However, storing JSON blobs is easy: just `JSON.stringify` the object before calling `set`, then `JSON.parse` the value returned from `get`. See the
-example below for more details.
+`Storage` 仅支持字符串类型的数据。但存储 JSON 数据也很简单：只需在调用 `set` 前使用 `JSON.stringify` 处理对象，然后在 `get` 返回值后使用 `JSON.parse` 解析。详见以下示例。
 
-This method can also be used to store non-string values, such as numbers and booleans.
+此方法也可用于存储非字符串值，例如数字和布尔值。
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
 
 const { Storage } = Plugins;
 
-
-// JSON "set" example
+// JSON "set" 示例
 async setObject() {
   await Storage.set({
     key: 'user',
@@ -49,7 +47,7 @@ async setObject() {
   });
 }
 
-// JSON "get" example
+// JSON "get" 示例
 async getObject() {
   const ret = await Storage.get({ key: 'user' });
   const user = JSON.parse(ret.value);
@@ -64,7 +62,7 @@ async setItem() {
 
 async getItem() {
   const { value } = await Storage.get({ key: 'name' });
-  console.log('Got item: ', value);
+  console.log('获取到数据: ', value);
 }
 
 async removeItem() {
@@ -73,7 +71,7 @@ async removeItem() {
 
 async keys() {
   const { keys } = await Storage.keys();
-  console.log('Got keys: ', keys);
+  console.log('获取到所有键: ', keys);
 }
 
 async clear() {
@@ -89,13 +87,13 @@ async clear() {
 get(options: { key: string; }) => Promise<{ value: string | null; }>
 ```
 
-Get the value with the given key.
+获取指定键对应的值。
 
-| Param         | Type                          |
+| 参数          | 类型                          |
 | ------------- | ----------------------------- |
 | **`options`** | `{ key: string; }` |
 
-**Returns:** `Promise<{ value: string; }>`
+**返回值:** `Promise<{ value: string; }>`
 
 ---
 
@@ -105,9 +103,9 @@ Get the value with the given key.
 set(options: { key: string; value: string; }) => Promise<void>
 ```
 
-Set the value for the given key
+设置指定键对应的值
 
-| Param         | Type                                         |
+| 参数          | 类型                                         |
 | ------------- | -------------------------------------------- |
 | **`options`** | `{ key: string; value: string; }` |
 
@@ -119,9 +117,9 @@ Set the value for the given key
 remove(options: { key: string; }) => Promise<void>
 ```
 
-Remove the value for this key (if any)
+移除指定键对应的值（如果存在）
 
-| Param         | Type                          |
+| 参数          | 类型                          |
 | ------------- | ----------------------------- |
 | **`options`** | `{ key: string; }` |
 
@@ -133,7 +131,7 @@ Remove the value for this key (if any)
 clear() => Promise<void>
 ```
 
-Clear stored keys and values.
+清除所有存储的键和值。
 
 ---
 
@@ -143,8 +141,8 @@ Clear stored keys and values.
 keys() => Promise<{ keys: string[]; }>
 ```
 
-Return the list of known keys
+返回所有已知键的列表
 
-**Returns:** `Promise<{ keys: string[]; }>`
+**返回值:** `Promise<{ keys: string[]; }>`
 
 ---

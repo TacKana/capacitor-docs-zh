@@ -1,65 +1,65 @@
 ---
 title: Updating Your Capacitor Android Project
-description: Updating Your Capacitor Android Project
+description: 更新 Capacitor Android 项目
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Updating Your Capacitor Android Project
+# 更新 Capacitor Android 项目
 
-Occasionally, you'll need to make Capacitor updates to your Android app, including updating the version of Capacitor used in your app, or using new ways of interfacing with Capacitor inside of your Android codebase.
+在开发过程中，您可能需要为 Android 应用进行 Capacitor 更新，包括升级项目中使用的 Capacitor 版本，或在 Android 代码库中采用新的 Capacitor 交互方式。
 
-## Updating Capacitor Android Library
+## 更新 Capacitor Android 库
 
-To update the version of @capacitor/android used in your app, just npm install latest version:
+要更新项目中使用的 @capacitor/android 版本，只需运行以下命令安装最新版本：
 
 ```bash
 npm install @capacitor/android@2
 ```
 
-Then from Android Studio click the "Sync Project with Gradle Files" button.
+然后在 Android Studio 中点击 "Sync Project with Gradle Files" 按钮同步项目。
 
-## Updating Android Project
+## 更新 Android 项目结构
 
-To update the base structure of your Android project, view the [android-template](https://github.com/ionic-team/capacitor/tree/2.x/android-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
+如需更新 Android 项目的基础结构，请查看 Capacitor 代码库中的 [android-template](https://github.com/ionic-team/capacitor/tree/2.x/android-template) 项目，选择与最新稳定版 Capacitor 对应的标签。核心项目特意保持简洁：您可以快速比对核心项目与您项目的差异。
 
-### From 1.0.0 to 1.1.0
+### 从 1.0.0 升级到 1.1.0
 
-Recommended change:
+建议变更：
 
-- Update `.gitignore` file inside `android` folder with [this changes](https://github.com/ionic-team/capacitor/commit/e27586780baed231c09f2737bb94a9338aab5a03#diff-15c65f143d85c95277307da1bdd0528e)
+- 按照 [此提交](https://github.com/ionic-team/capacitor/commit/e27586780baed231c09f2737bb94a9338aab5a03#diff-15c65f143d85c95277307da1bdd0528e) 更新 `android` 文件夹内的 `.gitignore` 文件
 
-### From &lt;= 1.3.0 to 1.4.0
+### 从 ≤1.3.0 升级到 1.4.0
 
-Recommended change:
+建议变更：
 
-- Update `strings.xml` file inside `android/app/src/main/res/values/` folder with [this change](https://github.com/ionic-team/capacitor/commit/ed6647b35a8da08d26a7ff13cc9f4fd918b923a0#diff-15c65f143d85c95277307da1bdd0528e)
+- 按照 [此变更](https://github.com/ionic-team/capacitor/commit/ed6647b35a8da08d26a7ff13cc9f4fd918b923a0#diff-15c65f143d85c95277307da1bdd0528e) 更新 `android/app/src/main/res/values/` 文件夹内的 `strings.xml` 文件
 
-### From &lt;= 1.5.1 to 2.0.0
+### 从 ≤1.5.1 升级到 2.0.0
 
-Mandatory change:
+必须变更：
 
-- Use Android X
+- 使用 Android X
 
-  Capacitor 2.0 uses Android X for Android support library dependencies as recommended by Google, so the native project needs to be updated to use Android X too.
+  Capacitor 2.0 遵循 Google 建议，使用 Android X 作为 Android 支持库依赖，因此原生项目也需要更新至 Android X。
 
-  From Android Studio do `Refactor -> Migrate to AndroidX`. Then click on `Migrate` button and finally click on `Do Refactor`.
+  在 Android Studio 中选择 `Refactor -> Migrate to AndroidX`，点击 `Migrate` 按钮，最后点击 `Do Refactor` 完成迁移。
 
-  If using Cordova or Capacitor plugins that don't use Android X yet, you can use [jetifier](https://www.npmjs.com/package/jetifier) tool to patch them.
+  如果项目中使用尚未支持 Android X 的 Cordova 或 Capacitor 插件，可以使用 [jetifier](https://www.npmjs.com/package/jetifier) 工具进行适配：
 
 ```bash
 npm install -D jetifier
 npx jetifier
 ```
 
-To run it automatically after every package install, add `"postinstall": "jetifier"` in the `package.json` under "scripts".
+如需在每次安装依赖包后自动运行 jetifier，可在 `package.json` 文件的 "scripts" 部分添加 `"postinstall": "jetifier"`。
 
-Recommended changes:
+建议变更：
 
-- Create common variables
+- 创建公共变量
 
-  Create a `android/variables.gradle` file with this content
+  创建 `android/variables.gradle` 文件并添加以下内容：
 
   ```
   ext {
@@ -80,42 +80,41 @@ Recommended changes:
   }
   ```
 
-  In `android/build.gradle` file, add `apply from: "variables.gradle"` as shown [here](https://github.com/ionic-team/capacitor/blob/2.x/android-template/build.gradle#L18).
+  在 `android/build.gradle` 文件中添加 `apply from: "variables.gradle"`，如 [此处示例](https://github.com/ionic-team/capacitor/blob/2.x/android-template/build.gradle#L18)。
 
-- Use common variables
+- 使用公共变量
 
-  If you created the `variables.gradle` file, update your project to use them. In the `android/app/build.gradle` file, change:
+  如果已创建 `variables.gradle` 文件，请按以下方式更新项目配置。在 `android/app/build.gradle` 文件中修改：
 
-  - `compileSdkVersion 28` to `compileSdkVersion rootProject.ext.compileSdkVersion`
-  - `minSdkVersion 21` to `minSdkVersion rootProject.ext.minSdkVersion`
-  - `targetSdkVersion 28` to `targetSdkVersion rootProject.ext.targetSdkVersion`
-  - `implementation 'androidx.appcompat:appcompat:1.0.0'` to `implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"`
-  - `testImplementation 'junit:junit:4.12'` to `testImplementation "junit:junit:$junitVersion"`
-  - `androidTestImplementation 'androidx.test.ext:junit:1.1.1'` to `androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"`
-  - `androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'` to `androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"`
+  - `compileSdkVersion 28` 改为 `compileSdkVersion rootProject.ext.compileSdkVersion`
+  - `minSdkVersion 21` 改为 `minSdkVersion rootProject.ext.minSdkVersion`
+  - `targetSdkVersion 28` 改为 `targetSdkVersion rootProject.ext.targetSdkVersion`
+  - `implementation 'androidx.appcompat:appcompat:1.0.0'` 改为 `implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"`
+  - `testImplementation 'junit:junit:4.12'` 改为 `testImplementation "junit:junit:$junitVersion"`
+  - `androidTestImplementation 'androidx.test.ext:junit:1.1.1'` 改为 `androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"`
+  - `androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'` 改为 `androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"`
 
-  Note that they use double quote instead of single quote now, that's required for variables to work.
+  注意现在需要使用双引号而非单引号，这是变量替换的必要条件。
 
-- Android Studio Plugin Update Recommended
+- 推荐更新 Android Studio 插件
 
-  When you open the Android project in Android Studio, a `Plugin Update Recommended` message will appear. Click on `update`. It will tell you to update Gradle plugin and Gradle. Click `Update` button.
+  在 Android Studio 中打开项目时，会出现 `Plugin Update Recommended` 提示。点击 `update`，系统会提示更新 Gradle 插件和 Gradle。点击 `Update` 按钮即可。
 
-  You can also manually update the Gradle plugin and Gradle.
+  您也可以手动更新 Gradle 插件和 Gradle：
 
-  To manually update Gradle plugin, edit `android/build.gradle` file. Change `classpath 'com.android.tools.build:gradle:3.3.2'` to `classpath 'com.android.tools.build:gradle:3.6.1'`.
+  - 手动更新 Gradle 插件：编辑 `android/build.gradle` 文件，将 `classpath 'com.android.tools.build:gradle:3.3.2'` 改为 `classpath 'com.android.tools.build:gradle:3.6.1'`
+  - 手动更新 Gradle：编辑 `android/gradle/wrapper/gradle-wrapper.properties`，将 `gradle-4.10.1-all.zip` 改为 `gradle-5.6.4-all.zip`
 
-  To manually update Gradle, edit `android/gradle/wrapper/gradle-wrapper.properties`. Change `gradle-4.10.1-all.zip` to `gradle-5.6.4-all.zip`.
+- 更新 Google Services 插件
 
-- Update Google Services plugin
+  在 `android/build.gradle` 文件中，将 `classpath 'com.google.gms:google-services:4.2.0'` 改为 `classpath 'com.google.gms:google-services:4.3.3'`
 
-  In `android/build.gradle` file, change `classpath 'com.google.gms:google-services:4.2.0'` to `classpath 'com.google.gms:google-services:4.3.3'`.
+- 修改 configChanges 避免应用重启
 
-- Change configChanges to avoid app restarts
+  在 `android/app/src/main/AndroidManifest.xml` 文件中，为 activity 的 `android:configChanges` 属性添加 `|smallestScreenSize|screenLayout|uiMode`
 
-  In `android/app/src/main/AndroidManifest.xml` file, add `|smallestScreenSize|screenLayout|uiMode` in the activity `android:configChanges` attribute.
+- 添加缓存目录到 FileProvider 文件路径
 
-- Add caches folder to FileProvider file paths to avoid permission error on editing gallery images.
+  为避免编辑相册图片时的权限错误，在 `android/app/src/main/res/xml/file_paths.xml` 中添加 `<cache-path name="my_cache_images" path="." />`
 
-  In `android/app/src/main/res/xml/file_paths.xml` add `<cache-path name="my_cache_images" path="." />`.
-
-For API changes, check the [Release Notes](https://github.com/ionic-team/capacitor/releases/tag/2.0.0).
+更多 API 变更详情，请查看 [发布说明](https://github.com/ionic-team/capacitor/releases/tag/2.0.0)。
