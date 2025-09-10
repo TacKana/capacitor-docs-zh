@@ -1,16 +1,16 @@
 ---
 title: Capacitor Web API
-description: The API for Capacitor on web
+description: Capacitor在Web平台的API接口
 slug: /core-apis/web
 ---
 
 # Capacitor Web API
 
-Capacitor has several JavaScript utilities useful for ensuring apps run successfully across multiple platforms with the same codebase. To use them, import Capacitor then call the desired utility function:
+Capacitor提供了一系列JavaScript工具函数，帮助开发者使用同一套代码在多个平台上成功运行应用。使用时只需导入Capacitor并调用所需的工具函数：
 
-## Capacitor Object
+## Capacitor对象
 
-The `Capacitor` object is a container for several utility functions. It is available at `window.Capacitor`, but the preferred usage for modern JavaScript apps is to import it:
+`Capacitor`对象包含多个实用工具函数。虽然可以通过`window.Capacitor`访问，但现代JavaScript应用推荐使用导入方式：
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -22,9 +22,9 @@ import { Capacitor } from '@capacitor/core';
 convertFileSrc: (filePath: string) => string;
 ```
 
-Convert a device filepath into a Web View-friendly path.
+将设备文件路径转换为Web视图友好的路径。
 
-Capacitor apps are served on a different protocol than device files. To avoid difficulties between these protocols, paths to device files must be rewritten. For example, on Android, `file:///path/to/device/file` must be rewritten as `http://localhost/_capacitor_file_/path/to/device/file` before being used in the Web View.
+由于Capacitor应用与设备文件使用不同的协议提供服务，为避免协议冲突，需要重写设备文件路径。例如在Android平台，`file:///path/to/device/file`需要被重写为`http://localhost/_capacitor_file_/path/to/device/file`才能在Web视图中使用。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -49,11 +49,11 @@ document.getElementById("savedPhoto").src = savedPhoto;
 getPlatform: () => string;
 ```
 
-Get the name of the platform the app is currently running on: `web`, `ios`, `android`.
+获取当前运行平台的名称：`web`、`ios`或`android`。
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
-  // do something
+  // iOS平台专属逻辑
 }
 ```
 
@@ -63,11 +63,11 @@ if (Capacitor.getPlatform() === 'ios') {
 isNativePlatform: () => boolean;
 ```
 
-Check whether the currently running platform is native (`ios`, `android`).
+检查当前运行平台是否为原生平台（`ios`或`android`）。
 
 ```typescript
 if (Capacitor.isNativePlatform()) {
-  // do something
+  // 原生平台专属逻辑
 }
 ```
 
@@ -77,15 +77,15 @@ if (Capacitor.isNativePlatform()) {
 isPluginAvailable: (name: string) => boolean;
 ```
 
-Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry, which means it also works with custom plugins.
+检查指定插件在当前平台是否可用。插件名称需与插件注册表中的一致，因此也适用于自定义插件。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 if (!isAvailable) {
-  // Have the user upload a file instead
+  // 插件不可用时改用文件上传方案
 } else {
-  // Otherwise, make the call:
+  // 插件可用时调用相机功能
   const image = await Camera.getPhoto({
     resultType: CameraResultType.Uri,
   });

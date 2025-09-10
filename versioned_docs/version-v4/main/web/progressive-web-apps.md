@@ -1,50 +1,50 @@
 ---
 title: Building Progressive Web Apps
-description: How to build Progressive Web Apps with Capacitor
+description: 使用 Capacitor 构建渐进式 Web 应用
 contributors:
   - jcesarmobile
   - dotNetkow
 slug: /web/progressive-web-apps
 ---
 
-# Building Progressive Web Apps
+# 构建渐进式 Web 应用
 
-Capacitor has first-class support for Progressive Web Apps, making it easy to build an app that runs natively on iOS and Android, but also on the web as a mobile web app or "Progressive Web App."
+Capacitor 为渐进式 Web 应用（PWA）提供一流的支持，让您能够轻松构建既能在 iOS 和 Android 上原生运行，也能在 Web 端作为移动应用或"渐进式 Web 应用"运行的跨平台应用。
 
-## What is a Progressive Web App?
+## 什么是渐进式 Web 应用？
 
-Put simply, a Progressive Web App (PWA) is a web app that uses modern web capabilities to deliver an app-like experience to users. These apps are deployed to traditional web servers, are accessible through URLs, and can be indexed by search engines.
+简而言之，渐进式 Web 应用（PWA）是一种利用现代 Web 技术为用户提供类原生应用体验的 Web 应用。这类应用部署在传统 Web 服务器上，可通过 URL 访问，并能被搜索引擎收录。
 
-A Progressive Web App is, for all practical purposes, just another term for a website that has been optimized for mobile performance and that utilizes newly available Web APIs to deliver features that are similar to a traditional native app, such as push notifications and offline storage.
+从实际应用角度来看，PWA 本质上是对移动性能进行优化并利用新型 Web API 实现类原生功能（如推送通知和离线存储）的网站。
 
-## Capacitor and Progressive Web Apps
+## Capacitor 与渐进式 Web 应用
 
-Capacitor has first-class support for Progressive Web Apps _and_ native apps. That means that Capacitor's bridge supports running in either a native context or in the web, with many plugins available _in both contexts_ with the exact same API and calling conventions.
+Capacitor 同时为渐进式 Web 应用和原生应用提供原生级支持。这意味着 Capacitor 的桥接层既能在原生环境中运行，也能在 Web 环境中运行，许多插件在这两种环境下都可用且采用完全相同的 API 和调用方式。
 
-This means you use `@capacitor/core` and Capacitor plugins as dependencies for both your native app _and_ your Progressive Web App, and Capacitor seamlessly calls web code when required and native code when available.
+因此，您可以将 `@capacitor/core` 和 Capacitor 插件同时作为原生应用和渐进式 Web 应用的依赖项，Capacitor 会根据当前运行环境智能地调用 Web 代码或原生代码。
 
-Additionally, Capacitor offers a number of utilities for querying the current platform to provide customized experiences when running natively or on the web.
+此外，Capacitor 还提供多种实用工具来检测当前运行平台，从而为原生或 Web 环境提供定制化的用户体验。
 
-## Adding Progressive Web App Support to your app
+## 为应用添加 PWA 支持
 
-Progressive Web Apps should have an App Manifest and a Service Worker.
+渐进式 Web 应用需要具备应用清单（App Manifest）和服务工作者（Service Worker）。
 
-### App Manifest
+### 应用清单
 
-First, you'll need an [App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) file ([manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)) that sits alongside your `index.html` file and provides metadata about your app, such as its name, theme colors, and icons. This information will be used when your app is installed on the home screen, for example.
+首先，您需要在 `index.html` 同级目录下创建 [应用清单文件](https://developer.mozilla.org/en-US/docs/Web/Manifest)（[manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)），用于提供应用的元数据，如应用名称、主题色和图标等信息。这些信息将在用户将应用添加到主屏幕时使用。
 
-### Service Worker
+### 服务工作者
 
-Next, in order to send push notifications and store data offline, a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) will enable your web app to proxy network requests and perform background tasks needed to process and sync data.
+其次，为实现推送通知和离线数据存储功能，您需要使用 [服务工作者](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。这项技术能让您的 Web 应用代理网络请求，并执行数据处理和同步所需的后台任务。
 
-Service Workers are powerful, but complicated. Generally, writing them from scratch is not recommended. Instead, take a look at tools like [Workbox](https://developers.google.com/web/tools/workbox/) that provide common Service Worker recipes that you can easily incorporate into your app.
+服务工作者功能强大但实现复杂，通常不建议从零开始编写。推荐使用 [Workbox](https://developers.google.com/web/tools/workbox/) 等工具，它们提供了开箱即用的服务工作者解决方案，可轻松集成到您的应用中。
 
-Read more about using Service Workers, including how to register them, on the [Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) page on MDN.
+关于服务工作者的使用方法和注册方式，请参阅 MDN 的 [使用 Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) 文档。
 
-## Progressive Web App Performance
+## PWA 性能优化
 
-Progressive Web Apps are judged by several performance standards, including [Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive) and [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint).
+渐进式 Web 应用的性能评估包含多项标准，如 [可交互时间](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive) 和 [首次有效绘制](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)。
 
-Follow the [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist) before going live, and use [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to audit and test your app.
+上线前请对照 [渐进式 Web 应用检查清单](https://developers.google.com/web/progressive-web-apps/checklist) 进行优化，并使用 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 工具进行审核测试。
 
-If you're struggling to meet Progressive Web App performance standards with your existing frontend stack, take a look at [Ionic Framework](http://ionicframework.com/) as an option for getting fast PWA support with nearly zero configuration.
+如果现有前端技术栈难以满足 PWA 性能标准，可以考虑采用 [Ionic Framework](http://ionicframework.com/)，该框架能帮助您以近乎零配置的方式快速实现高性能 PWA。

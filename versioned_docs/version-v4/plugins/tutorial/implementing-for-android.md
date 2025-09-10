@@ -1,25 +1,16 @@
----
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for Android
-contributors:
-  - eric-horodyski
-sidebar_label: Implementing for Android
-slug: /plugins/tutorial/android-implementation
----
+# 实现Android平台功能
 
-# Implementing for Android
+插件开发已接近尾声，现在只差Android平台的实现！
 
-Development for the plugin is nearly complete. All that’s left is the Android implementation!
+## 向Capacitor注册插件
 
-## Register the plugin with Capacitor
+> **前提条件**：继续之前，请先熟悉<a href="https://capacitorjs.com/docs/android/custom-code" target="_blank">Capacitor自定义原生Android代码文档</a>。
 
-> **Prerequisite:** Familiarize yourself with the <a href="https://capacitorjs.com/docs/android/custom-code" target="_blank">Capacitor Custom Native Android Code documentation</a> before continuing.
+运行`npx cap open android`在Android Studio中打开Capacitor应用的Android项目。展开**app**模块下的**java**文件夹，右键点击应用的Java包。从上下文菜单中选择**新建 -> 包**，创建名为**plugins**的子包。再右键点击**plugins**包，重复上述过程创建**ScreenOrientation**子包。
 
-Open up the Capacitor application’s Android project in Android Studio by running `npx cap open android`. Expand the **app** module and the **java** folder and right-click on your app’s Java package. Select **New -> Package** from the context menu and create a subpackage named **plugins**. Right-click the **plugins** package and repeat the preceding process to create a subpackage named **ScreenOrientation**.
+接着，右键**ScreenOrientation**包，选择**新建 -> Java类**创建`ScreenOrientationPlugin.java`文件。同样方式创建`ScreenOrientation.java`文件。
 
-Next, right-click the **ScreenOrientation** package and add a new Java file by selecting **New -> Java File** from the context menu. Name this file `ScreenOrientationPlugin.java`. Repeat the process to create a new file named `ScreenOrientation.java`.
-
-Copy the following code into `ScreenOrientationPlugin.java`:
+将以下代码复制到`ScreenOrientationPlugin.java`：
 
 ```java
 package io.ionic.cap.plugin.plugins.ScreenOrientation;
@@ -49,7 +40,7 @@ public class ScreenOrientationPlugin extends Plugin {
 }
 ```
 
-Register the plugin class within the project’s MainActivity to bridge between Java and JavaScript. Open `MainActivity.java` and add an `onCreate()` method where we can register the plugin:
+在项目的MainActivity中注册插件类，建立Java与JavaScript的桥梁。打开`MainActivity.java`添加`onCreate()`方法注册插件：
 
 ```java
 package io.ionic.cap.plugin;
@@ -67,9 +58,9 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-## Getting the current screen orientation
+## 获取当前屏幕方向
 
-Like iOS, we will tackle getting the current screen orientation first. Open `ScreenOrientation.java` to set up the class and write a method to get the current orientation:
+与iOS实现类似，我们先处理获取当前屏幕方向的功能。打开`ScreenOrientation.java`设置类结构并编写获取当前方向的方法：
 
 ```java
 package io.ionic.cap.plugin.plugins.ScreenOrientation;
@@ -104,13 +95,13 @@ public class ScreenOrientation {
 }
 ```
 
-Next, wire up the `orientation` method in `ScreenOrientationPlugin.java` to call the implementation class’s method:
+然后在`ScreenOrientationPlugin.java`中关联`orientation`方法与实现类的功能：
 
 ```java
 package io.ionic.cap.plugins.ScreenOrientation;
 
 import com.getcapacitor.JSObject;
-/* Remaining imports omitted for brevity */
+/* 其余导入省略 */
 
 @CapacitorPlugin(name = "ScreenOrientation")
 public class ScreenOrientationPlugin extends Plugin {
@@ -130,33 +121,33 @@ public class ScreenOrientationPlugin extends Plugin {
        call.resolve(ret);
    }
 
-   /* Remaining code omitted for brevity */
+   /* 其余代码省略 */
 }
 ```
 
-The `load()` method is the proper place to initialize the `ScreenOrientation` class instance with the Capacitor bridge object.
+`load()`方法是初始化`ScreenOrientation`类实例与Capacitor桥接对象的理想位置。
 
-Run the app from within Android Studio, either on an actual device or an Android emulator. Open **Logcat** and you should see the call logged:
+在Android Studio中运行应用（真机或模拟器），打开**Logcat**应能看到调用记录：
 
 ```bash
 V/Capacitor/Plugin: To native (Capacitor plugin): callbackId: 89582874, pluginId: ScreenOrientation, methodName: orientation
 ```
 
-> **Note:** The exact value of the logs will be different for you. In this example, `89582874` is an arbitrary ID assigned to the method call made from the plugin.
+> **注意**：实际日志值会有所不同。示例中`89582874`是插件方法调用分配的任意ID。
 
-## Listening for screen orientation changes
+## 监听屏幕方向变化
 
-Android considers the rotation of a device a runtime configuration change, so we need a way for our plugin to <a href="https://developer.android.com/guide/topics/resources/runtime-changes" target="_blank">handle configuration changes</a>.
+Android将设备旋转视为运行时配置变更，因此需要让插件能够<a href="https://developer.android.com/guide/topics/resources/runtime-changes" target="_blank">处理配置变更</a>。
 
-Capacitor provides an overridable method, `handleOnConfigurationChanged()`, that can be used to respond to runtime configuration changes.
+Capacitor提供了可重写方法`handleOnConfigurationChanged()`来响应运行时配置变更。
 
-First add the following import to the `ScreenOrientationPlugin` class:
+首先在`ScreenOrientationPlugin`类中添加导入：
 
 ```java
 import android.content.res.Configuration;
 ```
 
-Then add the following methods to the `ScreenOrientationPlugin` class:
+然后添加以下方法：
 
 ```java
 @Override
@@ -173,14 +164,14 @@ private void onOrientationChanged() {
 }
 ```
 
-When Android notifies an application of a configuration change, it returns the entire new configuration object, presenting two challenges:
+Android通知应用配置变更时会返回完整的新配置对象，这带来两个挑战：
 
-1. How do we make sure we only notify listeners when the orientation changes?
-2. How do we know that the configuration change was due to an orientation change?
+1. 如何确保只在方向变化时通知监听器？
+2. 如何确认配置变更是由方向变化引起？
 
-We will need the plugin to keep track of the previous `newConfig.orientation` value to compare against additional configuration changes to address those challenges.
+我们需要让插件追踪前一个`newConfig.orientation`值，以便比较后续配置变更。
 
-Make the following additions to the `ScreenOrientation` class:
+在`ScreenOrientation`类中添加：
 
 ```java
 @Nullable private int configOrientation;
@@ -195,9 +186,9 @@ public boolean hasOrientationChanged(int orientation) {
 }
 ```
 
-Don't forget to import `androidx.annotation.Nullable` to `ScreenOrientation.java`.
+别忘了在`ScreenOrientation.java`中导入`androidx.annotation.Nullable`。
 
-Then update the `handleOnConfigurationChanged()` method in `ScreenOrientationPlugin.java`:
+然后更新`ScreenOrientationPlugin.java`中的`handleOnConfigurationChanged()`方法：
 
 ```java
 @Override
@@ -209,11 +200,11 @@ public void handleOnConfigurationChanged(Configuration newConfig) {
 }
 ```
 
-Now, the plugin will only notify listeners if-and-only-if runtime configuration changes pertain to the orientation changing.
+现在插件只会在运行时配置变更确实涉及方向变化时才通知监听器。
 
-## Locking and unlocking the screen orientation
+## 锁定与解锁屏幕方向
 
-As we saw with the iOS implementation, we’ll need a helper method to map the JavaScript OrientationType into a corresponding native enumeration value. For Android, we’ll map an OrientationType to an ActivityInfo enumeration value. Add the following method to the `ScreenOrientation` class:
+与iOS实现类似，需要辅助方法将JavaScript的OrientationType映射到对应的原生枚举值。Android中我们将OrientationType映射到ActivityInfo枚举值。在`ScreenOrientation`类中添加：
 
 ```java
 private int fromOrientationTypeToEnum(String orientationType) {
@@ -225,15 +216,15 @@ private int fromOrientationTypeToEnum(String orientationType) {
        case "portrait-secondary":
            return ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
        default:
-           // Case: portrait-primary
+           // 默认 portrait-primary
            return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
    }
 }
 ```
 
-Make sure to import `android.content.pm.ActivityInfo` to `ScreenOrientation.java`.
+确保在`ScreenOrientation.java`中导入`android.content.pm.ActivityInfo`。
 
-Next, add a `lock()` method to the `ScreenOrientation` class:
+接着在`ScreenOrientation`类中添加`lock()`方法：
 
 ```java
 public void lock(String orientationType) {
@@ -242,14 +233,14 @@ public void lock(String orientationType) {
 }
 ```
 
-This method needs to get called from the `ScreenOrientationPlugin` class:
+从`ScreenOrientationPlugin`类调用此方法：
 
 ```java
 @PluginMethod()
 public void lock(PluginCall call) {
    String orientationType = call.getString("orientation");
    if(orientationType == null) {
-       call.reject("Input option 'orientation' must be provided.");
+       call.reject("必须提供'orientation'输入参数");
        return;
    }
    implementation.lock(orientationType);
@@ -257,9 +248,9 @@ public void lock(PluginCall call) {
 }
 ```
 
-Note, we guard against calls to the `lock()` method that do not supply the `orientation` input parameter.
+注意我们防范了未提供`orientation`参数就调用`lock()`方法的情况。
 
-To unlock the screen orientation, we set the activity’s orientation type to the unspecified enumeration value. Add the following method to the `ScreenOrientation` class:
+要解锁屏幕方向，需将activity的方向类型设为未指定枚举值。在`ScreenOrientation`类中添加：
 
 ```java
 public void unlock() {
@@ -267,7 +258,7 @@ public void unlock() {
 }
 ```
 
-Then call the implementation method from the `ScreenOrientationPlugin` class:
+然后从`ScreenOrientationPlugin`类调用实现方法：
 
 ```java
 @PluginMethod()
@@ -277,12 +268,12 @@ public void unlock(PluginCall call) {
 }
 ```
 
-## Give it a test drive!
+## 测试功能！
 
-In Android Studio, run the app on either a device or an emulator. Pressing the “Rotate My Device” button will rotate the screen orientation into landscape mode, and if you rotate further, you will see that the screen orientation is locked. Pressing “Confirm Signature“ will unlock the screen orientation.
+在Android Studio中运行应用（设备或模拟器）。点击"Rotate My Device"按钮将屏幕方向锁定为横屏，继续旋转会看到方向已被锁定。点击"Confirm Signature"将解锁屏幕方向。
 
-> **Note:** Ensure that you have the **Auto-rotate** device setting set to **on** before testing the plugin out; otherwise, it won’t function.
+> **注意**：测试前请确保设备设置中的**自动旋转**已开启，否则功能无法正常工作。
 
-Congratulations, you’ve built a Capacitor plugin that works for web, iOS, and Android! 👏 👏 👏
+恭喜，你已成功构建了可在Web、iOS和Android平台运行的Capacitor插件！👏 👏 👏
 
-As it stands, the `ScreenOrientation` plugin is a local plugin; only this application can use it. And that’s OK! Many times you’ll only want a plugin used only within a particular app. However, if you would like to reuse a plugin in multiple apps, we’ll see how to do that in the final step: packaging the plugin.
+目前`ScreenOrientation`插件是本地插件，仅限当前应用使用。这完全没问题！很多时候你只需要在特定应用中使用插件。不过如果想在多个应用中复用插件，我们将在最后一步：插件打包中介绍如何实现。

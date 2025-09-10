@@ -1,51 +1,51 @@
 ---
 title: VS Code Extension
-description: Using the Ionic/Capacitor VS Code Extension
+description: 使用 Ionic/Capacitor VS Code 扩展
 slug: /getting-started/vscode-extension
 ---
 
-## Using the Ionic/Capacitor VS Code Extension
+## 使用 Ionic/Capacitor VS Code 扩展
 
-The Ionic Visual Studio Code extension doubles as an official Capacitor extension, and helps you perform various functions that are common to developing a Capacitor app, all without leaving your VS Code window. You can install the [extension on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic). Once you have the extension installed, you'll see the Ionic logo in the activity bar.
+Ionic Visual Studio Code 扩展同样作为官方 Capacitor 扩展，能帮助您在不离开 VS Code 窗口的情况下完成 Capacitor 应用开发的各项常见操作。您可以从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) 安装此扩展。安装完成后，您将在活动栏中看到 Ionic 的标识。
 
-## Integrating Capacitor
+## 集成 Capacitor
 
-You can add [Capacitor](https://capacitorjs.com/) to your existing application by choosing "Integrate Capacitor".
+您可以通过选择"集成 Capacitor"将 [Capacitor](https://capacitorjs.com/) 添加到现有应用中。
 
-![Video of adding Capacitor](/img/v6/docs/getting-started/integrate-capacitor.gif)
+![添加 Capacitor 的演示视频](/img/v6/docs/getting-started/integrate-capacitor.gif)
 
-With Capacitor integrated, you can now run your app on web, Android, and iOS with the "Run On Web", "Run On Android", and "Run On iOS" options.
+完成 Capacitor 集成后，您现在可以使用"在 Web 上运行"、"在 Android 上运行"和"在 iOS 上运行"选项，分别在 Web、Android 和 iOS 平台上运行您的应用。
 
-## Migrating from Cordova
+## 从 Cordova 迁移
 
-If you are [migrating from Cordova to Capacitor](https://capacitorjs.com/docs/cordova/migrating-from-cordova-to-capacitor), the Ionic VS Code extension can speed up that process.
+如果您正在[从 Cordova 迁移到 Capacitor](https://capacitorjs.com/docs/cordova/migrating-from-cordova-to-capacitor)，Ionic VS Code 扩展可以加速这一过程。
 
-The extension:
+该扩展能够：
 
-- Adds Capacitor's dependencies to your project.
-- Flags known, incompatible Cordova packages.
-- Removes unrequired Cordova plugins.
-- Replaces certain Cordova plugins with equivalent Capacitor plugins
-- And more!
+- 为项目添加 Capacitor 依赖
+- 标记已知不兼容的 Cordova 包
+- 移除不必要的 Cordova 插件
+- 用等效的 Capacitor 插件替换某些 Cordova 插件
+- 以及其他功能！
 
-This extension will help you follow our guide to migrate off of Cordova and onto Capacitor more easily than before.
+通过此扩展，您可以更轻松地按照我们的指南从 Cordova 迁移到 Capacitor。
 
-## Configuring Native Project Settings
+## 配置原生项目设置
 
-The Ionic VS Code extension can also help you easily configure Android and iOS variables related to your project.
+Ionic VS Code 扩展还能帮助您轻松配置与项目相关的 Android 和 iOS 变量。
 
-![Capacitor Native Configuration Example Image](/img/v6/docs/getting-started/capacitor-vscode-config.gif)
+![Capacitor 原生配置示例图片](/img/v6/docs/getting-started/capacitor-vscode-config.gif)
 
-You can easily change the display name, version number, and build number of your application; as well as other configurable values in your project.
+您可以轻松修改应用的显示名称、版本号和构建号，以及项目中的其他可配置值。
 
-## Debugging
+## 调试功能
 
-Using the Ionic extension, you can run the VS Code debugger on Web, Android, and iOS (coming soon).
+使用 Ionic 扩展，您可以在 Web、Android 和 iOS（即将推出）平台上运行 VS Code 调试器。
 
-![Capacitor Debugging Example Image](/img/v6/docs/getting-started/ionic-vs-code-debugging.jpg)
+![Capacitor 调试示例图片](/img/v6/docs/getting-started/ionic-vs-code-debugging.jpg)
 
-Using the options under the Debug folder, you can set breakpoints for both web and native code. Debugging for web will launch a seperate web browser instance that is debuggable (Google Chrome by Default). You can also choose Microsoft Edge from the settings option. On Android, the webview instances will be listed in the "Debug" folder and debuggable in a similar way to Web.
+通过"调试"文件夹下的选项，您可以为 Web 和原生代码设置断点。Web 调试将启动一个可调试的独立浏览器实例（默认使用 Google Chrome）。您也可以在设置中选择 Microsoft Edge。在 Android 上，Webview 实例将列在"调试"文件夹中，并以类似于 Web 的方式进行调试。
 
-## Doing More
+## 更多功能
 
-There is so much the Ionic VS Code extension can help with, including migrations, debugging, monorepo support, and more. For the full list of all of the extension's capabilities, checkout the [extension overview on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic).
+Ionic VS Code 扩展还能协助完成迁移、调试、monorepo 支持等众多任务。如需了解扩展的全部功能，请查看 [VS Code Marketplace 上的扩展概述](https://marketplace.visualstudio.com/items?itemName=ionic.ionic)。

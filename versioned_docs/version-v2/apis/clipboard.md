@@ -1,6 +1,6 @@
 ---
 title: Clipboard
-description: Clipboard API
+description: 剪贴板 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,14 +9,13 @@ canonicalUrl: https://capacitorjs.com/docs/apis/clipboard
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-The Clipboard API enables copy and pasting to/from the clipboard. On iOS this API also allows
-copying images and URLs.
+剪贴板（Clipboard）API 支持向系统剪贴板写入内容或从中读取内容。在 iOS 平台上，该 API 还支持复制图片和 URL。
 
 - [`write(...)`](#write)
 - [`read()`](#read)
-- [Interfaces](#interfaces)
+- [接口定义](#interfaces)
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -31,7 +30,7 @@ let result = await Clipboard.read();
 console.log('Got', result.type, 'from clipboard:', result.value);
 ```
 
-## API
+## API 接口
 
 ### write(...)
 
@@ -39,9 +38,9 @@ console.log('Got', result.type, 'from clipboard:', result.value);
 write(options: ClipboardWrite) => Promise<void>
 ```
 
-Write a value to the clipboard (the "copy" action)
+向剪贴板写入内容（即"复制"操作）
 
-| Param         | Type                                                      |
+| 参数          | 类型                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#clipboardwrite">ClipboardWrite</a></code> |
 
@@ -53,17 +52,17 @@ Write a value to the clipboard (the "copy" action)
 read() => Promise<ClipboardReadResult>
 ```
 
-Read a value from the clipboard (the "paste" action)
+从剪贴板读取内容（即"粘贴"操作）
 
-**Returns:** <code>Promise&lt;<a href="#clipboardreadresult">ClipboardReadResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#clipboardreadresult">ClipboardReadResult</a>&gt;</code>
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### ClipboardWrite
 
-| Prop         | Type                |
+| 属性          | 类型                |
 | ------------ | ------------------- |
 | **`string`** | <code>string</code> |
 | **`image`**  | <code>string</code> |
@@ -72,7 +71,7 @@ Read a value from the clipboard (the "paste" action)
 
 #### ClipboardReadResult
 
-| Prop        | Type                |
+| 属性         | 类型                |
 | ----------- | ------------------- |
 | **`value`** | <code>string</code> |
 | **`type`**  | <code>string</code> |

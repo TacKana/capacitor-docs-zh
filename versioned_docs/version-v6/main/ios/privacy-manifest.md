@@ -1,61 +1,61 @@
 ---
-title: Privacy Manifest
-description: Adding a Privacy Manifest to your iOS app
+title: 隐私清单文件
+description: 为iOS应用添加隐私清单文件
 slug: /ios/privacy-manifest
 ---
 
-Apple recently introduced new [privacy protocols for third-party SDKs](https://developer.apple.com/news/?id=3d8a9yyh) at WWDC23, requiring SDK authors to declare approved reasons for API usage within their SDKs to enhance transparency and user privacy.
+苹果在WWDC23上推出了新的[第三方SDK隐私协议](https://developer.apple.com/news/?id=3d8a9yyh)，要求SDK开发者在其SDK中声明使用API的合规理由，以提高透明度和用户隐私保护。
 
-Starting March 13th, 2024, App Store Connect will notify users when a new or updated app is uploaded without approved reasons to access certain APIs.
+自2024年3月13日起，当开发者上传缺少API使用合规声明的新应用或更新时，App Store Connect将发出通知。
 
-**Starting May 1st, 2024, you will be required to include approved reasons when submitting a new or updated app to App Store Connect.**
+**2024年5月1日起，所有提交至App Store Connect的新应用或更新都必须包含API使用合规声明。**
 
-## Steps to Meet Requirements
+## 合规操作指南
 
-Not all Applications will be flagged but certain plugins such as `@capacitor/filesystem` and `@capacitor/preferences` may necessitate a Privacy Manifest File. If you have received a notification:
+并非所有应用都会触发提示，但使用某些插件（如`@capacitor/filesystem`和`@capacitor/preferences`）可能需要添加隐私清单文件。若您已收到相关通知：
 
-1. Update Capacitor to:
-a. `>= 6.0.0` for Capacitor 6
-b. `>= 5.7.4` for Capacitor 5
-c. `>= 4.8.2` for Capacitor 4
-d. Capacitor <= 3 is not supported
-2. Use either the VS Code Extension to create the privacy manifest file for your app or create it manually.
+1. 升级Capacitor至：
+a. `>= 6.0.0`（Capacitor 6）
+b. `>= 5.7.4`（Capacitor 5）
+c. `>= 4.8.2`（Capacitor 4）
+d. Capacitor 3及以下版本不受支持
+2. 可选择使用VS Code扩展自动生成隐私清单文件，或手动创建
 
-### VS Code Extension
+### 使用VS Code扩展
 
-Make sure you have the [Ionic VS Code extension](https://ionic.link/vscode) installed and open your project.
+确保已安装[Ionic VS Code扩展](https://ionic.link/vscode)并打开项目。
 
-Under recommendations you will see *Add Privacy Manifest* if your application is using a plugin that uses certain APIs.
+在推荐操作中，若检测到应用使用了需要声明的API插件，将显示*添加隐私清单*选项。
 
-![No Manifest](/img/v6/docs/ios/no-manifest.png)
+![无清单文件](/img/v6/docs/ios/no-manifest.png)
 
-Choose Yes to create the bare minimum privacy manifest file.
+选择"是"可创建基础隐私清单文件。
 
-The extension will then list all changes needed as recommendations titled *Missing Privacy Manifest Category*. For example:
+扩展随后会列出所有需要补充的隐私声明项，标记为*缺失隐私清单类别*。例如：
 
-![Privacy Change](/img/v6/docs/ios/privacy-change.png)
+![隐私变更](/img/v6/docs/ios/privacy-change.png)
 
-You must select one of the reason codes to explain how you use the plugin. If you are unsure, click *Docs* to go to the Apple’s documentation on the explanations of each reason code.
+需为每个插件选择一个合规理由代码。若不确定如何选择，可点击*文档*查看苹果对各理由代码的官方说明。
 
-Please note that the VS Code extension has a set of rules for known plugins to help you. If you are still being rejected by Apple for missing privacy manifest reasons it may be that you are using a plugin that the extension does not know. You can open an issue on the [VS Code extension issue tracker](https://github.com/ionic-team/vscode-ionic/issues).
+请注意，VS Code扩展内置了常见插件的合规规则。若仍因隐私清单问题被苹果拒绝，可能是使用了扩展未识别的插件，可在[扩展问题追踪器](https://github.com/ionic-team/vscode-ionic/issues)提交问题。
 
-### Manual Steps
+### 手动创建步骤
 
-If you would prefer to perform the steps for creating a Privacy Manifest file manually open Xcode then:
+如需手动创建隐私清单文件，请在Xcode中：
 
-Choose *File > New File*.
+选择*文件 > 新建文件*
 
-Scroll down to the *Resource* section and select *App Privacy File* type.
+滚动至*资源*区域，选择*App隐私文件*类型
 
-Click *Next*.
+点击*下一步*
 
-Check your app in the *Targets* list.
+在*目标*列表勾选您的应用
 
-Click *Create*.
+点击*创建*
 
-A file called `PrivacyInfo.xcprivacy` will be created. This file is challenging to create interactively in the Xcode UI so it may be easier to edit it manually by right clicking it and choosing *Open with External Editor*.
+将生成`PrivacyInfo.xcprivacy`文件。由于Xcode界面编辑较复杂，建议右键选择*用外部编辑器打开*进行手动编辑。
 
-As a sample file here is a `PrivacyInfo.xcprivacy` file that uses the UserDefaults API through its use of the `@capacitor/preferences` plugin.
+以下是通过`@capacitor/preferences`插件使用UserDefaults API的示例文件：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,10 +81,10 @@ As a sample file here is a `PrivacyInfo.xcprivacy` file that uses the UserDefaul
 </plist>
 ```
 
-To find code and plugins which may require privacy manifest changes you can use a script like [this one](https://github.com/Wooder/ios_17_required_reason_api_scanner) by running `sh required_reason_api_text_scanner.sh node_modules` .
+可使用[此脚本](https://github.com/Wooder/ios_17_required_reason_api_scanner)扫描可能需声明的插件，运行命令：`sh required_reason_api_text_scanner.sh node_modules`
 
-To choose the correct reason codes (like `CA92.1` in the above example) you will need to read [Apple’s documentation](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api).
+选择正确的理由代码（如上例中的`CA92.1`）需参考[苹果官方文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api)。
 
-## Before Store Submission
+## 应用商店提交前
 
-Before App store submission you may need to disclose user tracking, tracking domains or collection of other data types that are unique for your application. See [Apple’s documentation](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files) for more information.
+提交至App Store前，可能还需声明用户追踪、追踪域名或其他应用特有的数据收集行为。详见[苹果官方文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)。

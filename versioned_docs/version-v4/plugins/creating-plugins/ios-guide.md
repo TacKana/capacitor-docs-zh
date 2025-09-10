@@ -1,36 +1,24 @@
----
-title: Capacitor iOS Plugin Guide
-description: Capacitor iOS Plugin Guide
-contributors:
-  - mlynch
-  - jcesarmobile
-sidebar_label: iOS Guide
-slug: /plugins/ios
----
+# Capacitor iOS 插件开发指南
 
-# Capacitor iOS Plugin Guide
+为 iOS 构建 Capacitor 插件需要编写 Swift（或 Objective-C）代码来与苹果的 iOS SDK 进行交互。
 
-Building Capacitor plugins for iOS involves writing Swift (or Objective-C) to interface with Apple's iOS SDKs.
+## 快速开始
 
-## Getting Started
+首先按照插件指南中的[入门章节](/plugins/creating-plugins/overview.md)生成一个插件。
 
-To get started, first generate a plugin as shown in the [Getting Started](/plugins/creating-plugins/overview.md) section of the Plugin guide.
+接着，在 Xcode 中打开 `echo/ios/Plugin.xcworkspace`。然后导航到插件的 .swift 文件。
 
-Next, open `echo/ios/Plugin.xcworkspace` in Xcode. You then want to navigate to the .swift file for your plugin.
+例如，对于插件类名为 `Echo` 的插件，你应该打开 `EchoPlugin.swift`。
 
-For example, for a plugin with the Plugin Class Name `Echo`, you should open `EchoPlugin.swift`.
+## 插件基础
 
-## Plugin Basics
+iOS 上的 Capacitor 插件是一个继承自 `CAPPlugin` 的简单 Swift 类，包含一些可被 JavaScript 调用的导出方法。
 
-A Capacitor plugin for iOS is a simple Swift class that extends `CAPPlugin` and
-has some exported methods that will be callable from JavaScript.
+### 简单示例
 
-### Simple Example
+在生成的示例中，有一个简单的回声插件，其 `echo` 函数仅返回接收到的值。
 
-In the generated example, there is a simple echo plugin with an `echo` function that simply returns a value that it was given.
-
-This example demonstrates a few core components of Capacitor plugins: receiving data from a Plugin Call, and returning
-data back to the caller:
+这个示例展示了 Capacitor 插件的几个核心组件：从插件调用接收数据，并将数据返回给调用者：
 
 `EchoPlugin.swift`
 
@@ -48,14 +36,13 @@ public class EchoPlugin: CAPPlugin {
 }
 ```
 
-### Accessing Call Data
+### 访问调用数据
 
-Each plugin method receives an instance of `CAPPluginCall` containing all the information of the plugin method invocation from the client.
+每个插件方法都会接收一个 `CAPPluginCall` 实例，其中包含客户端调用插件方法的所有信息。
 
-A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `options` field of the call instance, or by using convenience methods such as `getString` or `getObject`. Passing and accessing some of these values has some peculiarities to be aware of, as discussed [separately](/main/reference/core-apis/data-types.md#ios).
+客户端可以发送任何可 JSON 序列化的数据，如数字、文本、布尔值、对象和数组。这些数据可以通过 `options` 字段访问，或使用便捷方法如 `getString` 或 `getObject`。传递和访问这些值时需要注意一些特殊之处，详情可参考[单独说明](/main/reference/core-apis/data-types.md#ios)。
 
-For example, here is how you'd get data passed to your method:
+例如，以下是获取传递给方法的数据的方式：
 
 ```swift
 @objc func storeContact(_ call: CAPPluginCall) {
@@ -64,7 +51,7 @@ For example, here is how you'd get data passed to your method:
   let isAwesome = call.getBool("isAwesome") ?? false
 
   guard let id = call.options["id"] as? String else {
-    call.reject("Must provide an id")
+    call.reject("必须提供 id")
     return
   }
 
@@ -74,14 +61,13 @@ For example, here is how you'd get data passed to your method:
 }
 ```
 
-Notice the various ways data can be accessed on the `CAPPluginCall` instance, including how to require
-options using `guard`.
+注意 `CAPPluginCall` 实例上访问数据的各种方式，包括如何使用 `guard` 要求选项。
 
-### Returning Data Back
+### 返回数据
 
-A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
+插件调用可以成功或失败。插件调用借鉴了 JavaScript Promise 的方法名：调用 `resolve()` 表示成功（可选择返回数据），使用 `reject()` 表示失败并附带错误信息。
 
-The `resolve()` method of `CAPPluginCall` takes a dictionary and supports JSON-serializable data types. Here's an example of returning data back to the client:
+`CAPPluginCall` 的 `resolve()` 方法接受一个字典并支持 JSON 可序列化的数据类型。以下是返回数据给客户端的示例：
 
 ```swift
 call.resolve([
@@ -92,30 +78,30 @@ call.resolve([
 ])
 ```
 
-To fail, or reject a call, call `reject()`, passing an error string and optionally an error code and `Error` instance:
+要表示失败或拒绝调用，调用 `reject()`，传递错误字符串，可选择性地包含错误代码和 `Error` 实例：
 
 ```swift
 call.reject(error.localizedDescription, nil, error)
 ```
 
-### Running Code on Plugin Load
+### 插件加载时运行代码
 
-Occasionally, plugins may need to run some code when the plugin is first loaded. For example, this would be a good place to set up any Notification Center event handlers.
+有时，插件需要在首次加载时运行一些代码。例如，这是设置任何通知中心事件处理程序的好地方。
 
-To do this, provide an implementation for the `load()` method:
+为此，提供 `load()` 方法的实现：
 
 ```swift
 override public func load() {
 }
 ```
 
-### Export to Capacitor
+### 导出到 Capacitor
 
-To make sure Capacitor can see your plugin, the plugin generator do two things: export your Swift class to Objective-C, and register it using the provided Capacitor Objective-C Macros.
+为确保 Capacitor 能看到你的插件，插件生成器会做两件事：将你的 Swift 类导出到 Objective-C，并使用提供的 Capacitor Objective-C 宏进行注册。
 
-To export your Swift class to Objective-C, the plugin generator adds `@objc(EchoPlugin)` above your Swift class, and add `@objc` before the `echo` method.
+要将 Swift 类导出到 Objective-C，插件生成器会在 Swift 类上方添加 `@objc(EchoPlugin)`，并在 `echo` 方法前添加 `@objc`。
 
-To register the plugin, the plugin generator creates a file with a `.m` extension corresponding to your plugin (such as `EchoPlugin.m`) and use the `CAP_PLUGIN` to register the plugin and the `CAP_PLUGIN_METHOD` macro to register the `echo` method.
+要注册插件，插件生成器会创建一个与你的插件对应的 `.m` 扩展文件（如 `EchoPlugin.m`），并使用 `CAP_PLUGIN` 注册插件，使用 `CAP_PLUGIN_METHOD` 宏注册 `echo` 方法。
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -125,19 +111,19 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 )
 ```
 
-This makes `Echo` plugin, and the `echo` method available to the Capacitor web runtime, indicating to Capacitor that the echo method will return a Promise.
+这使得 `Echo` 插件及其 `echo` 方法对 Capacitor Web 运行时可用，向 Capacitor 表明 `echo` 方法将返回一个 Promise。
 
-To add more methods to your plugin, create them in the `.swift` plugin class with the `@objc` before the `func` keyword and add a new `CAP_PLUGIN_METHOD` entry in the `.m` file.
+要向插件添加更多方法，在 `.swift` 插件类中创建它们，在 `func` 关键字前添加 `@objc`，并在 `.m` 文件中添加新的 `CAP_PLUGIN_METHOD` 条目。
 
-## Permissions
+## 权限
 
-If your plugin has functionality on iOS that requires permissions from the end user, then you will need to implement the permissions pattern.
+如果你的插件在 iOS 上有需要终端用户权限的功能，则需要实现权限模式。
 
-Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/plugins/creating-plugins/web-guide.md#permissions).
+在继续本节之前，请确保已设置权限别名和状态接口。如果还没有，请参阅 [Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#permissions)。
 
-### Implementing Permissions
+### 实现权限
 
-Add the `checkPermissions()` and `requestPermissions()` methods to your Swift plugin class.
+将 `checkPermissions()` 和 `requestPermissions()` 方法添加到你的 Swift 插件类中。
 
 ```diff
  import Capacitor
@@ -158,9 +144,9 @@ Add the `checkPermissions()` and `requestPermissions()` methods to your Swift pl
 
 #### `checkPermissions()`
 
-This method should return the current status of permissions in your plugin, which should be a dictionary that matches the structure of the [permission status definition](/plugins/creating-plugins/web-guide.md#permission-status-definitions) you defined. Typically, this information is available directly on the frameworks you're using.
+此方法应返回插件中权限的当前状态，应该是一个与[权限状态定义](/plugins/creating-plugins/web-guide.md#permission-status-definitions)匹配的字典。通常，这些信息可以直接从你使用的框架中获取。
 
-In the example below, we map the current authorization status from location services into a permission state and associate the `location` alias with that state.
+在下面的示例中，我们将定位服务的当前授权状态映射到权限状态，并将 `location` 别名与该状态关联。
 
 ```swift
 @objc override func checkPermissions(_ call: CAPPluginCall) {
@@ -183,11 +169,11 @@ In the example below, we map the current authorization status from location serv
 
 #### `requestPermissions()`
 
-**Block-based APIs**
+**基于块的 API**
 
-If the framework supports a block-based API for requesting permission, it's possible to complete the operation within the single method.
+如果框架支持基于块的 API 来请求权限，可以在单个方法内完成操作。
 
-In the example below, we request video access from `AVCaptureDevice` and then use our own `checkPermissions` method to check the current status of permissions and then fulfill the call.
+在下面的示例中，我们向 `AVCaptureDevice` 请求视频访问，然后使用自己的 `checkPermissions` 方法检查权限的当前状态并完成调用。
 
 ```swift
 @objc override func requestPermissions(_ call: CAPPluginCall) {
@@ -197,9 +183,9 @@ In the example below, we request video access from `AVCaptureDevice` and then us
 }
 ```
 
-**Delegate-based APIs**
+**基于委托的 API**
 
-If the framework uses a delegate (or callback) API, completing the operation means that the original call will need to be saved and then retrieved once the callback has been invoked.
+如果框架使用委托（或回调）API，完成操作意味着需要保存原始调用，并在回调被调用后检索它。
 
 ```swift
 var permissionCallID: String?
@@ -215,7 +201,7 @@ var locationManager: CLLocationManager?
             checkPermissions(call)
         }
     } else {
-        call.reject("Location services are disabled")
+        call.reject("定位服务已禁用")
     }
 }
 
@@ -227,15 +213,15 @@ public func locationManager(_ manager: CLLocationManager, didChangeAuthorization
 }
 ```
 
-**Multiple Permissions**
+**多个权限**
 
-When several types of permissions are required, a [DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) is a convenient way to synchronize the multiple calls.
+当需要多种类型的权限时，[DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) 是同步多个调用的便捷方式。
 
 ```swift
 let store = CNContactStore()
 
 @objc override func requestPermissions(_ call: CAPPluginCall) {
-    // get the permissions to check or default to all of them
+    // 获取要检查的权限或默认为所有权限
     var permissions = call.getArray("types", String.self) ?? []
     if permissions.isEmpty {
         permissions = ["contacts", "camera"]
@@ -260,59 +246,59 @@ let store = CNContactStore()
 }
 ```
 
-### Persisting a Plugin Call
+### 持久化插件调用
 
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
+大多数情况下，插件方法会被调用来执行任务，并能立即完成。但有些情况下，你需要保持插件调用可用，以便稍后访问。你可能希望这样做以定期返回数据（如流式传输实时地理位置数据），或执行异步任务。
 
-See [this guide on saving plugin calls](/main/reference/core-apis/saving-calls.md) for more details on how to persist plugin calls.
+有关如何持久化插件调用的更多详细信息，请参阅[保存插件调用指南](/main/reference/core-apis/saving-calls.md)。
 
-## Error Handling
+## 错误处理
 
-### Unavailable
+### 不可用
 
-This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer iOS version.
+可以抛出此错误以表示功能当前无法使用，通常是因为需要更新的 iOS 版本。
 
 ```swift
 @objc override func methodThatUsesNewIOSFramework(_ call: CAPPluginCall) {
     if #available(iOS 14, *) {
-        // TODO implementation
+        // TODO 实现
     } else {
-        call.unavailable("Not available in iOS 13 or earlier.")
+        call.unavailable("在 iOS 13 或更早版本中不可用。")
     }
 }
 ```
 
-> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
+> 建议尽可能使用较旧的 API 优雅降级体验。谨慎使用 `unavailable`。
 
-### Unimplemented
+### 未实现
 
-Use this error to indicate that a method can't be implemented for iOS.
+使用此错误表示方法无法在 iOS 上实现。
 
 ```swift
 @objc override func methodThatRequiresAndroid(_ call: CAPPluginCall) {
-    call.unimplemented("Not implemented on iOS.")
+    call.unimplemented("在 iOS 上未实现。")
 }
 ```
 
-## Plugin Events
+## 插件事件
 
-Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
+插件可以发出自己的事件，你可以通过向插件对象附加监听器来监听：
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
 
 MyPlugin.addListener('myPluginEvent', (info: any) => {
-  console.log('myPluginEvent was fired');
+  console.log('myPluginEvent 被触发');
 });
 ```
 
-To emit the event from the Swift plugin class:
+要从 Swift 插件类发出事件：
 
 ```swift
 self.notifyListeners("myPluginEvent", data: [:])
 ```
 
-To remove a listener from the plugin object:
+要从插件对象移除监听器：
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
@@ -320,26 +306,26 @@ import { MyPlugin } from 'my-plugin';
 const myPluginEventListener = await MyPlugin.addListener(
   'myPluginEvent',
   (info: any) => {
-    console.log('myPluginEvent was fired');
+    console.log('myPluginEvent 被触发');
   },
 );
 
 myPluginEventListener.remove();
 ```
 
-> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/main/reference/core-apis/ios.md#triggerjsevent).
+> 也可以在 `window` 上触发全局事件。参见 [`triggerJSEvent`](/main/reference/core-apis/ios.md#triggerjsevent) 的文档。
 
-## Presenting Native Screens
+## 呈现原生屏幕
 
-You can present native screens over the app by using [Capacitor's `UIViewController`](/main/reference/core-apis/ios.md#viewcontroller).
+你可以使用 [Capacitor 的 `UIViewController`](/main/reference/core-apis/ios.md#viewcontroller) 在应用上方呈现原生屏幕。
 
-## Override navigation
+## 覆盖导航
 
-Capacitor plugins can override the webview navigation. For that the plugin can override `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` method.
-Returning `true` causes the WebView to abort loading the URL.
-Returning `false` causes the WebView to continue loading the URL.
-Returning `nil` will defer to the default Capacitor policy.
+Capacitor 插件可以覆盖 WebView 导航。为此，插件可以覆盖 `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` 方法。
+返回 `true` 会导致 WebView 中止加载 URL。
+返回 `false` 会导致 WebView 继续加载 URL。
+返回 `nil` 将遵循默认的 Capacitor 策略。
 
-## Advanced configuration
+## 高级配置
 
-Capacitor iOS plugins are CocoaPods libraries, so to add dependencies, required frameworks or any other advanced configurations you have to edit the `.podspec` file created by the plugin generator, check the [podspec reference](https://guides.cocoapods.org/syntax/podspec.html) to see all possible options.
+Capacitor iOS 插件是 CocoaPods 库，因此要添加依赖项、所需的框架或任何其他高级配置，你必须编辑插件生成器创建的 `.podspec` 文件，查看 [podspec 参考](https://guides.cocoapods.org/syntax/podspec.html) 了解所有可能的选项。

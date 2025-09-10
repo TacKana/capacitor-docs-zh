@@ -1,35 +1,35 @@
 ---
 title: Splash Screen & Icon
-description: Visual Studio Code Extension for Capacitor
+description: Visual Studio Code 的 Capacitor 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/splash-icon
 ---
 
-The extension allows you to set a single splash screen and icon image and generate the necessary assets for your native iOS and Android projects.
+本扩展允许您设置单一的启动画面和图标图片，并为您的原生 iOS 和 Android 项目生成所需资源。
 
-### Setting a Splash Screen
+### 设置启动画面
 
-- Click `Configuration` > `Splash Screen & Icon`
-- Click `Splash Screen` to select a Splash Screen file
+- 点击 `Configuration` > `Splash Screen & Icon`
+- 点击 `Splash Screen` 选择启动画面文件
 
-Your splash screen should be a 2732 x 2732 pixel png file. After you have set both a Splash and Icon file the extension will generate all necessary assets for the native projects.
+建议使用 2732 x 2732 像素的 PNG 文件作为启动画面。设置好启动画面和图标后，扩展将自动为原生项目生成所有必要资源。
 
-### Setting an Icon
+### 设置应用图标
 
-- Click `Configuration` > `Splash Screen & Icon`
-- Click `Icon` to select an Icon File
+- 点击 `Configuration` > `Splash Screen & Icon`
+- 点击 `Icon` 选择图标文件
 
-Your Icon should be a 1024 x 1024 pixel png file. After you have set both a Splash and Icon file the extension will generate all necessary assets for the native projects.
+建议使用 1024 x 1024 像素的 PNG 文件作为应用图标。设置好启动画面和图标后，扩展将自动为原生项目生成所有必要资源。
 
-### Rebuilding Assets
+### 重新生成资源
 
-Hover over the `Splash Screen & Icon` item and click the `Rebuild` button to regenerate the assets for the native projects.
+将鼠标悬停在 `Splash Screen & Icon` 选项上，点击 `Rebuild` 按钮即可重新为原生项目生成相关资源。
 
-### Adaptive Icons
+### 自适应图标
 
-[Adaptive Icons](https://github.com/ionic-team/capacitor-assets#adaptive-icons) are an Android concept used for some Android devices that have either circular or rounded icons. You can define these by clicking `Icon Foreground` or `Icon Background`. Although these are optional, it is recommended to set these.
+[自适应图标](https://github.com/ionic-team/capacitor-assets#adaptive-icons)是 Android 的特有概念，用于支持圆形或圆角图标的 Android 设备。您可以通过点击 `Icon Foreground` 或 `Icon Background` 来定义这些图标。虽然这些设置是可选的，但我们建议进行配置。
 
 :::note
-The package [`cordova-res`](https://capacitorjs.com/docs/guides/splash-screens-and-icons) will be installed as a dev dependency when using this feature. In future versions of the extension this will be replaced with [@capacitor/assets](https://github.com/ionic-team/capacitor-assets).
+使用此功能时，系统会自动安装 [`cordova-res`](https://capacitorjs.com/docs/guides/splash-screens-and-icons) 作为开发依赖项。在未来的扩展版本中，这将由 [@capacitor/assets](https://github.com/ionic-team/capacitor-assets) 替代。
 :::

@@ -1,80 +1,80 @@
 ---
-title: Cordova Plugins
-description: Using Cordova Plugins
-sidebar_label: Cordova Plugins
+title: Cordova 插件
+description: 使用 Cordova 插件
+sidebar_label: Cordova 插件
 slug: /plugins/cordova
 ---
 
-# Cordova Plugins
+# Cordova 插件
 
-When developing an app that uses Capacitor, it's possible to use Cordova plugins.
+在使用 Capacitor 开发应用时，可以兼容使用 Cordova 插件。
 
-## Installing Cordova Plugins
+## 安装 Cordova 插件
 
-Capacitor plugins are installed using your regular package manager and then synced to the native project(s). The installation process is the same for Cordova plugins in Capacitor.
+Capacitor 插件的安装方式与 Cordova 插件在 Capacitor 中的安装流程相同，都是通过包管理器安装后同步到原生项目中。
 
-Install the plugin, sync, and then finish any required native project configuration (see [Variables and Hooks](/plugins/cordova.md#variables-and-hooks)):
+安装插件后执行同步操作，并完成必要的原生项目配置（参见[变量与钩子](#变量与钩子)）：
 
 ```bash
 npm install cordova-plugin-name
 npx cap sync
 ```
 
-> If the Cordova plugin has an [`@awesome-cordova-plugins`](https://ionicframework.com/docs/native) wrapper, you can also install it for TypeScript support:
+> 如果 Cordova 插件有 [`@awesome-cordova-plugins`](https://ionicframework.com/docs/native) 封装包，可以额外安装以获得 TypeScript 支持：
 >
 > ```bash
 > npm install @awesome-cordova-plugins/plugin-name
 > ```
 
-## Updating Cordova Plugins
+## 更新 Cordova 插件
 
-Use your regular package manager to update plugins. Then, sync the updated plugin to the native project(s):
+通过包管理器更新插件后，同步到原生项目：
 
 ```bash
 npm install cordova-plugin-name@version
 npx cap sync
 ```
 
-## Determining Installed Plugin Version
+## 查看已安装插件版本
 
-See the list of Capacitor and Cordova plugins (and their exact version numbers) installed in your project with:
+使用以下命令查看项目中安装的所有 Capacitor 和 Cordova 插件及其精确版本号：
 
 ```bash
 npx cap ls
 ```
 
-## Compatibility Issues
+## 兼容性问题
 
-There may be compatibility issues with Capacitor and some Cordova plugins. Many of the official Cordova plugins should not be used, as Capacitor offers [official alternatives](/plugins/official.md). Cordova plugins that use variables and hooks may be partially compatible. Some Cordova plugins are completely incompatible (see [this list](/plugins/cordova.md#known-incompatible-plugins)).
+部分 Cordova 插件可能与 Capacitor 存在兼容性问题。许多官方 Cordova 插件不应使用，因为 Capacitor 提供了[官方替代方案](/plugins/official.md)。使用变量和钩子的 Cordova 插件可能部分兼容。某些 Cordova 插件则完全不兼容（参见[已知不兼容插件列表](#已知不兼容插件)）。
 
-If you find an issue with an existing Cordova plugin, please [let us know](https://github.com/ionic-team/capacitor/issues/new) by providing the issue's details and plugin information.
+如果发现现有 Cordova 插件存在问题，请通过[提交 issue](https://github.com/ionic-team/capacitor/issues/new) 提供问题详情和插件信息。
 
-### Variables and Hooks
+### 变量与钩子
 
-Capacitor does not support Cordova install variables, auto configuration, or hooks, due to our philosophy of letting you control your native project source code (meaning things like hooks are unnecessary). If your plugin requires variables or settings to be set, you'll need to apply those configuration settings manually by mapping between the plugin's `plugin.xml` and required settings on iOS and Android.
+由于 Capacitor 的设计理念是让开发者完全控制原生项目源代码（因此不需要钩子这类机制），所以不支持 Cordova 的安装变量、自动配置或钩子。如果插件需要设置变量或配置，您需要根据插件的 `plugin.xml` 文件手动映射到 iOS 和 Android 的所需配置。
 
-Consult the [iOS](/main/ios/configuration.md) and [Android](/main/android/configuration.md) configuration guides for info on how to configure each platform.
+请参考 [iOS](/main/ios/configuration.md) 和 [Android](/main/android/configuration.md) 配置指南了解各平台的配置方法。
 
-### Known Incompatible Plugins
+### 已知不兼容插件
 
-If a plugin is known to conflict or cause build issues, it will be skipped when running `npx cap sync`.
+如果插件已知会导致冲突或构建问题，在执行 `npx cap sync` 时会被自动跳过。
 
-Here is a list of known incompatible plugins:
+以下是已知不兼容的插件列表：
 
-- [`cordova-plugin-add-swift-support`](https://github.com/akofman/cordova-plugin-add-swift-support) (not needed, Capacitor has built in Swift support)
-- [`cordova-plugin-admobpro`](https://github.com/floatinghotpot/cordova-admob-pro) ([see details](https://github.com/ionic-team/capacitor/issues/1101))
-- [`cordova-plugin-braintree`](https://github.com/Taracque/cordova-plugin-braintree) ([see details](https://github.com/ionic-team/capacitor/issues/1415))
-- [`cordova-plugin-code-push`](https://github.com/microsoft/code-push) ([see details](https://github.com/microsoft/code-push/issues/615))
-- [`cordova-plugin-compat`](https://github.com/apache/cordova-plugin-compat) (not needed)
-- [`cordova-plugin-console`](https://github.com/apache/cordova-plugin-console) (not needed, Capacitor has its own)
-- [`cordova-plugin-crosswalk-webview`](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview) (Capacitor doesn't allow to change the webview)
-- [`cordova-plugin-fcm`](https://github.com/fechanique/cordova-plugin-fcm) ([see details](https://github.com/ionic-team/capacitor/issues/584))
-- [`cordova-plugin-firebase`](https://github.com/arnesson/cordova-plugin-firebase) ([see details](https://github.com/ionic-team/capacitor/issues/815))
-- [`cordova-plugin-ionic-keyboard`](https://github.com/ionic-team/cordova-plugin-ionic-keyboard) (not needed, Capacitor has it's own)
-- [`cordova-plugin-ionic-webview`](https://github.com/ionic-team/cordova-plugin-ionic-webview) (not needed, Capacitor uses WKWebView)
-- [`cordova-plugin-music-controls`](https://github.com/homerours/cordova-music-controls-plugin) (causes build failures, skipped)
-- [`cordova-plugin-qrscanner`](https://github.com/bitpay/cordova-plugin-qrscanner) ([see details](https://github.com/ionic-team/capacitor/issues/1213))
-- [`cordova-plugin-splashscreen`](https://github.com/apache/cordova-plugin-splashscreen) (not needed, Capacitor has its own)
-- [`cordova-plugin-statusbar`](https://github.com/apache/cordova-plugin-statusbar) (not needed, Capacitor has its own)
-- [`cordova-plugin-wkwebview-engine`](https://github.com/apache/cordova-plugin-wkwebview-engine) (not needed, Capacitor uses WKWebView)
-- [`cordova-plugin-googlemaps`](https://github.com/mapsplugin/cordova-plugin-googlemaps) (causes build failures on iOS, skipped for iOS only)
+- [`cordova-plugin-add-swift-support`](https://github.com/akofman/cordova-plugin-add-swift-support)（无需使用，Capacitor 内置 Swift 支持）
+- [`cordova-plugin-admobpro`](https://github.com/floatinghotpot/cordova-admob-pro)（[详见](https://github.com/ionic-team/capacitor/issues/1101)）
+- [`cordova-plugin-braintree`](https://github.com/Taracque/cordova-plugin-braintree)（[详见](https://github.com/ionic-team/capacitor/issues/1415)）
+- [`cordova-plugin-code-push`](https://github.com/microsoft/code-push)（[详见](https://github.com/microsoft/code-push/issues/615)）
+- [`cordova-plugin-compat`](https://github.com/apache/cordova-plugin-compat)（无需使用）
+- [`cordova-plugin-console`](https://github.com/apache/cordova-plugin-console)（无需使用，Capacitor 自带控制台）
+- [`cordova-plugin-crosswalk-webview`](https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview)（Capacitor 不允许更换 WebView）
+- [`cordova-plugin-fcm`](https://github.com/fechanique/cordova-plugin-fcm)（[详见](https://github.com/ionic-team/capacitor/issues/584)）
+- [`cordova-plugin-firebase`](https://github.com/arnesson/cordova-plugin-firebase)（[详见](https://github.com/ionic-team/capacitor/issues/815)）
+- [`cordova-plugin-ionic-keyboard`](https://github.com/ionic-team/cordova-plugin-ionic-keyboard)（无需使用，Capacitor 自带键盘功能）
+- [`cordova-plugin-ionic-webview`](https://github.com/ionic-team/cordova-plugin-ionic-webview)（无需使用，Capacitor 使用 WKWebView）
+- [`cordova-plugin-music-controls`](https://github.com/homerours/cordova-music-controls-plugin)（会导致构建失败，已跳过）
+- [`cordova-plugin-qrscanner`](https://github.com/bitpay/cordova-plugin-qrscanner)（[详见](https://github.com/ionic-team/capacitor/issues/1213)）
+- [`cordova-plugin-splashscreen`](https://github.com/apache/cordova-plugin-splashscreen)（无需使用，Capacitor 自带启动屏）
+- [`cordova-plugin-statusbar`](https://github.com/apache/cordova-plugin-statusbar)（无需使用，Capacitor 自带状态栏）
+- [`cordova-plugin-wkwebview-engine`](https://github.com/apache/cordova-plugin-wkwebview-engine)（无需使用，Capacitor 使用 WKWebView）
+- [`cordova-plugin-googlemaps`](https://github.com/mapsplugin/cordova-plugin-googlemaps)（会导致 iOS 构建失败，仅在 iOS 平台跳过）

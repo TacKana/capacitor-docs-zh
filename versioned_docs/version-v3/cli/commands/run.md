@@ -1,22 +1,22 @@
 ---
-title: CLI Command - cap run
+title: CLI 命令 - cap run
 description: Capacitor CLI - cap run
 sidebar_label: run
 ---
 
 # Capacitor CLI - cap run
 
-This command first runs [`sync`](/cli/commands/sync.md), then it builds and deploys the native app to a target device of your choice.
+该命令首先执行 [`sync`](/cli/commands/sync.md) 操作，然后将原生应用构建并部署到您选择的目标设备上。
 
 ```bash
 npx cap run [options] <platform>
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数:</strong>
 
-- `platform` (required): `android`, `ios`
+- `platform` (必填): `android`, `ios`
 
-<strong>Options:</strong>
+<strong>选项:</strong>
 
-- `--list`: Print a list of target devices available to the given platform
-- `--target <id>`: Run on a specific target device
+- `--list`: 列出指定平台下可用的目标设备
+- `--target <id>`: 在特定的目标设备上运行

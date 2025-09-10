@@ -1,13 +1,13 @@
 ---
 title: JavaScript Utilities
-description: Capacitor's JavaScript Utilities
+description: Capacitor的JavaScript实用工具
 contributors:
   - dotNetkow
 ---
 
-# JavaScript Utilities
+# JavaScript 实用工具
 
-Capacitor has several JavaScript utilities useful for ensuring apps run successfully across multiple platforms with the same codebase. To use them, import Capacitor then call the desired utility function:
+Capacitor 提供了一系列 JavaScript 实用工具，确保应用能在多平台上使用相同代码库顺利运行。使用时需先导入 Capacitor，然后调用所需的工具函数：
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -18,9 +18,9 @@ const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 `convertFileSrc: (filePath: string) => string;`
 
-Convert a device filepath into a Web View-friendly path.
+将设备文件路径转换为 Web 视图友好的路径。
 
-Capacitor apps are served on a different protocol than device files. To avoid difficulties between these protocols, paths to device files must be rewritten. For example, on Android, `file:///path/to/device/file` must be rewritten as `http://localhost/_capacitor_file_/path/to/device/file` before being used in the Web View.
+Capacitor 应用与设备文件使用不同的协议服务。为避免协议冲突，设备文件路径需要被重写。例如在 Android 平台上，`file:///path/to/device/file` 需要被转换为 `http://localhost/_capacitor_file_/path/to/device/file` 才能在 Web 视图中使用。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -43,11 +43,11 @@ document.getElementById("savedPhoto").src = savedPhoto;
 
 `getPlatform: () => string;`
 
-Get the name of the platform the app is currently running on: `web`, `ios`, `android`.
+获取当前运行平台名称：`web`（网页）、`ios`（苹果）、`android`（安卓）。
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
-  // do something
+  // 执行iOS平台特定操作
 }
 ```
 
@@ -55,11 +55,11 @@ if (Capacitor.getPlatform() === 'ios') {
 
 `isNative?: boolean;`
 
-Check whether the currently running platform is native (`ios`, `android`).
+检测当前运行平台是否为原生平台（`ios` 或 `android`）。
 
 ```typescript
 if (Capacitor.isNative) {
-  // do something
+  // 执行原生平台操作
 }
 ```
 
@@ -67,15 +67,15 @@ if (Capacitor.isNative) {
 
 `isPluginAvailable: (name: string) => boolean;`
 
-Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry (e.g. `const { Name } = Plugins;`), which means it also works with custom plugins.
+检测指定插件在当前平台是否可用。插件名称需使用插件注册表中的名称（如 `const { Name } = Plugins;`），该方法同样适用于自定义插件。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 if (!isAvailable) {
-  // Have the user upload a file instead
+  // 让用户改用文件上传方式
 } else {
-  // Otherwise, make the call:
+  // 否则直接调用插件：
   const image = await Camera.getPhoto({
     resultType: CameraResultType.Uri,
   });

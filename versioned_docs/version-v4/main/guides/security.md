@@ -1,66 +1,66 @@
 ---
 title: Security
-description: Security best practices for your Capacitor apps
+description: Capacitor 应用安全最佳实践
 contributors:
   - mlynch
 slug: /guides/security
 ---
 
-# Security Best Practices for Capacitor
+# Capacitor 安全最佳实践
 
-Every Capacitor developer is responsible for making sure their app is following security best practices. Without proper care, major security issues can crop up which can prove extremely damaging and expensive.
+每位 Capacitor 开发者都有责任确保应用遵循安全最佳实践。稍有不慎，就可能出现严重的安全漏洞，造成难以估量的损失。
 
-Security is a wide topic, but there are a number of areas that Capacitor developers should audit for security compliance, including Data, Authentication/Deep Linking, Network, and Web View security.
+安全涉及面广泛，但 Capacitor 开发者应着重关注以下几个方面的安全合规：数据安全、认证/深度链接、网络安全以及 Web 视图安全。
 
-> Ionic provides an out of the box security suite for Capacitor apps that includes Authentication, Biometrics, and Encryption. [Learn more](https://ionic.io/secure).
+> Ionic 为 Capacitor 应用提供开箱即用的安全套件，包含身份认证、生物识别和加密功能。[了解更多](https://ionic.io/secure)
 
-## Data Security
+## 数据安全
 
-Data Security deals with the security of data stored locally and also in app code.
+数据安全涉及本地存储数据与应用代码的安全防护。
 
-### Avoid Embedding Secrets in Code
+### 避免在代码中嵌入敏感信息
 
-One of the most important security tips for Capacitor apps, and any frontend app for that matter, is to _never embed secrets_ in your app code. That means make sure your code never contains secret API keys, encryption keys, or any other sensitive data that could be easily stolen using basic app analysis techniques. Watch for environment variable plugins that could be injecting sensitive values into your app code at build time.
+对 Capacitor 应用（以及任何前端应用）最重要的安全准则就是：_永远不要在应用代码中嵌入敏感信息_。这意味着确保代码不包含任何秘密 API 密钥、加密密钥或其他敏感数据，这些信息可能通过简单的应用分析技术被窃取。同时需警惕那些可能在构建时将敏感值注入应用代码的环境变量插件。
 
-Instead, move most operations requiring secret keys or tokens to the server-side, where they can be protected and any requests can be forwarded from the server. This might be a serverless function or a traditional server-side app process.
+正确的做法是将涉及密钥或令牌的操作转移到服务端执行，在那里可以更好地保护这些敏感信息，并通过服务端转发请求。这可以是无服务器函数或传统的服务端应用流程。
 
-For apps that must work with persisted sensitive keys or tokens on the client, such as an auth token or an encryption key, the recommended options are to only deal with the value in memory (i.e. never persist it to disk), or by using secure keychain/keystore techniques as detailed below.
+对于必须在客户端处理持久化敏感密钥或令牌的应用（如认证令牌或加密密钥），推荐做法是仅在内存中处理这些值（即不持久化到磁盘），或使用下文所述的密钥链/密钥库安全技术。
 
-### Storing Encryption Keys, Session Tokens, etc.
+### 存储加密密钥、会话令牌等
 
-Modern mobile devices and operating systems provide powerful security APIs and dedicated security hardware for storing sensitive values on device. This is how apps provide biometric or secure passcode authentication while managing highly sensitive values such as encryption keys or session tokens.
+现代移动设备和操作系统提供强大的安全 API 和专用安全硬件来存储设备上的敏感值。这正是应用在管理加密密钥或会话令牌等高度敏感信息时，能够提供生物识别或安全密码认证的原理。
 
-The APIs that provide this functionality are available in the [iOS Keychain Services](https://developer.apple.com/documentation/security/keychain_services) and [Android Keystore](https://developer.android.com/training/articles/keystore) APIs. These APIs are complex and low-level, so you will likely want to find a plugin that uses them for you (such as this [cordova-plugin-ios-keychain](https://github.com/ionic-team/cordova-plugin-ios-keychain) community plugin).
+相关功能通过 [iOS 钥匙串服务](https://developer.apple.com/documentation/security/keychain_services) 和 [Android 密钥库](https://developer.android.com/training/articles/keystore) API 实现。这些 API 较为复杂且底层，建议使用相关插件（如社区开发的 [cordova-plugin-ios-keychain](https://github.com/ionic-team/cordova-plugin-ios-keychain)）。
 
-For enterprise use cases, the Capacitor team provides [Identity Vault](https://ionicframework.com/enterprise/identity-vault) which provides an easy-to-use API and frequently updated experience on top of these native security APIs. Identity Vault can be used with other Capacitor enterprise products such as [Offline Storage](https://ionicframework.com/enterprise/offline-storage) and [Auth Connect](https://ionicframework.com/enterprise/auth-connect) to provide the encryption key or authentication token management component of each experience, respectively.
+对于企业级需求，Capacitor 团队提供 [Identity Vault](https://ionicframework.com/enterprise/identity-vault)，它在原生安全 API 基础上提供了易用的 API 和持续更新的体验。Identity Vault 可与其他 Capacitor 企业产品如 [Offline Storage](https://ionicframework.com/enterprise/offline-storage) 和 [Auth Connect](https://ionicframework.com/enterprise/auth-connect) 配合使用，分别提供加密密钥管理和认证令牌管理功能。
 
-## Authentication and Deep Linking
+## 认证与深度链接
 
-Authentication flows in native apps require extra care, since authentication often happens through the use of Custom URL Schemes. Custom URL Schemes, such as `instagram://`, are not globally controlled like web domains are, so it's possible that a malicious app could intercept a request meant for one app by defining and overriding a custom URL scheme. Imagine a secure token being sent to the wrong app!
+原生应用的认证流程需要特别谨慎，因为认证通常通过自定义 URL 方案实现。与受全局控制的网络域名不同，自定义 URL 方案（如 `instagram://`）可能被恶意应用通过定义相同方案进行拦截，想象一下安全令牌被发送到错误应用的场景！
 
-Generally, an app should never send sensitive data through a Custom URL scheme deep link (newer techniques such as Universal Links are more secure as they rely on actual web domain ownership, see the [Deep Links](./deep-links) guide for details).
+一般来说，应用绝不应通过自定义 URL 方案的深度链接发送敏感数据（较新的技术如通用链接更安全，因为它们依赖于实际的网络域名所有权，详见 [深度链接](./deep-links) 指南）。
 
-This is especially important for oAuth2 flows, where the last step in the authentication experience relies on a deep link back to the app. To mitigate the possibility of a malicious app receiving a token, [PKCE](https://oauth.net/2/pkce/) must be used for oAuth2 in Capacitor apps.
+这对 oAuth2 流程尤为重要，因为认证的最后一步依赖返回应用的深度链接。为防止恶意应用获取令牌，Capacitor 应用必须使用 [PKCE](https://oauth.net/2/pkce/) 机制。
 
-To ensure your oAuth2 flow is secure, make sure your plugin supports PKCE. For enterprise use cases, the official [Auth Connect](https://ionicframework.com/enterprise/auth-connect) Capacitor solution fully supports PKCE for oAuth2 authentication flows.
+为确保 oAuth2 流程安全，请确认使用的插件支持 PKCE。对于企业级需求，官方 [Auth Connect](https://ionicframework.com/enterprise/auth-connect) 解决方案全面支持 oAuth2 认证流程中的 PKCE。
 
-See this great [oAuth2 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/) guide for more info.
+更多信息可参考这篇优秀指南：[原生应用的 oAuth2 最佳实践](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/)。
 
-## Network Security
+## 网络安全
 
-Network security deals with making sure network requests are to trusted endpoints and encrypted to avoid sending sensitive data (such as passwords) in plain text.
+网络安全确保网络请求指向可信终端并加密传输，避免以明文发送敏感数据（如密码）。
 
 ### SSL
 
-Apps should only make requests to SSL-enabled endpoints. This means never make request to endpoints with `http://`, but rather always use `https://`. This makes sure data is never sent in plain text.
+应用应只向启用 SSL 的终端发起请求。这意味着永远不使用 `http://` 端点，始终使用 `https://`，确保数据不以明文传输。
 
-## Web View Security
+## Web 视图安全
 
-### Content Security Policy
+### 内容安全策略
 
-[Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) is a set of security features available in the browser (and, thus, your Capacitor Web View). CSP can be used to limit the resources the user agent is allowed to load in the Web View (such as images, XHR, videos, Web Sockets, etc).
+[内容安全策略 (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 是浏览器（及 Capacitor Web 视图）提供的一组安全特性。CSP 可用于限制 Web 视图加载的资源类型（如图片、XHR、视频、Web Socket 等）。
 
-CSP can be configured in your Capacitor app by adding a `meta` tag to the `<head>` with an acceptable CSP format (CSP can be configured both server and client side using the same format). For example, this configuration would allow all requests to the current origin and `foo.com`:
+在 Capacitor 应用中，可通过在 `<head>` 添加带有合规 CSP 格式的 `meta` 标签来配置 CSP（CSP 可在服务端和客户端使用相同格式配置）。例如，以下配置允许向当前源和 `foo.com` 发起请求：
 
 ```html
 <meta
@@ -69,10 +69,10 @@ CSP can be configured in your Capacitor app by adding a `meta` tag to the `<head
 />
 ```
 
-CSP supports a wide variety of configurations, and the [CSP reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) is a must-read. Another useful resource is [content-security-policy.com](https://content-security-policy.com/).
+CSP 支持多种配置方式，[CSP 参考文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 是必读资料。另一个实用资源是 [content-security-policy.com](https://content-security-policy.com/)。
 
-### JavaScript Security Techniques
+### JavaScript 安全技术
 
-Since the bulk of a Capacitor app is a web app using JavaScript, typical JS security techniques apply.
+由于 Capacitor 应用本质上是使用 JavaScript 的 Web 应用，常规的 JS 安全技术同样适用。
 
-JS security is beyond the scope of this document, and there are many existing resources out there for proper JS and web app security techniques. Here's [one good one](https://wpengine.com/resources/javascript-security/) to get you started.
+JS 安全超出了本文范围，已有大量关于 JS 和 Web 应用安全技术的资源。[这里有一个不错的起点](https://wpengine.com/resources/javascript-security/)。

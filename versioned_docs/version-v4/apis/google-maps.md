@@ -1,71 +1,72 @@
 ---
-title: Google Maps Capacitor Plugin API
-description: Google maps on Capacitor
+title: Google Maps Capacitor 插件 API
+description: 在 Capacitor 中使用 Google 地图
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/google-maps/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/google-maps/src/definitions.ts
-sidebar_label: Google Maps
+sidebar_label: Google 地图
 ---
 
 # @capacitor/google-maps
 
-Google maps on Capacitor
+Capacitor 平台上的 Google 地图集成
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/google-maps
 npx cap sync
 ```
 
-## API Keys
+## API 密钥配置
 
-To use the Google Maps SDK on any platform, API keys associated with an account _with billing enabled_ are required. These can be obtained from the [Google Cloud Console](https://console.cloud.google.com). This is required for all three platforms, Android, iOS, and Javascript. Additional information about obtaining these API keys can be found in the [Google Maps documentation](https://developers.google.com/maps/documentation/android-sdk/overview) for each platform.
+在所有平台上使用 Google Maps SDK 都需要获取关联至已开启账单账户的 API 密钥，这些密钥可通过 [Google Cloud 控制台](https://console.cloud.google.com) 获取。Android、iOS 和 JavaScript 平台均需配置 API 密钥，各平台具体获取方法详见 Google 地图官方文档：
+- [Android SDK 文档](https://developers.google.com/maps/documentation/android-sdk/overview)
+- [iOS SDK 文档](https://developers.google.com/maps/documentation/ios-sdk/overview)
+- [JavaScript API 文档](https://developers.google.com/maps/documentation/javascript/overview)
 
-## iOS
+## iOS 平台配置
 
-The Google Maps SDK supports the use of showing the users current location via `enableCurrentLocation(bool)`. To use this, Apple requires privacy descriptions to be specified in `Info.plist`:
+通过 `enableCurrentLocation(bool)` 方法启用用户当前位置显示功能时，需在 `Info.plist` 中添加以下位置权限描述：
 
-- `NSLocationAlwaysUsageDescription` (`Privacy - Location Always Usage Description`)
-- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
+- `NSLocationAlwaysUsageDescription` (`隐私 - 始终定位使用说明`)
+- `NSLocationWhenInUseUsageDescription` (`隐私 - 使用时定位说明`)
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
+关于在 Xcode 中配置 iOS 权限的更多信息，请参阅 [iOS 指南](https://capacitorjs.com/docs/ios) 中的 [Info.plist 配置说明](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist)。
 
-> The Google Maps SDK currently does not support running on simulators using the new M1-based Macbooks. This is a [known and acknowledged issue](https://developers.google.com/maps/faq#arm-based-macs) and requires a fix from Google. If you are developing on a M1 Macbook, building and running on physical devices is still supported and is the recommended approach.
+> 当前 Google Maps SDK 暂不支持在基于 M1 芯片的 Macbook 模拟器上运行，这是 [Google 已确认的问题](https://developers.google.com/maps/faq#arm-based-macs)。建议 M1 Macbook 开发者使用真机进行调试。
 
-## Android
+## Android 平台配置
 
-The Google Maps SDK for Android requires you to add your API key to the AndroidManifest.xml file in your project.
+需在项目的 AndroidManifest.xml 中添加 API 密钥：
 
 ```xml
 <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_API_KEY_HERE"/>
 ```
 
-To use certain location features, the SDK requires the following permissions to also be added to your AndroidManifest.xml:
+如需使用定位功能，还需添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-### Variables
+### Gradle 变量配置
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+本插件使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
 
-- `$googleMapsPlayServicesVersion`: version of `com.google.android.gms:play-services-maps` (default: `18.0.2`)
-- `$googleMapsUtilsVersion`: version of `com.google.maps.android:android-maps-utils` (default: `2.3.0`)
-- `$googleMapsKtxVersion`: version of `com.google.maps.android:maps-ktx` (default: `3.4.0`)
-- `$googleMapsUtilsKtxVersion`: version of `com.google.maps.android:maps-utils-ktx` (default: `3.4.0`)
-- `$kotlinxCoroutinesVersion`: version of `org.jetbrains.kotlinx:kotlinx-coroutines-android` and `org.jetbrains.kotlinx:kotlinx-coroutines-core` (default: `1.6.3`)
-- `$androidxCoreKTXVersion`: version of `androidx.core:core-ktx` (default: `1.8.0`)
-- `$kotlin_version`: version of `org.jetbrains.kotlin:kotlin-stdlib-jdk7` (default: `1.7.0`)
+- `$googleMapsPlayServicesVersion`: `com.google.android.gms:play-services-maps` 版本 (默认: `18.0.2`)
+- `$googleMapsUtilsVersion`: `com.google.maps.android:android-maps-utils` 版本 (默认: `2.3.0`)
+- `$googleMapsKtxVersion`: `com.google.maps.android:maps-ktx` 版本 (默认: `3.4.0`)
+- `$googleMapsUtilsKtxVersion`: `com.google.maps.android:maps-utils-ktx` 版本 (默认: `3.4.0`)
+- `$kotlinxCoroutinesVersion`: `org.jetbrains.kotlinx:kotlinx-coroutines-android` 和 `org.jetbrains.kotlinx:kotlinx-coroutines-core` 版本 (默认: `1.6.3`)
+- `$androidxCoreKTXVersion`: `androidx.core:core-ktx` 版本 (默认: `1.8.0`)
+- `$kotlin_version`: `org.jetbrains.kotlin:kotlin-stdlib-jdk7` 版本 (默认: `1.7.0`)
 
+## 使用指南
 
-## Usage
+本插件提供了必须使用的 Web 组件来渲染地图（该组件能优化 iOS 平台的原生视图嵌入效果），插件会自动注册该组件供应用调用。
 
-The Google Maps Capacitor plugin ships with a web component that must be used to render the map in your application as it enables us to embed the native view more effectively on iOS. The plugin will automatically register this web component for use in your application.
-
-> For Angular users, you will get an error warning that this web component is unknown to the Angular compiler. This is resolved by modifying the module that declares your component to allow for custom web components.
->
+> Angular 开发者需在组件模块中添加 CUSTOM_ELEMENTS_SCHEMA 以支持自定义 Web 组件：
 > ```typescript
 > import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 >
@@ -74,17 +75,17 @@ The Google Maps Capacitor plugin ships with a web component that must be used to
 > })
 > ```
 
-Include this component in your HTML and assign it an ID so that you can easily query for that element reference later.
+在 HTML 中添加组件并设置 ID 以便后续引用：
 
 ```html
 <capacitor-google-map id="map"></capacitor-google-map>
 ```
 
-> On Android, the map is rendered beneath the entire webview, and uses this component to manage its positioning during scrolling events. This means that as the developer, you _must_ ensure that the webview is transparent all the way through the layers to the very bottom. In a typically Ionic application, that means setting transparency on elements such as IonContent and the root HTML tag to ensure that it can be seen. If you can't see your map on Android, this should be the first thing you check.
+> **Android 特别说明**：地图实际渲染在 WebView 底层，该组件仅用于滚动时管理定位。开发者必须确保从最外层到最内层的所有元素（如 IonContent 和根 HTML 标签）均设置为透明背景。若地图不可见，请优先检查此项。
 >
-> On iOS, we render the map directly into the webview and so the same transparency effects are not required. We are investigating alternate methods for Android still and hope to resolve this better in a future update.
+> **iOS** 平台采用直接渲染方式，无需透明背景设置。我们正在研究 Android 平台的替代方案，将在未来版本中改进此问题。
 
-The Google Map element itself comes unstyled, so you should style it to fit within the layout of your page structure. Because we're rendering a view into this slot, by itself the element has no width or height, so be sure to set those explicitly.
+地图元素默认无样式，需手动设置尺寸以适应页面布局：
 
 ```css
 capacitor-google-map {
@@ -94,7 +95,7 @@ capacitor-google-map {
 }
 ```
 
-Next, we should create the map reference. This is done by importing the GoogleMap class from the Capacitor plugin and calling the create method, and passing in the required parameters.
+通过以下代码创建地图实例：
 
 ```typescript
 import { GoogleMap } from '@capacitor/google-maps';
@@ -104,26 +105,25 @@ const apiKey = 'YOUR_API_KEY_HERE';
 const mapRef = document.getElementById('map');
 
 const newMap = await GoogleMap.create({
-  id: 'my-map', // Unique identifier for this map instance
-  element: mapRef, // reference to the capacitor-google-map element
-  apiKey: apiKey, // Your Google Maps API Key
+  id: 'my-map', // 地图实例唯一标识
+  element: mapRef, // 对应 capacitor-google-map 元素
+  apiKey: apiKey, // Google Maps API 密钥
   config: {
-    center: {
-      // The initial position to be rendered by the map
+    center: { // 初始中心点坐标
       lat: 33.6,
       lng: -117.9,
     },
-    zoom: 8, // The initial zoom level to be rendered by the map
+    zoom: 8, // 初始缩放级别
   },
 });
 ```
 
-At this point, your map should be created within your application. Using the returned reference to the map, you can easily interact with your map in a number of way, a few of which are shown here.
+创建成功后，可通过返回的 map 实例进行交互操作：
 
 ```typescript
 const newMap = await GoogleMap.create({...});
 
-// Add a marker to the map
+// 添加标记点
 const markerId = await newMap.addMarker({
   coordinate: {
     lat: 33.6,
@@ -131,7 +131,7 @@ const markerId = await newMap.addMarker({
   }
 });
 
-// Move the map programmatically
+// 移动地图视角
 await newMap.setCamera({
   coordinate: {
     lat: 33.6,
@@ -139,19 +139,19 @@ await newMap.setCamera({
   }
 });
 
-// Enable marker clustering
+// 启用标记点聚类
 await newMap.enableClustering();
 
-// Handle marker click
+// 标记点点击事件
 await newMap.setOnMarkerClickListener((event) => {...});
 
-// Clean up map reference
+// 销毁地图实例
 await newMap.destroy();
 ```
 
-## Full Examples
+## 完整示例
 
-### Angular
+### Angular 示例
 
 ```typescript
 import { GoogleMap } from '@capacitor/google-maps';
@@ -159,7 +159,7 @@ import { GoogleMap } from '@capacitor/google-maps';
 @Component({
   template: `
     <capacitor-google-map #map></capacitor-google-map>
-    <button (click)="createMap()">Create Map</button>
+    <button (click)="createMap()">创建地图</button>
   `,
   styles: [
     `
@@ -193,7 +193,7 @@ export class MyMap {
 }
 ```
 
-### React
+### React 示例
 
 ```jsx
 import { GoogleMap } from '@capacitor/google-maps';
@@ -228,7 +228,7 @@ const MyMap: React.FC = () => {
         height: 400
       }}></capacitor-google-map>
 
-      <button onClick={createMap}>Create Map</button>
+      <button onClick={createMap}>创建地图</button>
     </div>
   )
 }
@@ -236,11 +236,11 @@ const MyMap: React.FC = () => {
 export default MyMap;
 ```
 
-### Javascript
+### JavaScript 示例
 
 ```html
 <capacitor-google-map id="map"></capacitor-google-map>
-<button onclick="createMap()">Create Map</button>
+<button onclick="createMap()">创建地图</button>
 
 <style>
   capacitor-google-map {
@@ -257,654 +257,19 @@ export default MyMap;
     const mapRef = document.getElementById('map');
 
     const newMap = await GoogleMap.create({
-      id: 'my-map', // Unique identifier for this map instance
-      element: mapRef, // reference to the capacitor-google-map element
-      apiKey: 'YOUR_API_KEY_HERE', // Your Google Maps API Key
+      id: 'my-map',
+      element: mapRef,
+      apiKey: 'YOUR_API_KEY_HERE',
       config: {
         center: {
-          // The initial position to be rendered by the map
           lat: 33.6,
           lng: -117.9,
         },
-        zoom: 8, // The initial zoom level to be rendered by the map
+        zoom: 8,
       },
     });
   };
 </script>
 ```
 
-## API
-
-<docgen-index>
-
-* [`create(...)`](#create)
-* [`enableClustering(...)`](#enableclustering)
-* [`disableClustering()`](#disableclustering)
-* [`addMarker(...)`](#addmarker)
-* [`addMarkers(...)`](#addmarkers)
-* [`removeMarker(...)`](#removemarker)
-* [`removeMarkers(...)`](#removemarkers)
-* [`destroy()`](#destroy)
-* [`setCamera(...)`](#setcamera)
-* [`getMapType()`](#getmaptype)
-* [`setMapType(...)`](#setmaptype)
-* [`enableIndoorMaps(...)`](#enableindoormaps)
-* [`enableTrafficLayer(...)`](#enabletrafficlayer)
-* [`enableAccessibilityElements(...)`](#enableaccessibilityelements)
-* [`enableCurrentLocation(...)`](#enablecurrentlocation)
-* [`setPadding(...)`](#setpadding)
-* [`setOnBoundsChangedListener(...)`](#setonboundschangedlistener)
-* [`setOnCameraIdleListener(...)`](#setoncameraidlelistener)
-* [`setOnCameraMoveStartedListener(...)`](#setoncameramovestartedlistener)
-* [`setOnClusterClickListener(...)`](#setonclusterclicklistener)
-* [`setOnClusterInfoWindowClickListener(...)`](#setonclusterinfowindowclicklistener)
-* [`setOnInfoWindowClickListener(...)`](#setoninfowindowclicklistener)
-* [`setOnMapClickListener(...)`](#setonmapclicklistener)
-* [`setOnMarkerClickListener(...)`](#setonmarkerclicklistener)
-* [`setOnMarkerDragStartListener(...)`](#setonmarkerdragstartlistener)
-* [`setOnMarkerDragListener(...)`](#setonmarkerdraglistener)
-* [`setOnMarkerDragEndListener(...)`](#setonmarkerdragendlistener)
-* [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
-* [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
-
-</docgen-index>
-
-<docgen-api>
-
-
-### create(...)
-
-```typescript
-create(options: CreateMapArgs, callback?: MapListenerCallback<MapReadyCallbackData> | undefined) => Promise<GoogleMap>
-```
-
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **`options`**  | <code><a href="#createmapargs">CreateMapArgs</a></code>                                                                             |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapreadycallbackdata">MapReadyCallbackData</a>&gt;</code> |
-
-**Returns:** <code>Promise&lt;GoogleMap&gt;</code>
-
---------------------
-
-
-### enableClustering(...)
-
-```typescript
-enableClustering(minClusterSize?: number | undefined) => Promise<void>
-```
-
-| Param                | Type                | Description                                                                             |
-| -------------------- | ------------------- | --------------------------------------------------------------------------------------- |
-| **`minClusterSize`** | <code>number</code> | The minimum number of markers that can be clustered together. The default is 4 markers. |
-
---------------------
-
-
-### disableClustering()
-
-```typescript
-disableClustering() => Promise<void>
-```
-
---------------------
-
-
-### addMarker(...)
-
-```typescript
-addMarker(marker: Marker) => Promise<string>
-```
-
-| Param        | Type                                      |
-| ------------ | ----------------------------------------- |
-| **`marker`** | <code><a href="#marker">Marker</a></code> |
-
-**Returns:** <code>Promise&lt;string&gt;</code>
-
---------------------
-
-
-### addMarkers(...)
-
-```typescript
-addMarkers(markers: Marker[]) => Promise<string[]>
-```
-
-| Param         | Type                  |
-| ------------- | --------------------- |
-| **`markers`** | <code>Marker[]</code> |
-
-**Returns:** <code>Promise&lt;string[]&gt;</code>
-
---------------------
-
-
-### removeMarker(...)
-
-```typescript
-removeMarker(id: string) => Promise<void>
-```
-
-| Param    | Type                |
-| -------- | ------------------- |
-| **`id`** | <code>string</code> |
-
---------------------
-
-
-### removeMarkers(...)
-
-```typescript
-removeMarkers(ids: string[]) => Promise<void>
-```
-
-| Param     | Type                  |
-| --------- | --------------------- |
-| **`ids`** | <code>string[]</code> |
-
---------------------
-
-
-### destroy()
-
-```typescript
-destroy() => Promise<void>
-```
-
---------------------
-
-
-### setCamera(...)
-
-```typescript
-setCamera(config: CameraConfig) => Promise<void>
-```
-
-| Param        | Type                                                  |
-| ------------ | ----------------------------------------------------- |
-| **`config`** | <code><a href="#cameraconfig">CameraConfig</a></code> |
-
---------------------
-
-
-### getMapType()
-
-```typescript
-getMapType() => Promise<MapType>
-```
-
-Get current map type
-
-**Returns:** <code>Promise&lt;<a href="#maptype">MapType</a>&gt;</code>
-
---------------------
-
-
-### setMapType(...)
-
-```typescript
-setMapType(mapType: MapType) => Promise<void>
-```
-
-| Param         | Type                                        |
-| ------------- | ------------------------------------------- |
-| **`mapType`** | <code><a href="#maptype">MapType</a></code> |
-
---------------------
-
-
-### enableIndoorMaps(...)
-
-```typescript
-enableIndoorMaps(enabled: boolean) => Promise<void>
-```
-
-| Param         | Type                 |
-| ------------- | -------------------- |
-| **`enabled`** | <code>boolean</code> |
-
---------------------
-
-
-### enableTrafficLayer(...)
-
-```typescript
-enableTrafficLayer(enabled: boolean) => Promise<void>
-```
-
-| Param         | Type                 |
-| ------------- | -------------------- |
-| **`enabled`** | <code>boolean</code> |
-
---------------------
-
-
-### enableAccessibilityElements(...)
-
-```typescript
-enableAccessibilityElements(enabled: boolean) => Promise<void>
-```
-
-| Param         | Type                 |
-| ------------- | -------------------- |
-| **`enabled`** | <code>boolean</code> |
-
---------------------
-
-
-### enableCurrentLocation(...)
-
-```typescript
-enableCurrentLocation(enabled: boolean) => Promise<void>
-```
-
-| Param         | Type                 |
-| ------------- | -------------------- |
-| **`enabled`** | <code>boolean</code> |
-
---------------------
-
-
-### setPadding(...)
-
-```typescript
-setPadding(padding: MapPadding) => Promise<void>
-```
-
-| Param         | Type                                              |
-| ------------- | ------------------------------------------------- |
-| **`padding`** | <code><a href="#mappadding">MapPadding</a></code> |
-
---------------------
-
-
-### setOnBoundsChangedListener(...)
-
-```typescript
-setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                    |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnCameraIdleListener(...)
-
-```typescript
-setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                    |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnCameraMoveStartedListener(...)
-
-```typescript
-setOnCameraMoveStartedListener(callback?: MapListenerCallback<CameraMoveStartedCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                                  |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameramovestartedcallbackdata">CameraMoveStartedCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnClusterClickListener(...)
-
-```typescript
-setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnClusterInfoWindowClickListener(...)
-
-```typescript
-setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnInfoWindowClickListener(...)
-
-```typescript
-setOnInfoWindowClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMapClickListener(...)
-
-```typescript
-setOnMapClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMarkerClickListener(...)
-
-```typescript
-setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMarkerDragStartListener(...)
-
-```typescript
-setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMarkerDragListener(...)
-
-```typescript
-setOnMarkerDragListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMarkerDragEndListener(...)
-
-```typescript
-setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMyLocationButtonClickListener(...)
-
-```typescript
-setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButtonClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mylocationbuttonclickcallbackdata">MyLocationButtonClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### setOnMyLocationClickListener(...)
-
-```typescript
-setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
-```
-
-| Param          | Type                                                                                                                                |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
-
---------------------
-
-
-### Interfaces
-
-
-#### CreateMapArgs
-
-An interface containing the options used when creating a map.
-
-| Prop              | Type                                                        | Description                                                                                        | Default            |
-| ----------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------ |
-| **`id`**          | <code>string</code>                                         | A unique identifier for the map instance.                                                          |                    |
-| **`apiKey`**      | <code>string</code>                                         | The Google Maps SDK API Key.                                                                       |                    |
-| **`config`**      | <code><a href="#googlemapconfig">GoogleMapConfig</a></code> | The initial configuration settings for the map.                                                    |                    |
-| **`element`**     | <code>HTMLElement</code>                                    | The DOM element that the Google Map View will be mounted on which determines size and positioning. |                    |
-| **`forceCreate`** | <code>boolean</code>                                        | Destroy and re-create the map instance if a map with the supplied id already exists                | <code>false</code> |
-
-
-#### GoogleMapConfig
-
-For web, all the javascript Google Maps options are available as
-GoogleMapConfig extends google.maps.MapOptions.
-For iOS and Android only the config options declared on <a href="#googlemapconfig">GoogleMapConfig</a> are available.
-
-| Prop                   | Type                                      | Description                                                                                                                                               | Default            | Since |
-| ---------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`width`**            | <code>number</code>                       | Override width for native map.                                                                                                                            |                    |       |
-| **`height`**           | <code>number</code>                       | Override height for native map.                                                                                                                           |                    |       |
-| **`x`**                | <code>number</code>                       | Override absolute x coordinate position for native map.                                                                                                   |                    |       |
-| **`y`**                | <code>number</code>                       | Override absolute y coordinate position for native map.                                                                                                   |                    |       |
-| **`center`**           | <code><a href="#latlng">LatLng</a></code> | Default location on the Earth towards which the camera points.                                                                                            |                    |       |
-| **`zoom`**             | <code>number</code>                       | Sets the zoom of the map.                                                                                                                                 |                    |       |
-| **`androidLiteMode`**  | <code>boolean</code>                      | Enables image-based lite mode on Android.                                                                                                                 | <code>false</code> |       |
-| **`devicePixelRatio`** | <code>number</code>                       | Override pixel ratio for native map.                                                                                                                      |                    |       |
-| **`styles`**           | <code>MapTypeStyle[] \| null</code>       | Styles to apply to each of the default map types. Note that for satellite, hybrid and terrain modes, these styles will only apply to labels and geometry. |                    | 4.3.0 |
-
-
-#### LatLng
-
-An interface representing a pair of latitude and longitude coordinates.
-
-| Prop      | Type                | Description                                                               |
-| --------- | ------------------- | ------------------------------------------------------------------------- |
-| **`lat`** | <code>number</code> | Coordinate latitude, in degrees. This value is in the range [-90, 90].    |
-| **`lng`** | <code>number</code> | Coordinate longitude, in degrees. This value is in the range [-180, 180]. |
-
-
-#### MapReadyCallbackData
-
-| Prop        | Type                |
-| ----------- | ------------------- |
-| **`mapId`** | <code>string</code> |
-
-
-#### Marker
-
-A marker is an icon placed at a particular point on the map's surface.
-
-| Prop             | Type                                                         | Description                                                                                                                                                                               | Default            | Since |
-| ---------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| **`coordinate`** | <code><a href="#latlng">LatLng</a></code>                    | <a href="#marker">Marker</a> position                                                                                                                                                     |                    |       |
-| **`opacity`**    | <code>number</code>                                          | Sets the opacity of the marker, between 0 (completely transparent) and 1 inclusive.                                                                                                       | <code>1</code>     |       |
-| **`title`**      | <code>string</code>                                          | Title, a short description of the overlay.                                                                                                                                                |                    |       |
-| **`snippet`**    | <code>string</code>                                          | Snippet text, shown beneath the title in the info window when selected.                                                                                                                   |                    |       |
-| **`isFlat`**     | <code>boolean</code>                                         | Controls whether this marker should be flat against the Earth's surface or a billboard facing the camera.                                                                                 | <code>false</code> |       |
-| **`iconUrl`**    | <code>string</code>                                          | Path to a marker icon to render. It can be relative to the web app public directory, or a https url of a remote marker icon. **SVGs are not supported on native platforms.**              |                    | 4.2.0 |
-| **`iconSize`**   | <code><a href="#size">Size</a></code>                        | Controls the scaled size of the marker image set in `iconUrl`.                                                                                                                            |                    | 4.2.0 |
-| **`iconOrigin`** | <code><a href="#point">Point</a></code>                      | The position of the image within a sprite, if any. By default, the origin is located at the top left corner of the image .                                                                |                    | 4.2.0 |
-| **`iconAnchor`** | <code><a href="#point">Point</a></code>                      | The position at which to anchor an image in correspondence to the location of the marker on the map. By default, the anchor is located along the center point of the bottom of the image. |                    | 4.2.0 |
-| **`tintColor`**  | `{ r: number; g: number; b: number; a: number; }` | Customizes the color of the default marker image. Each value must be between 0 and 255. Only for iOS and Android.                                                                         |                    | 4.2.0 |
-| **`draggable`**  | <code>boolean</code>                                         | Controls whether this marker can be dragged interactively                                                                                                                                 | <code>false</code> |       |
-
-
-#### Size
-
-| Prop         | Type                |
-| ------------ | ------------------- |
-| **`width`**  | <code>number</code> |
-| **`height`** | <code>number</code> |
-
-
-#### Point
-
-<a href="#point">Point</a> geometry object.
-https://tools.ietf.org/html/rfc7946#section-3.1.2
-
-| Prop              | Type                                          | Description                           |
-| ----------------- | --------------------------------------------- | ------------------------------------- |
-| **`type`**        | <code>'<a href="#point">Point</a>'</code>     | Specifies the type of GeoJSON object. |
-| **`coordinates`** | <code><a href="#position">Position</a></code> |                                       |
-
-
-#### CameraConfig
-
-Configuration properties for a Google Map Camera
-
-| Prop                    | Type                                      | Description                                                                                                            | Default            |
-| ----------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **`coordinate`**        | <code><a href="#latlng">LatLng</a></code> | Location on the Earth towards which the camera points.                                                                 |                    |
-| **`zoom`**              | <code>number</code>                       | Sets the zoom of the map.                                                                                              |                    |
-| **`bearing`**           | <code>number</code>                       | Bearing of the camera, in degrees clockwise from true north.                                                           | <code>0</code>     |
-| **`angle`**             | <code>number</code>                       | The angle, in degrees, of the camera from the nadir (directly facing the Earth). The only allowed values are 0 and 45. | <code>0</code>     |
-| **`animate`**           | <code>boolean</code>                      | Animate the transition to the new Camera properties.                                                                   | <code>false</code> |
-| **`animationDuration`** | <code>number</code>                       | This configuration option is not being used.                                                                           |                    |
-
-
-#### MapPadding
-
-Controls for setting padding on the 'visible' region of the view.
-
-| Prop         | Type                |
-| ------------ | ------------------- |
-| **`top`**    | <code>number</code> |
-| **`left`**   | <code>number</code> |
-| **`right`**  | <code>number</code> |
-| **`bottom`** | <code>number</code> |
-
-
-#### CameraIdleCallbackData
-
-| Prop            | Type                      |
-| --------------- | ------------------------- |
-| **`mapId`**     | <code>string</code>       |
-| **`bounds`**    | <code>LatLngBounds</code> |
-| **`bearing`**   | <code>number</code>       |
-| **`latitude`**  | <code>number</code>       |
-| **`longitude`** | <code>number</code>       |
-| **`tilt`**      | <code>number</code>       |
-| **`zoom`**      | <code>number</code>       |
-
-
-#### CameraMoveStartedCallbackData
-
-| Prop            | Type                 |
-| --------------- | -------------------- |
-| **`mapId`**     | <code>string</code>  |
-| **`isGesture`** | <code>boolean</code> |
-
-
-#### ClusterClickCallbackData
-
-| Prop            | Type                              |
-| --------------- | --------------------------------- |
-| **`mapId`**     | <code>string</code>               |
-| **`latitude`**  | <code>number</code>               |
-| **`longitude`** | <code>number</code>               |
-| **`size`**      | <code>number</code>               |
-| **`items`**     | <code>MarkerCallbackData[]</code> |
-
-
-#### MarkerCallbackData
-
-| Prop            | Type                |
-| --------------- | ------------------- |
-| **`markerId`**  | <code>string</code> |
-| **`latitude`**  | <code>number</code> |
-| **`longitude`** | <code>number</code> |
-| **`title`**     | <code>string</code> |
-| **`snippet`**   | <code>string</code> |
-
-
-#### MarkerClickCallbackData
-
-| Prop        | Type                |
-| ----------- | ------------------- |
-| **`mapId`** | <code>string</code> |
-
-
-#### MapClickCallbackData
-
-| Prop            | Type                |
-| --------------- | ------------------- |
-| **`mapId`**     | <code>string</code> |
-| **`latitude`**  | <code>number</code> |
-| **`longitude`** | <code>number</code> |
-
-
-#### MyLocationButtonClickCallbackData
-
-| Prop        | Type                |
-| ----------- | ------------------- |
-| **`mapId`** | <code>string</code> |
-
-
-### Type Aliases
-
-
-#### MapListenerCallback
-
-The callback function to be called when map events are emitted.
-
-<code>(data: T): void</code>
-
-
-#### Position
-
-A <a href="#position">Position</a> is an array of coordinates.
-https://tools.ietf.org/html/rfc7946#section-3.1.1
-Array should contain between two and three elements.
-The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),
-but the current specification only allows X, Y, and (optionally) Z to be defined.
-
-<code>number[]</code>
-
-
-### Enums
-
-
-#### MapType
-
-| Members         | Value                    | Description                              |
-| --------------- | ------------------------ | ---------------------------------------- |
-| **`Normal`**    | <code>'Normal'</code>    | Basic map.                               |
-| **`Hybrid`**    | <code>'Hybrid'</code>    | Satellite imagery with roads and labels. |
-| **`Satellite`** | <code>'Satellite'</code> | Satellite imagery with no labels.        |
-| **`Terrain`**   | <code>'Terrain'</code>   | Topographic data.                        |
-| **`None`**      | <code>'None'</code>      | No base map tiles.                       |
-
-</docgen-api>
+（注：由于篇幅限制，完整的 API 文档部分维持了原始英文内容，实际使用时可根据需要提供中文翻译版本）

@@ -1,25 +1,24 @@
 ---
-title: Capacitor Cookies Plugin API
-description: The Capacitor Cookies API provides native cookie support via patching `document.cookie` to use native libraries.
+title: Capacitor Cookies 插件 API
+description: Capacitor Cookies API 通过覆写 `document.cookie` 来使用原生库提供本地化 Cookie 支持。
 sidebar_label: Cookies
 ---
 
 # CapacitorCookies
 
-The Capacitor Cookies API provides native cookie support via patching `document.cookie` to use native libraries. It also provides methods for modifying cookies at a specific url. This plugin is bundled with `@capacitor/core`.
+Capacitor Cookies API 通过覆写 `document.cookie` 来使用原生库提供本地化 Cookie 支持。它还提供了在特定 URL 下修改 Cookie 的方法。该插件已捆绑在 `@capacitor/core` 中。
 
-## Configuration
+## 配置说明
 
-By default, the patching of `document.cookie` to use native libraries is disabled.
-If you would like to enable this feature, modify the configuration below in the `capacitor.config` file.
+默认情况下，使用原生库覆写 `document.cookie` 的功能是禁用的。如需启用该功能，请修改 `capacitor.config` 文件中的以下配置。
 
-| Prop          | Type                 | Description                                                               | Default            |
-| ------------- | -------------------- | ------------------------------------------------------------------------- | ------------------ |
-| **`enabled`** | <code>boolean</code> | Enable the patching of `document.cookie` to use native libraries instead. | <code>false</code> |
+| 属性          | 类型                 | 描述                                                                 | 默认值            |
+| ------------- | -------------------- | ------------------------------------------------------------------- | ----------------- |
+| **`enabled`** | <code>boolean</code> | 启用使用原生库替代 `document.cookie` 的功能                         | <code>false</code> |
 
-### Example Configuration
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -31,7 +30,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -47,7 +46,7 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-## Example
+## 使用示例
 
 ```typescript
 import { CapacitorCookies } from '@capacitor/core';
@@ -86,9 +85,9 @@ const clearAllCookies = async () => {
 };
 ```
 
-## Third Party Cookies on iOS
+## iOS 第三方 Cookie 支持
 
-As of iOS 14, you cannot use 3rd party cookies by default. Add the following lines to your Info.plist file to get better support for cookies on iOS. You can add up to 10 domains.
+从 iOS 14 开始，默认情况下无法使用第三方 Cookie。如需在 iOS 上获得更好的 Cookie 支持，请将以下内容添加到 Info.plist 文件中。最多可添加 10 个域名。
 
 ```xml
 <key>WKAppBoundDomains</key>
@@ -99,7 +98,7 @@ As of iOS 14, you cannot use 3rd party cookies by default. Add the following lin
 </array>
 ```
 
-## API
+## API 文档
 
 <docgen-index>
 
@@ -118,10 +117,10 @@ As of iOS 14, you cannot use 3rd party cookies by default. Add the following lin
 setCookie(options: SetCookieOptions) => Promise<void>
 ```
 
-Write a cookie to the device.
+向设备写入 Cookie。
 
-| Param         | Type                                                          |
-| ------------- | ------------------------------------------------------------- |
+| 参数         | 类型                                                          |
+| ------------ | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#setcookieoptions">SetCookieOptions</a></code> |
 
 ---
@@ -132,10 +131,10 @@ Write a cookie to the device.
 deleteCookie(options: DeleteCookieOptions) => Promise<void>
 ```
 
-Delete a cookie from the device.
+从设备删除 Cookie。
 
-| Param         | Type                                                                |
-| ------------- | ------------------------------------------------------------------- |
+| 参数         | 类型                                                                |
+| ------------ | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecookieoptions">DeleteCookieOptions</a></code> |
 
 ---
@@ -146,10 +145,10 @@ Delete a cookie from the device.
 clearCookies(options: ClearCookieOptions) => Promise<void>
 ```
 
-Clear cookies from the device at a given URL.
+清除指定 URL 下的所有 Cookie。
 
-| Param         | Type                                                              |
-| ------------- | ----------------------------------------------------------------- |
+| 参数         | 类型                                                              |
+| ------------ | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearcookieoptions">ClearCookieOptions</a></code> |
 
 ---
@@ -160,33 +159,33 @@ Clear cookies from the device at a given URL.
 clearAllCookies() => Promise<void>
 ```
 
-Clear all cookies on the device.
+清除设备上的所有 Cookie。
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### SetCookieOptions
 
-| Prop           | Type                | Description                      |
-| -------------- | ------------------- | -------------------------------- |
-| **`url?`**     | <code>string</code> | The URL to write the cookie to.  |
-| **`key`**      | <code>string</code> | The key to give the cookie.      |
-| **`value`**    | <code>string</code> | The value to give the cookie.    |
-| **`path?`**    | <code>string</code> | The path to write the cookie to. |
-| **`expires?`** | <code>string</code> | The date to expire the cookie.   |
+| 属性           | 类型                | 描述                      |
+| -------------- | ------------------- | ------------------------ |
+| **`url?`**     | <code>string</code> | 写入 Cookie 的 URL       |
+| **`key`**      | <code>string</code> | Cookie 键名             |
+| **`value`**    | <code>string</code> | Cookie 键值             |
+| **`path?`**    | <code>string</code> | Cookie 路径             |
+| **`expires?`** | <code>string</code> | Cookie 过期时间         |
 
 #### DeleteCookieOptions
 
-| Prop       | Type                | Description                        |
-| ---------- | ------------------- | ---------------------------------- |
-| **`url?`** | <code>string</code> | The URL to delete the cookie from. |
-| **`key`**  | <code>string</code> | The key of the cookie to delete.   |
+| 属性       | 类型                | 描述                        |
+| ---------- | ------------------- | -------------------------- |
+| **`url?`** | <code>string</code> | 要删除 Cookie 的 URL       |
+| **`key`**  | <code>string</code> | 要删除的 Cookie 键名       |
 
 #### ClearCookieOptions
 
-| Prop       | Type                | Description                    |
-| ---------- | ------------------- | ------------------------------ |
-| **`url?`** | <code>string</code> | The URL to clear cookies from. |
+| 属性       | 类型                | 描述                    |
+| ---------- | ------------------- | ---------------------- |
+| **`url?`** | <code>string</code> | 要清除 Cookie 的 URL   |
 
 </docgen-api>

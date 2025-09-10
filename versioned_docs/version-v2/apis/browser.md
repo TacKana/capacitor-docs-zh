@@ -1,6 +1,6 @@
 ---
 title: Browser
-description: Browser API
+description: 浏览器API
 contributors:
   - mlynch
   - jcesarmobile
@@ -15,12 +15,11 @@ canonicalUrl: https://capacitorjs.com/docs/apis/browser
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+- [接口定义](#interfaces)
 
-The Browser API makes it easy to open an in-app browser session to show external web content,
-handle authentication flows, and more.
+浏览器API可以轻松地在应用内打开浏览器会话，用于显示外部网页内容、处理认证流程等场景。
 
-On iOS this uses `SFSafariViewController` and is compliant with leading oAuth service in-app-browser requirements.
+在iOS平台上，该API使用`SFSafariViewController`实现，完全符合主流oAuth服务对应用内浏览器的要求。
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -38,9 +37,9 @@ await Browser.open({ url: 'http://capacitorjs.com/' });
 open(options: BrowserOpenOptions) => Promise<void>
 ```
 
-Open a page with the given URL
+打开指定URL的页面
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#browseropenoptions">BrowserOpenOptions</a></code> |
 
@@ -52,12 +51,11 @@ Open a page with the given URL
 prefetch(options: BrowserPrefetchOptions) => Promise<void>
 ```
 
-Hint to the browser that the given URLs will be accessed
-to improve initial loading times.
+预加载指定URL以提升初始加载速度。
 
-Only functional on Android, is a no-op on iOS
+仅在Android平台有效，在iOS上无实际效果
 
-| Param         | Type                                                                      |
+| 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#browserprefetchoptions">BrowserPrefetchOptions</a></code> |
 
@@ -69,7 +67,7 @@ Only functional on Android, is a no-op on iOS
 close() => Promise<void>
 ```
 
-Close an open browser. Only works on iOS and Web environment, otherwise is a no-op
+关闭已打开的浏览器窗口。仅在iOS和Web环境生效，其他平台无实际效果
 
 ---
 
@@ -79,12 +77,12 @@ Close an open browser. Only works on iOS and Web environment, otherwise is a no-
 addListener(eventName: 'browserFinished', listenerFunc: (info: any) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                |
+| 参数               | 类型                                |
 | ------------------ | ----------------------------------- |
 | **`eventName`**    | <code>"browserFinished"</code>      |
 | **`listenerFunc`** | <code>(info: any) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -94,12 +92,12 @@ addListener(eventName: 'browserFinished', listenerFunc: (info: any) => void) => 
 addListener(eventName: 'browserPageLoaded', listenerFunc: (info: any) => void) => PluginListenerHandle
 ```
 
-| Param              | Type                                |
+| 参数               | 类型                                |
 | ------------------ | ----------------------------------- |
 | **`eventName`**    | <code>"browserPageLoaded"</code>    |
 | **`listenerFunc`** | <code>(info: any) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -109,29 +107,29 @@ addListener(eventName: 'browserPageLoaded', listenerFunc: (info: any) => void) =
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin
+移除该插件的所有原生监听器
 
 ---
 
-### Interfaces
+### 接口定义
 
 #### BrowserOpenOptions
 
-| Prop                    | Type                                   | Description                                                                                                    |
+| 属性                    | 类型                                   | 描述                                                                                                    |
 | ----------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **`url`**               | <code>string</code>                    | The URL to open the browser to                                                                                 |
-| **`windowName`**        | <code>string</code>                    | Web only: Optional target for browser open. Follows the `target` property for window.open. Defaults to \_blank |
-| **`toolbarColor`**      | <code>string</code>                    | A hex color to set the toolbar color to.                                                                       |
-| **`presentationStyle`** | <code>"fullscreen" \| "popover"</code> | iOS only: The presentation style of the browser. Defaults to fullscreen.                                       |
+| **`url`**               | <code>string</code>                    | 要打开的浏览器URL地址                                                                                 |
+| **`windowName`**        | <code>string</code>                    | 仅限Web端：可选浏览器打开目标。遵循window.open的`target`属性。默认为\_blank |
+| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的16进制色值                                                                       |
+| **`presentationStyle`** | <code>"fullscreen" \| "popover"</code> | 仅限iOS端：浏览器展示样式。默认为全屏(fullscreen)                                       |
 
 #### BrowserPrefetchOptions
 
-| Prop       | Type                  |
+| 属性       | 类型                  |
 | ---------- | --------------------- |
 | **`urls`** | <code>string[]</code> |
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
+| 属性         | 类型                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |

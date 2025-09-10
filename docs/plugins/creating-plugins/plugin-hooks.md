@@ -1,13 +1,13 @@
 ---
-title: Plugin Hooks
-description: Capacitor Plugin Hooks
-sidebar_label: Plugin Hooks
+title: 插件钩子
+description: Capacitor 插件钩子
+sidebar_label: 插件钩子
 slug: /plugins/plugin-hooks
 ---
 
-# Capacitor Plugin Hooks
+# Capacitor 插件钩子
 
-Starting in Capacitor 6.1, the following events can be used in plugins to hook into Capacitor commands:
+从 Capacitor 6.1 开始，插件可以使用以下事件来挂钩到 Capacitor 命令：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`
@@ -16,9 +16,9 @@ Starting in Capacitor 6.1, the following events can be used in plugins to hook i
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-To use them add the event name and the code you want to run in the scripts section of your plugin's `package.json`.
+要使用它们，请将事件名称和要运行的代码添加到插件 `package.json` 的脚本部分。
 
-Example that just echo the command and the platform where it ran:
+以下示例仅回显命令及其运行的平台：
 
 ```json
 "scripts": {
@@ -32,5 +32,5 @@ Example that just echo the command and the platform where it ran:
 ```
 
 :::note
-Capacitor Plugin Hooks also work if added in Cordova plugins
+Capacitor 插件钩子同样适用于 Cordova 插件
 :::

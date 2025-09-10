@@ -1,64 +1,63 @@
 ---
-title: Using with Ionic Framework
-description: Using Capacitor with Ionic Framework
+title: 与 Ionic Framework 配合使用
+description: 在 Ionic 框架中使用 Capacitor
 slug: /getting-started/with-ionic
 ---
 
-# Using Capacitor with Ionic Framework
+# 在 Ionic 框架中使用 Capacitor
 
-Capacitor does not require Ionic Framework in order to build apps. However, developers may find the [large collection](https://ionicframework.com/docs/components) of Ionic UI components helpful in order to build a high-quality app.
+Capacitor 构建应用并不依赖 Ionic 框架，但开发者可能会发现 Ionic 提供的[丰富组件库](https://ionicframework.com/docs/components)能帮助构建更高质量的应用程序。
 
-Capacitor can quickly be installed directly into any new or existing Ionic app by using the [Ionic CLI](https://ionicframework.com/docs/cli).
+通过 [Ionic CLI](https://ionicframework.com/docs/cli)，可以快速将 Capacitor 安装到任何新建或已有的 Ionic 项目中。
 
-## Installing Capacitor in a new Ionic Project
-For new Ionic projects, Capacitor is already installed in new Ionic apps by default! All you have to do is start a new project. To create a new Ionic project, run the following command:
+## 在新 Ionic 项目中安装 Capacitor
+对于新建的 Ionic 项目，Capacitor 已默认集成！您只需创建一个新项目即可。运行以下命令初始化 Ionic 项目：
 
 ```bash
 ionic start
 ```
 
-If you'd like a tutorial for building your first Capacitor-based Ionic app, check out [this tutorial](https://ionicframework.com/docs/intro/next) by the Ionic Framework team.
+如需构建首个基于 Capacitor 的 Ionic 应用教程，请参考 Ionic 团队提供的[入门指南](https://ionicframework.com/docs/intro/next)。
 
-## Installing Capacitor to an existing Ionic Project
-If you have an existing Ionic project that doesn't have Capacitor enabled, you can enable Capacitor by running the following command.
+## 为现有 Ionic 项目添加 Capacitor
+若现有 Ionic 项目未启用 Capacitor，可运行以下命令进行集成：
 
 ```bash
 ionic integrations enable capacitor
 ```
 
-### Install Capacitor Plugin Dependencies
+### 安装 Capacitor 插件依赖
 
-Ionic Framework makes use of the APIs in the following Capacitor plugins:
-
+Ionic 框架使用了以下 Capacitor 插件的 API：
 - [`@capacitor/app`](/apis/app.md)
 - [`@capacitor/haptics`](/apis/haptics.md)
 - [`@capacitor/keyboard`](/apis/keyboard.md)
 - [`@capacitor/status-bar`](/apis/status-bar.md)
 
-For the best user experience, you should make sure these plugins are installed even if you don't import them in your app. To install these plugins, run the following command in the root of your project:
+为获得最佳用户体验，即使未在代码中显式调用这些插件，也应确保它们已安装。在项目根目录下执行：
 
 ```bash
 npm i @capacitor/app @capacitor/haptics @capacitor/keyboard @capacitor/status-bar
 ```
 
-### Add Platforms
+### 添加平台支持
 
-After Capacitor installed and its plugins are installed, you can add mobile platforms to your app:
+安装 Capacitor 及其插件后，可为应用添加移动平台支持：
 
 ```bash
 ionic capacitor add android
 ionic capacitor add ios
 ```
 
-This will create a new directory in the root of your project for the native platform. This directory is a native project that should be considered a source artifact. Learn more about [native project management](/main/cordova/index.md#native-project-management).
+这将在项目根目录创建对应平台的原生工程目录。该目录应被视为源码产物，详情参阅[原生项目管理](/main/cordova/index.md#native-project-management)。
 
 :::info
-If your Ionic app uses Cordova, we have a guide on how to [migrate from Cordova to Capacitor](/main/cordova/migrating-from-cordova-to-capacitor.md) as well.
+如果您的 Ionic 应用当前使用 Cordova，我们也提供了[从 Cordova 迁移到 Capacitor](/main/cordova/migrating-from-cordova-to-capacitor.md) 的指南。
 :::
 
-## Ionic CLI Capacitor Commands
+## Ionic CLI 的 Capacitor 命令
 
-The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI for convenience. See the documentation for each below. Help output is also available by using the `--help` flag after each command.
+Ionic CLI 封装了一系列便捷的 Capacitor 高级命令，具体文档如下。每个命令后添加 `--help` 参数可查看详细帮助：
 
 - [`ionic capacitor add`](https://ionicframework.com/docs/cli/commands/capacitor-add)
 - [`ionic capacitor build`](https://ionicframework.com/docs/cli/commands/capacitor-build)
@@ -66,4 +65,4 @@ The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI f
 - [`ionic capacitor sync`](https://ionicframework.com/docs/cli/commands/capacitor-sync)
 - [`ionic capacitor open`](https://ionicframework.com/docs/cli/commands/capacitor-open)
 
-For more information on the Ionic CLI, and how to use it with Capacitor, you can see the documentation [here](https://ionicframework.com/docs/cli).
+关于 Ionic CLI 及其与 Capacitor 配合使用的更多信息，请参阅[官方文档](https://ionicframework.com/docs/cli)。

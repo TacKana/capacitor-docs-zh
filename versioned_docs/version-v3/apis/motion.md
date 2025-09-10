@@ -1,6 +1,6 @@
 ---
-title: Motion Capacitor Plugin API
-description: The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+title: Motion Capacitor 插件 API
+description: Motion API 用于追踪加速度计和设备方向（指南针朝向等）
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/src/definitions.ts
 sidebar_label: Motion
@@ -8,20 +8,18 @@ sidebar_label: Motion
 
 # @capacitor/motion
 
-The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+Motion API 用于追踪加速度计和设备方向数据（指南针朝向等）
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/motion
 npx cap sync
 ```
 
-## Permissions
+## 权限说明
 
-This plugin is currently implemented using Web APIs. Most browsers require
-permission before using this API. To request permission, prompt the user for
-permission on any user-initiated action (such as a button click):
+本插件目前基于 Web API 实现。多数浏览器在使用前需要申请权限。可通过用户触发操作（如按钮点击）来请求权限：
 
 ```typescript
 import { PluginListenerHandle } from '@capacitor/core';
@@ -34,42 +32,40 @@ myButton.addEventListener('click', async () => {
   try {
     await DeviceMotionEvent.requestPermission();
   } catch (e) {
-    // Handle error
+    // 错误处理
     return;
   }
 
-  // Once the user approves, can start listening:
+  // 用户授权后即可开始监听：
   accelHandler = await Motion.addListener('accel', event => {
-    console.log('Device motion event:', event);
+    console.log('设备运动事件:', event);
   });
 });
 
-// Stop the acceleration listener
+// 停止加速度监听
 const stopAcceleration = () => {
   if (accelHandler) {
-    accelHandler.remove();
+ accelHandler.remove();
   }
 };
 
-// Remove all listeners
+// 移除所有监听器
 const removeListeners = () => {
-  Motion.removeAllListeners();
+ Motion.removeAllListeners();
 };
 ```
 
-See the
-[`DeviceMotionEvent`](https://developer.mozilla.org/en-US/docs/v3/Web/API/DeviceMotionEvent)
-API to understand the data supplied in the 'accel' event.
+请参考 [`DeviceMotionEvent`](https://developer.mozilla.org/en-US/docs/v3/Web/API/DeviceMotionEvent) API 文档了解 'accel' 事件返回的数据结构。
 
-## API
+## API 文档
 
 <docgen-index>
 
 * [`addListener('accel', ...)`](#addlisteneraccel-)
 * [`addListener('orientation', ...)`](#addlistenerorientation-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -82,16 +78,16 @@ API to understand the data supplied in the 'accel' event.
 addListener(eventName: 'accel', listenerFunc: AccelListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Add a listener for accelerometer data
+添加加速度计数据监听器
 
-| Param              | Type                                                    |
-| ------------------ | ------------------------------------------------------- |
-| **`eventName`**    | <code>'accel'</code>                                    |
-| **`listenerFunc`** | <code><a href="#accellistener">AccelListener</a></code> |
+| 参数                | 类型                                                    |
+| ------------------- | ------------------------------------------------------- |
+| **`eventName`**     | <code>'accel'</code>                                    |
+| **`listenerFunc`**  | <code><a href="#accellistener">AccelListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -102,16 +98,16 @@ Add a listener for accelerometer data
 addListener(eventName: 'orientation', listenerFunc: OrientationListener) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Add a listener for device orientation change (compass heading, etc.)
+添加设备方向变化监听器（指南针朝向等）
 
-| Param              | Type                                                                |
-| ------------------ | ------------------------------------------------------------------- |
-| **`eventName`**    | <code>'orientation'</code>                                          |
-| **`listenerFunc`** | <code><a href="#orientationlistener">OrientationListener</a></code> |
+| 参数                | 类型                                                                |
+| ------------------- | ------------------------------------------------------------------- |
+| **`eventName`**     | <code>'orientation'</code>                                          |
+| **`listenerFunc`**  | <code><a href="#orientationlistener">OrientationListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -122,52 +118,52 @@ Add a listener for device orientation change (compass heading, etc.)
 removeAllListeners() => Promise<void>
 ```
 
-Remove all the listeners that are attached to this plugin.
+移除本插件所有已附加的监听器。
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
-| ------------ | ----------------------------------------- |
-| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
+| 属性            | 类型                                      |
+| --------------- | ----------------------------------------- |
+| **`remove`**    | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### AccelListenerEvent
 
-| Prop                               | Type                                                  | Description                                                                                                                                                             | Since |
-| ---------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`acceleration`**                 | <code><a href="#acceleration">Acceleration</a></code> | An object giving the acceleration of the device on the three axis X, Y and Z. <a href="#acceleration">Acceleration</a> is expressed in m/s                              | 1.0.0 |
-| **`accelerationIncludingGravity`** | <code><a href="#acceleration">Acceleration</a></code> | An object giving the acceleration of the device on the three axis X, Y and Z with the effect of gravity. <a href="#acceleration">Acceleration</a> is expressed in m/s   | 1.0.0 |
-| **`rotationRate`**                 | <code><a href="#rotationrate">RotationRate</a></code> | An object giving the rate of change of the device's orientation on the three orientation axis alpha, beta and gamma. Rotation rate is expressed in degrees per seconds. | 1.0.0 |
-| **`interval`**                     | <code>number</code>                                   | A number representing the interval of time, in milliseconds, at which data is obtained from the device.                                                                 | 1.0.0 |
+| 属性                                | 类型                                                  | 描述                                                                                                                                                             | 版本 |
+| ----------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| **`acceleration`**                  | <code><a href="#acceleration">Acceleration</a></code> | 表示设备在 X、Y、Z 三轴上的加速度对象。<a href="#acceleration">Acceleration</a> 单位为 m/s²                                                                             | 1.0.0 |
+| **`accelerationIncludingGravity`**  | <code><a href="#acceleration">Acceleration</a></code> | 表示设备在 X、Y、Z 三轴上包含重力影响的加速度对象。<a href="#acceleration">Acceleration</a> 单位为 m/s²                                                                 | 1.0.0 |
+| **`rotationRate`**                  | <code><a href="#rotationrate">RotationRate</a></code> | 表示设备在 alpha、beta、gamma 三个方向轴上旋转角速度的对象。单位为度/秒                                                                                                | 1.0.0 |
+| **`interval`**                      | <code>number</code>                                   | 表示从设备获取数据的间隔时间（毫秒）                                                                                                                                   | 1.0.0 |
 
 
 #### Acceleration
 
-| Prop    | Type                | Description                                  | Since |
-| ------- | ------------------- | -------------------------------------------- | ----- |
-| **`x`** | <code>number</code> | The amount of acceleration along the X axis. | 1.0.0 |
-| **`y`** | <code>number</code> | The amount of acceleration along the Y axis. | 1.0.0 |
-| **`z`** | <code>number</code> | The amount of acceleration along the Z axis. | 1.0.0 |
+| 属性     | 类型                | 描述                      | 版本 |
+| -------- | ------------------- | ------------------------- | ---- |
+| **`x`**  | <code>number</code> | X 轴方向的加速度值        | 1.0.0 |
+| **`y`**  | <code>number</code> | Y 轴方向的加速度值        | 1.0.0 |
+| **`z`**  | <code>number</code> | Z 轴方向的加速度值        | 1.0.0 |
 
 
 #### RotationRate
 
-| Prop        | Type                | Description                                                      | Since |
-| ----------- | ------------------- | ---------------------------------------------------------------- | ----- |
-| **`alpha`** | <code>number</code> | The amount of rotation around the Z axis, in degrees per second. | 1.0.0 |
-| **`beta`**  | <code>number</code> | The amount of rotation around the X axis, in degrees per second. | 1.0.0 |
-| **`gamma`** | <code>number</code> | The amount of rotation around the Y axis, in degrees per second. | 1.0.0 |
+| 属性          | 类型                | 描述                                  | 版本 |
+| ------------- | ------------------- | ------------------------------------- | ---- |
+| **`alpha`**   | <code>number</code> | 绕 Z 轴的旋转角速度（度/秒）          | 1planet.0.0 |
+| **`beta`**    | <code>number</code> | 绕 X 轴的旋转角速度（度/秒）          | 1.0.0 |
+| **`gamma`**   | <code>number</code> | 绕 Y 轴的旋转角速度（度/秒）          | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### AccelListener

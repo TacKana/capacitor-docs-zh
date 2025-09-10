@@ -1,6 +1,6 @@
 ---
 title: CLI Command - cap open
-description: Capacitor CLI command - cap open
+description: Capacitor CLI 命令 - cap open
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/open
@@ -8,12 +8,12 @@ canonicalUrl: https://capacitorjs.com/docs/cli/open
 
 # Capacitor CLI - cap open
 
-Opens the native project workspace in the specified native IDE (Xcode for iOS, Android Studio for Android). Once open, use the native IDEs to build, simulate, and run your app on a device.
+在指定的原生 IDE（iOS 使用 Xcode，Android 使用 Android Studio）中打开原生项目工作区。打开后，可以使用原生 IDE 在设备上构建、模拟和运行您的应用。
 
 ```bash
 npx cap open <platform>
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (required): `android`, `ios`
+- `platform`（必需）：`android`，`ios`

@@ -1,24 +1,24 @@
 ---
-title: Running your App
-description: Running your App
+title: 运行你的应用
+description: 运行你的应用
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# Running your App
+# 运行你的应用
 
-Capacitor relies on each platform's IDE of choice to run and test your app.
+Capacitor 依赖于各平台的首选 IDE 来运行和测试你的应用。
 
 ## iOS
 
-iOS requires using Xcode to run your app.
+iOS 平台需要使用 Xcode 来运行你的应用。
 
 ```bash
 npx cap open ios
 ```
 
-Once Xcode launches, you can build/simulate/run your app through the standard Xcode workflow.
+Xcode 启动后，你可以通过标准的 Xcode 工作流程进行构建/模拟/运行操作。
 
 ## Android
 
@@ -26,15 +26,14 @@ Once Xcode launches, you can build/simulate/run your app through the standard Xc
 npx cap open android
 ```
 
-Once Android Studio launches, you can build/emulate/run your app through the standard Android Studio workflow.
+Android Studio 启动后，你可以通过标准的 Android Studio 工作流程进行构建/模拟/运行操作。
 
-## Progressive Web App
+## 渐进式 Web 应用 (PWA)
 
-Capacitor has a tiny development web server for local testing, but it's recommended to run your web app
-using your framework of choice's server tools.
+Capacitor 提供了一个轻量级的开发用 Web 服务器用于本地测试，但建议使用你选择的前端框架自带的服务器工具来运行 Web 应用。
 
 ```bash
 npx cap serve
 ```
 
-This will open your web app in a local web server instance in the browser.
+这将在浏览器中通过本地 Web 服务器实例打开你的 Web 应用。

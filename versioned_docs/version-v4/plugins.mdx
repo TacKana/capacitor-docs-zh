@@ -1,28 +1,28 @@
 ---
-title: Capacitor Plugins
-description: Capacitor Plugins
+title: Capacitor插件
+description: Capacitor插件
 ---
 
 import DocCard from '@theme/DocCard';
 import DocCardList from '@theme/DocCardList';
 
-# Capacitor Plugins
+# Capacitor插件
 
-Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
+Capacitor中的插件让JavaScript能够直接调用原生API接口。
 
 <DocCardList>
-  <DocCard header="Official plugins" img="/img/v4/docs/capacitor-card.png" href="/apis">
-    <p>Official Plugins are maintained by the Capacitor Team</p>
+  <DocCard header="官方插件" img="/img/v4/docs/capacitor-card.png" href="/apis">
+    <p>由Capacitor核心团队维护的官方插件</p>
   </DocCard>
-  <DocCard header="Community plugins" img="/img/v4/docs/community-card.png" href="/plugins/community">
-    <p>Community Plugins are maintained by the Capacitor Community</p>
+  <DocCard header="社区插件" img="/img/v4/docs/community-card.png" href="/plugins/community">
+    <p>由Capacitor社区维护的第三方插件</p>
   </DocCard>
 </DocCardList>
 
 <br />
 
-Web apps can access the full power of Native APIs with plugins. Plugins wrap common native operations that might use very different APIs across platforms while exposing a consistent, cross-platform API to JavaScript.
+通过插件，Web应用能够充分利用原生API的全部能力。插件封装了那些在不同平台上API差异较大的原生操作，同时为JavaScript提供统一的跨平台接口。
 
-Additionally, the plugin capability in Capacitor makes it possible for teams with a mix of traditional native developers and web developers to work together on different parts of the app.
+此外，Capacitor的插件功能使得传统原生开发者与Web开发者可以协同工作，分别负责应用的不同模块。
 
-Capacitor automatically generates JavaScript hooks on the client, so most plugins only need to use Swift/Obj-C for iOS and/or Java/Kotlin for Android. Of course, adding custom JavaScript for a plugin is also possible.
+Capacitor会自动在客户端生成JavaScript钩子，因此大多数插件只需为iOS平台编写Swift/Obj-C代码，和/或为Android平台编写Java/Kotlin代码。当然，您也可以为插件添加自定义的JavaScript逻辑。

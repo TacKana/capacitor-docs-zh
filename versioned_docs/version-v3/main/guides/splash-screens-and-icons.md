@@ -1,22 +1,22 @@
 ---
-title: Splash Screens and Icons
-description: Use cordova-res to generate resource images for native projects
+title: 启动页与应用图标
+description: 使用 cordova-res 为原生项目生成资源图片
 contributors:
   - dotNetkow
 slug: /guides/splash-screens-and-icons
 ---
 
-# Creating Splash Screens and Icons
+# 创建启动页与应用图标
 
-Initial support for splash screen and icon generation is now available. For complete details, see the [cordova-res docs](https://github.com/ionic-team/cordova-res).
+现已支持基础的启动页和图标生成功能。完整说明请参阅 [cordova-res 文档](https://github.com/ionic-team/cordova-res)。
 
-First, install `cordova-res`:
+首先安装 `cordova-res`：
 
 ```bash
 npm install -g cordova-res
 ```
 
-`cordova-res` expects a Cordova-like structure: place one icon and one splash screen file in a top-level `resources` folder within your project, like so:
+`cordova-res` 需要遵循 Cordova 的项目结构：在你的项目根目录下创建 `resources` 文件夹，并放入图标和启动页文件，结构如下：
 
 ```
 resources/
@@ -24,7 +24,7 @@ resources/
 └── splash.png
 ```
 
-Next, run the following to generate all images then copy them into the native projects:
+然后运行以下命令生成所有图片，并自动复制到各原生项目中：
 
 ```bash
 cordova-res ios --skip-config --copy

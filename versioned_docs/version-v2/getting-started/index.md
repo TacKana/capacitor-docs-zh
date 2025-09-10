@@ -1,72 +1,72 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: 安装 Capacitor
+description: Capacitor 安装指南
 contributors:
   - dotNetkow
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/getting-started
 ---
 
-# Installing Capacitor
+# 安装 Capacitor
 
-There are two ways to start using Capacitor: adding Capacitor to an existing frontend project (recommended), or starting a fresh project. Capacitor was designed primarily to drop-in to existing frontend projects, but comes with a simple starting project structure if you'd like to start fresh.
+有两种方式开始使用 Capacitor：将 Capacitor 添加到现有前端项目（推荐），或创建一个全新项目。Capacitor 主要设计为能够直接集成到现有前端项目中，但也提供了简单的初始项目结构供全新项目使用。
 
-Capacitor provides a native mobile runtime and API layer for web apps. It does _not_ come with any specific set of UI controls which you will most likely need unless you're building a game or something similar.
+Capacitor 为网页应用提供了原生移动运行时和 API 层。它本身_不包含_任何特定的 UI 控件集，除非您正在开发游戏或类似应用，否则很可能需要额外添加 UI 组件。
 
-We strongly recommend starting a Capacitor project with your mobile frontend framework of choice (such as [Ionic Framework](https://ionicframework.com/)).
+我们强烈建议使用您选择的前端框架（如 [Ionic Framework](https://ionicframework.com/)）来启动 Capacitor 项目。
 
-## Before you start
+## 开始前的准备
 
-Make sure you have all the required [Dependencies](/getting-started/dependencies.md) installed for the platforms you will be building for. Most importantly, make sure you update CocoaPods using `pod repo update` before starting a new project, if you plan on building for iOS using a Mac.
+确保已为要构建的平台安装所有必要的[依赖项](/getting-started/dependencies.md)。最重要的是，如果您计划在 Mac 上构建 iOS 应用，请务必在创建新项目前通过 `pod repo update` 更新 CocoaPods。
 
-## Adding Capacitor to an existing Ionic App
+## 将 Capacitor 添加到现有 Ionic 应用
 
-[See here.](/getting-started/with-ionic.md)
+[参见此处](/getting-started/with-ionic.md)。
 
-## Adding Capacitor to an existing web app
+## 将 Capacitor 添加到现有网页应用
 
-Capacitor was designed to drop into any existing modern JavaScript web app. A valid `package.json` file and a folder containing all web assets are required to get started. In addition, a `<head>` element is needed in the main `index.html` file, as Capacitor is injected there upon app initialization.
+Capacitor 设计为可以集成到任何现代 JavaScript 网页应用中。开始前需要有效的 `package.json` 文件和一个包含所有网页资源的文件夹。此外，主 `index.html` 文件中需要有 `<head>` 元素，因为 Capacitor 会在应用初始化时注入其中。
 
-To add Capacitor to your web app, run the following commands:
+要将 Capacitor 添加到您的网页应用，请运行以下命令：
 
 ```bash
 cd my-app
 npm install @capacitor/core @capacitor/cli
 ```
 
-Then, initialize Capacitor with your app information.
+然后，使用您的应用信息初始化 Capacitor。
 
-_Note: `npx` is a new utility available in npm 5 or above that executes local binaries/scripts to avoid global installs._
+_注意：`npx` 是 npm 5 及以上版本提供的新工具，用于执行本地二进制文件/脚本以避免全局安装。_
 
 ```bash
 npx cap init
 ```
 
-This command will prompt you to enter the name of your app and the app id (the package name for Android and the bundle identifier for iOS). Use the `--web-dir` flag to set the web assets folder (the default is `www`).
+此命令会提示您输入应用名称和应用的包标识符（Android 的包名和 iOS 的 bundle identifier）。使用 `--web-dir` 标志设置网页资源文件夹（默认为 `www`）。
 
-Next, install any of the desired native platforms:
+接下来，安装所需的原生平台：
 
 ```bash
 npx cap add android
 npx cap add ios
 ```
 
-🎉 Capacitor is now installed in your project. 🎉
+🎉 Capacitor 现已成功安装到您的项目中。🎉
 
-## Optional: Starting a fresh project
+## 可选：创建全新项目
 
-Capacitor comes with a stock project structure if you'd rather start fresh and plan to add a UI/frontend framework separately.
+如果您希望从头开始并计划单独添加 UI/前端框架，Capacitor 提供了标准的初始项目结构。
 
-To create it, run:
+创建命令如下：
 
 ```bash
 npx @capacitor/cli create
 ```
 
-This command will prompt you to enter the name of your app and the app id (the package name for Android and the bundle identifier for iOS).
+此命令会提示您输入应用名称和应用的包标识符（Android 的包名和 iOS 的 bundle identifier）。
 
-This will create a very simple starting app with no UI library.
+这将创建一个非常简单的初始应用，不含任何 UI 库。
 
-## Where to go next
+## 下一步
 
-Make sure you have the [Required Dependencies](/getting-started/dependencies.md) installed, including [PWA Elements](/web/pwa-elements.mdx), then proceed to the [Developer Workflow Guide](/basics/workflow.md) to learn how Capacitor apps are built.
+确保已安装[必要的依赖项](/getting-started/dependencies.md)，包括 [PWA Elements](/web/pwa-elements.mdx)，然后继续阅读[开发者工作流指南](/basics/workflow.md)了解如何构建 Capacitor 应用。

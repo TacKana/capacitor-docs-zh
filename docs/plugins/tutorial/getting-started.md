@@ -1,41 +1,41 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin
+title: 构建 Capacitor 插件
+description: 构建 Capacitor 插件指南
 contributors:
   - eric-horodyski
-sidebar_label: Getting Started
+sidebar_label: 入门指南
 slug: /plugins/tutorial/introduction
 ---
 
-# Building a Capacitor Plugin
+# 构建 Capacitor 插件
 
-Capacitor provides a comprehensive Plugin API to use when adding native functionality to a Capacitor app.
+Capacitor 提供了全面的插件 API，用于为 Capacitor 应用添加原生功能。
 
-There are two types of Capacitor plugins: a _local plugin_ is custom native code isolated to a particular Capacitor application, residing within the native projects committed as part of source control. A _global plugin_ is a published npm package that developers can add to any Capacitor application.
+Capacitor 插件分为两种类型：_本地插件_是仅限于特定 Capacitor 应用的自定义原生代码，存在于作为源代码控制一部分提交的原生项目中；_全局插件_则是可发布的 npm 包，开发者可以将其添加到任何 Capacitor 应用中。
 
-In this tutorial, we will start with a blank Capacitor application and add native code to it to build a local plugin. Then we will package it up into a global plugin, ready to be published.
+本教程我们将从一个空白 Capacitor 应用开始，通过添加原生代码构建本地插件，然后将其打包成可发布的全局插件。
 
-## So, what are we going to build?
+## 我们要构建什么？
 
-Pretend that you work for a delivery carrier, and the application you wrote lets drivers obtain signatures from customers, confirming they have received their deliveries. The legal team noticed customer signatures were of poor quality because drivers had customers sign in portrait mode. They’ve tasked you to force the app into landscape mode when capturing signatures.
+假设您在一家物流公司工作，您开发的应用程序让司机能够获取客户签名以确认收货。法务团队发现由于司机让客户在竖屏模式下签名，导致签名质量不佳。他们要求您在获取签名时强制应用切换至横屏模式。
 
-The plugin we build will implement **screen orientation** features to accommodate this request:
+我们将构建的插件将实现以下**屏幕方向**功能：
 
-- The device’s current **orientation** will be detected, with differing UIs for portrait and landscape mode.
-- Users will be given the option to rotate and **lock** their screen orientation to landscape mode.
-- After a signature has been confirmed, the app will **unlock** screen orientation rotation.
+- 检测设备当前**朝向**，为竖屏和横屏模式提供不同界面
+- 允许用户选择旋转并**锁定**屏幕为横屏模式
+- 签名确认后，应用将**解除**屏幕方向锁定
 
-For this tutorial, we will mock up a signature pad but only build out screen orientation functionality.
+本教程中，我们会模拟签名板功能，但主要聚焦于屏幕方向控制的实现。
 
-This `ScreenOrientation` plugin will work across the web, iOS, and Android platforms.
+这个`ScreenOrientation`插件将兼容网页、iOS 和 Android 平台。
 
-## Getting started
+## 准备工作
 
-Clone <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial" target="_blank">this repository</a> and check out the `start` branch. Run `npm install` at the root of the project.
+克隆<a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial" target="_blank">此代码库</a>并检出`start`分支。在项目根目录运行`npm install`。
 
-> This tutorial uses `@ionic/react` to build the user interface. If you are not familiar with React or the Ionic Framework, that’s OK! The concepts covered apply to Capacitor apps using any TypeScript-enabled web framework.
+> 本教程使用`@ionic/react`构建用户界面。即使您不熟悉 React 或 Ionic 框架也没关系！所涉及的概念适用于使用任何支持 TypeScript 的 Web 框架的 Capacitor 应用。
 
-Add both the iOS and Android platforms to the Capacitor app:
+为 Capacitor 应用添加 iOS 和 Android 平台：
 
 ```bash
 npm run build
@@ -45,4 +45,4 @@ npx cap add android
 npx cap sync
 ```
 
-Now that we have a Capacitor app in place with native platforms added, we’re ready to move on to the first step of building a plugin: designing the API.
+现在我们已准备好带有原生平台的 Capacitor 应用，可以开始构建插件的第一步：设计 API 接口。

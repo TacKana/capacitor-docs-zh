@@ -1,54 +1,54 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: 安装 Capacitor
+description: 安装 Capacitor
 slug: /getting-started
 ---
 
-# Installing Capacitor
+# 安装 Capacitor
 
-This guide will help you install Capacitor into an existing frontend web app.
+本指南将帮助您将 Capacitor 安装到现有的前端 Web 应用程序中。
 
-> If starting a new app, we recommend using the documentation from your JavaScript framework of choice and then following this guide to integrate Capacitor.
+> 如果要创建新应用，我们建议先使用您选择的 JavaScript 框架文档创建应用，然后按照本指南集成 Capacitor。
 >
-> You can also create a new basic app with `npm init @capacitor/app`.
+> 您也可以使用 `npm init @capacitor/app` 创建一个新的基础应用。
 
-Capacitor provides a native mobile runtime and API layer for web apps. It does not come with any specific set of UI controls. We recommend you use a mobile component framework (such as [Ionic Framework](https://ionicframework.com/)).
+Capacitor 为 Web 应用提供了原生移动运行时和 API 层。它不附带任何特定的 UI 控件集。我们建议您使用移动组件框架（例如 [Ionic Framework](https://ionicframework.com/)）。
 
-## Before you start
+## 开始之前
 
-Make sure your [environment is set up](/main/getting-started/environment-setup.md) for the platforms you will be building for.
+请确保您已为要构建的平台[设置好环境](/main/getting-started/environment-setup.md)。
 
-## Project Requirements
+## 项目要求
 
-Capacitor was designed to drop into any modern JavaScript web app. Projects must meet the following requirements:
+Capacitor 设计用于任何现代 JavaScript Web 应用。项目必须满足以下要求：
 
-- Must have a `package.json` file.
-- Must have a separate directory for web assets.
-- Must have an `index.html` file with a `<head>` tag in the root of the web assets directory.
+- 必须具有 `package.json` 文件。
+- 必须有一个单独的 Web 资源目录。
+- 必须在 Web 资源目录的根目录下有一个包含 `<head>` 标签的 `index.html` 文件。
 
-## Adding Capacitor to your app
+## 将 Capacitor 添加到您的应用
 
-In the root of your app, install Capacitor:
+在应用的根目录中，安装 Capacitor：
 
 ```bash
 npm install @capacitor/core
 npm install @capacitor/cli --save-dev
 ```
 
-Then, initialize Capacitor using the CLI questionnaire:
+然后，使用 CLI 问卷初始化 Capacitor：
 
 ```bash
 npx cap init
 ```
 
-The CLI will ask you a few questions, starting with your app name, and the package id you would like to use for your app.
+CLI 会询问您几个问题，从应用名称开始，然后是您想要为应用使用的包 ID。
 
-> The `npx cap` command is how Capacitor is executed locally on the command-line in your project. [Learn more about the Capacitor CLI](/cli/index.md).
+> `npx cap` 命令是在项目中本地执行 Capacitor 的方式。[了解更多关于 Capacitor CLI 的信息](/cli/index.md)。
 
-## Where to go next
+## 下一步
 
-[Get started with iOS &#8250;](/main/ios/index.md)
+[开始使用 iOS &#8250;](/main/ios/index.md)
 
-[Get started with Android &#8250;](/main/android/index.md)
+[开始使用 Android &#8250;](/main/android/index.md)
 
-[Developer Workflow Guide &#8250;](/main/basics/workflow.md)
+[开发者工作流程指南 &#8250;](/main/basics/workflow.md)

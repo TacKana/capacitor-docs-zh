@@ -1,6 +1,6 @@
 ---
 title: Push Notifications
-description: Push Notifications API
+description: 推送通知 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,53 +9,53 @@ canonicalUrl: https://capacitorjs.com/docs/apis/push-notifications
 
 <plugin-platforms platforms="ios,android"></plugin-platforms>
 
-# Push Notifications
+# 推送通知
 
-The Push Notifications API provides methods for registering a device to receive notifications from a server, along with processing received notifications and responding to them. In contrast, the [Local Notifications](/apis/local-notifications.md) API provides means for offline, local notification scheduling and processing.
+推送通知 API 提供了设备注册、接收服务器通知以及处理响应的方法。与 [本地通知](/apis/local-notifications.md) API 不同，后者主要用于离线场景下的本地通知调度和处理。
 
-## Enabling Push Notifications Capabilites
+## 启用推送通知功能
 
-On iOS you must enable Push Notifications Capabilities in your project to enable the Push Notifications plugin to work. To do so, go to the `Capabilities` section of the app project and switch the `Push Notifications` button from `OFF` to the `ON` position.
+在 iOS 平台上，您需要先在项目中启用推送通知功能才能使插件正常工作。进入应用项目的 `Capabilities` 部分，将 `Push Notifications` 从 `OFF` 切换到 `ON` 状态。
 
-This change adds the push capabilites to the app and creates an entitlements file in the project.
+此操作会为应用添加推送功能并在项目中创建授权文件。
 
-![Enabling Push Notifications Capabilities](../../../static/img/v3/docs/ios/enable-push-capabilities.png)
+![启用推送通知功能](../../../static/img/v3/docs/ios/enable-push-capabilities.png)
 
-On Android just download the app project's `google-services.json` file from the Firebase console, and place it in the `projectName/android/app` folder.
+对于 Android 平台，只需从 Firebase 控制台下载项目的 `google-services.json` 文件，并放置到 `项目名/android/app` 目录下即可。
 
-## Push Notifications icon
+## 推送通知图标
 
-On Android, the Push Notifications icon with the appropriate name should be added to the `AndroidManifest.xml` file:
+在 Android 平台上，需要在 `AndroidManifest.xml` 文件中配置带有正确名称的推送通知图标：
 
 ```xml
 <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/push_icon_name" />
 ```
 
-If no icon is specified Android will use the application icon, but push icon should be white pixels on a transparent backdrop. As the application icon is not usually like that, it will show a white square or circle. So it's recommended to provide the separate icon for Push Notifications.
+若未指定图标，Android 会使用应用图标。但推送图标要求是透明背景上的白色像素图案，而应用图标通常不符合此要求，会导致显示为白色方块或圆形。因此建议为推送通知单独提供图标。
 
-Android Studio has an icon generator you can use to create your Push Notifications icon.
+您可以使用 Android Studio 的图标生成工具来创建推送通知图标。
 
-## Disabling Push Notifications plugin
+## 禁用推送通知插件
 
-If you are not using Push Notifications in your project, when you submit the app to iTunes Connect, Apple will send you an email saying it has issues because of `Missing Push Notification Entitlement`. That happens because Capacitor includes the code for registering for push notifications and getting the token.
+如果项目中未使用推送通知功能，在提交应用到 iTunes Connect 时，Apple 会发送邮件提示存在 `缺少推送通知授权` 的问题。这是因为 Capacitor 内置了推送通知注册和获取令牌的代码。
 
-Apple sends that mail just to make sure you didn't make a mistake and forgot to enable Push Notifications Capabilities in your app, but can safely ignore it if you are not using the Push Notifications plugin.
+Apple 发送此邮件只是为了确认您没有错误地忘记启用推送功能，如果确实不使用推送通知插件，可以安全忽略该提示。
 
-In case you don't want to receive the mail, you can disable the Push Notifications plugin by removing `USE_PUSH` from `Active Compilation Conditions` in your project's Build Settings section.
+若希望避免接收此类邮件，可以通过移除项目 Build Settings 中 `Active Compilation Conditions` 下的 `USE_PUSH` 来禁用推送通知插件。
 
-![Disable Push Notifications](../../../static/img/v3/docs/ios/disable-push-plugin.png)
+![禁用推送通知](../../../static/img/v3/docs/ios/disable-push-plugin.png)
 
-## Push notifications appearance in foreground
+## 前台推送通知显示方式
 
-On iOS you can configure the way the push notifications are displayed when the app is in foreground by providing the `presentationOptions` in your `capacitor.config.json` as an Array of Strings you can combine.
+在 iOS 平台上，您可以通过在 `capacitor.config.json` 中配置 `presentationOptions` 数组来定义应用处于前台时推送通知的显示方式。
 
-Possible values are:
+可选值包括：
 
-- `badge`: badge count on the app icon is updated (default value)
-- `sound`: the device will ring/vibrate when the push notification is received
-- `alert`: the push notification is displayed in a native dialog
+- `badge`：更新应用图标上的角标计数（默认值）
+- `sound`：收到推送时设备会播放铃声/震动
+- `alert`：以原生对话框形式显示推送通知
 
-An empty Array can be provided if none of the previous options are desired. `pushNotificationReceived` event will still be fired with the push notification information.
+如果不需要任何上述效果，可以传入空数组。此时仍会触发 `pushNotificationReceived` 事件并携带推送信息。
 
 ```json
 "plugins": {
@@ -80,13 +80,13 @@ An empty Array can be provided if none of the previous options are desired. `pus
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [Interfaces](#interfaces)
+- [接口](#interfaces)
 
 
 
-## Example Guides
+## 示例教程
 
-[Using Push Notifications with Firebase in an Ionic Angular App](/guides/push-notifications-firebase.md)
+[在 Ionic Angular 应用中使用 Firebase 推送通知](/guides/push-notifications-firebase.md)
 
 ## API
 
@@ -99,10 +99,10 @@ An empty Array can be provided if none of the previous options are desired. `pus
 register() => Promise<void>
 ```
 
-Register the app to receive push notifications.
-Will trigger registration event with the push token
-or registrationError if there was some problem.
-Doesn't prompt the user for notification permissions, use requestPermission() first.
+注册应用以接收推送通知。
+将触发携带推送令牌的注册事件，
+或在出现问题时触发注册错误事件。
+不会请求用户通知权限，需先使用 requestPermission()。
 
 ---
 
@@ -112,11 +112,11 @@ Doesn't prompt the user for notification permissions, use requestPermission() fi
 requestPermission() => Promise<NotificationPermissionResponse>
 ```
 
-On iOS it prompts the user to allow displaying notifications
-and return if the permission was granted or not.
-On Android there is no such prompt, so just return as granted.
+在 iOS 上会提示用户允许显示通知
+并返回权限授予状态。
+Android 无此类提示，默认返回已授权。
 
-**Returns:** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
 
 ---
 
@@ -126,9 +126,9 @@ On Android there is no such prompt, so just return as granted.
 getDeliveredNotifications() => Promise<PushNotificationDeliveredList>
 ```
 
-Returns the notifications that are visible on the notifications screen.
+获取通知中心当前可见的所有通知。
 
-**Returns:** <code>Promise&lt;<a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a>&gt;</code>
 
 ---
 
@@ -138,11 +138,11 @@ Returns the notifications that are visible on the notifications screen.
 removeDeliveredNotifications(delivered: PushNotificationDeliveredList) => Promise<void>
 ```
 
-Removes the specified notifications from the notifications screen.
+从通知中心移除指定的通知。
 
-| Param           | Type                                                                                    | Description                      |
-| --------------- | --------------------------------------------------------------------------------------- | -------------------------------- |
-| **`delivered`** | <code><a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a></code> | list of delivered notifications. |
+| 参数             | 类型                                                                                    | 描述                   |
+| --------------- | --------------------------------------------------------------------------------------- | ---------------------- |
+| **`delivered`** | <code><a href="#pushnotificationdeliveredlist">PushNotificationDeliveredList</a></code> | 待移除的通知列表。     |
 
 ---
 
@@ -152,7 +152,7 @@ Removes the specified notifications from the notifications screen.
 removeAllDeliveredNotifications() => Promise<void>
 ```
 
-Removes all the notifications from the notifications screen.
+清除通知中心所有已送达的通知。
 
 ---
 
@@ -162,11 +162,11 @@ Removes all the notifications from the notifications screen.
 createChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-On Android O or newer (SDK 26+) creates a notification channel.
+在 Android O 及以上版本(API 26+)创建通知渠道。
 
-| Param         | Type                                                                | Description |
-| ------------- | ------------------------------------------------------------------- | ----------- |
-| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> | to create.  |
+| 参数          | 类型                                                                | 描述         |
+| ------------- | ------------------------------------------------------------------- | ------------ |
+| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> | 要创建的渠道 |
 
 ---
 
@@ -176,11 +176,11 @@ On Android O or newer (SDK 26+) creates a notification channel.
 deleteChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-On Android O or newer (SDK 26+) deletes a notification channel.
+在 Android O 及以上版本(API 26+)删除通知渠道。
 
-| Param         | Type                                                                | Description |
-| ------------- | ------------------------------------------------------------------- | ----------- |
-| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> | to delete.  |
+| 参数          | 类型                                                                | 描述         |
+| ------------- | ------------------------------------------------------------------- | ------------ |
+| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> | 要删除的渠道 |
 
 ---
 
@@ -190,9 +190,9 @@ On Android O or newer (SDK 26+) deletes a notification channel.
 listChannels() => Promise<NotificationChannelList>
 ```
 
-On Android O or newer (SDK 26+) list the available notification channels.
+在 Android O 及以上版本(API 26+)列出所有可用通知渠道。
 
-**Returns:** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
 
 ---
 
@@ -202,15 +202,15 @@ On Android O or newer (SDK 26+) list the available notification channels.
 addListener(eventName: 'registration', listenerFunc: (token: PushNotificationToken) => void) => PluginListenerHandle
 ```
 
-Event called when the push notification registration finished without problems.
-Provides the push notification token.
+当推送通知注册成功时触发的事件。
+提供推送通知令牌。
 
-| Param              | Type                                                                                        | Description                   |
-| ------------------ | ------------------------------------------------------------------------------------------- | ----------------------------- |
-| **`eventName`**    | <code>"registration"</code>                                                                 | registration.                 |
-| **`listenerFunc`** | <code>(token: <a href="#pushnotificationtoken">PushNotificationToken</a>) =&gt; void</code> | callback with the push token. |
+| 参数               | 类型                                                                                        | 描述                      |
+| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------- |
+| **`eventName`**   | <code>"registration"</code>                                                                 | 注册事件                  |
+| **`listenerFunc`**| <code>(token: <a href="#pushnotificationtoken">PushNotificationToken</a>) =&gt; void</code> | 携带推送令牌的回调函数    |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -220,15 +220,15 @@ Provides the push notification token.
 addListener(eventName: 'registrationError', listenerFunc: (error: any) => void) => PluginListenerHandle
 ```
 
-Event called when the push notification registration finished with problems.
-Provides an error with the registration problem.
+当推送通知注册失败时触发的事件。
+提供注册错误信息。
 
-| Param              | Type                                 | Description                           |
-| ------------------ | ------------------------------------ | ------------------------------------- |
-| **`eventName`**    | <code>"registrationError"</code>     | registrationError.                    |
-| **`listenerFunc`** | <code>(error: any) =&gt; void</code> | callback with the registration error. |
+| 参数               | 类型                                 | 描述                          |
+| ----------------- | ------------------------------------ | ----------------------------- |
+| **`eventName`**   | <code>"registrationError"</code>     | 注册错误事件                  |
+| **`listenerFunc`**| <code>(error: any) =&gt; void</code> | 携带注册错误的回调函数        |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -238,14 +238,14 @@ Provides an error with the registration problem.
 addListener(eventName: 'pushNotificationReceived', listenerFunc: (notification: PushNotification) => void) => PluginListenerHandle
 ```
 
-Event called when the device receives a push notification.
+当设备收到推送通知时触发的事件。
 
-| Param              | Type                                                                                     | Description                              |
-| ------------------ | ---------------------------------------------------------------------------------------- | ---------------------------------------- |
-| **`eventName`**    | <code>"pushNotificationReceived"</code>                                                  | pushNotificationReceived.                |
-| **`listenerFunc`** | <code>(notification: <a href="#pushnotification">PushNotification</a>) =&gt; void</code> | callback with the received notification. |
+| 参数               | 类型                                                                                     | 描述                             |
+| ----------------- | ---------------------------------------------------------------------------------------- | -------------------------------- |
+| **`eventName`**   | <code>"pushNotificationReceived"</code>                                                  | 推送通知接收事件                 |
+| **`listenerFunc`**| <code>(notification: <a href="#pushnotification">PushNotification</a>) =&gt; void</code> | 携带接收到的通知的回调函数       |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -255,14 +255,14 @@ Event called when the device receives a push notification.
 addListener(eventName: 'pushNotificationActionPerformed', listenerFunc: (notification: PushNotificationActionPerformed) => void) => PluginListenerHandle
 ```
 
-Event called when an action is performed on a push notification.
+当用户对推送通知执行操作时触发的事件。
 
-| Param              | Type                                                                                                                   | Description                            |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| **`eventName`**    | <code>"pushNotificationActionPerformed"</code>                                                                         | pushNotificationActionPerformed.       |
-| **`listenerFunc`** | <code>(notification: <a href="#pushnotificationactionperformed">PushNotificationActionPerformed</a>) =&gt; void</code> | callback with the notification action. |
+| 参数               | 类型                                                                                                                   | 描述                           |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| **`eventName`**   | <code>"pushNotificationActionPerformed"</code>                                                                         | 推送通知操作执行事件           |
+| **`listenerFunc`**| <code>(notification: <a href="#pushnotificationactionperformed">PushNotificationActionPerformed</a>) =&gt; void</code> | 携带通知操作信息的回调函数     |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -272,43 +272,43 @@ Event called when an action is performed on a push notification.
 removeAllListeners() => void
 ```
 
-Remove all native listeners for this plugin.
+移除本插件所有原生事件监听器。
 
 ---
 
-### Interfaces
+### 接口
 
 #### NotificationPermissionResponse
 
-| Prop          | Type                 |
+| 属性          | 类型                 |
 | ------------- | -------------------- |
 | **`granted`** | <code>boolean</code> |
 
 #### PushNotificationDeliveredList
 
-| Prop                | Type                            |
+| 属性                | 类型                            |
 | ------------------- | ------------------------------- |
 | **`notifications`** | <code>PushNotification[]</code> |
 
 #### PushNotification
 
-| Prop               | Type                 | Description                                                                                                      |
-| ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **`title`**        | <code>string</code>  |                                                                                                                  |
-| **`subtitle`**     | <code>string</code>  |                                                                                                                  |
-| **`body`**         | <code>string</code>  |                                                                                                                  |
-| **`id`**           | <code>string</code>  |                                                                                                                  |
-| **`badge`**        | <code>number</code>  |                                                                                                                  |
-| **`notification`** | <code>any</code>     |                                                                                                                  |
-| **`data`**         | <code>any</code>     |                                                                                                                  |
-| **`click_action`** | <code>string</code>  |                                                                                                                  |
-| **`link`**         | <code>string</code>  |                                                                                                                  |
-| **`group`**        | <code>string</code>  | Android only: set the group identifier for notification grouping, like threadIdentifier on iOS.                  |
-| **`groupSummary`** | <code>boolean</code> | Android only: designate this notification as the summary for a group (should be used with the `group` property). |
+| 属性               | 类型                 | 描述                                                                                                      |
+| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------- |
+| **`title`**        | <code>string</code>  | 通知标题                                                                                                 |
+| **`subtitle`**     | <code>string</code>  | 通知副标题                                                                                               |
+| **`body`**         | <code>string</code>  | 通知正文                                                                                                 |
+| **`id`**           | <code>string</code>  | 通知ID                                                                                                   |
+| **`badge`**        | <code>number</code>  | 角标数                                                                                                   |
+| **`notification`** | <code>any</code>     | 原生通知对象                                                                                             |
+| **`data`**         | <code>any</code>     | 附加数据                                                                                                 |
+| **`click_action`** | <code>string</code>  | 点击动作                                                                                                 |
+| **`link`**         | <code>string</code>  | 链接地址                                                                                                 |
+| **`group`**        | <code>string</code>  | 仅Android：设置通知分组标识符，类似iOS的threadIdentifier                                                 |
+| **`groupSummary`** | <code>boolean</code> | 仅Android：将本通知设为分组摘要（需与`group`属性配合使用）                                                |
 
 #### NotificationChannel
 
-| Prop              | Type                               |
+| 属性              | 类型                               |
 | ----------------- | ---------------------------------- |
 | **`id`**          | <code>string</code>                |
 | **`name`**        | <code>string</code>                |
@@ -322,28 +322,26 @@ Remove all native listeners for this plugin.
 
 #### NotificationChannelList
 
-| Prop           | Type                               |
+| 属性           | 类型                               |
 | -------------- | ---------------------------------- |
 | **`channels`** | <code>NotificationChannel[]</code> |
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
+| 属性         | 类型                       |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |
 
 #### PushNotificationToken
 
-| Prop        | Type                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`value`** | <code>string</code> |
 
 #### PushNotificationActionPerformed
 
-| Prop               | Type                                                          |
+| 属性               | 类型                                                          |
 | ------------------ | ------------------------------------------------------------- |
 | **`actionId`**     | <code>string</code>                                           |
 | **`inputValue`**   | <code>string</code>                                           |
 | **`notification`** | <code><a href="#pushnotification">PushNotification</a></code> |
-
-

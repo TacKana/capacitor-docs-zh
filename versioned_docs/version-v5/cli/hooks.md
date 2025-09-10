@@ -1,24 +1,24 @@
 ---
 title: CLI Hooks
-description: Capacitor CLI Hooks
+description: Capacitor CLI 钩子
 contributors:
   - jcesarmobile
 ---
 
-# Capacitor CLI Hooks
+# Capacitor CLI 钩子
 
-Starting in Capacitor 3.1, the following events can be used to hook into Capacitor commands:
+从 Capacitor 3.1 开始，您可以通过以下事件钩子接入 Capacitor 命令：
 
-- `capacitor:copy:before`
-- `capacitor:copy:after`
-- `capacitor:update:before`
-- `capacitor:update:after`
-- `capacitor:sync:before`
-- `capacitor:sync:after`
+- `capacitor:copy:before`（复制前）
+- `capacitor:copy:after`（复制后）
+- `capacitor:update:before`（更新前）
+- `capacitor:update:after`（更新后）
+- `capacitor:sync:before`（同步前）
+- `capacitor:sync:after`（同步后）
 
-To use them add the event name and the code you want to run in the scripts section of your app's `package.json`.
+要使用这些钩子，只需在应用的 `package.json` 文件的 scripts 部分添加对应事件名称和要执行的代码。
 
-Example that just echo the command and the platform where it ran:
+以下示例展示了如何在执行命令时输出当前平台名称：
 
 ```json
 "scripts": {

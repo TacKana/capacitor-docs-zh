@@ -1,15 +1,15 @@
 ---
-title: Building an Ionic Framework Photo Gallery App
-description: Learn how to add Camera functionality to an Ionic app that works on the web, iOS, and Android
+title: 构建 Ionic 框架相册应用
+description: 学习如何为适用于 Web、iOS 和 Android 平台的 Ionic 应用添加相机功能
 contributors:
   - dotNetkow
 slug: /guides/ionic-framework-app
 ---
 
-# Building an Ionic Photo Gallery App
+# 构建 Ionic 相册应用
 
-**Platforms**: Web, iOS, Android
+**支持平台**：Web、iOS、Android
 
-Capacitor makes it easy to build web apps that run natively on iOS, Android, desktop, and the web. In this guide, we'll build a complete Photo Gallery app that works on all platforms.
+Capacitor 能够轻松构建可在 iOS、Android、桌面和网页端原生运行的 Web 应用。本教程将指导您构建一个全平台兼容的完整相册应用。
 
-> This guide is now maintained over in the Ionic docs. The [latest version](https://ionicframework.com/docs/intro/next) contains tutorials for Angular, React, and Vue.
+> 本教程最新维护版本已迁移至 Ionic 官方文档站，[最新版](https://ionicframework.com/docs/intro/next)包含 Angular、React 和 Vue 的实现教程。

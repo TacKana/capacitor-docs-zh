@@ -1,17 +1,17 @@
 ---
 title: Method Types
-description: Capacitor Plugin Method Types
+description: Capacitor 插件方法类型
 contributors:
   - ikeith
-sidebar_label: Method Types
+sidebar_label: 方法类型
 slug: /plugins/method-types
 ---
 
-# Method Types
+# 方法类型
 
-When developing plugins, there are three different types of method signatures that can be used. All are asynchronous and promise-based.
+开发插件时，可以使用三种不同的方法签名类型。所有方法都是基于 Promise 的异步操作。
 
-Let's consider a plugin definition that includes all three types:
+以下是一个包含所有三种方法类型的插件定义示例：
 
 ```typescript
 export type CallbackID = string;
@@ -29,11 +29,11 @@ export interface MyPlugin {
 }
 ```
 
-## Void Return
+## 无返回值方法
 
-`method1()` is the simplest case that is expected to return no data. You can check the promise for an error but when it resolves the result is ignored.
+`method1()` 是最简单的情况，不需要返回任何数据。你可以检查 Promise 是否报错，但当它解析时结果会被忽略。
 
-For android, you would annotate the method like this:
+在 Android 平台，你需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+在 iOS 平台，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -49,11 +49,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## Value Return
+## 有返回值方法
 
-`method2()` is the most common case: A promise that resolves with some value.
+`method2()` 是最常见的情况：一个会返回某些数据的 Promise。
 
-For Android, this method type is the default and specifying the return type is optional:
+在 Android 平台，这是默认的方法类型，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -61,7 +61,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+在 iOS 平台，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -69,11 +69,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## Callback
+## 回调方法
 
-`method3()` is the most complex type but also the least common in practice. It is used when your plugin needs to return data repeatedly, such as when monitoring the device's location via the geolocation API.
+`method3()` 是最复杂的类型，但在实际开发中较少使用。当你的插件需要多次返回数据时（例如通过地理定位 API 监控设备位置），就会用到这种类型。
 
-For android, you would annotate the method like this:
+在 Android 平台，你需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -81,7 +81,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+在 iOS 平台，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -89,6 +89,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-Callback methods take a function that will be invoked (potentially many times) from the native code and return a promise that will resolve with an identifier.
+回调方法接收一个函数作为参数（可能会被原生代码多次调用），并返回一个带有标识符的 Promise。
 
-On the native side, implementing a callback means you need to save the call so it can be invoked at a later time. The specifics of how to handle that [are discussed here.](/main/reference/core-apis/saving-calls.md)
+在原生代码端，实现回调意味着你需要保存调用以便后续使用。具体的处理方式[详见此处](/main/reference/core-apis/saving-calls.md)。

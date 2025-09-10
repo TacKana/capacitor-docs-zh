@@ -1,27 +1,27 @@
 ---
-title: CLI Command - cap build
+title: CLI 命令 - cap build
 description: Capacitor CLI - cap build
 sidebar_label: build
 ---
 
 # Capacitor CLI - cap build
 
-This command will build the native project to create a signed AAB, APK or IPA file. Build options can be specified on the command line or in your Capacitor Configuration File.
+此命令用于构建原生项目，生成已签名的 AAB、APK 或 IPA 文件。构建选项可以通过命令行或在 Capacitor 配置文件中指定。
 
 ```bash
 npx cap build [options] <platform>
 ```
 
-<strong>Inputs:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (required): `android`, `ios`
+- `platform` (必填)：`android` 或 `ios`
 
-<strong>Options:</strong>
+<strong>选项：</strong>
 
-- `--scheme <scheme-to-build>`: iOS Scheme to build (default is `App`)
-- `--flavor <flavor-to-build>`: Android Flavor to build
-- `--keystorepath <path>`: Path to the keystore file
-- `--keystorepass <keystore-password>`: Password to the keystore
-- `--keystorealias <alias>`: Key alias in the keystore
-- `--keystorealiaspass <alias-password>`: Password for the keystore alias
-- `--androidreleasetype <release-type>`: Can be either `AAB` or `APK`
+- `--scheme <scheme-to-build>`: 要构建的 iOS Scheme（默认为 `App`）
+- `--flavor <flavor-to-build>`: 要构建的 Android Flavor
+- `--keystorepath <path>`: 密钥库文件路径
+- `--keystorepass <keystore-password>`: 密钥库密码
+- `--keystorealias <alias>`: 密钥库中的密钥别名
+- `--keystorealiaspass <alias-password>`: 密钥别名的密码
+- `--androidreleasetype <release-type>`: 发布类型，可选 `AAB` 或 `APK`

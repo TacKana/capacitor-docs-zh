@@ -1,45 +1,44 @@
 ---
 title: PWA Elements
-description: Using PWA Elements
+description: 使用 PWA 元素组件
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/web/pwa-elements
 ---
 
-# PWA Elements
+# PWA 元素组件
 
-Some Capacitor plugins, such as `Camera` or `Toast`, have web-based UI available when not running natively. For example, calling `Camera.getPhoto()` will load a responsive photo-taking experience when running on the web:
+某些 Capacitor 插件（如 `Camera` 或 `Toast`）在非原生环境下运行时提供基于网页的 UI 界面。例如，在网页端调用 `Camera.getPhoto()` 时，会加载一个响应式的照片拍摄界面：
 
 <img src="/assets/img/docs/pwa-elements.png" style={{ height: "200px" }} />
 
-This UI is implemented using web components. Due the elements being encapsulated by the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM), these components should not conflict
-with your own UI.
+这些 UI 是通过 Web 组件实现的。由于这些元素被封装在 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) 中，因此不会与您自己的 UI 产生冲突。
 
-## Installation
+## 安装指南
 
-To enable these controls, you must add `@ionic/pwa-elements` to your app.
+要启用这些控件，您需要将 `@ionic/pwa-elements` 添加到您的应用中。
 
-A typical installation involves importing the package and registering the elements, or adding a script tag to the `<head>` of the `index.html` for your app:
+典型安装方式包括导入包并注册元素组件，或在应用的 `index.html` 的 `<head>` 中添加脚本标签：
 
-#### Importing PWA Elements
+#### 导入 PWA 元素组件
 
 ```bash
 npm install @ionic/pwa-elements
 ```
 
-Then, depending on your framework of choice, import the element loader and call it at the correct time:
+根据您选择的框架，导入元素加载器并在适当的时机调用：
 
 ##### React
 
-`index.tsx` or `index.js`:
+`index.tsx` 或 `index.js`：
 
 ```tsx
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// Call the element loader after the app has been rendered the first time
+// 在应用首次渲染完成后调用元素加载器
 defineCustomElements(window);
 ```
 
@@ -63,13 +62,13 @@ new Vue({
   components: { App },
 });
 
-// Call the element loader after the platform has been bootstrapped
+// 在平台初始化完成后调用元素加载器
 defineCustomElements(window);
 ```
 
 ##### Angular
 
-`main.ts`:
+`main.ts`：
 
 ```typescript
 import { enableProdMode } from '@angular/core';
@@ -88,13 +87,13 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
-// Call the element loader after the platform has been bootstrapped
+// 在平台初始化完成后调用元素加载器
 defineCustomElements(window);
 ```
 
-#### Including through script tag
+#### 通过脚本标签引入
 
-PWA Elements can be included through a script tag in your `index.html`. However, keep in mind this will not work for offline scenarios:
+您也可以通过 `index.html` 中的脚本标签引入 PWA 元素组件，但请注意这种方式不适用于离线场景：
 
 ```html
 <script

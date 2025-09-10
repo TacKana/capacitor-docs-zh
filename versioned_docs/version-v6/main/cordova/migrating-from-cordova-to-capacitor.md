@@ -1,50 +1,51 @@
 ---
-title: Cordova to Capacitor Migration
-description: Migrating from Cordova to Capacitor
+title: Cordova到Capacitor的迁移
+description: 从Cordova迁移至Capacitor
 contributors:
   - dotNetkow
 slug: /cordova/migrating-from-cordova-to-capacitor
 ---
 
-# Migrating a Web App Using Cordova to Capacitor
+# 将基于Cordova的Web应用迁移至Capacitor
 
-There are several steps required to fully migrate a web app using Cordova over to Capacitor.
+完整迁移一个使用Cordova的Web应用到Capacitor需要以下几个步骤。
 
-> It's recommended to work in a separate code branch when applying these changes.
+> 建议在进行这些变更时使用单独的分支进行开发。
 
-## Add Capacitor
+## 添加Capacitor
 
-Begin by opening your project in the terminal, then either follow the guides for [adding Capacitor to a web app](/main/getting-started/installation.md#add-capacitor-to-your-web-app) or [adding Capacitor to an Ionic app](/main/getting-started/with-ionic.md#installing-capacitor-to-an-existing-ionic-project).
+首先在终端中打开您的项目，然后根据项目类型选择对应的指南：
+- [为Web应用添加Capacitor](/main/getting-started/installation.md#add-capacitor-to-your-web-app)
+- [为Ionic应用添加Capacitor](/main/getting-started/with-ionic.md#installing-capacitor-to-an-existing-ionic-project)
 
-Initialize your app with Capacitor. Some of the information you will be prompted for is available in the Cordova `config.xml` file:
-
-- The app name can be found within the `<name>` element.
-- The Bundle ID can be found in the `id` attribute of the root `<widget>` element.
+使用Capacitor初始化您的应用。部分初始化所需信息可以从Cordova的`config.xml`文件中获取：
+- 应用名称：`<name>`元素中的内容
+- 包标识符(Bundle ID)：根元素`<widget>`的`id`属性值
 
 ```bash
 npx cap init
 ```
 
-### Build your Web App
+### 构建Web应用
 
-You must build your web project at least once before adding any native platforms.
+在添加任何原生平台前，您必须先构建Web项目。
 
 ```bash
 npm run build
 ```
 
-This ensures that the `www` folder that Capacitor has been [automatically configured](/main/basics/configuring-your-app.md) to use as the `webDir` in the Capacitor configuration file.
+这将确保Capacitor配置文件中的`webDir`指向正确的`www`目录（Capacitor已[自动配置](/main/basics/configuring-your-app.md)此目录）。
 
-### Add Platforms
+### 添加平台
 
-Capacitor native platforms exist in their own top-level folders. Cordova's are located under `platforms/ios` or `platforms/android`.
+Capacitor的原生平台位于项目根目录下的独立文件夹中，而Cordova的原生平台则位于`platforms/ios`或`platforms/android`目录下。
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-Both android and ios folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your app (i.e., check them into source control, edit them in their own IDEs, etc.). Additionally, any Cordova plugins found under `dependencies` in `package.json` are automatically installed by Capacitor into each new native project (minus any [incompatible ones](/plugins/cordova.md#known-incompatible-plugins)):
+执行后将分别在项目根目录创建android和ios文件夹。这些是完全独立的原生项目产物，应视为应用代码的一部分（即需要纳入版本控制，在各自IDE中编辑等）。此外，Capacitor会自动将`package.json`中`dependencies`下的所有Cordova插件（[不兼容的插件](/plugins/cordova.md#known-incompatible-plugins)除外）安装到每个新创建的原生项目中：
 
 ```json
 "dependencies": {
@@ -58,45 +59,45 @@ Both android and ios folders at the root of the project are created. These are e
 }
 ```
 
-## Splash Screens and Icons
+## 启动画面与图标
 
-If you've previously created icon and splash screen images, they can be found in the top-level `resources` folder of your project. With those images in place, you can use the `@capacitor/assets` tool to generate icons and splash screens for Capacitor-based iOS and Android projects.
+如果您之前创建过应用图标和启动画面资源，它们通常位于项目的`resources`目录中。使用这些资源文件，可以通过`@capacitor/assets`工具为基于Capacitor的iOS和Android项目重新生成相应资源。
 
-Run the following to regenerate the images and copy them into the native projects:
+运行以下命令重新生成资源并复制到原生项目：
 
 ```bash
 npx @capacitor/assets generate --ios
 npx @capacitor/assets generate --android
 ```
 
-[Complete details here](https://github.com/ionic-team/capacitor-assets).
+[完整说明请参见此处](https://github.com/ionic-team/capacitor-assets)。
 
-## Migrate Plugins
+## 迁移插件
 
-Begin by auditing your existing Cordova plugins - it's possible that you may be able to remove ones that are no longer needed.
+首先审核现有的Cordova插件——有些可能已经不再需要。
 
-Next, review all of Capacitor's [official plugins](/plugins/official.md) as well as [community plugins](/plugins/community.md). You may be able to switch to the Capacitor-equivalent Cordova plugin.
+然后查阅Capacitor的[官方插件](/plugins/official.md)和[社区插件](/plugins/community.md)列表，您可能会找到对应的Capacitor等效插件。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+部分插件可能在功能上不完全匹配，但根据您的实际需求可能影响不大。
 
-Note that any plugins that are [incompatible or cause build issues](/plugins/cordova.md#known-incompatible-plugins) are automatically skipped.
+注意：[不兼容或会导致构建问题的插件](/plugins/cordova.md#known-incompatible-plugins)会自动被跳过。
 
-### Remove Cordova Plugin
+### 移除Cordova插件
 
-After replacing a Cordova plugin with a Capacitor one (or simply removing it entirely), uninstall the plugin then run the `sync` command to remove the plugin code from a native project:
+当用Capacitor插件替换某个Cordova插件（或直接移除）后，卸载该插件并运行`sync`命令从原生项目中移除相关代码：
 
 ```bash
 npm uninstall cordova-plugin-name
 npx cap sync
 ```
 
-## Set Permissions
+## 设置权限
 
-By default, the entire initial permissions requested for the latest version of Capacitor are set for you in the default native projects for both iOS and Android. However, you may need to apply additional permissions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/main/ios/configuration.md) and [Android](/main/android/configuration.md) configuration guides for info on how to configure each platform.
+Capacitor的最新版本已为iOS和Android的原生项目默认配置了初始权限集合。但您可能需要根据`plugin.xml`中的声明手动添加额外权限，具体配置方法请参考[iOS](/main/ios/configuration.md)和[Android](/main/android/configuration.md)配置指南。
 
-## Cordova Plugin preferences
+## Cordova插件偏好设置
 
-When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and ports them to the [Capacitor configuration file](/main/reference/config.md). You can manually add more preferences to the `cordova.preferences` object.
+执行`npx cap init`时，Capacitor会读取`config.xml`中的所有偏好设置并迁移到[Capacitor配置文件](/main/reference/config.md)中。您也可以手动在`cordova.preferences`对象中添加更多设置。
 
 ```json
 {
@@ -109,17 +110,17 @@ When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` 
 }
 ```
 
-## Additional Fields from `config.xml`
+## 处理config.xml中的其他字段
 
-You may be curious about how other elements from `config.xml` work in Capacitor apps.
+您可能想知道`config.xml`中的其他元素在Capacitor应用中如何对应。
 
-The Author element can be configured in `package.json`, but is not used by Capacitor or within your app:
+Author元素可以在`package.json`中配置，但Capacitor和应用本身不会使用该信息：
 
 ```xml
 <author email="email@test.com" href="http://ionicframework.com/">Ionic Framework Team</author>
 ```
 
-Most of the `allow-intent` values are either not used or there are [configurable alternatives](/main/basics/configuring-your-app.md).
+大多数`allow-intent`值要么不被使用，要么存在[可配置的替代方案](/main/basics/configuring-your-app.md)。
 
 ```xml
 <allow-intent href="http://*/*" />
@@ -130,7 +131,7 @@ Most of the `allow-intent` values are either not used or there are [configurable
 <allow-intent href="geo:*" />
 ```
 
-iOS `edit-config` elements need to be [configured in Info.plist](/main/ios/configuration.md).
+iOS的`edit-config`元素需要在[Info.plist中配置](/main/ios/configuration.md)。
 
 ```xml
 <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
@@ -138,11 +139,11 @@ iOS `edit-config` elements need to be [configured in Info.plist](/main/ios/confi
 </edit-config>
 ```
 
-It's impossible to cover every `config.xml` element available. However, most questions relating to "How do I configure X in Capacitor?" should be thought of as "How do I configure X in [platform] (iOS/Android)?" when searching online for answers.
+我们无法涵盖所有可能的`config.xml`元素。但大多数"如何在Capacitor中配置X？"的问题应该理解为"如何在[iOS/Android]平台中配置X？"，这样能更有效地找到答案。
 
-## Setting Scheme
+## 设置URL方案
 
-When using Ionic with Cordova, your app uses `cordova-plugin-ionic-webview` by default, which on iOS uses `ionic://` scheme for serving the content. Capacitor apps use `capacitor://` as default scheme on iOS. This means that using a origin-binded Web API like LocalStorage, will result in a loss of data as the origin is different. This can be fixed by changing the scheme that is used for serving the content:
+在Ionic+Cordova项目中，默认使用`cordova-plugin-ionic-webview`插件，该插件在iOS上使用`ionic://`方案加载内容。而Capacitor应用默认使用`capacitor://`方案。这会导致使用origin绑定的Web API（如LocalStorage）时数据丢失，因为origin发生了变化。可以通过修改内容加载方案来解决：
 
 ```json
 {
@@ -152,10 +153,12 @@ When using Ionic with Cordova, your app uses `cordova-plugin-ionic-webview` by d
 }
 ```
 
-## Removing Cordova
+## 移除Cordova
 
-Once you've tested that all migration changes have been applied and the app is working well, Cordova can be removed from the project. Delete `config.xml` as well as the `platforms` and `plugins` folders. Note that you don't technically have to remove Cordova, since Capacitor works alongside it. In fact, if you plan to continue using Cordova plugins or think you may in the future, you can leave the Cordova assets where they are.
+当您确认所有迁移变更都已正确应用且应用运行良好后，可以从项目中移除Cordova。删除`config.xml`文件以及`platforms`和`plugins`文件夹。请注意，技术上您不必移除Cordova，因为Capacitor可以与其共存。如果您计划继续使用某些Cordova插件或未来可能需要使用，可以保留这些Cordova资源。
 
-## Next Steps
+## 后续步骤
 
-This is just the beginning of your Capacitor journey. Learn more about [using Cordova plugins](/plugins/cordova.md) in a Capacitor project or more details on the Capacitor [development workflow](/main/basics/workflow.md).
+这仅是您Capacitor之旅的开始。了解更多关于：
+- [在Capacitor项目中使用Cordova插件](/plugins/cordova.md)
+- Capacitor的[开发工作流程详解](/main/basics/workflow.md)

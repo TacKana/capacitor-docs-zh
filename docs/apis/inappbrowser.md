@@ -1,30 +1,30 @@
 ---
-title: InAppBrowser Capacitor Plugin API
-description: The InAppBrowser Plugin provides a web browser view that allows you to load any web page externally. It behaves as a standard web browser and is useful to load untrusted content without risking your application's security. It offers three different ways to open URLs; in a WebView, in an in-app system browser (Custom Tabs for Android and SFSafariViewController for iOS), and in the device's default browser.
+title: InAppBrowser Capacitor 插件 API
+description: InAppBrowser 插件提供了一个网页浏览器视图，允许您在外部加载任意网页。其行为与标准网页浏览器一致，可用于加载不受信任的内容而不会威胁应用程序的安全性。它提供三种不同的 URL 打开方式：在 WebView 中、在应用内系统浏览器（Android 上的 Custom Tabs 和 iOS 上的 SFSafariViewController）中，以及在设备的默认浏览器中。
 custom_edit_url: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/src/definitions.ts
-sidebar_label: InAppBrowser
+sidebar_label: 内嵌浏览器
 ---
 
 # @capacitor/inappbrowser
 
-The InAppBrowser Plugin provides a web browser view that allows you to load any web page externally. It behaves as a standard web browser and is useful to load untrusted content without risking your application's security. It offers three different ways to open URLs; in a WebView, in an in-app system browser (Custom Tabs for Android and SFSafariViewController for iOS), and in the device's default browser.
+InAppBrowser 插件提供了一个网页浏览器视图，允许您在外部加载任意网页。其行为与标准网页浏览器一致，可用于加载不受信任的内容而不会威胁应用程序的安全性。它提供三种不同的 URL 打开方式：在 WebView 中、在应用内系统浏览器（Android 上的 Custom Tabs 和 iOS 上的 SFSafariViewController）中，以及在设备的默认浏览器中。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/inappbrowser
 npx cap sync
 ```
 
-## Supported Platforms
+## 支持的平台
 
 - iOS
 - Android
 
 #### Android
 
-The InAppBrowser plugin requires a minimum Android SDK target of 26. This is higher than the default that comes with your Capacitor application. You can update this value in your `android/variables.gradle` file.
+InAppBrowser 插件要求 Android SDK 的最低目标版本为 26，这高于 Capacitor 应用程序的默认值。您可以在 `android/variables.gradle` 文件中更新此值。
 
 ```gradle
 ext {
@@ -32,8 +32,8 @@ ext {
 }
 ```
 
-## Usage Example
-#### Open In External Browser
+## 使用示例
+#### 在外部浏览器中打开
 ```typescript
 import { InAppBrowser } from '@capacitor/inappbrowser';
 await InAppBrowser.openInExternalBrowser({
@@ -41,7 +41,7 @@ await InAppBrowser.openInExternalBrowser({
 });
 ```
 
-#### Open In System Browser (Custom Tabs for Android, SFSafariViewController for iOS)
+#### 在系统浏览器中打开（Android 使用 Custom Tabs，iOS 使用 SFSafariViewController）
 ```typescript
 import { InAppBrowser, DefaultSystemBrowserOptions } from '@capacitor/inappbrowser';
 await InAppBrowser.openInSystemBrowser({
@@ -50,7 +50,7 @@ await InAppBrowser.openInSystemBrowser({
 });
 ```
 
-#### Open In Web View
+#### 在 Web View 中打开
 ```typescript
 import { InAppBrowser, DefaultWebViewOptions } from '@capacitor/inappbrowser';
 await InAppBrowser.openInWebView({
@@ -59,29 +59,29 @@ await InAppBrowser.openInWebView({
 });
 ```
 
-#### Close (Web View or System Browser)
+#### 关闭（Web View 或系统浏览器）
 ```typescript
 import { InAppBrowser } from '@capacitor/inappbrowser';
 await InAppBrowser.close();
 ```
 
-#### Add Listeners
+#### 添加监听器
 ```typescript
 import { InAppBrowser } from '@capacitor/inappbrowser';
 await InAppBrowser.addListener('browserClosed', () => {
-    console.log("browser was closed.");
+    console.log("浏览器已关闭。");
 });
 
 await InAppBrowser.addListener('browserPageNavigationCompleted', (data) => {
-    console.log("browser page navigation was completed. " + data.url);
+    console.log("浏览器页面导航完成。URL: " + data.url);
 });
 
 await InAppBrowser.addListener('browserPageLoaded', () => {
-    console.log("browser was loaded.");
+    console.log("浏览器已加载。");
 });
 ```
 
-#### Remove All Listeners
+#### 移除所有监听器
 ```typescript
 import { InAppBrowser } from '@capacitor/inappbrowser';
 InAppBrowser.removeAllListeners();
@@ -98,8 +98,8 @@ InAppBrowser.removeAllListeners();
 * [`addListener('browserClosed' | 'browserPageLoaded', ...)`](#addlistenerbrowserclosed--browserpageloaded-)
 * [`addListener('browserPageNavigationCompleted', ...)`](#addlistenerbrowserpagenavigationcompleted-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [接口](#interfaces)
+* [枚举](#enums)
 
 </docgen-index>
 
@@ -112,11 +112,11 @@ InAppBrowser.removeAllListeners();
 openInWebView(model: OpenInWebViewParameterModel) => Promise<void>
 ```
 
-Opens the web content of the given URL in your mobile app using a custom web view within your application.
+在您的移动应用中使用自定义的 Web View 打开指定 URL 的网页内容。
 
-| Param       | Type                                                                                | Description                                    |
-| ----------- | ----------------------------------------------------------------------------------- | ---------------------------------------------- |
-| **`model`** | <code><a href="#openinwebviewparametermodel">OpenInWebViewParameterModel</a></code> | The parameters to open the URL in the web view |
+| 参数        | 类型                                                                                | 描述                                     |
+| ----------- | ----------------------------------------------------------------------------------- | ---------------------------------------- |
+| **`model`** | <code><a href="#openinwebviewparametermodel">OpenInWebViewParameterModel</a></code> | 用于在 Web View 中打开 URL 的参数        |
 
 --------------------
 
@@ -127,11 +127,11 @@ Opens the web content of the given URL in your mobile app using a custom web vie
 openInSystemBrowser(model: OpenInSystemBrowserParameterModel) => Promise<void>
 ```
 
-Opens the web content of the given URL in your mobile app, using SafariViewController for iOS and Custom Tabs for Android.
+在您的移动应用中使用系统浏览器打开指定 URL 的网页内容，iOS 使用 SafariViewController，Android 使用 Custom Tabs。
 
-| Param       | Type                                                                                            | Description                                          |
-| ----------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **`model`** | <code><a href="#openinsystembrowserparametermodel">OpenInSystemBrowserParameterModel</a></code> | The parameters to open the URL in the system browser |
+| 参数        | 类型                                                                                            | 描述                                           |
+| ----------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| **`model`** | <code><a href="#openinsystembrowserparametermodel">OpenInSystemBrowserParameterModel</a></code> | 用于在系统浏览器中打开 URL 的参数              |
 
 --------------------
 
@@ -142,11 +142,11 @@ Opens the web content of the given URL in your mobile app, using SafariViewContr
 openInExternalBrowser(model: OpenInDefaultParameterModel) => Promise<void>
 ```
 
-Opens the web content of the given URL in a separate browser, outside of your mobile application.
+在移动应用之外的独立浏览器中打开指定 URL 的网页内容。
 
-| Param       | Type                                                                                | Description                                            |
-| ----------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| **`model`** | <code><a href="#openindefaultparametermodel">OpenInDefaultParameterModel</a></code> | The parameters to open the URL in the external browser |
+| 参数        | 类型                                                                                | 描述                                               |
+| ----------- | ----------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **`model`** | <code><a href="#openindefaultparametermodel">OpenInDefaultParameterModel</a></code> | 用于在外部浏览器中打开 URL 的参数                  |
 
 --------------------
 
@@ -157,7 +157,7 @@ Opens the web content of the given URL in a separate browser, outside of your mo
 close() => Promise<void>
 ```
 
-Closes the currently active browser. It can be used to close browsers launched through the openInSystemBrowser or openInWebView actions.
+关闭当前活动的浏览器。可用于关闭通过 openInSystemBrowser 或 openInWebView 操作启动的浏览器。
 
 --------------------
 
@@ -168,14 +168,14 @@ Closes the currently active browser. It can be used to close browsers launched t
 addListener(eventName: 'browserClosed' | 'browserPageLoaded', listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
-Adds a listener for the specified browser events, with no data being returned.
+为指定的浏览器事件添加监听器，不返回数据。
 
-| Param              | Type                                                | Description                                                                          |
-| ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| **`eventName`**    | <code>'browserClosed' \| 'browserPageLoaded'</code> | The name of the browser event to listen for: 'browserClosed' or 'browserPageLoaded'. |
-| **`listenerFunc`** | <code>() =&gt; void</code>                          | The function to be called when the event occurs.                                     |
+| 参数               | 类型                                                | 描述                                                                           |
+| ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **`eventName`**    | <code>'browserClosed' \| 'browserPageLoaded'</code> | 要监听的浏览器事件名称：'browserClosed' 或 'browserPageLoaded'。               |
+| **`listenerFunc`** | <code>() =&gt; void</code>                          | 事件发生时调用的函数。                                                         |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
@@ -186,14 +186,14 @@ Adds a listener for the specified browser events, with no data being returned.
 addListener(eventName: 'browserPageNavigationCompleted', listenerFunc: (data: BrowserPageNavigationCompletedEventData) => void) => Promise<PluginListenerHandle>
 ```
 
-Adds a listener for the specified browser event, which receives data.
+为指定的浏览器事件添加监听器，该事件会接收数据。
 
-| Param              | Type                                                                                                                           | Description                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| **`eventName`**    | <code>'browserPageNavigationCompleted'</code>                                                                                  | The name of the browser event to listen for: 'browserPageNavigationCompleted'. Applies only to openInWebView. |
-| **`listenerFunc`** | <code>(data: <a href="#browserpagenavigationcompletedeventdata">BrowserPageNavigationCompletedEventData</a>) =&gt; void</code> | The function to be called when the event occurs.                                                              |
+| 参数               | 类型                                                                                                                           | 描述                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **`eventName`**    | <code>'browserPageNavigationCompleted'</code>                                                                                  | 要监听的浏览器事件名称：'browserPageNavigationCompleted'。仅适用于 openInWebView。                     |
+| **`listenerFunc`** | <code>(data: <a href="#browserpagenavigationcompletedeventdata">BrowserPageNavigationCompletedEventData</a>) =&gt; void</code> | 事件发生时调用的函数。                                                                                 |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
@@ -204,143 +204,143 @@ Adds a listener for the specified browser event, which receives data.
 removeAllListeners() => void
 ```
 
-Removes all listeners for the browser events.
+移除所有浏览器事件的监听器。
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenInWebViewParameterModel
 
-Defines the options for opening a URL in the web view.
+定义在 Web View 中打开 URL 的选项。
 
-| Prop                | Type                                                      | Description                                                          |
-| ------------------- | --------------------------------------------------------- | -------------------------------------------------------------------- |
-| **`options`**       | <code><a href="#webviewoptions">WebViewOptions</a></code> | A structure containing some configurations to apply to the Web View. |
-| **`customHeaders`** | <code>{ [key: string]: string; }</code>                   | A map of custom headers to be sent with the request.                 |
+| 属性                | 类型                                                      | 描述                                                          |
+| ------------------- | --------------------------------------------------------- | ------------------------------------------------------------- |
+| **`options`**       | <code><a href="#webviewoptions">WebViewOptions</a></code> | 包含要应用于 Web View 的一些配置的结构体。                    |
+| **`customHeaders`** | <code>{ [key: string]: string; }</code>                   | 随请求发送的自定义头部映射。                                  |
 
 
 #### WebViewOptions
 
-| Prop                                  | Type                                                                    | Description                                                                                             |
-| ------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **`showURL`**                         | <code>boolean</code>                                                    | Displays the URL on the Web View.                                                                       |
-| **`showToolbar`**                     | <code>boolean</code>                                                    | Displays the toolbar on the Web View.                                                                   |
-| **`clearCache`**                      | <code>boolean</code>                                                    | Clears the Web View's cookie cache before a new window is opened.                                       |
-| **`clearSessionCache`**               | <code>boolean</code>                                                    | Clears the session cookie cache before a new window is opened.                                          |
-| **`mediaPlaybackRequiresUserAction`** | <code>boolean</code>                                                    | Prevents HTML5 audio or video from auto-playing.                                                        |
-| **`closeButtonText`**                 | <code>string</code>                                                     | Sets the text to display on the Close button on the Web View.                                           |
-| **`toolbarPosition`**                 | <code><a href="#toolbarposition">ToolbarPosition</a></code>             | Sets the position to display the Toolbar on the Web View.                                               |
-| **`showNavigationButtons`**           | <code>boolean</code>                                                    | Displays the navigation buttons.                                                                        |
-| **`leftToRight`**                     | <code>boolean</code>                                                    | Swaps the positions of the navigation buttons and the close button.                                     |
-| **`customWebViewUserAgent`**          | <code>string \| null</code>                                             | Sets a custom user agent to open the Web View with. If empty or not set, the parameter will be ignored. |
-| **`android`**                         | <code><a href="#androidwebviewoptions">AndroidWebViewOptions</a></code> | Android-specific Web View options.                                                                      |
-| **`iOS`**                             | <code><a href="#ioswebviewoptions">iOSWebViewOptions</a></code>         | iOS-specific Web View options.                                                                          |
+| 属性                                  | 类型                                                                    | 描述                                                                                             |
+| ------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **`showURL`**                         | <code>boolean</code>                                                    | 在 Web View 上显示 URL。                                                                         |
+| **`showToolbar`**                     | <code>boolean</code>                                                    | 在 Web View 上显示工具栏。                                                                       |
+| **`clearCache`**                      | <code>boolean</code>                                                    | 在新窗口打开前清除 Web View 的 cookie 缓存。                                                     |
+| **`clearSessionCache`**               | <code>boolean</code>                                                    | 在新窗口打开前清除会话 cookie 缓存。                                                             |
+| **`mediaPlaybackRequiresUserAction`** | <code>boolean</code>                                                    | 防止 HTML5 音频或视频自动播放。                                                                  |
+| **`closeButtonText`**                 | <code>string</code>                                                     | 设置 Web View 上关闭按钮显示的文本。                                                             |
+| **`toolbarPosition`**                 | <code><a href="#toolbarposition">ToolbarPosition</a></code>             | 设置 Web View 上工具栏的显示位置。                                                               |
+| **`showNavigationButtons`**           | <code>boolean</code>                                                    | 显示导航按钮。                                                                                   |
+| **`leftToRight`**                     | <code>boolean</code>                                                    | 交换导航按钮和关闭按钮的位置。                                                                   |
+| **`customWebViewUserAgent`**          | <code>string \| null</code>                                             | 设置打开 Web View 时使用的自定义用户代理。如果为空或未设置，则忽略此参数。                       |
+| **`android`**                         | <code><a href="#androidwebviewoptions">AndroidWebViewOptions</a></code> | Android 特定的 Web View 选项。                                                                   |
+| **`iOS`**                             | <code><a href="#ioswebviewoptions">iOSWebViewOptions</a></code>         | iOS 特定的 Web View 选项。                                                                       |
 
 
 #### AndroidWebViewOptions
 
-| Prop               | Type                 | Description                                                                                                                                |
-| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`allowZoom`**    | <code>boolean</code> | Shows the Android browser's zoom controls.                                                                                                 |
-| **`hardwareBack`** | <code>boolean</code> | Uses the hardware back button to navigate backwards through the Web View's history. If there is no previous page, the Web View will close. |
-| **`pauseMedia`**   | <code>boolean</code> | Makes the Web View pause/resume with the app to stop background audio.                                                                     |
+| 属性               | 类型                 | 描述                                                                                                                                |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **`allowZoom`**    | <code>boolean</code> | 显示 Android 浏览器的缩放控件。                                                                                                     |
+| **`hardwareBack`** | <code>boolean</code> | 使用硬件返回按钮在 Web View 的历史记录中向后导航。如果没有上一页，Web View 将关闭。                                                 |
+| **`pauseMedia`**   | <code>boolean</code> | 使 Web View 随应用暂停/恢复以停止后台音频。                                                                                          |
 
 
 #### iOSWebViewOptions
 
-| Prop                                      | Type                                                  | Description                                                                                                                                                                                                    |
-| ----------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`allowOverScroll`**                     | <code>boolean</code>                                  | Turns on the Web View bounce property.                                                                                                                                                                         |
-| **`enableViewportScale`**                 | <code>boolean</code>                                  | Prevents viewport scaling through a meta tag.                                                                                                                                                                  |
-| **`allowInLineMediaPlayback`**            | <code>boolean</code>                                  | Allows in-line HTML5 media playback, displaying within the browser window rather than a device-specific playback interface. Note: The HTML's video element must also include the webkit-playsinline attribute. |
-| **`surpressIncrementalRendering`**        | <code>boolean</code>                                  | Waits until all new view content is received before being rendered.                                                                                                                                            |
-| **`viewStyle`**                           | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | Sets the presentation style of the Web View.                                                                                                                                                                   |
-| **`animationEffect`**                     | <code><a href="#iosanimation">iOSAnimation</a></code> | Sets the transition style of the Web View.                                                                                                                                                                     |
-| **`allowsBackForwardNavigationGestures`** | <code>boolean</code>                                  | Enables back and forward swipe gestures in the Web View.                                                                                                                                                       |
+| 属性                                      | 类型                                                  | 描述                                                                                                                                                                                                    |
+| ----------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`allowOverScroll`**                     | <code>boolean</code>                                  | 开启 Web View 的弹性属性。                                                                                                                                                                              |
+| **`enableViewportScale`**                 | <code>boolean</code>                                  | 通过 meta 标签阻止视口缩放。                                                                                                                                                                            |
+| **`allowInLineMediaPlayback`**            | <code>boolean</code>                                  | 允许内联 HTML5 媒体播放，在浏览器窗口内显示，而不是设备特定的播放界面。注意：HTML 的 video 元素也必须包含 webkit-playsinline 属性。                                                                     |
+| **`surpressIncrementalRendering`**        | <code>boolean</code>                                  | 等待接收到所有新视图内容后再进行渲染。                                                                                                                                                                  |
+| **`viewStyle`**                           | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | 设置 Web View 的呈现样式。                                                                                                                                                                              |
+| **`animationEffect`**                     | <code><a href="#iosanimation">iOSAnimation</a></code> | 设置 Web View 的过渡样式。                                                                                                                                                                              |
+| **`allowsBackForwardNavigationGestures`** | <code>boolean</code>                                  | 在 Web View 中启用前后滑动手势。                                                                                                                                                                        |
 
 
 #### OpenInSystemBrowserParameterModel
 
-Defines the options for opening a URL in the system browser.
+定义在系统浏览器中打开 URL 的选项。
 
-| Prop          | Type                                                                  | Description                                                                |
-| ------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#systembrowseroptions">SystemBrowserOptions</a></code> | A structure containing some configurations to apply to the System Browser. |
+| 属性          | 类型                                                                  | 描述                                                                |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#systembrowseroptions">SystemBrowserOptions</a></code> | 包含要应用于系统浏览器的一些配置的结构体。                          |
 
 
 #### SystemBrowserOptions
 
-| Prop          | Type                                                                                | Description                              |
-| ------------- | ----------------------------------------------------------------------------------- | ---------------------------------------- |
-| **`android`** | <code><a href="#androidsystembrowseroptions">AndroidSystemBrowserOptions</a></code> | Android-specific System Browser options. |
-| **`iOS`**     | <code><a href="#iossystembrowseroptions">iOSSystemBrowserOptions</a></code>         | iOS-specific System Browser options.     |
+| 属性          | 类型                                                                                | 描述                              |
+| ------------- | ----------------------------------------------------------------------------------- | --------------------------------- |
+| **`android`** | <code><a href="#androidsystembrowseroptions">AndroidSystemBrowserOptions</a></code> | Android 特定的系统浏览器选项。    |
+| **`iOS`**     | <code><a href="#iossystembrowseroptions">iOSSystemBrowserOptions</a></code>         | iOS 特定的系统浏览器选项。        |
 
 
 #### AndroidSystemBrowserOptions
 
-| Prop                      | Type                                                              | Description                                                                                                                      |
-| ------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **`showTitle`**           | <code>boolean</code>                                              | Enables the title display.                                                                                                       |
-| **`hideToolbarOnScroll`** | <code>boolean</code>                                              | Hides the toolbar when scrolling.                                                                                                |
-| **`viewStyle`**           | <code><a href="#androidviewstyle">AndroidViewStyle</a></code>     | Sets the presentation style of CustomTabs.                                                                                       |
-| **`bottomSheetOptions`**  | <code><a href="#androidbottomsheet">AndroidBottomSheet</a></code> | Sets the options for the bottom sheet when this is selected as the viewStyle. If viewStyle is FULL_SCREEN, this will be ignored. |
-| **`startAnimation`**      | <code><a href="#androidanimation">AndroidAnimation</a></code>     | Sets the start animation for when the browser appears.                                                                           |
-| **`exitAnimation`**       | <code><a href="#androidanimation">AndroidAnimation</a></code>     | Sets the exit animation for when the browser disappears.                                                                         |
+| 属性                      | 类型                                                              | 描述                                                                                                                      |
+| ------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **`showTitle`**           | <code>boolean</code>                                              | 启用标题显示。                                                                                                            |
+| **`hideToolbarOnScroll`** | <code>boolean</code>                                              | 滚动时隐藏工具栏。                                                                                                        |
+| **`viewStyle`**           | <code><a href="#androidviewstyle">AndroidViewStyle</a></code>     | 设置 CustomTabs 的呈现样式。                                                                                              |
+| **`bottomSheetOptions`**  | <code><a href="#androidbottomsheet">AndroidBottomSheet</a></code> | 当选择此视图样式为底部表单时设置其选项。如果视图样式为 FULL_SCREEN，则忽略此选项。                                        |
+| **`startAnimation`**      | <code><a href="#androidanimation">AndroidAnimation</a></code>     | 设置浏览器出现时的起始动画。                                                                                              |
+| **`exitAnimation`**       | <code><a href="#androidanimation">AndroidAnimation</a></code>     | 设置浏览器消失时的退出动画。                                                                                              |
 
 
 #### AndroidBottomSheet
 
-| Prop          | Type                 | Description                                                                                                                                                                        |
-| ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`height`**  | <code>number</code>  | Sets the height of the bottom sheet, in pixels. Custom tabs will set the bottom height to at least 50% of the screen. If no value is passed, it will default to the minimum value. |
-| **`isFixed`** | <code>boolean</code> | Sets whether the bottom sheet is fixed.                                                                                                                                            |
+| 属性          | 类型                 | 描述                                                                                                                                                                        |
+| ------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`height`**  | <code>number</code>  | 设置底部表单的高度（以像素为单位）。Custom tabs 会将底部高度设置为屏幕的至少 50%。如果未传递值，则默认为最小值。                                                             |
+| **`isFixed`** | <code>boolean</code> | 设置底部表单是否为固定模式。                                                                                                                                                |
 
 
 #### iOSSystemBrowserOptions
 
-| Prop                       | Type                                                  | Description                                          |
-| -------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
-| **`closeButtonText`**      | <code><a href="#dismissstyle">DismissStyle</a></code> | Sets a text to use as the close button's caption.    |
-| **`viewStyle`**            | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | Sets the presentation style of SafariViewController. |
-| **`animationEffect`**      | <code><a href="#iosanimation">iOSAnimation</a></code> | Sets the transition style of SafariViewController.   |
-| **`enableBarsCollapsing`** | <code>boolean</code>                                  | Enables bars to collapse on scrolling down.          |
-| **`enableReadersMode`**    | <code>boolean</code>                                  | Enables readers mode.                                |
+| 属性                       | 类型                                                  | 描述                                          |
+| -------------------------- | ----------------------------------------------------- | --------------------------------------------- |
+| **`closeButtonText`**      | <code><a href="#dismissstyle">DismissStyle</a></code> | 设置用作关闭按钮标题的文本。                  |
+| **`viewStyle`**            | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | 设置 SafariViewController 的呈现样式。        |
+| **`animationEffect`**      | <code><a href="#iosanimation">iOSAnimation</a></code> | 设置 SafariViewController 的过渡样式。        |
+| **`enableBarsCollapsing`** | <code>boolean</code>                                  | 启用向下滚动时栏的折叠。                      |
+| **`enableReadersMode`**    | <code>boolean</code>                                  | 启用阅读器模式。                              |
 
 
 #### OpenInDefaultParameterModel
 
-Defines the options for opening a URL in the external browser and used by the others.
+定义在外部浏览器中打开 URL 的选项，并被其他方法使用。
 
-| Prop      | Type                | Description                                                                            |
-| --------- | ------------------- | -------------------------------------------------------------------------------------- |
-| **`url`** | <code>string</code> | The URL to be opened. It must contain either 'http' or 'https' as the protocol prefix. |
+| 属性      | 类型                | 描述                                                                            |
+| --------- | ------------------- | ------------------------------------------------------------------------------- |
+| **`url`** | <code>string</code> | 要打开的 URL。必须包含 'http' 或 'https' 作为协议前缀。                         |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### BrowserPageNavigationCompletedEventData
 
-Defines the data for the 'browserPageNavigationCompleted' event.
+定义 'browserPageNavigationCompleted' 事件的数据。
 
-| Prop      | Type                | Description                          |
-| --------- | ------------------- | ------------------------------------ |
-| **`url`** | <code>string</code> | The URL of the page that was loaded. |
+| 属性      | 类型                | 描述                          |
+| --------- | ------------------- | ----------------------------- |
+| **`url`** | <code>string</code> | 已加载页面的 URL。            |
 
 
-### Enums
+### 枚举
 
 
 #### ToolbarPosition
 
-| Members      |
+| 成员         |
 | ------------ |
 | **`TOP`**    |
 | **`BOTTOM`** |
@@ -348,8 +348,8 @@ Defines the data for the 'browserPageNavigationCompleted' event.
 
 #### iOSViewStyle
 
-| Members           |
-| ----------------- |
+| 成员            |
+| --------------- |
 | **`PAGE_SHEET`**  |
 | **`FORM_SHEET`**  |
 | **`FULL_SCREEN`** |
@@ -357,8 +357,8 @@ Defines the data for the 'browserPageNavigationCompleted' event.
 
 #### iOSAnimation
 
-| Members               |
-| --------------------- |
+| 成员                |
+| ------------------- |
 | **`FLIP_HORIZONTAL`** |
 | **`CROSS_DISSOLVE`**  |
 | **`COVER_VERTICAL`**  |
@@ -366,16 +366,16 @@ Defines the data for the 'browserPageNavigationCompleted' event.
 
 #### AndroidViewStyle
 
-| Members            |
-| ------------------ |
+| 成员             |
+| ---------------- |
 | **`BOTTOM_SHEET`** |
 | **`FULL_SCREEN`**  |
 
 
 #### AndroidAnimation
 
-| Members               |
-| --------------------- |
+| 成员                |
+| ------------------- |
 | **`FADE_IN`**         |
 | **`FADE_OUT`**        |
 | **`SLIDE_IN_LEFT`**   |
@@ -384,8 +384,8 @@ Defines the data for the 'browserPageNavigationCompleted' event.
 
 #### DismissStyle
 
-| Members      |
-| ------------ |
+| 成员        |
+| ----------- |
 | **`CLOSE`**  |
 | **`CANCEL`** |
 | **`DONE`**   |

@@ -1,16 +1,16 @@
 ---
-title: Push Notifications Capacitor Plugin API
-description: The Push Notifications API provides access to native push notifications.
+title: Push Notifications Capacitor 插件 API
+description: Push Notifications API 提供对原生推送通知的访问能力。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/src/definitions.ts
-sidebar_label: Push Notifications
+sidebar_label: 推送通知
 ---
 
 # @capacitor/push-notifications
 
-The Push Notifications API provides access to native push notifications.
+Push Notifications API 提供对原生推送通知的访问能力。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/push-notifications
@@ -19,9 +19,9 @@ npx cap sync
 
 ## iOS
 
-On iOS you must enable the Push Notifications capability. See [Setting Capabilities](https://capacitorjs.com/docs/v3/ios/configuration#setting-capabilities) for instructions on how to enable the capability.
+在 iOS 上，您需要先启用推送通知能力。关于如何启用此功能，请参阅 [设置功能](https://capacitorjs.com/docs/v3/ios/configuration#setting-capabilities)。
 
-After enabling the Push Notifications capability, add the following to your app's `AppDelegate.swift`:
+启用推送通知功能后，在应用的 `AppDelegate.swift` 中添加以下代码：
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -35,42 +35,41 @@ func application(_ application: UIApplication, didFailToRegisterForRemoteNotific
 
 ## Android
 
-The Push Notification API uses [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) SDK for handling notifications.  See [Set up a Firebase Cloud Messaging client app on Android](https://firebase.google.com/docs/cloud-messaging/android/client) and follow the instructions for creating a Firebase project and registering your application.  There is no need to add the Firebase SDK to your app or edit your app manifest - the Push Notifications provides that for you.  All that is required is your Firebase project's `google-services.json` file added to the module (app-level) directory of your app.
+推送通知 API 使用 [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) SDK 来处理通知。请参阅 [在 Android 上设置 Firebase Cloud Messaging 客户端应用](https://firebase.google.com/docs/cloud-messaging/android/client) 并按照指示创建 Firebase 项目并注册您的应用。您无需自行添加 Firebase SDK 或修改应用清单文件——推送通知插件已为您处理这些。唯一需要做的是将 Firebase 项目的 `google-services.json` 文件添加到应用的模块（应用级）目录中。
 
-### Variables
+### 变量
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+本插件会使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
 
-- `$firebaseMessagingVersion` version of `com.google.firebase:firebase-messaging` (default: `21.0.1`)
+- `$firebaseMessagingVersion`：`com.google.firebase:firebase-messaging` 的版本（默认：`21.0.1`）
 
 ---
 
-## Push Notifications icon
+## 推送通知图标
 
-On Android, the Push Notifications icon with the appropriate name should be added to the `AndroidManifest.xml` file:
+在 Android 上，需要在 `AndroidManifest.xml` 文件中添加适当名称的推送通知图标：
 
 ```xml
 <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/push_icon_name" />
 ```
 
-If no icon is specified Android will use the application icon, but push icon should be white pixels on a transparent backdrop. As the application icon is not usually like that, it will show a white square or circle. So it's recommended to provide the separate icon for Push Notifications.
+如果未指定图标，Android 将使用应用图标，但推送图标应为透明背景上的白色像素。由于应用图标通常不符合此要求，会显示为白色方块或圆形。因此建议为推送通知提供单独的图标。
 
-Android Studio has an icon generator you can use to create your Push Notifications icon.
+Android Studio 提供了图标生成工具，可用于创建推送通知图标。
 
-## Push notifications appearance in foreground
+## 应用在前台时的推送通知显示
 
 <docgen-config>
 
+在 iOS 上，您可以配置应用在前台时推送通知的显示方式。
 
-On iOS you can configure the way the push notifications are displayed when the app is in foreground.
+| 属性                      | 类型                              | 描述                                                                                                                                                                                                                                                                                                                                                                                 | 起始版本 |
+| ------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`presentationOptions`** | <code>PresentationOption[]</code> | 这是一个可以组合的字符串数组。数组中可能的值包括：- `badge`：更新应用图标上的角标计数（默认值）- `sound`：收到推送通知时设备会响铃/振动- `alert`：推送通知以原生对话框形式显示如果不需要任何选项，可以提供一个空数组。仅适用于 iOS。 | 1.0.0 |
 
-| Prop                      | Type                              | Description                                                                                                                                                                                                                                                                                                                                                                                 | Since |
-| ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`presentationOptions`** | <code>PresentationOption[]</code> | This is an array of strings you can combine. Possible values in the array are: - `badge`: badge count on the app icon is updated (default value) - `sound`: the device will ring/vibrate when the push notification is received - `alert`: the push notification is displayed in a native dialog An empty array can be provided if none of the options are desired. Only available for iOS. | 1.0.0 |
+### 示例
 
-### Examples
-
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -82,7 +81,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 /// <reference types="@capacitor/push-notifications" />
@@ -102,41 +101,41 @@ export default config;
 
 </docgen-config>
 
-## Silent Push Notifications / Data-only Notifications
+## 静默推送通知 / 仅数据通知
 #### iOS
-This plugin does not support iOS Silent Push (Remote Notifications). We recommend using native code solutions for handling these types of notifications, see [Pushing Background Updates to Your App](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
+本插件不支持 iOS 静默推送（远程通知）。建议使用原生代码解决方案来处理此类通知，参见 [向应用推送后台更新](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)。
 
 #### Android
-This plugin does support data-only notifications, but will NOT call `pushNotificationReceived` if the app has been killed. To handle this scenario, you will need to create a service that extends `FirebaseMessagingService`, see [Handling FCM Messages](https://firebase.google.com/docs/cloud-messaging/android/receive). 
+本插件支持仅数据通知，但如果应用已被终止，将不会调用 `pushNotificationReceived`。要处理这种情况，您需要创建一个继承自 `FirebaseMessagingService` 的服务，参见 [处理 FCM 消息](https://firebase.google.com/docs/cloud-messaging/android/receive)。 
 
-## Common Issues
-On Android, there are various system and app states that can affect the delivery of push notifications:
+## 常见问题
+在 Android 上，有多种系统和应用状态可能影响推送通知的送达：
 
-* If the device has entered [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) mode, your application may have restricted capabilities. To increase the chance of your notification being received, consider using [FCM high priority messages](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message).
-* There are differences in behavior between development and production. Try testing your app outside of being launched by Android Studio. Read more [here](https://stackoverflow.com/a/50238790/1351469).
+* 如果设备进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，您的应用可能会受到功能限制。为了提高通知接收的成功率，可以考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
+* 开发环境和生产环境存在行为差异。尝试在 Android Studio 启动之外测试您的应用。了解更多信息 [此处](https://stackoverflow.com/a/50238790/1351469)。
 
 ---
 
-## Example
+## 示例
 
 ```typescript
 import { PushNotifications } from '@capacitor/push-notifications';
 
 const addListeners = async () => {
   await PushNotifications.addListener('registration', token => {
-    console.info('Registration token: ', token.value);
+    console.info('注册令牌: ', token.value);
   });
 
   await PushNotifications.addListener('registrationError', err => {
-    console.error('Registration error: ', err.error);
+    console.error('注册错误: ', err.error);
   });
 
   await PushNotifications.addListener('pushNotificationReceived', notification => {
-    console.log('Push notification received: ', notification);
+    console.log('收到推送通知: ', notification);
   });
 
   await PushNotifications.addListener('pushNotificationActionPerformed', notification => {
-    console.log('Push notification action performed', notification.actionId, notification.inputValue);
+    console.log('推送通知操作执行', notification.actionId, notification.inputValue);
   });
 }
 
@@ -148,7 +147,7 @@ const registerNotifications = async () => {
   }
 
   if (permStatus.receive !== 'granted') {
-    throw new Error('User denied permissions!');
+    throw new Error('用户拒绝了权限!');
   }
 
   await PushNotifications.register();
@@ -156,7 +155,7 @@ const registerNotifications = async () => {
 
 const getDeliveredNotifications = async () => {
   const notificationList = await PushNotifications.getDeliveredNotifications();
-  console.log('delivered notifications', notificationList);
+  console.log('已送达的通知', notificationList);
 }
 ```
 
@@ -178,8 +177,8 @@ const getDeliveredNotifications = async () => {
 * [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
 * [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
@@ -192,13 +191,11 @@ const getDeliveredNotifications = async () => {
 register() => Promise<void>
 ```
 
-Register the app to receive push notifications.
+注册应用以接收推送通知。
 
-This method will trigger the `'registration'` event with the push token or
-`'registrationError'` if there was a problem. It does not prompt the user for
-notification permissions, use `requestPermissions()` first.
+此方法会触发带有推送令牌的 `'registration'` 事件，或在出现问题时触发 `'registrationError'`。它不会向用户请求通知权限，请先使用 `requestPermissions()`。
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -209,11 +206,11 @@ notification permissions, use `requestPermissions()` first.
 getDeliveredNotifications() => Promise<DeliveredNotifications>
 ```
 
-Get a list of notifications that are visible on the notifications screen.
+获取通知屏幕上可见的通知列表。
 
-**Returns:** <code>Promise&lt;<a href="#deliverednotifications">DeliveredNotifications</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#deliverednotifications">DeliveredNotifications</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -224,13 +221,13 @@ Get a list of notifications that are visible on the notifications screen.
 removeDeliveredNotifications(delivered: DeliveredNotifications) => Promise<void>
 ```
 
-Remove the specified notifications from the notifications screen.
+从通知屏幕中移除指定的通知。
 
-| Param           | Type                                                                      |
+| 参数           | 类型                                                                      |
 | --------------- | ------------------------------------------------------------------------- |
 | **`delivered`** | <code><a href="#deliverednotifications">DeliveredNotifications</a></code> |
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -241,9 +238,9 @@ Remove the specified notifications from the notifications screen.
 removeAllDeliveredNotifications() => Promise<void>
 ```
 
-Remove all the notifications from the notifications screen.
+从通知屏幕中移除所有通知。
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -254,15 +251,15 @@ Remove all the notifications from the notifications screen.
 createChannel(channel: Channel) => Promise<void>
 ```
 
-Create a notification channel.
+创建通知渠道。
 
-Only available on Android O or newer (SDK 26+).
+仅在 Android O 或更新版本（SDK 26+）上可用。
 
-| Param         | Type                                        |
+| 参数         | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -273,15 +270,15 @@ Only available on Android O or newer (SDK 26+).
 deleteChannel(channel: Channel) => Promise<void>
 ```
 
-Delete a notification channel.
+删除通知渠道。
 
-Only available on Android O or newer (SDK 26+).
+仅在 Android O 或更新版本（SDK 26+）上可用。
 
-| Param         | Type                                        |
+| 参数         | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -292,13 +289,13 @@ Only available on Android O or newer (SDK 26+).
 listChannels() => Promise<ListChannelsResult>
 ```
 
-List the available notification channels.
+列出可用的通知渠道。
 
-Only available on Android O or newer (SDK 26+).
+仅在 Android O 或更新版本（SDK 26+）上可用。
 
-**Returns:** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -309,15 +306,13 @@ Only available on Android O or newer (SDK 26+).
 checkPermissions() => Promise<PermissionStatus>
 ```
 
-Check permission to receive push notifications.
+检查接收推送通知的权限。
 
-On Android the status is always granted because you can always
-receive push notifications. If you need to check if the user allows
-to display notifications, use local-notifications plugin.
+在 Android 上状态始终为 granted，因为您始终可以接收推送通知。如果您需要检查用户是否允许显示通知，请使用 local-notifications 插件。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -328,19 +323,15 @@ to display notifications, use local-notifications plugin.
 requestPermissions() => Promise<PermissionStatus>
 ```
 
-Request permission to receive push notifications.
+请求接收推送通知的权限。
 
-On Android it doesn't prompt for permission because you can always
-receive push notifications.
+在 Android 上不会请求权限，因为您始终可以接收推送通知。
 
-On iOS, the first time you use the function, it will prompt the user
-for push notification permission and return granted or denied based
-on the user selection. On following calls it will get the current status of
-the permission without prompting again.
+在 iOS 上，首次使用此功能时会向用户请求推送通知权限，并根据用户选择返回 granted 或 denied。后续调用将获取当前权限状态而不再提示。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -351,18 +342,18 @@ the permission without prompting again.
 addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Called when the push notification registration finishes without problems.
+当推送通知注册顺利完成时调用。
 
-Provides the push notification token.
+提供推送通知令牌。
 
-| Param              | Type                                                        |
+| 参数              | 类型                                                        |
 | ------------------ | ----------------------------------------------------------- |
 | **`eventName`**    | <code>'registration'</code>                                 |
 | **`listenerFunc`** | <code>(token: <a href="#token">Token</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -373,18 +364,18 @@ Provides the push notification token.
 addListener(eventName: 'registrationError', listenerFunc: (error: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Called when the push notification registration finished with problems.
+当推送通知注册遇到问题时调用。
 
-Provides an error with the registration problem.
+提供注册问题的错误信息。
 
-| Param              | Type                                 |
+| 参数              | 类型                                 |
 | ------------------ | ------------------------------------ |
 | **`eventName`**    | <code>'registrationError'</code>     |
 | **`listenerFunc`** | <code>(error: any) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -395,16 +386,16 @@ Provides an error with the registration problem.
 addListener(eventName: 'pushNotificationReceived', listenerFunc: (notification: PushNotificationSchema) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Called when the device receives a push notification.
+当设备收到推送通知时调用。
 
-| Param              | Type                                                                                                 |
+| 参数              | 类型                                                                                                 |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'pushNotificationReceived'</code>                                                              |
 | **`listenerFunc`** | <code>(notification: <a href="#pushnotificationschema">PushNotificationSchema</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -415,16 +406,16 @@ Called when the device receives a push notification.
 addListener(eventName: 'pushNotificationActionPerformed', listenerFunc: (notification: ActionPerformed) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-Called when an action is performed on a push notification.
+当对推送通知执行操作时调用。
 
-| Param              | Type                                                                                   |
+| 参数              | 类型                                                                                   |
 | ------------------ | -------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'pushNotificationActionPerformed'</code>                                         |
 | **`listenerFunc`** | <code>(notification: <a href="#actionperformed">ActionPerformed</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
@@ -435,111 +426,47 @@ Called when an action is performed on a push notification.
 removeAllListeners() => Promise<void>
 ```
 
-Remove all native listeners for this plugin.
+移除此插件的所有原生监听器。
 
-**Since:** 1.0.0
+**起始版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### DeliveredNotifications
 
-| Prop                | Type                                  | Description                                                         | Since |
+| 属性                | 类型                                  | 描述                                                         | 起始版本 |
 | ------------------- | ------------------------------------- | ------------------------------------------------------------------- | ----- |
-| **`notifications`** | <code>PushNotificationSchema[]</code> | List of notifications that are visible on the notifications screen. | 1.0.0 |
+| **`notifications`** | <code>PushNotificationSchema[]</code> | 通知屏幕上可见的通知列表。 | 1.0.0 |
 
 
 #### PushNotificationSchema
 
-| Prop               | Type                 | Description                                                                                                          | Since |
+| 属性               | 类型                 | 描述                                                                                                          | 起始版本 |
 | ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**        | <code>string</code>  | The notification title.                                                                                              | 1.0.0 |
-| **`subtitle`**     | <code>string</code>  | The notification subtitle.                                                                                           | 1.0.0 |
-| **`body`**         | <code>string</code>  | The main text payload for the notification.                                                                          | 1.0.0 |
-| **`id`**           | <code>string</code>  | The notification identifier.                                                                                         | 1.0.0 |
-| **`badge`**        | <code>number</code>  | The number to display for the app icon badge.                                                                        | 1.0.0 |
-| **`notification`** | <code>any</code>     | It's not being returned.                                                                                             | 1.0.0 |
-| **`data`**         | <code>any</code>     | Any additional data that was included in the push notification payload.                                              | 1.0.0 |
-| **`click_action`** | <code>string</code>  | The action to be performed on the user opening the notification. Only available on Android.                          | 1.0.0 |
-| **`link`**         | <code>string</code>  | Deep link from the notification. Only available on Android.                                                          | 1.0.0 |
-| **`group`**        | <code>string</code>  | Set the group identifier for notification grouping. Only available on Android. Works like `threadIdentifier` on iOS. | 1.0.0 |
-| **`groupSummary`** | <code>boolean</code> | Designate this notification as the summary for an associated `group`. Only available on Android.                     | 1.0.0 |
+| **`title`**        | <code>string</code>  | 通知标题。                                                                                              | 1.0.0 |
+| **`subtitle`**     | <code>string</code>  | 通知副标题。                                                                                           | 1.0.0 |
+| **`body`**         | <code>string</code>  | 通知的主要内容。                                                                          | 1.0.0 |
+| **`id`**           | <code>string</code>  | 通知标识符。                                                                                         | 1.0.0 |
+| **`badge`**        | <code>number</code>  | 显示在应用图标角标上的数字。                                                                        | 1.0.0 |
+| **`notification`** | <code>any</code>     | 不会返回此值。                                                                                             | 1.0.0 |
+| **`data`**         | <code>any</code>     | 包含在推送通知负载中的任何附加数据。                                              | 1.0.0 |
+| **`click_action`** | <code>string</code>  | 用户打开通知时要执行的操作。仅适用于 Android。                          | 1.0.0 |
+| **`link`**         | <code>string</code>  | 通知中的深度链接。仅适用于 Android。                                                          | 1.0.0 |
+| **`group`**        | <code>string</code>  | 设置通知分组的标识符。仅适用于 Android。功能类似于 iOS 的 `threadIdentifier`。 | 1.0.0 |
+| **`groupSummary`** | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅适用于 Android。                     | 1.0.0 |
 
 
 #### Channel
 
-| Prop              | Type                                              | Description                                                                                                                                                                                                                                                | Since |
+| 属性              | 类型                                              | 描述                                                                                                                                                                                                                                                | 起始版本 |
 | ----------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**          | <code>string</code>                               | The channel identifier.                                                                                                                                                                                                                                    | 1.0.0 |
-| **`name`**        | <code>string</code>                               | The human-friendly name of this channel (presented to the user).                                                                                                                                                                                           | 1.0.0 |
-| **`description`** | <code>string</code>                               | The description of this channel (presented to the user).                                                                                                                                                                                                   | 1.0.0 |
-| **`sound`**       | <code>string</code>                               | The sound that should be played for notifications posted to this channel. Notification channels with an importance of at least `3` should have a sound. The file name of a sound file should be specified relative to the android app `res/raw` directory. | 1.0.0 |
-| **`importance`**  | <code><a href="#importance">Importance</a></code> | The level of interruption for notifications posted to this channel.                                                                                                                                                                                        | 1.0.0 |
-| **`visibility`**  | <code><a href="#visibility">Visibility</a></code> | The visibility of notifications posted to this channel. This setting is for whether notifications posted to this channel appear on the lockscreen or not, and if so, whether they appear in a redacted form.                                               | 1.0.0 |
-| **`lights`**      | <code>boolean</code>                              | Whether notifications posted to this channel should display notification lights, on devices that support it.                                                                                                                                               | 1.0.0 |
-| **`lightColor`**  | <code>string</code>                               | The light color for notifications posted to this channel. Only supported if lights are enabled on this channel and the device supports it. Supported color formats are `#RRGGBB` and `#RRGGBBAA`.                                                          | 1.0.0 |
-| **`vibration`**   | <code>boolean</code>                              | Whether notifications posted to this channel should vibrate.                                                                                                                                                                                               | 1.0.0 |
-
-
-#### ListChannelsResult
-
-| Prop           | Type                   | Description                                   | Since |
-| -------------- | ---------------------- | --------------------------------------------- | ----- |
-| **`channels`** | <code>Channel[]</code> | List of all the Channels created by your app. | 1.0.0 |
-
-
-#### PermissionStatus
-
-| Prop          | Type                                                        | Description                                  | Since |
-| ------------- | ----------------------------------------------------------- | -------------------------------------------- | ----- |
-| **`receive`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state of receiving notifications. | 1.0.0 |
-
-
-#### PluginListenerHandle
-
-| Prop         | Type                                      |
-| ------------ | ----------------------------------------- |
-| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
-
-
-#### Token
-
-| Prop        | Type                | Description                                                              | Since |
-| ----------- | ------------------- | ------------------------------------------------------------------------ | ----- |
-| **`value`** | <code>string</code> | On iOS it contains the APNS token. On Android it contains the FCM token. | 1.0.0 |
-
-
-#### ActionPerformed
-
-| Prop               | Type                                                                      | Description                                                     | Since |
-| ------------------ | ------------------------------------------------------------------------- | --------------------------------------------------------------- | ----- |
-| **`actionId`**     | <code>string</code>                                                       | The action performed on the notification.                       | 1.0.0 |
-| **`inputValue`**   | <code>string</code>                                                       | Text entered on the notification action. Only available on iOS. | 1.0.0 |
-| **`notification`** | <code><a href="#pushnotificationschema">PushNotificationSchema</a></code> | The notification in which the action was performed.             | 1.0.0 |
-
-
-### Type Aliases
-
-
-#### Importance
-
-The importance level. For more details, see the [Android Developer Docs](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
-
-<code>1 | 2 | 3 | 4 | 5</code>
-
-
-#### Visibility
-
-The notification visibility. For more details, see the [Android Developer Docs](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE)
-
-<code>-1 | 0 | 1</code>
-
-
-#### PermissionState
-
-<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
-
-</docgen-api>
+| **`id`**          | <code>string</code>                               | 渠道标识符。                                                                                                                                                                                                                                    | 1.0.0 |
+| **`name`**        | <code>string</code>                               | 渠道的用户友好名称（展示给用户）。                                                                                                                                                                                           | 1.0.0 |
+| **`description`** | <code>string</code>                               | 渠道的描述（展示给用户）。                                                                                                                                                                                                   | 1.0.0 |
+| **`sound`**       | <code>string</code>                               | 发布到此渠道的通知应播放的声音。重要性至少为 `3` 的通知渠道应具有声音。声音文件名应相对于安卓应用的 `res/raw` 目录指定。 | 1.0.0 |
+| **`importance`**  | <code><a href="#importance">Importance</a></code> | 发布到此渠道的通知的中断级别。                                                                                                                                                                                        | 1.0.0 |
+| **`visibility`**  | <code><a

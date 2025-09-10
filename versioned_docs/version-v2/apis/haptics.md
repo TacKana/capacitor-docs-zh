@@ -1,6 +1,6 @@
 ---
-title: Haptics
-description: Haptics API
+title: 触觉反馈
+description: 触觉反馈 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/haptics
 
 <plugin-platforms platforms="ios,android"></plugin-platforms>
 
-The Haptics API provides physical feedback to the user through touch or vibration.
+触觉反馈 API 通过触摸或振动为用户提供物理反馈。
 
 - [`impact(...)`](#impact)
 - [`notification(...)`](#notification)
@@ -17,18 +17,18 @@ The Haptics API provides physical feedback to the user through touch or vibratio
 - [`selectionStart()`](#selectionstart)
 - [`selectionChanged()`](#selectionchanged)
 - [`selectionEnd()`](#selectionend)
-- [Interfaces](#interfaces)
-- [Enums](#enums)
+- [接口](#interfaces)
+- [枚举](#enums)
 
-## Android Notes
+## Android 注意事项
 
-To use vibration, you must add this permission to your `AndroidManifest.xml` file:
+要使用振动功能，需在 `AndroidManifest.xml` 文件中添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { Plugins, HapticsImpactStyle } from '@capacitor/core';
@@ -76,9 +76,9 @@ export class HapticsExample {
 impact(options: HapticsImpactOptions) => void
 ```
 
-Trigger a haptics "impact" feedback
+触发触觉"冲击"反馈
 
-| Param         | Type                                                                  |
+| 参数          | 类型                                                                  |
 | ------------- | --------------------------------------------------------------------- |
 | **`options`** | <code><a href="#hapticsimpactoptions">HapticsImpactOptions</a></code> |
 
@@ -90,9 +90,9 @@ Trigger a haptics "impact" feedback
 notification(options: HapticsNotificationOptions) => void
 ```
 
-Trigger a haptics "notification" feedback
+触发触觉"通知"反馈
 
-| Param         | Type                                                                              |
+| 参数          | 类型                                                                              |
 | ------------- | --------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#hapticsnotificationoptions">HapticsNotificationOptions</a></code> |
 
@@ -104,7 +104,7 @@ Trigger a haptics "notification" feedback
 vibrate() => void
 ```
 
-Vibrate the device
+使设备振动
 
 ---
 
@@ -114,7 +114,7 @@ Vibrate the device
 selectionStart() => void
 ```
 
-Trigger a selection started haptic hint
+触发选择开始的触觉提示
 
 ---
 
@@ -124,9 +124,7 @@ Trigger a selection started haptic hint
 selectionChanged() => void
 ```
 
-Trigger a selection changed haptic hint. If a selection was
-started already, this will cause the device to provide haptic
-feedback
+触发选择变化的触觉提示。如果已开始选择，此操作将让设备提供触觉反馈
 
 ---
 
@@ -136,39 +134,38 @@ feedback
 selectionEnd() => void
 ```
 
-If selectionStart() was called, selectionEnd() ends the selection.
-For example, call this when a user has lifted their finger from a control
+若已调用 selectionStart()，selectionEnd() 将结束选择。例如，当用户手指离开控件时调用此方法
 
 ---
 
-### Interfaces
+### 接口
 
 #### HapticsImpactOptions
 
-| Prop        | Type                                                              |
-| ----------- | ----------------------------------------------------------------- |
-| **`style`** | <code><a href="#hapticsimpactstyle">HapticsImpactStyle</a></code> |
+| 属性         | 类型                                                              |
+| ------------ | ----------------------------------------------------------------- |
+| **`style`**  | <code><a href="#hapticsimpactstyle">HapticsImpactStyle</a></code> |
 
 #### HapticsNotificationOptions
 
-| Prop       | Type                                                                        |
-| ---------- | --------------------------------------------------------------------------- |
-| **`type`** | <code><a href="#hapticsnotificationtype">HapticsNotificationType</a></code> |
+| 属性        | 类型                                                                        |
+| ----------- | --------------------------------------------------------------------------- |
+| **`type`**  | <code><a href="#hapticsnotificationtype">HapticsNotificationType</a></code> |
 
-### Enums
+### 枚举
 
 #### HapticsImpactStyle
 
-| Members      | Value                 |
-| ------------ | --------------------- |
-| **`Heavy`**  | <code>"HEAVY"</code>  |
-| **`Medium`** | <code>"MEDIUM"</code> |
-| **`Light`**  | <code>"LIGHT"</code>  |
+| 成员          | 值                   |
+| ------------- | -------------------- |
+| **`Heavy`**   | <code>"HEAVY"</code> |
+| **`Medium`**  | <code>"MEDIUM"</code>|
+| **`Light`**   | <code>"LIGHT"</code> |
 
 #### HapticsNotificationType
 
-| Members       | Value                  |
-| ------------- | ---------------------- |
-| **`SUCCESS`** | <code>"SUCCESS"</code> |
-| **`WARNING`** | <code>"WARNING"</code> |
-| **`ERROR`**   | <code>"ERROR"</code>   |
+| 成员           | 值                    |
+| -------------- | --------------------- |
+| **`SUCCESS`**  | <code>"SUCCESS"</code>|
+| **`WARNING`**  | <code>"WARNING"</code>|
+| **`ERROR`**    | <code>"ERROR"</code>  |

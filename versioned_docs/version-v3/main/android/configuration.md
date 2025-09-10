@@ -1,26 +1,16 @@
----
-title: Configuring Android
-sidebar_label: Configuration
-description: Configuring Android
-contributors:
-  - mlynch
-  - jcesarmobile
-slug: /android/configuration
----
+# Android 配置指南
 
-# Configuring Android
+## 配置 `AndroidManifest.xml`
 
-## Configuring `AndroidManifest.xml`
+Android 应用通过 `android/app/src/main/AndroidManifest.xml` 文件管理权限、设备功能和其他设置。
 
-Android apps manage permissions, device features, and other settings in the `AndroidManifest.xml` file, which is located at `android/app/src/main/AndroidManifest.xml`.
+> `AndroidManifest.xml` 可能通过 `@style` 和 `@string` 引用 `android/app/src/main/res/values` 目录下的其他文件如 `styles.xml` 和 `strings.xml`。[详细了解 Android 资源系统](https://developer.android.com/guide/topics/resources/available-resources)
 
-> `AndroidManifest.xml` may reference additional files such as `styles.xml` and `strings.xml` within the `android/app/src/main/res/values` directory via `@style` and `@string`. [Read more about Android Resources](https://developer.android.com/guide/topics/resources/available-resources).
+本文介绍应用需要进行的基本配置调整。如需全面了解，请阅读 [Android Manifest 官方文档](https://developer.android.com/guide/topics/manifest/manifest-intro.html)。
 
-This article covers the basic modifications you'll need to make to your app. Read the [Android Manifest docs](https://developer.android.com/guide/topics/manifest/manifest-intro.html) to learn a whole lot more.
+## 修改应用包名
 
-## Changing the Package ID
-
-To change your app's Package ID (aka **Application ID** for Android), edit `applicationId` at the top of `android/app/build.gradle`:
+要更改应用的包名（Android 中称为 **Application ID**），请编辑 `android/app/build.gradle` 文件顶部的 `applicationId`：
 
 ```diff
 defaultConfig {
@@ -28,62 +18,62 @@ defaultConfig {
 +       applicationId "com.mycompany.myapp"
 ```
 
-## Changing the App Name
+## 修改应用名称
 
-To change the name of your app, change the value for `app_name` in `strings.xml`:
-
-```xml
-<string name="app_name">MyApp</string>
-```
-
-It may make sense to change the activity name to match, especially if your app has a single activity:
+修改 `strings.xml` 中的 `app_name` 值来更改应用显示名称：
 
 ```xml
-<string name="title_activity_main">MyApp</string>
+<string name="app_name">我的应用</string>
 ```
 
-## Deeplinks (aka Android App Links)
+如果应用只有一个主活动，建议同步修改活动名称：
 
-> For a Deep Links guide, [see here](/main/guides/deep-links.md).
+```xml
+<string name="title_activity_main">我的应用</string>
+```
 
-To enable deeplinking through Android App Links, follow the official Android guide on [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing). Android Studio comes with a handy wizard for configuring App Links.
+## 深度链接（Android 应用链接）
 
-Once configured, the [`getLaunchUrl()` method in the App API](/apis/app.md#getlaunchurl) will provide any URL the app was launched with, and the [`'appUrlOpen'` event](/apis/app.md#addlistenerappurlopen-) will fire any time the app receives a new App Link deeplink.
+> 深度链接配置指南请[参见此处](/main/guides/deep-links.md)。
 
-## URL Schemes
+要通过 Android 应用链接实现深度链接功能，请遵循官方指南 [添加 Android 应用链接](https://developer.android.com/studio/write/app-link-indexing)。Android Studio 提供了便捷的向导工具来配置应用链接。
 
-Your app can respond to custom URLs on launch, making it possible to handle deeplinks and app interactions.
+配置完成后，[App API 中的 `getLaunchUrl()` 方法](/apis/app.md#getlaunchurl)将返回应用启动时的链接地址，而 [`'appUrlOpen'` 事件](/apis/app.md#addlistenerappurlopen-)会在每次接收到新深度链接时触发。
 
-To change the URL, search for and modify this line in `strings.xml`. It's recommended to set this to the Package ID.
+## 自定义 URL 协议
+
+您的应用可以响应启动时的自定义 URL，实现深度链接和应用交互功能。
+
+要修改 URL 协议，请找到并修改 `strings.xml` 中的以下行（建议设置为包名）：
 
 ```xml
 <string name="custom_url_scheme">com.capacitorjs.myapp</string>
 ```
 
-In this example, the app will respond to URLs with the `com.capacitorjs.myapp://` scheme.
+在此示例中，应用将响应 `com.capacitorjs.myapp://` 开头的 URL。
 
-To get any custom URL the app may have launched with, see the Deeplinks section above.
+获取应用启动时的自定义 URL，请参考上文深度链接部分。
 
-## Setting Permissions
+## 权限设置
 
-In Android, permissions your app will need are defined in `AndroidManifest.xml` inside of the `<manifest>` tag, generally at the bottom of the file.
+在 Android 中，应用所需的权限定义在 `AndroidManifest.xml` 文件的 `<manifest>` 标签内，通常位于文件末尾。
 
-For example, here's what adding Network permissions looks like:
+例如，添加网络权限的配置如下：
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.getcapacitor.myapp">
     <activity>
-      <!-- other stuff -->
+      <!-- 其他配置 -->
     </activity>
 
-    <!-- More stuff -->
+    <!-- 更多配置 -->
 
-    <!-- Your permissions -->
+    <!-- 权限声明区域 -->
 
-    <!-- Network API -->
+    <!-- 网络API权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
 ```
 
-Generally, the plugin you choose to use will ask you to set a permission. Add it in this file.
+通常您使用的插件会告知需要添加哪些权限，请在此文件中进行相应配置。

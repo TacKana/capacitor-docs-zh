@@ -1,37 +1,37 @@
 ---
 title: Bundle Analysis
-description: Visual Studio Code Extension for Capacitor
+description: Capacitor 的 Visual Studio Code 扩展插件
 contributors:
   - dtarnawsky
 slug: /vscode/bundle
 ---
 
-Keeping the amount of Javascript and Assets in your application to a minimum will help improve startup and runtime performance.
+控制应用程序中的 JavaScript 和资源文件数量最小化，有助于提升启动速度和运行时性能。
 
-You can use the extension to analyze what Javascript bundles and Assets contribute to the _bloat_ of your application to help decide if current or new dependencies should be used or removed.
+您可以使用本扩展来分析哪些 JavaScript 包和资源文件导致了应用体积膨胀，从而决定是否应该保留或移除现有/新增的依赖项。
 
-## Bundle Cost
+## 包体积分析
 
-Click `Configuration` > `Statistics` to see a page breaking down the the size of each Javascript Bundle.
+点击 `Configuration` > `Statistics` 查看分解各 JavaScript 包大小的页面。
 
-- You can click a bundle to `expand` or `collapse` it showing what bundles are inside.
-- Clicking a bundle will visit the compiled javascript file
-- The process of bundle analysis will build your application in production with source maps turned on.
+- 点击包名称可 `展开` 或 `收起` 查看内含的子包
+- 点击包名称将跳转至编译后的 JavaScript 文件
+- 分析过程会在开启 source map 的情况下构建生产环境应用
 
 :::note
-The process shows all built bundles. This does not mean that all bundles will be loaded at runtime. For example the `Ionic Core` bundle shows **all** Ionic components, whereas your app will only load components it **uses** at runtime.
+此处显示的是所有构建生成的包，并不意味着运行时都会加载。例如 `Ionic Core` 包会显示**所有** Ionic 组件，但您的应用在运行时只会加载实际**使用**的组件。
 :::
 
-## Asset Cost
+## 资源文件分析
 
-Click `Configuration` > `Statistics` to see a page (you will need to scroll down) breaking down the the size of all assets in your app. 
+点击 `Configuration` > `Statistics` 并向下滚动，可查看应用中所有资源文件的大小分解。
 
-This includes fonts, icons, style sheets, images and other files.
+包含字体、图标、样式表、图片及其他文件类型。
 
-Use this tool to identify:
-- Fonts that are too large, or have formats that you do not need (eg `ttf` when you already have `woff2` or `woff` versions)
-- Images that are too large, perhaps using inappropriate image formats (eg using a `png`, `gif` for a photographic image)
+使用此工具可以识别：
+- 体积过大的字体，或包含不需要的格式（例如已有 `woff2` 或 `woff` 版本时还保留 `ttf`）
+- 体积过大的图片，可能使用了不恰当的格式（例如对照片类图像使用 `png`、`gif`）
 
 :::note
-All assets are shown. Not all assets are loaded at runtime. For example [Ionicons](https://ionic.io/ionicons/) may show hundreds of icons but only the icons you use in your app will be loaded).
+此处显示所有资源文件，但并非所有文件都会在运行时加载。例如 [Ionicons](https://ionic.io/ionicons/) 可能显示数百个图标，但实际只会加载应用中使用的图标。
 :::
