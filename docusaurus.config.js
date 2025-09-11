@@ -238,7 +238,7 @@ module.exports = {
     algolia: {
       appId: 'O39QRGC807',
       apiKey: 'b1dd308c4a4a637d052f66b245bea50d',
-      indexName: 'capacitorjs中文文档',
+      indexName: 'capacitor-zh',
       contextualSearch: false,
     },
   },
