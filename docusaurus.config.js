@@ -236,9 +236,9 @@ module.exports = {
       ],
     },
     algolia: {
-      appId: 'TTPJLFL2V2',
-      apiKey: 'c05de0655c2822d5b2eeac45bc71a62b',
-      indexName: 'capacitorjs中文文档',
+      appId: 'O39QRGC807',
+      apiKey: 'b1dd308c4a4a637d052f66b245bea50d',
+      indexName: 'capacitor-zh',
       contextualSearch: false,
     },
   },
