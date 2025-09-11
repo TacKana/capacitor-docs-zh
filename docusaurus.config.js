@@ -29,12 +29,12 @@ module.exports = {
   organizationName: 'ionic-team',
   projectName: 'capacitor-docs',
   themeConfig: {
-    // announcementBar: {
-    //   id: 'announcement-bar',
-    //   content:
-    //     '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
-    //   isCloseable: false,
-    // },
+    announcementBar: {
+      id: 'announcement-bar',
+      content:
+        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
+      isCloseable: false,
+    },
     colorMode: {
       defaultMode: 'light',
     },
@@ -236,10 +236,10 @@ module.exports = {
       ],
     },
     algolia: {
-      appId: 'CUK9BLM17N',
-      apiKey: 'aa5fcbd5bc4b815ec5d351b6e85b536c',
+      appId: 'TTPJLFL2V2',
+      apiKey: 'c05de0655c2822d5b2eeac45bc71a62b',
       indexName: 'capacitorjs中文文档',
-      contextualSearch: true,
+      contextualSearch: false,
     },
   },
   plugins: [
