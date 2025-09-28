@@ -1,8 +1,8 @@
 ---
 title: Keyboard Capacitor 插件 API
 description: Keyboard API 提供键盘显示和可见性控制功能，以及键盘显示和隐藏时的事件追踪。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-keyboard/blob/next/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-keyboard/blob/next/src/definitions.ts
 sidebar_label: 虚拟键盘
 ---
 
@@ -361,11 +361,12 @@ removeAllListeners() => Promise<void>
 
 #### KeyboardStyle
 
-| 成员          | 值                     | 描述                                                                                                                                               | 始于  |
-| ------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`Dark`**    | <code>'DARK'</code>    | 深色键盘。                                                                                                                                         | 1.0.0 |
-| **`Light`**   | <code>'LIGHT'</code>   | 浅色键盘。                                                                                                                                         | 1.0.0 |
-| **`Default`** | <code>'DEFAULT'</code> | 在 iOS 13 及更新版本上，键盘样式基于设备外观。如果设备使用深色模式，键盘将为深色；如果设备使用浅色模式，键盘将为浅色。在 iOS 12 上，键盘将为浅色。 | 1.0.0 |
+| 成员（Members）       | 值（Value）                  | 说明（Description）                                                                                                                                                                       | 起始版本（Since） |
+| --------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| **`Dark`**            | <code>'DARK'</code>          | 深色键盘（Dark keyboard）。                                                                                                                                                                | 1.0.0             |
+| **`Light`**           | <code>'LIGHT'</code>         | 浅色键盘（Light keyboard）。                                                                                                                                                               | 1.0.0             |
+| **`Default`**         | <code>'DEFAULT'</code>       | 键盘样式基于设备外观（The keyboard style is based on the device appearance）。若设备使用深色模式（Dark mode），键盘则为深色；若设备使用浅色模式（Light mode），键盘则为浅色。 | 1.0.0             |
+
 
 #### KeyboardResize
 

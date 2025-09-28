@@ -1,8 +1,8 @@
 ---
 title: Text Zoom Capacitor 插件 API
 description: Text Zoom API 提供了更改 Web 视图文本大小的功能，以提升视觉可访问性。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/text-zoom/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/text-zoom/src/definitions.ts
 sidebar_label: 文本缩放
 ---
 

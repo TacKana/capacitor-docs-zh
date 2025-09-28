@@ -1,7 +1,7 @@
 ---
 title: GPS定位 Capacitor 插件 API
 description: GPS定位 API 提供了简便的方法，用于通过 GPS 获取和追踪设备的当前位置，并在可用时提供海拔、朝向和速度信息。
-custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/main/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: GPS定位
 ---

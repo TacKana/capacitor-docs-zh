@@ -150,7 +150,6 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 ```
 
 允许用户从照片库中选择多张图片。
-在 iOS 13 及更早版本上，仅允许选择一张图片。
 
 | 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
@@ -168,11 +167,11 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 pickLimitedLibraryPhotos() => Promise<GalleryPhotos>
 ```
 
-仅限 iOS 14+：允许用户更新其有限的照片库选择。
-在 iOS 15+ 上，选择器关闭后返回所有有限的照片。
-在 iOS 14 或用户授予照片完全访问权限时返回空数组。
+允许用户更新其有限的照片库选择。
+在选择器关闭后返回所有有限的照片。
+如果用户授予了对照片的完全访问权限，它将返回一个空数组。
 
-**返回值：** <code>Promise&lt;<a href="#galleryphotos">GalleryPhotos</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#galleryphotos">GalleryPhotos</a>&gt;</code>
 
 **自版本：** 4.1.0
 
@@ -184,7 +183,7 @@ pickLimitedLibraryPhotos() => Promise<GalleryPhotos>
 getLimitedLibraryPhotos() => Promise<GalleryPhotos>
 ```
 
-仅限 iOS 14+：返回从有限照片库中选择的照片数组。
+返回一个从有限的照片库中选择的照片数组。
 
 **返回值：** <code>Promise&lt;<a href="#galleryphotos">GalleryPhotos</a>&gt;</code>
 
@@ -240,23 +239,24 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 
 #### ImageOptions
 
-| 属性                     | 类型                                                          | 描述                                                                                                                                                                                                                  | 默认值                              | 自版本 |
-| ------------------------ | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------ |
-| **`quality`**            | <code>number</code>                                           | 返回的 JPEG 图像质量，从 0-100 注意：此选项仅在 Android 和 iOS 上受支持                                                                                                                                               |                                     | 1.0.0  |
-| **`allowEditing`**       | <code>boolean</code>                                          | 是否允许用户裁剪或进行小幅编辑（平台特定）。在 iOS 14+ 上，仅支持 <a href="#camerasource">CameraSource.Camera</a>，而不支持 <a href="#camerasource">CameraSource.Photos</a>。                                         |                                     | 1.0.0  |
-| **`resultType`**         | <code><a href="#cameraresulttype">CameraResultType</a></code> | 数据应如何返回。当前仅支持 'Base64'、'DataUrl' 或 'Uri'                                                                                                                                                               |                                     | 1.0.0  |
-| **`saveToGallery`**      | <code>boolean</code>                                          | 是否将照片保存到相册。如果照片是从相册中选取的，则仅在编辑后保存。                                                                                                                                                    | <code>: false</code>                | 1.0.0  |
-| **`width`**              | <code>number</code>                                           | 保存图像的所需最大宽度。保持宽高比。                                                                                                                                                                                  |                                     | 1.0.0  |
-| **`height`**             | <code>number</code>                                           | 保存图像的所需最大高度。保持宽高比。                                                                                                                                                                                  |                                     | 1.0.0  |
-| **`correctOrientation`** | <code>boolean</code>                                          | 是否自动将图像“向上”旋转以校正纵向模式下的方向                                                                                                                                                                        | <code>: true</code>                 | 1.0.0  |
-| **`source`**             | <code><a href="#camerasource">CameraSource</a></code>         | 获取照片的来源。默认情况下，提示用户选择相册或拍照。                                                                                                                                                                  | <code>: CameraSource.Prompt</code>  | 1.0.0  |
-| **`direction`**          | <code><a href="#cameradirection">CameraDirection</a></code>   | 仅限 iOS 和 Web：相机方向。                                                                                                                                                                                           | <code>: CameraDirection.Rear</code> | 1.0.0  |
-| **`presentationStyle`**  | <code>'fullscreen' \| 'popover'</code>                        | 仅限 iOS：相机的呈现样式。                                                                                                                                                                                            | <code>: 'fullscreen'</code>         | 1.0.0  |
-| **`webUseInput`**        | <code>boolean</code>                                          | 仅限 Web：是否使用 PWA Element 体验或文件输入。默认使用 PWA Elements（如果已安装）并回退到文件输入。要始终使用文件输入，请将其设置为 `true`。了解更多关于 PWA Elements：https://capacitorjs.com/docs/web/pwa-elements |                                     | 1.0.0  |
-| **`promptLabelHeader`**  | <code>string</code>                                           | 显示提示时使用的文本值。                                                                                                                                                                                              | <code>: 'Photo'</code>              | 1.0.0  |
-| **`promptLabelCancel`**  | <code>string</code>                                           | 显示提示时使用的文本值。仅限 iOS：“取消”按钮的标签。                                                                                                                                                                  | <code>: 'Cancel'</code>             | 1.0.0  |
-| **`promptLabelPhoto`**   | <code>string</code>                                           | 显示提示时使用的文本值。选择已保存图像的按钮标签。                                                                                                                                                                    | <code>: 'From Photos'</code>        | 1.0.0  |
-| **`promptLabelPicture`** | <code>string</code>                                           | 显示提示时使用的文本值。打开相机的按钮标签。                                                                                                                                                                          | <code>: 'Take Picture'</code>       | 1.0.0  |
+| 属性（Prop）              | 类型（Type）                                          | 描述（Description）                                                                                                                                                                                                                                                                | 默认值（Default）                  | 起始版本（Since） |
+| ------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ----- |
+| **`quality`**             | <code>number</code>（数字）                           | 以 JPEG 格式返回的图片质量，取值范围为 0-100。注意：此选项仅支持 Android 和 iOS 系统。                                                                                                                                                                                         | （无默认值）                        | 1.0.0 |
+| **`allowEditing`**        | <code>boolean</code>（布尔值）                        | 是否允许用户裁剪图片或进行小幅编辑（因平台而异）。在 iOS 系统中，此选项仅支持 <a href="#camerasource">CameraSource.Camera</a>（相机），不支持 <a href="#camerasource">CameraSource.Photos</a>（相册）。                                                                               | （无默认值）                        | 1.0.0 |
+| **`resultType`**          | <code><a href="#cameraresulttype">CameraResultType</a></code> | 图片数据的返回格式。目前仅支持 “Base64”、“DataUrl” 或 “Uri” 格式。                                                                                                                                                                                                              | （无默认值）                        | 1.0.0 |
+| **`saveToGallery`**       | <code>boolean</code>（布尔值）                        | 是否将图片保存到相册。若图片是从相册中选取的，则仅在编辑后才会保存。                                                                                                                                                                                                              | <code>: false</code>（否）          | 1.0.0 |
+| **`width`**               | <code>number</code>（数字）                           | 保存图片的期望最大宽度，图片的宽高比会保持不变。                                                                                                                                                                                                                                  | （无默认值）                        | 1.0.0 |
+| **`height`**              | <code>number</code>（数字）                           | 保存图片的期望最大高度，图片的宽高比会保持不变。                                                                                                                                                                                                                                  | （无默认值）                        | 1.0.0 |
+| **`correctOrientation`**  | <code>boolean</code>（布尔值）                        | 是否自动将图片旋转至“正向”，以修正竖屏模式下的图片方向问题。                                                                                                                                                                                                                      | <code>: true</code>（是）           | 1.0.0 |
+| **`source`**              | <code><a href="#camerasource">CameraSource</a></code> | 获取图片的来源。默认情况下，会提示用户选择从相册选取图片或使用相机拍摄。                                                                                                                                                                                                          | <code>: CameraSource.Prompt</code>（提示选择） | 1.0.0 |
+| **`direction`**           | <code><a href="#cameradirection">CameraDirection</a></code> | 仅支持 iOS 和 Web 端：相机的取景方向（如前置、后置）。                                                                                                                                                                                                                           | <code>: CameraDirection.Rear</code>（后置） | 1.0.0 |
+| **`presentationStyle`**   | <code>'fullscreen' \| 'popover'</code>（字符串枚举）  | 仅支持 iOS 端：相机界面的呈现样式，可选“全屏（fullscreen）”或“弹出层（popover）”。                                                                                                                                                                                                | <code>: 'fullscreen'</code>（全屏） | 1.0.0 |
+| **`webUseInput`**         | <code>boolean</code>（布尔值）                        | 仅支持 Web 端：是否使用 PWA Elements（渐进式 Web 应用元素）体验或文件输入框。默认行为是：若已安装 PWA Elements，则使用该体验；若未安装，则回退至文件输入框。若需始终使用文件输入框，可将此属性设为 `true`。关于 PWA Elements 的更多信息，请参考：https://capacitorjs.com/docs/web/pwa-elements | （无默认值）                        | 1.0.0 |
+| **`promptLabelHeader`**   | <code>string</code>（字符串）                         | 显示提示弹窗时使用的标题文本。                                                                                                                                                                                                                                                  | <code>: 'Photo'</code>（照片）      | 1.0.0 |
+| **`promptLabelCancel`**   | <code>string</code>（字符串）                         | 显示提示弹窗时使用的文本。仅支持 iOS 端：“取消”按钮的标签文本。                                                                                                                                                                                                                  | <code>: 'Cancel'</code>（取消）     | 1.0.0 |
+| **`promptLabelPhoto`**    | <code>string</code>（字符串）                         | 显示提示弹窗时使用的文本。用于选择已保存图片的按钮标签文本。                                                                                                                                                                                                                      | <code>: 'From Photos'</code>（从相册选择） | 1.0.0 |
+| **`promptLabelPicture`**  | <code>string</code>（字符串）                         | 显示提示弹窗时使用的文本。用于打开相机的按钮标签文本。                                                                                                                                                                                                                            | <code>: 'Take Picture'</code>（拍摄照片） | 1.0.0 |
+
 
 #### GalleryPhotos
 

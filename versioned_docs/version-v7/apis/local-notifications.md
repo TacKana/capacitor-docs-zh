@@ -1,8 +1,8 @@
 ---
 title: Local Notifications Capacitor 插件 API
 description: Local Notifications API 提供了一种在本地调度设备通知的方法（即无需服务器发送推送通知）。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/local-notifications/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/local-notifications/src/definitions.ts
 sidebar_label: 本地通知
 ---
 

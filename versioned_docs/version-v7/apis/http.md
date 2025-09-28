@@ -1,8 +1,8 @@
 ---
 title: Http Capacitor Plugin API
 description: Capacitor Http API 通过修补 `fetch` 和 `XMLHttpRequest` 来使用原生库，提供原生 HTTP 支持。
-custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/http.md
-editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
+custom_edit_url: https://github.com/ionic-team/capacitor/blob/7.x/core/http.md
+editApiUrl: https://github.com/ionic-team/capacitor/blob/7.x/core/src/core-plugins.ts
 sidebar_label: 原生HTTP
 ---
 
