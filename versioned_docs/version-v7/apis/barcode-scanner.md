@@ -27,13 +27,13 @@ ext {
 }
 ```
 
-注意：Android 使用 `ZXING` 扫描库支持所有格式，而 `MLKIT` 支持除 `MAXICODE`、`RSS_14`、`RSS_EXPANDED` 和 `UPC_EAN_EXTENSION` 之外的所有格式——在 `hint` 中使用这些格式之一将默认为扫描任何格式。
+Note: Android with `ZXING` scanning library supports all formats, while `MLKIT` supports all except `MAXICODE`, `RSS_14`, `RSS_EXPANDED` and `UPC_EAN_EXTENSION` - using one of these in `hint` will default to scanning any format.
 
 #### iOS
 
 条码扫描器使用设备上的摄像头。请确保在 Info.plist 文件中配置了 Privacy - Camera Usage Description，以便您的应用可以访问设备的摄像头。
 
-注意：iOS 支持除 `MAXICODE` 和 `UPC_EAN_EXTENSION` 之外的所有格式——在 `hint` 中使用它们将默认为扫描任何格式。此外，Apple Vision 不区分 `UPC_A` 和 `EAN_13`，因此在 `hint` 中指定其中之一将允许扫描两者。
+注意：搭载`ZXING`扫描库的安卓系统支持所有格式，而`MLKIT`支持除`MAXICODE`、`RSS_14`、`RSS_EXPANDED`和`UPC_EAN_EXTENSION`之外的所有格式——在`hint`中使用其中一种格式将默认扫描任何格式。
 
 ---
 

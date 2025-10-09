@@ -17,6 +17,69 @@ npm install @capacitor/file-transfer
 npx cap sync
 ```
 
+## Example
+
+### Download
+
+```typescript
+import { FileTransfer } from '@capacitor/file-transfer';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
+// First get the full file path using Filesystem
+const fileInfo = await Filesystem.getUri({
+  directory: Directory.Data,
+  path: 'downloaded-file.pdf'
+});
+
+try {
+    // Then use the FileTransfer plugin to download
+    await FileTransfer.downloadFile({
+        url: 'https://example.com/file.pdf',
+        path: fileInfo.uri,
+        progress: true
+    });
+} catch(error) {
+    // handle error - see `FileTransferError` interface for what error information is returned
+}
+
+// Progress events
+FileTransfer.addListener('progress', (progress) => {
+  console.log(`Downloaded ${progress.bytes} of ${progress.contentLength}`);
+});
+```
+
+### Upload
+
+```typescript
+import { FileTransfer } from '@capacitor/file-transfer';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
+// First get the full file path using Filesystem
+const fileInfo = await Filesystem.getUri({
+  directory: Directory.Cache,
+  path: 'image_upload.png'
+});
+
+try {
+    // Then use the FileTransfer plugin to upload
+    const result = await FileTransfer.downloadFile({
+        url: 'https://example.com/upload_api',
+        path: fileInfo.uri,
+        chunkedMode: true,
+        headers: {
+            // Upload uses `multipart/form-data` by default.
+            // If you want to avoid that, you can set the 'Content-Type' header explicitly.
+            'Content-Type': 'application/octet-stream',
+        },
+        progress: false
+    });
+    // get server response and other info from result - see `UploadFileResult` interface
+} catch(error) {
+    // handle error - see `FileTransferError` interface for what error information is returned
+}
+```
+
+
 ## API
 
 <docgen-index>
@@ -28,6 +91,10 @@ npx cap sync
 - [接口](#interfaces)
 
 </docgen-index>
+
+Note: Some of the input options come from `HttpOptions` in `@capacitor/core`, but the plugin does not use all parameters from `HttpOptions`. The ones that are used are documented below.
+
+For list of existing error codes, see [Errors](#errors).
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
@@ -110,10 +177,24 @@ removeAllListeners() => Promise<void>
 
 #### DownloadFileOptions
 
-| 属性           | 类型                 | 描述                                                                                                                                                  | 自版本 |
-| -------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **`path`**     | <code>string</code>  | 下载文件应移动到的完整文件路径。                                                                                                                      | 1.0.0  |
-| **`progress`** | <code>boolean</code> | 如果为 true，每接收到一个数据块都会派发进度事件。更多信息请参阅 addListener()。在 Android/iOS 上，数据块派发会被节流至每 100 毫秒一次以避免性能下降。 | 1.0.0  |
+| 属性（Prop）                | 类型（Type）                                        | 描述（Description）                                                                                                                                                                                                                                                        | 起始版本（Since） |
+| --------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`url`**                   | <code>string</code>（字符串）                       | 用于下载文件的统一资源定位符（URL）。                                                                                                                                                                                                                                       | 1.0.0             |
+| **`path`**                  | <code>string</code>（字符串）                       | 下载文件应移动至的完整文件路径。你可使用 `@capacitor/filesystem` 这类插件获取完整文件路径。                                                                                                                                                                                 | 1.0.0             |
+| **`progress`**              | <code>boolean</code>（布尔值）                      | 若为 `true`，则每接收到一个数据块（chunk）时都会派发进度事件（progress event）。更多信息可参考 `addListener()` 方法。在 Android/iOS 平台上，为避免性能下降，数据块的派发频率会限制为每 100 毫秒一次。默认值为 `false`。                                                                                                                  | 1.0.0             |
+| **`method`**                | <code>string</code>（字符串）                       | 要执行的超文本传输协议（HTTP）请求方法。（默认值为 GET）                                                                                                                                                                                                                    | 1.0.0             |
+| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>   | 需附加到请求中的 URL 参数。此 <a href="#httpparams">`HttpParams`</a> 接口来源于 `@capacitor/core`。                                                                                                                                                                          | 1.0.0             |
+| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code> | 需随请求一同发送的 HTTP 请求头。此 <a href="#httpheaders">`HttpHeaders`</a> 接口来源于 `@capacitor/core`。                                                                                                                                                                    | 1.0.0             |
+| **`readTimeout`**           | <code>number</code>（数字）                         | 等待读取额外数据的时长（单位：毫秒）。每次接收到新数据时，该时长会重置。默认值为 60,000 毫秒（1 分钟）。Web 平台不支持此属性。                                                                                                                                              | 1.0.0             |
+| **`connectTimeout`**        | <code>number</code>（数字）                         | 等待初始连接的时长（单位：毫秒）。默认值为 60,000 毫秒（1 分钟）。在 iOS 平台上，`connectTimeout`（连接超时）与 `readTimeout`（读取超时）并无实质区别：插件会优先尝试使用 `connectTimeout`，若不可用则使用 `readTimeout`，若两者均不可用则使用默认值。                              | 1.0.0             |
+| **`disableRedirects`**      | <code>boolean</code>（布尔值）                      | 设置是否应禁用 HTTP 自动重定向功能。                                                                                                                                                                                                                                       | 1.0.0             |
+| **`shouldEncodeUrlParams`** | <code>boolean</code>（布尔值）                      | 若你需在特定场景下保持 URL 不编码（如 URL 已预先编码、进行 Azure/Firebase 测试等），可使用此选项。默认值为 `true`（即默认对 URL 参数进行编码）。Web 平台不支持此属性。                                                                                                      | 1.0.0             |
+
+
+#### HttpParams
+
+
+#### HttpHeaders
 
 #### UploadFileResult
 
@@ -126,14 +207,23 @@ removeAllListeners() => Promise<void>
 
 #### UploadFileOptions
 
-| 属性              | 类型                 | 描述                                                                                                                                                  | 自版本 |
-| ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **`path`**        | <code>string</code>  | 要上传文件的完整路径。                                                                                                                                | 1.0.0  |
-| **`blob`**        | <code>Blob</code>    | 要上传的 blob 数据。如果提供了此参数，将优先使用它而不是路径。此属性仅在 Web 平台可用。                                                               | 1.0.0  |
-| **`chunkedMode`** | <code>boolean</code> | 是否以分块流模式上传数据。Web 平台不支持。                                                                                                            | 1.0.0  |
-| **`mimeType`**    | <code>string</code>  | 要上传数据的 MIME 类型。仅在未提供 "Content-Type" 头信息时使用。                                                                                      | 1.0.0  |
-| **`fileKey`**     | <code>string</code>  | 表单元素的类型。默认设置为 "file"。仅在未提供 "Content-Type" 头信息时使用。                                                                           | 1.0.0  |
-| **`progress`**    | <code>boolean</code> | 如果为 true，每接收到一个数据块都会派发进度事件。更多信息请参阅 addListener()。在 Android/iOS 上，数据块派发会被节流至每 100 毫秒一次以避免性能下降。 | 1.0.0  |
+| 属性（Prop）                | 类型（Type）                                        | 描述（Description）                                                                                                                                                                                                                                                                                                                                                                    | 起始版本（Since） |
+| --------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`url`**                   | <code>string</code>（字符串）                       | 用于上传文件的统一资源定位符（URL）。                                                                                                                                                                                                                                                                                                                                                 | 1.0.0             |
+| **`path`**                  | <code>string</code>（字符串）                       | 待上传文件的完整文件路径。你可使用 `@capacitor/filesystem` 这类插件获取完整文件路径。                                                                                                                                                                                                                                 | 1.0.0             |
+| **`blob`**                  | <code>Blob</code>（二进制大对象）                   | 待上传的二进制大对象（Blob）数据。若提供该参数，将优先使用此 Blob 数据而非文件路径。此属性仅在 Web 平台可用。                                                                                                                                                                                                                          | 1.0.0             |
+| **`chunkedMode`**           | <code>boolean</code>（布尔值）                      | 是否以分块流模式（chunked streaming mode）上传数据。Web 平台不支持此属性。<br>**注意**：当 `chunkedMode` 设为 `true`（启用）时，上传请求将使用 `Content-Type: multipart/form-data`（多部分表单数据类型）。根据后端服务器的配置，这可能导致上传失败。若你的服务器期望接收原始流数据（例如 `application/octet-stream`，二进制流类型），则必须在 `headers`（请求头）中显式设置 `Content-Type` 头信息。 | 1.0.0             |
+| **`mimeType`**              | <code>string</code>（字符串）                       | 待上传数据的多用途互联网邮件扩展类型（MIME Type）。仅在未提供 "Content-Type"（内容类型）请求头时生效。                                                                                                                                                                                                                          | 1.0.0             |
+| **`fileKey`**               | <code>string</code>（字符串）                       | 表单元素类型。默认值设为 "file"（文件）。仅在未提供 "Content-Type" 请求头时生效。                                                                                                                                                                                                                                      | 1.0.0             |
+| **`progress`**              | <code>boolean</code>（布尔值）                      | 若设为 `true`（启用），则每接收到一个数据块（chunk）时都会派发进度事件（progress event）。更多详情可参考 `addListener()` 方法。在 Android/iOS 平台上，为避免性能下降，数据块的派发频率会限制为每 100 毫秒一次。默认值为 `false`（禁用）。                                                                                                  | 1.0.0             |
+| **`method`**                | <code>string</code>（字符串）                       | 要执行的超文本传输协议（HTTP）请求方法。（默认值为 POST）                                                                                                                                                                                                                                                                                                                                            | 1.0.0             |
+| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>   | 需附加到请求中的 URL 参数。此 <a href="#httpparams">`HttpParams`</a> 接口来源于 `@capacitor/core`。                                                                                                                                                                                                                       | 1.0.0             |
+| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code> | 需随请求一同发送的 HTTP 请求头。此 <a href="#httpheaders">`HttpHeaders`</a> 接口来源于 `@capacitor/core`。                                                                                                                                                                                                                 | 1.0.0             |
+| **`readTimeout`**           | <code>number</code>（数字）                         | 等待读取额外数据的时长（单位：毫秒）。每次接收到新数据时，该时长会重置。默认值为 60,000 毫秒（1 分钟）。Web 平台不支持此属性。                                                                                                                                                                                            | 1.0.0             |
+| **`connectTimeout`**        | <code>number</code>（数字）                         | 等待初始连接的时长（单位：毫秒）。默认值为 60,000 毫秒（1 分钟）。Web 平台不支持此属性。在 iOS 平台上，`connectTimeout`（连接超时）与 `readTimeout`（读取超时）并无实质区别：插件会优先尝试使用 `connectTimeout`，若不可用则使用 `readTimeout`，若两者均不可用则使用默认值。                                                  | 1.0.0             |
+| **`disableRedirects`**      | <code>boolean</code>（布尔值）                      | 设置是否应禁用 HTTP 自动重定向功能。Web 平台不支持此属性。                                                                                                                                                                                                                                                                    | 1.0.0             |
+| **`shouldEncodeUrlParams`** | <code>boolean</code>（布尔值）                      | 若需在特定场景下保持 URL 不编码（如 URL 已预先编码、进行 Azure/Firebase 测试等），可使用此选项。默认值为 `true`（启用 URL 参数编码）。Web 平台不支持此属性。                                                                                                                                                        | 1.0.0             |
+
 
 #### PluginListenerHandle
 

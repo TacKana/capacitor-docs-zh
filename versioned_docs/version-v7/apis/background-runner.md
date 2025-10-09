@@ -276,7 +276,7 @@ export default config;
 
 ## 后台任务的限制
 
-在移动操作系统上运行持久、始终运行的后台服务是不可能的。由于 iOS 和 Android 为减少电池和数据消耗而施加的限制，后台任务受到各种限制，您在设计和实现后台任务时必须牢记这些限制。
+在移动操作系统上，无法运行持久且始终运行的后台服务。由于iOS和Android为减少电池和数据消耗而施加了限制，后台任务受到各种限制，在设计和实现后台任务时，你必须牢记这些限制。
 
 ### iOS
 
@@ -296,6 +296,8 @@ export default config;
 - [`checkPermissions()`](#checkpermissions)
 - [`requestPermissions(...)`](#requestpermissions)
 - [`dispatchEvent(...)`](#dispatchevent)
+* [`addListener('backgroundRunnerNotificationReceived', ...)`](#addlistenerbackgroundrunnernotificationreceived-)
+* [`removeNotificationListeners()`](#removenotificationlisteners)
 - [接口](#interfaces)
 - [类型别名](#type-aliases)
 
@@ -350,7 +352,38 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 **返回：** <code>any</code>
 
-**始于：** 1.0.0
+**起始版本（Since）**：1.0.0
+
+
+### addListener('backgroundRunnerNotificationReceived', ...)（添加监听器方法）
+
+```typescript
+addListener(eventName: 'backgroundRunnerNotificationReceived', listenerFunc: (event: NotificationActionEvent) => void) => any
+```
+
+为通知操作添加监听器。
+
+| 参数（Param）       | 类型（Type）                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| **`eventName`**（事件名） | <code>'backgroundRunnerNotificationReceived'</code>（固定事件名，标识“后台运行器通知已接收”事件） |
+| **`listenerFunc`**（监听器函数） | <code>(event: <a href="#notificationactionevent">NotificationActionEvent</a>) =&gt; void</code>（接收 `NotificationActionEvent` 类型事件参数的函数，无返回值） |
+
+**返回值（Returns）**：<code>any</code>（任意类型，具体取决于插件实现）
+
+**起始版本（Since）**：2.1.1
+
+
+### removeNotificationListeners()（移除通知监听器方法）
+
+```typescript
+removeNotificationListeners() => any
+```
+
+移除当前插件的所有通知操作监听器。
+
+**返回值（Returns）**：<code>any</code>（任意类型，具体取决于插件实现）
+
+**起始版本（Since）**：2.1.1
 
 ---
 
@@ -371,11 +404,27 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 
 #### DispatchEventOptions
 
-| 属性          | 类型                                 | 描述                     | 始于  |
-| ------------- | ------------------------------------ | ------------------------ | ----- |
-| **`label`**   | <code>string</code>                  | 要分发事件到的运行器标签 | 1.0.0 |
-| **`event`**   | <code>string</code>                  | 注册的事件监听器的名称。 | 1.0.0 |
-| **`details`** | <code>{ [key: string]: any; }</code> |                          |       |
+| 属性（Prop）         | 类型（Type）                          | 描述（Description）                          | 起始版本（Since） |
+| -------------------- | ------------------------------------- | ------------------------------------------- | ----------------- |
+| **`label`**（标签）  | <code>string</code>（字符串）         | 用于派发事件的运行器标签                    | 1.0.0             |
+| **`event`**（事件）  | <code>string</code>（字符串）         | 已注册的事件监听器名称                      | 1.0.0             |
+| **`details`**（详情）| <code>{ [key: string]: any; }</code>（键值对对象，键为字符串类型，值为任意类型） | 事件相关的详情数据                          |                   |
+
+
+#### NotificationActionEvent（通知操作事件）
+
+| 属性（Prop）               | 类型（Type）                |
+| -------------------------- | --------------------------- |
+| **`actionTypeId`**（操作类型ID） | <code>string</code>（字符串） |
+| **`notificationId`**（通知ID）  | <code>number</code>（数字）   |
+
+
+#### PluginListenerHandle（插件监听器句柄）
+
+| 属性（Prop）           | 类型（Type）                          |
+| ---------------------- | ------------------------------------- |
+| **`remove`**（移除方法）| <code>() =&gt; any</code>（无参数、返回值为任意类型的函数） |
+
 
 ### Type Aliases
 
