@@ -85,7 +85,7 @@ const doPost = () => {
 
 ## 大文件支持
 
-Due to the nature of the bridge, parsing and transferring large amount of data from native to the web can cause issues. Support for downloading and uploading files has been added to the [`@capacitor/file-transfer`](https://capacitorjs.com/docs/apis/file-transfer) plugin. In many cases, you may also need [`@capacitor/filesystem`](https://capacitorjs.com/docs/apis/filesystem) to generate a valid [file URI](https://capacitorjs.com/docs/apis/filesystem#geturi).
+由于桥接的特性，解析大量数据并将其从原生端传输到网页端可能会引发问题。`@capacitor/file-transfer`插件（https://capacitorjs.com/docs/apis/file-transfer）已新增对文件下载和上传的支持。在许多情况下，你可能还需要`@capacitor/filesystem`插件（https://capacitorjs.com/docs
 
 ## API
 

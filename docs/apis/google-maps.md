@@ -253,7 +253,7 @@ const MyMap: React.FC = () => {
 export default MyMap;
 ```
 
-You may need to create a `*.d.ts` file for the custom element in React:
+你可能需要为React中的自定义元素创建一个`*.d.ts`文件：
 
 ```ts
 // custom-elements.d.ts

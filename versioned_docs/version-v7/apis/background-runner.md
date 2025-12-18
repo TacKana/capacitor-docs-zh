@@ -32,8 +32,7 @@ npx cap sync
 ![在 Xcode 中配置后台模式](https://github.com/ionic-team/capacitor-background-runner/raw/main/docs/configure_background_modes.png)
 
 启用后台模式能力后，将以下内容添加到您的应用程序的 `AppDelegate.swift` 中：
-
-You will also need to add the following entry into your `Info.plist` file:
+您还需要在 `Info.plist` 文件中添加以下条目：
 ```
 <key>BGTaskSchedulerPermittedIdentifiers</key>
 <array>
@@ -41,9 +40,9 @@ You will also need to add the following entry into your `Info.plist` file:
 </array>
 ```
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
+请阅读 [iOS 指南](https://capacitorjs.com/docs/ios) 中的 [配置 `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 部分，了解更多关于在 Xcode 中设置 iOS 权限的信息。
 
-Make sure you use the same id that you use for `BGTaskSchedulerPermittedIdentifiers` (for example "com.example.background.task") in the `label` field in the plugin configuration.
+请确保您在插件配置的 `label` 字段中使用与 `BGTaskSchedulerPermittedIdentifiers` 相同的标识符（例如 "com.example.background.task"）。
 
 在文件顶部，`import Capacitor` 下方添加：
 

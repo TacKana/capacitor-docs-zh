@@ -9,43 +9,43 @@ contributors:
 slug: /apis
 ---
 
-# Official Plugins
+# 官方插件
 
-The Official Plugins are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs.
+官方插件是一套由 Capacitor 团队维护的插件，提供对常用原生 API 的访问。
 
-The API documentation for these plugins can be found below.
+这些插件的 API 文档如下。
 
-## Versioning
+## 版本管理
 
-### npm Tags (`latest` and `latest-X`)
+### npm 标签 (`latest` 与 `latest-X`)
 
-Capacitor provides special npm distribution tags to make installing compatible plugin versions easier.
+Capacitor 提供了特殊的 npm 分发标签，以简化安装兼容插件版本的过程。
 
-- The `latest` tag installs the most recent plugin version available.
-- Use `latest-X` (for example, `latest-7`) to install the most recent version of official Capacitor plugins compatible with Capacitor X.
-- These tags express Capacitor version compatibility, not the plugin's own version number. A plugin may be at v2 or v3 and still be the correct release for `latest-7`.
-- These tags are intended for use in `npm install` commands and will resolve to the appropriate range in your `package.json`.
-- This tagging convention applies to official Capacitor plugins and may not be consistently supported by community plugins.
+- `latest` 标签会安装最新的可用插件版本。
+- 使用 `latest-X`（例如 `latest-7`）来安装与 Capacitor X 兼容的最新版官方 Capacitor 插件。
+- 这些标签表示的是与 Capacitor 版本的兼容性，而非插件自身的版本号。一个插件可能是 v2 或 v3 版本，但仍可能是 `latest-7` 对应的正确版本。
+- 这些标签旨在用于 `npm install` 命令，并将在您的 `package.json` 中解析为合适的版本范围。
+- 此标签约定适用于官方 Capacitor 插件，社区插件可能无法始终如一地支持。
 
-**Example:**
+**示例：**
 ```bash
 npm install @capacitor/camera@latest
-# example: v8.0.1
+# 例如：v8.0.1
 npm install @capacitor/device@latest-7
-# example: v7.0.2
+# 例如：v7.0.2
 ```
 
-## List of Official Plugins
+## 官方插件列表
 
-- [Action Sheet](/apis/action-sheet.md)
-- [App Launcher](/apis/app-launcher.md)
-- [App](/apis/app.md)
-- [Background Runner](/apis/background-runner.md)
-- [Barcode Scanner](/apis/barcode-scanner.md)
-- [Browser](/apis/browser.md)
-- [Camera](/apis/camera.md)
-- [Clipboard](/apis/clipboard.md)
-- [Cookies](/apis/cookies.md)
+- [操作表（Action Sheet）](/apis/action-sheet.md)
+- [应用启动器（App Launcher）](/apis/app-launcher.md)
+- [应用（App）](/apis/app.md)
+- [后台运行器（Background Runner）](/apis/background-runner.md)
+- [条形码扫描器（Barcode Scanner）](/apis/barcode-scanner.md)
+- [浏览器（Browser）](/apis/browser.md)
+- [相机（Camera）](/apis/camera.md)
+- [剪贴板（Clipboard）](/apis/clipboard.md)
+- [Cookies（Cookies）](/apis/cookies.md)
 - [设备（Device）](/apis/device.md)
 - [对话框（Dialog）](/apis/dialog.md)
 - [文件系统（Filesystem）](/apis/filesystem.md)
@@ -54,7 +54,7 @@ npm install @capacitor/device@latest-7
 - [地理定位（Geolocation）](/apis/geolocation.md)
 - [谷歌地图（Google Maps）](/apis/google-maps.md)
 - [触觉反馈（Haptics）](/apis/haptics.md)
-- [Http](/apis/http.md)
+- [Http（Http）](/apis/http.md)
 - [内置浏览器（InAppBrowser）](/apis/inappbrowser.md)
 - [键盘（Keyboard）](/apis/keyboard.md)
 - [本地通知（Local Notifications）](/apis/local-notifications.md)
@@ -68,10 +68,10 @@ npm install @capacitor/device@latest-7
 - [分享（Share）](/apis/share.md)
 - [启动屏（Splash Screen）](/apis/splash-screen.md)
 - [状态栏（Status Bar）](/apis/status-bar.md)
-- [System Bars](/apis/system-bars.md)
+- [系统栏（System Bars）](/apis/system-bars.md)
 - [文本缩放（Text Zoom）](/apis/text-zoom.md)
 - [提示框（Toast）](/apis/toast.md)
-- [Watch 🧪](/apis/watch.md)
+- [手表（Watch） 🧪](/apis/watch.md)
 
 ## GitHub
 

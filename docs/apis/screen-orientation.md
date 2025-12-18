@@ -76,11 +76,11 @@ lock(options: OrientationLockOptions) => Promise<void>
 
 锁定屏幕方向。
 
-Starting in Android targetSdk 36, this method has no effect for large screens (e.g. tablets) on Android 16 and higher.
-You may opt-out of this behavior in your app by adding `&lt;property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" /&gt;` to your `AndroidManifest.xml` inside `&lt;application&gt;` or `&lt;activity&gt;`.
-Keep in mind though that this opt-out is temporary and will no longer work for Android 17. Android discourages setting specific orientations for large screens.
-Regular Android phones are unaffected by this change.
-For more information check the Android docs at https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
+从 Android targetSdk 36 开始，此方法对 Android 16 及更高版本的大屏幕设备（例如平板电脑）无效。
+您可以通过在 `AndroidManifest.xml` 的 `&lt;application&gt;` 或 `&lt;activity&gt;` 中添加 `&lt;property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" /&gt;` 来选择退出此行为。
+但请注意，此退出选项是临时的，并且在 Android 17 中将不再有效。Android 不鼓励为大屏幕设备设置特定方向。
+常规的 Android 手机不受此更改影响。
+更多信息请查阅 Android 文档：https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
 
 | 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |

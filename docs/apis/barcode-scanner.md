@@ -53,11 +53,15 @@ ext {
 定义条码扫描插件合约的接口。
 要求实现 scanBarcode 方法，该方法使用给定选项启动条码扫描。
 
-Starting in Android targetSdk 36, the scanOrientation parameter has no effect for large screens (e.g. tablets) on Android 16 and higher.
-You may opt-out of this behavior in your app by adding `<property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />` to your `AndroidManifest.xml` inside `<application>` or `<activity>`.
-Keep in mind though that this opt-out is temporary and will no longer work for Android 17. Android discourages setting specific orientations for large screens.
-Regular Android phones are unaffected by this change.
-For more information check the Android docs at https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
+从 Android targetSdk 36 开始，对于搭载 Android 16 及更高版本的大屏幕设备（例如平板电脑），scanOrientation 参数将不起作用。
+
+您可以在应用中通过在 `AndroidManifest.xml` 的 `<application>` 或 `<activity>` 内部添加 `<property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />` 来选择退出此行为。
+
+但请记住，这种退出方式是暂时的，在 Android 17 上将不再生效。Android 不建议为大屏幕设备设置特定的方向。
+
+普通的 Android 手机不受此变更的影响。
+
+有关更多信息，请查看 Android 文档：https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
 
 ### scanBarcode(...)
 
