@@ -76,8 +76,8 @@ Camera 插件不需要权限，除非使用 `saveToGallery: true`，在这种情
 
 此插件将使用以下项目变量（在应用程序的 `variables.gradle` 文件中定义）：
 
-- `androidxExifInterfaceVersion`: `androidx.exifinterface:exifinterface` 的版本（默认值：`1.3.7`）
-- `androidxMaterialVersion`: `com.google.android.material:material` 的版本（默认值：`1.12.0`）
+- `androidxExifInterfaceVersion`: `androidx.exifinterface:exifinterface` 的版本（默认值：`1.4.1`）
+- `androidxMaterialVersion`: `com.google.android.material:material` 的版本（默认值：`1.13.0`）
 
 ## PWA 注意事项
 

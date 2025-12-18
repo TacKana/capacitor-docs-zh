@@ -9,22 +9,42 @@ contributors:
 slug: /apis
 ---
 
-# 官方插件
+# Official Plugins
 
-官方插件是由 Capacitor 团队维护的一组核心插件，提供了访问常用原生 API 的能力。
+The Official Plugins are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs.
 
-以下是这些插件的 API 文档。
+The API documentation for these plugins can be found below.
 
-## 官方插件列表
+## Versioning
 
-- [操作表（Action Sheet）](/apis/action-sheet.md)
-- [应用启动器（App Launcher）](/apis/app-launcher.md)
-- [应用（App）](/apis/app.md)
-- [后台运行器（Background Runner）](/apis/background-runner.md)
-- [条码扫描器（Barcode Scanner）](/apis/barcode-scanner.md)
-- [浏览器（Browser）](/apis/browser.md)
-- [相机（Camera）](/apis/camera.md)
-- [剪贴板（Clipboard）](/apis/clipboard.md)
+### npm Tags (`latest` and `latest-X`)
+
+Capacitor provides special npm distribution tags to make installing compatible plugin versions easier.
+
+- The `latest` tag installs the most recent plugin version available.
+- Use `latest-X` (for example, `latest-7`) to install the most recent version of official Capacitor plugins compatible with Capacitor X.
+- These tags express Capacitor version compatibility, not the plugin's own version number. A plugin may be at v2 or v3 and still be the correct release for `latest-7`.
+- These tags are intended for use in `npm install` commands and will resolve to the appropriate range in your `package.json`.
+- This tagging convention applies to official Capacitor plugins and may not be consistently supported by community plugins.
+
+**Example:**
+```bash
+npm install @capacitor/camera@latest
+# example: v8.0.1
+npm install @capacitor/device@latest-7
+# example: v7.0.2
+```
+
+## List of Official Plugins
+
+- [Action Sheet](/apis/action-sheet.md)
+- [App Launcher](/apis/app-launcher.md)
+- [App](/apis/app.md)
+- [Background Runner](/apis/background-runner.md)
+- [Barcode Scanner](/apis/barcode-scanner.md)
+- [Browser](/apis/browser.md)
+- [Camera](/apis/camera.md)
+- [Clipboard](/apis/clipboard.md)
 - [Cookies](/apis/cookies.md)
 - [设备（Device）](/apis/device.md)
 - [对话框（Dialog）](/apis/dialog.md)
@@ -48,6 +68,7 @@ slug: /apis
 - [分享（Share）](/apis/share.md)
 - [启动屏（Splash Screen）](/apis/splash-screen.md)
 - [状态栏（Status Bar）](/apis/status-bar.md)
+- [System Bars](/apis/system-bars.md)
 - [文本缩放（Text Zoom）](/apis/text-zoom.md)
 - [提示框（Toast）](/apis/toast.md)
 - [Watch 🧪](/apis/watch.md)

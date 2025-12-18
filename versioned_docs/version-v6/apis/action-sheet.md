@@ -13,7 +13,7 @@ Action Sheet API 提供了访问原生操作表的功能，这种交互组件从
 ## 安装
 
 ```bash
-npm install @capacitor/action-sheet
+npm install @capacitor/action-sheet@latest-6
 npx cap sync
 ```
 

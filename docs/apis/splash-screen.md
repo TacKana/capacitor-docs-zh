@@ -33,11 +33,12 @@ Capacitor 4 使用 **[Android 12 启动屏 API](https://developer.android.com/gu
 ```
 
 **注意**：在 Android 12 和 Android 12L 设备上，当从第三方启动器（如 Nova Launcher、MIUI、Realme Launcher、OPPO Launcher 等）、设置应用中的应用信息或 Android Studio 等 IDE 启动时，启动屏图像可能不会显示。
-**[Google 问题跟踪器](https://issuetracker.google.com/issues/205021357)**
-**[Google 问题跟踪器](https://issuetracker.google.com/issues/207386164)**
-Google 已在 Android 13 上修复了这些问题，但不会将这些修复向后移植到 Android 12 和 Android 12L。
-启动器相关的问题可能会通过启动器更新得到修复。
+**[Google Issue Tracker](https://issuetracker.google.com/issues/205021357)**
+**[Google Issue Tracker](https://issuetracker.google.com/issues/207386164)**
+Google 已在 Android 13 中修复了这些问题，但不会将这些修复向后移植到 Android 12 和 Android 12L。
+与启动器相关的问题可能会通过启动器更新得到修复。
 如果您在 Android 13 上仍然发现与启动屏相关的问题，请向 [Google](https://issuetracker.google.com/) 报告。
+
 
 ## 示例
 
@@ -193,7 +194,7 @@ export default config;
 
 此插件将使用以下项目变量（在您应用的 `variables.gradle` 文件中定义）：
 
-- `coreSplashScreenVersion`：`androidx.core:core-splashscreen` 的版本（默认：`1.0.1`）
+- `coreSplashScreenVersion`：`androidx.core:core-splashscreen` 的版本（默认：`1.2.0`）
 
 ## 示例指南
 

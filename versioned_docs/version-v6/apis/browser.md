@@ -15,7 +15,7 @@ Browser API 提供打开应用内浏览器和订阅浏览器事件的能力。
 ## 安装
 
 ```bash
-npm install @capacitor/browser
+npm install @capacitor/browser@latest-6
 npx cap sync
 ```
 

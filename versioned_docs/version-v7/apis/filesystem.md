@@ -1,8 +1,8 @@
 ---
 title: Filesystem Capacitor Plugin API
 description: 文件系统API提供了一个类NodeJS的API，用于在设备上处理文件。
-custom_edit_url: https://github.com/ionic-team/capacitor-filesystem/blob/main/packages/capacitor-plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-filesystem/blob/main/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-filesystem/blob/7.x/packages/capacitor-plugin/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-filesystem/blob/7.x/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 文件系统
 ---
 
@@ -13,7 +13,7 @@ sidebar_label: 文件系统
 ## 安装
 
 ```bash
-npm install @capacitor/filesystem
+npm install @capacitor/filesystem@latest-7
 npx cap sync
 ```
 
@@ -57,7 +57,7 @@ Apple要求应用开发者现在必须说明API使用的批准原因，以增强
 ### 安装文件传输插件
 
 ```bash
-npm install @capacitor/file-transfer
+npm install @capacitor/file-transfer@latest-7
 npx cap sync
 ```
 

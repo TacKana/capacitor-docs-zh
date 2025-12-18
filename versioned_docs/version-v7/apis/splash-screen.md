@@ -13,7 +13,7 @@ Splash Screen API 提供了显示或隐藏启动图像的方法。
 ## 安装
 
 ```bash
-npm install @capacitor/splash-screen
+npm install @capacitor/splash-screen@latest-7
 npx cap sync
 ```
 

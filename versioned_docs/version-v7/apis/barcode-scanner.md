@@ -1,8 +1,8 @@
 ---
 title: Barcode Scanner Capacitor Plugin API
 description: 使用 Outsystems 条码库的 Capacitor 插件
-custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/2.x/plugin/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/2.x/plugin/src/definitions.ts
 sidebar_label: Barcode Scanner
 ---
 
@@ -13,7 +13,7 @@ sidebar_label: Barcode Scanner
 ## 安装
 
 ```bash
-npm install @capacitor/barcode-scanner
+npm install @capacitor/barcode-scanner@latest-7
 npx cap sync
 ```
 

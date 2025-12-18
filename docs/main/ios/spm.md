@@ -123,18 +123,18 @@ Capacitor CLI 提供了一个命令来帮助从 CocoaPods 迁移到 Swift Packag
 
 ### 将现有插件转换为SPM
 
-如果您的插件除了必需的 `[Name]Plugin.m` 和 `[Name]Plugin.h` 之外仅包含 Swift 代码，您可以使用 [capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter)。
+如果你的插件除了必需的`[Name]Plugin.m`和`[Name]Plugin.h`之外只包含Swift代码，你可以使用[capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter)。
 
-此工具将进行以下更改：
+这个工具会进行以下修改：
 
-- 在您的主 swift 插件文件 `[Name]Plugin.swift` 中添加以下必需内容：
-  - 为您的类添加对 `CAPBridgedPlugin` 协议的遵循。
-  - 向您的类添加 3 个变量：`identifier`、`jsName` 和 `pluginMethods`：
-    - `identifer` 对应于 `CAP_PLUGIN` 宏的第一个参数。
-    - `jsName` 对应于 `CAP_PLUGIN` 宏的第二个参数。
-    - `pluginMethods` 将是传递给 `CAP_PLUGIN` 宏的方法数组。
-- 将在插件文件夹的根目录创建一个 `Package.swift` 文件。
-- 以下文件将被删除，因为它们不再需要：
+- 向你的主Swift插件文件`[Name]Plugin.swift`中添加以下必需内容：
+  - 为你的类添加对`CAPBridgedPlugin`协议的遵循。
+  - 向你的类中添加3个变量：`identifier`、`jsName`和`pluginMethods`：
+    - `identifier`对应`CAP_PLUGIN`宏的第一个参数。
+    - `jsName`对应`CAP_PLUGIN`宏的第二个参数。
+    - `pluginMethods`是传递给`CAP_PLUGIN`宏的方法数组。
+- 会在你的插件文件夹的根目录下创建一个`Package.swift`文件。
+- 以下文件将被移除，因为它们不再需要：
   - `Plugin.xcodeproj`
   - `Plugin.xcworkspace`
   - `Plugin/Info.plist`

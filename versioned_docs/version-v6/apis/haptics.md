@@ -15,7 +15,7 @@ Haptics API 通过触觉或振动为用户提供物理反馈。
 ## 安装
 
 ```bash
-npm install @capacitor/haptics
+npm install @capacitor/haptics@latest-6
 npx cap sync
 ```
 

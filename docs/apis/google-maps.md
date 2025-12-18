@@ -69,13 +69,13 @@ pod update Google-Maps-iOS-Utils
 
 此插件将使用以下项目变量（在您应用的 `variables.gradle` 文件中定义）：
 
-- `googleMapsPlayServicesVersion`: `com.google.android.gms:play-services-maps` 的版本（默认：`18.2.0`）
-- `googleMapsUtilsVersion`: `com.google.maps.android:android-maps-utils` 的版本（默认：`3.8.2`）
-- `googleMapsKtxVersion`: `com.google.maps.android:maps-ktx` 的版本（默认：`5.0.0`）
-- `googleMapsUtilsKtxVersion`: `com.google.maps.android:maps-utils-ktx` 的版本（默认：`5.0.0`）
-- `kotlinxCoroutinesVersion`: `org.jetbrains.kotlinx:kotlinx-coroutines-android` 和 `org.jetbrains.kotlinx:kotlinx-coroutines-core` 的版本（默认：`1.7.3`）
-- `androidxCoreKTXVersion`: `androidx.core:core-ktx` 的版本（默认：`1.12.0`）
-- `kotlin_version`: `org.jetbrains.kotlin:kotlin-stdlib` 的版本（默认：`1.9.10`）
+- `googleMapsPlayServicesVersion`: `com.google.android.gms:play-services-maps` 的版本（默认：`19.2.0`）
+- `googleMapsUtilsVersion`: `com.google.maps.android:android-maps-utils` 的版本（默认：`3.19.1`）
+- `googleMapsKtxVersion`: `com.google.maps.android:maps-ktx` 的版本（默认：`5.2.1`）
+- `googleMapsUtilsKtxVersion`: `com.google.maps.android:maps-utils-ktx` 的版本（默认：`5.2.1`）
+- `kotlinxCoroutinesVersion`: `org.jetbrains.kotlinx:kotlinx-coroutines-android` 和 `org.jetbrains.kotlinx:kotlinx-coroutines-core` 的版本（默认：`1.10.2`）
+- `androidxCoreKTXVersion`: `androidx.core:core-ktx` 的版本（默认：`1.17.0`）
+- `kotlin_version`: `org.jetbrains.kotlin:kotlin-stdlib` 的版本（默认：`2.2.20`）
 
 ## 使用方法
 
@@ -251,6 +251,25 @@ const MyMap: React.FC = () => {
 }
 
 export default MyMap;
+```
+
+You may need to create a `*.d.ts` file for the custom element in React:
+
+```ts
+// custom-elements.d.ts
+
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "capacitor-google-map": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
+
+export {};
 ```
 
 ### Vue

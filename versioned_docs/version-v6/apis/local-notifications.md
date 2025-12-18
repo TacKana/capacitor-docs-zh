@@ -13,11 +13,12 @@ sidebar_label: 本地通知
 ## 安装
 
 ```bash
-npm install @capacitor/local-notifications
+npm install @capacitor/local-notifications@latest-6
 npx cap sync
 ```
 
 ## Android
+
 Android 13 需要权限检查才能发送通知。您需要相应地调用 `checkPermissions()` 和 `requestPermissions()`。
 
 在 Android 12 及更早版本上，它不会显示提示，只会返回已授权状态。
@@ -30,7 +31,14 @@ Android 13 需要权限检查才能发送通知。您需要相应地调用 `chec
 
 请注意，即使存在该权限，用户仍可以从应用设置中禁用精确通知。使用 `checkExactNotificationSetting()` 检查该设置的值。如果用户禁用此设置，应用将重启，并且任何使用精确闹钟计划的通知将被删除。如果您的应用依赖精确闹钟，请务必在应用启动时（例如在 [`App.appStateChange`](https://capacitorjs.com/docs/apis/app#addlistenerappstatechange-) 中）检查此设置，以便提供回退或替代行为。
 
-在 Android 14 上，有一个名为 `USE_EXACT_ALARM` 的新权限。使用此权限可以在无需向用户请求权限的情况下使用精确闹钟。这仅应在精确闹钟的使用对应用功能至关重要时使用。在此处阅读有关使用此权限的更多信息 [此处](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM)。
+在 Android 14 上，新增了一个名为 `USE_EXACT_ALARM` 的权限。使用此权限可以在无需向用户请求许可的情况下使用精确闹钟。此权限应仅在精确闹钟对应用的核心功能至关重要时使用。有关使用此权限的更多信息，请参阅 [此处](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM)。
+
+从 Android 15 开始，用户可以将应用安装到 [私密空间](https://developer.android.com/about/versions/15/features#private-space)。用户可以随时锁定其私密空间，这意味着在用户解锁之前，推送通知将不会显示。
+
+无法检测应用是否安装在私密空间中。因此，如果你的应用会显示任何关键通知，请告知用户避免将应用安装在私密空间内。
+
+有关私密空间相关的应用行为变更的更多信息，请参阅 [Android 文档](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes)。
+
 
 ## 配置
 

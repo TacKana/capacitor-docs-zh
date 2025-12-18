@@ -13,7 +13,7 @@ StatusBar API 提供配置状态栏样式以及显示或隐藏状态栏的方法
 ## 安装
 
 ```bash
-npm install @capacitor/status-bar
+npm install @capacitor/status-bar@latest-7
 npx cap sync
 ```
 

@@ -1,8 +1,8 @@
 ---
 title: InAppBrowser Capacitor 插件 API
 description: InAppBrowser 插件提供了一个网页浏览器视图，允许您在外部加载任意网页。其行为与标准网页浏览器一致，可用于加载不受信任的内容而不会威胁应用程序的安全性。它提供三种不同的 URL 打开方式：在 WebView 中、在应用内系统浏览器（Android 上的 Custom Tabs 和 iOS 上的 SFSafariViewController）中，以及在设备的默认浏览器中。
-custom_edit_url: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/next/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/next/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/src/definitions.ts
 sidebar_label: 内嵌浏览器
 ---
 
@@ -168,7 +168,7 @@ close() => Promise<void>
 ### addListener('browserClosed' | 'browserPageLoaded', ...)
 
 ```typescript
-addListener(eventName: 'browserClosed' | 'browserPageLoaded', listenerFunc: () => void) => Promise<PluginListenerHandle>
+addListener(eventName: "browserClosed" | "browserPageLoaded", listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
 为指定的浏览器事件添加监听器，不返回数据。
@@ -185,7 +185,7 @@ addListener(eventName: 'browserClosed' | 'browserPageLoaded', listenerFunc: () =
 ### addListener('browserPageNavigationCompleted', ...)
 
 ```typescript
-addListener(eventName: 'browserPageNavigationCompleted', listenerFunc: (data: BrowserPageNavigationCompletedEventData) => void) => Promise<PluginListenerHandle>
+addListener(eventName: "browserPageNavigationCompleted", listenerFunc: (data: BrowserPageNavigationCompletedEventData) => void) => Promise<PluginListenerHandle>
 ```
 
 为指定的浏览器事件添加监听器，该事件会接收数据。

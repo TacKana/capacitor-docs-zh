@@ -1,8 +1,8 @@
 ---
 title: Keyboard Capacitor 插件 API
 description: Keyboard API 提供键盘显示和可见性控制功能，以及键盘显示和隐藏时的事件追踪。
-custom_edit_url: https://github.com/ionic-team/capacitor-keyboard/blob/next/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-keyboard/blob/next/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-keyboard/blob/main/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-keyboard/blob/main/src/definitions.ts
 sidebar_label: 虚拟键盘
 ---
 
@@ -127,7 +127,7 @@ export default config;
 show() => Promise<void>
 ```
 
-显示键盘。此方法为 alpha 版本，可能存在一些问题。
+显示键盘。
 
 此方法仅适用于 Android。
 
@@ -353,7 +353,7 @@ removeAllListeners() => Promise<void>
 
 #### KeyboardInfo
 
-| 属性                 | 类型                | 描述         | 始于  |
+| 属性                 | 类型                | 描述         | 起始版本  |
 | -------------------- | ------------------- | ------------ | ----- |
 | **`keyboardHeight`** | <code>number</code> | 键盘的高度。 | 1.0.0 |
 

@@ -13,7 +13,7 @@ Camera API 提供了使用相机拍摄照片或从相册中选择现有照片的
 ## 安装
 
 ```bash
-npm install @capacitor/camera
+npm install @capacitor/camera@latest-7
 npx cap sync
 ```
 

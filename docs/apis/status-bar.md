@@ -17,7 +17,22 @@ npm install @capacitor/status-bar
 npx cap sync
 ```
 
-## iOS 注意事项
+## Android 16+ 行为变更
+
+针对使用 **Capacitor 8** 且目标版本为 **Android 16（API 级别 36）** 及更高的应用，以下状态栏配置选项**不再生效**：
+
+- `overlaysWebView`
+- `backgroundColor`
+
+这些选项依赖于能够选择退出 Android 的**边到边**系统 UI 行为，该行为允许应用控制状态栏的覆盖方式及其背景颜色。
+
+在 **Android 15（API 级别 35）** 中，仍然可以通过在应用布局文件中设置 `windowOptOutEdgeToEdgeEnforcement` 属性来选择退出此强制行为。若未设置此属性，应用会默认 `overlaysWebView` 始终为 `true`。更多详情请参阅 Android 文档：[https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement](https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement)
+
+从 **Android 16** 开始，此选择退出选项**不再可用**，该行为由系统强制执行。  
+因此，`overlaysWebView` 和 `backgroundColor` 配置选项不再产生任何效果。
+
+
+## iOS Note
 
 此插件要求将 "View controller-based status bar appearance"（`UIViewControllerBasedStatusBarAppearance`）在 `Info.plist` 中设置为 `YES`。有关帮助，请阅读 [配置 iOS](https://capacitorjs.com/docs/ios/configuration)。
 
@@ -60,11 +75,11 @@ const showStatusBar = async () => {
 
 以下配置值可用：
 
-| 属性                  | 类型                 | 描述                                                                                                                                                                                                                                                                                                 | 默认值               | 自版本 |
-| --------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
-| **`overlaysWebView`** | <code>boolean</code> | 状态栏是否覆盖在 WebView 上。对于面向 Android 15 的应用程序，除非在应用程序布局文件中添加了 windowOptOutEdgeToEdgeEnforcement 属性，否则此属性无效。否则，应用程序始终假定 overlays 为 true。更多详情请参阅 https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement | <code>true</code>    | 1.0.0  |
-| **`style`**           | <code>string</code>  | 状态栏文本的<a href="#style">样式</a>。                                                                                                                                                                                                                                                              | <code>default</code> | 1.0.0  |
-| **`backgroundColor`** | <code>string</code>  | 状态栏背景颜色，十六进制格式 #RRGGBB。如果 `overlaysWebView` 为 true，则无效。                                                                                                                                                                                                                       | <code>#000000</code> | 1.0.0  |
+| 属性                  | 类型                 | 描述                                                                                                 | 默认值               | 起始版本 |
+| --------------------- | -------------------- | ---------------------------------------------------------------------------------------------------- | -------------------- | -------- |
+| **`overlaysWebView`** | <code>boolean</code> | 状态栏是否重叠显示。在Android 15及以上版本中不可用。                                                  | <code>true</code>    | 1.0.0    |
+| **`style`**           | <code>string</code>  | 状态栏文本的<a href="#style">样式</a>。                                                               | <code>default</code> | 1.0.0    |
+| **`backgroundColor`** | <code>string</code>  | 状态栏背景颜色，采用十六进制格式，即#RRGGBB。如果`overlaysWebView`为true，则此属性无效。在Android 15及以上版本中不可用。 | <code>#000000</code> | 1.0.0    |
 
 ### 示例
 
@@ -145,6 +160,8 @@ setBackgroundColor(options: BackgroundColorOptions) => Promise<void>
 ```
 
 设置状态栏的背景颜色。
+如果样式设置为默认，调用此函数会更新状态栏的前景色，但iOS 17以下版本除外。
+此功能在Android 15及以上版本不可用。
 
 | 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
@@ -208,6 +225,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 ```
 
 设置状态栏是否应覆盖 WebView，以便使用其下方的空间。
+Android 15及以上版本不支持。
 
 | 参数          | 类型                                                                            |
 | ------------- | ------------------------------------------------------------------------------- |

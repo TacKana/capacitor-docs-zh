@@ -13,7 +13,7 @@ Motion API 用于追踪加速度计和设备方向（如指南针朝向等）
 ## 安装
 
 ```bash
-npm install @capacitor/motion
+npm install @capacitor/motion@latest-6
 npx cap sync
 ```
 

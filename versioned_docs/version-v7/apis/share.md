@@ -15,7 +15,7 @@ sidebar_label: 分享
 ## 安装
 
 ```bash
-npm install @capacitor/share
+npm install @capacitor/share@latest-7
 npx cap sync
 ```
 

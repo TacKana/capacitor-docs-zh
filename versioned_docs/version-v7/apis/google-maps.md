@@ -1,8 +1,8 @@
 ---
 title: Google Maps Capacitor 插件 API
 description: 在 Capacitor 中使用 Google 地图
-custom_edit_url: https://github.com/ionic-team/capacitor-google-maps/blob/main/plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-google-maps/blob/main/plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-google-maps/7.x/main/plugin/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-google-maps/7.x/main/plugin/src/definitions.ts
 sidebar_label: Google 地图
 ---
 
@@ -13,7 +13,7 @@ sidebar_label: Google 地图
 ## 安装
 
 ```bash
-npm install @capacitor/google-maps
+npm install @capacitor/google-maps@latest-7
 npx cap sync
 ```
 

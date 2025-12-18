@@ -85,7 +85,7 @@ const doPost = () => {
 
 ## 大文件支持
 
-由于桥接的特性，从原生环境解析和传输大量数据到 Web 环境可能会导致问题。计划在不久的将来将下载和上传文件到原生设备的功能添加到 `@capacitor/filesystem` 插件中。与此同时，一种可能规避内存耗尽问题的方法（特别是在 Android 上）是编辑 `AndroidManifest.xml` 并在 `application` 元素中添加 `android:largeHeap="true"`。大多数应用程序不需要这样做，而应专注于减少整体内存使用以提高性能。启用此功能也不能保证固定增加可用内存，因为某些设备受其总可用内存的限制。
+Due to the nature of the bridge, parsing and transferring large amount of data from native to the web can cause issues. Support for downloading and uploading files has been added to the [`@capacitor/file-transfer`](https://capacitorjs.com/docs/apis/file-transfer) plugin. In many cases, you may also need [`@capacitor/filesystem`](https://capacitorjs.com/docs/apis/filesystem) to generate a valid [file URI](https://capacitorjs.com/docs/apis/filesystem#geturi).
 
 ## API
 
@@ -207,12 +207,13 @@ delete(options: HttpOptions) => Promise<HttpResponse>
 
 #### HttpResponse
 
-| 属性          | 类型                                                | 描述                         |
-| ------------- | --------------------------------------------------- | ---------------------------- |
-| **`data`**    | <code>any</code>                                    | 随 HTTP 响应接收的额外数据。 |
-| **`status`**  | <code>number</code>                                 | 从 HTTP 响应接收的状态码。   |
-| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | 从 HTTP 响应接收的标头。     |
-| **`url`**     | <code>string</code>                                 | 从 HTTP 响应接收的响应 URL。 |
+| 属性          | 类型                                                | 描述                                       |
+| ------------- | --------------------------------------------------- | ------------------------------------------ |
+| **`data`**    | <code>any</code>                                    | 从 HTTP 响应接收的额外数据。               |
+| **`status`**  | <code>number</code>                                 | 从 HTTP 响应接收的状态码。                 |
+| **`headers`** | <code><a href="#httpheaders">HttpHeaders</a></code> | 从 HTTP 响应接收的标头。                   |
+| **`url`**     | <code>string</code>                                 | 从 HTTP 响应接收的响应 URL。               |
+
 
 #### HttpHeaders
 

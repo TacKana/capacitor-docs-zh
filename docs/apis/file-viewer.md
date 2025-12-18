@@ -1,8 +1,8 @@
 ---
 title: File Viewer Capacitor 插件 API
 description: FileViewer API 提供了打开文件和预览媒体的功能。该功能在 Web 平台上不可用。
-custom_edit_url: https://github.com/ionic-team/capacitor-file-viewer/blob/next/packages/capacitor-plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-file-viewer/blob/next/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 文件预览
 ---
 

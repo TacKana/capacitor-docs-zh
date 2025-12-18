@@ -49,7 +49,7 @@ Android 13 需要进行权限检查才能接收推送通知。当目标 SDK 为 
 
 此插件将使用以下项目变量（在您应用的 `variables.gradle` 文件中定义）：
 
-- `firebaseMessagingVersion`：`com.google.firebase:firebase-messaging` 的版本（默认值：`24.1.0`）
+- `firebaseMessagingVersion`：`com.google.firebase:firebase-messaging` 的版本（默认值：`25.0.1`）
 
 ---
 

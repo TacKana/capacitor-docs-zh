@@ -13,7 +13,7 @@ Clipboard API 实现了与系统剪贴板之间的复制粘贴功能。
 ## 安装
 
 ```bash
-npm install @capacitor/clipboard
+npm install @capacitor/clipboard@latest-6
 npx cap sync
 ```
 

@@ -25,7 +25,7 @@ npx cap sync
 
 该插件将使用以下项目变量（在应用的 `variables.gradle` 文件中定义）：
 
-- `androidxBrowserVersion`: `androidx.browser:browser` 的版本（默认：`1.8.0`）
+- `androidxBrowserVersion`: `androidx.browser:browser` 的版本（默认：`1.9.0`）
 
 ## 示例
 

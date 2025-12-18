@@ -13,7 +13,7 @@ sidebar_label: Camera
 ## 安装
 
 ```bash
-npm install @capacitor/camera
+npm install @capacitor/camera@latest-6
 npx cap sync
 ```
 

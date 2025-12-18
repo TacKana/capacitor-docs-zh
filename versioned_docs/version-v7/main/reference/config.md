@@ -506,27 +506,27 @@ export interface CapacitorConfig {
       /**
        * 发布构建的签名方式
        *
-       * @since 7.0.0
+       * @since 7.1.0
        * @default 'automatic'
        */
       signingStyle?: 'automatic' | 'manual';
       /**
        * xcodebuild 导出归档的方法
        *
-       * @since 7.0.0
+       * @since 7.1.0
        * @default 'app-store-connect'
        */
       exportMethod?: string;
       /**
        * iOS 构建签名证书（名称、SHA-1 哈希或自动选择器）
        *
-       * @since 7.0.0
+       * @since 7.1.0
        */
       signingCertificate?: string;
       /**
        * iOS 构建使用的描述文件（名称或 UUID）
        *
-       * @since 7.0.0
+       * @since 7.1.0
        */
       provisioningProfile?: string;
     };
@@ -570,4 +570,152 @@ export interface CapacitorConfig {
     androidScheme?: string;
 
     /**
-     * 在 Web View 中加载外部 URL
+     * 在 Web View 中加载外部 URL。
+     *
+     * 此选项用于实时重新加载服务器。
+     *
+     * **切勿在生产环境中使用。**
+     *
+     * @since 1.0.0
+     */
+    url?: string;
+
+    /**
+     * 允许 Web View 中的明文流量。
+     *
+     * 在 Android 上，从 API 28 开始默认禁用所有明文流量。
+     *
+     * 此选项用于经常使用未加密 HTTP 流量的实时重新加载服务器。
+     *
+     * **切勿在生产环境中使用。**
+     *
+     * @since 1.5.0
+     * @default false
+     */
+    cleartext?: boolean;
+
+    /**
+     * 设置 Web View 可以导航到的其他 URL。
+     *
+     * 默认情况下，所有外部 URL 都在外部浏览器中打开（而非 Web View）。
+     *
+     * **切勿在生产环境中使用。**
+     *
+     * @since 1.0.0
+     * @default []
+     */
+    allowNavigation?: string[];
+
+    /**
+     * 指定错误时显示的本地 HTML 页面路径。
+     * 在 Android 上，HTML 文件将无法访问 Capacitor 插件。
+     *
+     * @since 4.0.0
+     * @default null
+     */
+    errorPath?: string;
+
+    /**
+     * 向应用 URL 追加路径。
+     *
+     * 允许从默认 `/index.html` 以外的其他路径加载。
+     * @since 7.3.0
+     * @default null
+     */
+    appStartPath?: string;
+    };
+
+    cordova?: {
+    /**
+     * 使用此处输入的值作为 origin 填充 config.xml 中的 <access> 标签。
+     * 如果未提供，则包含单个 <access origin="*" /> 标签。
+     * 仅对少数遵循白名单的 Cordova 插件有效。
+     *
+     * @since 3.3.0
+     */
+    accessOrigins?: string[];
+
+    /**
+     * 配置 Cordova 首选项。
+     *
+     * @since 1.3.0
+     */
+    preferences?: { [key: string]: string | undefined };
+
+    /**
+     * 如果 CLI 检测到 Cordova 插件有未安装的依赖项，则在 cap update/sync 时失败。
+     *
+     * @default false
+     * @since 7.4.0
+     */
+    failOnUninstalledPlugins?: boolean;
+    };
+
+    /**
+     * 配置插件。
+     *
+     * 这是一个对象，包含按插件类名指定的配置值。
+     *
+     * @since 1.0.0
+     */
+    plugins?: PluginsConfig;
+
+    /**
+     * 在 `npx cap sync` 期间包含的插件白名单。
+     *
+     * 这应该是一个字符串数组，表示运行 `npx cap sync` 时要包含的插件的 npm 包名。
+     * 如果未设置，Capacitor 将检查 `package.json` 以获取可能的插件列表。
+     *
+     * @since 3.0.0
+     */
+    includePlugins?: string[];
+  }
+
+  export interface PluginsConfig {
+    /**
+     * 按类名配置插件。
+     *
+     * @since 1.0.0
+     */
+    [key: string]:
+    | {
+      [key: string]: any;
+      }
+    | undefined;
+
+    /**
+     * Capacitor Cookies 插件配置
+     *
+     * @since 4.3.0
+     */
+    CapacitorCookies?: {
+    /**
+     * 启用 CapacitorCookies 以在原生平台上覆盖全局 `document.cookie`。
+     *
+     * @default false
+     */
+    enabled?: boolean;
+    };
+
+    /**
+     * Capacitor Http 插件配置
+     *
+     * @since 4.3.0
+     */
+    CapacitorHttp?: {
+    /**
+     * 启用 CapacitorHttp 以在原生平台上覆盖全局 `fetch` 和 `XMLHttpRequest`。
+     *
+     * @default false
+     */
+    enabled?: boolean;
+    };
+  }
+  ```
+
+  ## 环境变量
+
+  Capacitor CLI 会自动查找您系统上的依赖项。如果您需要配置这些路径，可以使用以下环境变量：
+
+  - `CAPACITOR_ANDROID_STUDIO_PATH`：您系统上 Android Studio 可执行文件的路径。
+  - `CAPACITOR_COCOAPODS_PATH`：您系统上 `pod` 二进制文件的路径。

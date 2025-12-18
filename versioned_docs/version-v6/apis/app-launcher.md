@@ -27,7 +27,7 @@ AppLauncher API 允许您的应用检查并打开其他应用。
 ## 安装
 
 ```bash
-npm install @capacitor/app-launcher
+npm install @capacitor/app-launcher@latest-6
 npx cap sync
 ```
 

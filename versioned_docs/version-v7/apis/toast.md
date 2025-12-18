@@ -13,7 +13,7 @@ Toast API 提供通知弹出功能，用于向用户显示重要信息。
 ## 安装
 
 ```bash
-npm install @capacitor/toast
+npm install @capacitor/toast@latest-7
 npx cap sync
 ```
 

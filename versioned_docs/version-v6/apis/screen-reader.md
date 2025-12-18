@@ -13,7 +13,7 @@ Screen Reader API 提供了对 TalkBack/VoiceOver 等屏幕阅读器的访问能
 ## 安装
 
 ```bash
-npm install @capacitor/screen-reader
+npm install @capacitor/screen-reader@latest-6
 npx cap sync
 ```
 

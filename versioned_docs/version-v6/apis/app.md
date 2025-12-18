@@ -13,7 +13,7 @@ App API 负责处理应用的高级状态和事件。例如：当应用进入或
 ## 安装
 
 ```bash
-npm install @capacitor/app
+npm install @capacitor/app@latest-6
 npx cap sync
 ```
 

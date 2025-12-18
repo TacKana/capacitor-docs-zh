@@ -13,7 +13,7 @@ Network API 提供网络和连接状态信息。
 ## 安装
 
 ```bash
-npm install @capacitor/network
+npm install @capacitor/network@latest-7
 npx cap sync
 ```
 

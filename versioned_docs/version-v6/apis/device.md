@@ -13,7 +13,7 @@ Device API 提供了关于设备的内部信息，如型号和操作系统版本
 ## 安装
 
 ```bash
-npm install @capacitor/device
+npm install @capacitor/device@latest-6
 npx cap sync
 ```
 

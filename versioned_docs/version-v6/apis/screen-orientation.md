@@ -13,7 +13,7 @@ sidebar_label: Screen Orientation
 ## 安装
 
 ```bash
-npm install @capacitor/screen-orientation
+npm install @capacitor/screen-orientation@latest-6
 npx cap sync
 ```
 

@@ -21,7 +21,7 @@ npx cap sync
 
 该插件将使用以下项目变量（在应用的 `variables.gradle` 文件中定义）：
 
-- `androidxMaterialVersion`: `com.google.android.material:material` 的版本（默认：`1.12.0`）
+- `androidxMaterialVersion`: `com.google.android.material:material` 的版本（默认：`1.13.0`）
 
 ## PWA 注意事项
 

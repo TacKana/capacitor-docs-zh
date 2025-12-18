@@ -13,7 +13,7 @@ Dialog API 提供了触发原生对话框窗口的方法，用于显示警告、
 ## 安装
 
 ```bash
-npm install @capacitor/dialog
+npm install @capacitor/dialog@latest-7
 npx cap sync
 ```
 

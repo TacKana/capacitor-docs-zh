@@ -13,7 +13,7 @@ Dialog API 提供了一系列方法，用于触发原生对话框窗口，包括
 ## 安装
 
 ```bash
-npm install @capacitor/dialog
+npm install @capacitor/dialog@latest-6
 npx cap sync
 ```
 

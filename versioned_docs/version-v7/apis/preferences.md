@@ -19,7 +19,7 @@ Preferences API 提供了一个简单的键/值持久化存储，适用于轻量
 ## 安装
 
 ```bash
-npm install @capacitor/preferences
+npm install @capacitor/preferences@latest-7
 npx cap sync
 ```
 

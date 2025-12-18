@@ -1,8 +1,8 @@
 ---
 title: 后台运行器 Capacitor 插件 API
 description: Capacitor 后台运行器
-custom_edit_url: https://github.com/ionic-team/capacitor-background-runner/blob/main/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-background-runner/blob/main/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-background-runner/blob/2.x/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-background-runner/blob/2.x/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 后台运行器
 ---
 
@@ -13,7 +13,7 @@ sidebar_label: 后台运行器
 ## 安装
 
 ```bash
-npm install @capacitor/background-runner
+npm install @capacitor/background-runner@latest-7
 npx cap sync
 ```
 
@@ -32,6 +32,18 @@ npx cap sync
 ![在 Xcode 中配置后台模式](https://github.com/ionic-team/capacitor-background-runner/raw/main/docs/configure_background_modes.png)
 
 启用后台模式能力后，将以下内容添加到您的应用程序的 `AppDelegate.swift` 中：
+
+You will also need to add the following entry into your `Info.plist` file:
+```
+<key>BGTaskSchedulerPermittedIdentifiers</key>
+<array>
+  <string>com.example.background.task</string>
+</array>
+```
+
+Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
+
+Make sure you use the same id that you use for `BGTaskSchedulerPermittedIdentifiers` (for example "com.example.background.task") in the `label` field in the plugin configuration.
 
 在文件顶部，`import Capacitor` 下方添加：
 
@@ -73,8 +85,6 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 
 - `NSLocationAlwaysUsageDescription` (`Privacy - Location Always Usage Description`)
 - `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
-
-阅读 [iOS 指南](https://capacitorjs.com/docs/ios) 中的 [配置 `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 部分，了解更多关于在 Xcode 中设置 iOS 权限的信息。
 
 ## Android
 

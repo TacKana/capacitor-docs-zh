@@ -13,7 +13,7 @@ Push Notifications API 提供对原生推送通知的访问。
 ## 安装
 
 ```bash
-npm install @capacitor/push-notifications
+npm install @capacitor/push-notifications@latest-7
 npx cap sync
 ```
 
