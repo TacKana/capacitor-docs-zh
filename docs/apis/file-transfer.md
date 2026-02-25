@@ -39,7 +39,14 @@ try {
         progress: true
     });
 } catch(error) {
-    // handle error - see `FileTransferError` interface for what error information is returned
+    if (error.code === 'OS-PLUG-FLTR-0010') {
+      // HTTP error - see `FileTransferError` for details on fields available in `errorData`
+      let errorData = error.data;
+      this.showError('Upload failed: ' + errorData.httpStatus + '; ' + errorData.body);
+    } else {
+      // other errors - use `error.code` and `error.message` for more information.
+      this.showError('Upload failed: ' + error.code + '; ' + error.message);
+    }
 }
 
 // Progress events
@@ -62,7 +69,7 @@ const fileInfo = await Filesystem.getUri({
 
 try {
     // Then use the FileTransfer plugin to upload
-    const result = await FileTransfer.downloadFile({
+    const result = await FileTransfer.uploadFile({
         url: 'https://example.com/upload_api',
         path: fileInfo.uri,
         chunkedMode: true,
@@ -75,10 +82,16 @@ try {
     });
     // get server response and other info from result - see `UploadFileResult` interface
 } catch(error) {
-    // handle error - see `FileTransferError` interface for what error information is returned
+    if (error.code === 'OS-PLUG-FLTR-0010') {
+      // HTTP error - see `FileTransferError` for details on fields available in `errorData`
+      let errorData = error.data;
+      this.showError('Upload failed: ' + errorData.httpStatus + '; ' + errorData.body);
+    } else {
+      // other errors - use `error.code` and `error.message` for more information.
+      this.showError('Upload failed: ' + error.code + '; ' + error.message);
+    }
 }
 ```
-
 
 ## API
 
@@ -107,6 +120,9 @@ downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 
 向服务器发起 HTTP 请求并将文件下载到指定位置。
 
+如果服务器返回HTTP错误（例如404、500等），该承诺将会被拒绝。
+要在安卓和iOS上（不适用于网页）获取有关HTTP错误响应的信息，请使用`error.data`属性处可用的 <a href="#filetransfererror">`FileTransferError`</a> `FileTransferError`</a>接口。
+
 | 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#downloadfileoptions">DownloadFileOptions</a></code> |
@@ -123,7 +139,10 @@ downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
 uploadFile(options: UploadFileOptions) => Promise<UploadFileResult>
 ```
 
-执行 HTTP 请求将文件上传到服务器
+执行 HTTP 请求将文件上传到服务器.
+
+如果服务器返回HTTP错误（例如404、500等），该承诺将会被拒绝。
+在运行Android和iOS（不适用于网页）时，若要获取有关HTTP错误响应的信息，请使用`error.data`属性处可用的 <a href="#filetransfererror"> `FileTransferError`</a>接口。
 
 | 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
@@ -240,6 +259,19 @@ removeAllListeners() => Promise<void>
 | **`bytes`**            | <code>number</code>                 | 到目前为止已传输的字节数。                                     | 1.0.0  |
 | **`contentLength`**    | <code>number</code>                 | 与文件传输关联的总字节数。                                     | 1.0.0  |
 | **`lengthComputable`** | <code>boolean</code>                | contentLength 值是否相关。在某些情况下，可能无法确定总字节数。 | 1.0.0  |
+
+#### 文件传输错误
+
+| 属性             | 类型                                    | 描述                                                                             | 起始版本 |
+| ---------------- | --------------------------------------- | -------------------------------------------------------------------------------- | -------- |
+| **`code`**       | <code>string</code>                     | 标识错误的代码：OS-PLUG-FLTR-XXXX                                                | 1.0.0    |
+| **`message`**    | <code>string</code>                     | 告知错误原因的消息                                                               | 1.0.0    |
+| **`source`**     | <code>string</code>                     | 文件传输操作的源（下载的URL，上传的文件路径）                                     | 1.0.0    |
+| **`target`**     | <code>string</code>                     | 文件传输操作的目标（下载的文件路径，上传的URL）                                   | 1.0.0    |
+| **`httpStatus`** | <code>number</code>                     | 服务器响应的HTTP状态码（若有）                                                   | 1.0.0    |
+| **`headers`**    | <code>{ [key: string]: string; }</code> | 服务器响应的HTTP头信息（若有）                                                   | 1.0.0    |
+| **`body`**       | <code>string</code>                     | 服务器的HTTP错误响应体（若有）                                                   | 1.0.0    |
+| **`exception`**  | <code>string</code>                     | 原生端抛出的异常消息（若有）                                                     | 1.0.0    |
 
 </docgen-api>
 

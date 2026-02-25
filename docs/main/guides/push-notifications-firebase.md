@@ -488,7 +488,15 @@ iOS 需要添加 [通知服务扩展](https://developer.apple.com/documentation/
 不修改部署目标会导致旧版 iOS 无法显示图片
 :::
 
-修改 Podfile 添加：
+要向扩展添加Firebase Messaging：
+
+使用SPM：
+- 选择`pushextension`目标
+- 在“通用”、“框架和库”下，点击“添加项目”按钮
+- 添加`FirebaseMessaging`
+
+使用CocoaPods：
+打开您的`Podfile`并添加：
 ```ruby
 target 'pushextension' do
   pod 'FirebaseMessaging'

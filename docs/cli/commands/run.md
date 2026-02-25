@@ -8,6 +8,8 @@ sidebar_label: run
 
 此命令首先执行 [`sync`](/cli/commands/sync.md) 操作，然后将原生应用构建并部署到您选择的目标设备上。
 
+To enable running on wireless iOS devices, follow the instructions detailed [here](/main/ios/index.md#wireless-ios-devices).
+
 ```bash
 npx cap run [options] <platform>
 ```
