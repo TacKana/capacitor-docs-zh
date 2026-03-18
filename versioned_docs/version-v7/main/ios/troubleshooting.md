@@ -1,7 +1,7 @@
 ---
-title: iOS 疑难解答指南
-sidebar_label: 疑难解答
-description: iOS 疑难解答指南
+title: iOS 故障排除指南
+sidebar_label: 故障排除
+description: iOS 故障排除指南
 contributors:
   - dotNetkow
   - mlynch
@@ -9,70 +9,67 @@ contributors:
 slug: /ios/troubleshooting
 ---
 
-# iOS 疑难解答指南
+# iOS 故障排除指南
 
-要打造一个百分之百完美的原生管理工具几乎是不可能的，在 iOS 工作流程中难免会遇到各种问题。
+要创建一个 100% 完美的原生管理工具几乎是不可能的，您迟早会在 iOS 工作流程的某个环节遇到各种问题。
 
-本指南旨在记录常见的 iOS/Xcode 问题及其解决方案。
+本指南尝试记录常见的 iOS/Xcode 问题及其可能的解决方案。
 
-## iOS 调试工具箱
+## iOS 工具箱
 
-每位 iOS 开发者都应掌握以下基本调试技巧，建议纳入日常工作流程：
+每位 iOS 开发者都会学习一些调试 iOS 问题的常用技巧，您应该将这些技巧融入您的工作流程中：
 
-### 善用搜索引擎
+### 善用搜索
 
-遇到任何 iOS 或 Xcode 问题时，第一步都应将错误信息完整复制到谷歌搜索。
+每当遇到 iOS 或 Xcode 相关的问题时，您的第一步都应该是将错误信息复制并粘贴到搜索引擎中进行搜索。
 
-由于 Capacitor 使用标准的 iOS 工具链，您遇到的问题很可能已有大量开发者遇到过，网上通常能找到解决方案。
+Capacitor 使用标准的 iOS 工具链，因此如果您遇到了问题，很可能许多 iOS 开发者也曾遇到过，并且已经有现成的解决方案。
 
-有时解决方法可能很简单，比如更新依赖、执行清理或删除 Derived Data。
+解决方案可能很简单，比如更新依赖、执行清理操作或删除派生数据。
 
-### 清理与重建
+### 清理/重新构建
 
-清理并重新构建能解决许多编译问题。在 Xcode 菜单中选择 Product -> Clean Build Folder 即可清理当前构建。
+清理和重新构建可以解决许多构建问题。在 Xcode 菜单中导航到“产品”->“清理构建文件夹”来清理当前构建。
 
-### 清除 Derived Data
+### 删除派生数据
 
-Xcode 有时会残留过时的构建缓存。要彻底重置，需要删除磁盘上的 Derived Data。
+有时，Xcode 会保留旧的、过时的构建产物。要重新开始，您需要删除磁盘上的所有派生数据。
 
-操作步骤：
-1. 打开 Xcode 偏好设置
-2. 选择 Locations 标签页
-3. 点击 Derived Data 路径旁的小箭头
+具体操作是：打开 Xcode 偏好设置，选择“位置”选项卡，然后点击派生数据路径旁边的小箭头：
 
-![路径设置](/img/v6/docs/ios/location-prefs.png)
+![位置](/img/v6/docs/ios/location-prefs.png)
 
-这将打开 Finder 显示 Xcode 临时 Derived Data 的位置。
+这会打开一个 Finder 窗口，显示 Xcode 临时派生数据的存储位置。
 
-全选该目录下所有内容并删除：
+接着，选中该目录中的所有项目并删除：
 
-![删除 Derived Data](/img/v6/docs/ios/deleting-derived-data.png)
+![删除派生数据](/img/v6/docs/ios/deleting-derived-data.png)
 
-最后在 Xcode 中重新构建项目。
+最后，在 Xcode 中执行重新构建。
 
-## 错误：Sandbox 与 Podfile.lock 不同步
+## 错误：沙盒与 Podfile.lock 不同步
 
-当 CocoaPods 未能成功安装依赖时可能出现此错误。
+如果 CocoaPods 未能成功运行以安装您的依赖项，就可能发生此错误。
 
-执行以下命令更新 Pod：
+运行以下命令来更新您的 pods：
 
 ```bash
 npx cap update ios
 ```
 
-运行命令后请重新构建项目。
+运行此命令后，执行一次新的构建。
 
-## Xcode 无限索引问题
+## 索引过程卡住
 
-Xcode 有时会陷入无限索引状态，表现为：
+Xcode 有时会陷入无限索引的状态。这种糟糕的情况看起来像这样：
 
 ![Xcode 索引中](/img/v6/docs/ios/indexing.png)
 
-唯一解决方法是强制退出 Xcode（通过活动监视器）后重新启动。
+唯一的解决方案是强制关闭 Xcode（使用活动监视器）并重新启动它。
 
-## CocoaPods：连接 GitHub 失败
+## CocoaPods：无法连接到 GitHub
 
-当 Mac 上安装的 openssl 和 ruby 版本过旧时可能出现此错误，因为 GitHub 已限制访问仓库时允许的加密协议。
+在安装了旧版本 openssl 和 ruby 的 Mac 上可能会出现此错误，因为 GitHub 在访问仓库时限制了允许的加密协议。
 
 解决方案是更新 openssl 和 Ruby：
 
@@ -83,17 +80,18 @@ brew install ruby
 brew link --overwrite ruby
 ```
 
-最后确保 `PATH` 环境变量中 `/usr/local/bin` 位于 `$PATH` 之前。
+最后，请确保您的 `PATH` 环境变量没有将 `/usr/local/bin` 放在 `$PATH` 之后，而是要放在它**之前**。
 
-其他可能的解决方案可参考 [StackOverflow 讨论](https://stackoverflow.com/questions/38993527/cocoapods-failed-to-connect-to-github-to-update-the-cocoapods-specs-specs-repo/48996424#48996424)。
+有关此问题的其他可能解决方案，请参阅 [这个 StackOverflow 问题](https://stackoverflow.com/questions/38993527/cocoapods-failed-to-connect-to-github-to-update-the-cocoapods-specs-specs-repo/48996424#48996424)。
 
-## 插件未实现错误
+## 插件未实现
 
-在 iOS 上，当 Capacitor 找不到插件或无法向 WebView 注入代码时会出现此问题。
+在 iOS 上，如果 Capacitor 找不到插件或无法将其代码注入到 WebView 中，就可能出现此问题。
 
-排查步骤：
-1. 确认插件已安装且出现在 `package.json` 中
-2. 运行 `npx cap sync ios`
-3. 检查插件是否在 `ios/App/Podfile` 中列出。如未列出，请确保 Podfile 结构与 [官方模板](https://github.com/ionic-team/capacitor/blob/main/ios-pods-template/App/Podfile) 一致，并再次运行 `npx cap sync`
+首先，请确保插件已安装并出现在 `package.json` 中。
 
-若仍报错，请检查 `ios/App/App/Info.plist` 中是否包含 `WKAppBoundDomains` 键值，这会阻止 Capacitor 和插件代码注入。如无必要请删除该键值，如必须保留，请在 Capacitor 配置文件的 `ios` 对象中添加 `limitsNavigationsToAppBoundDomains: true`。
+然后，运行 `npx cap sync ios`。
+
+最后，检查插件是否在 `ios/App/Podfile` 中。如果插件未列出，请确保您的 Podfile 看起来像 [这个示例](https://github.com/ionic-team/capacitor/blob/main/ios-pods-template/App/Podfile)，并再次运行 `npx cap sync`。
+
+如果仍然收到“插件未实现”错误，请确保您的 `ios/App/App/Info.plist` 中没有 `WKAppBoundDomains` 键，该键会阻止 Capacitor 和插件代码的注入。如果不需要该键，请移除它；如果无法移除，请在您的 capacitor 配置文件中，在 `ios` 对象内添加 `limitsNavigationsToAppBoundDomains` 并设置其值为 `true`。

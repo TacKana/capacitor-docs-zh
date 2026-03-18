@@ -1,4 +1,3 @@
-```markdown
 ---
 title: CLI 命令 - cap init
 description: Capacitor CLI 命令 - cap init
@@ -17,10 +16,9 @@ npx cap init <appName> <appID>
 
 <strong>输入参数：</strong>
 
-- `appName` (必填): 应用名称
-- `appID` (必填): 应用的 App ID；格式类似于 `com.example.appname`
+- `appName`（必需）：应用名称
+- `appID`（必需）：应用的 App ID；格式类似 `com.example.appname`
 
 <strong>选项：</strong>
 
-- `--web-dir <value>`: 用于初始化的现有 Web 应用目录
-```
+- `--web-dir <value>`：用于初始化的现有 Web 应用目录

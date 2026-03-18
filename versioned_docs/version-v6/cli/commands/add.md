@@ -8,17 +8,17 @@ sidebar_label: add
 
 # Capacitor CLI - cap add
 
-为您的应用添加原生平台项目。
+向你的应用添加原生平台项目。
 
 ```bash
-npx cap add <platform>
+npx cap add <平台>
 ```
 
-<strong>输入参数:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (必填): `android`, `ios`
+- `platform`（必需）：`android`, `ios`
 
-<strong>选项:</strong>
+<strong>选项：</strong>
 
-仅 iOS 平台:
+仅 iOS：
 - `--packagemanager`: `SPM`, `Cocoapods`

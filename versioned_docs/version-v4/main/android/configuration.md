@@ -1,26 +1,26 @@
 ---
 title: 配置 Android
-sidebar_label: 配置指南
-description: Android 应用配置说明
+sidebar_label: 配置
+description: Android 配置指南
 contributors:
   - mlynch
   - jcesarmobile
 slug: /android/configuration
 ---
 
-# Android 配置指南
+# 配置 Android
 
 ## 配置 `AndroidManifest.xml`
 
-Android 应用通过 `android/app/src/main/AndroidManifest.xml` 文件管理权限、设备功能和其他设置。
+Android 应用通过 `AndroidManifest.xml` 文件管理权限、设备功能和其他设置，该文件位于 `android/app/src/main/AndroidManifest.xml`。
 
-> `AndroidManifest.xml` 可能通过 `@style` 和 `@string` 引用 `android/app/src/main/res/values` 目录下的其他文件（如 `styles.xml` 和 `strings.xml`）。[了解更多关于 Android 资源的信息](https://developer.android.com/guide/topics/resources/available-resources)
+> `AndroidManifest.xml` 可能通过 `@style` 和 `@string` 引用 `android/app/src/main/res/values` 目录下的其他文件，例如 `styles.xml` 和 `strings.xml`。 [详细了解 Android 资源](https://developer.android.com/guide/topics/resources/available-resources)。
 
-本文涵盖应用所需的基本修改。如需深入了解，请阅读 [Android Manifest 文档](https://developer.android.com/guide/topics/manifest/manifest-intro.html)
+本文涵盖了对应用所需的基本修改。阅读 [Android Manifest 文档](https://developer.android.com/guide/topics/manifest/manifest-intro.html) 了解更多详细信息。
 
-## 修改包标识符
+## 修改包 ID
 
-要更改应用的包标识符（Android 中称为 **Application ID**），请修改 `android/app/build.gradle` 顶部的 `applicationId`：
+要更改应用的包 ID（在 Android 中称为 **应用 ID**），请编辑 `android/app/build.gradle` 顶部的 `applicationId`：
 
 ```diff
 defaultConfig {
@@ -30,13 +30,13 @@ defaultConfig {
 
 ## 修改应用名称
 
-修改 `strings.xml` 中的 `app_name` 值来更改应用名称：
+要更改应用的名称，请修改 `strings.xml` 中的 `app_name` 值：
 
 ```xml
 <string name="app_name">我的应用</string>
 ```
 
-建议同时修改活动名称以保持一致性，特别是当应用只有一个活动时：
+通常也需要修改活动名称以保持一致，特别是当应用只有一个活动时：
 
 ```xml
 <string name="title_activity_main">我的应用</string>
@@ -44,46 +44,46 @@ defaultConfig {
 
 ## 深度链接（即 Android 应用链接）
 
-> 完整指南请参阅[深度链接文档](/main/guides/deep-links.md)
+> 关于深度链接的完整指南，[请查看这里](/main/guides/deep-links.md)。
 
-要启用 Android 应用链接功能，请遵循官方 [添加 Android 应用链接](https://developer.android.com/studio/write/app-link-indexing) 指南。Android Studio 提供了便捷的配置向导。
+要启用通过 Android 应用链接进行深度链接，请遵循官方 Android 指南：[添加 Android 应用链接](https://developer.android.com/studio/write/app-link-indexing)。Android Studio 提供了一个便捷的向导来配置应用链接。
 
-配置完成后，[App API 中的 `getLaunchUrl()` 方法](/apis/app.md#getlaunchurl) 将提供应用启动时的任何 URL，而 [`'appUrlOpen'` 事件](/apis/app.md#addlistenerpause-) 会在应用接收到新的应用链接时触发。
+配置完成后，[App API 中的 `getLaunchUrl()` 方法](/apis/app.md#getlaunchurl) 将提供应用启动时使用的任何 URL，并且每当应用收到新的应用链接深度链接时，[`'appUrlOpen'` 事件](/apis/app.md#addlistenerpause-) 都会被触发。
 
-## URL 方案配置
+## URL 方案
 
-您的应用可以响应启动时的自定义 URL，实现深度链接和应用交互功能。
+您的应用可以响应启动时的自定义 URL，从而能够处理深度链接和应用交互。
 
-修改 `strings.xml` 中的以下值（建议设置为包标识符）来更改 URL 方案：
+要修改 URL，请在 `strings.xml` 中搜索并修改以下行。建议将其设置为包 ID。
 
 ```xml
 <string name="custom_url_scheme">com.capacitorjs.myapp</string>
 ```
 
-在此示例中，应用将响应 `com.capacitorjs.myapp://` 格式的 URL。
+在这个例子中，应用将响应以 `com.capacitorjs.myapp://` 为方案的 URL。
 
-要获取应用启动时的自定义 URL，请参考上文深度链接部分。
+要获取应用可能启动时使用的任何自定义 URL，请参阅上面的深度链接部分。
 
 ## 设置权限
 
-Android 应用的所需权限定义在 `AndroidManifest.xml` 的 `<manifest>` 标签内，通常位于文件底部。
+在 Android 中，应用所需的权限在 `AndroidManifest.xml` 的 `<manifest>` 标签内定义，通常位于文件的底部。
 
-例如，添加网络权限的配置如下：
+例如，添加网络权限的示例如下：
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.getcapacitor.myapp">
     <activity>
-      <!-- 其他配置 -->
+      <!-- 其他内容 -->
     </activity>
 
-    <!-- 更多配置 -->
+    <!-- 更多内容 -->
 
-    <!-- 权限配置 -->
+    <!-- 您的权限 -->
 
-    <!-- 网络 API 权限 -->
+    <!-- 网络 API -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
 ```
 
-通常情况下，您使用的插件会要求设置相应权限，只需在此文件中添加即可。
+通常，您选择使用的插件会要求您设置权限。请在此文件中添加相应权限。

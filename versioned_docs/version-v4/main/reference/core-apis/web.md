@@ -1,16 +1,16 @@
 ---
 title: Capacitor Web API
-description: Capacitor在Web端的API接口
+description: Capacitor 在 Web 平台上的 API
 slug: /core-apis/web
 ---
 
 # Capacitor Web API
 
-Capacitor提供了一系列JavaScript实用工具，帮助开发者使用同一套代码库确保应用能在多平台上成功运行。使用时只需导入Capacitor并调用相应的工具函数：
+Capacitor 提供了一些 JavaScript 工具，有助于确保应用在不同平台上使用同一套代码库成功运行。要使用它们，请导入 Capacitor 然后调用所需的工具函数：
 
-## Capacitor对象
+## Capacitor 对象
 
-`Capacitor`对象是多个工具函数的容器。虽然可以通过`window.Capacitor`访问，但我们推荐在现代JavaScript应用中采用导入方式：
+`Capacitor` 对象是多个工具函数的容器。它可以通过 `window.Capacitor` 访问，但对于现代 JavaScript 应用，建议的用法是导入它：
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -22,9 +22,9 @@ import { Capacitor } from '@capacitor/core';
 convertFileSrc: (filePath: string) => string;
 ```
 
-将设备文件路径转换为Web视图友好的路径。
+将设备文件路径转换为 Web 视图友好的路径。
 
-由于Capacitor应用运行在不同于设备文件的协议下，为了避免协议冲突，需要对设备文件路径进行转换。例如在Android平台上，`file:///path/to/device/file`需要被重写为`http://localhost/_capacitor_file_/path/to/device/file`才能在Web视图中使用。
+Capacitor 应用使用的协议与设备文件协议不同。为了避免这些协议之间的冲突，设备文件的路径必须被重写。例如，在 Android 上，`file:///path/to/device/file` 在 Web 视图中使用之前，必须重写为 `http://localhost/_capacitor_file_/path/to/device/file`。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -49,11 +49,11 @@ document.getElementById("savedPhoto").src = savedPhoto;
 getPlatform: () => string;
 ```
 
-获取当前运行平台的名称：`web`、`ios`或`android`。
+获取应用当前运行平台的名称：`web`、`ios` 或 `android`。
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
-  // iOS平台特定逻辑
+  // 执行某些操作
 }
 ```
 
@@ -63,11 +63,11 @@ if (Capacitor.getPlatform() === 'ios') {
 isNativePlatform: () => boolean;
 ```
 
-检测当前运行平台是否是原生平台（`ios`或`android`）。
+检查当前运行平台是否为原生平台（`ios` 或 `android`）。
 
 ```typescript
 if (Capacitor.isNativePlatform()) {
-  // 原生平台特定逻辑
+  // 执行某些操作
 }
 ```
 
@@ -77,7 +77,7 @@ if (Capacitor.isNativePlatform()) {
 isPluginAvailable: (name: string) => boolean;
 ```
 
-检查指定插件在当前平台是否可用。插件名称使用注册时的名称，因此也适用于自定义插件。
+检查某个插件在当前运行平台上是否可用。插件名称用于插件注册表，这意味着它也适用于自定义插件。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');
@@ -85,7 +85,7 @@ const isAvailable = Capacitor.isPluginAvailable('Camera');
 if (!isAvailable) {
   // 让用户上传文件替代
 } else {
-  // 否则直接调用：
+  // 否则，进行调用：
   const image = await Camera.getPhoto({
     resultType: CameraResultType.Uri,
   });

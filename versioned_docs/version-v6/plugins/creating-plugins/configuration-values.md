@@ -9,13 +9,13 @@ slug: /plugins/configuration-values
 
 # 配置值
 
-开发插件时，您可以提供配置值，让开发者能够设置这些值来影响插件在运行时的行为。插件配置值的一个例子是 `@capacitor/splash-screen` 插件中的 `launchShowDuration`，它用于设置显示启动画面的持续时间。
+开发插件时，您可以提供配置值，让开发者能够设置这些值来影响插件在运行时的行为。插件配置值的一个例子是 `launchShowDuration`，它可以通过 `@capacitor/splash-screen` 插件使用，用于设置启动画面显示多久后隐藏。
 
-Capacitor 插件的配置值在 Capacitor 配置文件的 `plugins` 属性中设置。
+Capacitor 插件配置值在 Capacitor 配置文件的 `plugins` 属性中设置。
 
 ## 定义配置值
 
-Capacitor 插件可以访问在 Capacitor 配置文件 `plugins` 属性下以插件名称定义的配置值。
+Capacitor 插件可以访问在 Capacitor 配置文件 `plugins` 属性下、以插件名称定义的配置值。
 
 ```typescript
 {
@@ -30,9 +30,9 @@ Capacitor 插件可以访问在 Capacitor 配置文件 `plugins` 属性下以插
 }
 ```
 
-在上面的示例中，MyCoolPlugin 插件的原生实现可以访问配置的 `style` 和 `iconColor` 值。
+在上面的例子中，MyCoolPlugin 插件的原生实现可以访问已配置的 `style` 和 `iconColor` 值。
 
-Capacitor 配置文件支持 TypeScript。虽然不是必需的，但建议提供类型信息来定义和记录插件可用的配置值。
+Capacitor 配置文件支持 TypeScript。虽然这不是必需的，但建议提供类型信息来定义和记录插件可用的配置值。
 
 您可以通过扩展 `@capacitor/cli` 提供的 `PluginsConfig` 接口来为插件的配置值提供类型定义。
 
@@ -43,7 +43,7 @@ declare module '@capacitor/cli' {
   export interface PluginsConfig {
     MyCoolPlugin?: {
       /**
-       * 如果您的应用不支持明/暗主题切换，可覆盖此酷炫主题样式。
+       * 如果您的应用不支持亮/暗主题切换，请覆盖此酷炫主题样式。
        *
        * @since 1.0.0
        * @example "light"
@@ -51,7 +51,7 @@ declare module '@capacitor/cli' {
       style?: 'dark' | 'light';
 
       /**
-       * 酷炫图标的颜色，采用十六进制格式，#RRGGBB 或 #RRGGBBAA。
+       * 酷炫图标的颜色，使用十六进制格式，可以是 #RRGGBB 或 #RRGGBBAA。
        *
        * @since 1.0.0
        * @default #ffffff
@@ -63,7 +63,7 @@ declare module '@capacitor/cli' {
 }
 ```
 
-我们建议将此类型定义放在插件的 `definitions.ts` 文件中。为了让插件使用者能够访问此类型信息，他们必须在 Capacitor 配置文件中使用 TypeScript，并在 `capacitor.config.ts` 中添加对插件类型的引用：
+我们建议将此类型定义放在插件的 `definitions.ts` 文件中。为了让插件使用者能够访问此类型信息，他们必须在 Capacitor 配置文件中使用 TypeScript，并且需要在 `capacitor.config.ts` 中添加对插件类型的引用：
 
 ```typescript
 /// <reference types="@capacitor-community/my-cool-plugin" />
@@ -103,6 +103,6 @@ if(style) {
 }
 ```
 
-请注意，您无法强制插件使用者提供配置值，并且插件使用者可能会传递无效数据（特别是当他们使用基于 JSON 的 Capacitor 配置时）。
+请注意，您不能强制插件使用者提供配置值，而且插件使用者可能会传递无效数据（尤其是当他们使用基于 JSON 的 Capacitor 配置时）。
 
-作为插件开发者，您有责任提供充分的文档说明插件的配置值，并在插件使用者未提供配置值或提供无效输入时优雅地回退处理。
+作为插件开发者，您需要负责提供关于插件配置值的充分文档，并在插件使用者未提供配置值或提供无效输入时，优雅地进行回退处理。

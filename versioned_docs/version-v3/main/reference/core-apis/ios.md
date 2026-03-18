@@ -1,24 +1,24 @@
 ---
 title: Capacitor iOS API
-description: Capacitor 在 iOS 平台的原生 API
+description: Capacitor 在 iOS 平台上的 API 接口
 slug: /core-apis/ios
 ---
 
 # Capacitor iOS API
 
-Capacitor iOS 是驱动 Capacitor 应用在 iOS 平台上运行的原生运行时环境。
+Capacitor iOS 是为 Capacitor 应用在 iOS 上提供支持的原生运行时环境。
 
 ## Bridge（桥接层）
 
-iOS bridge 是 Capacitor iOS 库的核心。桥接层提供了多个属性和方法，用于获取信息或改变行为。
+iOS bridge 是 Capacitor iOS 库的核心。桥接对象提供了多个属性和方法，用于获取信息或改变行为。
 
-当插件在 Capacitor 中注册时，会持有对 bridge 的弱引用：
+当插件在 Capacitor 中注册后，会持有一个指向 bridge 的弱引用：
 
 ```swift
 self.bridge?
 ```
 
-> 如果你的方法需要使用 bridge，可以使用 guard 语句进行解包并提前返回：
+> 如果你的方法需要使用 bridge，可以使用 guard 语句来解包并在失败时提前退出：
 >
 > ```swift
 > guard let bridge = self.bridge else { return }
@@ -26,13 +26,13 @@ self.bridge?
 
 ---
 
-### viewController（视图控制器）
+### viewController
 
 ```swift
 var viewController: UIViewController? { get }
 ```
 
-该属性包含 Capacitor 的主视图控制器，可用于在应用上方展示原生视图。
+此属性包含 Capacitor 的主视图控制器，可用于在应用上层展示原生视图。
 
 示例：
 
@@ -42,7 +42,7 @@ DispatchQueue.main.async {
 }
 ```
 
-在 iPad 设备上可以展示弹出窗口：
+在 iPad 设备上，可以展示弹出式视图：
 
 ```swift
 self.setCenteredPopover(ourCustomViewController)
@@ -51,24 +51,24 @@ self.bridge.viewController.present(ourCustomViewController, animated: true, comp
 
 ---
 
-### config（配置）
+### config
 
 ```swift
 var config: InstanceConfiguration { get }
 ```
 
-该属性包含 Capacitor 运行时已知的配置对象。
+此属性包含 Capacitor 运行时已知的配置对象。
 
 ---
 
-### triggerJSEvent(...)（触发JS事件）
+### triggerJSEvent(...)
 
 ```swift
 func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/v3/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/v3/Web/API/EventTarget)（例如 `window` 或 `document`）上触发一个事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)。
 
 示例：
 
@@ -81,37 +81,37 @@ bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "{ '
 
 ---
 
-### localURL(...)（本地URL转换）
+### localURL(...)
 
 ```swift
 func localURL(fromWebURL webURL: URL?) -> URL?
 ```
 
-将网页视图中的 URL 转换为 iOS 原生的文件 URL。
+将来自 Web 视图的 URL 转换为适用于原生 iOS 的文件 URL。
 
-网页视图可能处理多种不同类型的 URL：
+Web 视图可能处理多种不同类型的 URL：
 
-- `res://`（指向 web 资产的快捷方案）
+- `res://`（指向 Web 资源的快捷方案）
 - `file://`（指向本地设备上文件的完整限定 URL）
 
 ---
 
-### portablePath(...)（可移植路径转换）
+### portablePath(...)
 
 ```swift
 func portablePath(fromLocalURL localURL: URL?) -> URL?
 ```
 
-将 iOS 原生的文件 URL 转换为可在网页视图中加载的 URL。
+将原生 iOS 的文件 URL 转换为可在 Web 视图中加载的 URL。
 
 ---
 
-## 数据传递
+## 传递数据
 
-关于在不同环境间传递数据的注意事项，请[参阅此处](/main/reference/core-apis/data-types.md#ios)。
+关于如何在环境之间处理传递数据的说明，请[参阅此处](/main/reference/core-apis/data-types.md#ios)。
 
 ---
 
 ## 保存 CAPPluginCall
 
-关于异步或重复操作中持久化插件调用的注意事项，请[参阅此处](/main/reference/core-apis/saving-calls.md)。
+关于为异步或重复操作持久化插件调用的说明，请[参阅此处](/main/reference/core-apis/saving-calls.md)。

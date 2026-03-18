@@ -9,32 +9,32 @@ slug: /plugins/tutorial/using-the-plugin-api
 
 # 使用插件 API
 
-在实现屏幕方向功能之前，先构建一个调用插件 API 的用户界面是合理的做法。本质上，我们需要搭建一个测试框架，以便快速验证各平台的功能一致性。
+在实现屏幕方向功能之前，先构建一个用于测试插件 API 的用户界面是很有意义的。本质上，我们需要搭建一个测试框架，以便快速验证各平台的功能一致性。
 
-本教程重点在于如何构建 Capacitor 插件，而非 Ionic 框架应用开发，因此您可以直接获取以下文件的完整版本并复制到项目中：
+本教程的重点是教你如何构建 Capacitor 插件，而不是如何构建 Ionic Framework 应用，因此你可以直接获取所需文件的最终版本，并将其内容复制粘贴到你的项目中：
 
 - <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial/blob/main/src/pages/Home.tsx" target="_blank">src/pages/Home.tsx</a>
 - <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial/blob/main/src/pages/Home.css" target="_blank">src/pages/Home.css</a>
 
-复制完成后，使用 `ionic serve` 命令启动 Capacitor 应用。打开浏览器的开发者工具，您会看到以下错误：
+复制完成后，使用 `ionic serve` 命令启动 Capacitor 应用。打开浏览器的开发者工具，你应该会看到以下错误：
 
 ```bash
 Uncaught (in promise) ScreenOrientation does not have web implementation.
 ```
 
-这个错误符合预期，因为我们尚未为任何平台实现代码。保持浏览器打开状态，我们将首先实现 Web 平台功能。在此之前，让我们先分析 `Home.tsx` 中的关键代码。
+这个错误是预料之中的，因为我们还没有为任何平台实现代码。保持浏览器打开状态。我们将首先实现 web 平台。在此之前，让我们先回顾一下 `Home.tsx` 中的相关代码。
 
-## 插件如何被调用？
+## 插件是如何被使用的？
 
-**追踪屏幕方向：**
+**跟踪屏幕方向：**
 
 ```typescript
 const [orientation, setOrientation] = useState<string>('');
 ```
 
-`orientation` 状态变量用于存储屏幕方向值，可通过调用 `setOrientation` 更新。由于初始状态未知，默认设为空字符串。使用字符串类型便于 UI 选择对应设计方案。
+`orientation` 状态变量用于存储屏幕方向的值。可以通过调用 `setOrientation` 来更新它。由于代码开始执行时我们不知道当前的屏幕方向，因此默认为空字符串。使用字符串类型是为了更方便地告诉 UI 显示哪种设计。
 
-当触发 `screenOrientationChange` 事件时，已注册的监听器会更新 `orientation` 值：
+我们建立了一个事件监听器，当 `screenOrientationChange` 事件触发时更新 `orientation`。
 
 ```typescript
 ScreenOrientation.addListener('screenOrientationChange', res =>
@@ -42,7 +42,7 @@ ScreenOrientation.addListener('screenOrientationChange', res =>
 );
 ```
 
-UI 加载时获取当前屏幕方向，并在 DOM 移除时清除所有监听器：
+在 UI 加载时获取当前屏幕方向，并在 UI 从 DOM 中移除时移除所有已创建的监听器（例如上面的那个）。
 
 ```typescript
 useEffect(() => {
@@ -54,39 +54,41 @@ useEffect(() => {
 }, []);
 ```
 
-请注意不必深究 `useEffect` 和返回函数，这些是 React 特定的语法规则。
+请不要过于纠结 `useEffect` 和返回函数，这些是 React 特有的语法规则。
 
-**显示正确布局：**
+**显示正确的设计：**
 
-`OrientationType` 为竖屏方向提供两个值：`portrait-primary` 和 `portrait-secondary`，横屏方向同理。我们的 UI 只关心横竖方向，不区分具体子类型：
+`OrientationType` 为竖屏方向提供了两个值：`portrait-primary` 和 `portrait-secondary`。横屏方向也是如此。我们的 UI 不关心它们之间的区别，只关心是横屏还是竖屏。
 
 ```jsx
 {
   orientation.includes('portrait') &&
     {
-      /* 显示可将屏幕旋转并锁定为横屏模式的按钮 */
+      /* 提供一个按钮，用于旋转屏幕方向并将其锁定为横屏模式。 */
     };
 }
 {
   orientation.includes('landscape') &&
     {
-      /* 显示允许用户"签署"并通过确认按钮解锁屏幕方向的界面 */
+      /* 让用户通过确认按钮进行“签名”并解锁屏幕方向。 */
     };
 }
-**锁定与解锁屏幕方向：**
+```
 
-竖屏布局中的按钮点击后会切换并锁定屏幕方向：
+**锁定和解锁屏幕方向：**
+
+竖屏设计包含一个按钮，按下时将改变屏幕方向并锁定它。
 
 ```typescript
 onClick={() => ScreenOrientation.lock({ orientation: "landscape-primary" })}
 ```
 
-相应地，横屏布局中的按钮点击后会解除方向锁定：
+相反，横屏设计包含一个按钮，按下时将解锁屏幕方向。
 
 ```typescript
 onClick={() => ScreenOrientation.unlock()}
 ```
 
-`Home.tsx` 和 `Home.css` 中其余代码仅为样式设计，无需深入分析。执行 `npm run build` 确保新 UI 能在 iOS 或 Android 应用中使用。
+`Home.tsx` 和 `Home.css` 中的其余代码纯粹是装饰性的，我们不需要深入探讨。运行 `npm run build`，以便在 iOS 或 Android 上运行应用时使用新的 UI。
 
-现在我们已经构建好调用插件 API 的用户界面，接下来开始实现功能！下一步我们将首先针对 Web 平台：实现 Web 端功能。
+现在我们有了一个可以测试插件 API 的用户界面，让我们开始实现功能吧！下一步我们将首先针对 web 平台：web 实现。

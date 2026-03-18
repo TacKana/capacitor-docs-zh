@@ -1,5 +1,5 @@
 ---
-title: Method Types
+title: 方法类型
 description: Capacitor 插件方法类型
 contributors:
   - ikeith
@@ -9,9 +9,9 @@ slug: /plugins/method-types
 
 # 方法类型
 
-开发插件时，可以使用三种不同的方法签名类型，它们都是基于Promise的异步方法。
+在开发插件时，有三种不同类型的方法签名可供使用。所有方法都是异步且基于 Promise 的。
 
-以下是一个包含全部三种类型的插件定义示例：
+让我们看一个包含所有三种类型的插件定义示例：
 
 ```typescript
 export type CallbackID = string;
@@ -31,9 +31,9 @@ export interface MyPlugin {
 
 ## 无返回值方法
 
-`method1()` 是最简单的情况，不返回任何数据。可以通过Promise检查错误，但结果解析时会被忽略。
+`method1()` 是最简单的情况，预期不会返回任何数据。您可以检查 Promise 是否有错误，但当它解析时，结果会被忽略。
 
-在Android平台，需要使用如下注解标记方法：
+对于 Android，您需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-在iOS平台，需要在插件的`.m`文件中这样声明方法：
+对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -49,11 +49,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 值返回方法
+## 有值返回方法
 
-`method2()` 是最常见的情况：一个会返回某些值的Promise。
+`method2()` 是最常见的情况：一个解析后返回某个值的 Promise。
 
-在Android平台，这是默认方法类型，指定返回类型是可选的：
+对于 Android，此方法类型是默认值，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -61,7 +61,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-在iOS平台，需要在插件的`.m`文件中这样声明方法：
+对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -71,9 +71,9 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 
 ## 回调方法
 
-`method3()` 是最复杂但实际使用最少的一种类型。当插件需要多次返回数据时使用，例如通过地理定位API监控设备位置时。
+`method3()` 是最复杂的类型，但在实践中也是最不常见的。当您的插件需要重复返回数据时使用，例如通过地理定位 API 监控设备位置时。
 
-在Android平台，需要使用如下注解标记方法：
+对于 Android，您需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -81,7 +81,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-在iOS平台，需要在插件的`.m`文件中这样声明方法：
+对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -89,6 +89,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接收一个函数，该函数可能会被原生代码多次调用，并返回一个带有标识符的Promise。
+回调方法接收一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
 
-在原生端实现回调时，需要保存调用以便后续使用。具体处理方法[请参考这里](/main/reference/core-apis/saving-calls.md)。
+在原生端，实现回调意味着您需要保存调用，以便在稍后时间调用。具体如何处理[在此处讨论](/main/reference/core-apis/saving-calls.md)

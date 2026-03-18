@@ -1,28 +1,28 @@
 ---
-title: Capacitor插件
-description: Capacitor插件
+title: Capacitor Plugins
+description: Capacitor 插件
 ---
 
 import DocCard from '@theme/DocCard';
 import DocCardList from '@theme/DocCardList';
 
-# Capacitor插件
+# Capacitor 插件
 
-Capacitor中的插件让JavaScript能够直接调用原生API接口。
+Capacitor 中的插件使 JavaScript 能够直接与原生 API 进行交互。
 
 <DocCardList>
   <DocCard header="官方插件" img="/img/v4/docs/capacitor-card.png" href="/apis">
-    <p>由Capacitor核心团队维护的官方插件</p>
+    <p>官方插件由 Capacitor 团队维护</p>
   </DocCard>
   <DocCard header="社区插件" img="/img/v4/docs/community-card.png" href="/plugins/community">
-    <p>由Capacitor社区维护的第三方插件</p>
+    <p>社区插件由 Capacitor 社区维护</p>
   </DocCard>
 </DocCardList>
 
 <br />
 
-通过插件，Web应用能够充分利用原生API的全部能力。插件封装了那些在不同平台上API差异较大的原生操作，同时为JavaScript提供统一的跨平台接口。
+借助插件，Web 应用可以访问原生 API 的全部功能。插件封装了常见的原生操作，这些操作在不同平台上可能使用完全不同的 API，同时向 JavaScript 暴露一致的、跨平台的 API。
 
-此外，Capacitor的插件功能使得传统原生开发者与Web开发者可以协同工作，分别负责应用的不同模块。
+此外，Capacitor 的插件功能使得由传统原生开发者和 Web 开发者组成的团队能够协同工作，共同开发应用的不同部分。
 
-Capacitor会自动在客户端生成JavaScript钩子，因此大多数插件只需为iOS平台编写Swift/Obj-C代码，和/或为Android平台编写Java/Kotlin代码。当然，您也可以为插件添加自定义的JavaScript逻辑。
+Capacitor 会自动在客户端生成 JavaScript 钩子，因此大多数插件只需要为 iOS 使用 Swift/Obj-C 和/或为 Android 使用 Java/Kotlin。当然，也可以为插件添加自定义的 JavaScript。

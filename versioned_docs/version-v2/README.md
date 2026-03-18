@@ -1,15 +1,15 @@
-# 指南目录 (v2)
+# 目录指南 (v2)
 
-- 入门指南
+- 快速开始
   - [介绍](index.md)
-  - [必要的依赖项](getting-started/dependencies.md)
-  - [安装指南](getting-started/index.md)
-  - [与 Ionic 配合使用](getting-started/with-ionic.md)
-- 基础知识
-  - [开发工作流程](basics/workflow.md)
+  - [依赖要求](getting-started/dependencies.md)
+  - [安装](getting-started/index.md)
+  - [与 Ionic 一起使用](getting-started/with-ionic.md)
+- 基础
+  - [开发工作流](basics/workflow.md)
   - [打开原生 IDE](basics/opening-native-projects.md)
-  - [构建应用](basics/building-your-app.md)
-  - [运行应用](basics/running-your-app.md)
+  - [构建你的应用](basics/building-your-app.md)
+  - [运行你的应用](basics/running-your-app.md)
   - [使用插件](basics/using-plugins.md)
   - [原生项目配置](basics/configuring-your-app.md)
   - [渐进式 Web 应用](basics/progressive-web-app.md)
@@ -20,8 +20,8 @@
   - [从 Cordova 迁移到 Capacitor](cordova/migrating-from-cordova-to-capacitor.md)
   - [Cordova/Ionic Native 插件](cordova/using-cordova-plugins.md)
   - [已知不兼容插件](cordova/known-incompatible-plugins.md)
-- 核心概念
-  - [广告集成](guides/ads.md)
+- 概念指南
+  - [广告](guides/ads.md)
   - [持续集成/持续部署](guides/ci-cd.md)
   - [深度链接](guides/deep-links.md)
   - [部署与更新](guides/deploying-updates.md)
@@ -29,29 +29,29 @@
   - [实时重载](guides/live-reload.md)
   - [推送通知 - Firebase](guides/push-notifications-firebase.md)
   - [React Hooks](guides/react-hooks.md)
-  - [屏幕方向控制](guides/screen-orientation.md)
-  - [安全指南](guides/security.md)
+  - [屏幕方向](guides/screen-orientation.md)
+  - [安全](guides/security.md)
   - [启动画面与图标](guides/splash-screens-and-icons.md)
-  - [数据存储](guides/storage.md)
+  - [存储](guides/storage.md)
   - [社区指南](guides/community.md)
-- iOS 开发
-  - [入门指南](ios/index.md)
-  - [配置指南](ios/configuration.md)
-  - [更新指南](ios/updating.md)
+- iOS
+  - [快速开始](ios/index.md)
+  - [配置](ios/configuration.md)
+  - [更新](ios/updating.md)
   - [自定义原生代码](ios/custom-code.md)
-  - [发布到 App Store](ios/deploying-to-app-store.md)
+  - [部署到 App Store](ios/deploying-to-app-store.md)
   - [故障排除](ios/troubleshooting.md)
-- Android 开发
-  - [入门指南](android/index.md)
-  - [配置指南](android/configuration.md)
-  - [更新指南](android/updating.md)
+- Android
+  - [快速开始](android/index.md)
+  - [配置](android/configuration.md)
+  - [更新](android/updating.md)
   - [自定义原生代码](android/custom-code.md)
-  - [发布到 Google Play](android/deploying-to-google-play.md)
+  - [部署到 Google Play](android/deploying-to-google-play.md)
   - [故障排除](android/troubleshooting.md)
 - Web/PWA
-  - [入门指南](web/index.md)
+  - [快速开始](web/index.md)
   - [PWA 元素](web/pwa-elements.md)
-- 参考文档
-  - [配置参考](config/index.md)
-  - [CLI 命令行工具 ->](cli/index.md)
-  - [插件文档 ->](plugins/index.md)
+- 参考
+  - [配置](config/index.md)
+  - [CLI ->](cli/index.md)
+  - [插件 ->](plugins/index.md)

@@ -1,3 +1,3 @@
-# Capacitor 中管理 Android 依赖项
+# 在 Capacitor 中管理 Android 依赖项
 
-内容即将推出。
+即将推出。

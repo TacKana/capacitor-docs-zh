@@ -1,6 +1,6 @@
 ---
-name: Content issue
-about: Report missing or inaccurate content on the docs
+name: 内容问题反馈
+about: 报告文档中缺失或不准确的内容
 title: ''
 labels: content
 assignees: ''
@@ -8,6 +8,6 @@ assignees: ''
 ---
 
 **URL**
-The URL at which the content is missing or inaccurate
+内容缺失或不准确的页面 URL
 
-**What is missing or inaccurate about the content on this page?**
+**该页面的内容有哪些缺失或不准确之处？**

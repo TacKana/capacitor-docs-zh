@@ -8,12 +8,12 @@ canonicalUrl: https://capacitorjs.com/docs/cli/add
 
 # Capacitor CLI - cap add
 
-为您的项目添加原生平台支持。
+向您的项目中添加一个原生平台项目。
 
 ```bash
 npx cap add <platform>
 ```
 
-<strong>参数说明:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (必填): 可选值 `android`, `ios`
+- `platform`（必填）：`android`、`ios`

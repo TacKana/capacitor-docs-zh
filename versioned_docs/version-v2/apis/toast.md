@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/toast
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-Toast API 提供了一种通知弹出窗口，用于向用户显示重要信息。就像真正的吐司一样！
+Toast API 提供了一种通知弹出窗口，用于向用户显示重要信息。就像真实的吐司一样！
 
 - [`show(...)`](#show)
 - [接口](#interfaces)
@@ -39,18 +39,18 @@ async show() {
 show(options: ToastShowOptions) => Promise<void>
 ```
 
-| 参数          | 类型                                                          |
-| ------------- | ------------------------------------------------------------- |
+| 参数            | 类型                                                            |
+| --------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#toastshowoptions">ToastShowOptions</a></code> |
 
 ---
 
-### Interfaces
+### 接口
 
 #### ToastShowOptions
 
-| 属性           | 类型                                       | 描述                                                     |
-| -------------- | ------------------------------------------ | -------------------------------------------------------- |
-| **`text`**     | <code>string</code>                        | 显示的文本内容                                           |
-| **`duration`** | <code>"short" \| "long"</code>             | 显示时长，'short'（2000毫秒，默认）或 'long'（3500毫秒） |
-| **`position`** | <code>"center" \| "bottom" \| "top"</code> | 显示位置                                                 |
+| 属性             | 类型                                       | 描述                                                                       |
+| ---------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
+| **`text`**     | <code>string</code>                        | 显示的文本内容                                                               |
+| **`duration`** | <code>"short" \| "long"</code>             | Toast 显示时长，可选 'short'（2000毫秒，默认值）或 'long'（3500毫秒）             |
+| **`position`** | <code>"center" \| "bottom" \| "top"</code> | Toast 显示位置                                                               |

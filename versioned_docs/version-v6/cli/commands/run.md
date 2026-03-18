@@ -1,5 +1,5 @@
 ---
-title: CLI 命令 - cap run
+title: CLI Command - cap run
 description: Capacitor CLI - cap run
 sidebar_label: run
 ---
@@ -14,18 +14,18 @@ npx cap run [options] <platform>
 
 <strong>输入参数：</strong>
 
-- `platform` (必填)：`android`, `ios`
+- `platform`（必需）：`android`、`ios`
 
 <strong>选项：</strong>
 
 - `--flavor <flavorName>`：设置 Android 项目的构建变体（暂不支持 flavor dimensions）
 - `--list`：打印指定平台可用的目标设备列表
 - `--no-sync`：不运行同步命令
-- `--scheme <schemeName>`：设置 iOS 项目的 scheme
+- `--scheme <schemeName>`：设置 iOS 项目的 Scheme
 - `--configuration <name>`：iOS Scheme 的配置名称
 - `--target <id>`：在特定目标设备上运行
-- `--live-reload`：启用实时重载功能
+- `--live-reload`：启用实时重载
 - `-l`：`--live-reload` 的简写形式
-- `--host <host>`：通过从指定主机加载 Web 视图实现实时重载
-- `--port <port>`：通过从指定端口加载 Web 视图实现实时重载
-- `--forwardPorts <port1:port2>`：自动运行 "adb reverse" 命令以提供更好的实时重载支持
+- `--host <host>`：通过从指定主机加载 Web 视图来进行实时重载
+- `--port <port>`：通过从指定端口加载 Web 视图来进行实时重载
+- `--forwardPorts <port1:port2>`：自动运行 "adb reverse" 命令以获得更好的实时重载支持

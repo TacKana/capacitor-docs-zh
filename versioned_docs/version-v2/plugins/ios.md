@@ -1,35 +1,35 @@
 ---
-title: Capacitor iOS 插件开发指南
-description: Capacitor iOS 插件开发指南
+title: Capacitor iOS 插件指南
+description: Capacitor iOS 插件指南
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/plugins/ios
 ---
 
-# Capacitor iOS 插件开发指南
+# Capacitor iOS 插件指南
 
-开发 Capacitor iOS 插件需要使用 Swift（或 Objective-C）与苹果 iOS SDK 进行交互。
+为 iOS 构建 Capacitor 插件需要使用 Swift（或 Objective-C）与苹果的 iOS SDK 进行交互。
 
-Capacitor 采用标准 iOS 开发工具来构建插件。我们相信直接使用 Swift（或 Objective-C）能带来以下优势：更方便地使用 Stack Overflow 上的现有解决方案，与原生开发者顺畅协作，以及第一时间使用平台新特性。
+Capacitor 采用标准的 iOS 开发工具来构建 iOS 插件。我们相信直接使用 Swift（或 Objective-C）将更容易利用 Stack Overflow 上的现有解决方案，与现有原生开发者共享工作，并在平台功能发布时尽快使用它们。
 
-## 准备工作
+## 入门指南
 
-首先按照插件指南中的[入门章节](/plugins.md)生成一个插件。
+首先，按照插件指南中的[入门指南](/plugins.md)部分生成一个插件。
 
-接着用 Xcode 打开 `your-plugin/ios/Plugin.xcworkspace` 文件。
+接下来，在 Xcode 中打开 `your-plugin/ios/Plugin.xcworkspace`。
 
 ## 使用 Swift 构建插件
 
-Capacitor iOS 插件是一个继承自 `CAPPlugin` 的 Swift 类，通过导出方法使得 JavaScript 可以调用它们。
+iOS 的 Capacitor 插件是一个简单的 Swift 类，它继承 `CAPPlugin` 并包含一些可从 JavaScript 调用的导出方法。
 
-生成插件后，你可以通过编辑 `Plugin.swift` 开始开发工作。
+生成插件后，您可以通过打开 `Plugin.swift` 开始编辑它。
 
-### 基础示例
+### 简单示例
 
-生成的示例中包含一个简单的回声插件，其中的 `echo` 方法会原样返回传入的参数。
+在生成的示例中，有一个简单的 echo 插件，其中包含一个 `echo` 函数，它只是返回接收到的值。
 
-这个例子展示了 Capacitor 插件的几个核心概念：从插件调用接收数据，以及向调用方返回数据：
+此示例展示了 Capacitor 插件的几个核心组件：从插件调用接收数据，并将数据返回给调用者：
 
 `Plugin.swift`
 
@@ -39,7 +39,7 @@ import Capacitor
 @objc(MyPlugin)
 public class MyPlugin: CAPPlugin {
   @objc override public func load() {
-    // 插件在桥接层首次构建时调用
+    // 当插件在桥接器中首次构造时调用
   }
 
   @objc func echo(_ call: CAPPluginCall) {
@@ -51,17 +51,17 @@ public class MyPlugin: CAPPlugin {
 }
 ```
 
-### 获取调用数据
+### 访问调用数据
 
-每个插件方法都会收到一个 `CAPPluginCall` 实例，包含客户端调用该方法时的所有信息。
+每个插件方法都会接收一个 `CAPPluginCall` 实例，其中包含从客户端调用插件方法的所有信息。
 
-客户端可以发送任何可 JSON 序列化的数据，如数字、文本、布尔值、对象和数组。这些数据可以通过 call 实例的 `options` 字段获取，或使用便捷方法如 `getString` 或 `getObject`。
+客户端可以发送任何可以 JSON 序列化的数据，例如数字、文本、布尔值、对象和数组。这些数据可以通过调用实例的 `options` 字段访问，或者使用 `getString` 或 `getObject` 等便捷方法。
 
-例如，获取方法参数的方式如下：
+例如，以下是如何获取传递给方法的数据：
 
 ```swift
 @objc func storeContact(_ call: CAPPluginCall) {
-  let name = call.getString("yourName") ?? "默认名称"
+  let name = call.getString("yourName") ?? "default name"
   let address = call.getObject("address") ?? [:]
   let isAwesome = call.getBool("isAwesome") ?? false
 
@@ -76,13 +76,13 @@ public class MyPlugin: CAPPlugin {
 }
 ```
 
-注意 `CAPPluginCall` 实例提供了多种数据访问方式，包括使用 `guard` 来校验必填参数。
+请注意在 `CAPPluginCall` 实例上访问数据的各种方式，包括如何使用 `guard` 要求必需选项。
 
 ### 返回数据
 
-插件调用可以成功或失败。使用 Promise 的调用（最常见情况）成功时对应 Promise 的 `resolve`，失败时对应 `reject`。使用回调的调用则会分别触发成功或错误回调。
+插件调用可以成功或失败。对于使用 Promise 的调用（最常见），成功对应于调用 Promise 的 `resolve`，失败则调用 `reject`。对于使用回调的调用，成功将调用成功回调，失败则调用错误回调。
 
-`CAPPluginCall` 的 `resolve` 方法接收字典参数，支持 JSON 可序列化数据类型。返回数据给客户端的示例如下：
+`CAPPluginCall` 的 `resolve` 方法接受一个字典并支持 JSON 可序列化的数据类型。以下是将数据返回给客户端的示例：
 
 ```swift
 call.resolve([
@@ -93,7 +93,7 @@ call.resolve([
 ])
 ```
 
-要使调用失败或拒绝，调用 `call.reject`，传入错误描述、（可选）Error 实例和额外数据：
+要使调用失败或拒绝，请调用 `call.reject`，传入错误字符串，（可选）`Error` 实例以及额外数据：
 
 ```swift
 call.reject(error.localizedDescription, error, [
@@ -103,22 +103,22 @@ call.reject(error.localizedDescription, error, [
 
 ### 添加初始化逻辑
 
-插件可以重写 `load` 方法来执行初始化代码：
+插件可以重写 `load` 方法，以便在插件首次初始化时运行一些代码：
 
 ```java
 @objc(MyPlugin)
 public class MyPlugin: CAPPlugin {
   @objc override public func load() {
-    // 插件在桥接层首次构建时调用
+    // 当插件在桥接器中首次构造时调用
   }
 }
 ```
 
-### 显示原生界面
+### 呈现原生界面
 
-要在 Capacitor 界面上显示原生界面，我们需要访问 Capacitor 的视图控制器。可以通过 `CAPPlugin` 类中的 `CAPBridge` 对象来获取。
+要在 Capacitor 界面上呈现原生界面，我们需要访问 Capacitor 的视图控制器。要访问 Capacitor 的视图控制器，我们可以使用 `CAPPlugin` 类中可用的 `CAPBridge` 对象。
 
-使用 `UIViewController` 展示原生视图控制器的示例如下：
+我们可以使用 `UIViewController` 像这样在其上呈现原生视图控制器：
 
 ```swift
 DispatchQueue.main.async {
@@ -126,16 +126,16 @@ DispatchQueue.main.async {
 }
 ```
 
-使用 `DispatchQueue.main.async` 确保视图在主线程而非后台线程渲染，避免意外结果。
+使用 `DispatchQueue.main.async` 确保您的视图在主线程而不是后台线程中渲染。移除这行代码可能导致意外结果。
 
-在 iPad 设备上还可以展示 `UIPopovers`，我们提供了辅助函数使其居中显示：
+在 iPad 设备上，您还可以呈现 `UIPopovers`。为此，我们提供了一个辅助函数来将其居中显示：
 
 ```swift
 self.setCenteredPopover(ourCustomViewController)
 self.bridge.viewController.present(ourCustomViewController, animated: true, completion: nil)
 ```
 
-### 事件机制
+### 事件
 
 Capacitor 插件可以触发应用事件和插件事件。
 
@@ -143,10 +143,11 @@ Capacitor 插件可以触发应用事件和插件事件。
 
 应用事件是常规的 JavaScript 事件，类似于 `window` 或 `document` 事件。
 
-Capacitor 提供以下触发事件的函数：
+Capacitor 提供了以下所有函数来触发事件：
 
 ```swift
-// 如需指定目标
+
+// 如果您想指定目标
 self.bridge.triggerJSEvent(eventName: "myCustomEvent", target: "window")
 
 self.bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "{ 'dataKey': 'dataValue' }")
@@ -162,7 +163,7 @@ self.bridge.triggerDocumentJSEvent(eventName: "myCustomEvent")
 self.bridge.triggerDocumentJSEvent(eventName: "myCustomEvent", data: "{ 'dataKey': 'dataValue' }")
 ```
 
-监听事件只需使用常规 JavaScript 代码：
+要监听这些事件，只需使用常规的 JavaScript：
 
 ```typescript
 window.addEventListener('myCustomEvent', function () {
@@ -174,7 +175,7 @@ window.addEventListener('myCustomEvent', function () {
 
 #### 插件事件
 
-插件可以触发专属事件，通过监听插件对象来接收：
+插件可以触发自己的事件，您可以通过向插件对象附加监听器来监听，如下所示：
 
 ```typescript
 Plugins.MyPlugin.addListener('myPluginEvent', (info: any) => {
@@ -182,11 +183,11 @@ Plugins.MyPlugin.addListener('myPluginEvent', (info: any) => {
 });
 ```
 
-在 Swift 插件类中触发事件的方式：
+要从 Swift 插件类触发事件，可以这样做：
 
 `self.notifyListeners("myPluginEvent", data: [:])`
 
-移除监听器：
+要从插件对象移除监听器：
 
 ```typescript
 const myPluginEventListener = Plugins.MyPlugin.addListener(
@@ -199,22 +200,20 @@ const myPluginEventListener = Plugins.MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-### 重定向导航
+### 覆盖导航
 
-Capacitor 插件可以重写 webview 导航行为。插件需要重写 `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` 方法：
-- 返回 `true` 中止加载 URL
-- 返回 `false` 继续加载 URL
-- 返回 `nil` 采用默认 Capacitor 策略
+Capacitor 插件可以覆盖 WebView 导航。为此，插件可以重写 `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` 方法。
+返回 `true` 会导致 WebView 中止加载 URL。
+返回 `false` 会导致 WebView 继续加载 URL。
+返回 `nil` 将遵循 Capacitor 的默认策略。### 导出到 Capacitor
 
-### 导出到 Capacitor
+为确保 Capacitor 能够识别您的插件，您需要完成两项操作：将 Swift 类导出到 Objective-C，并使用 Capacitor 提供的 Objective-C 宏进行注册。
 
-为确保 Capacitor 能识别你的插件，需要完成两个步骤：将 Swift 类导出到 Objective-C，并使用提供的宏进行注册。
+要将 Swift 类导出到 Objective-C，请确保在您的 Swift 类上方添加 `@objc(MyPlugin)` 注解，并在所有插件方法前添加 `@objc` 标记，如上文所示。
 
-导出 Swift 类需要在类定义前添加 `@objc(MyPlugin)`，并在每个插件方法前添加 `@objc` 注解。
+要在 Capacitor 中注册您的插件，您需要创建一个与插件对应的新 Objective-C 文件（使用 `.m` 扩展名，而非 `.h`！），例如 `MyPlugin.m`，并使用 Capacitor 宏来注册插件及其每个方法。重要提示：您必须通过 Xcode 的 "New File" 对话框来完成此操作。随后 Xcode 会提示您创建桥接头文件，这一步必须执行。
 
-注册插件需要新建 Objective-C 文件（扩展名为 `.m` 而非 `.h`），如 `MyPlugin.m`，并使用 Capacitor 宏进行注册。重要提示：必须使用 Xcode 的 New File 对话框创建此文件，并按提示创建 Bridging Header。
-
-最后在新建的 `.m` 文件中添加注册代码：
+最后，将所需的 Capacitor 插件宏添加到新的 `.m` 文件中以完成插件注册：
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -224,4 +223,4 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-这将使 `MyPlugin` 和 `echo` 方法在 Capacitor web 运行时中可用，并声明 echo 方法返回 Promise。
+这将使 `MyPlugin` 和 `echo` 方法在 Capacitor Web 运行时中可用，并向 Capacitor 表明 `echo` 方法将返回一个 Promise。

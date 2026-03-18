@@ -1,6 +1,6 @@
 ---
 title: Browser
-description: 浏览器API
+description: 浏览器 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -15,11 +15,11 @@ canonicalUrl: https://capacitorjs.com/docs/apis/browser
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口定义](#interfaces)
+- [接口](#interfaces)
 
-浏览器API可以轻松地在应用内打开浏览器会话，用于显示外部网页内容、处理认证流程等场景。
+浏览器 API 可以轻松地在应用内打开浏览器会话，用于显示外部网页内容、处理身份验证流程等。
 
-在iOS平台上，该API使用`SFSafariViewController`实现，完全符合主流oAuth服务对应用内浏览器的要求。
+在 iOS 上，此 API 使用 `SFSafariViewController`，并符合主流 OAuth 服务的应用内浏览器要求。
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -37,7 +37,7 @@ await Browser.open({ url: 'http://capacitorjs.com/' });
 open(options: BrowserOpenOptions) => Promise<void>
 ```
 
-打开指定URL的页面
+使用指定 URL 打开页面
 
 | 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
@@ -51,9 +51,9 @@ open(options: BrowserOpenOptions) => Promise<void>
 prefetch(options: BrowserPrefetchOptions) => Promise<void>
 ```
 
-预加载指定URL以提升初始加载速度。
+向浏览器提示将访问指定 URL，以改善初始加载时间。
 
-仅在Android平台有效，在iOS上无实际效果
+仅在 Android 上有效，在 iOS 上无操作
 
 | 参数          | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
@@ -67,7 +67,7 @@ prefetch(options: BrowserPrefetchOptions) => Promise<void>
 close() => Promise<void>
 ```
 
-关闭已打开的浏览器窗口。仅在iOS和Web环境生效，其他平台无实际效果
+关闭已打开的浏览器。仅在 iOS 和 Web 环境下有效，其他平台无操作
 
 ---
 
@@ -82,7 +82,7 @@ addListener(eventName: 'browserFinished', listenerFunc: (info: any) => void) => 
 | **`eventName`**    | <code>"browserFinished"</code>      |
 | **`listenerFunc`** | <code>(info: any) =&gt; void</code> |
 
-**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -97,7 +97,7 @@ addListener(eventName: 'browserPageLoaded', listenerFunc: (info: any) => void) =
 | **`eventName`**    | <code>"browserPageLoaded"</code>    |
 | **`listenerFunc`** | <code>(info: any) =&gt; void</code> |
 
-**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回值：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -107,29 +107,29 @@ addListener(eventName: 'browserPageLoaded', listenerFunc: (info: any) => void) =
 removeAllListeners() => void
 ```
 
-移除该插件的所有原生监听器
+移除此插件的所有原生监听器
 
 ---
 
-### Interfaces
+### 接口
 
 #### BrowserOpenOptions
 
-| 属性                    | 类型                                   | 描述                                                                        |
-| ----------------------- | -------------------------------------- | --------------------------------------------------------------------------- |
-| **`url`**               | <code>string</code>                    | 要打开的浏览器URL地址                                                       |
-| **`windowName`**        | <code>string</code>                    | 仅限Web端：可选浏览器打开目标。遵循window.open的`target`属性。默认为\_blank |
-| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的16进制色值                                                  |
-| **`presentationStyle`** | <code>"fullscreen" \| "popover"</code> | 仅限iOS端：浏览器展示样式。默认为全屏(fullscreen)                           |
+| 属性                     | 类型                                   | 描述                                                                                                     |
+| ------------------------ | -------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **`url`**                | <code>string</code>                    | 浏览器要打开的 URL                                                                                       |
+| **`windowName`**         | <code>string</code>                    | 仅限 Web：浏览器打开的可选目标。遵循 window.open 的 `target` 属性。默认为 \_blank                        |
+| **`toolbarColor`**       | <code>string</code>                    | 设置工具栏颜色的十六进制颜色值                                                                           |
+| **`presentationStyle`**  | <code>"fullscreen" \| "popover"</code> | 仅限 iOS：浏览器的呈现样式。默认为全屏显示                                                               |
 
 #### BrowserPrefetchOptions
 
-| 属性       | 类型                  |
-| ---------- | --------------------- |
-| **`urls`** | <code>string[]</code> |
+| 属性         | 类型                  |
+| ------------ | --------------------- |
+| **`urls`**   | <code>string[]</code> |
 
 #### PluginListenerHandle
 
-| 属性         | 类型                       |
-| ------------ | -------------------------- |
-| **`remove`** | <code>() =&gt; void</code> |
+| 属性           | 类型                       |
+| -------------- | -------------------------- |
+| **`remove`**   | <code>() =&gt; void</code> |

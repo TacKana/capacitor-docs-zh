@@ -1,25 +1,25 @@
 ---
 title: 构建 Capacitor 插件
-description: 构建 Capacitor 插件 - 插件打包
+description: 构建 Capacitor 插件 - 打包插件
 contributors:
   - eric-horodyski
-sidebar_label: 插件打包
+sidebar_label: 打包插件
 slug: /plugins/tutorial/packaging-the-plugin
 ---
 
-# 插件打包
+# 打包插件
 
-目前 `ScreenOrientation` 插件已功能完整，并作为本地插件集成到了 Capacitor 应用中。但当前状态下，其他 Capacitor 应用还无法使用这个插件。
+`ScreenOrientation` 插件在功能上已经完成，并且作为本地插件集成到了 Capacitor 应用中。然而，`ScreenOrientation` 插件目前的状态无法被其他 Capacitor 应用使用。
 
-现在让我们将其打包发布，使 `ScreenOrientation` 插件能够被全局使用。
+让我们继续打包这个插件以便发布，使 `ScreenOrientation` 插件能够全局可用。
 
-> **注意:** 本节内容参考自 Capacitor 文档中的 <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">创建 Capacitor 插件</a> 部分。如需了解更多细节，请参阅官方文档。
+> **注意：** 本节参考了 Capacitor 文档中 <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">创建 Capacitor 插件</a> 部分的步骤和流程。关于本教程范围之外的详细信息，请参阅相关文档。
 
-## 生成新插件项目
+## 生成新的插件项目
 
-Capacitor 提供了 <a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">插件生成器</a>，可帮助我们创建适合发布全局插件的项目结构。
+Capacitor 提供了一个 <a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">插件生成器</a>，我们可以用它来搭建一个适合发布全局插件的项目结构。
 
-在新终端中运行以下命令：
+在新的终端中，运行以下命令：
 
 ```bash
 npx @capacitor/create-plugin \
@@ -31,43 +31,43 @@ npx @capacitor/create-plugin \
   --description "Work with the screen orientation in a common way for iOS, Android, and web"
 ```
 
-当提示输入目录时，直接按回车使用默认值。在要求输入作者姓名时，请填写您自己的名字！
+当提示提供目录时，按 Enter 键使用默认值。当询问作者姓名时，请填写你自己的名字！
 
 ## 移植插件代码
 
-观察生成的项目结构，会发现它与 Capacitor 应用中构建的结构非常相似，对吧？🤔
+查看生成项目的结构；它看起来与为 Capacitor 应用构建的结构非常相似，不是吗？🤔
 
-这显然是刻意为之，以便我们能轻松地将插件代码从 Capacitor 应用移植到生成的插件项目中。
+显然，这是有意为之，以便轻松地将插件代码从 Capacitor 应用的代码库移植到生成的插件项目中。
 
-将 `src/plugins/screen-orientation` 目录下的文件内容分别复制到插件项目中对应的 `web.ts`、`index.ts` 和 `definitions.ts` 文件中。
+将 `src/plugins/screen-orientation` 目录下文件的内容复制到插件项目中对应的 `web.ts`、`index.ts` 和 `definitions.ts` 文件中。
 
-接着将 `ScreenOrientation.swift`、`ScreenOrientationPlugin.m` 和 `ScreenOrientationPlugin.swift` 的内容从原代码库复制到新项目。
+接下来，将一个代码库中的 `ScreenOrientation.swift`、`ScreenOrientationPlugin.m` 和 `ScreenOrientationPlugin.swift` 的内容复制到另一个代码库中。
 
-同样处理 `ScreenOrientation.java` 和 `ScreenOrientationPlugin.java` 文件后，更新插件项目中这些文件的包名：
+然后，对 `ScreenOrientation.java` 和 `ScreenOrientationPlugin.java` 执行相同的操作。之后，在插件项目中更新这些文件的包名：
 
 ```java
 package io.ionic.plugins.screenorientation
 ```
 
-上述包名是在生成插件项目时指定的，项目中的所有 Android 文件都应使用这个包名。
+上面的包名是在生成插件项目时提供的，项目中的任何 Android 文件都应使用此包名。
 
-最后运行以下命令，验证代码移植过程中没有出现问题：
+最后，运行以下命令来验证代码移植过程中是否出现问题：
 
 ```bash
 npm run verify
 ```
 
-> **注意:** 发布前可以通过将插件文件夹链接到 Capacitor 项目进行测试。详情请参阅 <a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">插件开发工作流</a>。
+> **注意：** 你可以在发布插件之前，通过将插件文件夹链接到 Capacitor 项目来测试插件。详情请参阅 <a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">插件开发工作流程</a>。
 
 ## 更新插件文档
 
-查看插件项目的 `README.md` 文件，会发现运行 `npm run verify` 时已更新了插件 API 的文档。如果修改了源文件的 JSDoc 注释，可以通过运行 `npm run docgen` 来更新 README 文件中的 API 部分。
+查看插件项目的 `README.md` 文件；它已被更新以记录插件的 API。这个更新是在我们运行 `npm run verify` 时发生的。对源文件 JSDoc 注释的任何更改都可以通过运行 `npm run docgen` 反映在 readme 文件的 API 部分中。
 
-本插件要求开发者修改其 Capacitor 应用的 `AppDelegate.swift` 文件，因此使用说明中应包含具体操作指引。
+该插件要求开发者修改其 Capacitor 应用的 `AppDelegate.swift` 文件，因此应在插件文档中包含如何操作的说明。
 
-> **注意:** 务必记录开发者安装或配置插件时需要进行的任何修改。
+> **注意：** 请务必记录开发者在安装或配置你构建的插件时需要进行的任何修改。
 
-将 `README.md` 中的「安装」部分替换为以下内容：
+将 `README.md` 中的“安装”部分替换为以下 Markdown 内容：
 
 ## 安装
 
@@ -78,7 +78,7 @@ npx cap sync
 
 ### iOS
 
-iOS 平台需要在 `AppDelegate.swift` 文件中进行如下修改：
+对于 iOS，你必须对 `AppDelegate.swift` 文件进行以下调整：
 
 ```diff
 import UIKit
@@ -94,14 +94,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## 发布插件
 
-现在插件已具备发布到 npm 注册表的条件。虽然本教程不会实际执行发布，但请注意发布 Capacitor 插件项目的命令与发布其他 npm 包相同：`npm publish`。
+插件现在已经处于可以发布到 npm 注册表的状态。本教程中我们不会实际发布，但请注意，发布 Capacitor 插件项目的命令与发布任何其他 npm 包相同：`npm publish`。
 
-您可以选择将全局 Capacitor 插件发布到公共 npm 注册表、私有注册表，或者仅在本地机器上链接到多个项目。具体方式取决于您的使用场景。
+你可以将全局 Capacitor 插件发布到公共 npm 注册表、私有注册表，或者仅将其链接到你机器本地的多个项目。具体方式取决于你的使用场景。
 
-此外，还可以将插件托管到 <a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub 组织</a>，在这里您可以与社区和 Capacitor 团队密切合作，持续开发和维护您的插件。
+此外，还有一个 <a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor 社区 GitHub 组织</a>，你可以在其中托管你的插件，并在继续开发和维护插件时与社区和 Capacitor 团队紧密合作。
 
-## 结语
+## 结论
 
-Capacitor 的插件 API 提供了一套灵活强大的解决方案，能够为 Capacitor 应用补充 Web 平台所不具备的原生功能。无论是为特定应用添加定制原生代码，还是在多个应用间复用原生代码，都能完美胜任。
+Capacitor 的插件 API 是一个灵活且强大的解决方案，可以为 Capacitor 应用补充 Web 平台无法提供的原生功能，无论是为特定应用添加自定义原生代码，还是在多个应用之间复用原生代码。
 
-期待您开发的下一个插件！🎉
+期待你接下来开发的插件！🎉

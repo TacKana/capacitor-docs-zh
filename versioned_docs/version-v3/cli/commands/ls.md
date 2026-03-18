@@ -14,6 +14,6 @@ sidebar_label: ls
 npx cap ls [<platform>]
 ```
 
-<strong>输入参数:</strong>
+<strong>输入参数：</strong>
 
 - `platform` (可选): `android`, `ios`

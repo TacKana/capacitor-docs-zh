@@ -1,31 +1,31 @@
 ---
-title: Capacitor's JavaScript API
-description: Capacitor的JavaScript API接口
+title: Capacitor 的 JavaScript API
+description: Capacitor 的 JavaScript API
 slug: /basics/utilities
 sidebar_label: JavaScript API
 ---
 
-# Capacitor的JavaScript API
+# Capacitor 的 JavaScript API
 
-Capacitor提供多个JavaScript函数，确保应用能在多平台上使用相同代码库成功运行。
+Capacitor 提供了多个 JavaScript 函数，以确保应用能够使用同一套代码库在多个平台上成功运行。
 
-## 全局Capacitor对象
+## 全局 Capacitor 对象
 
-可通过以下代码导入全局Capacitor对象：
+你可以通过以下代码导入全局 Capacitor 对象：
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
 ```
 
-`Capacitor`对象包含多个函数，能够解决开发Capacitor应用时最常见的WebView与原生交互问题。
+`Capacitor` 对象包含多个函数，可帮助你解决在开发 Capacitor 应用时可能遇到的最常见的 WebView 与原生代码交互问题。
 
 ### Capacitor.convertFileSrc
 
 `convertFileSrc: (filePath: string) => string;`
 
-将设备文件路径转换为Web View友好的路径。
+将设备文件路径转换为 Web View 友好的路径。
 
-Capacitor应用使用与设备文件不同的协议提供服务。为避免协议冲突，设备文件路径需要重新处理。例如在Android平台上，`file:///path/to/device/file`需要被转换为`http://localhost/_capacitor_file_/path/to/device/file`才能在Web View中使用。
+Capacitor 应用的服务协议与设备文件不同。为了避免这些协议间的冲突，设备文件的路径必须被重写。例如，在 Android 上，`file:///path/to/device/file` 在使用于 Web View 之前，必须被重写为 `http://localhost/_capacitor_file_/path/to/device/file`。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -43,15 +43,15 @@ const fixedPhotoUri = Capacitor.convertFileSrc(rawPhotoUri.uri),
 
 `getPlatform: () => 'web' | 'ios' | 'android';`
 
-获取当前运行平台的名称。根据运行设备不同，返回值为`"web"`、`"ios"`或`"android"`。
+获取应用当前运行平台的名称。根据应用运行的设备，该函数将返回 `"web"`、`"ios"` 或 `"android"` 中的一个值。
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
-  console.log('iOS平台！');
+  console.log('iOS!');
 } else if (Capacitor.getPlatform() === 'android') {
-  console.log('Android平台！');
+  console.log('Android!');
 } else {
-  console.log('网页端！');
+  console.log('Web!');
 }
 ```
 
@@ -59,13 +59,13 @@ if (Capacitor.getPlatform() === 'ios') {
 
 `isNativePlatform: () => boolean;`
 
-检测当前运行平台是否为原生环境。如果应用是以原生Capacitor应用形式运行则返回`true`，如果是通过浏览器访问或作为PWA安装则返回`false`。
+检查当前运行平台是否为原生平台。如果应用作为已安装的原生 Capacitor 应用运行，该函数返回 `true`；如果通过浏览器访问或作为 PWA 安装，则返回 `false`。
 
 ```typescript
 if (Capacitor.isNativePlatform()) {
-  console.log("这是一个原生应用！");
+  console.log("我是一款原生应用！");
 } else {
-  console.log("这是一个PWA或网页应用！");
+  console.log("我是一款 PWA 或 Web 应用！");
 }
 ```
 
@@ -73,15 +73,15 @@ if (Capacitor.isNativePlatform()) {
 
 `isPluginAvailable: (name: string) => boolean;`
 
-检查当前平台上是否可用指定插件。插件名称使用插件注册表中的标识，因此也适用于自定义插件。
+检查在当前运行平台上某个插件是否可用。插件名称在插件注册表中使用，这意味着它也适用于自定义插件。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 if (!isAvailable) {
-  // 让用户改用文件上传
+  // 让用户上传文件替代
 } else {
-  // 否则直接调用：
+  // 否则，调用插件：
   const image = await Camera.getPhoto({
     resultType: CameraResultType.Uri,
   });

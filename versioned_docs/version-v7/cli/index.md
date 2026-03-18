@@ -3,13 +3,13 @@ title: CLI 参考
 description: Capacitor CLI 参考文档
 contributors:
   - dotNetkow
-sidebar_label: 概述
+sidebar_label: 概览
 slug: /cli
 ---
 
 # Capacitor CLI
 
-Capacitor 命令行界面（CLI）工具用于开发 Capacitor 应用程序。
+Capacitor 命令行界面（CLI）工具用于开发 Capacitor 应用。
 
 ## CLI 参考
 
@@ -38,7 +38,7 @@ npx cap [-V] [-h] [<command>]
 - [`sync`](/cli/commands/sync.md)
 - [`update`](/cli/commands/update.md)
 
-## 更多资源
+## 附加资源
 
 [了解如何安装 Capacitor CLI &#8250;](/main/getting-started/installation.md)
 

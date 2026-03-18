@@ -1,21 +1,21 @@
 ---
-title: 发布到App Store
-description: 如何将iOS Capacitor应用发布至苹果App Store
+title: 部署至 App Store
+description: 如何将 iOS Capacitor 应用部署到 Apple App Store
 contributors:
   - mlynch
 slug: /ios/deploying-to-app-store
 ---
 
-# 将Capacitor iOS应用发布至App Store
+# 将你的 Capacitor iOS 应用部署到 App Store
 
-由于Capacitor应用本质上是标准的原生应用，其发布到App Store的方式与任何其他原生应用完全相同。
+归根结底，Capacitor 应用本质上是标准的原生应用，因此将其部署到 App Store 的方式与任何其他原生应用并无二致。
 
-首先，请参考苹果官方文档关于[提交应用到App Store](https://developer.apple.com/app-store/submissions/)的说明。应用启动画面和图标生成的详细指南可[参阅此处](/main/guides/splash-screens-and-icons.md)。
+首先，请查阅 Apple 官方的 [App Store 应用提交指南](https://developer.apple.com/app-store/submissions/)。关于如何为你的应用生成启动画面和图标，请[参阅此处](/main/guides/splash-screens-and-icons.md)。
 
-如需包含Capacitor特定注意事项的指南，推荐阅读[Josh Morony的精彩教程](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)。
+如需一份包含 Capacitor 特定注意事项的指南，可以参考 [Josh Morony 关于此主题的优秀指南](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)。
 
-## 自动化发布流程
+## 自动化部署
 
-对于希望简化App Store（及Google Play商店）发布流程，甚至将其集成至CI/CD工作流实现自动化的团队，Capacitor母公司Ionic提供了强大的移动开发运维服务[Appflow](https://useappflow.com/)，该服务提供端到端的应用开发与发布能力。
+对于希望简化 App Store（以及 Google Play 商店）提交流程，甚至希望通过集成到 CI/CD 工作流来实现自动化的团队，Capacitor 的母公司 Ionic 提供了一项强大的移动 DevOps 服务——[Appflow](https://useappflow.com/)。该服务提供端到端的应用开发和部署能力。
 
-感兴趣吗？查看这份[简明指南](/main/guides/deploying-updates.md)了解工作原理及如何在Capacitor中使用，或参阅官方[Appflow文档](https://ionicframework.com/docs/appflow/)。
+感兴趣吗？请查看这份[简要指南](/main/guides/deploying-updates.md)，了解其工作原理以及如何立即将其与 Capacitor 结合使用，或者参阅官方的 [Appflow 文档](https://ionicframework.com/docs/appflow/)。

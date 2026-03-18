@@ -14,19 +14,19 @@ sidebar_label: update
 npx cap update [<platform>]
 ```
 
-<strong>输入参数:</strong>
+<strong>输入参数：</strong>
 
 - `platform` (可选): `android`, `ios`
 
-<strong>选项:</strong>
+<strong>选项：</strong>
 
-- `--deployment`: 保留 Podfile.lock 文件，并使用 `--deployment` 选项执行 pod install。
+- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
-## 钩子函数
+## 钩子
 
-update 命令支持以下钩子函数：
+update 命令可用的钩子如下：
 
 - `capacitor:update:before`
 - `capacitor:update:after`
 
-[了解更多](../hooks)
+[更多信息](../hooks)

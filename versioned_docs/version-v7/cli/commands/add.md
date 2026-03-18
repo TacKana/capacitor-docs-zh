@@ -16,9 +16,9 @@ npx cap add <platform>
 
 <strong>输入参数：</strong>
 
-- `platform` (必填): `android`, `ios`
+- `platform` (必需): `android`, `ios`
 
 <strong>选项：</strong>
 
-仅限 iOS：
+仅限 iOS:
 - `--packagemanager`: `SPM`, `Cocoapods`

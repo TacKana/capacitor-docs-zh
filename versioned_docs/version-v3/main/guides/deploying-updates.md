@@ -1,6 +1,6 @@
 ---
-title: 应用部署与更新
-description: 实时远程更新您的Capacitor应用，即使通过应用商店也能实现
+title: 部署与更新
+description: 即使通过应用商店，也能实时远程更新您的 Capacitor 应用
 contributors:
   - mlynch
 slug: /guides/deploying-updates
@@ -8,34 +8,34 @@ slug: /guides/deploying-updates
 
 # 应用部署与实时更新
 
-应用开发的最后阶段涉及将应用发布到应用商店，并保持长期更新。
+应用开发的最后一步是将您的应用发布到应用商店，并在后续持续保持更新。
 
-采用Web Native移动开发方法的核心优势在于：只要更新不涉及二进制变更（即无需重新编译原生功能），就能以符合应用商店政策的方式实现实时更新。
+Web Native 移动开发方法的一个关键优势在于，只要变更不需要二进制更新（即编译后的原生功能），就能够以应用商店友好的方式对应用进行实时更新。
 
-此外，由于大多数Capacitor开发者需要同时面向iOS、Android和Web平台，手动向每个商店提交应用和二进制更新会带来不必要的繁琐工作。
+此外，由于大多数 Capacitor 开发者同时面向 iOS、Android（以及 Web）平台，手动向每个商店发布应用和二进制更新可能会变得不必要的繁琐。
 
-为简化应用商店发布和长期更新流程，Capacitor背后的公司Ionic提供了强大的移动DevOps平台——[Appflow](https://useappflow.com/)。
+为了让应用商店发布和长期应用更新变得更加便捷，Capacitor 背后的公司 Ionic 提供了一个强大的移动 DevOps 平台：[Appflow](https://useappflow.com/)。
 
-## 通过Appflow实现自动化商店发布
+## 使用 Appflow 自动化应用商店发布
 
-Appflow为Capacitor开发者提供了多项省时功能，其中最亮眼的是支持直接发布到Apple App Store和Google Play商店。所有套餐都包含每月限定次数的部署额度，更高阶套餐可扩展应用数量限制并支持全自动部署。
+Appflow 为 Capacitor 开发者提供了几大节省时间的功能。其中最引人注目的功能之一是能够直接发布到 Apple App Store 和 Google Play Store。所有计划都支持每月一定数量的部署，更高层级的计划还提供扩展限制以支持更多应用，并能实现完全自动化的部署。
 
-## 使用Appflow实施实时更新
+## 通过 Appflow 部署实时更新
 
-结合应用商店发布功能，开发者可以通过Appflow的实时部署特性，在整个应用生命周期内推送即时更新。
+与应用商店发布功能相结合，开发者可以在应用的整个生命周期内，利用 Appflow 的实时部署功能来部署应用更新。
 
-实时部署的原理基于Capacitor应用本质上是嵌入了原生功能的Web应用。苹果和谷歌明确允许应用更新Web内容，因此该特性完全符合商店政策，为移动团队提供了前所未有的敏捷性。
+实时部署的工作原理基于 Capacitor 应用主要是作为 Web 应用构建，并通过钩子调用原生功能。Apple 和 Google 明确允许对应用进行 Web 内容更新，因此此功能与应用商店兼容，并为移动应用团队提供了前所未有的灵活性。
 
-## 无缝对接Git代码库
+## 连接 GitHub、Bitbucket 和 GitLab
 
-Appflow可直接连接GitHub、Bitbucket或GitLab仓库，实现基于Git触发的构建和部署。
+Appflow 可以直接连接到 GitHub、Bitbucket 或 GitLab 仓库，实现基于 Git 触发的构建和部署。
 
-这让您能轻松对接现有开发流程，零干扰地开启自动化商店发布与实时更新功能。
+这使得连接至您现有的开发流程变得非常容易，从而在零干扰的情况下添加自动化的应用商店发布和实时更新功能。
 
-## 立即体验Appflow
+## 立即试用 Appflow
 
-Appflow已为众多消费级和企业级应用提供支持，服务用户数亿并产生显著商业影响。从财富500强到数千家中小企业，Appflow团队都有深入合作。
+Appflow 为拥有数亿用户并产生重要商业影响的主要消费级和企业级应用提供支持。Appflow 团队与众多财富 500 强公司以及数千家中小型企业紧密合作。
 
-由于Appflow团队与Capacitor核心团队紧密协作，该平台针对Capacitor进行了深度优化。
+并且，由于 Appflow 背后的团队与 Capacitor 团队紧密合作，Appflow 经过优化以最适合与 Capacitor 协同工作。
 
-现在即可免费开始使用Appflow，只需使用您可能已有的Ionic账户。访问[useappflow.com](https://useappflow.com/) 或查阅[文档](https://ionicframework.com/docs/v3/appflow) 了解更多运作细节。
+Appflow 提供免费开始使用，并使用您过去可能使用过的相同 Ionic 账户。要开始使用，请访问 [useappflow.com](https://useappflow.com/) 或浏览 [文档](https://ionicframework.com/docs/v3/appflow) 以了解更多关于 Appflow 的工作原理。

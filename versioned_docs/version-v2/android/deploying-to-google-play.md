@@ -1,21 +1,21 @@
 ---
-title: 发布到Google Play
-description: 如何将基于Capacitor的Android应用发布到Google Play商店
+title: 部署到 Google Play
+description: 如何将 Android Capacitor 应用部署到 Google Play 商店
 contributors:
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/android/deploying-to-google-play
 ---
 
-# 将Capacitor Android应用发布至Google Play商店
+# 将您的 Capacitor Android 应用部署到 Google Play 商店
 
-由于Capacitor应用本质上是标准的原生应用，因此其发布流程与常规Android应用完全一致。
+由于 Capacitor 应用本质上就是标准的原生应用，因此将其部署到 Google Play 商店的方式与任何其他原生 Android 应用并无二致。
 
-首先，请参考Google官方的[发布清单](https://developer.android.com/distribute/best-practices/launch/launch-checklist)来准备应用提交材料。关于如何生成应用启动画面和图标，可查阅[本指南](/guides/splash-screens-and-icons.md)。
+首先，请参考 Google 官方文档中的 [发布清单](https://developer.android.com/distribute/best-practices/launch/launch-checklist) 来准备提交您的应用。关于为您的应用生成启动画面和图标，[请参阅此处](/guides/splash-screens-and-icons.md)。
 
-如需获取针对Capacitor应用的特别建议，推荐阅读[Josh Morony编写的详尽指南](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/)。
+如需一份包含 Capacitor 特定注意事项的指南，请参阅 [Josh Morony 关于此主题的优秀指南](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/)。
 
-## 自动化发布流程
+## 自动化部署
 
-对于希望简化Google Play商店（及Apple App Store）发布流程，并实现CI/CD自动化集成的开发团队，Capacitor的母公司Ionic提供了强大的移动开发运维服务[Appflow](https://useappflow.com/)，该平台支持端到端的应用开发和发布管理。
+对于希望简化 Google Play 商店（以及 Apple App Store）提交流程，甚至希望通过集成到其 CI/CD 工作流中来实现自动化的团队，Capacitor 的母公司 Ionic 提供了一项强大的移动 DevOps 服务，名为 [Appflow](https://useappflow.com/)，它提供端到端的应用开发和部署能力。
 
-想了解更多？请查看这份[简明指南](/guides/deploying-updates.md)了解工作原理及如何在Capacitor项目中使用，或参阅官方[Appflow文档](https://ionicframework.com/docs/appflow/)。
+感兴趣吗？请查看这份 [简要指南](/guides/deploying-updates.md)，了解其工作原理以及如何立即将其与 Capacitor 结合使用，或者查看官方 [Appflow 文档](https://ionicframework.com/docs/appflow/)。

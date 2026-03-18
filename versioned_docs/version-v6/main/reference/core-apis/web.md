@@ -1,16 +1,16 @@
 ---
 title: Capacitor Web API
-description: Capacitor 在 Web 端的 API 接口
+description: Capacitor 在 Web 平台上的 API
 slug: /core-apis/web
 ---
 
 # Capacitor Web API
 
-Capacitor 提供了一系列 JavaScript 实用工具，帮助开发者使用相同代码库确保应用能在多平台上成功运行。使用时只需导入 Capacitor 后调用相应功能函数：
+Capacitor 提供了一些实用的 JavaScript 工具，可确保应用程序在不同平台上使用同一份代码库成功运行。使用时，请导入 Capacitor 对象，然后调用所需的工具函数：
 
 ## Capacitor 对象
 
-`Capacitor` 对象是多个实用函数的容器。虽然可以通过 `window.Capacitor` 访问，但在现代 JavaScript 应用中推荐使用导入方式：
+`Capacitor` 对象是多个工具函数的容器。可通过 `window.Capacitor` 访问，但对于现代 JavaScript 应用，推荐使用导入方式：
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -24,7 +24,7 @@ convertFileSrc: (filePath: string) => string;
 
 将设备文件路径转换为 Web 视图友好的路径。
 
-由于 Capacitor 应用与设备文件使用不同的协议提供服务，为避免协议冲突，需要重写设备文件路径。例如在 Android 上，`file:///path/to/device/file` 必须重写为 `http://localhost/_capacitor_file_/path/to/device/file` 才能在 Web 视图中使用。
+Capacitor 应用所使用的协议与设备文件协议不同。为了避免协议间的冲突，指向设备文件的路径必须被重写。例如，在 Android 上，`file:///path/to/device/file` 必须被重写为 `http://localhost/_capacitor_file_/path/to/device/file`，才能在 Web 视图中使用。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -49,11 +49,11 @@ document.getElementById("savedPhoto").src = savedPhoto;
 getPlatform: () => string;
 ```
 
-获取当前应用运行平台的名称：`web`、`ios` 或 `android`。
+获取应用当前运行平台的名称：`web`、`ios` 或 `android`。
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
-  // iOS平台特定逻辑
+  // 执行特定于 iOS 的操作
 }
 ```
 
@@ -63,11 +63,11 @@ if (Capacitor.getPlatform() === 'ios') {
 isNativePlatform: () => boolean;
 ```
 
-检测当前运行平台是否为原生平台（`ios` 或 `android`）。
+检查当前运行平台是否为原生平台（`ios` 或 `android`）。
 
 ```typescript
 if (Capacitor.isNativePlatform()) {
-  // 原生平台特定逻辑
+  // 执行原生平台特定的操作
 }
 ```
 
@@ -77,15 +77,15 @@ if (Capacitor.isNativePlatform()) {
 isPluginAvailable: (name: string) => boolean;
 ```
 
-检测指定插件在当前平台是否可用。插件名称使用插件注册表中的名称，因此也适用于自定义插件。
+检查当前运行平台上某个插件是否可用。插件名称基于插件注册表，这意味着此方法也适用于自定义插件。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 if (!isAvailable) {
-  // 让用户改为上传文件
+  // 让用户上传文件作为替代方案
 } else {
-  // 调用相机功能：
+  // 否则，调用插件：
   const image = await Camera.getPhoto({
     resultType: CameraResultType.Uri,
   });

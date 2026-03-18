@@ -9,7 +9,7 @@ slug: /plugins/method-types
 
 # 方法类型
 
-开发插件时，可以使用三种不同的方法签名类型。所有方法都是异步且基于 Promise 的。
+开发插件时，可以使用三种不同的方法签名类型。它们都是异步且基于 Promise 的。
 
 让我们来看一个包含所有三种类型的插件定义：
 
@@ -29,11 +29,11 @@ export interface MyPlugin {
 }
 ```
 
-## 无返回值类型
+## 无返回值
 
-`method1()` 是最简单的情况，预期不返回任何数据。您可以检查 Promise 是否有错误，但当它解析时，结果会被忽略。
+`method1()` 是最简单的情况，预期不返回任何数据。你可以检查 Promise 是否有错误，但当它解析时，结果会被忽略。
 
-对于 Android，您可以这样注解方法：
+对于 Android，你需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -49,11 +49,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 值返回类型
+## 有返回值
 
-`method2()` 是最常见的情况：一个会解析出某个值的 Promise。
+`method2()` 是最常见的情况：一个解析后返回某个值的 Promise。
 
-对于 Android，此方法类型是默认的，指定返回类型是可选的：
+对于 Android，这种方法是默认类型，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -61,7 +61,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -69,11 +69,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 回调类型
+## 回调函数
 
-`method3()` 是最复杂的类型，但在实践中也是最不常见的。它用于当您的插件需要重复返回数据时，例如通过地理定位 API 监控设备位置时。
+`method3()` 是最复杂的类型，但在实际开发中也最不常见。它适用于你的插件需要重复返回数据的情况，例如通过地理位置 API 监控设备位置时。
 
-对于 Android，您可以这样注解方法：
+对于 Android，你需要这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -81,7 +81,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-对于 iOS，您需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -89,6 +89,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接受一个函数，该函数将从原生代码中（可能多次）被调用，并返回一个会解析为标识符的 Promise。
+回调方法接收一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
 
-在原生端，实现回调意味着您需要保存调用，以便在以后的时间点调用。具体的处理方法[在此处讨论](/main/reference/core-apis/saving-calls.md)。
+在原生端，实现回调意味着你需要保存调用，以便在稍后调用。如何处理的具体细节[在这里讨论](/main/reference/core-apis/saving-calls.md)。

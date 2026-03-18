@@ -1,3 +1,3 @@
-# Utils folder
+# 工具文件夹
 
-This folder is meant to contain all utility files and functions.
+此文件夹用于存放所有工具文件和函数。

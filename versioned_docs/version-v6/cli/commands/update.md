@@ -1,6 +1,6 @@
 ---
-title: CLI Command - cap update
-description: Capacitor - cap update 命令
+title: CLI 命令 - cap update
+description: Capacitor - cap update
 contributors:
   - dotNetkow
 sidebar_label: update
@@ -14,19 +14,19 @@ sidebar_label: update
 npx cap update [<platform>]
 ```
 
-<strong>参数：</strong>
+<strong>输入参数：</strong>
 
 - `platform` (可选): `android`, `ios`
 
 <strong>选项：</strong>
 
-- `--deployment`: 保留 Podfile.lock 文件，并使用 `--deployment` 参数执行 pod install 命令。
+- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
-## 钩子函数
+## 钩子
 
-update 命令支持以下钩子：
+update 命令可使用以下钩子：
 
 - `capacitor:update:before`
 - `capacitor:update:after`
 
-[了解更多](../hooks)
+[更多信息](../hooks)

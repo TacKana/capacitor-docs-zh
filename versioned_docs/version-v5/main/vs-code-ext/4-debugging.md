@@ -1,69 +1,69 @@
 ---
-title: Debugging
+title: 调试
 description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/debugging
 ---
 
-您可以通过[扩展功能](#debug-in-vs-code)或[附加到网页视图](#attach-to-web-view)来调试应用程序。还可以使用[远程日志](#remote-logging)功能进行类似 `console.log` 的调试操作。
+你可以使用 [扩展](#debug-in-vs-code) 或 [附加到 Web 视图](#attach-to-web-view) 来调试你的应用。此外，你也可以使用 [远程日志记录](#remote-logging) 进行类似 `console.log` 风格的调试。
 
 :::tip
-按下 `⌥` + D 键（Windows 系统为 `ALT` + `D`）即可启动调试模式。
+你可以按下 `⌥` + D 来调试你的应用（Windows 上是 `ALT` + `D`）。
 :::
 
 ## 在 VS Code 中调试
 
-点击 `Debug` 选项可启动网页浏览器或附加到正在运行的 Android 网页视图进行调试。
+点击 `Debug` 项目以启动一个 Web 浏览器或附加到正在运行的 Android Web 视图进行调试。
 
-选择 `Debug` > `Web` 将启动 Chrome 或 MS Edge 等可调试浏览器。此操作会构建您的应用，并将 VS Code 切换到调试模式，支持设置断点、检查变量等功能。
+点击 `Debug` > `Web` 以启动一个**可调试的** Web 浏览器，例如 Chrome 或 MS Edge。这将构建你的应用，然后将 VS Code 置于调试模式，允许你设置断点、检查变量等。
 
 :::note
-可通过 `Settings` > `Advanced` > `Browser` 选择调试使用的浏览器。
+你可以从 `Settings` > `Advanced` > `Browser` 中选择要调试的浏览器。
 :::
 
-## 附加到网页视图
+## 附加到 Web 视图
 
-要调试真实或模拟的 Android 设备，请先通过 `Run` > `Android` 或 Android Studio 运行应用。
+你可以通过先点击 `Run` > `Android` 或在 Android Studio 中运行应用来调试正在运行的真实或模拟 Android 设备。
 
-点击 `Debug` 选项，所有正在运行的 Android 网页视图都会显示，选择任意视图即可开启调试会话。
+点击 `Debug` 项目，所有正在运行的 Android Web 视图都会显示出来，点击其中一个即可开始该视图的调试会话。
 
 :::note
-您也可以使用 Chrome 或 Safari 附加到网页视图，利用其内置的调试和检查工具。
+你也可以使用 Chrome 或 Safari 附加到 Web 视图，并使用它们内置的调试和检查工具。
 :::
 
 ### 使用 Chrome 检查工具
 
-通过 `Run` > `Android` 或 Android Studio 运行应用后：
-- 打开 **Google Chrome**，在地址栏输入 `chrome://inspect` 并回车
-- 所有运行中的网页视图将显示为可打开的远程目标
-- 使用 Chrome 的调试和检查工具
+当你从 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Google Chrome**，在地址栏输入：`chrome://inspect` 并按回车。
+- 任何正在运行的 Web 视图将作为远程目标显示，你可以打开它们。
+- 使用 Chrome 的调试和检查工具。
 
 ### 使用 Edge 检查工具
 
-通过 `Run` > `Android` 或 Android Studio 运行应用后：
-- 打开 **Microsoft Edge**，在地址栏输入 `edge://inspect` 并回车
-- 所有运行中的网页视图将显示为可打开的远程目标
-- 使用 Edge 的调试和检查工具
+当你从 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Microsoft Edge**，在地址栏输入：`edge://inspect` 并按回车。
+- 任何正在运行的 Web 视图将作为远程目标显示，你可以打开它们。
+- 使用 Edge 的调试和检查工具。
 
 ### 使用 Safari
 
-通过 `Run` > `iOS` 或 XCode 运行应用后：
-- 打开 **Safari**，从 `Develop` 菜单中选择 iOS 设备
-- 使用 Safari 的调试和检查工具
+当你从 `Run` > `iOS` 或 XCode 运行应用后：
+- 打开 **Safari**，从 `Develop` 菜单中选择 iOS 设备。
+- 使用 Safari 的调试和检查工具。
 
 :::note
-需先在 Safari 菜单 > `设置` > `高级` 中勾选 `在菜单栏显示"开发"菜单` 启用开发模式。
+你需要通过进入 `Safari` 菜单 > `设置` > `高级`，并勾选 `在菜单栏中显示“开发”菜单` 来启用 Safari 的开发模式。
 
-同时确保移动设备已开启调试权限。
+你还需要确保你的移动设备已启用调试功能。
 :::
 
-## 远程日志
+## 远程日志记录
 
-远程日志功能会将所有 `console.log`（及 `console.error` 等）调用发送至 VS Code 的 `output` 窗口。这使得在设备上运行应用时的调试更加便捷，无需附加到网页视图。
+远程日志记录功能会将所有对 `console.log`（以及 `console.error` 等）的调用发送到 VS Code 的 `output` 窗口。这使得在设备上运行应用时进行调试变得更加容易，因为你不需要附加到其 Web 视图。
 
-使用此功能需在设备上安装 Nexus Browser（[App Store](https://apps.apple.com/us/app/nexus-web-browser/id6445866986) 或 [Play Store](https://play.google.com/store/apps/details?id=com.nexusconcepts.nexus)），并通过 VS Code 以网页模式运行应用。若设备处于同一 WiFi 网络，将自动检测到您的应用并允许启动。
+要使用此功能，请在设备上安装 Nexus 浏览器（[App Store](https://apps.apple.com/us/app/nexus-web-browser/id6445866986) 或 [Play Store](https://play.google.com/store/apps/details?id=com.nexusconcepts.nexus)），并在 VS Code 中为 Web 运行你的应用。如果设备在同一 Wi-Fi 网络中，它将检测到你的应用并允许你启动它。
 
 :::tip
-通过 `Settings` > `Logging` 可筛选输出窗口显示的日志内容。
+选择 `Settings` > `Logging` 以过滤要记录到输出窗口的内容。
 :::

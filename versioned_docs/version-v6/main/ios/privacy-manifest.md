@@ -1,61 +1,61 @@
 ---
-title: 隐私清单文件
-description: 为iOS应用添加隐私清单文件
+title: Privacy Manifest
+description: 为 iOS 应用添加隐私清单（Privacy Manifest）
 slug: /ios/privacy-manifest
 ---
 
-苹果在WWDC23上推出了新的[第三方SDK隐私协议](https://developer.apple.com/news/?id=3d8a9yyh)，要求SDK开发者在其SDK中声明使用API的合规理由，以提高透明度和用户隐私保护。
+在 WWDC23 上，Apple 为第三方 SDK 引入了新的[隐私协议](https://developer.apple.com/news/?id=3d8a9yyh)，要求 SDK 作者在其 SDK 中声明 API 使用的原因，以增强透明度和用户隐私。
 
-自2024年3月13日起，当开发者上传缺少API使用合规声明的新应用或更新时，App Store Connect将发出通知。
+从 2024 年 3 月 13 日开始，当上传新的或更新的应用程序到 App Store Connect 时，如果未提供访问特定 API 的批准理由，系统将通知用户。
 
-**2024年5月1日起，所有提交至App Store Connect的新应用或更新都必须包含API使用合规声明。**
+**从 2024 年 5 月 1 日开始，向 App Store Connect 提交新的或更新的应用程序时，必须包含批准的理由。**
 
-## 合规操作指南
+## 满足要求的步骤
 
-并非所有应用都会触发提示，但使用某些插件（如`@capacitor/filesystem`和`@capacitor/preferences`）可能需要添加隐私清单文件。若您已收到相关通知：
+并非所有应用都会被标记，但某些插件（例如 `@capacitor/filesystem` 和 `@capacitor/preferences`）可能需要隐私清单文件。如果您已收到通知：
 
-1. 升级Capacitor至：
-a. `>= 6.0.0`（Capacitor 6）
-b. `>= 5.7.4`（Capacitor 5）
-c. `>= 4.8.2`（Capacitor 4）
-d. Capacitor 3及以下版本不受支持
-2. 可选择使用VS Code扩展自动生成隐私清单文件，或手动创建
+1. 更新 Capacitor 至：
+   a. `>= 6.0.0`（适用于 Capacitor 6）
+   b. `>= 5.7.4`（适用于 Capacitor 5）
+   c. `>= 4.8.2`（适用于 Capacitor 4）
+   d. 不支持 Capacitor <= 3
+2. 使用 VS Code 扩展为您的应用创建隐私清单文件，或者手动创建。
 
-### 使用VS Code扩展
+### VS Code 扩展
 
-确保已安装[Ionic VS Code扩展](https://ionic.link/vscode)并打开项目。
+确保您已安装 [Ionic VS Code 扩展](https://ionic.link/vscode) 并打开您的项目。
 
-在推荐操作中，若检测到应用使用了需要声明的API插件，将显示*添加隐私清单*选项。
+在推荐列表中，如果您的应用使用了某些 API 的插件，您将看到 *添加隐私清单* 的提示。
 
-![无清单文件](/img/v6/docs/ios/no-manifest.png)
+![无清单](/img/v6/docs/ios/no-manifest.png)
 
-选择"是"可创建基础隐私清单文件。
+选择“是”以创建最基本的隐私清单文件。
 
-扩展随后会列出所有需要补充的隐私声明项，标记为*缺失隐私清单类别*。例如：
+随后，扩展将列出所有需要更改的内容，并以 *缺少隐私清单类别* 为标题显示为推荐项。例如：
 
 ![隐私变更](/img/v6/docs/ios/privacy-change.png)
 
-需为每个插件选择一个合规理由代码。若不确定如何选择，可点击*文档*查看苹果对各理由代码的官方说明。
+您必须选择一个原因代码来解释您如何使用该插件。如果不确定，请点击 *文档* 查看 Apple 关于每个原因代码解释的文档。
 
-请注意，VS Code扩展内置了常见插件的合规规则。若仍因隐私清单问题被苹果拒绝，可能是使用了扩展未识别的插件，可在[扩展问题追踪器](https://github.com/ionic-team/vscode-ionic/issues)提交问题。
+请注意，VS Code 扩展针对已知插件有一套规则来帮助您。如果您仍然因缺少隐私清单原因而被 Apple 拒绝，可能是因为您使用的插件不在扩展的已知范围内。您可以在 [VS Code 扩展问题跟踪器](https://github.com/ionic-team/vscode-ionic/issues) 上提出问题。
 
-### 手动创建步骤
+### 手动步骤
 
-如需手动创建隐私清单文件，请在Xcode中：
+如果您希望手动创建隐私清单文件，请打开 Xcode，然后：
 
-选择*文件 > 新建文件*
+选择 *文件 > 新建文件*。
 
-滚动至*资源*区域，选择*App隐私文件*类型
+滚动到 *资源* 部分并选择 *App Privacy File* 类型。
 
-点击*下一步*
+点击 *下一步*。
 
-在*目标*列表勾选您的应用
+在 *目标* 列表中勾选您的应用。
 
-点击*创建*
+点击 *创建*。
 
-将生成`PrivacyInfo.xcprivacy`文件。由于Xcode界面编辑较复杂，建议右键选择*用外部编辑器打开*进行手动编辑。
+将创建一个名为 `PrivacyInfo.xcprivacy` 的文件。此文件在 Xcode UI 中交互式创建较为困难，因此手动编辑可能更简单：右键单击该文件并选择 *使用外部编辑器打开*。
 
-以下是通过`@capacitor/preferences`插件使用UserDefaults API的示例文件：
+以下是一个示例文件，展示了通过使用 `@capacitor/preferences` 插件而访问 UserDefaults API 的 `PrivacyInfo.xcprivacy` 文件。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,10 +81,10 @@ d. Capacitor 3及以下版本不受支持
 </plist>
 ```
 
-可使用[此脚本](https://github.com/Wooder/ios_17_required_reason_api_scanner)扫描可能需声明的插件，运行命令：`sh required_reason_api_text_scanner.sh node_modules`
+要查找可能需要更改隐私清单的代码和插件，您可以运行类似 [此脚本](https://github.com/Wooder/ios_17_required_reason_api_scanner) 的脚本，例如运行 `sh required_reason_api_text_scanner.sh node_modules`。
 
-选择正确的理由代码（如上例中的`CA92.1`）需参考[苹果官方文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api)。
+要选择正确的原因代码（如上例中的 `CA92.1`），您需要阅读 [Apple 的文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api)。
 
-## 应用商店提交前
+## 提交到商店前
 
-提交至App Store前，可能还需声明用户追踪、追踪域名或其他应用特有的数据收集行为。详见[苹果官方文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)。
+在提交到 App Store 之前，您可能需要披露用户跟踪、跟踪域或收集其他对您的应用唯一的数据类型。更多信息请参阅 [Apple 的文档](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)。

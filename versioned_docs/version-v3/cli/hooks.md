@@ -1,5 +1,5 @@
 ---
-title: CLI Hooks
+title: CLI 钩子
 description: Capacitor CLI 钩子
 contributors:
   - jcesarmobile
@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI 钩子
 
-从 Capacitor 3.1 开始，可以使用以下事件来挂钩到 Capacitor 命令中：
+从 Capacitor 3.1 开始，您可以使用以下事件来挂钩到 Capacitor 命令中：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`
@@ -16,7 +16,7 @@ contributors:
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-要使用它们，请在你的应用程序的 `package.json` 的脚本部分添加事件名称和你想要运行的代码。
+要使用这些钩子，请在应用 `package.json` 文件的 scripts 部分添加事件名称以及您想要运行的代码。
 
 以下示例仅回显命令及其运行的平台：
 

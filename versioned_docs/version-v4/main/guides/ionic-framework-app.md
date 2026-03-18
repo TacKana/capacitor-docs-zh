@@ -1,15 +1,15 @@
 ---
-title: 构建 Ionic 框架相册应用
-description: 学习如何为跨平台 Ionic 应用添加相机功能（支持网页/iOS/Android）
+title: 构建 Ionic Framework 照片库应用
+description: 学习如何为 Ionic 应用添加相机功能，使其能够在 Web、iOS 和 Android 平台上运行
 contributors:
   - dotNetkow
 slug: /guides/ionic-framework-app
 ---
 
-# 构建 Ionic 相册应用
+# 构建 Ionic 照片库应用
 
-**支持平台**：网页、iOS、Android
+**平台**: Web, iOS, Android
 
-Capacitor 能轻松构建可原生运行于 iOS、Android、桌面端和网页端的应用程序。本教程将带您完成一个全平台兼容的相册应用开发。
+Capacitor 使得构建能够在 iOS、Android、桌面端和 Web 上原生运行的 Web 应用变得简单。在本指南中，我们将构建一个在所有平台上都能运行的完整照片库应用。
 
-> 本指南最新维护版本已迁移至 Ionic 官方文档，[最新版教程](https://ionicframework.com/docs/intro/next) 包含 Angular、React 和 Vue 的实现方案。
+> 本指南现已在 Ionic 官方文档中维护。[最新版本](https://ionicframework.com/docs/intro/next) 提供了针对 Angular、React 和 Vue 的教程。

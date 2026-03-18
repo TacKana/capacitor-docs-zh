@@ -7,18 +7,18 @@ contributors:
 
 # Capacitor CLI 钩子
 
-从 Capacitor 3.1 开始，您可以通过以下事件钩子接入 Capacitor 命令：
+从 Capacitor 3.1 开始，以下事件可用于挂钩到 Capacitor 命令：
 
-- `capacitor:copy:before`（复制前）
-- `capacitor:copy:after`（复制后）
-- `capacitor:update:before`（更新前）
-- `capacitor:update:after`（更新后）
-- `capacitor:sync:before`（同步前）
-- `capacitor:sync:after`（同步后）
+- `capacitor:copy:before`
+- `capacitor:copy:after`
+- `capacitor:update:before`
+- `capacitor:update:after`
+- `capacitor:sync:before`
+- `capacitor:sync:after`
 
-要使用这些钩子，只需在应用的 `package.json` 文件的 scripts 部分添加对应事件名称和要执行的代码。
+要使用它们，请在你的应用程序 `package.json` 文件的 scripts 部分添加事件名称和你想要运行的代码。
 
-以下示例展示了如何在执行命令时输出当前平台名称：
+以下是一个简单的示例，它会回显命令和运行该命令的平台：
 
 ```json
 "scripts": {

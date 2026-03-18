@@ -1,6 +1,6 @@
 ---
 title: Toast Capacitor 插件 API
-description: Toast API 提供了一种通知弹出框，用于向用户显示重要信息。就像真实的吐司面包一样醒目！
+description: Toast API 提供了一种通知弹窗，用于向用户显示重要信息。就像真正的吐司一样！
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/src/definitions.ts
 sidebar_label: Toast
@@ -8,7 +8,7 @@ sidebar_label: Toast
 
 # @capacitor/toast
 
-Toast API 提供了一种通知弹出框，用于向用户显示重要信息。就像真实的吐司面包一样醒目！
+Toast API 提供了一种通知弹窗，用于向用户显示重要信息。就像真正的吐司一样！
 
 ## 安装
 
@@ -37,12 +37,13 @@ const showHelloToast = async () => {
 
 <docgen-index>
 
-- [`show(...)`](#show)
-- [接口](#interfaces)
+* [`show(...)`](#show)
+* [接口](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
+
 
 ### show(...)
 
@@ -50,24 +51,26 @@ const showHelloToast = async () => {
 show(options: ShowOptions) => Promise<void>
 ```
 
-在屏幕上显示 Toast 提示
+在屏幕上显示一个 Toast
 
-| 参数          | 类型                                                |
-| ------------- | --------------------------------------------------- |
-| **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
+| 参数            | 类型                                                    |
+| --------------- | ------------------------------------------------------- |
+| **`options`**   | <code><a href="#showoptions">ShowOptions</a></code>     |
 
-**版本：** 1.0.0
+**自版本:** 1.0.0
 
----
+--------------------
 
-### Interfaces
+
+### 接口
+
 
 #### ShowOptions
 
-| 属性           | 类型                                       | 说明                                                         | 默认值                | 版本  |
-| -------------- | ------------------------------------------ | ------------------------------------------------------------ | --------------------- | ----- |
-| **`text`**     | <code>string</code>                        | 要在 Toast 上显示的文本                                      |                       | 1.0.0 |
-| **`duration`** | <code>'short' \| 'long'</code>             | Toast 显示时长，可选 'short' (2000毫秒) 或 'long' (3500毫秒) | <code>'short'</code>  | 1.0.0 |
-| **`position`** | <code>'top' \| 'center' \| 'bottom'</code> | Toast 显示位置                                               | <code>'bottom'</code> | 1.0.0 |
+| 属性              | 类型                                       | 描述                                                       | 默认值               | 自版本 |
+| ----------------- | ------------------------------------------ | ---------------------------------------------------------- | -------------------- | ------ |
+| **`text`**        | <code>string</code>                        | 要在 Toast 上显示的文本                                    |                       | 1.0.0 |
+| **`duration`**    | <code>'short' \| 'long'</code>             | Toast 的持续时间，可以是 'short' (2000毫秒) 或 'long' (3500毫秒) | <code>'short'</code>  | 1.0.0 |
+| **`position`**    | <code>'top' \| 'center' \| 'bottom'</code> | Toast 的位置                                               | <code>'bottom'</code> | 1.0.0 |
 
 </docgen-api>

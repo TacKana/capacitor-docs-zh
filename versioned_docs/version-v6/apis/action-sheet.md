@@ -1,6 +1,6 @@
 ---
 title: Action Sheet Capacitor 插件 API
-description: Action Sheet API 提供了访问原生操作表的功能，操作表从屏幕底部弹出，显示用户可执行的操作选项。
+description: Action Sheet API 提供对原生操作表的访问，这些操作表从屏幕底部弹出，显示用户可以执行的操作。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/action-sheet/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/action-sheet/src/definitions.ts
 sidebar_label: Action Sheet
@@ -8,7 +8,7 @@ sidebar_label: Action Sheet
 
 # @capacitor/action-sheet
 
-Action Sheet API 提供了访问原生操作表的功能，这种交互组件从屏幕底部弹出，展示用户可选择的多个操作选项。
+Action Sheet API 提供对原生操作表的访问，这些操作表从屏幕底部弹出，显示用户可以执行的操作。
 
 ## 安装
 
@@ -17,25 +17,25 @@ npm install @capacitor/action-sheet@latest-6
 npx cap sync
 ```
 
-### 变量配置
+### 变量
 
-本插件会使用以下项目变量（需在应用的 `variables.gradle` 文件中定义）：
+此插件将使用以下项目变量（在您应用的 `variables.gradle` 文件中定义）：
 
-- `androidxMaterialVersion`: `com.google.android.material:material` 的版本号（默认值：`1.10.0`）
+- `androidxMaterialVersion`: `com.google.android.material:material` 的版本（默认值：`1.10.0`）
 
-## PWA 注意事项
+## PWA 说明
 
-Action Sheet 插件需要配合 [PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) 使用。
+Action Sheet 插件需要 [PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) 才能正常工作。
 
-## 使用示例
+## 示例
 
 ```typescript
 import { ActionSheet, ActionSheetButtonStyle } from '@capacitor/action-sheet';
 
 const showActions = async () => {
   const result = await ActionSheet.showActions({
-    title: '图片操作',
-    message: '请选择要执行的操作',
+    title: '照片选项',
+    message: '选择一个要执行的操作',
     options: [
       {
         title: '上传',
@@ -50,17 +50,17 @@ const showActions = async () => {
     ],
   });
 
-  console.log('操作表返回结果:', result);
+  console.log('操作表结果：', result);
 };
 ```
 
-## API 文档
+## API
 
 <docgen-index>
 
-- [`showActions(...)`](#showactions)
-- [接口定义](#interfaces)
-- [枚举](#enums)
+* [`showActions(...)`](#showactions)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -73,50 +73,56 @@ const showActions = async () => {
 showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 ```
 
-显示一个操作表模态框，提供多个选项供用户选择。
+显示一个操作表样式的模态框，其中包含用户可以选择的各种选项。
 
-| 参数          | 类型                                                              |
-| ------------- | ----------------------------------------------------------------- |
-| **`options`** | <code><a href="#showactionsoptions">ShowActionsOptions</a></code> |
+| 参数           | 类型                                                              |
+| -------------- | ----------------------------------------------------------------- |
+| **`options`**  | <code><a href="#showactionsoptions">ShowActionsOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#showactionsresult">ShowActionsResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#showactionsresult">ShowActionsResult</a>&gt;</code>
 
-**版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
 
-### Interfaces
+
+### 接口
+
 
 #### ShowActionsResult
 
-| 属性        | 类型                | 描述                            | 版本  |
-| ----------- | ------------------- | ------------------------------- | ----- |
-| **`index`** | <code>number</code> | 被点击选项的索引（从0开始计数） | 1.0.0 |
+| 属性          | 类型                | 描述                            | 自     |
+| ------------- | ------------------- | ------------------------------- | ------ |
+| **`index`**   | <code>number</code> | 被点击选项的索引（从 0 开始）   | 1.0.0  |
+
 
 #### ShowActionsOptions
 
-| 属性          | 类型                             | 描述                                    | 版本  |
-| ------------- | -------------------------------- | --------------------------------------- | ----- |
-| **`title`**   | <code>string</code>              | 操作表的标题                            | 1.0.0 |
-| **`message`** | <code>string</code>              | 标题下方显示的提示信息（仅iOS平台支持） | 1.0.0 |
-| **`options`** | <code>ActionSheetButton[]</code> | 用户可选的按钮列表                      | 1.0.0 |
+| 属性            | 类型                             | 描述                                              | 自     |
+| --------------- | -------------------------------- | ------------------------------------------------- | ------ |
+| **`title`**     | <code>string</code>              | 操作表的标题。                                    | 1.0.0  |
+| **`message`**   | <code>string</code>              | 显示在标题下方的消息。此选项仅在 iOS 上受支持。   | 1.0.0  |
+| **`options`**   | <code>ActionSheetButton[]</code> | 用户可以从中选择的选项。                          | 1.0.0  |
+
 
 #### ActionSheetButton
 
-| 属性        | 类型                                                                      | 描述                                           | 版本  |
-| ----------- | ------------------------------------------------------------------------- | ---------------------------------------------- | ----- |
-| **`title`** | <code>string</code>                                                       | 按钮显示的文本                                 | 1.0.0 |
-| **`style`** | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | 按钮的样式（仅iOS平台支持）                    | 1.0.0 |
-| **`icon`**  | <code>string</code>                                                       | 按钮图标（使用ionicon命名规范，仅Web平台支持） | 1.0.0 |
+| 属性          | 类型                                                                      | 描述                                                          | 自     |
+| ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
+| **`title`**   | <code>string</code>                                                       | 选项的标题                                                    | 1.0.0  |
+| **`style`**   | <code><a href="#actionsheetbuttonstyle">ActionSheetButtonStyle</a></code> | 选项的样式。此选项仅在 iOS 上受支持。                         | 1.0.0  |
+| **`icon`**    | <code>string</code>                                                       | 选项的图标（使用 ionicon 命名约定）。此选项仅在 Web 上受支持。 | 1.0.0  |
 
-### Enums类型
+
+### 枚举
+
 
 #### ActionSheetButtonStyle
 
-| 枚举值            | 值                         | 描述                                                         | 版本  |
-| ----------------- | -------------------------- | ------------------------------------------------------------ | ----- |
-| **`Default`**     | <code>'DEFAULT'</code>     | 默认按钮样式                                                 | 1.0.0 |
-| **`Destructive`** | <code>'DESTRUCTIVE'</code> | 表示破坏性操作的按钮样式（通常显示为红色）                   | 1.0.0 |
-| **`Cancel`**      | <code>'CANCEL'</code>      | 表示取消操作的按钮样式。使用时应当放在选项列表的最底部位置。 | 1.0.0 |
+| 成员              | 值                        | 描述                                                                          | 自     |
+| ----------------- | ------------------------- | ----------------------------------------------------------------------------- | ------ |
+| **`Default`**     | <code>'DEFAULT'</code>    | 选项的默认样式。                                                              | 1.0.0  |
+| **`Destructive`** | <code>'DESTRUCTIVE'</code>| 用于破坏性选项的样式。                                                        | 1.0.0  |
+| **`Cancel`**      | <code>'CANCEL'</code>     | 用于取消操作表的选项的样式。如果使用，应放在最后一个可用的选项上。            | 1.0.0  |
 
 </docgen-api>

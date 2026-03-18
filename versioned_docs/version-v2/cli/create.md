@@ -1,25 +1,25 @@
 ---
-title: CLI 命令
+title: CLI Commands
 description: Capacitor CLI 命令参考列表
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/create
 ---
 
-# Capacitor CLI - create 命令
+# Capacitor CLI - create
 
-创建一个带有标准项目结构的新 Capacitor 项目，适合希望从零开始并计划单独添加 UI/前端框架的情况。
+如果您希望从头开始并计划单独添加 UI/前端框架，可以使用此命令创建一个具有标准项目结构的新 Capacitor 项目。
 
 ```bash
 npx @capacitor/cli create [options] [directory] [name] [id]
 ```
 
-<strong>参数说明:</strong>
+<strong>输入参数:</strong>
 
-- `directory` (可选): 创建新应用的目录路径，例如 `c:\src\myapp`
+- `directory` (可选): 创建新应用的目录，例如 `c:\src\myapp`
 - `name` (可选): 应用名称
-- `id` (可选): 应用包标识符 (需使用Java包格式，不含短横线)，例如 `com.example.app`
+- `id` (可选): 应用包标识符 (采用 Java 包格式，不含连字符)，例如 `com.example.app`
 
-<strong>选项配置:</strong>
+<strong>选项:</strong>
 
-- `--npm-client <npmClient>`: 指定用于依赖安装的 npm 客户端
+- `--npm-client <npmClient>`: 用于依赖项安装的 npm 客户端

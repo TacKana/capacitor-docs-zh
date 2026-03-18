@@ -1,65 +1,65 @@
 ---
-title: 调试
+title: Debugging
 description: Capacitor 的 Visual Studio Code 扩展
 contributors:
   - dtarnawsky
 slug: /vscode/debugging
 ---
 
-你可以通过以下方式调试应用程序：[VS Code 扩展内调试](#debug-in-vs-code) 或 [附加到 Web 视图](#attach-to-web-view)。还可以使用 [远程日志](#remote-logging) 功能进行 `console.log` 风格的调试。
+你可以使用[扩展功能](#在-vs-code-中调试)或[附加到 Web 视图](#附加到-web-视图)来调试你的应用程序。或者，你也可以使用[远程日志记录](#远程日志记录)来进行 `console.log` 风格的调试。
 
 ## 在 VS Code 中调试
 
-点击 `Debug` 选项可以启动网页浏览器或附加到正在运行的 Android Web 视图进行调试。
+点击 `Debug` 项目来启动一个网页浏览器，或者附加到一个正在运行的 Android Web 视图进行调试。
 
-点击 `Debug` > `Web` 会启动一个*可调试*的浏览器（如 Chrome 或 MS Edge）。这将构建你的应用，并将 VS Code 切换至调试模式，允许你设置断点、检查变量等。
+点击 `Debug` > `Web` 来启动一个*可调试的*网页浏览器，例如 Chrome 或 MS Edge。这将构建你的应用，然后将 VS Code 置于调试模式，允许你设置断点、检查变量等等。
 
 :::note
-可以通过 `Settings` > `Advanced` > `Browser` 选择要调试的浏览器类型。
+你可以通过 `Settings` > `Advanced` > `Browser` 选择要调试的浏览器。
 :::
 
 ## 附加到 Web 视图
 
-要调试正在运行的实体或模拟 Android 设备，首先需通过点击 `Run` > `Android` 或在 Android Studio 中运行应用。
+你可以通过点击 `Run` > `Android` 或在 Android Studio 中运行应用，先为 Android 运行，然后调试一个正在运行的真实或模拟的 Android 设备。
 
-点击 `Debug` 选项后，所有正在运行的 Android Web 视图都会显示，点击其中一个即可开始该视图的调试会话。
+点击 `Debug` 项目，所有正在运行的 Android Web 视图都会出现，点击一个即可开始该视图的调试会话。
 
 :::note
-你也可以使用 Chrome 或 Safari 附加到 Web 视图，利用它们内置的调试和检查工具。
+你也可以使用 Chrome 或 Safari 附加到 Web 视图，并使用它们内置的调试和检查工具。
 :::
 
-### 使用 Chrome 检查器
+### 使用 Chrome 检查工具
 
-当通过 `Run` > `Android` 或 Android Studio 运行应用后：
-- 打开 **Google Chrome**，在地址栏输入：`chrome://inspect` 并回车
-- 所有正在运行的 Web 视图会显示为可打开的远程目标
-- 使用 Chrome 的调试和检查工具
+当你通过 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Google Chrome** 并在地址栏输入：`chrome://inspect`，然后按回车键。
+- 任何正在运行的 Web 视图都将作为远程目标出现，你可以打开它们。
+- 使用 Chrome 的调试和检查工具。
 
-### 使用 Edge 检查器
+### 使用 Edge 检查工具
 
-当通过 `Run` > `Android` 或 Android Studio 运行应用后：
-- 打开 **Microsoft Edge**，在地址栏输入：`edge://inspect` 并回车
-- 所有正在运行的 Web 视图会显示为可打开的远程目标
-- 使用 Edge 的调试和检查工具
+当你通过 `Run` > `Android` 或 Android Studio 运行应用后：
+- 打开 **Microsoft Edge** 并在地址栏输入：`edge://inspect`，然后按回车键。
+- 任何正在运行的 Web 视图都将作为远程目标出现，你可以打开它们。
+- 使用 Edge 的调试和检查工具。
 
 ### 使用 Safari
 
-当通过 `Run` > `iOS` 或 XCode 运行应用后：
-- 打开 **Safari**，从 `Develop` 菜单中选择 iOS 设备
-- 使用 Safari 的调试和检查工具
+当你通过 `Run` > `iOS` 或 XCode 运行应用后：
+- 打开 **Safari** 并从 `开发` 菜单中选择 iOS 设备。
+- 使用 Safari 的调试和检查工具。
 
 :::note
-需要先在 Safari 中启用开发者模式：进入 `Safari` 菜单 > `Settings`，选择 `Advanced` 并勾选 `Show Develop menu in menu bar`。
+你需要为 Safari 开启开发者模式，方法是前往 `Safari` 菜单 > `设置`，选择 `高级` 并勾选 `在菜单栏中显示“开发”菜单`。
 
-同时需要确保移动设备已开启调试权限。
+你还需要确保你的移动设备已启用调试功能。
 :::
 
-## 远程日志
+## 远程日志记录
 
-远程日志功能会将所有 `console.log`（及 `console.error` 等）调用发送至 VS Code 的 `output` 窗口。这使得在设备上运行应用时的调试更加便捷，无需附加到 Web 视图。
+远程日志记录功能会将所有对 `console.log`（以及 `console.error` 等）的调用发送到 VS Code 的 `输出` 窗口。这使得在设备上运行应用时调试变得更加容易，因为你不需要附加到其 Web 视图。
 
-点击 `Settings` > `Remote Logging` 开启此功能。
+点击 `Settings` > `Remote Logging` 来开启此功能。
 
 :::note
-远程日志会安装依赖项 `@ionic/remote-log` 并修改你的 `main.ts` 或 `index.tsx` 文件以启动远程日志。测试完成后请取消勾选 `Remote Logging` 以移除相关代码。
+远程日志记录会安装一个依赖项 `@ionic/remote-log`，并修改你的 `main.ts` 或 `index.tsx` 文件以启动远程日志记录。测试后请务必取消勾选 `Remote Logging` 以移除这段代码。
 :::

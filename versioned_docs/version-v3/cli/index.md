@@ -1,6 +1,6 @@
 ---
-title: CLI 参考文档
-description: Capacitor CLI 的参考文档
+title: CLI Reference
+description: Capacitor CLI 参考文档
 contributors:
   - dotNetkow
 sidebar_label: 概述
@@ -9,7 +9,7 @@ slug: /cli
 
 # Capacitor CLI
 
-Capacitor 命令行界面（CLI）工具用于开发 Capacitor 应用程序。
+Capacitor 命令行接口（CLI）工具用于开发 Capacitor 应用程序。
 
 ## CLI 参考
 
@@ -19,8 +19,8 @@ npx cap [-V] [-h] [<command>]
 
 <strong>选项：</strong>
 
-- `-V, --version`（可选）：输出版本号
-- `-h, --help`（可选）：输出使用信息。也可用于单个命令。
+- `-V, --version` (可选): 输出版本号
+- `-h, --help` (可选): 输出使用信息。也可以与单个命令结合使用。
 
 ### 命令列表
 

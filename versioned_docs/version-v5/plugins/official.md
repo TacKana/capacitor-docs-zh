@@ -11,41 +11,41 @@ slug: /apis
 
 # 官方插件
 
-官方插件是由 Capacitor 团队维护的一组 Capacitor 插件，提供对常用原生 API 的访问。
+官方插件是由 Capacitor 团队维护的一套 Capacitor 插件，它们提供了对常用原生 API 的访问。
 
-这些插件的 API 文档如下所示。
+这些插件的 API 文档可以在下面找到。
 
 ## 官方插件列表
 
-- [操作表 (Action Sheet)](/apis/action-sheet.md)
-- [应用启动器 (App Launcher)](/apis/app-launcher.md)
-- [应用 (App)](/apis/app.md)
-- [后台运行器 (Background Runner)](/apis/background-runner.md)
-- [浏览器 (Browser)](/apis/browser.md)
-- [相机 (Camera)](/apis/camera.md)
-- [剪贴板 (Clipboard)](/apis/clipboard.md)
+- [操作表](/apis/action-sheet.md)
+- [应用启动器](/apis/app-launcher.md)
+- [应用](/apis/app.md)
+- [后台运行器](/apis/background-runner.md)
+- [浏览器](/apis/browser.md)
+- [相机](/apis/camera.md)
+- [剪贴板](/apis/clipboard.md)
 - [Cookies](/apis/cookies.md)
-- [设备 (Device)](/apis/device.md)
-- [对话框 (Dialog)](/apis/dialog.md)
-- [文件系统 (Filesystem)](/apis/filesystem.md)
-- [地理位置 (Geolocation)](/apis/geolocation.md)
-- [谷歌地图 (Google Maps)](/apis/google-maps.md)
-- [触觉反馈 (Haptics)](/apis/haptics.md)
+- [设备](/apis/device.md)
+- [对话框](/apis/dialog.md)
+- [文件系统](/apis/filesystem.md)
+- [地理位置](/apis/geolocation.md)
+- [谷歌地图](/apis/google-maps.md)
+- [触觉反馈](/apis/haptics.md)
 - [HTTP](/apis/http.md)
-- [键盘 (Keyboard)](/apis/keyboard.md)
-- [本地通知 (Local Notifications)](/apis/local-notifications.md)
-- [运动传感器 (Motion)](/apis/motion.md)
-- [网络 (Network)](/apis/network.md)
-- [偏好设置 (Preferences)](/apis/preferences.md)
-- [推送通知 (Push Notifications)](/apis/push-notifications.md)
-- [屏幕方向 (Screen Orientation)](/apis/screen-orientation.md)
-- [屏幕阅读器 (Screen Reader)](/apis/screen-reader.md)
-- [分享 (Share)](/apis/share.md)
-- [启动屏 (Splash Screen)](/apis/splash-screen.md)
-- [状态栏 (Status Bar)](/apis/status-bar.md)
-- [文本缩放 (Text Zoom)](/apis/text-zoom.md)
-- [Toast 提示 (Toast)](/apis/toast.md)
-- [手表 🧪 (Watch)](/apis/watch.md)
+- [键盘](/apis/keyboard.md)
+- [本地通知](/apis/local-notifications.md)
+- [运动传感器](/apis/motion.md)
+- [网络](/apis/network.md)
+- [偏好设置](/apis/preferences.md)
+- [推送通知](/apis/push-notifications.md)
+- [屏幕方向](/apis/screen-orientation.md)
+- [屏幕阅读器](/apis/screen-reader.md)
+- [分享](/apis/share.md)
+- [启动屏](/apis/splash-screen.md)
+- [状态栏](/apis/status-bar.md)
+- [文本缩放](/apis/text-zoom.md)
+- [提示消息](/apis/toast.md)
+- [手表 🧪](/apis/watch.md)
 
 ## GitHub
 

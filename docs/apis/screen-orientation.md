@@ -1,16 +1,16 @@
 ---
 title: Screen Orientation Capacitor Plugin API
-description: 屏幕方向 API 提供了锁定与解锁屏幕方向的方法。
+description: The Screen Orientation API provides methods to lock and unlock the screen orientation.
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/src/definitions.ts
-sidebar_label: 屏幕方向
+sidebar_label: Screen Orientation
 ---
 
 # @capacitor/screen-orientation
 
-屏幕方向 API 提供与屏幕方向相关的信息与功能。
+The Screen Orientation API provides information and functionality related to the orientation of the screen.
 
-## 安装
+## Install
 
 ```bash
 npm install @capacitor/screen-orientation
@@ -19,8 +19,8 @@ npx cap sync
 
 ## iOS
 
-锁定屏幕方向仅对 Capacitor View Controller 有效，而对其他呈现的视图控制器（例如由 Browser 插件呈现的控制器）无效。
-若需同时锁定已呈现的视图控制器，可将以下代码添加到应用的 `AppDelegate.swift` 文件中：
+Locking the Screen Orientation only works for the Capacitor View Controller only, but not other View Controllers being presented (such as the one presented by Browser plugin).
+For also lock presented View Controllers, this code can be added to the app's `AppDelegate.swift` file:
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -28,9 +28,9 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 }
 ```
 
-### iPad 方向锁定
+### iPad Orientation Lock
 
-默认情况下，iPad 支持多任务处理且其方向无法被锁定。如需在 iPad 上锁定方向，请将 `Requires Full Screen` 选项设置为 `YES`，即在 `Info.plist` 中添加以下内容：
+By default, an iPad allows Multitasking and its orientation cannot be locked. If you need to lock orientation on an iPad set the option `Requires Full Screen` to `YES` by adding the following to `Info.plist`:
 
 ```
   <key>UIRequiresFullScreen</key>
@@ -41,13 +41,13 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 
 <docgen-index>
 
-- [`orientation()`](#orientation)
-- [`lock(...)`](#lock)
-- [`unlock()`](#unlock)
-- [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
-- [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
-- [类型别名](#type-aliases)
+* [`orientation()`](#orientation)
+* [`lock(...)`](#lock)
+* [`unlock()`](#unlock)
+* [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -60,13 +60,14 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 orientation() => Promise<ScreenOrientationResult>
 ```
 
-返回当前屏幕方向。
+Returns the current screen orientation.
 
-**返回值：** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
 
-**自版本：** 4.0.0
+**Since:** 4.0.0
 
----
+--------------------
+
 
 ### lock(...)
 
@@ -74,21 +75,22 @@ orientation() => Promise<ScreenOrientationResult>
 lock(options: OrientationLockOptions) => Promise<void>
 ```
 
-锁定屏幕方向。
+Locks the screen orientation.
 
-从 Android targetSdk 36 开始，此方法对 Android 16 及更高版本的大屏幕设备（例如平板电脑）无效。
-您可以通过在 `AndroidManifest.xml` 的 `&lt;application&gt;` 或 `&lt;activity&gt;` 中添加 `&lt;property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" /&gt;` 来选择退出此行为。
-但请注意，此退出选项是临时的，并且在 Android 17 中将不再有效。Android 不鼓励为大屏幕设备设置特定方向。
-常规的 Android 手机不受此更改影响。
-更多信息请查阅 Android 文档：https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
+Starting in Android targetSdk 36, this method has no effect for large screens (e.g. tablets) on Android 16 and higher.
+You may opt-out of this behavior in your app by adding `&lt;property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" /&gt;` to your `AndroidManifest.xml` inside `&lt;application&gt;` or `&lt;activity&gt;`.
+Keep in mind though that this opt-out is temporary and will no longer work for Android 17. Android discourages setting specific orientations for large screens.
+Regular Android phones are unaffected by this change.
+For more information check the Android docs at https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
 
-| 参数          | 类型                                                                      |
+| Param         | Type                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#orientationlockoptions">OrientationLockOptions</a></code> |
 
-**自版本：** 4.0.0
+**Since:** 4.0.0
 
----
+--------------------
+
 
 ### unlock()
 
@@ -96,11 +98,12 @@ lock(options: OrientationLockOptions) => Promise<void>
 unlock() => Promise<void>
 ```
 
-解锁屏幕方向。
+Unlocks the screen's orientation.
 
-**自版本：** 4.0.0
+**Since:** 4.0.0
 
----
+--------------------
+
 
 ### addListener('screenOrientationChange', ...)
 
@@ -108,18 +111,19 @@ unlock() => Promise<void>
 addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: ScreenOrientationResult) => void) => Promise<PluginListenerHandle>
 ```
 
-监听屏幕方向变化。
+Listens for screen orientation changes.
 
-| 参数               | 类型                                                                                                  |
+| Param              | Type                                                                                                  |
 | ------------------ | ----------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'screenOrientationChange'</code>                                                                |
 | **`listenerFunc`** | <code>(orientation: <a href="#screenorientationresult">ScreenOrientationResult</a>) =&gt; void</code> |
 
-**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**自版本：** 4.0.0
+**Since:** 4.0.0
 
----
+--------------------
+
 
 ### removeAllListeners()
 
@@ -127,39 +131,42 @@ addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: Sc
 removeAllListeners() => Promise<void>
 ```
 
-移除所有监听器。
+Removes all listeners.
 
-**自版本：** 4.0.0
+**Since:** 4.0.0
 
----
+--------------------
+
 
 ### Interfaces
 
+
 #### ScreenOrientationResult
 
-| 属性       | 类型                         |
+| Prop       | Type                         |
 | ---------- | ---------------------------- |
 | **`type`** | <code>OrientationType</code> |
 
+
 #### OrientationLockOptions
 
-| 属性              | 类型                                                                | 描述                                                                                                                        |
-| ----------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **`orientation`** | <code><a href="#orientationlocktype">OrientationLockType</a></code> | 注意：TypeScript v5.2+ 用户应从 @capacitor/screen-orientation 导入 <a href="#orientationlocktype">OrientationLockType</a>。 |
+| Prop              | Type                                                                | Description                                                                                                                           |
+| ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **`orientation`** | <code><a href="#orientationlocktype">OrientationLockType</a></code> | Note: Typescript v5.2+ users should import <a href="#orientationlocktype">OrientationLockType</a> from @capacitor/screen-orientation. |
+
 
 #### PluginListenerHandle
 
-| 属性         | 类型                                      |
+| Prop         | Type                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
+
 ### Type Aliases
+
 
 #### OrientationLockType
 
-<code>
-  'any' | 'natural' | 'landscape' | 'portrait' | 'portrait-primary' | 'portrait-secondary' | 'landscape-primary' |
-  'landscape-secondary'
-</code>
+<code>'any' | 'natural' | 'landscape' | 'portrait' | 'portrait-primary' | 'portrait-secondary' | 'landscape-primary' | 'landscape-secondary'</code>
 
 </docgen-api>

@@ -1,57 +1,58 @@
 ---
-title: Overview
-description: Cordova与PhoneGap
+title: 概述
+description: Cordova 与 PhoneGap
 slug: /cordova
 ---
 
-# Cordova与PhoneGap
+# Cordova 与 PhoneGap
 
-Apache Cordova（及Adobe PhoneGap）诞生于2008年，是一个开源项目，允许Web开发者使用HTML、CSS和JavaScript内容为多种移动和桌面平台创建原生应用。
+Apache Cordova（以及 Adobe PhoneGap）诞生于 2008 年，是一个开源项目，它让 Web 开发者能够利用自己的 HTML、CSS 和 JavaScript 内容，为多种移动和桌面平台创建原生应用。
 
-想了解更多关于Cordova的历史及其工作原理的详细信息，[请参阅此处](https://ionicframework.com/resources/articles/what-is-apache-cordova) 。
+关于 Cordova 历史的更多详细信息及其工作原理，[请参阅此处](https://ionicframework.com/resources/articles/what-is-apache-cordova)。
 
-## Capacitor为何诞生？
+## 为什么需要创建 Capacitor？
 
-开源领域充满了在旧项目理念基础上构建的新项目，这些新项目带来了根本性改进，而这些改进若不对原始产品进行彻底改造是无法实现的。出于技术和社区治理考虑，Ionic团队不愿将这些颠覆性改动强加给Cordova。
+开源领域充满了许多在旧项目理念基础上构建的新项目，它们带来了实质性的改进，而这些改进如果不彻底改变原始产品是无法实现的。出于技术和政策原因，Ionic 团队并不想将这些彻底的改变强加给 Cordova。
 
-Capacitor项目的一个优势是Ionic团队能更全面地掌控技术栈。当你使用Ionic Framework和Capacitor构建应用时，Ionic团队同时维护着原生运行时层、UI组件和创建这些组件的工具链（[Stencil](https://stenciljs.com/)）。这意味着团队能更快地修复问题，并提供更紧密集成的技术栈。
+Capacitor 项目的一个好处是，Ionic 团队对整个技术栈拥有更强的控制力。当你使用 Ionic Framework 和 Capacitor 构建应用时，Ionic 团队负责维护原生运行时层、UI 组件以及创建这些组件的工具链（[Stencil](https://stenciljs.com/)）。这一点非常重要，因为 Ionic 团队能够更快地修复问题，并提供一个更具凝聚力的技术栈。
 
-## Capacitor与Cordova的区别
+## Capacitor 与 Cordova 的区别
 
-本质上，Capacitor和Cordova非常相似。两者都管理Web视图，并提供将原生功能暴露给Web代码的结构化方式。但Capacitor有几个关键差异，需要习惯Cordova工作流的开发者调整开发方式。
+从本质上讲，Capacitor 和 Cordova 非常相似。两者都管理 Web View，并提供一种结构化的方式将原生功能暴露给你的 Web 代码。然而，Capacitor 有一些关键差异，这要求之前习惯于 Cordova 开发方式的 Web 开发者调整应用开发的工作流程。
 
 ### 原生项目管理
 
-Capacitor将各平台项目视为"源代码资产"而非"构建时资产"。这意味着你需要将Xcode和Android Studio项目纳入版本控制，并在需要时使用这些IDE进行平台特定的配置和构建/测试。
+Capacitor 将每个平台项目视为**源代码资产**，而非**构建时资产**。这意味着你需要将 Xcode 和 Android Studio 项目纳入版本控制，并在必要时使用这些 IDE 进行平台特定的配置和构建/测试。
 
-这种理念转变带来几个影响：首先，Capacitor不使用`config.xml`或类似的自定义配置来管理平台设置，而是直接编辑平台特定的配置文件（如Android的`AndroidManifest.xml`和iOS的`Info.plist`）。Capacitor虽然提供[高层级配置选项](/main/basics/configuring-your-app.md)，但这些通常不修改原生功能，仅控制Capacitor工具链。
+这种方法的改变带来了一些影响。首先，Capacitor 不使用 `config.xml` 或类似的定制配置来管理平台设置。相反，配置修改是通过直接编辑相应的平台特定配置文件来完成的，例如 Android 的 `AndroidManifest.xml` 和 iOS 的 `Info.plist`。Capacitor 确实也提供了一些[高级配置选项](/main/basics/configuring-your-app.md)，但这些选项通常不会修改原生功能，而是控制 Capacitor 的工具链。
 
-其次，Capacitor不提供命令行构建原生应用的功能，开发者应使用各平台专用工具（或IDE），这能提供更快捷、更符合平台标准的开发体验。
+此外，Capacitor 不提供在命令行中构建原生应用的方式。应该使用平台特定的工具（或在 IDE 中）进行构建，这能提供更快速、更符合该平台应用开发标准的典型体验。
 
-虽然这些变化可能让Cordova老用户感到不安，但优势显著：
-1. 通过抽象工具（如`config.xml`）更新原生项目容易出错且难以追踪，直接使用平台工具能更轻松排查问题
-2. 无需专门开发插件，就能直接在应用代码中添加所需原生代码，原生团队可与Web团队协同工作
-3. 由于"拥有"原生项目，更易打造惊艳体验（如在Web应用外添加原生UI外壳）
-4. 当新移动操作系统发布时，能更清晰地追踪原生项目变更，提升应用可维护性。若Capacitor引入重大变更，团队将提供分步升级指南
+虽然这些差异可能让长期使用 Cordova 的用户感到担忧，但它们也带来了实实在在的好处：
+
+1.  通过抽象工具（如 `config.xml`）更新和修改原生项目容易出错，且目标不断变化。更熟悉平台特定工具会使问题排查变得更容易。
+2.  添加应用所需的自定义原生代码变得更加容易，无需在应用代码库之外专门构建插件。此外，原生团队可以与 Web 团队在同一项目上协同工作。
+3.  由于你“拥有”原生项目，现在可以更轻松地创建更具吸引力的应用体验，例如在 Web 应用周围添加原生 UI 外壳。
+4.  随着新移动操作系统版本的发布，对原生项目变更的可见性更高，应用的可维护性更好。当引入破坏性更改或对原生项目模板应用更改时，团队会发布逐步升级指南，以确保更新过程尽可能顺利。
 
 ### 插件管理
 
-Capacitor以不同方式管理插件：首先，构建前不会将插件源代码复制到应用中，而是将所有插件构建为iOS的"framework"和Android的"library"，并通过各平台主流依赖管理工具（分别是CocoaPods和Gradle）安装。此外，Capacitor不修改原生源代码，因此需要手动添加必要的原生项目设置（如`AndroidManifest.xml`中的权限）。这种方式更可靠，也便于开发者寻求特定平台的社区帮助。
+Capacitor 以不同于 Cordova 的方式管理插件。首先，Capacitor 在构建前不会将插件源代码复制到你的应用中。相反，所有插件都被构建为“框架”（在 iOS 上）和“库”（在 Android 上），并使用各自平台的主流依赖管理工具（分别是 CocoaPods 和 Gradle）进行安装。此外，Capacitor 不会修改原生源代码，因此任何必要的原生项目设置都必须手动添加（例如 `AndroidManifest.xml` 中的权限）。我们认为这种方法更不易出错，并且使开发者更容易在每个特定平台的社区中找到帮助。
 
-重大区别在于插件处理WebView执行所需的JavaScript代码的方式：Cordova要求插件自带JS并手动调用`exec()`，而Capacitor会在运行时根据检测到的原生方法自动注册导出所有插件JS，因此WebView加载后立即可用所有插件方法。这意味着不再需要`deviceready`事件——应用代码加载后即可调用插件方法。
+一个主要区别在于插件处理其从 WebView 执行所需 JavaScript 代码的方式。Cordova 要求插件提供自己的 JavaScript 并手动调用 `exec()`。相比之下，Capacitor 会根据运行时检测到的原生方法，为每个插件注册并导出所有 JavaScript，因此所有插件方法在 WebView 加载后立即可用。这带来了一个重要的影响：不再需要 `deviceready` 事件。一旦你的应用代码加载完成，你就可以开始调用插件方法。
 
-虽然Capacitor不强制插件提供iOS/Android的JS代码，但插件包含共享JS逻辑仍是常见做法。
+虽然 Capacitor 不要求插件为 iOS 或 Android 提供 JavaScript，但插件通常会在 JavaScript 中包含共享逻辑，这也很容易实现。
 
-最后，对插件作者的影响：iOS端官方支持（并推荐）Swift 5开发插件（同时支持Objective-C）。插件不再导出`Plugin.xml`文件，Capacitor通过iOS宏和Android注解为插件源代码添加元数据。
+最后，Capacitor 对插件作者也有影响。在 iOS 上，官方支持甚至**推荐**使用 Swift 5 构建插件（也支持 Objective-C）。插件不再导出 `Plugin.xml` 文件；Capacitor 在 iOS 上提供了一些简单的宏，在 Android 上提供了注解，用于向插件源代码添加元数据，这些元数据在运行时由 Capacitor 读取。
 
 ### CLI/版本管理
 
-与Cordova不同，Capacitor不使用全局CLI，而是作为npm脚本安装在每个项目中。这使得跨多应用管理Capacitor版本更简单。
+与 Cordova 不同，Capacitor 不使用全局 CLI。相反，Capacitor CLI 作为 npm 脚本本地安装到每个项目中。这使得跨多个不同应用管理 Capacitor 版本变得更加容易。
 
-因此，不是直接从命令行运行，而是在应用目录中调用`npx cap`来使用Capacitor。
+因此，不是直接从命令行运行，而是在你的应用目录中调用 `npx cap` 来使用 Capacitor。
 
-[了解更多关于Capacitor CLI的信息 &#8250;](/cli/index.md)
+[了解更多关于 Capacitor CLI 的信息 &#8250;](/cli/index.md)
 
 ## 开始迁移
 
-立即了解[迁移流程](/main/cordova/migration-strategy.md)或[开始迁移](/main/cordova/migrating-from-cordova-to-capacitor.md)。
+了解更多关于[迁移过程](/main/cordova/migration-strategy.md)，或立即[开始迁移](/main/cordova/migrating-from-cordova-to-capacitor.md)。

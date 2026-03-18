@@ -8,7 +8,7 @@ sidebar_label: add
 
 # Capacitor CLI - cap add
 
-为您的应用添加原生平台项目。
+向你的应用添加一个原生平台项目。
 
 ```bash
 npx cap add <platform>

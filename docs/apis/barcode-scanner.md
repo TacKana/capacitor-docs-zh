@@ -1,6 +1,6 @@
 ---
 title: Barcode Scanner Capacitor Plugin API
-description: 使用 Outsystems 条码库的 Capacitor 插件
+description: Capacitor plugin using Outsystems Barcode libs
 custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/src/definitions.ts
 sidebar_label: Barcode Scanner
@@ -8,9 +8,9 @@ sidebar_label: Barcode Scanner
 
 # @capacitor/barcode-scanner
 
-使用 Outsystems 条码库的 Capacitor 插件
+Capacitor plugin using Outsystems Barcode libs
 
-## 安装
+## Install
 
 ```bash
 npm install @capacitor/barcode-scanner
@@ -19,7 +19,7 @@ npx cap sync
 
 #### Android
 
-条码扫描插件要求最低 Android SDK 目标版本为 26，这高于 Capacitor 应用的默认值。您可以在 `android/variables.gradle` 文件中更新此值。
+The barcode scanner plugin requires a minimum Android SDK target of 26. This is higher than the default that comes with your Capacitor application. You can update this value in your `android/variables.gradle` file.
 
 ```gradle
 ext {
@@ -27,13 +27,13 @@ ext {
 }
 ```
 
-注意：搭载`ZXING`扫描库的安卓系统支持所有格式，而`MLKIT`支持除`MAXICODE`、`RSS_14`、`RSS_EXPANDED`和`UPC_EAN_EXTENSION`之外的所有格式——在`hint`中使用这些格式之一将默认扫描任何格式。
+Note: Android with `ZXING` scanning library supports all formats, while `MLKIT` supports all except `MAXICODE`, `RSS_14`, `RSS_EXPANDED` and `UPC_EAN_EXTENSION` - using one of these in `hint` will default to scanning any format.
 
 #### iOS
 
-条码扫描器使用设备上的摄像头。请确保在 Info.plist 文件中配置了 Privacy - Camera Usage Description，以便您的应用可以访问设备的摄像头。
+The barcode scanner uses the camera on the device. Ensure you configure the Privacy - Camera Usage Description in your Info.plist file so that your application can access the device's camera.
 
-注意：iOS支持所有格式，除了`MAXICODE`和`UPC_EAN_EXTENSION`——在`hint`中使用这两种格式会默认扫描任何格式。此外，Apple Vision无法区分`UPC_A`和`EAN_13`，因此在`hint`中指定其中一种格式将允许扫描这两种格式。
+Note: iOS supports all formats except `MAXICODE` and `UPC_EAN_EXTENSION` - using them in `hint` will default to scanning any format. Also, Apple Vision does not distinguish between `UPC_A` and `EAN_13`, so specifying one of these in `hint` will allow to scan both.
 
 ---
 
@@ -41,27 +41,23 @@ ext {
 
 <docgen-index>
 
-- [`scanBarcode(...)`](#scanbarcode)
-- [类型别名](#type-aliases)
-- [枚举](#enums)
+* [`scanBarcode(...)`](#scanbarcode)
+* [Type Aliases](#type-aliases)
+* [Enums](#enums)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-定义条码扫描插件合约的接口。
-要求实现 scanBarcode 方法，该方法使用给定选项启动条码扫描。
+Interface defining the contract for a plugin capable of scanning barcodes.
+Requires implementation of the scanBarcode method, which initiates a barcode scan with given options.
 
-从 Android targetSdk 36 开始，对于搭载 Android 16 及更高版本的大屏幕设备（例如平板电脑），scanOrientation 参数将不起作用。
-
-您可以在应用中通过在 `AndroidManifest.xml` 的 `<application>` 或 `<activity>` 内部添加 `<property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />` 来选择退出此行为。
-
-但请记住，这种退出方式是暂时的，在 Android 17 上将不再生效。Android 不建议为大屏幕设备设置特定的方向。
-
-普通的 Android 手机不受此变更的影响。
-
-有关更多信息，请查看 Android 文档：https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
+Starting in Android targetSdk 36, the scanOrientation parameter has no effect for large screens (e.g. tablets) on Android 16 and higher.
+You may opt-out of this behavior in your app by adding `<property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />` to your `AndroidManifest.xml` inside `<application>` or `<activity>`.
+Keep in mind though that this opt-out is temporary and will no longer work for Android 17. Android discourages setting specific orientations for large screens.
+Regular Android phones are unaffected by this change.
+For more information check the Android docs at https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts
 
 ### scanBarcode(...)
 
@@ -69,45 +65,48 @@ ext {
 scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcodeScannerScanResult>
 ```
 
-| 参数          | 类型                                                                                      |
+| Param         | Type                                                                                      |
 | ------------- | ----------------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#capacitorbarcodescanneroptions">CapacitorBarcodeScannerOptions</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#capacitorbarcodescannerscanresult">CapacitorBarcodeScannerScanResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#capacitorbarcodescannerscanresult">CapacitorBarcodeScannerScanResult</a>&gt;</code>
 
----
+--------------------
+
 
 ### Type Aliases
 
+
 #### CapacitorBarcodeScannerScanResult
 
-定义从条码扫描返回的结果结构。
+Defines the structure of the result returned from a barcode scan.
 
 <code>{ ScanResult: string; format: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; }</code>
 
+
 #### CapacitorBarcodeScannerTypeHint
 
-从 Html5Qrcode 扩展支持的格式，并添加特殊的 'ALL' 选项，
-表示支持所有条码类型。
-结合 <a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> 和 OSBarcodeTypeHintALLOption
-的类型定义，用于表示要扫描的条码类型的提示。
+Extends supported formats from Html5Qrcode with a special 'ALL' option,
+indicating support for all barcode types.
+Type definition combining <a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> and OSBarcodeTypeHintALLOption
+to represent the hint for the type of barcode to be scanned.
 
-<code>
-  <a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> |{' '}
-  <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a>
-</code>
+<code><a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> | <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a></code>
+
 
 #### CapacitorBarcodeScannerOptions
 
-定义配置条码扫描的选项。
+Defines the options for configuring a barcode scan.
 
-<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodeScannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
+<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
+
 
 ### Enums
 
+
 #### Html5QrcodeSupportedFormats
 
-| 成员                    | 值              |
+| Members                 | Value           |
 | ----------------------- | --------------- |
 | **`QR_CODE`**           | <code>0</code>  |
 | **`AZTEC`**             | <code>1</code>  |
@@ -127,30 +126,34 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 | **`UPC_E`**             | <code>15</code> |
 | **`UPC_EAN_EXTENSION`** | <code>16</code> |
 
+
 #### CapacitorBarcodeScannerTypeHintALLOption
 
-| 成员      | 值              |
+| Members   | Value           |
 | --------- | --------------- |
 | **`ALL`** | <code>17</code> |
 
+
 #### CapacitorBarcodeScannerCameraDirection
 
-| 成员        | 值             |
+| Members     | Value          |
 | ----------- | -------------- |
 | **`BACK`**  | <code>1</code> |
 | **`FRONT`** | <code>2</code> |
 
+
 #### CapacitorBarcodeScannerScanOrientation
 
-| 成员            | 值             |
+| Members         | Value          |
 | --------------- | -------------- |
 | **`PORTRAIT`**  | <code>1</code> |
 | **`LANDSCAPE`** | <code>2</code> |
 | **`ADAPTIVE`**  | <code>3</code> |
 
+
 #### CapacitorBarcodeScannerAndroidScanningLibrary
 
-| 成员        | 值                   |
+| Members     | Value                |
 | ----------- | -------------------- |
 | **`ZXING`** | <code>"zxing"</code> |
 | **`MLKIT`** | <code>"mlkit"</code> |

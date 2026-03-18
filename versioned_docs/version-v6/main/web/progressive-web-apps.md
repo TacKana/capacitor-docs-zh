@@ -1,50 +1,50 @@
 ---
-title: 构建渐进式 Web 应用
-description: 如何使用 Capacitor 构建渐进式 Web 应用
+title: 构建渐进式网络应用
+description: 如何使用 Capacitor 构建渐进式网络应用
 contributors:
   - jcesarmobile
   - dotNetkow
 slug: /web/progressive-web-apps
 ---
 
-# 构建渐进式 Web 应用
+# 构建渐进式网络应用
 
-Capacitor 为渐进式 Web 应用（PWA）提供了一流的支持，使开发者能够轻松构建既可在 iOS 和 Android 原生运行，也能在 Web 端作为移动应用或"渐进式 Web 应用"使用的跨平台应用。
+Capacitor 为渐进式网络应用（Progressive Web Apps）提供一流的支持，让您能够轻松构建一款应用，它既能在 iOS 和 Android 上原生运行，也能在 Web 上作为移动网络应用或"渐进式网络应用"运行。
 
-## 什么是渐进式 Web 应用？
+## 什么是渐进式网络应用？
 
-简而言之，渐进式 Web 应用（Progressive Web App，PWA）是一种利用现代 Web 技术为用户提供类原生应用体验的 Web 应用。这类应用部署在传统 Web 服务器上，可通过 URL 访问，并能被搜索引擎收录。
+简单来说，渐进式网络应用（PWA）是一种利用现代网络能力，为用户提供类似应用体验的网络应用。这类应用部署在传统的网络服务器上，可通过 URL 访问，并能被搜索引擎索引。
 
-从实际角度看，渐进式 Web 应用本质上是针对移动性能进行优化，并利用新 Web API 实现类似原生应用功能（如推送通知和离线存储）的增强版网站。
+从实用角度看，渐进式网络应用只是另一个术语，指代那些为移动端性能进行了优化、并利用新近可用的 Web API 来提供类似传统原生应用功能（如推送通知和离线存储）的网站。
 
-## Capacitor 与渐进式 Web 应用
+## Capacitor 与渐进式网络应用
 
-Capacitor 对渐进式 Web 应用和原生应用提供同等支持。这意味着 Capacitor 的桥接层既能在原生环境中运行，也能在 Web 环境中运行，许多插件在这两种环境下都可用，且保持完全相同的 API 和调用方式。
+Capacitor 对渐进式网络应用**和**原生应用都提供一流的支持。这意味着 Capacitor 的桥接器支持在原生环境或 Web 环境中运行，许多插件在**两种环境**中都可使用，且 API 和调用方式完全相同。
 
-这样一来，开发者可以同时将 `@capacitor/core` 和 Capacitor 插件作为原生应用和渐进式 Web 应用的依赖项，Capacitor 会根据运行环境自动选择调用 Web 代码或原生代码。
+这意味着您可以将 `@capacitor/core` 和 Capacitor 插件作为依赖项，同时用于您的原生应用**和**渐进式网络应用，而 Capacitor 会在需要时无缝调用 Web 代码，并在可用时调用原生代码。
 
-此外，Capacitor 还提供了多种实用工具来检测当前运行平台，从而为原生或 Web 环境提供定制化体验。
+此外，Capacitor 还提供多种实用工具，用于查询当前平台，以便在原生运行或在 Web 上运行时提供定制化的体验。
 
-## 为应用添加渐进式 Web 应用支持
+## 为您的应用添加渐进式网络应用支持
 
-渐进式 Web 应用需要具备应用清单（App Manifest）和服务工作者（Service Worker）。
+渐进式网络应用应具备应用清单（App Manifest）和服务工作线程（Service Worker）。
 
 ### 应用清单
 
-首先需要在 `index.html` 同级目录下创建[应用清单文件](https://developer.mozilla.org/en-US/docs/Web/Manifest)（[manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)），该文件包含应用名称、主题色和图标等元数据。例如当用户将应用添加到主屏幕时，系统就会使用这些信息。
+首先，您需要一个[应用清单](https://developer.mozilla.org/en-US/docs/Web/Manifest)文件（[manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)），该文件应放在您的 `index.html` 文件旁边，用于提供关于应用的元数据，例如名称、主题颜色和图标。这些信息将在应用安装到主屏幕等场景中使用。
 
-### 服务工作者
+### 服务工作线程
 
-要实现推送通知和离线存储功能，需要借助[服务工作者](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)来代理网络请求，并执行数据处理与同步所需的后台任务。
+接下来，为了发送推送通知和离线存储数据，需要一个[服务工作线程](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)，它将使您的网络应用能够代理网络请求，并执行处理和同步数据所需的后台任务。
 
-服务工作者功能强大但实现复杂，通常不建议从头编写。推荐使用 [Workbox](https://developers.google.com/web/tools/workbox/) 等工具，它们提供了可开箱即用的常用服务工作者解决方案。
+服务工作线程功能强大，但也较为复杂。通常不建议从头开始编写。相反，您可以查看像 [Workbox](https://developers.google.com/web/tools/workbox/) 这样的工具，它们提供了常用的服务工作线程方案，您可以轻松地将其集成到您的应用中。
 
-关于服务工作者的详细使用指南（包括注册方法），请查阅 MDN 的[使用服务工作者](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)文档。
+在 MDN 的[使用服务工作线程](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)页面上，阅读更多关于使用服务工作线程的信息，包括如何注册它们。
 
-## 渐进式 Web 应用性能优化
+## 渐进式网络应用性能
 
-渐进式 Web 应用的性能评估包含多个指标，如[可交互时间](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)和[首次有效绘制](https://developers/google.com/web/tools/lighthouse/audits/first-meaningful-paint)。
+渐进式网络应用根据多项性能标准进行评估，包括[可交互时间](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)和[首次有效绘制](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)。
 
-正式发布前请参考[渐进式 Web 应用检查清单](https://developers.google.com/web/progressive-web-apps/checklist)，并使用 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 进行质量审查。
+在上线前，请遵循[渐进式网络应用检查清单](https://developers.google.com/web/progressive-web-apps/checklist)，并使用 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 来审计和测试您的应用。
 
-如果现有前端技术栈难以满足渐进式 Web 应用的性能要求，推荐考虑采用 [Ionic Framework](http://ionicframework.com/) ，它能以近乎零配置的方式实现高性能 PWA 支持。
+如果您发现使用现有的前端技术栈难以满足渐进式网络应用的性能标准，可以考虑使用 [Ionic Framework](http://ionicframework.com/) 作为选项，它几乎无需配置即可获得快速的 PWA 支持。

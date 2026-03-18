@@ -1,49 +1,49 @@
 ---
-title: Capacitor Web 文档
-description: Web 入门指南
-sidebar_label: 入门指南
+title: Capacitor 网页端文档
+description: 网页端快速开始
+sidebar_label: 快速开始
 slug: /web
 contributors:
   - mlynch
 ---
 
-# 在 Web 项目中使用 Capacitor
+# 在网页项目中使用 Capacitor
 
-Capacitor 全面支持传统网页和渐进式 Web 应用（PWA）。实际上，使用 Capacitor 可以轻松地将 iOS 和 Android 应用商店的应用程序打包为 PWA 版本，所需工作量极少。
+Capacitor 完全支持传统网页和渐进式 Web 应用（PWA）。实际上，使用 Capacitor 可以让你以最小的工作量，轻松地将 iOS 和 Android 应用商店应用发布为 PWA 版本。
 
-## 浏览器兼容性
+## 浏览器支持
 
-Capacitor 核心和插件基于 ES2017 构建。这种较新的 JavaScript 语法在所有现代浏览器中都能获得支持（包括 iOS 和 Android 上运行 PWA 的浏览器），但未经额外转换（如使用 [Babel](https://babeljs.io)）则无法在 IE11 中运行。
+Capacitor 核心库和插件基于 ES2017 构建。所有现代浏览器（包括 iOS 和 Android 上支持 PWA 的浏览器）都支持这种较新的 JavaScript 语法，但在 IE11 中需要额外的 JavaScript 转换（例如使用 [Babel](https://babeljs.io)）才能运行。
 
-支持 Web 平台的插件会执行特性检测，如果浏览器不支持特定 Web API，将抛出异常。
+支持网页端的插件会进行功能检测，如果浏览器不支持特定的 Web API，则会抛出异常。
 
-## 安装指南
+## 安装
 
-如果您已在为 iOS 或 Android 项目使用 Capacitor，则无需额外安装步骤！
+如果你已经在为 iOS 或 Android 使用 Capacitor 进行构建，无需额外的安装步骤！
 
-否则，请先阅读 [安装指南](/main/getting-started/installation.md) 再继续。
+否则，请先查看 [安装指南](/main/getting-started/installation.md) 再继续。
 
-### 作为模块使用
+### 将 Capacitor 作为模块使用
 
-大多数情况下，应用会采用支持 JavaScript 模块导入的框架构建系统。通过从 `@capacitor/core` 或插件中导入，Capacitor JavaScript 运行时将与您的应用一同加载。
+大多数情况下，应用会使用支持导入 JavaScript 模块的框架和构建系统。通过从 `@capacitor/core` 导入或导入插件，Capacitor JavaScript 运行时将随你的应用一起加载。
 
-### 作为脚本引入
+### 将 Capacitor 作为脚本引入使用
 
-若要在未使用构建系统或打包工具/模块加载器的网页应用中使用 Capacitor 运行时，请按以下步骤操作：
+要在不使用构建系统或打包器/模块加载器的网页应用中使用 Capacitor 运行时，请按以下步骤操作：
 
-1. 在 [Capacitor 配置文件](/main/reference/config.md) 中将 `bundledWebRuntime` 设为 `true`
+1. 在 [Capacitor 配置文件](/main/reference/config.md) 中将 `bundledWebRuntime` 设置为 `true`
 
 ```json
 "bundledWebRuntime": true
 ```
 
-2. 将 Capacitor 运行时包 (`capacitor.js`) 复制到您的网页资源目录
+2. 将 Capacitor 运行时包 (`capacitor.js`) 复制到你的网页资源目录中
 
 ```bash
 npx cap sync web
 ```
 
-3. 在 `index.html` 中优先引入 `capacitor.js`
+3. 在 `index.html` 中，在其他 JavaScript 之前引入 `capacitor.js`
 
 ```html
 <script src="capacitor.js"></script>
@@ -52,6 +52,6 @@ npx cap sync web
 
 ## 发布上线
 
-当您的渐进式 Web 应用准备就绪并要公开发布时，只需上传网页资源目录的内容即可。
+当你准备好发布渐进式 Web 应用并与世界分享时，只需上传你的网页资源目录中的内容。
 
-该目录包含运行应用所需的所有资源！
+那将包含运行你的应用所需的一切！

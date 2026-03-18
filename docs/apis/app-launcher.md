@@ -1,43 +1,49 @@
 ---
-title: App Launcher Capacitor 插件 API
-description: AppLauncher API 允许打开其他应用程序
+title: App Launcher Capacitor Plugin API
+description: The AppLauncher API allows to open other apps
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/src/definitions.ts
-sidebar_label: 应用启动器
+sidebar_label: App Launcher
 ---
 
 # @capacitor/app-launcher
 
-AppLauncher API 允许您的应用检查是否可以打开其他应用并执行打开操作。
+The AppLauncher API allows your app to check if an app can be opened and open it.
 
-在 iOS 上，您只能通过已知的 URL 方案（url scheme）来打开应用。
+On iOS you can only open apps if you know their url scheme.
 
-在 Android 上，您可以通过已知的 URL 方案或使用应用的公开包名（package name）来打开应用。
+On Android you can open apps if you know their url scheme or use their public package name.
 
-**注意：** 在 [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 及更高版本上，您必须在 `AndroidManifest.xml` 中的 `queries` 标签内添加您想要查询的应用包名或网址 scheme。
+**Note:** On [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) and newer you have to add the app package names or url schemes you want to query in the `AndroidManifest.xml` inside the `queries` tag.
 
-示例：
+Example:
 ```xml
 <queries>
-  <package android:name="com.getcapacitor.myapp" />
+  <!-- Query by package name -->
+  <package android:name="com.twitter.android" />
+  <!-- Query by url scheme -->
+  <intent>
+      <action android:name="android.intent.action.VIEW"/>
+      <data android:scheme="twitter"/>
+  </intent>
 </queries>
 ```
 
-## 安装
+## Install
 
 ```bash
 npm install @capacitor/app-launcher
 npx cap sync
 ```
 
-## 示例
+## Example
 
 ```typescript
 import { AppLauncher } from '@capacitor/app-launcher';
 
 const checkCanOpenTwitterUrl = async () => {
   const { value } = await AppLauncher.canOpenUrl({ url: 'twitter://timeline' });
-  console.log('是否可以打开该 URL: ', value);
+  console.log('Can open url: ', value);
 };
 
 const openTwitterUrl = async () => {
@@ -64,7 +70,7 @@ const openTwitterPackage = async () => {
 
 * [`canOpenUrl(...)`](#canopenurl)
 * [`openUrl(...)`](#openurl)
-* [接口](#interfaces)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -77,24 +83,30 @@ const openTwitterPackage = async () => {
 canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 ```
 
-检查是否可以使用给定的 URL 打开某个应用。
+Check if an app can be opened with the given URL.
 
-在 iOS 上，您必须通过在应用的 `Info.plist` 文件中添加 `LSApplicationQueriesSchemes` 键来声明传递给此方法的 URL 方案。
-了解更多关于配置 [`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 的信息。
+On iOS you must declare the URL schemes you pass to this method by adding
+the `LSApplicationQueriesSchemes` key to your app's `Info.plist` file.
+Learn more about configuring
+[`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist).
 
-对于未声明的方案，无论是否安装了相应的应用，此方法始终返回 false。要了解更多关于此键的信息，请参阅 [LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes)。
+This method always returns false for undeclared schemes, whether or not an
+appropriate app is installed. To learn more about the key, see
+[LSApplicationQueriesSchemes](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/plist/info/LSApplicationQueriesSchemes).
 
-在安卓系统上，该URL可以是已知的URLScheme或应用包名。
+On Android the URL can be a known URLScheme or an app package name.
 
-在[Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility)及更高版本中，你必须在`AndroidManifest.xml`里的`queries`标签内添加你想要查询的应用包名或URL方案。
+On [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility)
+and newer you have to add the app package names or url schemes you want to query in the `AndroidManifest.xml`
+inside the `queries` tag.
 
-| 参数          | 类型                                                            |
+| Param         | Type                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#canopenurloptions">CanOpenURLOptions</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#canopenurlresult">CanOpenURLResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#canopenurlresult">CanOpenURLResult</a>&gt;</code>
 
-**自从：** 1.0.0
+**Since:** 1.0.0
 
 --------------------
 
@@ -105,17 +117,17 @@ canOpenUrl(options: CanOpenURLOptions) => Promise<CanOpenURLResult>
 openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 ```
 
-使用给定的 URL 打开一个应用。
-在 iOS 上，URL 应为已知的 URL 方案。
-在 Android 上，URL 可以是已知的 URL 方案或应用包名。
+Open an app with the given URL.
+On iOS the URL should be a known URLScheme.
+On Android the URL can be a known URLScheme or an app package name.
 
-| 参数          | 类型                                                      |
+| Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#openurloptions">OpenURLOptions</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#openurlresult">OpenURLResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#openurlresult">OpenURLResult</a>&gt;</code>
 
-**自从：** 1.0.0
+**Since:** 1.0.0
 
 --------------------
 
@@ -125,28 +137,28 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 
 #### CanOpenURLResult
 
-| 属性         | 类型                 |
+| Prop        | Type                 |
 | ----------- | -------------------- |
 | **`value`** | <code>boolean</code> |
 
 
 #### CanOpenURLOptions
 
-| 属性       | 类型                |
+| Prop      | Type                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 
 
 #### OpenURLResult
 
-| 属性             | 类型                 |
+| Prop            | Type                 |
 | --------------- | -------------------- |
 | **`completed`** | <code>boolean</code> |
 
 
 #### OpenURLOptions
 
-| 属性       | 类型                |
+| Prop      | Type                |
 | --------- | ------------------- |
 | **`url`** | <code>string</code> |
 

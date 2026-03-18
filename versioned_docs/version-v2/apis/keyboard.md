@@ -1,6 +1,6 @@
 ---
 title: Keyboard
-description: 键盘API
+description: Keyboard API
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/keyboard
 
 <plugin-platforms platforms="ios,android"></plugin-platforms>
 
-键盘API提供键盘显示与可见性控制功能，并能追踪键盘显示/隐藏事件。
+Keyboard API 提供了键盘显示和可见性控制功能，以及键盘显示和隐藏时的事件追踪。
 
 - [`show()`](#show)
 - [`hide()`](#hide)
@@ -25,7 +25,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/keyboard
 - [接口](#interfaces)
 - [枚举](#enums)
 
-## 兼容cordova-plugin-ionic-keyboard的窗口事件
+## 用于 cordova-plugin-ionic-keyboard 兼容性的窗口事件
 
 - keyboardWillShow
 - keyboardDidShow
@@ -75,28 +75,28 @@ window.addEventListener('keyboardDidHide', () => {
   console.log('键盘已隐藏');
 });
 
-// API调用
+// API
 
 Keyboard.setAccessoryBarVisible({ isVisible: false });
 
-Keyboard.show(); // 显示键盘
+Keyboard.show();
 
-Keyboard.hide(); // 隐藏键盘
+Keyboard.hide();
 ```
 
-## 键盘配置（仅iOS）
+## 键盘配置（仅限 iOS）
 
-在`capacitor.config.json`中可为iOS平台配置以下键盘参数：
+键盘插件允许在 `capacitor.config.json` 文件中为 iOS 平台添加以下配置值：
 
-- `resize`: 控制键盘出现时应用的调整方式
-  可选值包括：
+- `resize`: 配置键盘出现时应用程序的调整方式。
+  允许的值包括：
 
-  - `none`: 不调整应用和WebView
-  - `native`: （默认）键盘显示/隐藏时调整整个原生WebView，会影响`vh`相对单位
-  - `body`: 仅调整HTML的`<body>`元素，视口不变因此不影响相对单位
-  - `ionic`: 仅调整ionic应用的ion-app元素
+  - `none`: 应用程序和 webview 都不会调整大小
+  - `native`: （默认）整个原生 webview 将在键盘显示/隐藏时调整大小，这将影响 `vh` 相对单位。
+  - `body`: 仅 HTML `<body>` 元素会被调整大小。相对单位不受影响，因为视口不会改变。
+  - `ionic`: 仅 HTML ion-app 元素会被调整大小。仅适用于 Ionic 应用。
 
-- `style`: 设为`dark`将使用深色风格键盘
+- `style`: 如果设置为 `dark`，将使用深色风格的键盘代替常规键盘。
 
 ```json
 {
@@ -117,7 +117,7 @@ Keyboard.hide(); // 隐藏键盘
 show() => Promise<void>
 ```
 
-显示键盘（此方法为Alpha版本，可能存在问题）
+显示键盘。此方法处于 alpha 阶段，可能存在一些问题。
 
 ---
 
@@ -127,7 +127,7 @@ show() => Promise<void>
 hide() => Promise<void>
 ```
 
-隐藏键盘
+隐藏键盘。
 
 ---
 
@@ -137,10 +137,10 @@ hide() => Promise<void>
 setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 ```
 
-设置键盘辅助栏的可见性。建议在登录/注册等简短表单中禁用辅助栏以获得更简洁的UI
+设置键盘上的辅助栏是否可见。对于较短的表单（登录、注册等），我们建议禁用辅助栏以提供更简洁的 UI。
 
-| 参数          | 类型                      |
-| ------------- | ------------------------- |
+| 参数          | 类型                               |
+| ------------- | ---------------------------------- |
 | **`options`** | `{ isVisible: boolean; }` |
 
 ---
@@ -151,10 +151,10 @@ setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 setScroll(options: { isDisabled: boolean; }) => Promise<void>
 ```
 
-通过编程方式启用/禁用WebView滚动
+以编程方式启用或禁用 WebView 滚动。
 
-| 参数          | 类型                       |
-| ------------- | -------------------------- |
+| 参数          | 类型                                |
+| ------------- | ----------------------------------- |
 | **`options`** | `{ isDisabled: boolean; }` |
 
 ---
@@ -165,7 +165,7 @@ setScroll(options: { isDisabled: boolean; }) => Promise<void>
 setStyle(options: KeyboardStyleOptions) => Promise<void>
 ```
 
-通过编程设置键盘样式
+以编程方式设置键盘样式。
 
 | 参数          | 类型                                                                  |
 | ------------- | --------------------------------------------------------------------- |
@@ -179,7 +179,7 @@ setStyle(options: KeyboardStyleOptions) => Promise<void>
 setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 ```
 
-通过编程设置调整模式
+以编程方式设置调整大小模式。
 
 | 参数          | 类型                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
@@ -253,18 +253,17 @@ addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => PluginLis
 removeAllListeners() => void
 ```
 
-移除该插件的所有原生监听器
+移除此插件的所有原生监听器。
 
 ---
 
-### Interfaces
+### 接口
 
 #### KeyboardStyleOptions
 
 | 属性        | 类型                                                    |
 | ----------- | ------------------------------------------------------- |
 | **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> |
-
 #### KeyboardResizeOptions
 
 | 属性       | 类型                                                      |
@@ -283,18 +282,18 @@ removeAllListeners() => void
 | -------------------- | ------------------- |
 | **`keyboardHeight`** | <code>number</code> |
 
-### Enums
+### 枚举
 
 #### KeyboardStyle
 
-| 枚举值      | 值                   |
+| 成员     | 值                |
 | ----------- | -------------------- |
 | **`Dark`**  | <code>"DARK"</code>  |
 | **`Light`** | <code>"LIGHT"</code> |
 
 #### KeyboardResize
 
-| 枚举值       | 值                    |
+| 成员      | 值                 |
 | ------------ | --------------------- |
 | **`Body`**   | <code>"body"</code>   |
 | **`Ionic`**  | <code>"ionic"</code>  |

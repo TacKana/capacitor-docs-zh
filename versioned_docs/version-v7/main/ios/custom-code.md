@@ -1,5 +1,5 @@
 ---
-title: 自定义原生 iOS 代码
+title: Custom Native iOS Code
 description: 自定义原生 iOS 代码
 contributors:
   - dotNetkow
@@ -9,21 +9,21 @@ slug: /ios/custom-code
 
 # 自定义原生 iOS 代码
 
-Capacitor 鼓励您编写 Swift 或 Objective-C 代码来实现应用所需的本机功能。
+使用 Capacitor 时，我们鼓励你编写 Swift 或 Objective-C 代码来实现你的应用所需的本机功能。
 
-可能并非所有功能都有[现成的 Capacitor 插件](/plugins.mdx)——这完全没问题！您可以直接在应用中编写可供 WebView 访问的原生代码。
+可能并非所有功能都有现成的 [Capacitor 插件](/plugins.mdx)——这没关系！你完全可以直接在你的应用中编写 WebView 可访问的原生代码。
 
 ## WebView 可访问的原生代码
 
-在 JavaScript 和原生代码之间进行通信的最简单方式，是构建一个专属于您应用的本地自定义 Capacitor 插件。
+在 JavaScript 和原生代码之间通信的最简单方法是，构建一个仅用于你应用的自定义 Capacitor 插件。
 
 ### `EchoPlugin.swift`
 
-首先，通过[打开 Xcode](/main/ios/index.md#opening-the-ios-project)，右键单击 **App** 组（位于 **App** 目标下），从上下文菜单中选择 **New File...**，在窗口中选择 **Swift File**，来创建 `EchoPlugin.swift` 文件。
+首先，通过 [打开 Xcode](/main/ios/index.md#opening-the-ios-project) 创建 `EchoPlugin.swift` 文件：右键点击 **App** 组（在 **App** 目标下），从上下文菜单中选择 **New File...**，在窗口中选择 **Swift File**，然后创建文件。
 
 ![在 Xcode 中新建 Swift 文件](/img/v6/docs/ios/xcode-new-swift-file.png)
 
-将以下 Swift 代码复制到 `EchoPlugin.swift` 中：
+将以下 Swift 代码复制到 `EchoPlugin.swift`：
 
 ```swift
 import Capacitor
@@ -43,17 +43,17 @@ public class EchoPlugin: CAPPlugin, CAPBridgedPlugin {
 }
 ```
 
-> `@objc` 装饰器是必需的，以确保 Capacitor 运行时（必须使用 Objective-C 来支持动态插件）能够识别它。
+> 必须使用 `@objc` 装饰器，以确保 Capacitor 运行时（它必须使用 Objective-C 来支持动态插件）能够识别它。
 
 ### 注册插件
 
-我们必须同时在 iOS 和 Web 端注册自定义插件，以便 Capacitor 能够在 Swift 和 JavaScript 之间建立桥梁。
+我们必须在 iOS 端和 Web 端都注册自定义插件，以便 Capacitor 能在 Swift 和 JavaScript 之间建立桥接。
 
 #### `MyViewController.swift`
 
 [创建一个自定义的 `MyViewController.swift`](../ios/viewcontroller.md)。
 
-然后重写 `capacitorDidLoad()` 方法并注册插件：
+然后添加一个 `capacitorDidLoad()` 方法的重写，并注册插件：
 
 ```swift
 override open func capacitorDidLoad() {
@@ -63,7 +63,7 @@ override open func capacitorDidLoad() {
 
 #### JavaScript
 
-在 JS 中，我们使用 `@capacitor/core` 中的 `registerPlugin()` 来创建一个与我们的 Swift 插件链接的对象。
+在 JavaScript 中，我们使用 `@capacitor/core` 中的 `registerPlugin()` 来创建一个与我们的 Swift 插件关联的对象。
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -73,11 +73,11 @@ const Echo = registerPlugin('Echo');
 export default Echo;
 ```
 
-> `registerPlugin()` 的第一个参数是插件名称，必须与 `EchoPlugin.swift` 中的 `jsName` 相匹配。
+> `registerPlugin()` 的第一个参数是插件名称，它必须与 `EchoPlugin.swift` 中的 `jsName` 匹配。
 
 **TypeScript**
 
-我们可以通过定义一个接口并在调用 `registerPlugin()` 时使用它，来为链接的对象定义类型。
+我们可以通过定义一个接口，并在调用 `registerPlugin()` 时使用它，来为这个关联的对象定义类型。
 
 ```diff
  import { registerPlugin } from '@capacitor/core';
@@ -92,11 +92,11 @@ export default Echo;
  export default Echo;
 ```
 
-`registerPlugin()` 的泛型参数定义了链接对象的结构。如果需要，您可以使用 `registerPlugin<any>('Echo')` 来忽略类型。我们不做评判。❤️
+`registerPlugin()` 的泛型参数定义了关联对象的结构。如果需要，你可以使用 `registerPlugin<any>('Echo')` 来忽略类型。我们不做评判。❤️
 
 ### 使用插件
 
-使用导出的 `Echo` 对象来调用您的插件方法。以下代码片段将在 iOS 上调用 Swift 代码并打印结果：
+使用导出的 `Echo` 对象来调用你的插件方法。以下代码片段将在 iOS 上调用 Swift 代码并打印结果：
 
 ```typescript
 import Echo from '../path/to/echo-plugin';
@@ -105,6 +105,6 @@ const { value } = await Echo.echo({ value: 'Hello World!' });
 console.log('Response from native:', value);
 ```
 
-### 后续步骤
+### 下一步
 
 [阅读 iOS 插件指南 &#8250;](/plugins/creating-plugins/ios-guide.md)

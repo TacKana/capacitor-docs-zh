@@ -9,45 +9,33 @@ sidebar_label: Watch 🧪
 # @capacitor/watch
 
 <p align="center">
-  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI">
-    <img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" />
-  </a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch">
-    <img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" />
-  </a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch">
-    <img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" />
-  </a>
-  <a href="https://www.npmjs.com/package/@capacitor/watch">
-    <img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" />
-  </a>
+  <a href="https://github.com/ionic-team/capacitorwatch/actions?query=workflow%3ACI"><img src="https://img.shields.io/github/actions/workflow/status/ionic-team/capacitor/ci.yml?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/dw/@capacitor/watch?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/v/@capacitor/watch?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capacitor/watch"><img src="https://img.shields.io/npm/l/@capacitor/watch?style=flat-square" /></a>
 </p>
 <p align="center">
-  <a href="https://capacitorjs.com/docs">
-    <img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" />
-  </a>
-  <a href="https://twitter.com/capacitorjs">
-    <img src="https://img.shields.io/twitter/follow/capacitorjs" />
-  </a>
+  <a href="https://capacitorjs.com/docs"><img src="https://img.shields.io/static/v1?label=docs&message=capacitorjs.com&color=blue&style=flat-square" /></a>
+  <a href="https://twitter.com/capacitorjs"><img src="https://img.shields.io/twitter/follow/capacitorjs" /></a>
 </p>
 
 ---
 
-_CapacitorLABS_ - 此项目为实验性项目，不提供官方支持。如有需要请提交问题报告。
+_CapacitorLABS_ - 此项目为实验性质，不提供官方支持。如有需要，请提交问题。
 
 ---
 
-Capacitor Watch 插件允许您在网页代码中定义手表界面，并在配对的手表上显示。
+Capacitor Watch 插件允许您在网页代码中定义手表界面，并将其显示在已配对的手表上。
 
-目前仅支持 iOS 平台。本指南假设您已在 Capacitor 项目中添加了 iOS 平台。
+目前仅支持 iOS 平台。本指南假设您已在 Capacitor 项目中添加了 iOS 支持。
 
-请注意：所有这些功能仅适用于实际的 Apple Watch。模拟器无法像真实设备那样实现应用与手表间的通信。
+请注意：所有功能仅适用于真实的 Apple Watch。模拟器不支持真实设备那样的应用与手表通信。
 
 ## 安装
 
 步骤 1
 
-将 watch 插件添加到您的 Capacitor 项目，然后打开 Xcode 项目：
+将 Watch 插件添加到您的 Capacitor 项目，然后打开 Xcode 项目：
 
 ```bash
 npm install @capacitor/watch
@@ -61,53 +49,53 @@ npx cap open ios
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/add-capability.png" />
 
-添加“后台模式”和“推送通知”功能。然后在后台模式选项中，选择“后台获取”、“远程通知”和“后台处理”。您的应用目标应如下所示：
+添加“后台模式”和“推送通知”功能。然后在后台模式选项中，选择“后台获取”、“远程通知”和“后台处理”。您的 App 目标应如下所示：
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/capabilities-final.png" />
 
 步骤 3
 
-打开 `AppDelegate.swift`，在文件顶部添加 `import WatchConnectivity` 和 `import CapactiorWatch`，并在 `application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)` 方法内添加以下代码：
+打开 `AppDelegate.swift` 文件，在顶部添加 `import WatchConnectivity` 和 `import CapactiorWatch`，然后在 `application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)` 方法内添加以下代码：
 
 ```swift
-assert(WCSession.isSupported(), "此示例需要 Watch Connectivity 支持！")
+assert(WCSession.isSupported(), "This sample requires Watch Connectivity support!")
 WCSession.default.delegate = CapWatchSessionDelegate.shared
 WCSession.default.activate()
 ```
 
 步骤 4
 
-在 Xcode 中选择 File -> New -> Target，然后选择 watchOS 标签页和 'App'：
+在 Xcode 中选择文件 -> 新建 -> 目标，然后选择 watchOS 选项卡和“App”：
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/target-watch.png" />
 
-点击 'Next'，然后按如下方式填写选项：
+点击“下一步”，然后按如下方式填写选项：
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/watch-target-options.png" />
 
-此对话框可能有些令人困惑，关键点在于您的 'Bundle Identifier' 必须是 `[您的应用包ID].watchapp`，以便手表与应用配对。您还必须为界面选择 SwiftUI，为语言选择 Swift。项目应为 `App`。
+此对话框可能有些令人困惑，关键点在于您的“包标识符”必须是 `[您的应用包ID].watchapp`，以便手表与应用配对正常工作。您还必须为界面选择 SwiftUI，为语言选择 Swift。项目应为 `App`。
 
 步骤 5
 
-我们将添加使 Capacitor Watch 在手表应用中工作的代码。
+我们将把使 Capacitor Watch 正常工作的代码添加到手表应用中。
 
 ---
 
-如果您使用的是 <b>Xcode 15 或更高版本</b>，则需要从 node_modules 中添加 Capacitor Watch Swift 包：
+如果您使用的是 <b>Xcode 15 或更高版本</b>，则需要从 node_modules 添加 Capacitor Watch Swift 包：
 
 首先转到项目包依赖项
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/spm-project-dependancies.png" />
 
-然后选择 'Add Local'
+然后选择“添加本地”
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/spm-add-local.png" />
 
-然后导航到 `node_modules/@capacitor/watch/CapWatch-Watch-SPM` 文件夹，点击 'Add Package'
+然后导航到 `node_modules/@capacitor/watch/CapWatch-Watch-SPM` 文件夹，点击“添加包”
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/spm-nav-to-package.png" />
 
-然后在右侧列中选择您的手表应用作为目标，点击 'Add Package'
+然后在右侧列中选择您的手表应用作为目标，点击“添加包”
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/spm-pick-target.png" />
 
@@ -117,13 +105,13 @@ WCSession.default.activate()
 
 ---
 
-对于 <b>Xcode 14</b>，您需要访问 https://github.com/ionic-team/CapacitorWatch/tree/main/packages/iOS-capWatch-watch/Sources/iOS-capWatch-watch 并将所有文件复制到您的手表项目中，确保选中的目标是您的手表应用。应如下所示：
+对于 <b>Xcode 14</b> 用户，您需要访问 https://github.com/ionic-team/CapacitorWatch/tree/main/packages/iOS-capWatch-watch/Sources/iOS-capWatch-watch，将所有文件复制到您的 Watch 项目中，并确保目标选择为您的手表应用。应如下所示：
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/watch-sources-added.png" />
 
 步骤 6
 
-然后打开手表应用的 'Main' 文件，应为 `watchappApp.swift`。在 `@main` 语句上方添加 `import WatchConnectivity` 和 `import iOS_capWatch_watch`。然后将 `ContentView()` 替换为以下内容：
+然后打开手表应用的“主”文件，应为 `watchappApp.swift`。在 `@main` 语句上方添加 `import WatchConnectivity` 和 `import iOS_capWatch_watch`。然后将 `ContentView()` 这一行替换为以下内容：
 
 完成后的文件应如下所示：
 
@@ -138,7 +126,7 @@ struct watchddgg_Watch_AppApp: App {
         WindowGroup {
             CapWatchContentView()
                 .onAppear {
-                    assert(WCSession.isSupported(), "此示例需要 Watch Connectivity 支持！")
+                    assert(WCSession.isSupported(), "This sample requires Watch Connectivity support!")
                     WCSession.default.delegate = WatchViewModel.shared
                     WCSession.default.activate()
                 }
@@ -153,84 +141,82 @@ struct watchddgg_Watch_AppApp: App {
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/watch-remote-not.png" />
 
-现在您应该准备好进行 Capacitor Watch 开发了！
+现在您应该可以开始为 Capacitor Watch 进行开发了！
 
-## 开发工作流
+## 开发工作流程
 
-您仍然可以像普通 Capacitor 应用一样开发 iOS 应用，但要在手表上运行，您需要在 Xcode 中更改目标和目标设备。您可以通过 Xcode 中上部附近的“目标下拉菜单”更改此设置：
+您仍然可以像开发普通 Capacitor 应用一样开发 iOS 应用，但要在手表上运行，需要在 Xcode 中更改目标和目标设备。您可以通过 Xcode 顶部中央附近的“目标下拉菜单”进行更改：
 
 <img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/target-dropdown.png" />
 
-此栏的右半部分让您选择目标设备或模拟器。您需要选择与手机配对的手表，然后点击“运行”按钮或使用“cmd+r”运行快捷键。
+此栏的右半部分允许您选择目标设备或模拟器。您需要选择与手机配对的手表，然后点击“运行”按钮或使用“cmd+r”运行快捷键。
 
-同步手表和手机应用可能会遇到一些挑战。有时 Xcode 控制台会报错，抱怨伴侣应用不存在。这种情况下最好的解决方案是在两个设备上重新构建和重新安装应用。
+在同步手表和手机应用时可能会遇到一些挑战。有时 Xcode 控制台会报错，提示配套应用不存在。这种情况下最好的解决方案是在两台设备上重新构建并重新安装应用。
 
-## 构建手表 UI 并发送到手表
+## 构建手表界面并发送到手表
 
-您将使用一个长字符串来定义手表 UI。换行符分隔组件。目前此插件仅支持垂直滚动视图，包含文本或按钮组件。
+您将使用一个长字符串来定义手表界面。组件之间用换行符分隔。目前此插件仅支持垂直滚动视图，其中可以包含 Text 或 Button 组件。
 
-定义好 UI 后，您可以使用 `updateWatchUI()` 方法将其发送到手表：
+定义好界面后，您可以使用 `updateWatchUI()` 方法将其发送到手表：
 
 ```typescript
 async uploadMyWatchUI() {
-    const watchUI =
+    const watchUI = 
         `Text("Capacitor WATCH")
-         Button("加一", "inc")`;
+         Button("Add One", "inc")`;
 
     await Watch.updateWatchUI({"watchUI": watchUI});
 }
 ```
 
-将产生以下效果：
+将生成以下界面：
 
-<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />
+<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />## 与手表通信
 
-## 与手表通信
+这篇文章对原生通信方法及其含义提供了很好的总结：https://alexanderweiss.dev/blog/2023-01-18-three-ways-to-communicate-via-watchconnectivity
 
-本文提供了关于原生方法及其影响的很好总结：https://alexanderweiss.dev/blog/2023-01-18-three-ways-to-communicate-via-watchconnectivity
-
-在手机端，您可以使用 Capacitor 后台运行器插件（https://github.com/ionic-team/capacitor-background-runner）实现这些方法。目前 watch 插件主要处理 `didReceiveUserInfo` 方法，您可以在应用处于后台时使用以下代码在 runner.js 中接收来自手表的事件：
+在手机端，你可以使用 Capacitor 后台运行插件 (https://github.com/ionic-team/capacitor-background-runner) 来实现这些方法。目前手表插件主要处理 `didReceiveUserInfo` 方法，你可以在 runner.js 中使用以下代码在应用处于后台时接收来自手表的事件：
 
 ```javascript
-addEventListener('WatchConnectivity_didReceiveUserInfo', (args) => {
+addEventListener("WatchConnectivity_didReceiveUserInfo", (args) => {
   console.log(args.message.jsCommand);
-});
+})
 ```
 
-您还可以实现 `runCommand` 事件监听器以进行前台处理：
+你还可以实现 `runCommand` 事件监听器来进行前台处理：
 
 ```typescript
-Watch.addListener('runCommand', (data: { command: string }) => {
-  console.log('手机收到命令 - ' + data.command);
-});
+Watch.addListener("runCommand", (data: {command: string}) => {
+  console.log("手机收到命令 - " + data.command);
+})
 ```
 
-命令是手表 UI 中 `Button()` 定义的第二个参数。可以是任何字符串。
+这些命令对应手表 UI 中 `Button()` 定义的第二个参数。可以是任意字符串。
 
 ## 更新手表数据
 
-您可以通过使用 `$` 变量将变量添加到 `Text()` 元素，并使用 `updateWatchData` 命令更新：
+你可以通过 `$` 变量将变量添加到 `Text()` 元素中，并使用 `updateWatchData` 命令进行更新：
 
 ```
 Text("显示我的 $number")
 ```
 
-此示例将在执行时更新 `$number`：
+这个例子将在执行时更新 `$number`：
 
 ```typescript
 var stateData = {
-  number: 0,
-};
+  number: 0
+}
 
 async function counterIncrement() {
-  stateData.counter++;
-  await Watch.updateWatchData({ data: convertValuesOfObjectToStringValues(stateData) });
+  stateData.counter++  
+  await Watch.updateWatchData({"data": convertValuesOfObjectToStringValues(stateData)})
 }
 ```
 
-# 手表上的持久化
+# 手表上的数据持久化
 
-Capacitor Watch 将保留您使用 `updateWatchUI()` 发送的最后一个 UI。`updateWatchData()` 的状态不会保留。
+Capacitor Watch 会持久化你通过 `updateWatchUI()` 发送的最后一个 UI。通过 `updateWatchData()` 更新的状态数据**不会**被持久保存。
 
 ## 安装
 
@@ -243,10 +229,10 @@ npx cap sync
 
 <docgen-index>
 
-- [`addListener('runCommand', ...)`](#addlistenerruncommand-)
-- [`updateWatchUI(...)`](#updatewatchui)
-- [`updateWatchData(...)`](#updatewatchdata)
-- [接口](#interfaces)
+* [`addListener('runCommand', ...)`](#addlistenerruncommand-)
+* [`updateWatchUI(...)`](#updatewatchui)
+* [`updateWatchData(...)`](#updatewatchdata)
+* [接口](#interfaces)
 
 </docgen-index>
 
@@ -268,7 +254,8 @@ addListener(eventName: 'runCommand', listenerFunc: (data: { command: string; }) 
 
 **返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
----
+--------------------
+
 
 ### updateWatchUI(...)
 
@@ -276,13 +263,14 @@ addListener(eventName: 'runCommand', listenerFunc: (data: { command: string; }) 
 updateWatchUI(options: { watchUI: string; }) => Promise<void>
 ```
 
-用 watchUI 替换当前手表 UI
+用新的 watchUI 替换当前的手表界面
 
 | 参数          | 类型                              |
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ watchUI: string; }</code> |
 
----
+--------------------
+
 
 ### updateWatchData(...)
 
@@ -296,14 +284,16 @@ updateWatchData(options: { data: { [key: string]: string; }; }) => Promise<void>
 | ------------- | -------------------------------------------------- |
 | **`options`** | <code>{ data: { [key: string]: string; }; }</code> |
 
----
+--------------------
 
-### Interfaces
+
+### 接口
+
 
 #### PluginListenerHandle
 
-| 属性         | 类型                                      |
-| ------------ | ----------------------------------------- |
-| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
+| 属性          | 类型                                      |
+| ------------- | ----------------------------------------- |
+| **`remove`**  | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>

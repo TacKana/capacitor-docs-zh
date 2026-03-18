@@ -1,5 +1,5 @@
 ---
-title: Using Plugins
+title: 使用插件
 description: 如何在 Capacitor 中使用插件
 contributors:
   - jcesarmobile
@@ -9,18 +9,18 @@ slug: /basics/using-plugins
 
 # 使用插件
 
-Web视图与原生应用通过Capacitor或Cordova插件进行通信。这些插件为您的Web应用提供了诸如相机、地理定位和文件系统访问等原生API功能。
+Web View 与原生应用通过 Capacitor 或 Cordova 插件进行通信。插件为你的 Web 应用提供原生 API，例如相机、地理定位和文件系统访问。
 
 ## Capacitor 插件
 
-Capacitor 团队维护着[一套官方插件](/plugins/official.md)，用于常见的API调用。此外，[Capacitor社区](https://github.com/capacitor-community/)也提供了大量可用插件。
+Capacitor 团队维护着一套针对常用 API 的 [官方 Capacitor 插件](/plugins/official.md)。[Capacitor 社区](https://github.com/capacitor-community/) 也提供了大量可用的 Capacitor 插件。
 
-[了解更多关于Capacitor插件的信息 &#8250;](/plugins.mdx)
+[详细了解 Capacitor 插件 &#8250;](/plugins.mdx)
 
 ## Cordova 插件
 
-虽然优先推荐使用Capacitor插件，但Cordova插件仍可作为备选方案。Capacitor兼容大多数Cordova插件，不过在安装时可能需要额外步骤。
+虽然 Capacitor 插件是首选，但 Cordova 插件也是一个选项。Capacitor 兼容大多数 Cordova 插件，但在安装时可能需要额外的步骤。
 
-> 如果您因找不到合适的Capacitor插件而使用了Cordova插件，是否考虑[为Capacitor社区提交提案](https://github.com/capacitor-community/proposals/)？
+> 如果因为找不到合适的 Capacitor 插件而使用了 Cordova 插件，你愿意 [为 Capacitor 社区创建提案](https://github.com/capacitor-community/proposals/) 吗？
 
-[了解如何在Capacitor应用中使用Cordova插件 &#8250;](/plugins/cordova.md)
+[详细了解如何在 Capacitor 应用中使用 Cordova 插件 &#8250;](/plugins/cordova.md)

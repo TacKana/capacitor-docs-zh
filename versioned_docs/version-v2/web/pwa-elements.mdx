@@ -1,33 +1,33 @@
 ---
 title: PWA Elements
-description: 使用 PWA 元素组件
+description: 使用 PWA Elements
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/web/pwa-elements
 ---
 
-# PWA 元素组件
+# PWA Elements
 
-某些 Capacitor 插件（如 `Camera` 或 `Toast`）在非原生环境下运行时提供基于网页的 UI 界面。例如，在网页端调用 `Camera.getPhoto()` 时，会加载一个响应式的照片拍摄界面：
+一些 Capacitor 插件，例如 `Camera` 或 `Toast`，在非原生运行时提供了基于 Web 的用户界面。例如，在 Web 端调用 `Camera.getPhoto()` 会加载一个响应式的拍照体验：
 
 <img src="/assets/img/docs/pwa-elements.png" style={{ height: "200px" }} />
 
-这些 UI 是通过 Web 组件实现的。由于这些元素被封装在 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) 中，因此不会与您自己的 UI 产生冲突。
+该 UI 是使用 Web Components 实现的。由于这些元素被 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) 封装，因此这些组件不会与您自己的 UI 产生冲突。
 
-## 安装指南
+## 安装
 
-要启用这些控件，您需要将 `@ionic/pwa-elements` 添加到您的应用中。
+为了启用这些控件，您必须在您的应用中添加 `@ionic/pwa-elements`。
 
-典型安装方式包括导入包并注册元素组件，或在应用的 `index.html` 的 `<head>` 中添加脚本标签：
+典型的安装方式包括导入包并注册元素，或在应用的 `index.html` 的 `<head>` 中添加脚本标签：
 
-#### 导入 PWA 元素组件
+#### 导入 PWA Elements
 
 ```bash
 npm install @ionic/pwa-elements
 ```
 
-根据您选择的框架，导入元素加载器并在适当的时机调用：
+然后，根据您选择的框架，导入元素加载器并在适当的时机调用它：
 
 ##### React
 
@@ -38,7 +38,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// 在应用首次渲染完成后调用元素加载器
+// 在应用首次渲染后调用元素加载器
 defineCustomElements(window);
 ```
 
@@ -62,7 +62,7 @@ new Vue({
   components: { App },
 });
 
-// 在平台初始化完成后调用元素加载器
+// 在平台启动后调用元素加载器
 defineCustomElements(window);
 ```
 
@@ -87,13 +87,13 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
-// 在平台初始化完成后调用元素加载器
+// 在平台启动后调用元素加载器
 defineCustomElements(window);
 ```
 
 #### 通过脚本标签引入
 
-您也可以通过 `index.html` 中的脚本标签引入 PWA 元素组件，但请注意这种方式不适用于离线场景：
+PWA Elements 可以通过在 `index.html` 中添加脚本标签来引入。但请注意，这种方式在离线场景下将无法工作：
 
 ```html
 <script

@@ -1,54 +1,54 @@
 ---
-title: 实时重载
-description: 使用实时重载功能，轻松在设备或模拟器上调试应用的网页端和原生部分。
+title: Live Reload
+description: 使用 Live Reload 在设备或模拟器上轻松调试应用程序的 Web 和原生功能部分。
 contributors:
   - dotNetkow
 slug: /guides/live-reload
 ---
 
-# 实时重载
+# Live Reload
 
-实时重载功能对于调试应用的网页端内容以及在真实设备或模拟器上测试原生功能都非常有用。它能在检测到代码变更时自动刷新浏览器（或Web视图），而无需每次都重新部署新的原生二进制包。
+Live Reload 对于调试应用程序的 Web 部分以及在设备硬件或模拟器上的原生功能非常有用。它会在检测到应用程序中的更改时重新加载浏览器（或 WebView），而无需每次更改代码都部署一个新的原生二进制文件。
 
-> 若在真实设备上运行，请确保设备与电脑处于同一Wi-Fi网络。
+> 如果在设备上运行，请确保设备与您的计算机连接到同一个 Wi-Fi 网络。
 
-## 配合Ionic CLI使用
+## 与 Ionic CLI 配合使用
 
-Ionic CLI提供了完整的实时重载体验，自动完成了下文手动操作的所有步骤。请先安装CLI及`native-run`（一个跨平台命令行工具，用于在设备和模拟器/仿真器上运行原生二进制包）：
+Ionic CLI 提供了完整的 Live Reload 体验，自动执行了下面手动列出的所有步骤。请安装它以及 `native-run`（一个跨平台的命令行工具，用于在设备和模拟器/仿真器上运行原生二进制文件）：
 
 ```bash
 npm install -g @ionic/cli native-run
 ```
 
-接着使用`ionic cap run`命令启动实时重载：
+接下来，使用 `ionic cap run` 命令启动 Live Reload 过程：
 
 ```bash
 ionic cap run android -l --external
 ionic cap run ios -l --external
 ```
 
-该命令会依次执行`ionic build`、将网页资源拷贝到指定原生平台目录，然后打开对应IDE（iOS使用Xcode，Android使用Android Studio）。
+这会执行 `ionic build`，将 Web 资源复制到指定的原生平台中，然后为您打开原生项目的 IDE（iOS 用 Xcode，Android 用 Android Studio）。
 
-命令执行完毕后，`capacitor.config.json`中自动创建的`server`配置项会被移除。关于`ionic cap run`命令的完整说明，[请参阅此处](https://ionicframework.com/docs/v3/cli/commands/capacitor-run)。
+命令结束后，`capacitor.config.json` 中自动创建的 `server` 条目会被移除。有关 `ionic cap run` 命令的完整详细信息，[请参阅此处](https://ionicframework.com/docs/v3/cli/commands/capacitor-run)。
 
-## 配合框架CLI使用
+## 与框架 CLI 配合使用
 
-Capacitor支持具备实时重载功能的各类框架CLI。
+Capacitor 支持具备实时重载功能的 CLI。
 
-首先确定电脑在局域网中的IP地址：
+首先，确定您的计算机在局域网（LAN）中的 IP 地址。
 
-- macOS系统运行`ifconfig`命令，IP地址显示在`en0`条目下的`inet`后。也可通过系统偏好设置 -> 网络 -> (选择活动网络) 查看状态栏中的IP地址
-- Windows系统运行`ipconfig`命令，查找`IPv4`地址
+- 在 macOS 上，运行 `ifconfig`。IP 地址列在 `en0` 条目下的 `inet` 之后。或者，打开“系统偏好设置” -> “网络” -> （选择活动网络），然后在“状态”下找到列出的 IP。
+- 在 Windows 上，运行 `ipconfig`。查找 `IPv4` 地址。
 
-然后启动本地开发服务器。服务器必须绑定到`0.0.0.0`才能被局域网访问。启动命令根据框架不同有所差异，通常为：
+接下来，启动您的本地 Web 服务器。服务器必须绑定到 `0.0.0.0` 以便从局域网访问。运行的命令会有所不同，但通常是：
 
 ```bash
 npm run start
 ```
 
-> 使用react-scripts时，需执行`HOST=0.0.0.0 npm run start`
+> 使用 react-scripts 时，请用 `HOST=0.0.0.0 npm run start`
 
-在`capacitor.config.json`中创建`server`配置项，使用本地服务器IP和端口配置`url`字段：
+在 `capacitor.config.json` 中，创建一个 `server` 条目，然后使用本地 Web 服务器的 IP 地址和端口配置 `url` 字段：
 
 ```json
 "server": {
@@ -57,15 +57,15 @@ npm run start
 },
 ```
 
-接着运行`npx cap copy`将更新后的Capacitor配置同步到所有原生项目。
+接下来，运行 `npx cap copy` 将更新后的 Capacitor 配置复制到所有原生项目中。
 
-若未自动打开，请手动启动原生IDE：
+如果尚未打开，请打开原生 IDE：
 
 ```bash
 npx cap open ios
 npx cap open android
 ```
 
-最后点击运行按钮启动应用，即可开始使用实时重载功能。
+最后，点击运行按钮启动应用程序并开始使用 Live Reload。
 
-> 注意不要将服务器配置提交到版本控制系统。
+> 注意不要将服务器配置提交到源代码控制中。

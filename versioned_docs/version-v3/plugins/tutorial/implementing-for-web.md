@@ -9,17 +9,17 @@ slug: /plugins/tutorial/web
 
 # Web/PWA 平台实现
 
-在设计插件 API 时，我们发现 Web 平台已经原生支持屏幕方向功能（当然，移动设备除外）。你可能会问：既然这样，为什么我们的插件还需要实现 Web 版本...难道不能通过代码检测用户是否在 Web 环境，然后直接使用 <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">屏幕方向 Web API</a>，其他平台才使用插件吗？
+在设计插件 API 时，我们发现 Web 平台已经支持屏幕方向功能（当然，移动设备除外）。您可能会问，为什么我们的插件还需要 Web 实现……难道不能通过编程方式检测用户是否在 Web 端，然后使用 <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a>，否则就使用插件吗？
 
-Web Native 应用的核心信条是"一次编写，处处运行"。这一原则同样适用于插件开发——使用 Capacitor 插件的开发者应该能够通过相同的插件类和方法在所有平台上实现功能。
+Web Native 应用程序的理念是“一次编写，随处运行”。这同样适用于插件；使用 Capacitor 插件的开发者应该能够使用相同的插件类和方法，并让它们在所有平台上都有相应的实现。
 
-因此，作为优秀开发者，我们将把屏幕方向 Web API 封装在 `ScreenOrientation` 插件的 Web 实现中。
+因此，作为优秀的开发者，我们将把 Screen Orientation Web API 包装在 `ScreenOrientation` 插件的 Web 实现中。
 
 ## 扩展 Capacitor 的 WebPlugin 类
 
-新建文件 `src/plugins/screen-orientation/web.ts`，这里将编写 `ScreenOrientation` 插件的 Web 实现。
+打开新文件 `src/plugins/screen-orientation/web.ts`。我们将在此文件中编写 `ScreenOrientation` 插件的 Web 实现。
 
-首先声明 `ScreenOrientationWeb` 类并继承 `WebPlugin`：
+首先声明 `ScreenOrientationWeb` 类，并让它继承 `WebPlugin`：
 
 ```typescript
 import { WebPlugin } from '@capacitor/core';
@@ -32,7 +32,7 @@ export class ScreenOrientationWeb extends WebPlugin {
 }
 ```
 
-Capacitor 的 `WebPlugin` 类包含了通知监听器的逻辑，我们将利用它在屏幕方向变化时通知监听器。更新构造函数如下：
+Capacitor 的 `WebPlugin` 类包含了通知插件监听器的逻辑，我们将利用它在屏幕方向发生变化时告知监听器。当 Screen Orientation Web API 的 change 事件触发时，我们通知所有监听器。更新构造函数如下：
 
 ```typescript
 constructor() {
@@ -44,11 +44,11 @@ constructor() {
  }
 ```
 
-`WebPlugin` 类已经实现了 `ScreenOrientationPlugin` 接口中定义的 `addListener()` 和 `removeAllListeners()` 方法，因此不需要额外实现。
+`WebPlugin` 类已经实现了 `ScreenOrientationPlugin` 接口中定义的 `addListener()` 和 `removeAllListeners()` 方法。使用这些方法无需额外工作。
 
 ## 实现剩余方法
 
-接下来完成 `ScreenOrientationPlugin` 接口的实现。首先调整类定义使其显式实现该接口：
+现在完成 `ScreenOrientationPlugin` 接口的实现。首先调整类定义，使其真正实现该接口：
 
 ```typescript
 export class ScreenOrientationWeb
@@ -57,7 +57,7 @@ export class ScreenOrientationWeb
 {
 ```
 
-然后在 `ScreenOrientationWeb` 类中实现剩余方法：
+然后将剩余方法作为 `ScreenOrientationWeb` 类的一部分实现：
 
 ```typescript
  async orientation(): Promise<{ type: OrientationType }> {
@@ -75,7 +75,7 @@ export class ScreenOrientationWeb
 
 ## 注册 Web 实现
 
-要将 `ScreenOrientationWeb` 注册为插件的 Web 实现，需要使用 `registerPlugin()` 的第二个参数。打开 `src/plugins/screen-orientation/index.ts` 并更新 `ScreenOrientation` 变量的声明：
+要将 `ScreenOrientationWeb` 注册为我们插件的 Web 实现，我们需要使用 `registerPlugin()` 的第二个输入参数。打开 `src/plugins/screen-orientation/index.ts`，并按如下方式更新 `ScreenOrientation` 变量的声明：
 
 ```typescript
 const ScreenOrientation = registerPlugin<ScreenOrientationPlugin>(
@@ -86,8 +86,8 @@ const ScreenOrientation = registerPlugin<ScreenOrientationPlugin>(
 );
 ```
 
-## 测试功能
+## 测试一下！
 
-现在可以测试 Web 实现了。使用 `ionic serve` 启动应用，通过浏览器的开发者工具模拟移动设备横竖屏切换。虽然"旋转设备"按钮由于 Web 平台对 `window.screen.orientation.lock()` 支持有限而无法工作，但手动旋转设备方向时应该能看到不同的设计效果。
+测试 Web 实现。使用 `ionic serve` 启动您的应用程序，然后您可以使用浏览器的开发者工具模拟移动设备在竖屏和横屏方向下的显示效果。“旋转我的设备”按钮可能无法正常工作，因为 Web 对 `window.screen.orientation.lock()` 的支持有限，但您应该能够通过开发者工具手动旋转方向来看到不同的设计效果。
 
-一个平台实现完成了，还有两个待实现！在深入 iOS 和 Android 代码之前，我们需要考虑如何组织和抽象代码。下一步我们将探讨一些代码抽象模式。
+一个平台已经实现，还有两个平台待完成！在深入 iOS 和 Android 代码之前，我们应该考虑如何设计和抽象代码。让我们在下一步中回顾一些模式：代码抽象模式。

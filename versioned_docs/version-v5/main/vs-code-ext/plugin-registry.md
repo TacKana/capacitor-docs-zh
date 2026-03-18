@@ -1,62 +1,63 @@
 ---
-title: Plugins
-description: 探索 Capacitor 的插件生态
+title: 插件
+description: 发现新的 Capacitor 插件
 contributors:
   - dtarnawsky
 slug: /vscode/plugins
 ---
 
-插件为 Capacitor 提供了强大的原生功能支持，寻找高质量的插件是实现应用功能的重要环节。
+插件为 Capacitor 提供了强大的原生功能，因此寻找高质量的插件是在您的应用中实现功能的重要环节。
 
 ## 查找插件
 
-可以通过以下方式查找插件：
-1. 按下 `F1` 键输入 `plugins`
-2. 在 Ionic VS Code 扩展中点击 `Plugins` 旁的 `...` 按钮
+要查找插件，请按下 `F1` 并输入 `plugins`，或点击 Ionic VS Code 扩展中 `Plugins` 旁边的 `...`。
 
 ![Monorepo 项目](/img/vscode-plugins.png)
 
-输入插件关键词、功能或部分名称后，按 `回车` 或点击 `搜索` 即可显示匹配的插件列表。
+输入插件的关键词、功能或部分名称，然后按 `Enter` 或点击 `搜索` 来显示匹配的插件列表。
 
 ## 安装其他包
-如需安装非插件类依赖，当搜索内容与 NPM 包完全匹配时（例如尝试搜索 `angularx-qrcode`），系统同样会显示结果。点击 `安装` 即可将该依赖添加到项目中。
 
-## 插件列表说明
-系统每日索引约 1100 个插件，这些插件主要来自项目中常用的热门 Capacitor 和 Cordova 插件。您可以通过向[代码库](https://github.com/ionic-team/capacitor-plugin-registry)提交 Issue 或 PR 来完善此列表。
+您可能需要安装一个非插件的依赖项。如果您的搜索完全匹配某个 NPM 包，它也会显示出来（例如尝试搜索 `angularx-qrcode`）。然后您可以点击 `安装` 将该依赖项添加到您的项目中。
 
-## 插件评级标准
-星级评定基于插件项目的 [NPM](https://www.npmjs.com/) 和 GitHub 数据自动计算：
-1. 项目是否开源？
-2. GitHub star 数是否 ≥100？
-3. 最近一年是否有 npm 发布记录？
-4. 版本是否稳定？（即非 0.x 版本）
-5. npm 月下载量是否 ≥1000？
+## 关于插件列表
 
-评级系统的目的是突出社区常用、维护良好且受欢迎的项目。
+每天大约有 1100 个插件被编入索引。此列表来源于项目中最受欢迎的 Capacitor 和 Cordova 插件。您可以通过向[代码仓库](https://github.com/ionic-team/capacitor-plugin-registry)提交 Issue 或 PR 来为此列表做出贡献。
 
-## 实用技巧
+## 插件评级
 
-- 点击向下箭头（↓）可选择安装特定版本
-- 点击 `install` 或 `update` 将安装与项目兼容的最新版本
-- `More Information` 链接将跳转至 npm 页面或官方文档
-- `Source Code` 链接将跳转至 GitHub 项目页
-- `Report Issue` 链接将指向插件作者指定的问题反馈渠道
-- Cordova 插件显示 Cordova 图标，Capacitor 插件显示 Capacitor 图标
-- 仅支持 Android 或 iOS 的插件会显示相应平台图标
-- 若已使用最新版本，会显示 `Up To Date`（由于每日更新索引，当天发布的新版本可能仍显示此状态）
+插件的星级评分是基于该插件项目的[NPM](https://www.npmjs.com/) 和 GitHub 统计数据自动计算的：
+1. 该插件项目是否开源？
+2. 是否有至少 100 个 GitHub star？
+3. 该插件是否在过去一年内发布到 npm？
+4. 版本是否被认为是稳定的？（即版本号不是 0.x）
+5. 在 npm 上每月是否有至少 1000 次下载？
 
-## 插件开发者指南
+评级系统的目标是突出那些被社区经常使用、维护良好且受到喜爱的项目。
 
-发布到 npm 前，请确保 `package.json` 符合以下要求：
-1. 在 `keywords` 属性中添加用户可能搜索的关键词
-2. 在 `description` 属性中清晰描述插件功能
-3. 在 `license` 属性中指定合适的许可证类型（如 `MIT`、`Apache-2.0`、`BSD`）
-4. 在 `repository` > `url` 属性中设置 GitHub 仓库地址
-5. 在 `bugs` > `url` 属性中设置问题反馈地址
-6. 在 `author` 属性中设置作者名称（如 `author: { name: '张三'}`）
+## 提示
+
+- 您可以通过点击向下箭头（↓）来选择安装插件的特定版本。
+- 点击 `安装` 或 `更新` 将安装与您的项目兼容的插件最新版本。
+- `更多信息` 链接将在浏览器中打开 NPM 上的列表页面或官方文档。
+- `源代码` 链接将在浏览器中显示 Github 项目页面。
+- `报告问题` 链接将指向插件作者希望您提交问题的地方。
+- Cordova 插件将显示 Cordova 徽标，Capacitor 插件将显示 Capacitor 徽标。
+- 如果插件仅针对 Android 或仅针对 iOS，则会在旁边显示 Android 或 Apple 徽标。
+- 如果您正在使用插件的最新版本，可能会看到 `已是最新`。插件每天都会检查，因此今天发布的插件可能仍会显示为 `已是最新`。
+
+## 插件作者
+
+为了确保您的插件看起来很棒，请在发布到 npm 之前确保您的 `package.json` 满足以下要求：
+1. 在 `keywords` 属性中提供用户可能搜索的适当关键词列表。
+2. 在 `description` 属性中提供对插件功能的良好描述。
+3. 确保在 `license` 属性中指定适当的许可证类型（例如 `MIT`、`Apache-2.0`、`BSD`）。
+4. 将 `repository` > `url` 属性设置为 Github 仓库的 URL。
+5. 将 `bugs` > `url` 属性设置为提交问题的 URL。
+6. 确保在 `author` 属性中设置作者姓名（例如 `author: { name: 'John Smith'}`）。
 
 ### 其他建议
-- 使用与插件功能/公司匹配的 GitHub 头像
-- 除非处于测试阶段，否则避免使用 0.x 版本号
-- 避免关键词堆砌（如滥用 `plugin` 等无关词汇），这些内容在索引时会被自动过滤
-- 现有维护插件的分支版本可能不会被收录
+- 在您的 Github 项目中使用与您的插件功能或公司相匹配的头像。
+- 除非处于测试阶段，否则避免使用 0.x 版本号。
+- 避免关键词堆砌（例如使用 `plugin` 这类关键词或与您的插件无关的术语）。这些在索引过程中会自动排除。
+- 对现有维护中插件的 fork 可能会被排除。

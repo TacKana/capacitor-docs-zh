@@ -1,6 +1,6 @@
 ---
-title: Dialog Capacitor Plugin API
-description: Dialog API 提供了一系列方法用于触发原生对话框，包括警告框、确认框和输入提示框
+title: Dialog Capacitor 插件 API
+description: Dialog API 提供了调用原生对话框的方法，用于显示警告、确认和输入提示
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/src/definitions.ts
 sidebar_label: Dialog
@@ -8,7 +8,7 @@ sidebar_label: Dialog
 
 # @capacitor/dialog
 
-Dialog API 提供了一系列方法用于触发原生对话框，包括警告框、确认框和输入提示框
+Dialog API 提供了调用原生对话框的方法，用于显示警告、确认和输入提示
 
 ## 安装
 
@@ -32,7 +32,7 @@ const showAlert = async () => {
 const showConfirm = async () => {
   const { value } = await Dialog.confirm({
     title: '确认',
-    message: `确定要按下红色按钮吗？`,
+    message: `你确定要按下红色按钮吗？`,
   });
 
   console.log('已确认:', value);
@@ -41,10 +41,10 @@ const showConfirm = async () => {
 const showPrompt = async () => {
   const { value, cancelled } = await Dialog.prompt({
     title: '你好',
-    message: `请问你叫什么名字？`,
+    message: `你叫什么名字？`,
   });
 
-  console.log('姓名:', value);
+  console.log('名字:', value);
   console.log('已取消:', cancelled);
 };
 ```
@@ -53,10 +53,10 @@ const showPrompt = async () => {
 
 <docgen-index>
 
-- [`alert(...)`](#alert)
-- [`prompt(...)`](#prompt)
-- [`confirm(...)`](#confirm)
-- [接口](#interfaces)
+* [`alert(...)`](#alert)
+* [`prompt(...)`](#prompt)
+* [`confirm(...)`](#confirm)
+* [接口](#interfaces)
 
 </docgen-index>
 
@@ -74,9 +74,9 @@ alert(options: AlertOptions) => Promise<void>
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#alertoptions">AlertOptions</a></code> |
 
-**自:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
 
 ### prompt(...)
 
@@ -90,11 +90,11 @@ prompt(options: PromptOptions) => Promise<PromptResult>
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#promptoptions">PromptOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#promptresult">PromptResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#promptresult">PromptResult</a>&gt;</code>
 
-**自:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
 
 ### confirm(...)
 
@@ -108,53 +108,53 @@ confirm(options: ConfirmOptions) => Promise<ConfirmResult>
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#confirmoptions">ConfirmOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#confirmresult">ConfirmResult</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#confirmresult">ConfirmResult</a>&gt;</code>
 
-**自:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
 
-### Interfaces
+### 接口
 
 #### AlertOptions
 
-| 属性              | 类型                | 描述               | 默认值              | 自    |
-| ----------------- | ------------------- | ------------------ | ------------------- | ----- |
-| **`title`**       | <code>string</code> | 对话框标题         |                     | 1.0.0 |
-| **`message`**     | <code>string</code> | 对话框中显示的消息 |                     | 1.0.0 |
-| **`buttonTitle`** | <code>string</code> | 操作按钮显示的文本 | <code>"确定"</code> | 1.0.0 |
+| 属性              | 类型                | 描述                       | 默认值           | 自 |
+| ----------------- | ------------------- | ------------------------- | ----------------- | ----- |
+| **`title`**       | <code>string</code> | 对话框标题                |                   | 1.0.0 |
+| **`message`**     | <code>string</code> | 对话框中显示的消息        |                   | 1.0.0 |
+| **`buttonTitle`** | <code>string</code> | 操作按钮上显示的文本      | <code>"确定"</code> | 1.0.0 |
 
 #### PromptResult
 
-| 属性            | 类型                 | 描述                       | 自    |
-| --------------- | -------------------- | -------------------------- | ----- |
-| **`value`**     | <code>string</code>  | 输入框中输入的文本         | 1.0.0 |
-| **`cancelled`** | <code>boolean</code> | 标识提示框是被取消还是接受 | 1.0.0 |
+| 属性            | 类型                 | 描述                                     | 自 |
+| --------------- | -------------------- | --------------------------------------- | ----- |
+| **`value`**     | <code>string</code>  | 在提示框中输入的文本                    | 1.0.0 |
+| **`cancelled`** | <code>boolean</code> | 提示框是否被取消或接受                 | 1.0.0 |
 
 #### PromptOptions
 
-| 属性                    | 类型                | 描述               | 默认值              | 自    |
-| ----------------------- | ------------------- | ------------------ | ------------------- | ----- |
-| **`title`**             | <code>string</code> | 对话框标题         |                     | 1.0.0 |
-| **`message`**           | <code>string</code> | 对话框中显示的消息 |                     | 1.0.0 |
-| **`okButtonTitle`**     | <code>string</code> | 确认按钮显示的文本 | <code>"确定"</code> | 1.0.0 |
-| **`cancelButtonTitle`** | <code>string</code> | 取消按钮显示的文本 | <code>"取消"</code> | 1.0.0 |
-| **`inputPlaceholder`**  | <code>string</code> | 输入框提示文本     |                     | 1.0.0 |
-| **`inputText`**         | <code>string</code> | 预填充文本         |                     | 1.0.0 |
+| 属性                    | 类型                | 描述                                | 默认值               | 自 |
+| ----------------------- | ------------------- | ---------------------------------- | --------------------- | ----- |
+| **`title`**             | <code>string</code> | 对话框标题                         |                       | 1.0.0 |
+| **`message`**           | <code>string</code> | 对话框中显示的消息                 |                       | 1.0.0 |
+| **`okButtonTitle`**     | <code>string</code> | 确认按钮上显示的文本               | <code>"确定"</code>     | 1.0.0 |
+| **`cancelButtonTitle`** | <code>string</code> | 取消按钮上显示的文本               | <code>"取消"</code> | 1.0.0 |
+| **`inputPlaceholder`**  | <code>string</code> | 输入框的占位提示文本               |                       | 1.0.0 |
+| **`inputText`**         | <code>string</code> | 预设文本                         |                       | 1.0.0 |
 
 #### ConfirmResult
 
-| 属性        | 类型                 | 描述                                      | 自    |
-| ----------- | -------------------- | ----------------------------------------- | ----- |
-| **`value`** | <code>boolean</code> | 如果点击了确认按钮则为 true，否则为 false | 1.0.0 |
+| 属性        | 类型                 | 描述                                               | 自 |
+| ----------- | -------------------- | ------------------------------------------------- | ----- |
+| **`value`** | <code>boolean</code> | 如果点击了确认按钮则为 true，否则为 false         | 1.0.0 |
 
 #### ConfirmOptions
 
-| 属性                    | 类型                | 描述               | 默认值              | 自    |
-| ----------------------- | ------------------- | ------------------ | ------------------- | ----- |
-| **`title`**             | <code>string</code> | 对话框标题         |                     | 1.0.0 |
-| **`message`**           | <code>string</code> | 对话框中显示的消息 |                     | 1.0.0 |
-| **`okButtonTitle`**     | <code>string</code> | 确认按钮显示的文本 | <code>"确定"</code> | 1.0.0 |
-| **`cancelButtonTitle`** | <code>string</code> | 取消按钮显示的文本 | <code>"取消"</code> | 1.0.0 |
+| 属性                    | 类型                | 描述                                | 默认值               | 自 |
+| ----------------------- | ------------------- | ---------------------------------- | --------------------- | ----- |
+| **`title`**             | <code>string</code> | 对话框标题                         |                       | 1.0.0 |
+| **`message`**           | <code>string</code> | 对话框中显示的消息                 |                       | 1.0.0 |
+| **`okButtonTitle`**     | <code>string</code> | 确认按钮上显示的文本               | <code>"确定"</code>     | 1.0.0 |
+| **`cancelButtonTitle`** | <code>string</code> | 取消按钮上显示的文本               | <code>"取消"</code> | 1.0.0 |
 
 </docgen-api>

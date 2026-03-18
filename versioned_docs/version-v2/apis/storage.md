@@ -9,13 +9,13 @@ canonicalUrl: https://capacitorjs.com/docs/apis/storage
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-Storage API 提供了一个简单的键值对数据存储方案。
+Storage API 为简单数据提供了键值对存储功能。
 
-移动操作系统可能会定期清理 `window.localStorage` 中设置的数据，因此应使用此 API 而非 `window.localStorage`。当作为渐进式 Web 应用（PWA）运行时，此 API 会自动回退到使用 `localStorage`。
+移动操作系统可能会定期清除存储在 `window.localStorage` 中的数据，因此应使用此 API 替代 `window.localStorage`。当作为渐进式 Web 应用运行时，此 API 将回退到使用 `localStorage`。
 
-在 iOS 上，该插件使用 [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)，在 Android 上则使用 [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences)。如果应用被卸载，存储的数据将被清除。
+在 iOS 上，此插件将使用 [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)，而在 Android 上则使用 [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences)。如果应用被卸载，存储的数据将被清除。
 
-注意：此 API 不适用于高性能数据存储场景。如果您的应用需要存储大量数据、具有高读写负载或需要复杂查询，请考虑使用 SQLite 或独立的数据引擎。
+注意：此 API 不适用于高性能数据存储应用。如果你的应用需要存储大量数据、具有高读写负载或需要进行复杂查询，请考虑使用 SQLite 或其他独立的数据引擎。
 
 - [`get(...)`](#get)
 - [`set(...)`](#set)
@@ -23,9 +23,9 @@ Storage API 提供了一个简单的键值对数据存储方案。
 - [`clear()`](#clear)
 - [`keys()`](#keys)
 
-## JSON 数据处理
+## 处理 JSON 数据
 
-`Storage` 仅支持字符串类型的数据。但存储 JSON 数据也很简单：只需在调用 `set` 前使用 `JSON.stringify` 处理对象，然后在 `get` 返回值后使用 `JSON.parse` 解析。详见以下示例。
+`Storage` 仅处理字符串。但是，存储 JSON 对象也很简单：只需在调用 `set` 之前使用 `JSON.stringify` 将对象转换为字符串，然后在从 `get` 获取值后使用 `JSON.parse` 进行解析。更多细节请参考下面的示例。
 
 此方法也可用于存储非字符串值，例如数字和布尔值。
 
@@ -62,7 +62,7 @@ async setItem() {
 
 async getItem() {
   const { value } = await Storage.get({ key: 'name' });
-  console.log('获取到数据: ', value);
+  console.log('Got item: ', value);
 }
 
 async removeItem() {
@@ -71,7 +71,7 @@ async removeItem() {
 
 async keys() {
   const { keys } = await Storage.keys();
-  console.log('获取到所有键: ', keys);
+  console.log('Got keys: ', keys);
 }
 
 async clear() {
@@ -87,13 +87,13 @@ async clear() {
 get(options: { key: string; }) => Promise<{ value: string | null; }>
 ```
 
-获取指定键对应的值。
+根据指定的键获取对应的值。
 
 | 参数          | 类型                          |
 | ------------- | ----------------------------- |
 | **`options`** | `{ key: string; }` |
 
-**返回值:** `Promise<{ value: string; }>`
+**返回值：** `Promise<{ value: string; }>`
 
 ---
 
@@ -103,7 +103,7 @@ get(options: { key: string; }) => Promise<{ value: string | null; }>
 set(options: { key: string; value: string; }) => Promise<void>
 ```
 
-设置指定键对应的值
+为指定的键设置对应的值。
 
 | 参数          | 类型                                         |
 | ------------- | -------------------------------------------- |
@@ -117,7 +117,7 @@ set(options: { key: string; value: string; }) => Promise<void>
 remove(options: { key: string; }) => Promise<void>
 ```
 
-移除指定键对应的值（如果存在）
+移除指定键对应的值（如果有的话）。
 
 | 参数          | 类型                          |
 | ------------- | ----------------------------- |
@@ -131,7 +131,7 @@ remove(options: { key: string; }) => Promise<void>
 clear() => Promise<void>
 ```
 
-清除所有存储的键和值。
+清除所有已存储的键和值。
 
 ---
 
@@ -141,8 +141,8 @@ clear() => Promise<void>
 keys() => Promise<{ keys: string[]; }>
 ```
 
-返回所有已知键的列表
+返回所有已知键的列表。
 
-**返回值:** `Promise<{ keys: string[]; }>`
+**返回值：** `Promise<{ keys: string[]; }>`
 
 ---

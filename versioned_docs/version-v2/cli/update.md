@@ -1,6 +1,6 @@
 ---
 title: CLI 命令 - cap update
-description: Capacitor 命令行 - cap update
+description: Capacitor - cap update
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/update
@@ -14,10 +14,10 @@ canonicalUrl: https://capacitorjs.com/docs/cli/update
 npx cap update
 ```
 
-<strong>输入参数：</strong>
+<strong>参数:</strong>
 
 - `platform` (可选): `android`, `ios`
 
-<strong>选项：</strong>
+<strong>选项:</strong>
 
-- `--deployment`: 不删除 Podfile.lock 文件，且 pod install 会使用 `--deployment` 选项。
+- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。

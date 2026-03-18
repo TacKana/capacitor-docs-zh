@@ -1,6 +1,6 @@
 ---
 title: Capacitor Android API
-description: Android 平台上的 Capacitor API
+description: Android 平台上 Capacitor 的 API 接口文档
 slug: /core-apis/android
 ---
 
@@ -8,11 +8,11 @@ slug: /core-apis/android
 
 Capacitor Android 是为 Android 平台上的 Capacitor 应用提供支持的本地运行时环境。
 
-## Bridge（桥接层）
+## Bridge（桥接器）
 
-Android 桥接层是 Capacitor Android 库的核心。桥接层提供了多个方法，用于获取信息或改变行为。
+Android 桥接器是 Capacitor Android 库的核心。桥接器上提供了多个方法，用于获取信息或改变运行行为。
 
-当插件在 Capacitor 中注册后，即可访问桥接层：
+当插件在 Capacitor 中注册后，便能够访问桥接器：
 
 ```java
 this.bridge
@@ -26,7 +26,7 @@ this.bridge
 public CapConfig getConfig()
 ```
 
-此属性包含 Capacitor 运行时已知的配置对象。
+此属性包含了 Capacitor 运行时已知的配置对象。
 
 ---
 
@@ -37,7 +37,7 @@ public void triggerJSEvent(final String eventName, final String target)
 public void triggerJSEvent(final String eventName, final String target, final String data)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/v3/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用 [插件事件](/plugins/creating-plugins/android-guide.md#plugin-events)。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/v3/Web/API/EventTarget)（例如 `window` 或 `document`）上触发一个事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/android-guide.md#plugin-events)。
 
 示例：
 
@@ -46,16 +46,16 @@ bridge.triggerJSEvent("myCustomEvent", "window");
 bridge.triggerJSEvent("myCustomEvent", "document", "{ 'dataKey': 'dataValue' }");
 ```
 
-注意：`data` 必须是序列化的 JSON 字符串值。
+注意：`data` 必须是一个序列化的 JSON 字符串值。
 
 ---
 
 ## 数据传递
 
-关于如何处理在不同环境间传递的数据，可[在此查看](/main/reference/core-apis/data-types.md)。
+关于如何在不同的环境之间处理传递数据，相关说明可以[在此处找到](/main/reference/core-apis/data-types.md)。
 
 ---
 
 ## 保存 CAPPluginCall
 
-关于如何持久化插件调用以支持异步或重复操作，可[在此查看](/main/reference/core-apis/saving-calls.md)。
+关于为异步或重复操作持久化插件调用的说明，可以[在此处找到](/main/reference/core-apis/saving-calls.md)。

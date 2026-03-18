@@ -1,22 +1,22 @@
 ---
 title: React Hooks
-description: 使用这些React Hooks简化Capacitor原生移动API的访问
+description: 使用这些 React Hooks 通过 Capacitor 简化原生移动 API 的访问
 contributors:
   - mlynch
 slug: /guides/react-hooks
 ---
 
-# Capacitor的React Hooks
+# 用于 Capacitor 的 React Hooks
 
-在Capacitor应用中使用React的开发者，可以利用一系列社区维护的实用React Hooks，在函数组件中便捷地访问Capacitor API。
+在 Capacitor 应用中使用 React 的开发者可以使用一组由社区维护的实用 React Hooks，以便在 React 函数组件中访问 Capacitor API。
 
-安装Hooks:
+安装 Hooks：
 
 ```shell
 npm install @capacitor-community/react-hooks
 ```
 
-使用时，只需在函数组件中导入并调用：
+要使用这些 Hooks，请在函数组件中导入并调用：
 
 ```typescript
 import { useFilesystem, base64FromPath, availableFeatures } from '@capacitor-community/react-hooks/filesystem';
@@ -37,6 +37,6 @@ const MyComponent = () => (
   }, [ readFile ]);
 ```
 
-## 扩展阅读
+## 延伸阅读
 
-查看 [@capacitor-community/react-hooks](https://github.com/capacitor-community/react-hooks) 仓库获取所有可用Hooks的详细文档。
+前往 [@capacitor-community/react-hooks](https://github.com/capacitor-community/react-hooks) 仓库查看所有可用 Hooks 的文档。

@@ -1,24 +1,24 @@
 ---
 title: Capacitor iOS API
-description: Capacitor 在 iOS 平台的核心 API
+description: Capacitor iOS API 文档
 slug: /core-apis/ios
 ---
 
 # Capacitor iOS API
 
-Capacitor iOS 是为 iOS 平台上的 Capacitor 应用提供支持的本地运行时环境。
+Capacitor iOS 是驱动 Capacitor 应用在 iOS 平台运行的原生运行时环境。
 
-## Bridge 桥接机制
+## Bridge
 
-iOS Bridge 是 Capacitor iOS 库的核心枢纽。桥接对象提供了多个属性和方法，用于获取信息或改变行为。
+iOS bridge 是 Capacitor iOS 库的核心。bridge 提供了多个属性和方法，用于获取信息或改变行为。
 
-当插件在 Capacitor 中注册时，会持有一个对桥接对象的弱引用：
+插件在注册到 Capacitor 后，会持有一个对 bridge 的弱引用：
 
 ```swift
 self.bridge?
 ```
 
-> 若您的方法需要使用桥接对象，可通过 guard 语句进行解包并提前返回：
+> 如果你的方法需要使用 bridge，可以使用 guard 语句来解包并提前返回：
 >
 > ```swift
 > guard let bridge = self.bridge else { return }
@@ -32,9 +32,9 @@ self.bridge?
 var viewController: UIViewController? { get }
 ```
 
-此属性包含 Capacitor 的主视图控制器，可用于在应用顶部展示原生视图。
+该属性包含 Capacitor 的主视图控制器，可用于在应用上层展示原生视图。
 
-使用示例：
+示例：
 
 ```swift
 DispatchQueue.main.async {
@@ -57,7 +57,7 @@ self.bridge.viewController.present(ourCustomViewController, animated: true, comp
 var config: InstanceConfiguration { get }
 ```
 
-此属性包含 Capacitor 运行时已知的配置对象。
+该属性包含 Capacitor 运行时已知的配置对象。
 
 ---
 
@@ -68,7 +68,7 @@ func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。建议优先使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)。
 
 示例：
 
@@ -87,11 +87,12 @@ bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "{ '
 func localURL(fromWebURL webURL: URL?) -> URL?
 ```
 
-将网页视图中的 URL 转换为 iOS 本地文件 URL。
+将 web 视图中的 URL 转换为 iOS 原生可用的文件 URL。
 
-网页视图可能处理多种 URL 类型：
-- `res://`（访问网页资源的快捷方案）
-- `file://`（指向本地设备的完整文件路径）
+web 视图可能处理多种不同类型的 URL：
+
+- `res://`（指向 web 资源的快捷方案）
+- `file://`（指向本地设备文件的完全限定 URL）
 
 ---
 
@@ -101,16 +102,16 @@ func localURL(fromWebURL webURL: URL?) -> URL?
 func portablePath(fromLocalURL localURL: URL?) -> URL?
 ```
 
-将 iOS 本地文件 URL 转换为可在网页视图中加载的 URL。
+将 iOS 原生文件 URL 转换为可在 web 视图中加载的 URL。
 
 ---
 
 ## 数据传递
 
-关于跨环境数据处理的注意事项可[查阅此处](/main/reference/core-apis/data-types.md#ios)。
+关于在不同环境间传递数据的注意事项可[在此查看](/main/reference/core-apis/data-types.md#ios)。
 
 ---
 
 ## 保存 CAPPluginCall
 
-关于异步或重复操作中持久化插件调用的说明可[查阅此处](/main/reference/core-apis/saving-calls.md)。
+关于为异步或重复操作持久化插件调用的注意事项可[在此查看](/main/reference/core-apis/saving-calls.md)。

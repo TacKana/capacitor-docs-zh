@@ -1,3 +1,3 @@
-# Static folder
+# Static 文件夹
 
-This folder houses static assets: https://docusaurus.io/docs/static-assets
+此文件夹存放静态资源：https://docusaurus.io/docs/static-assets

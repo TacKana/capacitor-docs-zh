@@ -1,89 +1,89 @@
 ---
-title: 安装Capacitor
-description: Capacitor安装指南
+title: 安装 Capacitor
+description: 安装 Capacitor
 slug: /getting-started
 ---
 
-# 安装Capacitor
+# 安装 Capacitor
 
-您可以选择新建一个Capacitor应用，或将Capacitor集成到现有网页项目中。这可以通过CLI工具或[VS Code扩展](vscode/getting-started)完成。
+你可以创建一个新的 Capacitor 应用程序，也可以将 Capacitor 添加到现有的 Web 项目中。这可以通过 CLI 或使用 [VS Code 扩展](vscode/getting-started) 来完成。
 
-请确保您已为需要构建的平台[完成环境配置](/main/getting-started/environment-setup.md)。
+请记住，确保为你要构建的平台 [设置好环境](/main/getting-started/environment-setup.md)。
 
-## 创建新Capacitor应用
+## 创建新的 Capacitor 应用
 
-使用`@capacitor/create-app`包可以快速搭建Capacitor应用。在空目录中运行以下命令即可初始化一个新项目。
+`@capacitor/create-app` 包可用于快速创建 Capacitor 应用程序。你可以在空目录中运行以下命令来搭建一个新的 Capacitor 应用。
 
 ```bash
 npm init @capacitor/app
 ```
 
-## 集成到现有网页应用
+## 将 Capacitor 添加到现有 Web 应用
 
-Capacitor设计初衷是与任何现代JavaScript网页应用无缝集成。但要使Capacitor正常运行，您的项目需满足以下三个条件：
+Capacitor 被设计为可以轻松集成到任何现代 JavaScript Web 应用程序中。但是，为了在你的现有应用中使用 Capacitor，你的项目需要满足以下三个要求：
 
-- 存在`package.json`文件
-- 有独立的构建产物目录（如`dist`或`www`）
-- 在web资源目录根层级存在`index.html`文件
+- 一个 `package.json` 文件
+- 一个单独的目录用于存放构建后的 Web 资源，例如 `dist` 或 `www`
+- 在 Web 资源目录的根目录下有一个 `index.html` 文件
 
-:::重要提示
-`index.html`必须包含`<head>`标签才能正确加载Capacitor。若Html中没有`<head>`标签，Capacitor插件将无法正常工作。
+:::info
+你的 `index.html` 文件必须包含 `<head>` 标签，以便 Capacitor 正确注入。如果你的 HTML 中没有 `<head>` 标签，Capacitor 插件将无法工作。
 :::
 
-### 安装Capacitor
+### 安装 Capacitor
 
-在项目根目录下安装Capacitor核心依赖：运行时库和命令行工具(CLI)。
+在你的应用根目录下，安装 Capacitor 的主要 npm 依赖：核心 JavaScript 运行时和命令行界面 (CLI)。
 
 ```bash
 npm i @capacitor/core
 npm i -D @capacitor/cli
 ```
 
-### 初始化配置
+### 初始化 Capacitor 配置
 
-运行CLI初始化向导配置Capacitor：
+然后，使用 CLI 问卷初始化 Capacitor：
 
 ```bash
 npx cap init
 ```
 
-CLI会询问几个问题，包括应用名称和您希望使用的包ID。
+CLI 会询问你几个问题，首先是你的应用名称，以及你想为应用使用的包 ID。
 
-### 创建Android/iOS项目
+### 创建 Android 和 iOS 项目
 
-安装核心库后，可添加Android和iOS平台支持。
+安装 Capacitor 核心运行时后，你可以安装 Android 和 iOS 平台。
 
 ```bash
 npm i @capacitor/android @capacitor/ios
 ```
 
-当平台依赖添加到`package.json`后，执行以下命令生成原生应用项目结构：
+将平台添加到 `package.json` 后，你可以运行以下命令为你的原生应用程序创建 Android 和 iOS 项目。
 
 ```bash
 npx cap add android
 npx cap add ios
 ```
 
-### 同步网页代码到原生项目
+### 将 Web 代码同步到原生项目
 
-创建原生项目后，运行以下命令将网页应用同步到原生工程中：
+创建原生项目后，你可以通过运行以下命令将 Web 应用程序同步到原生项目中。
 
 ```bash
 npx cap sync
 ```
 
-`npx cap sync`会将构建好的网页应用（默认`www`目录）复制到原生项目，并安装原生依赖。
+`npx cap sync` 会将你构建的 Web 应用程序（默认为 `www` 目录）复制到原生项目中，并安装原生项目的依赖项。
 
-:::提示
-您可以通过修改`npx cap init`时生成的[Capacitor配置](/main/reference/config.md)文件中的`webDir`变量，来指定要同步的目录。
+:::info
+你可以通过修改在 `npx cap init` 期间创建的 [Capacitor 配置](/main/reference/config.md) 文件中的 `webDir` 变量，来自定义要复制的文件夹。
 :::
 
-## 后续步骤
+## 下一步
 
-完成环境配置和项目初始化后，您已准备就绪！如需了解更多细节，可参考以下文档：
+完成环境设置和项目结构配置后，你就可以开始了！如果需要更具体的文档，可以点击以下任意链接。
 
-[iOS开发指南 &#8250;](/main/ios/index.md)
+[开始 iOS 开发 &#8250;](/main/ios/index.md)
 
-[Android开发指南 &#8250;](/main/android/index.md)
+[开始 Android 开发 &#8250;](/main/android/index.md)
 
-[开发工作流指南 &#8250;](/main/basics/workflow.md)
+[开发者工作流程指南 &#8250;](/main/basics/workflow.md)

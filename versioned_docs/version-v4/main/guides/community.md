@@ -1,5 +1,5 @@
 ---
-title: 社区指南
+title: Community Guides
 description: 社区指南
 contributors:
   - dotNetkow
@@ -8,7 +8,7 @@ slug: /guides/community
 
 # 社区指南
 
-## 综合教程
+## 综合类
 
 [如何使用 React 和 Stream 构建 Ionic 聊天应用 &#8250;](https://levelup.gitconnected.com/how-to-build-an-ionic-chat-app-with-react-and-stream-739b67611280)
 
@@ -16,27 +16,27 @@ slug: /guides/community
 
 [使用 Capacitor 创建 Ionic 4 PWA 应用 &#8250;](https://blog.jscrambler.com/create-an-ionic-4-pwa-with-capacitor/)
 
-[iOS 和 Android 应用的 Capacitor 工作流程 &#8250;](https://www.youtube.com/watch?v=oXbRcpsytGQ)
+[Capacitor iOS 与 Android 应用开发工作流 &#8250;](https://www.youtube.com/watch?v=oXbRcpsytGQ)
 
 [在 Vue.js 应用中使用 Capacitor &#8250;](https://akhromieiev.com/tutorials/using-capacitor-in-vue-js-app/)
 
-## API 指南
+## API 使用
 
-[相机功能：构建 Ionic Framework 相机应用](/main/guides/ionic-framework-app.md)
+[相机：构建 Ionic Framework 相机应用](/main/guides/ionic-framework-app.md)
 
 [推送通知：在 Ionic Angular 应用中使用 Firebase 推送通知](/main/guides/push-notifications-firebase.md)
 
-[启动页：为 Capacitor (Android) 创建动态/自适应启动页 &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
+[启动画面：为 Capacitor Android 应用创建动态/自适应启动画面 &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
 
-[在 iOS 应用中使用 Capacitor 分享 API &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-share-api-in-ios-app/)
+[在 iOS 应用中使用 Capacitor Share API &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-share-api-in-ios-app/)
 
-[使用 Capacitor 浏览器 API 打开链接 &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-browser-api-to-open-links/)
+[使用 Capacitor Browser API 打开链接 &#8250;](https://akhromieiev.com/tutorials/using-the-capacitor-browser-api-to-open-links/)
 
-[在 Ionic 项目中实现 Capacitor 网络检测 &#8250;](https://akhromieiev.com/tutorials/network-detection-capacitor/)
+[在 Ionic 项目中使用 Capacitor 进行网络检测 &#8250;](https://akhromieiev.com/tutorials/network-detection-capacitor/)
 
 ## 集成方案
 
-[在 Ionic 中使用 Capacitor 集成谷歌地图和地理位置 &#8250;](https://www.joshmorony.com/using-google-maps-and-geolocation-in-ionic-with-capacitor)
+[在 Ionic 中使用 Capacitor 集成 Google 地图与地理位置功能 &#8250;](https://www.joshmorony.com/using-google-maps-and-geolocation-in-ionic-with-capacitor)
 
 [使用 Phaser 和 Capacitor 创建原生 HTML5 游戏 &#8250;](https://www.joshmorony.com/create-native-html5-games-with-phaser-and-capacitor)
 

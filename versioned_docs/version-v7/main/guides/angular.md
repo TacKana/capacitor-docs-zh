@@ -1,14 +1,14 @@
 ---
 title: Angular
-description: 在 Angular 中使用 Capacitor
+description: 在 Capacitor 中使用 Angular
 slug: /guides/angular
 ---
 
-# 在 Angular 中使用 Capacitor
+# 在 Capacitor 中使用 Angular
 
-## NgZone 处理
+## NgZone
 
-Capacitor 插件的事件监听器运行在 Angular 的 `NgZone` 执行上下文之外。为确保 Angular 的变更检测能够触发，需要将处理逻辑包裹在 `NgZone.run` 代码块中：
+Capacitor 插件的事件监听器在 Angular 的 `NgZone` 执行上下文之外运行。为了确保触发 Angular 的变更检测，请将处理逻辑包裹在 `NgZone.run` 代码块中：
 
 ```typescript
 constructor(private ngZone: NgZone) { }
@@ -16,7 +16,7 @@ constructor(private ngZone: NgZone) { }
 async ngOnInit() {
   Network.addListener("networkStatusChange", (status) => {
     this.ngZone.run(() => {
-      // 这段代码将在 Angular 的执行上下文中运行
+      // 此代码将在 Angular 的执行上下文中运行
       this.networkStatus = status.connected ? "在线" : "离线";
     });
   });

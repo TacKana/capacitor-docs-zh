@@ -1,6 +1,6 @@
 ---
 title: Browser Capacitor Plugin API
-description: Browser API 提供打开应用内浏览器和订阅浏览器事件的能力。
+description: Browser API 提供了在应用内打开浏览器并订阅浏览器事件的能力。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/browser/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/browser/src/definitions.ts
 sidebar_label: Browser
@@ -8,9 +8,9 @@ sidebar_label: Browser
 
 # @capacitor/browser
 
-Browser API 提供打开应用内浏览器和订阅浏览器事件的能力。
+Browser API 提供了在应用内打开浏览器并订阅浏览器事件的能力。
 
-在 iOS 上，该插件使用 `SFSafariViewController`，并符合主流 OAuth 服务的应用内浏览器要求。
+在 iOS 上，此 API 使用 `SFSafariViewController`，并符合主流 OAuth 服务对应用内浏览器的要求。
 
 ## 安装
 
@@ -19,13 +19,13 @@ npm install @capacitor/browser@latest-6
 npx cap sync
 ```
 
-## Android 配置
+## Android
 
 ### 变量
 
-本插件将使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
+此插件将使用以下项目变量（定义在你的应用的 `variables.gradle` 文件中）：
 
-- `androidxBrowserVersion`: `androidx.browser:browser` 的版本号（默认值：`1.7.0`）
+- `androidxBrowserVersion`: `androidx.browser:browser` 的版本（默认：`1.7.0`）
 
 ## 示例
 
@@ -37,16 +37,16 @@ const openCapacitorSite = async () => {
 };
 ```
 
-## API 文档
+## API
 
 <docgen-index>
 
-- [`open(...)`](#open)
-- [`close()`](#close)
-- [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
-- [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
-- [`removeAllListeners()`](#removealllisteners)
-- [接口定义](#interfaces)
+* [`open(...)`](#open)
+* [`close()`](#close)
+* [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
+* [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
+* [`removeAllListeners()`](#removealllisteners)
+* [接口](#interfaces)
 
 </docgen-index>
 
@@ -59,15 +59,16 @@ const openCapacitorSite = async () => {
 open(options: OpenOptions) => Promise<void>
 ```
 
-使用指定选项打开网页。
+使用指定的选项打开一个页面。
 
 | 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#openoptions">OpenOptions</a></code> |
 
-**自版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
+
 
 ### close()
 
@@ -75,13 +76,14 @@ open(options: OpenOptions) => Promise<void>
 close() => Promise<void>
 ```
 
-仅限 Web 和 iOS：关闭已打开的浏览器窗口。
+仅 Web 和 iOS：关闭一个已打开的浏览器窗口。
 
 在其他平台上无操作。
 
-**自版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
+
 
 ### addListener('browserFinished', ...)
 
@@ -89,19 +91,20 @@ close() => Promise<void>
 addListener(eventName: 'browserFinished', listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
-仅限 Android 和 iOS：监听浏览器完成事件。
+仅 Android 和 iOS：监听浏览器完成事件。
 当用户关闭浏览器时触发。
 
-| 参数               | 类型                           |
-| ------------------ | ------------------------------ |
-| **`eventName`**    | <code>'browserFinished'</code> |
-| **`listenerFunc`** | <code>() =&gt; void</code>     |
+| 参数                 | 类型                           |
+| -------------------- | ------------------------------ |
+| **`eventName`**      | <code>'browserFinished'</code> |
+| **`listenerFunc`**   | <code>() =&gt; void</code>     |
 
-**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**自版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
+
 
 ### addListener('browserPageLoaded', ...)
 
@@ -109,20 +112,21 @@ addListener(eventName: 'browserFinished', listenerFunc: () => void) => Promise<P
 addListener(eventName: 'browserPageLoaded', listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
-仅限 Android 和 iOS：监听页面加载完成事件。
-仅在传递给 open 方法的 URL 完成加载时触发。
-不会对后续页面加载生效。
+仅 Android 和 iOS：监听页面加载完成事件。
+它仅在传递给 open 方法的 URL 完成加载时触发。
+对于任何后续的页面加载，不会触发此事件。
 
-| 参数               | 类型                             |
-| ------------------ | -------------------------------- |
-| **`eventName`**    | <code>'browserPageLoaded'</code> |
-| **`listenerFunc`** | <code>() =&gt; void</code>       |
+| 参数                 | Type                             |
+| -------------------- | -------------------------------- |
+| **`eventName`**      | <code>'browserPageLoaded'</code> |
+| **`listenerFunc`**   | <code>() =&gt; void</code>       |
 
-**返回值:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**自版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
+
 
 ### removeAllListeners()
 
@@ -130,26 +134,29 @@ addListener(eventName: 'browserPageLoaded', listenerFunc: () => void) => Promise
 removeAllListeners() => Promise<void>
 ```
 
-移除本插件所有的原生监听器。
+移除此插件的所有原生监听器。
 
-**自版本:** 1.0.0
+**自：** 1.0.0
 
----
+--------------------
 
-### Interfaces
+
+### 接口
+
 
 #### OpenOptions
 
-表示传递给 `open` 方法的选项。
+表示传递给 `open` 的选项。
 
-| 属性                    | 类型                                   | 描述                                                                                                    | 自版本 |
-| ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------ |
-| **`url`**               | <code>string</code>                    | 要打开的 URL 地址。                                                                                     | 1.0.0  |
-| **`windowName`**        | <code>string</code>                    | 仅限 Web：浏览器打开的目标窗口。遵循 window.open 的 `target` 属性。默认为 \_blank。其他平台忽略此参数。 | 1.0.0  |
-| **`toolbarColor`**      | <code>string</code>                    | 设置工具栏颜色的十六进制值。                                                                            | 1.0.0  |
-| **`presentationStyle`** | <code>'fullscreen' \| 'popover'</code> | 仅限 iOS：浏览器的呈现样式。默认为全屏。其他平台忽略此参数。                                            | 1.0.0  |
-| **`width`**             | <code>number</code>                    | 仅限 iOS：当在 iPad 上使用 'popover' 呈现样式时的浏览器宽度。其他平台忽略此参数。                       | 4.0.0  |
-| **`height`**            | <code>number</code>                    | 仅限 iOS：当在 iPad 上使用 'popover' 呈现样式时的浏览器高度。其他平台忽略此参数。                       | 4.0.0  |
+| 属性                    | 类型                                   | 描述                                                                                                                                | 自 |
+| ----------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`url`**               | <code>string</code>                    | 浏览器要打开的 URL。                                                                                                    | 1.0.0 |
+| **`windowName`**        | <code>string</code>                    | 仅 Web：浏览器打开时的可选目标。遵循 window.open 的 `target` 属性。默认为 _blank。在其他平台上忽略此属性。 | 1.0.0 |
+| **`toolbarColor`**      | <code>string</code>                    | 用于设置工具栏颜色的十六进制颜色值。                                                                                             | 1.0.0 |
+| **`presentationStyle`** | <code>'fullscreen' \| 'popover'</code> | 仅 iOS：浏览器的呈现样式。默认为全屏。在其他平台上忽略此属性。                                       | 1.0.0 |
+| **`width`**             | <code>number</code>                    | 仅 iOS：在使用 'popover' 呈现样式时，浏览器在 iPad 上的宽度。在其他平台上忽略此属性。                               | 4.0.0 |
+| **`height`**            | <code>number</code>                    | 仅 iOS：在使用 'popover' 呈现样式时，浏览器在 iPad 上的高度。在其他平台上忽略此属性。                              | 4.0.0 |
+
 
 #### PluginListenerHandle
 

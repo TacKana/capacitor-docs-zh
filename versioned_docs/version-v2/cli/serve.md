@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/serve
 
 # Capacitor CLI - cap serve
 
-在浏览器中运行 Capacitor 渐进式 Web 应用，使用 `capacitor.config.json` 中指定的 `webDir` 目录作为服务根路径。
+在浏览器中启动一个 Capacitor 渐进式 Web 应用（PWA），使用 `capacitor.config.json` 中指定的 `webDir` 目录。
 
 ```bash
 npx cap serve

@@ -1,6 +1,6 @@
 ---
 title: 创建 Capacitor 插件
-description: 创建 Capacitor 插件指南
+description: 创建 Capacitor 插件
 contributors:
   - mlynch
   - jcesarmobile
@@ -11,57 +11,56 @@ slug: /plugins/creating-plugins
 
 # 创建 Capacitor 插件
 
-Capacitor 插件能让 JavaScript 直接调用原生 API 接口。
+Capacitor 中的插件使 JavaScript 能够直接与原生 API 交互。
 
-本指南将帮助你开始创建可分享的 Capacitor 插件（可发布到 npm）。你也可以创建仅供当前应用使用的本地插件，具体请参阅 [iOS](/main/ios/custom-code.md) 和 [Android](/main/android/custom-code.md) 的自定义原生代码指南。
+本指南将帮助您开始创建可共享的 Capacitor 插件，这些插件将发布到 npm。您也可以在应用中创建本地 Capacitor 插件。请参阅 [iOS](/main/ios/custom-code.md) 和 [Android](/main/android/custom-code.md) 的自定义原生代码指南。
 
 ## 设计理念
 
-如果你的插件计划公开分享，在开始前我们想分享一些关于 Capacitor 插件的核心理念。
+如果您的插件面向公众，在开始之前，我们想分享一些关于 Capacitor 插件的理念。
 
-### 协作开发
+### 协作精神
 
-我们相信合作比竞争更能产出高质量的插件。这也是我们创建 [Capacitor 社区 GitHub 组织](https://github.com/capacitor-community) 的原因之一，相比个人仓库托管插件，社区组织能更便利地促进协作。
+我们相信，合作比竞争能产出更高质量的插件。这也是我们创建 [Capacitor 社区 GitHub 组织](https://github.com/capacitor-community) 的原因之一，它比将插件托管在个人仓库中，更能促进社区间的轻松合作。
 
-如果 [Capacitor 社区](https://github.com/capacitor-community) 已存在某个功能的插件，请考虑为其贡献代码！如果某插件缺少主要维护者，Capacitor 团队很乐意邀请你加入 GitHub 组织。
+如果 [Capacitor 社区](https://github.com/capacitor-community) 中已经存在针对特定主题的插件，请考虑为其做出贡献！如果某个插件缺少主要维护者，Capacitor 团队会很乐意考虑将您添加到该 GitHub 组织中。
 
-### 功能精简
+### 小而精
 
-我们主张 Capacitor 插件应保持合理的功能范围。插件添加的原生代码可能被使用也可能闲置。通过保持插件功能精简，可以确保应用只包含必要的原生代码，避免以下问题：
-- 不必要的应用体积膨胀
-- 应用商店因未使用的 API 描述缺失而发出警告/拒绝上架
+我们相信 Capacitor 插件应该保持合理的范围。Capacitor 插件会向应用中添加可能用不到的原生代码。通过保持插件的范围较小，我们可以确保应用只包含所需的最少量原生代码。这可以避免不必要的应用臃肿，以及应用商店因 API 缺少使用描述等原因发出的警告或拒绝。
 
-当然，功能精简还能带来部署更快、协作更容易、可维护性更高等优势。
+当然，保持小巧的范围还能带来其他好处，例如更快的部署、更轻松的合作、更好的可维护性等。
 
-### 统一与规范
+### 统一且符合惯例
 
-Capacitor 插件应力求为 JavaScript 开发者提供跨平台的统一使用体验，这意味着可能需要转换原生平台返回值。
+Capacitor 插件应努力为跨平台提供统一的体验，并且符合 JavaScript 开发者的习惯。这意味着可能需要从原生平台转换某些值。
 
-以下是一些创建统一规范体验的指导原则及示例：
-- **优先使用 `undefined` 而非 `null` 等特殊值**：例如 Android API 返回 `0.0` 表示"无值"时，应将其转换为 JavaScript 层的 `undefined`
-- **保持计量单位统一**：例如 iOS API 使用摄氏度而 Android API 使用华氏度，应在数据到达 JavaScript 调用方前统一转换
-- **优先采用带时区的 ISO 8601 时间格式**：例如从 `"2020-12-13T20:21:58.415Z"` 这样的字符串可以轻松获得准确的 JavaScript `Date` 对象，而 Unix 时间戳（JavaScript 使用毫秒）则容易造成混淆。务必包含时区信息，否则不同地区可能对时间产生错误解读
+以下是一些准则和示例，展示了如何创建统一且符合惯例的体验：
+
+- **优先使用 `undefined` 而不是 `null` 或其他非值。** 示例：如果 Android API 返回 `0.0` 表示“无值”，那么在传递给 JavaScript 层之前，应将该值转换为 `undefined`。
+- **优先使用统一的单位。** 示例：如果 iOS API 使用摄氏度，而 Android API 使用华氏度，那么在数据传递给 JavaScript 使用者之前，应将其转换为其中一种单位。
+- **优先使用带时区的 ISO 8601 日期时间格式，而非其他格式。** 示例：从像 `"2020-12-13T20:21:58.415Z"` 这样的字符串可以轻松获得准确的 JavaScript `Date` 对象，但如果给定 Unix 时间戳（JavaScript 时间戳以毫秒为单位）则会令人困惑。始终包含时区，否则不同地区的日期时间可能会被不准确地解释。
 
 ## 插件生成器
 
-准备开始了？Capacitor 提供了 [插件生成工具](https://github.com/ionic-team/create-capacitor-plugin) 帮助你快速搭建插件结构。
+准备好开始了吗？Capacitor 有一个 [插件生成器](https://github.com/ionic-team/create-capacitor-plugin)，您可以用它来开始开发您的插件。
 
-> 开始前请确保你使用的是最新的 Node LTS 版本和 npm 6+
+> 在继续之前，您可能需要确保您使用的是最新的 Node LTS 版本和 npm 6 以上。
 
-在新终端中运行以下命令：
+在新的终端中，运行以下命令：
 
 ```bash
 npm init @capacitor/plugin@latest
 ```
 
-生成器将提示你输入信息。你也可以使用命令行参数（参见 [GitHub 仓库](https://github.com/ionic-team/create-capacitor-plugin/)）。
+生成器会提示您输入信息。您也可以提供命令行选项（参见 [GitHub 仓库](https://github.com/ionic-team/create-capacitor-plugin/)）。
 
-## 下一步
+## 后续步骤
 
 [了解 Capacitor 插件开发工作流程 &#8250;](/plugins/creating-plugins/development-workflow.md)
 
-[学习构建 Android 平台插件 &#8250;](/plugins/creating-plugins/android-guide.md)
+[了解为 Capacitor 构建 Android 插件 &#8250;](/plugins/creating-plugins/android-guide.md)
 
-[学习构建 iOS 平台插件 &#8250;](/plugins/creating-plugins/ios-guide.md)
+[了解为 Capacitor 构建 iOS 插件 &#8250;](/plugins/creating-plugins/ios-guide.md)
 
-[学习构建 Web/PWA 平台插件 &#8250;](/plugins/creating-plugins/web-guide.md)
+[了解为 Capacitor 构建 Web/PWA 插件 &#8250;](/plugins/creating-plugins/web-guide.md)

@@ -9,14 +9,14 @@ slug: /android/lifecycle
 
 # Android 生命周期
 
-理解 Android 活动生命周期对于构建符合用户预期的应用至关重要。
+理解 Android Activity 生命周期对于构建符合 Android 用户期望行为的应用至关重要。
 
-本文档主要阐释与 Capacitor 相关的生命周期机制。如需更全面的信息，请参阅 Android 官方文档中的 [Activity 生命周期](https://developer.android.com/guide/components/activities/activity-lifecycle.html) 参考指南。
+本文档将尝试解释与 Capacitor 相关的生命周期。如需更多信息，官方 Android 文档中的 [Activity 生命周期](https://developer.android.com/guide/components/activities/activity-lifecycle.html) 参考是最佳资源。
 
 ## 处理应用重启
 
-Android 应用经常需要调用其他应用（或活动）来实现复杂功能，例如相机或浏览器功能。
+Android 应用经常利用其他应用（或 Activity）来实现自身应用中过于复杂的功能，例如相机或浏览器功能。
 
-在某些内存不足的情况下，启动新活动可能导致系统终止当前应用以释放内存。
+在某些情况下，当设备内存不足时，启动新的 Activity 可能会导致你的应用被终止以释放内存。
 
-此时，当新活动返回数据至您的应用时，应当恢复用户之前的操作状态，呈现连续的使用体验。
+在这种情况下，当新 Activity 将数据返回到你的应用时，你的应用需要向用户展示能够恢复用户之前操作状态的应用界面。
