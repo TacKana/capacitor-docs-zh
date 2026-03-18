@@ -1,6 +1,6 @@
 ---
 title: File Viewer Capacitor Plugin API
-description: The FileViewer API provides mechanisms for opening files and previewing media. Not available on web.
+description: FileViewer API 提供了打开文件和预览媒体的功能。在 Web 平台上不可用。
 custom_edit_url: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: File Viewer
@@ -8,30 +8,30 @@ sidebar_label: File Viewer
 
 # @capacitor/file-viewer
 
-The FileViewer API provides mechanisms for opening files and previewing media. Not available on web.
+FileViewer API 提供了打开文件和预览媒体的功能。在 Web 平台上不可用。
 
-The media preview methods are currently only supported on iOS. It uses a built-in player.
+媒体预览方法目前仅在 iOS 上受支持，它使用系统内置的播放器。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/file-viewer
 npx cap sync
 ```
 
-## Example
+## 示例
 
 ```typescript
 import { FileViewer } from "@capacitor/file-viewer";
 
-// can use a plugin like @capacitor/filesystem to get the full path to the file
+// 可以使用像 @capacitor/filesystem 这样的插件来获取文件的完整路径
 const openDocument = async () => {
   await FileViewer.openDocumentFromLocalPath({
     path: "path/to/file.pdf"
   });
 };
 
-// ios-specific
+// iOS 特有功能
 const previewMedia = async () => {
   await FileViewer.previewMediaContentFromUrl({
     path: "https://url_hosting_media/file.mp4"
@@ -49,19 +49,19 @@ const previewMedia = async () => {
 * [`previewMediaContentFromLocalPath(...)`](#previewmediacontentfromlocalpath)
 * [`previewMediaContentFromResources(...)`](#previewmediacontentfromresources)
 * [`previewMediaContentFromUrl(...)`](#previewmediacontentfromurl)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
-For list of existing error codes, see [Errors](#errors).
+现有错误代码列表，请参阅[错误处理](#errors)。
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
 File Viewer API
 
-Only available in Native Android and iOS; not available for Web / PWAs.
+仅适用于 Android 和 iOS 原生平台；Web/PWA 不可用。
 
 ### openDocumentFromLocalPath(...)
 
@@ -69,9 +69,9 @@ Only available in Native Android and iOS; not available for Web / PWAs.
 openDocumentFromLocalPath(options: OpenFromLocalPathOptions) => Promise<void>
 ```
 
-Open a file stored in the local file system
+打开存储在本地文件系统中的文件
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromlocalpathoptions">OpenFromLocalPathOptions</a></code> |
 
@@ -86,9 +86,9 @@ Open a file stored in the local file system
 openDocumentFromResources(options: OpenFromResourcesOptions) => Promise<void>
 ```
 
-Open an app resource file
+打开应用资源文件
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromresourcesoptions">OpenFromResourcesOptions</a></code> |
 
@@ -103,9 +103,9 @@ Open an app resource file
 openDocumentFromUrl(options: OpenFromUrlOptions) => Promise<void>
 ```
 
-Open a file from a remote url
+从远程 URL 打开文件
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromurloptions">OpenFromUrlOptions</a></code> |
 
@@ -120,10 +120,10 @@ Open a file from a remote url
 previewMediaContentFromLocalPath(options: PreviewMediaFromLocalPathOptions) => Promise<void>
 ```
 
-Preview a media file (namely, video) stored in the local file system.
-Only implemented in iOS. Android defaults to `openDocumentFromLocalPath`.
+预览存储在本地文件系统中的媒体文件（通常是视频）。
+仅在 iOS 上实现。Android 会默认回退到 `openDocumentFromLocalPath`。
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromlocalpathoptions">OpenFromLocalPathOptions</a></code> |
 
@@ -138,10 +138,10 @@ Only implemented in iOS. Android defaults to `openDocumentFromLocalPath`.
 previewMediaContentFromResources(options: PreviewMediaFromResourcesOptions) => Promise<void>
 ```
 
-Preview a media file (namely, video) from the app's resources.
-Only implemented in iOS. Android defaults to `openDocumentFromResources`.
+预览应用资源中的媒体文件（通常是视频）。
+仅在 iOS 上实现。Android 会默认回退到 `openDocumentFromResources`。
 
-| Param         | Type                                                                          |
+| 参数          | 类型                                                                          |
 | ------------- | ----------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromresourcesoptions">OpenFromResourcesOptions</a></code> |
 
@@ -156,10 +156,10 @@ Only implemented in iOS. Android defaults to `openDocumentFromResources`.
 previewMediaContentFromUrl(options: PreviewMediaFromUrlOptions) => Promise<void>
 ```
 
-Preview a media file (namely, video) from a remote url.
-Only implemented in iOS. Android defaults to `openDocumentFromUrl`.
+预览远程 URL 中的媒体文件（通常是视频）。
+仅在 iOS 上实现。Android 会默认回退到 `openDocumentFromUrl`。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#openfromurloptions">OpenFromUrlOptions</a></code> |
 
@@ -168,31 +168,31 @@ Only implemented in iOS. Android defaults to `openDocumentFromUrl`.
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenFromLocalPathOptions
 
-| Prop       | Type                | Description                                | Since |
+| 属性         | 类型                | 描述                                 | Since |
 | ---------- | ------------------- | ------------------------------------------ | ----- |
-| **`path`** | <code>string</code> | The full absolute path to the file to open | 1.0.0 |
+| **`path`** | <code>string</code> | 要打开的文件的完整绝对路径 | 1.0.0 |
 
 
 #### OpenFromResourcesOptions
 
-| Prop       | Type                | Description                                    | Since |
+| 属性         | 类型                | 描述                                    | Since |
 | ---------- | ------------------- | ---------------------------------------------- | ----- |
-| **`path`** | <code>string</code> | The relative path to the resource file to open | 1.0.0 |
+| **`path`** | <code>string</code> | 要打开的资源文件的相对路径 | 1.0.0 |
 
 
 #### OpenFromUrlOptions
 
-| Prop      | Type                | Description                                 | Since |
+| 属性        | 类型                | 描述                                 | Since |
 | --------- | ------------------- | ------------------------------------------- | ----- |
-| **`url`** | <code>string</code> | The remote url pointing to the file to open | 1.0.0 |
+| **`url`** | <code>string</code> | 指向要打开的文件的远程 URL | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### PreviewMediaFromLocalPathOptions
@@ -209,21 +209,19 @@ Only implemented in iOS. Android defaults to `openDocumentFromUrl`.
 
 <code><a href="#openfromurloptions">OpenFromUrlOptions</a></code>
 
-</docgen-api>
+</docgen-api>### 错误信息
 
-### Errors
+该插件在原生 Android 和 iOS 平台上会返回以下特定代码对应的错误：
 
-The plugin returns the following errors with specific codes on native Android and iOS:
-
-| Error code        | Platform(s)      | Message                      |
-|-------------------|------------------|------------------------------|
-| OS-PLUG-FLVW-0004 | Android, iOS     | The file you are trying to open does not exist. |
-| OS-PLUG-FLVW-0005 | Android, iOS     | The URL you are trying to open is malformed. |
-| OS-PLUG-FLVW-0006 | Android, iOS     | Path of the file to open is either null or empty. |
-| OS-PLUG-FLVW-0007 | Android, iOS     | URL to open is either null or empty. |
-| OS-PLUG-FLVW-0008 | Android, iOS     | Could not open the file. |
-| OS-PLUG-FLVW-0009 | Android, iOS     | Invalid parameters. |
-| OS-PLUG-FLVW-0010 | Android          | There is no app to open this file. |
-| OS-PLUG-FLVW-0011 | iOS              | Cordova / Capacitor bridge isn’t initialized. |
-| OS-PLUG-FLVW-0012 | iOS              | The download failed. |
-| OS-PLUG-FLVW-0013 | iOS              | The file has no extension. |
+| 错误代码          | 平台            | 错误信息                          |
+|-------------------|------------------|-----------------------------------|
+| OS-PLUG-FLVW-0004 | Android, iOS     | 您尝试打开的文件不存在。          |
+| OS-PLUG-FLVW-0005 | Android, iOS     | 您尝试打开的 URL 格式不正确。     |
+| OS-PLUG-FLVW-0006 | Android, iOS     | 要打开的文件路径为空或未提供。    |
+| OS-PLUG-FLVW-0007 | Android, iOS     | 要打开的 URL 为空或未提供。       |
+| OS-PLUG-FLVW-0008 | Android, iOS     | 无法打开该文件。                  |
+| OS-PLUG-FLVW-0009 | Android, iOS     | 参数无效。                        |
+| OS-PLUG-FLVW-0010 | Android          | 没有可打开此文件的应用。          |
+| OS-PLUG-FLVW-0011 | iOS              | Cordova / Capacitor 桥接未初始化。|
+| OS-PLUG-FLVW-0012 | iOS              | 下载失败。                        |
+| OS-PLUG-FLVW-0013 | iOS              | 文件没有扩展名。                  |

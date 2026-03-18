@@ -1,6 +1,6 @@
 ---
 title: System Bars Capacitor Plugin API
-description: The System Bars API provides methods for configuring the style and visibility of the device System Bars / Status Bar.
+description: System Bars API 提供了配置设备系统栏/状态栏样式和可见性的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/system-bars.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
 sidebar_label: System Bars
@@ -8,31 +8,26 @@ sidebar_label: System Bars
 
 # SystemBars
 
-The SystemBars API provides methods for configuring the style and visibility of the device System Bars / Status Bar. This plugin is bundled with `@capacitor/core`.
+SystemBars API 提供了配置设备系统栏/状态栏样式和可见性的方法。此插件已捆绑在 `@capacitor/core` 中。
 
-This API differs from the [Status Bar](https://capacitorjs.com/docs/apis/status-bar) plugin in that it is only intended to support modern edge to edge use cases moving forward.  For legacy functionality, use the [Status Bar](https://capacitorjs.com/docs/apis/status-bar) plugin.
+此 API 与 [Status Bar](https://capacitorjs.com/docs/apis/status-bar) 插件的区别在于，它仅旨在支持现代的全屏边缘到边缘（edge to edge）使用场景。对于旧版功能，请使用 [Status Bar](https://capacitorjs.com/docs/apis/status-bar) 插件。
 
-| Feature | System Bars | Status Bar |
+| 功能特性 | System Bars | Status Bar |
 | ------- | ----------- | ---------- |
-| `setOverlaysWebView()` | Unsupported | Supported on iOS and Android <= 14 (or 15 if edge to edge opt-out is enabled) |
-| `setBackgroundColor()` | Unsupported | Supported |
-| `setStyle()` | Supported | Supported - top Status Bar only |
-| `hide()/show()` | Supported | Supported - top Status Bar only |
+| `setOverlaysWebView()` | 不支持 | 在 iOS 和 Android <= 14（或在启用边缘到边缘退出时为 15）上支持 |
+| `setBackgroundColor()` | 不支持 | 支持 |
+| `setStyle()` | 支持 | 支持 - 仅顶部状态栏 |
+| `hide()/show()` | 支持 | 支持 - 仅顶部状态栏 |
 
-## iOS Note
+## iOS 注意事项
 
-This plugin requires "View controller-based status bar appearance"
-(`UIViewControllerBasedStatusBarAppearance`) set to `YES` in `Info.plist`. Read
-about [Configuring iOS](https://capacitorjs.com/docs/ios/configuration) for
-help.
+此插件要求在 `Info.plist` 中将 "View controller-based status bar appearance" (`UIViewControllerBasedStatusBarAppearance`) 设置为 `YES`。如需帮助，请阅读关于 [配置 iOS](https://capacitorjs.com/docs/ios/configuration) 的文档。
 
-The status bar visibility defaults to visible and the style defaults to
-`Style.Default`. You can change these defaults by adding
-`UIStatusBarHidden` and/or `UIStatusBarStyle` in `Info.plist`.
+状态栏可见性默认为可见，样式默认为 `Style.Default`。您可以通过在 `Info.plist` 中添加 `UIStatusBarHidden` 和/或 `UIStatusBarStyle` 来更改这些默认值。
 
-## Android Note
+## Android 注意事项
 
-Due to a [bug](https://issues.chromium.org/issues/40699457) in some older versions of Android WebView (< 140), correct safe area values are not available via the `safe-area-inset-x` CSS `env` variables.  This plugin will inject the correct inset values into a new CSS variable(s) named `--safe-area-inset-x` that you can use as a fallback in your frontend styles:
+由于某些旧版本 Android WebView (< 140) 中存在一个 [bug](https://issues.chromium.org/issues/40699457)，无法通过 CSS `env` 变量 `safe-area-inset-x` 获取正确的安全区域值。此插件会将正确的内边距（inset）值注入到名为 `--safe-area-inset-x` 的新 CSS 变量中，您可以在前端样式中将其用作备用方案：
 
 ```css
 html {
@@ -42,9 +37,9 @@ html {
   padding-right: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
 }
 ```
-To control this behavior, use the `insetsHandling` configuration setting.
+要控制此行为，请使用 `insetsHandling` 配置设置。
 
-## Example
+## 示例
 
 ```typescript
 import { SystemBars, SystemBarsStyle, SystemBarType } from '@capacitor/core';
@@ -71,25 +66,25 @@ const hideNavigationBar = async () => {
   })
 }
 
-// Set the Status Bar animation, only on iOS
+// 仅在 iOS 上设置状态栏动画
 const setStatusBarAnimation = async () => {
   await SystemBars.setAnimation({ animation: "NONE" });
 }
 
 ````
 
-## Configuration
-| Prop          | Type                 | Description                                                               | Default            |
+## 配置
+| 属性          | 类型                 | 描述                                                               | 默认值            |
 | ------------- | -------------------- | ------------------------------------------------------------------------- | ------------------ |
-| **`insetsHandling`** | <code>string</code> | Specifies how to handle problematic insets on Android.  This option is only supported on Android.<br>`css` = Injects CSS variables (`--safe-area-inset-*`) containing correct safe area inset values into the webview.<br>`disable` = Disable all inset handling. | <code>css</code> |
-| **`style`** | <code>string</code> | The style of the text and icons of the system bars. | <code>DEFAULT</code> |
-| **`hidden`** | <code>boolean</code> | Hide the system bars on start. | <code>false</code> |
-| **`animation`** | <code>string</code> | The type of status bar animation used when showing or hiding.  This option is only supported on iOS. | <code>FADE</code> |
+| **`insetsHandling`** | <code>string</code> | 指定在 Android 上如何处理有问题的内边距（insets）。此选项仅在 Android 上受支持。<br>`css` = 将包含正确安全区域内边距值的 CSS 变量（`--safe-area-inset-*`）注入到 WebView 中。<br>`disable` = 禁用所有内边距处理。 | <code>css</code> |
+| **`style`** | <code>string</code> | 系统栏的文本和图标的样式。 | <code>DEFAULT</code> |
+| **`hidden`** | <code>boolean</code> | 启动时隐藏系统栏。 | <code>false</code> |
+| **`animation`** | <code>string</code> | 显示或隐藏时使用的状态栏动画类型。此选项仅在 iOS 上受支持。 | <code>FADE</code> |
 
 
-### Example Configuration
+### 配置示例
 
-In `capacitor.config.json`:
+在 `capacitor.config.json` 中：
 
 ```json
 {
@@ -104,7 +99,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 中：
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -131,9 +126,9 @@ export default config;
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
 * [`setAnimation(...)`](#setanimation)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
+* [枚举](#enums)
 
 </docgen-index>
 
@@ -146,13 +141,13 @@ export default config;
 setStyle(options: SystemBarsStyleOptions) => Promise<void>
 ```
 
-Set the current style of the system bars.
+设置系统栏的当前样式。
 
-| Param         | Type                                                                      |
+| 参数         | 类型                                                                      |
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#systembarsstyleoptions">SystemBarsStyleOptions</a></code> |
 
-**Since:** 8.0.0
+**自版本：** 8.0.0
 
 --------------------
 
@@ -163,13 +158,13 @@ Set the current style of the system bars.
 show(options?: SystemBarsVisibilityOptions) => Promise<void>
 ```
 
-Show the system bars.
+显示系统栏。
 
-| Param         | Type                                                                                |
+| 参数         | 类型                                                                                |
 | ------------- | ----------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#systembarsvisibilityoptions">SystemBarsVisibilityOptions</a></code> |
 
-**Since:** 8.0.0
+**自版本：** 8.0.0
 
 --------------------
 
@@ -180,13 +175,13 @@ Show the system bars.
 hide(options?: SystemBarsVisibilityOptions) => Promise<void>
 ```
 
-Hide the system bars.
+隐藏系统栏。
 
-| Param         | Type                                                                                |
+| 参数         | 类型                                                                                |
 | ------------- | ----------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#systembarsvisibilityoptions">SystemBarsVisibilityOptions</a></code> |
 
-**Since:** 8.0.0
+**自版本：** 8.0.0
 
 --------------------
 
@@ -197,72 +192,69 @@ Hide the system bars.
 setAnimation(options: SystemBarsAnimationOptions) => Promise<void>
 ```
 
-Set the animation to use when showing / hiding the status bar.
+设置显示/隐藏状态栏时使用的动画。
 
-Only available on iOS.
+仅在 iOS 上可用。
 
-| Param         | Type                                                                              |
+| 参数         | 类型                                                                              |
 | ------------- | --------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#systembarsanimationoptions">SystemBarsAnimationOptions</a></code> |
 
-**Since:** 8.0.0
+**自版本：** 8.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口#### SystemBarsStyleOptions
 
-
-#### SystemBarsStyleOptions
-
-| Prop        | Type                                                        | Description                                     | Default                | Since |
-| ----------- | ----------------------------------------------------------- | ----------------------------------------------- | ---------------------- | ----- |
-| **`style`** | <code><a href="#systembarsstyle">SystemBarsStyle</a></code> | Style of the text and icons of the system bars. | <code>'DEFAULT'</code> | 8.0.0 |
-| **`bar`**   | <code><a href="#systembartype">SystemBarType</a></code>     | The system bar to which to apply the style.     | <code>null</code>      | 8.0.0 |
+| 属性           | 类型                                                              | 描述                                           | 默认值               | 始于 |
+| ------------   | ----------------------------------------------------------------- | ---------------------------------------------- | -------------------- | ---- |
+| **`style`**    | <code><a href="#systembarsstyle">SystemBarsStyle</a></code>       | 系统栏（状态栏/导航栏）图标和文字的样式。       | <code>'DEFAULT'</code> | 8.0.0 |
+| **`bar`**      | <code><a href="#systembartype">SystemBarType</a></code>           | 指定要应用样式的系统栏。                       | <code>null</code>    | 8.0.0 |
 
 
 #### SystemBarsVisibilityOptions
 
-| Prop            | Type                                                                | Description                                                                                         | Default             | Since |
-| --------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`bar`**       | <code><a href="#systembartype">SystemBarType</a></code>             | The system bar to hide or show.                                                                     | <code>null</code>   | 8.0.0 |
-| **`animation`** | <code><a href="#systembarsanimation">SystemBarsAnimation</a></code> | The type of status bar animation used when showing or hiding. This option is only supported on iOS. | <code>'FADE'</code> | 8.0.0 |
+| 属性               | 类型                                                              | 描述                                                                                                      | 默认值             | 始于 |
+| ------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------ | ---- |
+| **`bar`**          | <code><a href="#systembartype">SystemBarType</a></code>           | 指定要隐藏或显示的系统栏。                                                                                | <code>null</code>  | 8.0.0 |
+| **`animation`**    | <code><a href="#systembarsanimation">SystemBarsAnimation</a></code> | 显示或隐藏系统栏时使用的动画类型。此选项仅在 iOS 上受支持。                                                | <code>'FADE'</code> | 8.0.0 |
 
 
 #### SystemBarsAnimationOptions
 
-| Prop            | Type                                                                | Description                                                                                         | Default             | Since |
-| --------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`animation`** | <code><a href="#systembarsanimation">SystemBarsAnimation</a></code> | The type of status bar animation used when showing or hiding. This option is only supported on iOS. | <code>'FADE'</code> | 8.0.0 |
+| 属性               | 类型                                                              | 描述                                                                                                      | 默认值             | 始于 |
+| ------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------ | ---- |
+| **`animation`**    | <code><a href="#systembarsanimation">SystemBarsAnimation</a></code> | 显示或隐藏系统栏时使用的动画类型。此选项仅在 iOS 上受支持。                                                | <code>'FADE'</code> | 8.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### SystemBarsAnimation
 
-Available status bar animations.  iOS only.
+可用的状态栏动画类型。仅限 iOS。
 
 <code>'FADE' | 'NONE'</code>
 
 
-### Enums
+### 枚举
 
 
 #### SystemBarsStyle
 
-| Members       | Value                  | Description                                                                                                                                                                                                              | Since |
-| ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`Dark`**    | <code>'DARK'</code>    | Light system bar content on a dark background.                                                                                                                                                                           | 8.0.0 |
-| **`Light`**   | <code>'LIGHT'</code>   | For dark system bar content on a light background.                                                                                                                                                                       | 8.0.0 |
-| **`Default`** | <code>'DEFAULT'</code> | The style is based on the device appearance or the underlying content. If the device is using Dark mode, the system bars content will be light. If the device is using Light mode, the system bars content will be dark. | 8.0.0 |
+| 成员             | 值                     | 描述                                                                                                                              | 始于 |
+| ---------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`Dark`**       | <code>'DARK'</code>    | 深色背景上的浅色系统栏内容。                                                                                                       | 8.0.0 |
+| **`Light`**      | <code>'LIGHT'</code>   | 浅色背景上的深色系统栏内容。                                                                                                       | 8.0.0 |
+| **`Default`**    | <code>'DEFAULT'</code> | 样式基于设备外观或底层内容。如果设备使用深色模式，系统栏内容将为浅色。如果设备使用浅色模式，系统栏内容将为深色。                     | 8.0.0 |
 
 
 #### SystemBarType
 
-| Members             | Value                        | Description                                                         | Since |
-| ------------------- | ---------------------------- | ------------------------------------------------------------------- | ----- |
-| **`StatusBar`**     | <code>'StatusBar'</code>     | The top status bar on both Android and iOS.                         | 8.0.0 |
-| **`NavigationBar`** | <code>'NavigationBar'</code> | The navigation bar (or gesture bar on iOS) on both Android and iOS. | 8.0.0 |
+| 成员                 | 值                           | 描述                                                             | 始于 |
+| -------------------- | ---------------------------- | ---------------------------------------------------------------- | ----- |
+| **`StatusBar`**      | <code>'StatusBar'</code>     | Android 和 iOS 顶部的状态栏。                                      | 8.0.0 |
+| **`NavigationBar`**  | <code>'NavigationBar'</code> | Android 和 iOS 的导航栏（在 iOS 上为手势条）。                      | 8.0.0 |
 
 </docgen-api>

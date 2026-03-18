@@ -1,6 +1,6 @@
 ---
-title: Splash Screen Capacitor Plugin API
-description: The Splash Screen API provides methods for showing or hiding a Splash image.
+title: Splash Screen Capacitor 插件 API
+description: Splash Screen API 提供显示或隐藏启动画面的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
 sidebar_label: Splash Screen
@@ -8,9 +8,9 @@ sidebar_label: Splash Screen
 
 # @capacitor/splash-screen
 
-The Splash Screen API provides methods for showing or hiding a Splash image.
+Splash Screen API 提供显示或隐藏启动画面的方法。
 
-## Install
+## 安装
 
 ```bash
 npm install @capacitor/splash-screen
@@ -19,12 +19,12 @@ npx cap sync
 
 ### Android 12 Splash Screen API
 
-_**This only affects the launch splash screen and is not used when utilizing the programmatic `show()` method.**_
+_**这只影响启动时的启动画面，在使用编程式 `show()` 方法时不会生效。**_
 
-Capacitor 4 uses the **[Android 12 Splash Screen API](https://developer.android.com/guide/topics/ui/splash-screen)** and the `androidx.core:core-splashscreen` compatibility library to make it work on Android 11 and below.
+Capacitor 4 使用 **[Android 12 Splash Screen API](https://developer.android.com/guide/topics/ui/splash-screen)** 和 `androidx.core:core-splashscreen` 兼容库，使其在 Android 11 及更低版本上工作。
 
-The compatibility library can be disabled by changing the parent of `AppTheme.NoActionBarLaunch` from `Theme.SplashScreen` to `AppTheme.NoActionBar` in `android/app/src/main/res/values/styles.xml`.
-The Android 12 Splash Screen API can't be disabled on Android 12+ as it's part of the Android OS.
+可以通过将 `android/app/src/main/res/values/styles.xml` 文件中 `AppTheme.NoActionBarLaunch` 的父主题从 `Theme.SplashScreen` 改为 `AppTheme.NoActionBar` 来禁用兼容库。
+Android 12+ 上的 Android 12 Splash Screen API 无法禁用，因为它是 Android 操作系统的一部分。
 
 ```xml
 <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
@@ -32,96 +32,93 @@ The Android 12 Splash Screen API can't be disabled on Android 12+ as it's part o
 </style>
 ```
 
-**NOTE**: On Android 12 and Android 12L devices the Splash Screen image is not showing when launched from third party launchers such as Nova Launcher, MIUI, Realme Launcher, OPPO Launcher, etc., from app info in Settings App, or from IDEs such as Android Studio.
+**注意**：在 Android 12 和 Android 12L 设备上，当从第三方启动器（如 Nova Launcher、MIUI、Realme Launcher、OPPO Launcher 等）、设置应用中的应用信息页面或 Android Studio 等 IDE 启动时，启动画面可能不会显示。
 **[Google Issue Tracker](https://issuetracker.google.com/issues/205021357)**
 **[Google Issue Tracker](https://issuetracker.google.com/issues/207386164)**
-Google has fixed those problems on Android 13 but they won't backport the fixes to Android 12 and Android 12L.
-Launcher related issues might get fixed by a launcher update.
-If you still find issues related to the Splash Screen on Android 13, please, report them to [Google](https://issuetracker.google.com/).
+Google 已在 Android 13 上修复了这些问题，但不会向后移植到 Android 12 和 Android 12L。
+启动器相关的问题可能会通过启动器更新得到解决。
+如果您仍然在 Android 13 上发现与启动画面相关的问题，请向 [Google](https://issuetracker.google.com/) 报告。
 
-## Example
+## 示例
 
 ```typescript
 import { SplashScreen } from '@capacitor/splash-screen';
 
-// Hide the splash (you should do this on app launch)
+// 隐藏启动画面（应在应用启动时执行）
 await SplashScreen.hide();
 
-// Show the splash for an indefinite amount of time:
+// 无限期地显示启动画面：
 await SplashScreen.show({
   autoHide: false,
 });
 
-// Show the splash for two seconds and then automatically hide it:
+// 显示启动画面两秒，然后自动隐藏：
 await SplashScreen.show({
   showDuration: 2000,
   autoHide: true,
 });
 ```
 
-## Hiding the Splash Screen
+## 隐藏启动画面
 
-By default, the Splash Screen is set to automatically hide after 500 ms.
+默认情况下，启动画面会在 500 毫秒后自动隐藏。
 
-If you want to be sure the splash screen never disappears before your app is ready, set `launchAutoHide` to `false`; the splash screen will then stay visible until manually hidden. For the best user experience, your app should call `hide()` as soon as possible.
+如果您希望确保启动画面在应用准备就绪前永不消失，请将 `launchAutoHide` 设置为 `false`；这样启动画面将保持可见，直到手动隐藏。为了获得最佳用户体验，您的应用应尽快调用 `hide()`。
 
-If, instead, you want to show the splash screen for a fixed amount of time, set `launchShowDuration` in your [Capacitor configuration file](https://capacitorjs.com/docs/config).
+相反，如果您希望固定显示启动画面一段时间，请在您的 [Capacitor 配置文件](https://capacitorjs.com/docs/config) 中设置 `launchShowDuration`。
 
-## Background Color
+## 背景色
 
-In certain conditions, especially if the splash screen does not fully cover the device screen, it might happen that the app screen is visible around the corners (due to transparency). Instead of showing a transparent color, you can set a `backgroundColor` to cover those areas.
+在某些情况下，特别是当启动画面没有完全覆盖设备屏幕时，应用屏幕可能会在边角处可见（由于透明度）。为了避免显示透明色，您可以设置 `backgroundColor` 来覆盖这些区域。
 
-Possible values for `backgroundColor` are either `#RRGGBB` or `#RRGGBBAA`.
+`backgroundColor` 的可能值可以是 `#RRGGBB` 或 `#RRGGBBAA`。
 
-## Spinner
+## 加载指示器
 
-If you want to show a spinner on top of the splash screen, set `showSpinner` to `true` in your [Capacitor configuration file](https://capacitorjs.com/docs/config).
+如果您希望在启动画面上方显示一个加载指示器，请在您的 [Capacitor 配置文件](https://capacitorjs.com/docs/config) 中将 `showSpinner` 设置为 `true`。
 
-You can customize the appearance of the spinner with the following configuration.
+您可以通过以下配置自定义加载指示器的外观。
 
-For Android, `androidSpinnerStyle` has the following options:
+对于 Android，`androidSpinnerStyle` 有以下选项：
 
 - `horizontal`
 - `small`
-- `large` (default)
+- `large`（默认）
 - `inverse`
 - `smallInverse`
 - `largeInverse`
 
-For iOS, `iosSpinnerStyle` has the following options:
+对于 iOS，`iosSpinnerStyle` 有以下选项：
 
-- `large` (default)
+- `large`（默认）
 - `small`
 
-To set the color of the spinner use `spinnerColor`, values are either `#RRGGBB` or `#RRGGBBAA`.
-
-## Configuration
+要设置加载指示器的颜色，请使用 `spinnerColor`，值可以是 `#RRGGBB` 或 `#RRGGBBAA`。## 配置
 
 <docgen-config>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下文文档-->
 
-These config values are available:
+以下是可用的配置值：
 
-| Prop                            | Type                                                                                                                          | Description                                                                                                                                                                                                                                             | Default             | Since |
+| 属性                             | 类型                                                                                                                          | 描述                                                                                                                                                                                                                                             | 默认值              | 自版本 |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`launchShowDuration`**        | <code>number</code>                                                                                                           | How long to show the launch splash screen when autoHide is enabled (in ms)                                                                                                                                                                              | <code>500</code>    | 1.0.0 |
-| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | Whether to auto hide the splash after launchShowDuration.                                                                                                                                                                                               | <code>true</code>   | 1.0.0 |
-| **`launchFadeOutDuration`**     | <code>number</code>                                                                                                           | Duration for the fade out animation of the launch splash screen (in ms) Only available for Android, when using the Android 12 Splash Screen API.                                                                                                        | <code>200</code>    | 4.2.0 |
-| **`backgroundColor`**           | <code>string</code>                                                                                                           | Color of the background of the Splash Screen in hex format, #RRGGBB or #RRGGBBAA. Doesn't work if `useDialog` is true or on launch when using the Android 12 API.                                                                                       |                     | 1.0.0 |
-| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | Name of the resource to be used as Splash Screen. Doesn't work on launch when using the Android 12 API. Only available on Android.                                                                                                                      | <code>splash</code> | 1.0.0 |
-| **`androidScaleType`**          | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | The [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType) used to scale the Splash Screen image. Doesn't work if `useDialog` is true or on launch when using the Android 12 API. Only available on Android. | <code>FIT_XY</code> | 1.0.0 |
-| **`showSpinner`**               | <code>boolean</code>                                                                                                          | Show a loading spinner on the Splash Screen. Doesn't work if `useDialog` is true or on launch when using the Android 12 API.                                                                                                                            |                     | 1.0.0 |
-| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Style of the Android spinner. Doesn't work if `useDialog` is true or on launch when using the Android 12 API.                                                                                                                                           | <code>large</code>  | 1.0.0 |
-| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | Style of the iOS spinner. Doesn't work if `useDialog` is true. Only available on iOS.                                                                                                                                                                   | <code>large</code>  | 1.0.0 |
-| **`spinnerColor`**              | <code>string</code>                                                                                                           | Color of the spinner in hex format, #RRGGBB or #RRGGBBAA. Doesn't work if `useDialog` is true or on launch when using the Android 12 API.                                                                                                               |                     | 1.0.0 |
-| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | Hide the status bar on the Splash Screen. Doesn't work on launch when using the Android 12 API. Only available on Android.                                                                                                                              |                     | 1.0.0 |
-| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | Hide the status bar and the software navigation buttons on the Splash Screen. Doesn't work on launch when using the Android 12 API. Only available on Android.                                                                                          |                     | 1.0.0 |
-| **`layoutName`**                | <code>string</code>                                                                                                           | If `useDialog` is set to true, configure the Dialog layout. If `useDialog` is not set or false, use a layout instead of the ImageView. Doesn't work on launch when using the Android 12 API. Only available on Android.                                 |                     | 1.1.0 |
-| **`useDialog`**                 | <code>boolean</code>                                                                                                          | Use a Dialog instead of an ImageView. If `layoutName` is not configured, it will use a layout that uses the splash image as background. Doesn't work on launch when using the Android 12 API. Only available on Android.                                |                     | 1.1.0 |
+| **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当启用 autoHide 时，启动闪屏的显示时长（单位：毫秒）                                                                                                                                                                              | <code>500</code>    | 1.0.0 |
+| **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏启动闪屏。                                                                                                                                                                                               | <code>true</code>   | 1.0.0 |
+| **`launchFadeOutDuration`**     | <code>number</code>                                                                                                           | 启动闪屏淡出动画的持续时间（单位：毫秒）仅适用于 Android 12 启动闪屏 API。                                                                                                        | <code>200</code>    | 4.2.0 |
+| **`backgroundColor`**           | <code>string</code>                                                                                                           | 闪屏背景色，使用十六进制格式，如 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在启动时使用 Android 12 API 时无效。                                                                                       |                     | 1.0.0 |
+| **`androidSplashResourceName`** | <code>string</code>                                                                                                           | 用作闪屏的资源名称。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                                                                                                      | <code>splash</code> | 1.0.0 |
+| **`androidScaleType`**          | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | 用于缩放闪屏图像的 [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType)。当 `useDialog` 为 true 或在启动时使用 Android 12 API 时无效。仅适用于 Android。 | <code>FIT_XY</code> | 1.0.0 |
+| **`showSpinner`**               | <code>boolean</code>                                                                                                          | 在闪屏上显示加载指示器。当 `useDialog` 为 true 或在启动时使用 Android 12 API 时无效。                                                                                                                            |                     | 1.0.0 |
+| **`androidSpinnerStyle`**       | <code>'horizontal' \| 'small' \| 'large' \| 'inverse' \| 'smallInverse' \| 'largeInverse'</code>                              | Android 指示器的样式。当 `useDialog` 为 true 或在启动时使用 Android 12 API 时无效。                                                                                                                                           | <code>large</code>  | 1.0.0 |
+| **`iosSpinnerStyle`**           | <code>'small' \| 'large'</code>                                                                                               | iOS 指示器的样式。当 `useDialog` 为 true 时无效。仅适用于 iOS。                                                                                                                                                                   | <code>large</code>  | 1.0.0 |
+| **`spinnerColor`**              | <code>string</code>                                                                                                           | 指示器的颜色，使用十六进制格式，如 #RRGGBB 或 #RRGGBBAA。当 `useDialog` 为 true 或在启动时使用 Android 12 API 时无效。                                                                                                               |                     | 1.0.0 |
+| **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | 在闪屏上隐藏状态栏。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                                                                                                              |                     | 1.0.0 |
+| **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 在闪屏上隐藏状态栏和软件导航按钮。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                                                                          |                     | 1.0.0 |
+| **`layoutName`**                | <code>string</code>                                                                                                           | 如果 `useDialog` 设置为 true，则配置 Dialog 布局。如果 `useDialog` 未设置或为 false，则使用布局而非 ImageView。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                 |                     | 1.1.0 |
+| **`useDialog`**                 | <code>boolean</code>                                                                                                          | 使用 Dialog 而非 ImageView。如果未配置 `layoutName`，将使用以闪屏图像为背景的布局。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                |                     | 1.1.0 |
+</docgen-config>### 示例
 
-### Examples
-
-In `capacitor.config.json`:
+在 `capacitor.config.json` 文件中：
 
 ```json
 {
@@ -146,7 +143,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+在 `capacitor.config.ts` 文件中：
 
 ```ts
 /// <reference types="@capacitor/splash-screen" />
@@ -181,7 +178,7 @@ export default config;
 
 ### Android
 
-To use splash screen images named something other than `splash.png`, set `androidSplashResourceName` to the new resource name. Additionally, in `android/app/src/main/res/values/styles.xml`, change the resource name in the following block:
+如果启动图片的名称不是 `splash.png`，请将 `androidSplashResourceName` 设置为新的资源名称。此外，在 `android/app/src/main/res/values/styles.xml` 文件中，修改以下代码块中的资源名称：
 
 ```xml
 <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
@@ -189,17 +186,17 @@ To use splash screen images named something other than `splash.png`, set `androi
 </style>
 ```
 
-### Variables
+### 变量
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+本插件将使用以下项目变量（定义在应用的 `variables.gradle` 文件中）：
 
-- `coreSplashScreenVersion` version of `androidx.core:core-splashscreen` (default: `1.2.0`)
+- `coreSplashScreenVersion`：`androidx.core:core-splashscreen` 的版本（默认：`1.2.0`）
 
-## Example Guides
+## 示例指南
 
-[Adding Your Own Icons and Splash Screen Images &#8250;](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)
+[添加自定义图标和启动屏幕图片 &#8250;](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)
 
-[Creating a Dynamic/Adaptable Splash Screen for Capacitor (Android) &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
+[为 Capacitor 创建动态/自适应启动屏幕（Android） &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
 
 ## API
 
@@ -207,7 +204,7 @@ This plugin will use the following project variables (defined in your app's `var
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [Interfaces](#interfaces)
+* [接口](#interfaces)
 
 </docgen-index>
 
@@ -220,13 +217,13 @@ This plugin will use the following project variables (defined in your app's `var
 show(options?: ShowOptions | undefined) => Promise<void>
 ```
 
-Show the splash screen
+显示启动屏幕
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
-**Since:** 1.0.0
+**自：** 1.0.0
 
 --------------------
 
@@ -237,34 +234,34 @@ Show the splash screen
 hide(options?: HideOptions | undefined) => Promise<void>
 ```
 
-Hide the splash screen
+隐藏启动屏幕
 
-| Param         | Type                                                |
+| 参数          | 类型                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#hideoptions">HideOptions</a></code> |
 
-**Since:** 1.0.0
+**自：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions
 
-| Prop                  | Type                 | Description                                                         | Default           | Since |
-| --------------------- | -------------------- | ------------------------------------------------------------------- | ----------------- | ----- |
-| **`autoHide`**        | <code>boolean</code> | Whether to auto hide the splash after showDuration                  |                   | 1.0.0 |
-| **`fadeInDuration`**  | <code>number</code>  | How long (in ms) to fade in.                                        | <code>200</code>  | 1.0.0 |
-| **`fadeOutDuration`** | <code>number</code>  | How long (in ms) to fade out.                                       | <code>200</code>  | 1.0.0 |
-| **`showDuration`**    | <code>number</code>  | How long to show the splash screen when autoHide is enabled (in ms) | <code>3000</code> | 1.0.0 |
+| 属性                  | 类型                 | 描述                                                         | 默认值           | 自    |
+| --------------------- | -------------------- | ------------------------------------------------------------ | ---------------- | ----- |
+| **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏启动屏幕                       |                   | 1.0.0 |
+| **`fadeInDuration`**  | <code>number</code>  | 淡入持续时间（毫秒）                                         | <code>200</code>  | 1.0.0 |
+| **`fadeOutDuration`** | <code>number</code>  | 淡出持续时间（毫秒）                                         | <code>200</code>  | 1.0.0 |
+| **`showDuration`**    | <code>number</code>  | 当 autoHide 启用时，启动屏幕的显示时间（毫秒）               | <code>3000</code> | 1.0.0 |
 
 
 #### HideOptions
 
-| Prop                  | Type                | Description                                                                                                                                                       | Default          | Since |
-| --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----- |
-| **`fadeOutDuration`** | <code>number</code> | How long (in ms) to fade out. On Android, if using the Android 12 Splash Screen API, it's not being used. Use launchFadeOutDuration configuration option instead. | <code>200</code> | 1.0.0 |
+| 属性                  | 类型                | 描述                                                                                                                                                       | 默认值          | 自    |
+| --------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----- |
+| **`fadeOutDuration`** | <code>number</code> | 淡出持续时间（毫秒）。在 Android 上，如果使用 Android 12 启动屏幕 API，此设置无效，请改用 launchFadeOutDuration 配置项。 | <code>200</code> | 1.0.0 |
 
 </docgen-api>
