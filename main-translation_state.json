@@ -425,8 +425,8 @@
     "translator_version": "1.0"
   },
   "docs/main/guides/push-notifications-firebase.md": {
-    "source_hash": "1e1885c20dcd132335c474715e38837deb9f36bd",
-    "last_translated_at": "2026-03-18T07:31:07.263Z",
+    "source_hash": "f91277b1013aed5d57e5340d3443aa78c6123de2",
+    "last_translated_at": "2026-03-25T06:58:55.917Z",
     "translator_version": "1.0"
   },
   "docs/main/guides/react-hooks.md": {
@@ -1120,8 +1120,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v2/guides/push-notifications-firebase.md": {
-    "source_hash": "fc0687f00dff4e13c4d3a759f461768f43bfbd7f",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "f12a929082cb0cdfb4c99ee4004f3c870b45a492",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v2/guides/react-hooks.md": {
@@ -1590,8 +1590,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/main/guides/push-notifications-firebase.md": {
-    "source_hash": "980cac2f96bbcc34af71d0a998d07dd62a3a1712",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "7eae933a5fb69baab03d53a44d3d96d1e875313f",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/main/guides/react-hooks.md": {
@@ -2195,8 +2195,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v4/main/guides/push-notifications-firebase.md": {
-    "source_hash": "681567b822fe0cc468079c232693d2c5cfa861f9",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "6cfd99cca8098c15ffc26e70087a758116498e6d",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v4/main/guides/react-hooks.md": {
@@ -2900,8 +2900,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/main/guides/push-notifications-firebase.md": {
-    "source_hash": "ec59b32874da4dd794045576eacc30f519faa006",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "943a6f48120992ccbdd179b1eca2f50f8403782b",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/main/guides/react-hooks.md": {
@@ -3635,8 +3635,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/main/guides/push-notifications-firebase.md": {
-    "source_hash": "baedafaa2e045e3ccaec53c49dce6c321567395b",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "c75852d86c14b9547d738e855b9c211400689974",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/main/guides/react-hooks.md": {
@@ -4415,8 +4415,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/main/guides/push-notifications-firebase.md": {
-    "source_hash": "851618eb549a26b5e55cfaa04349f63396284805",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "3a4c3c522a60579b8af96286a424a233acf4ae26",
+    "last_translated_at": "2026-03-25T06:58:55.919Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/main/guides/react-hooks.md": {
