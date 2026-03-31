@@ -9,9 +9,9 @@ slug: /plugins/method-types
 
 # 方法类型
 
-开发插件时，可以使用三种不同的方法签名类型。所有方法都是异步的，并且基于 Promise。
+开发插件时，可以使用三种不同类型的方法签名。所有方法都是异步且基于 Promise 的。
 
-让我们来看一个包含所有三种类型的插件定义：
+让我们来看一个包含所有三种类型的插件定义示例：
 
 ```typescript
 export type CallbackID = string;
@@ -23,7 +23,7 @@ export interface MyData {
 export type MyPluginCallback = (message: MyData | null, err?: any) => void;
 
 export interface MyPlugin {
-  method1(): Promise<void>;
+  method1(): never;
   method2(): Promise<MyData>;
   method3(callback: MyPluginCallback): Promise<CallbackID>;
 }
@@ -31,9 +31,9 @@ export interface MyPlugin {
 
 ## 无返回值
 
-`method1()` 是最简单的情况，预期不返回任何数据。你可以检查 Promise 是否有错误，但当它解析时，结果会被忽略。
+`method1()` 是最简单的情况，预期不返回任何数据。
 
-对于 Android，你需要这样注解方法：
+在 Android 中，你需要这样注解该方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,15 @@ public void method1(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+
+```swift
+public let pluginMethods: [CAPPluginMethod] = [
+    CAPPluginMethod(name: "method1", returnType: CAPPluginReturnNone)
+]
+```
+
+或者对于 Objective-C 插件，在 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -51,9 +59,9 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 
 ## 值返回
 
-`method2()` 是最常见的情况：一个解析后返回某个值的 Promise。
+`method2()` 是最常见的情况：一个通常会解析出某个值的 Promise。
 
-对于 Android，这种方法是默认类型，指定返回类型是可选的：
+对于 Android，此方法类型是默认的，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -61,7 +69,15 @@ public void method2(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+
+```swift
+public let pluginMethods: [CAPPluginMethod] = [
+    CAPPluginMethod(name: "method2", returnType: CAPPluginReturnPromise)
+]
+```
+
+或者对于 Objective-C 插件，在 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -69,11 +85,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 回调函数
+## 回调
 
-`method3()` 是最复杂的类型，但在实践中也是最不常见的。当你的插件需要重复返回数据时（例如通过地理位置 API 监控设备位置），会使用这种方法。
+`method3()` 是最复杂的类型，但在实际使用中也是最不常见的。当你的插件需要重复返回数据时使用，例如通过地理位置 API 监控设备位置时。
 
-对于 Android，你需要这样注解方法：
+对于 Android，你需要这样注解该方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -81,7 +97,15 @@ public void method3(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+
+```swift
+public let pluginMethods: [CAPPluginMethod] = [
+    CAPPluginMethod(name: "method3", returnType: CAPPluginReturnCallback)
+]
+```
+
+或者对于 Objective-C 插件，在 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -89,6 +113,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接收一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
+回调方法接受一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
 
-在原生端，实现回调意味着你需要保存这个调用，以便稍后可以调用它。具体如何处理[在这里讨论](/main/reference/core-apis/saving-calls.md)。
+在原生端，实现回调意味着你需要保存调用，以便在稍后能够调用它。具体如何处理[在此处讨论](/main/reference/core-apis/saving-calls.md)

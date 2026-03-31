@@ -10,8 +10,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/action-sheet.md": {
-    "source_hash": "b55309b4e16526999ff282500d1023c831b7075b",
-    "last_translated_at": "2026-03-18T16:57:54.477Z",
+    "source_hash": "8ca832bac089bbb94353063237674f2f60ca001c",
+    "last_translated_at": "2026-03-31T10:59:22.472Z",
     "translator_version": "1.0"
   },
   "docs/apis/app-launcher.md": {
@@ -20,8 +20,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/app.md": {
-    "source_hash": "d373f0f305a2bffa2e7c21ff4bcc384f6a99635b",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "c2e4ee62c21b8fe7d68d78a14889c4c65fd24df7",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/background-runner.md": {
@@ -35,8 +35,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/browser.md": {
-    "source_hash": "73db4c35633aaf9ca169d379dbfad0e089834f4a",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "2ea01a3bc767e0accdceca3cb242addea0460c66",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/camera.md": {
@@ -90,8 +90,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/haptics.md": {
-    "source_hash": "5d8d71e40d29ae8d07b132aa7c3f67f0060ea72d",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "1afd6a85584c95ef000cc234e4d9f7a6891e5255",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/http.md": {
@@ -105,8 +105,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/keyboard.md": {
-    "source_hash": "310b73182e6b42c1e7644be6abeedcbfcc97ff1f",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "5f03fc58051b7d5103c66a0a739d684f4f20fcee",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/local-notifications.md": {
@@ -135,8 +135,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/push-notifications.md": {
-    "source_hash": "da3a0f60a684f8c2131cb5ccb09ec7d1d534bf3c",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "7bd3de54a6cfb179a3051d4be02f2a645f179483",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/screen-orientation.md": {
@@ -160,13 +160,13 @@
     "translator_version": "1.0"
   },
   "docs/apis/status-bar.md": {
-    "source_hash": "9972c9dcf5e852c7c986be90dd3f5fdde6dfebf6",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "a2bc1f39b3d452f4fce79b077a3499332c84be49",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/system-bars.md": {
-    "source_hash": "db1f7f552df68c0318b0d2950ffac453c9b3fdf8",
-    "last_translated_at": "2026-03-18T16:57:54.496Z",
+    "source_hash": "6e085832ae467d9ae6b0e45d076af6caf775fc42",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/apis/text-zoom.md": {
@@ -490,8 +490,8 @@
     "translator_version": "1.0"
   },
   "docs/main/ios/viewcontroller.md": {
-    "source_hash": "c7212d4edc1b2cd0d148e4ed7b90185b0eea85a8",
-    "last_translated_at": "2026-03-18T07:31:07.263Z",
+    "source_hash": "b9e9f076759054baef8be5f230318323d1be686a",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/main/reference/core-apis/android.md": {
@@ -520,8 +520,8 @@
     "translator_version": "1.0"
   },
   "docs/main/reference/config.md": {
-    "source_hash": "ec8dcd2a207e6cae6a82388e41bd085f2341eab2",
-    "last_translated_at": "2026-03-18T07:31:07.263Z",
+    "source_hash": "6bb854fb96f98307db482090bf738adccae29e96",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/main/reference/core-apis.md": {
@@ -635,8 +635,8 @@
     "translator_version": "1.0"
   },
   "docs/plugins/creating-plugins/method-types.md": {
-    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
-    "last_translated_at": "2026-03-18T07:31:07.263Z",
+    "source_hash": "63cd19308f1fb00f6bcd67d8e3151af3712d8df3",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "docs/plugins/creating-plugins/overview.md": {
@@ -1645,8 +1645,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/main/ios/viewcontroller.md": {
-    "source_hash": "0a547baf69bb9e083333029beb96facc5ba3769d",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "b1e5412115a329e8a88b93ab01cb4393cd3c2cbc",
+    "last_translated_at": "2026-03-31T10:59:22.494Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v3/main/reference/core-apis/android.md": {
@@ -2255,8 +2255,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v4/main/ios/viewcontroller.md": {
-    "source_hash": "7661dbb9bc611bb4b35f9d878aa76bb000275f14",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "f4233f1bab306704e73d86fc4cf6cb136a06ec33",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v4/main/reference/core-apis/android.md": {
@@ -2960,8 +2960,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/main/ios/viewcontroller.md": {
-    "source_hash": "4b72c90f8c4a9144dc257e683404ad5e6c6d9554",
-    "last_translated_at": "2026-03-18T15:46:02.505Z",
+    "source_hash": "0580f648bcedcbf77011162f88c7d82d571f46e3",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v5/main/reference/core-apis/android.md": {
@@ -3700,8 +3700,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/main/ios/viewcontroller.md": {
-    "source_hash": "a485fded14fb457f45d3fdf51737e8d372c8cc08",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "2247b4fd9b49d5c98df978e9c9126d40ccead780",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v6/main/reference/core-apis/android.md": {
@@ -4030,8 +4030,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/browser.md": {
-    "source_hash": "8f682ce453c5edf36b6989d76a0a236e657bd07f",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "8427c2131d846b75f80b3e0cbb161390d511436b",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/camera.md": {
@@ -4085,8 +4085,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/haptics.md": {
-    "source_hash": "34ae1e86718015256da6bc1e0443e33ccf71c907",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "ec02c1e7aff550c3c0b3bb7d02653853cb474ee1",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/http.md": {
@@ -4100,8 +4100,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/keyboard.md": {
-    "source_hash": "d2329a6787b15c74bf950883fb07fb8c2cccb14a",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "ce4ad5e7104d0f921d0222ee59ea15f9cf5fb94a",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/local-notifications.md": {
@@ -4155,8 +4155,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/status-bar.md": {
-    "source_hash": "4ad30c8f713812c932c91c98cba5dd35227844c5",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "968d116158ffb1c6f82f62465c57a6e73b4ad56e",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/apis/text-zoom.md": {
@@ -4480,8 +4480,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/main/ios/viewcontroller.md": {
-    "source_hash": "216d611999d0b5d899cb9c3ef4dcc411cd5a2763",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "98132516b0670a568f2eda9a1001d803c9ad9e9a",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/main/reference/core-apis/android.md": {
@@ -4615,8 +4615,8 @@
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/plugins/creating-plugins/method-types.md": {
-    "source_hash": "8202cbbaaf1b36d232067e17d449a5450e91e690",
-    "last_translated_at": "2026-03-18T15:46:02.506Z",
+    "source_hash": "63cd19308f1fb00f6bcd67d8e3151af3712d8df3",
+    "last_translated_at": "2026-03-31T10:59:22.495Z",
     "translator_version": "1.0"
   },
   "versioned_docs/version-v7/plugins/creating-plugins/overview.md": {

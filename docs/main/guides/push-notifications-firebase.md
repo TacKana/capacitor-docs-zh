@@ -278,7 +278,11 @@ _注意：这**不是** Android 应用使用的那个文件。_
 
 下载提供的 `GoogleService-Info.plist` 文件到本地。
 
+<<<<<<< HEAD
 然后你**必须**打开 Xcode...
+=======
+You'll then **have to** open Xcode...
+>>>>>>> upstream/main
 
 ```bash
 npx cap open ios

@@ -279,7 +279,11 @@ iOS 推送通知的设置比 Android 要复杂得多。你必须拥有一个[付
 
 将提供的 `GoogleService-Info.plist` 下载到本地计算机。
 
+<<<<<<< HEAD
 接下来你**必须**打开 Xcode...
+=======
+You'll then **have to** open Xcode...
+>>>>>>> upstream/main
 
 ```bash
 npx cap open ios
