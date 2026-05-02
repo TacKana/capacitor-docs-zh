@@ -99,8 +99,8 @@ InAppBrowser.removeAllListeners();
 * [`addListener('browserClosed' | 'browserPageLoaded', ...)`](#addlistenerbrowserclosed--browserpageloaded-)
 * [`addListener('browserPageNavigationCompleted', ...)`](#addlistenerbrowserpagenavigationcompleted-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [枚举](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -372,4 +372,19 @@ removeAllListeners() => void
 | **`CANCEL`**|
 | **`DONE`**  |
 
+<span id="addlistenerbrowserpagenavigationcompleted-"></span>
+<span id="iossystembrowseroptions"></span>
+<span id="ioswebviewoptions"></span>
+<span id="addlistenerbrowserpagenavigationcompleted-"></span>
+<span id="iossystembrowseroptions"></span>
+<span id="ioswebviewoptions"></span>
+<span id="addlistenerbrowserpagenavigationcompleted-"></span>
+<span id="iossystembrowseroptions"></span>
+<span id="ioswebviewoptions"></span>
+<span id="addlistenerbrowserpagenavigationcompleted-"></span>
+<span id="iossystembrowseroptions"></span>
+<span id="ioswebviewoptions"></span>
+<span id="addlistenerbrowserpagenavigationcompleted-"></span>
+<span id="iossystembrowseroptions"></span>
+<span id="ioswebviewoptions"></span>
 </docgen-api>

@@ -97,8 +97,8 @@ const doPost = () => {
 * [`put(...)`](#put)
 * [`patch(...)`](#patch)
 * [`delete(...)`](#delete)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
@@ -260,6 +260,51 @@ type HttpParams = {
 type HttpResponseType = 'arraybuffer' | 'blob' | 'json' | 'text' | 'document';
 ```
 
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
 </docgen-api>#### HttpOptions| 属性                        | 类型                                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`url`**                   | <code>string</code>                                           | 请求发送的目标 URL。                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -652,4 +697,49 @@ https://nodejs.org/api/url.html#class-urlsearchparams
 
 <code>'arraybuffer' | 'blob' | 'json' | 'text' | 'document'</code>
 
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
+<span id="abortsignal"></span>
+<span id="arraylike"></span>
+<span id="event"></span>
+<span id="eventlistener"></span>
+<span id="eventlistenerobject"></span>
+<span id="eventtarget"></span>
+<span id="readablestream"></span>
+<span id="streampipeoptions"></span>
+<span id="uint8array"></span>
 </docgen-api>

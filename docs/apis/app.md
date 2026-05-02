@@ -494,4 +494,14 @@ removeAllListeners() => Promise<void>
 
 <code>(event: <a href="#backbuttonlistenerevent">BackButtonListenerEvent</a>): void</code>
 
+<span id="addlistenerappstatechange-"></span>
+<span id="appinfo"></span>
+<span id="addlistenerappstatechange-"></span>
+<span id="appinfo"></span>
+<span id="addlistenerappstatechange-"></span>
+<span id="appinfo"></span>
+<span id="addlistenerappstatechange-"></span>
+<span id="appinfo"></span>
+<span id="addlistenerappstatechange-"></span>
+<span id="appinfo"></span>
 </docgen-api>

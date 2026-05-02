@@ -101,13 +101,13 @@ try {
 * [`uploadFile(...)`](#uploadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
 注意：部分输入选项来自 `@capacitor/core` 中的 `HttpOptions`，但本插件并未使用 `HttpOptions` 中的所有参数。下面会记录实际使用的参数。
 
-有关现有错误代码的列表，请参阅[错误处理](#errors)。
+有关现有错误代码的列表，请参阅[错误处理](#错误)。
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->

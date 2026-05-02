@@ -209,13 +209,13 @@ const appendBinaryData = async () => {
 * [`downloadFile(...)`](#downloadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
-现有错误代码列表请参见 [错误](#errors)。
+现有错误代码列表请参见 [错误](#错误)。
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
@@ -759,6 +759,76 @@ removeAllListeners() => Promise<void>
 | **`ASCII`** | <code>'ascii'</code> | 七位 ASCII，又称 ISO646-US 或 Unicode 字符集的基本拉丁块。此编码仅在 Android 上受支持。 | 1.0.0 |
 | **`UTF16`** | <code>'utf16'</code> | 十六位 UCS 转换格式，字节顺序由可选的字节顺序标记标识。此编码仅在 Android 上受支持。  | 1.0.0 |
 
+<span id="copyoptions"></span>
+<span id="copyresult"></span>
+<span id="directory"></span>
+<span id="downloadfileoptions"></span>
+<span id="downloadfileresult"></span>
+<span id="encoding"></span>
+<span id="fileinfo"></span>
+<span id="geturioptions"></span>
+<span id="geturiresult"></span>
+<span id="readdiroptions"></span>
+<span id="readdirresult"></span>
+<span id="rmdiroptions"></span>
+<span id="statoptions"></span>
+<span id="writefileoptions"></span>
+<span id="copyoptions"></span>
+<span id="copyresult"></span>
+<span id="directory"></span>
+<span id="downloadfileoptions"></span>
+<span id="downloadfileresult"></span>
+<span id="encoding"></span>
+<span id="fileinfo"></span>
+<span id="geturioptions"></span>
+<span id="geturiresult"></span>
+<span id="readdiroptions"></span>
+<span id="readdirresult"></span>
+<span id="rmdiroptions"></span>
+<span id="statoptions"></span>
+<span id="writefileoptions"></span>
+<span id="copyoptions"></span>
+<span id="copyresult"></span>
+<span id="directory"></span>
+<span id="downloadfileoptions"></span>
+<span id="downloadfileresult"></span>
+<span id="encoding"></span>
+<span id="fileinfo"></span>
+<span id="geturioptions"></span>
+<span id="geturiresult"></span>
+<span id="readdiroptions"></span>
+<span id="readdirresult"></span>
+<span id="rmdiroptions"></span>
+<span id="statoptions"></span>
+<span id="writefileoptions"></span>
+<span id="copyoptions"></span>
+<span id="copyresult"></span>
+<span id="directory"></span>
+<span id="downloadfileoptions"></span>
+<span id="downloadfileresult"></span>
+<span id="encoding"></span>
+<span id="fileinfo"></span>
+<span id="geturioptions"></span>
+<span id="geturiresult"></span>
+<span id="readdiroptions"></span>
+<span id="readdirresult"></span>
+<span id="rmdiroptions"></span>
+<span id="statoptions"></span>
+<span id="writefileoptions"></span>
+<span id="copyoptions"></span>
+<span id="copyresult"></span>
+<span id="directory"></span>
+<span id="downloadfileoptions"></span>
+<span id="downloadfileresult"></span>
+<span id="encoding"></span>
+<span id="fileinfo"></span>
+<span id="geturioptions"></span>
+<span id="geturiresult"></span>
+<span id="readdiroptions"></span>
+<span id="readdirresult"></span>
+<span id="rmdiroptions"></span>
+<span id="statoptions"></span>
+<span id="writefileoptions"></span>
 </docgen-api>### 错误处理
 
 自 7.1.0 版本起，本插件会在原生 Android 和 iOS 平台上返回带有特定代码的错误信息。Web 平台不遵循此错误标准。

@@ -29,7 +29,7 @@ Local Notification API 提供了一种调度“本地”通知的方式——这
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 
 

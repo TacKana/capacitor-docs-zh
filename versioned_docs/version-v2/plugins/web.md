@@ -79,3 +79,23 @@ await MyPlugin.echo({
   value: 'Hello from web!',
 });
 ```
+
+<span id="error-handling"></span>
+<span id="permission-status-definitions"></span>
+<span id="permissions"></span>
+
+<span id="error-handling"></span>
+<span id="permission-status-definitions"></span>
+<span id="permissions"></span>
+
+<span id="error-handling"></span>
+<span id="permission-status-definitions"></span>
+<span id="permissions"></span>
+
+<span id="error-handling"></span>
+<span id="permission-status-definitions"></span>
+<span id="permissions"></span>
+
+<span id="error-handling"></span>
+<span id="permission-status-definitions"></span>
+<span id="permissions"></span>

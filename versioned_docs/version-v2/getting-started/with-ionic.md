@@ -79,3 +79,13 @@ npx cap copy
 Capacitor 支持 Cordova 和 [Ionic Native](https://ionicframework.com/docs/native/) 插件。有关更多信息，请参阅[使用 Cordova 插件](/cordova/using-cordova-plugins.md)指南。
 
 想立即在 Ionic 应用中使用 Capacitor 吗？[请查看本指南](/guides/ionic-framework-app.md)。
+
+<span id="installing-capacitor-to-an-existing-ionic-project"></span>
+
+<span id="installing-capacitor-to-an-existing-ionic-project"></span>
+
+<span id="installing-capacitor-to-an-existing-ionic-project"></span>
+
+<span id="installing-capacitor-to-an-existing-ionic-project"></span>
+
+<span id="installing-capacitor-to-an-existing-ionic-project"></span>

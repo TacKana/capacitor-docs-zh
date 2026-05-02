@@ -109,8 +109,8 @@ const clearAllCookies = async () => {
 * [`deleteCookie(...)`](#deletecookie)
 * [`clearCookies(...)`](#clearcookies)
 * [`clearAllCookies()`](#clearallcookies)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 

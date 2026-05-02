@@ -58,12 +58,12 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 * [`clearWatch(...)`](#clearwatch)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions(...)`](#requestpermissions)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
-有关错误代码列表，请参阅 [错误](#errors)
+有关错误代码列表，请参阅 [错误](#错误)
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
@@ -170,6 +170,28 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`timestamp`** | <code>number</code>                                                                                                                                                                                                                                                                                        | 坐标的创建时间戳                           | 1.0.0 |
 | **`coords`**    | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; magneticHeading: number \| null; trueHeading: number \| null; headingAccuracy: number \| null; course: number \| null; }</code> | GPS 坐标以及数据的精确度 | 1.0.0 |
 
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
 </docgen-api>
 ```#### PositionOptions
 
@@ -219,6 +241,28 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 
 <code>'location' | 'coarseLocation'</code>
 
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
+<span id="clearwatchoptions"></span>
+<span id="geolocationpluginpermissions"></span>
+<span id="permissionstatus"></span>
+<span id="positionoptions"></span>
+<span id="watchpositioncallback"></span>
 </docgen-api>
 
 ### 错误码

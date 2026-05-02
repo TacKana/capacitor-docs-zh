@@ -209,8 +209,8 @@ const getDeliveredNotifications = async () => {
 * [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
 * [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
@@ -582,4 +582,59 @@ removeAllListeners() => Promise<void>
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
+<span id="actionperformed"></span>
+<span id="channel"></span>
+<span id="importance"></span>
+<span id="listchannelsresult"></span>
+<span id="permissionstate"></span>
+<span id="permissionstatus"></span>
+<span id="pluginlistenerhandle"></span>
+<span id="registrationerror"></span>
+<span id="requestpermissions"></span>
+<span id="token"></span>
+<span id="visibility"></span>
+<span id="actionperformed"></span>
+<span id="channel"></span>
+<span id="importance"></span>
+<span id="listchannelsresult"></span>
+<span id="permissionstate"></span>
+<span id="permissionstatus"></span>
+<span id="pluginlistenerhandle"></span>
+<span id="registrationerror"></span>
+<span id="requestpermissions"></span>
+<span id="token"></span>
+<span id="visibility"></span>
+<span id="actionperformed"></span>
+<span id="channel"></span>
+<span id="importance"></span>
+<span id="listchannelsresult"></span>
+<span id="permissionstate"></span>
+<span id="permissionstatus"></span>
+<span id="pluginlistenerhandle"></span>
+<span id="registrationerror"></span>
+<span id="requestpermissions"></span>
+<span id="token"></span>
+<span id="visibility"></span>
+<span id="actionperformed"></span>
+<span id="channel"></span>
+<span id="importance"></span>
+<span id="listchannelsresult"></span>
+<span id="permissionstate"></span>
+<span id="permissionstatus"></span>
+<span id="pluginlistenerhandle"></span>
+<span id="registrationerror"></span>
+<span id="requestpermissions"></span>
+<span id="token"></span>
+<span id="visibility"></span>
+<span id="actionperformed"></span>
+<span id="channel"></span>
+<span id="importance"></span>
+<span id="listchannelsresult"></span>
+<span id="permissionstate"></span>
+<span id="permissionstatus"></span>
+<span id="pluginlistenerhandle"></span>
+<span id="registrationerror"></span>
+<span id="requestpermissions"></span>
+<span id="token"></span>
+<span id="visibility"></span>
 </docgen-api>

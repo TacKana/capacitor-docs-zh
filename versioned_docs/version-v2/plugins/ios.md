@@ -224,3 +224,23 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 ```
 
 这将使 `MyPlugin` 和 `echo` 方法在 Capacitor Web 运行时中可用，并向 Capacitor 表明 `echo` 方法将返回一个 Promise。
+
+<span id="error-handling"></span>
+<span id="export-to-capacitor"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="export-to-capacitor"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="export-to-capacitor"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="export-to-capacitor"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="export-to-capacitor"></span>
+<span id="plugin-events"></span>

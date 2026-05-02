@@ -405,9 +405,9 @@ Vue({
 * [`setOnMarkerDragEndListener(...)`](#setonmarkerdragendlistener)
 * [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
 * [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -1238,4 +1238,59 @@ Google 地图摄像头的配置属性
 | **`Terrain`**   | <code>'Terrain'</code>   | 地形数据。                        |
 | **`None`**      | <code>'None'</code>      | 无底图图块。                       |
 
+<span id="cameraconfig"></span>
+<span id="circle"></span>
+<span id="createmapargs"></span>
+<span id="enableclustering"></span>
+<span id="fitbounds"></span>
+<span id="googlemapconfig"></span>
+<span id="latlng"></span>
+<span id="polygon"></span>
+<span id="polyline"></span>
+<span id="setoncircleclicklistener"></span>
+<span id="stylespan"></span>
+<span id="cameraconfig"></span>
+<span id="circle"></span>
+<span id="createmapargs"></span>
+<span id="enableclustering"></span>
+<span id="fitbounds"></span>
+<span id="googlemapconfig"></span>
+<span id="latlng"></span>
+<span id="polygon"></span>
+<span id="polyline"></span>
+<span id="setoncircleclicklistener"></span>
+<span id="stylespan"></span>
+<span id="cameraconfig"></span>
+<span id="circle"></span>
+<span id="createmapargs"></span>
+<span id="enableclustering"></span>
+<span id="fitbounds"></span>
+<span id="googlemapconfig"></span>
+<span id="latlng"></span>
+<span id="polygon"></span>
+<span id="polyline"></span>
+<span id="setoncircleclicklistener"></span>
+<span id="stylespan"></span>
+<span id="cameraconfig"></span>
+<span id="circle"></span>
+<span id="createmapargs"></span>
+<span id="enableclustering"></span>
+<span id="fitbounds"></span>
+<span id="googlemapconfig"></span>
+<span id="latlng"></span>
+<span id="polygon"></span>
+<span id="polyline"></span>
+<span id="setoncircleclicklistener"></span>
+<span id="stylespan"></span>
+<span id="cameraconfig"></span>
+<span id="circle"></span>
+<span id="createmapargs"></span>
+<span id="enableclustering"></span>
+<span id="fitbounds"></span>
+<span id="googlemapconfig"></span>
+<span id="latlng"></span>
+<span id="polygon"></span>
+<span id="polyline"></span>
+<span id="setoncircleclicklistener"></span>
+<span id="stylespan"></span>
 </docgen-api>

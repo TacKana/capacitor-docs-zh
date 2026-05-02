@@ -557,4 +557,9 @@ removeOld() => Promise<void>
 | **`migrated`**  | <code>string[]</code> | 已迁移的键的数组。                                                                                                             | 1.0.0    |
 | **`existing`**  | <code>string[]</code> | 已经迁移或已在偏好设置中存在且在 Capacitor 2 Preferences 插件中具有值的键的数组。                                                | 1.0.0    |
 
+<span id="configureoptions"></span>
+<span id="configureoptions"></span>
+<span id="configureoptions"></span>
+<span id="configureoptions"></span>
+<span id="configureoptions"></span>
 </docgen-api>

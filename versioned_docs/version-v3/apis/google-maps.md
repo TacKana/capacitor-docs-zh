@@ -287,9 +287,9 @@ export default MyMap;
 * [`setOnMarkerClickListener(...)`](#setonmarkerclicklistener)
 * [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
 * [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 

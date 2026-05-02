@@ -453,6 +453,16 @@ removeNotificationListeners() => any
 
 <code>'geolocation' | 'notifications'</code>
 
+<span id="configuring-background-runner"></span>
+<span id="notificationbadgeoptions"></span>
+<span id="configuring-background-runner"></span>
+<span id="notificationbadgeoptions"></span>
+<span id="configuring-background-runner"></span>
+<span id="notificationbadgeoptions"></span>
+<span id="configuring-background-runner"></span>
+<span id="notificationbadgeoptions"></span>
+<span id="configuring-background-runner"></span>
+<span id="notificationbadgeoptions"></span>
 </docgen-api>
 
 ## Capacitor API

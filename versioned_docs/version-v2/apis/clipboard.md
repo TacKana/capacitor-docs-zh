@@ -13,7 +13,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/clipboard
 
 - [`write(...)`](#write)
 - [`read()`](#read)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

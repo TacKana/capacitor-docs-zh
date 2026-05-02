@@ -232,7 +232,7 @@ npx cap sync
 * [`addListener('runCommand', ...)`](#addlistenerruncommand-)
 * [`updateWatchUI(...)`](#updatewatchui)
 * [`updateWatchData(...)`](#updatewatchdata)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

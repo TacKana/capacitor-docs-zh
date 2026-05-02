@@ -111,8 +111,8 @@ export default config;
 * [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
 * [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [枚举](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -390,4 +390,9 @@ removeAllListeners() => Promise<void>
 | **`Native`**  | <code>'native'</code>| 当键盘显示/隐藏时，整个原生 Web View 会被调整大小。这会影响 `vh` 相对单位。                                    | 1.0.0  |
 | **`None`**    | <code>'none'</code>  | 应用和 Web View 都不会被调整大小。                                                                            | 1.0.0  |
 
+<span id="getresizemode"></span>
+<span id="getresizemode"></span>
+<span id="getresizemode"></span>
+<span id="getresizemode"></span>
+<span id="getresizemode"></span>
 </docgen-api>

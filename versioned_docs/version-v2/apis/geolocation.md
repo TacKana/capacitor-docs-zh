@@ -14,7 +14,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/geolocation
 - [`getCurrentPosition(...)`](#getcurrentposition)
 - [`watchPosition(...)`](#watchposition)
 - [`clearWatch(...)`](#clearwatch)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## iOS 注意事项
 

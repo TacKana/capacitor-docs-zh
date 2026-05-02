@@ -18,7 +18,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/splash-screen
 
 - [`show(...)`](#show)
 - [`hide(...)`](#hide)
-- [接口](#interfaces)
+- [接口](#接口)
 
 
 

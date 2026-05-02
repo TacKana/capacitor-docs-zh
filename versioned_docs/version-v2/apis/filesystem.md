@@ -22,8 +22,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/filesystem
 - [`stat(...)`](#stat)
 - [`rename(...)`](#rename)
 - [`copy(...)`](#copy)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## 理解目录与文件
 

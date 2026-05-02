@@ -24,7 +24,7 @@ npx cap sync
 * [`get()`](#get)
 * [`getPreferred()`](#getpreferred)
 * [`set(...)`](#set)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

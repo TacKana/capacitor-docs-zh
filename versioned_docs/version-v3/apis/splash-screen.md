@@ -169,7 +169,7 @@ export default config;
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

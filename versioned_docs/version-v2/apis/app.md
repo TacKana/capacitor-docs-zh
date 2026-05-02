@@ -23,7 +23,7 @@ App API 用于管理应用程序的高层状态和事件。
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口说明](#interfaces)
+- [接口说明](#接口)
 
 ## 关于 `canOpenUrl` 的注意事项
 

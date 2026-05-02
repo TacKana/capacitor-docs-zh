@@ -47,3 +47,13 @@ npx @capacitor/cli@2.4.7 plugin:generate
 现在，就看您如何让插件实现真正强大的功能了！[继续阅读](./workflow)，学习如何实现新功能、在本地测试插件，并将其发布到 npm。
 
 之后，请查看构建各平台插件的详细指南。遵循 [iOS](./ios) 指南了解如何使用 Swift（或 Obj-C）构建 iOS 插件；[Android](./android) 指南了解如何使用 Java 构建 Android 插件；[Web](./web) 指南了解如何为插件实现 Web 和 PWA 功能；以及 [自定义 JavaScript](./js) 指南了解如何构建自定义 JavaScript 插件（即除了 Capacitor 的自动 JS 插件绑定之外的插件）。
+
+<span id="plugin-generator"></span>
+
+<span id="plugin-generator"></span>
+
+<span id="plugin-generator"></span>
+
+<span id="plugin-generator"></span>
+
+<span id="plugin-generator"></span>

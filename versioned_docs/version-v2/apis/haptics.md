@@ -17,8 +17,8 @@ Haptics API 通过触觉或振动为用户提供物理反馈。
 - [`selectionStart()`](#selectionstart)
 - [`selectionChanged()`](#selectionchanged)
 - [`selectionEnd()`](#selectionend)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## Android 注意事项
 

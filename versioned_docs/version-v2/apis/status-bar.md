@@ -21,8 +21,8 @@ StatusBar API 提供了配置状态栏样式以及显示或隐藏状态栏的方
 - [`hide(...)`](#hide)
 - [`getInfo()`](#getinfo)
 - [`setOverlaysWebView(...)`](#setoverlayswebview)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 
 

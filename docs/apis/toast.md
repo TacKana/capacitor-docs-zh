@@ -38,7 +38,7 @@ const showHelloToast = async () => {
 <docgen-index>
 
 * [`show(...)`](#show)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

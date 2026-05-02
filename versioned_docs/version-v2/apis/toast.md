@@ -12,7 +12,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/toast
 Toast API 提供了一种通知弹出窗口，用于向用户显示重要信息。就像真实的吐司一样！
 
 - [`show(...)`](#show)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## PWA 注意事项
 

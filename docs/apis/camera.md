@@ -438,13 +438,13 @@ for (const result of results) {
 * [`requestPermissions(...)`](#requestpermissions)
 * [`getPhoto(...)`](#getphoto)
 * [`pickImages(...)`](#pickimages)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
-有关现有错误代码的列表，请参阅[错误](#errors)。
+有关现有错误代码的列表，请参阅[错误](#错误)。
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释后重新运行 docgen 以更新以下文档-->
@@ -921,3 +921,43 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | OS-PLUG-CAMR-0028       | Android, iOS     | 无法从 URI 中获取图片。                      |
 | OS-PLUG-CAMR-0031       | Android          | 提供给插件方法的参数无效。                    |
 | OS-PLUG-CAMR-0033       | Android          | 无法获取上下文。                              |
+
+<span id="choosefromgalleryoptions"></span>
+<span id="editphotoresult"></span>
+<span id="galleryimageoptions"></span>
+<span id="imageoptions"></span>
+<span id="mediametadata"></span>
+<span id="recordvideooptions"></span>
+<span id="requestpermissions"></span>
+<span id="result-type-changes"></span>
+<span id="takephotooptions"></span>
+
+<span id="choosefromgalleryoptions"></span>
+<span id="editphotoresult"></span>
+<span id="galleryimageoptions"></span>
+<span id="imageoptions"></span>
+<span id="mediametadata"></span>
+<span id="recordvideooptions"></span>
+<span id="requestpermissions"></span>
+<span id="result-type-changes"></span>
+<span id="takephotooptions"></span>
+
+<span id="choosefromgalleryoptions"></span>
+<span id="editphotoresult"></span>
+<span id="galleryimageoptions"></span>
+<span id="imageoptions"></span>
+<span id="mediametadata"></span>
+<span id="recordvideooptions"></span>
+<span id="requestpermissions"></span>
+<span id="result-type-changes"></span>
+<span id="takephotooptions"></span>
+
+<span id="choosefromgalleryoptions"></span>
+<span id="editphotoresult"></span>
+<span id="galleryimageoptions"></span>
+<span id="imageoptions"></span>
+<span id="mediametadata"></span>
+<span id="recordvideooptions"></span>
+<span id="requestpermissions"></span>
+<span id="result-type-changes"></span>
+<span id="takephotooptions"></span>

@@ -14,7 +14,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/motion
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 权限
 

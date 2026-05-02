@@ -366,3 +366,18 @@ public class MainActivity extends BridgeActivity {
   }
 }
 ```
+
+<span id="error-handling"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="plugin-events"></span>
+
+<span id="error-handling"></span>
+<span id="plugin-events"></span>

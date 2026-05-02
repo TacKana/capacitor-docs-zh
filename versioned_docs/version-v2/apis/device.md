@@ -14,7 +14,7 @@ Device API 提供了设备内部信息，例如设备型号、操作系统版本
 - [`getInfo()`](#getinfo)
 - [`getBatteryInfo()`](#getbatteryinfo)
 - [`getLanguageCode()`](#getlanguagecode)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

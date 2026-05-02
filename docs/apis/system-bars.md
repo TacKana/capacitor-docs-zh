@@ -257,4 +257,9 @@ setAnimation(options: SystemBarsAnimationOptions) => Promise<void>
 | **`StatusBar`**      | <code>'StatusBar'</code>    | Android 和 iOS 上的顶部状态栏。                                 | 8.0.0 |
 | **`NavigationBar`**  | <code>'NavigationBar'</code>| Android 和 iOS 上的导航栏（或在 iOS 上的手势栏）。               | 8.0.0 |
 
+<span id="systembarsstyleoptions"></span>
+<span id="systembarsstyleoptions"></span>
+<span id="systembarsstyleoptions"></span>
+<span id="systembarsstyleoptions"></span>
+<span id="systembarsstyleoptions"></span>
 </docgen-api>

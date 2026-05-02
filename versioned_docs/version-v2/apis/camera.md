@@ -12,8 +12,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/camera
 Camera API 允许用户从相册中选择照片或拍摄新照片。在 iOS 上，这使用了 `UIImagePickerController`；在 Android 上，此 API 会发送一个意图（intent），默认由系统相机应用处理。
 
 - [`getPhoto(...)`](#getphoto)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## iOS 注意事项
 

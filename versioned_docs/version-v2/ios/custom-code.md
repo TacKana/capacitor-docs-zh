@@ -64,3 +64,13 @@ console.log(result.value);
 如果你的代码不需要从 WebView 访问，那么只需将代码添加到任何需要的地方。使用 Capacitor，你可以完全控制你的原生项目。
 
 需要在 `AppDelegate` 中添加新的事件处理程序？直接添加即可！Capacitor 不会干扰你的代码。
+
+<span id="register-the-plugin"></span>
+
+<span id="register-the-plugin"></span>
+
+<span id="register-the-plugin"></span>
+
+<span id="register-the-plugin"></span>
+
+<span id="register-the-plugin"></span>

@@ -49,12 +49,12 @@ const previewMedia = async () => {
 * [`previewMediaContentFromLocalPath(...)`](#previewmediacontentfromlocalpath)
 * [`previewMediaContentFromResources(...)`](#previewmediacontentfromresources)
 * [`previewMediaContentFromUrl(...)`](#previewmediacontentfromurl)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
-现有错误代码列表，请参阅[错误处理](#errors)。
+现有错误代码列表，请参阅[错误处理](#错误)。
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->

@@ -366,4 +366,9 @@ addListener(eventName: 'statusBarOverlayChanged', listenerFunc: OverlayChangeLis
 | **`Slide`**     | <code>'SLIDE'</code>  | 显示/隐藏时使用滑动动画。在 iOS 15+ 上无效。           | 1.0.0  |
 | **`Fade`**      | <code>'FADE'</code>   | 显示/隐藏时使用淡入淡出动画。                          | 1.0.0  |
 
+<span id="getinfo"></span>
+<span id="getinfo"></span>
+<span id="getinfo"></span>
+<span id="getinfo"></span>
+<span id="getinfo"></span>
 </docgen-api>

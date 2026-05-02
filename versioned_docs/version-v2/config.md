@@ -117,3 +117,13 @@ Capacitor 配置文件用于设置工具链的高级选项。
   },
 }
 ```
+
+<span id="schema"></span>
+
+<span id="schema"></span>
+
+<span id="schema"></span>
+
+<span id="schema"></span>
+
+<span id="schema"></span>

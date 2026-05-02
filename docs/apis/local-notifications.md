@@ -116,9 +116,9 @@ export default config;
 * [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
 * [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -737,4 +737,34 @@ removeAllListeners() => Promise<void>
 | **`Friday`**       | <code>6</code>  |
 | **`Saturday`**     | <code>7</code>  |
 
+<span id="addlistenerlocalnotificationactionperformed-"></span>
+<span id="date"></span>
+<span id="listchannelsresult"></span>
+<span id="localnotificationschema"></span>
+<span id="schedule"></span>
+<span id="scheduleon"></span>
+<span id="addlistenerlocalnotificationactionperformed-"></span>
+<span id="date"></span>
+<span id="listchannelsresult"></span>
+<span id="localnotificationschema"></span>
+<span id="schedule"></span>
+<span id="scheduleon"></span>
+<span id="addlistenerlocalnotificationactionperformed-"></span>
+<span id="date"></span>
+<span id="listchannelsresult"></span>
+<span id="localnotificationschema"></span>
+<span id="schedule"></span>
+<span id="scheduleon"></span>
+<span id="addlistenerlocalnotificationactionperformed-"></span>
+<span id="date"></span>
+<span id="listchannelsresult"></span>
+<span id="localnotificationschema"></span>
+<span id="schedule"></span>
+<span id="scheduleon"></span>
+<span id="addlistenerlocalnotificationactionperformed-"></span>
+<span id="date"></span>
+<span id="listchannelsresult"></span>
+<span id="localnotificationschema"></span>
+<span id="schedule"></span>
+<span id="scheduleon"></span>
 </docgen-api>

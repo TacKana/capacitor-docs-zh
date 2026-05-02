@@ -41,7 +41,7 @@ const checkClipboard = async () => {
 
 * [`write(...)`](#write)
 * [`read()`](#read)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

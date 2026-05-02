@@ -15,7 +15,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/browser
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 浏览器 API 可以轻松地在应用内打开浏览器会话，用于显示外部网页内容、处理身份验证流程等。
 

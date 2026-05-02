@@ -56,7 +56,7 @@ const showPrompt = async () => {
 * [`alert(...)`](#alert)
 * [`prompt(...)`](#prompt)
 * [`confirm(...)`](#confirm)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

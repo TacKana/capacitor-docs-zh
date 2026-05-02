@@ -46,7 +46,7 @@ const openCapacitorSite = async () => {
 * [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
 * [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

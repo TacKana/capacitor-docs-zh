@@ -14,8 +14,8 @@ Modals API 提供了触发原生模态窗口的方法，可用于显示警告、
 - [`prompt(...)`](#prompt)
 - [`confirm(...)`](#confirm)
 - [`showActions(...)`](#showactions)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## 示例
 

@@ -70,7 +70,7 @@ const openTwitterPackage = async () => {
 
 * [`canOpenUrl(...)`](#canopenurl)
 * [`openUrl(...)`](#openurl)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

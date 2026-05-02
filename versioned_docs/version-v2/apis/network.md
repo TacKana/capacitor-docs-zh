@@ -14,7 +14,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/network
 - [`getStatus()`](#getstatus)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 
