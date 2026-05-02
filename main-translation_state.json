@@ -40,8 +40,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/camera.md": {
-    "source_hash": "b7fba63c0fd1e45dbbc442f29b1642b2ca6d0fe3",
-    "last_translated_at": "2026-03-18T16:27:10.307Z",
+    "source_hash": "96d3244589a391bd97daf6e742685ae89836780c",
+    "last_translated_at": "2026-05-02T05:45:15.691Z",
     "translator_version": "1.0"
   },
   "docs/apis/clipboard.md": {
@@ -80,8 +80,8 @@
     "translator_version": "1.0"
   },
   "docs/apis/geolocation.md": {
-    "source_hash": "7825c0bc8df1aba703e1cc83df5cef43eaf651b0",
-    "last_translated_at": "2026-03-18T16:27:10.307Z",
+    "source_hash": "05bbe3fe2aff0d24c7f0930bdb44ccdea5623dfe",
+    "last_translated_at": "2026-05-02T05:32:42.500Z",
     "translator_version": "1.0"
   },
   "docs/apis/google-maps.md": {
