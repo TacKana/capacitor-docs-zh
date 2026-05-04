@@ -131,13 +131,13 @@ module.exports = {
         {
           type: 'link',
           label: '插件 API',
-          href: '/docs/apis',
+          href: '/apis',
         },
         'main/reference/support-policy',
         {
           type: 'link',
           label: 'CLI',
-          href: '/docs/cli',
+          href: '/cli',
         },
       ],
     },

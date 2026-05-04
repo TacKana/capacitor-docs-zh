@@ -12,12 +12,12 @@
   ],
   "redirects": [
     { "source": "/", "destination": "/docs" },
-    { "source": "/docs/apis/storage", "destination": "/docs/apis/preferences" },
-    { "source": "/docs/cli/commands/list", "destination": "/docs/cli/commands/ls" },
-    { "source": "/docs/next/:match*", "destination": "/docs/:match*" }
+    { "source": "/apis/storage", "destination": "/apis/preferences" },
+    { "source": "/cli/commands/list", "destination": "/cli/commands/ls" },
+    { "source": "/next/:match*", "destination": "/:match*" }
   ],
   "rewrites": [
     { "source": "/docs", "destination": "/" },
-    { "source": "/docs/:match*", "destination": "/:match*" }
+    { "source": "/:match*", "destination": "/:match*" }
   ]
 }

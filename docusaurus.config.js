@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const { themes } = require('prism-react-renderer');
 
 const HOSTNAME = 'capacitor.xuxo.top';
-const BASE_URL = '/docs';
+const BASE_URL = '';
 
 module.exports = {
   title: 'Capacitor 官方中文文档',
