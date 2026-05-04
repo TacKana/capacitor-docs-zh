@@ -47,7 +47,7 @@ slug: /vscode/dependencies
 如果你使用 Angular，请务必先迁移 Angular 版本（点击 `Packages` > `@angular`），然后再升级次要依赖项，以避免错误。
 :::
 
-## 安全漏洞
+## 安全漏洞 {#security-vulnerabilities}
 
 点击 `Configuration` > `Security Audit` 可以识别所有存在安全漏洞的依赖项。你可以选择尝试修复它们。
 

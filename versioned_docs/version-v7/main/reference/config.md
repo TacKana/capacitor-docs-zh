@@ -25,7 +25,9 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-如果你的项目不使用 TypeScript，你可以以相同的方式使用 `capacitor.config.json` 文件。## 配置模式
+如果你的项目不使用 TypeScript，你可以以相同的方式使用 `capacitor.config.json` 文件。
+
+## 配置模式 {#schema}
 
 以下是 Capacitor 配置的 TypeScript 接口，包含完整描述和默认值。
 
@@ -305,8 +307,8 @@ export interface CapacitorConfig {
     };
 
     /**
-     * 使用旧版的 [addJavascriptInterface](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String))
-     * 而不是更新且更安全的 [addWebMessageListener](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E,androidx.webkit.WebViewCompat.WebMessageListener))
+     * 使用旧版的 [addJavascriptInterface](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object, java.lang.String))
+     * 而不是更新且更安全的 [addWebMessageListener](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set<java.lang.String>,androidx.webkit.WebViewCompat.WebMessageListener))
      *
      * @since 4.5.0
      * @default false
@@ -702,7 +704,9 @@ export interface PluginsConfig {
     enabled?: boolean;
   };
 }
-```## 环境变量
+```
+
+## 环境变量
 
 Capacitor CLI 会自动检测您系统上的依赖项。如需手动配置这些路径，可以使用以下环境变量：
 

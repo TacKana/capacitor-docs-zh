@@ -208,7 +208,9 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 | **`visible`**  | <code>boolean</code>                    | 状态栏是否可见。                                           | 1.0.0 |
 | **`style`**    | <code><a href="#style">Style</a></code> | 当前状态栏样式。                                                       | 1.0.0 |
 | **`color`**    | <code>string</code>                     | 当前状态栏颜色。此选项仅在 Android 上受支持。             | 1.0.0 |
-| **`overlays`** | <code>boolean</code>                    | 状态栏是否处于覆盖模式。此选项仅在 Android 上受支持。 | 1.0.0 |#### SetOverlaysWebViewOptions
+| **`overlays`** | <code>boolean</code>                    | 状态栏是否处于覆盖模式。此选项仅在 Android 上受支持。 | 1.0.0 |
+
+#### SetOverlaysWebViewOptions
 
 | 属性          | 类型                 | 说明                               | 开始版本 |
 | ------------- | -------------------- | ---------------------------------- | -------- |

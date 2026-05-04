@@ -130,7 +130,9 @@ export default config;
 此插件不支持 iOS 静默推送（远程通知）。我们建议使用原生代码解决方案来处理此类通知，请参阅 [向你的应用推送后台更新](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)。
 
 #### Android
-此插件确实支持纯数据通知，但如果应用程序已被杀死，将**不会**调用 `pushNotificationReceived`。要处理这种情况，你需要创建一个继承自 `FirebaseMessagingService` 的服务，请参阅 [处理 FCM 消息](https://firebase.google.com/docs/cloud-messaging/android/receive)。## 常见问题
+此插件确实支持纯数据通知，但如果应用程序已被杀死，将**不会**调用 `pushNotificationReceived`。要处理这种情况，你需要创建一个继承自 `FirebaseMessagingService` 的服务，请参阅 [处理 FCM 消息](https://firebase.google.com/docs/cloud-messaging/android/receive)。
+
+## 常见问题
 在 Android 平台上，有多种系统和应用状态可能会影响推送通知的送达：
 
 * 如果设备进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby)（休眠）模式，您的应用功能可能会受到限制。为了提高通知被接收的概率，请考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
@@ -371,7 +373,9 @@ requestPermissions() => Promise<PermissionStatus>
 
 **自：** 1.0.0
 
---------------------### addListener('registration', ...)
+--------------------
+
+### addListener('registration', ...)
 
 ```typescript
 addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
@@ -493,7 +497,9 @@ removeAllListeners() => Promise<void>
 | **`click_action`**     | <code>string</code>  | 用户打开通知时要执行的操作。仅在 Android 上可用。                                                                         | 1.0.0 |
 | **`link`**             | <code>string</code>  | 通知中的深度链接。仅在 Android 上可用。                                                                                   | 1.0.0 |
 | **`group`**            | <code>string</code>  | 设置用于通知分组的组标识符。仅在 Android 上可用。功能类似 iOS 上的 `threadIdentifier`。                                     | 1.0.0 |
-| **`groupSummary`**     | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                                                   | 1.0.0 |#### Channel
+| **`groupSummary`**     | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                                                   | 1.0.0 |
+
+#### Channel
 
 | 属性名             | 类型                                              | 描述                                                                                                                                                                                                                                                          | 默认值           | 始于版本 |
 | ------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------- |

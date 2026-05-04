@@ -239,7 +239,9 @@ readdir(options: ReaddirOptions) => Promise<ReaddirResult>
 
 **起始版本:** 1.0.0
 
---------------------### getUri(...)
+--------------------
+
+### getUri(...)
 
 ```typescript
 getUri(options: GetUriOptions) => Promise<GetUriResult>
@@ -420,7 +422,9 @@ removeAllListeners() => Promise<void>
 
 | 属性        | 类型                | 描述                       | 自    |
 | ----------- | ------------------- | -------------------------- | ----- |
-| **`uri`**   | <code>string</code> | 文件被写入后的 URI 地址    | 1.0.0 |#### WriteFileOptions
+| **`uri`**   | <code>string</code> | 文件被写入后的 URI 地址    | 1.0.0 |
+
+#### WriteFileOptions
 
 | 属性            | 类型                                            | 描述                                                                                                                                               | 默认值               | 始于 |
 | --------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---- |
@@ -483,7 +487,9 @@ removeAllListeners() => Promise<void>
 | **`size`**  | <code>number</code>                | 文件的大小（字节）                                                            | 4.0.0 |
 | **`ctime`** | <code>number</code>                | 创建时间（毫秒）。在 Android 7 及更早的设备上不可用                           | 4.0.0 |
 | **`mtime`** | <code>number</code>                | 最后修改时间（毫秒）                                                          | 4.0.0 |
-| **`uri`**   | <code>string</code>                | 文件的 URI                                                                   | 4.0.0 |#### ReaddirOptions
+| **`uri`**   | <code>string</code>                | 文件的 URI                                                                   | 4.0.0 |
+
+#### ReaddirOptions
 
 | 属性             | 类型                                            | 描述                                             | 始于版本 |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------ | -------- |
@@ -554,7 +560,9 @@ removeAllListeners() => Promise<void>
 | 属性        | 类型                | 描述                                                                 | 始于版本 |
 | ----------- | ------------------- | -------------------------------------------------------------------- | -------- |
 | **`path`**  | <code>string</code> | 文件被下载到的路径。                                                 | 5.1.0    |
-| **`blob`**  | <code>Blob</code>   | 已下载文件的 Blob 数据。此属性仅 Web 端可用。                        | 5.1.0    |#### DownloadFileOptions
+| **`blob`**  | <code>Blob</code>   | 已下载文件的 Blob 数据。此属性仅 Web 端可用。                        | 5.1.0    |
+
+#### DownloadFileOptions
 
 | 属性            | 类型                                            | 说明                                                                                                                                                                                                                               | 默认值               | 引入版本 |
 | --------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------- |
@@ -612,7 +620,9 @@ removeAllListeners() => Promise<void>
 | **`Library`**      | <code>'LIBRARY'</code>          | Library 目录。在 iOS 上，使用 Library 目录。在 Android 上，这是存放应用文件的目录。卸载应用时会删除文件。                                                                                                                                                                                                                                                                                                                                                                                     | 1.1.0    |
 | **`Cache`**        | <code>'CACHE'</code>            | Cache 目录。在内存不足时可能被删除，因此请使用此目录写入应用可以轻松重新创建的应用特定文件。                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0    |
 | **`External`**     | <code>'EXTERNAL'</code>         | 外部目录。在 iOS 上，使用 Documents 目录。在 Android 上，这是主共享/外部存储设备上的目录，应用可以在其中放置其拥有的持久文件。这些文件是应用内部的，通常不作为媒体对用户可见。卸载应用时会删除文件。                                                                                                                                                                                                                                                                                           | 1.0.0    |
-| **`ExternalStorage`** | <code>'EXTERNAL_STORAGE'</code> | 外部存储目录。在 iOS 上，使用 Documents 目录。在 Android 上，这是主共享/外部存储目录。在 Android 10 上，除非应用在 `AndroidManifest.xml` 的 `application` 标签中添加 `android:requestLegacyExternalStorage="true"` 以启用旧版外部存储，否则无法访问。在 Android 11 或更高版本上无法访问。                                                                                                                                                                                                       | 1.0.0    |#### 编码格式
+| **`ExternalStorage`** | <code>'EXTERNAL_STORAGE'</code> | 外部存储目录。在 iOS 上，使用 Documents 目录。在 Android 上，这是主共享/外部存储目录。在 Android 10 上，除非应用在 `AndroidManifest.xml` 的 `application` 标签中添加 `android:requestLegacyExternalStorage="true"` 以启用旧版外部存储，否则无法访问。在 Android 11 或更高版本上无法访问。                                                                                                                                                                                                       | 1.0.0    |
+
+#### 编码格式 {#encoding}
 
 | 成员        | 值                    | 描述                                                                                                                              | 开始版本 |
 | ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----- |

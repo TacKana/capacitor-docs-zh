@@ -41,7 +41,7 @@ npx cap sync
 请注意，<a href="#directory">`Directory.Documents`</a> 和
 `Directory.ExternalStorage` 仅在 Android 9 或更旧版本上可用。
 
-## 理解目录与文件
+## 理解目录与文件 {#directory}
 
 iOS 和 Android 对文件有额外的隔离层，例如备份到云端的特殊目录，或用于存储文档的目录。Filesystem API 提供了一种简单的方法，将每个操作限定在设备上的特定特殊目录。
 
@@ -256,7 +256,9 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 **自：** 1.0.0
 
---------------------### stat(...)
+--------------------
+
+### stat(...)
 
 ```typescript
 stat(options: StatOptions) => Promise<StatResult>
@@ -387,7 +389,9 @@ requestPermissions() => Promise<PermissionStatus>
 | **`path`**          | <code>string</code>                             | 要追加的文件路径                                                                                                                                               | 1.0.0  |
 | **`data`**          | <code>string</code>                             | 要写入的数据                                                                                                                                                   | 1.0.0  |
 | **`directory`**     | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                                                 | 1.0.0  |
-| **`encoding`**      | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码。如果未提供，数据将作为 base64 编码写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以将数据作为字符串写入                               | 1.0.0  |#### DeleteFileOptions
+| **`encoding`**      | <code><a href="#encoding">Encoding</a></code>   | 写入文件时使用的编码。如果未提供，数据将作为 base64 编码写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以将数据作为字符串写入                               | 1.0.0  |
+
+#### DeleteFileOptions
 
 | 属性            | 类型                                            | 描述                                                      | 始于版本 |
 | --------------- | ----------------------------------------------- | -------------------------------------------------------- | -------- |
@@ -471,7 +475,9 @@ requestPermissions() => Promise<PermissionStatus>
 | 属性            | 类型                                            | 描述                                                    | 始于版本 |
 | --------------- | ----------------------------------------------- | ------------------------------------------------------ | -------- |
 | **`path`**      | <code>string</code>                             | 要获取数据的文件路径                                   | 1.0.0    |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 获取其下文件的 <a href="#directory">`Directory`</a>    | 1.0.0    |#### 复制选项 (CopyOptions)
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 获取其下文件的 <a href="#directory">`Directory`</a>    | 1.0.0    |
+
+#### 复制选项 (CopyOptions) {#copyoptions}
 
 | 属性               | 类型                                            | 描述                                                                                                                                                  | 自版本 |
 | ------------------ | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
@@ -481,14 +487,14 @@ requestPermissions() => Promise<PermissionStatus>
 | **`toDirectory`**  | <code><a href="#directory">Directory</a></code> | 包含目标文件或目录的 <a href="#directory">`Directory`</a>。如果未提供，则将使用 'directory' 参数作为目标目录                                            | 1.0.0  |
 
 
-#### 复制结果 (CopyResult)
+#### 复制结果 (CopyResult) {#copyresult}
 
 | 属性       | 类型                | 描述                                 | 自版本 |
 | ---------- | ------------------- | ------------------------------------ | ------ |
 | **`uri`**  | <code>string</code> | 文件被复制到的 URI                   | 4.0.0  |
 
 
-#### 权限状态 (PermissionStatus)
+#### 权限状态 (PermissionStatus) {#permissionstatus}
 
 | 属性                  | 类型                                                        |
 | --------------------- | ----------------------------------------------------------- |
@@ -503,7 +509,7 @@ requestPermissions() => Promise<PermissionStatus>
 <code><a href="#copyoptions">CopyOptions</a></code>
 
 
-#### 权限状态 (PermissionState)
+#### 权限状态 (PermissionState) {#permissionstate}
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
@@ -523,7 +529,7 @@ requestPermissions() => Promise<PermissionStatus>
 | **`ExternalStorage`**  | <code>'EXTERNAL_STORAGE'</code> | 外部存储目录。在 iOS 上，它将使用文档目录。在 Android 上，它是主共享/外部存储目录。在 Android 10 上，除非应用程序通过在 `AndroidManifest.xml` 的 `application` 标签中添加 `android:requestLegacyExternalStorage="true"` 来启用旧版外部存储，否则无法访问。在 Android 11 或更新版本上无法访问。                                                                                                                                           | 1.0.0  |
 
 
-#### 编码 (Encoding)
+#### 编码 (Encoding) {#encoding}
 
 | 成员        | 值                   | 描述                                                                                                                              | 自版本 |
 | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------ |

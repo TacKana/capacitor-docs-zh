@@ -121,7 +121,7 @@ Capacitor CLI 提供了一个命令来帮助从 CocoaPods 迁移到 Swift Packag
 
 至此，您已完成所有步骤，可以正常构建和使用了。
 
-### 将现有插件转换为 SPM
+### 将现有插件转换为 SPM {#converting-existing-plugins-to-spm}
 
 如果您的插件除了必需的 `[Name]Plugin.m` 和 `[Name]Plugin.h` 之外只包含 Swift 代码，您可以使用 [capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter)。
 

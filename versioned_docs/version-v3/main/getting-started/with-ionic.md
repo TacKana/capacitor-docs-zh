@@ -20,7 +20,7 @@ ionic start
 
 > 如果你想了解如何构建第一个 Ionic/Capacitor 应用，请参阅[本教程](https://ionicframework.com/docs/v3/intro/next)。
 
-### 现有 Ionic 项目
+### 现有 Ionic 项目 {#existing-ionic-project}
 
 使用你的应用名称和包 ID 安装并初始化 Capacitor：
 

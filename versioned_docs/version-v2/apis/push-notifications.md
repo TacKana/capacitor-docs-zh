@@ -194,7 +194,9 @@ listChannels() => Promise<NotificationChannelList>
 
 **返回值：** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
 
----### addListener(...)
+---
+
+### addListener(...)
 
 ```typescript
 addListener(eventName: 'registration', listenerFunc: (token: PushNotificationToken) => void) => PluginListenerHandle
@@ -322,7 +324,9 @@ removeAllListeners() => void
 
 | 属性              | 类型                               |
 | ----------------- | ---------------------------------- |
-| **`channels`**    | <code>NotificationChannel[]</code> |#### PluginListenerHandle
+| **`channels`**    | <code>NotificationChannel[]</code> |
+
+#### PluginListenerHandle
 
 | 属性         | 类型                       |
 | ------------ | -------------------------- |

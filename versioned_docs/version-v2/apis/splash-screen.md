@@ -203,7 +203,9 @@ hide(options?: SplashScreenHideOptions, callback?: Function) => Promise<void>
 | **`autoHide`**          | <code>boolean</code> | 是否在 showDuration 后自动隐藏启动画面                                         |
 | **`fadeInDuration`**    | <code>number</code>  | 淡入时长（单位：毫秒）。默认为 200ms                                           |
 | **`fadeOutDuration`**   | <code>number</code>  | 淡出时长（单位：毫秒）。默认为 200ms                                           |
-| **`showDuration`**      | <code>number</code>  | 启用 autoHide 时显示启动画面的时长（单位：毫秒）。默认为 3000ms                |#### 函数（Function）
+| **`showDuration`**      | <code>number</code>  | 启用 autoHide 时显示启动画面的时长（单位：毫秒）。默认为 3000ms                |
+
+#### 函数（Function） {#function}
 
 创建一个新的函数对象。
 
@@ -221,7 +223,7 @@ hide(options?: SplashScreenHideOptions, callback?: Function) => Promise<void>
 | **bind**       | (this: <a href="#function">Function</a>, thisArg: any, ...argArray: any[]) =&gt; any | 对于一个给定的函数，创建一个绑定函数，其函数体与原始函数相同。绑定函数的 `this` 对象与指定的对象关联，并具有指定的初始参数。                                                                                                       |
 | **toString**   | () =&gt; string                                                                  | 返回函数的字符串表示。                                                                                                                                                                                                         |
 
-#### 启动画面隐藏选项（SplashScreenHideOptions）
+#### 启动画面隐藏选项（SplashScreenHideOptions） {#splashscreenhideoptions}
 
 | 属性                    | 类型                | 描述                                     |
 | ----------------------- | ------------------- | ---------------------------------------- |

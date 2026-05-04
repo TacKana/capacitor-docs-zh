@@ -175,7 +175,9 @@ addEventListener('remoteNotification', (resolve, reject, args) => {
 
 在被 runner 调用的每个事件处理程序中，调用 `resolve()` \ `reject()` 是**必需**的。如果不这样做，当你的应用在后台运行时，如果事件被触发，可能会导致你的 runner 被操作系统终止。如果应用在前台运行，对 `dispatchEvent` 的异步调用可能不会解析。
 
-有关使用 Background Runner 的更多实际示例，请查看 [Background Runner 测试应用](https://github.com/ionic-team/background-runner-testapp)。## 配置后台运行器
+有关使用 Background Runner 的更多实际示例，请查看 [Background Runner 测试应用](https://github.com/ionic-team/background-runner-testapp)。
+
+## 配置后台运行器 {#configuring-background-runner}
 
 <docgen-config>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
@@ -312,7 +314,9 @@ checkPermissions() => any
 
 **始于：** 1.0.0
 
---------------------### requestPermissions(...)
+--------------------
+
+### requestPermissions(...)
 
 ```typescript
 requestPermissions(options: RequestPermissionOptions) => any
@@ -445,7 +449,11 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | ---------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------- | ----- |
 | **`schedule`**   | <code>(options: {}) =&gt; void</code>                                                               | 安排一个本地通知      | 1.0.0 |
 | **`setBadge`**   | <code>(options: <a href="#notificationbadgeoptions">NotificationBadgeOptions</a>) =&gt; void</code> | 设置应用程序角标计数    | 2.0.0 |
-| **`clearBadge`** | <code>() =&gt; void</code>                                                                          | 清除应用程序角标计数 | 2.0.0 |#### 通知排程选项| 属性                   | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 版本  |
+| **`clearBadge`** | <code>() =&gt; void</code>                                                                          | 清除应用程序角标计数 | 2.0.0 |
+
+#### 通知排程选项
+
+| 属性                   | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 版本  |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`id`**               | <code>number</code>  | 通知标识符。在 Android 上为 32 位整数，因此值应在 -2147483648 到 2147483647 之间（包含边界）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 1.0.0 |
 | **`title`**            | <code>string</code>  | 通知标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
@@ -463,7 +471,9 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`summaryText`**      | <code>string</code>  | 用于设置收件箱和大文本通知样式中的摘要文本详情。仅对 Android 有效。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
 | **`smallIcon`**        | <code>string</code>  | 设置自定义状态栏图标。如果设置此选项，将覆盖 Capacitor 配置中的 `smallIcon` 设置。图标应放在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅对 Android 有效。                                                                                                                                                                                                                                                                                                                                                               | 1.0.0 |
 | **`largeIcon`**        | <code>string</code>  | 设置通知的大图标。图标应放在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅对 Android 有效。                                                                                                                                                                                                                                                                                                                                                                                                                                 | 1.0.0 |
-| **`channelId`**        | <code>string</code>  | 指定通知应发送到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setChannelId()` 并传入提供的值。仅对 Android 26+ 有效。                                                                                                                                                                                                                                                                           | 1.0.0 |#### NotificationBadgeOptions
+| **`channelId`**        | <code>string</code>  | 指定通知应发送到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setChannelId()` 并传入提供的值。仅对 Android 26+ 有效。                                                                                                                                                                                                                                                                           | 1.0.0 |
+
+#### NotificationBadgeOptions
 
 | 属性                     | 类型                | 描述                                                                 | 始于版本 |
 | ------------------------ | ------------------- | -------------------------------------------------------------------- | -------- |

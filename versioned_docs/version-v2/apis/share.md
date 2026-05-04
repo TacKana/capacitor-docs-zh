@@ -50,7 +50,7 @@ share(options: ShareOptions) => Promise<any>
 
 ---
 
-### Interfaces
+### Interfaces {#接口}
 
 #### ShareOptions
 

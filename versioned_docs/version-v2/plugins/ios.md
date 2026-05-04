@@ -205,7 +205,9 @@ myPluginEventListener.remove();
 Capacitor 插件可以覆盖 WebView 导航。为此，插件可以重写 `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` 方法。
 返回 `true` 会导致 WebView 中止加载 URL。
 返回 `false` 会导致 WebView 继续加载 URL。
-返回 `nil` 将遵循 Capacitor 的默认策略。### 导出到 Capacitor
+返回 `nil` 将遵循 Capacitor 的默认策略。
+
+### 导出到 Capacitor {#export-to-capacitor}
 
 为确保 Capacitor 能够识别您的插件，您需要完成两项操作：将 Swift 类导出到 Objective-C，并使用 Capacitor 提供的 Objective-C 宏进行注册。
 

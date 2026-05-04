@@ -174,7 +174,9 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | 属性            | 类型                                                                                                                                                                                | 描述                                             | 自 |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
 | **`timestamp`** | <code>number</code>                                                                                                                                                                 | 坐标的创建时间戳                           | 1.0.0 |
-| **`coords`**    | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | 包含数据精度的 GPS 坐标 | 1.0.0 |#### PositionOptions（位置选项）
+| **`coords`**    | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | 包含数据精度的 GPS 坐标 | 1.0.0 |
+
+#### PositionOptions（位置选项） {#positionoptions}
 
 | 属性                     | 类型                  | 说明                                                                                                                                                                                | 默认值              | 引入版本 |
 | ------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------- |
@@ -182,20 +184,20 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`timeout`**            | <code>number</code>   | 等待位置更新的最长时间（毫秒）。                                                                                                                                                    | <code>10000</code>  | 1.0.0    |
 | **`maximumAge`**         | <code>number</code>   | 可接受的缓存位置的最大年龄（毫秒）。                                                                                                                                                | <code>0</code>      | 1.0.0    |
 
-#### ClearWatchOptions（清除监听选项）
+#### ClearWatchOptions（清除监听选项） {#clearwatchoptions}
 
 | 属性     | 类型                                              |
 | -------- | ------------------------------------------------- |
 | **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
 
-#### PermissionStatus（权限状态）
+#### PermissionStatus（权限状态） {#permissionstatus}
 
 | 属性                 | 类型                                                        | 说明                                                                                                                                                                                                                                        | 引入版本 |
 | -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | location（位置）别名的权限状态。在 Android 上，它请求/检查 ACCESS_COARSE_LOCATION 和 ACCESS_FINE_LOCATION 权限。在 iOS 和 Web 上，它请求/检查位置权限。                                                                                     | 1.0.0    |
 | **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | coarseLocation（粗略位置）别名的权限状态。在 Android 上，它请求/检查 ACCESS_COARSE_LOCATION 权限。在 Android 12+ 上，用户可以在“大致位置”（ACCESS_COARSE_LOCATION）和“精确位置”（ACCESS_FINE_LOCATION）之间选择，因此如果应用不需要高精度，可以使用此别名。在 iOS 和 Web 上，其值与 location 别名相同。 | 1.2.0    |
 
-#### GeolocationPluginPermissions（地理位置插件权限）
+#### GeolocationPluginPermissions（地理位置插件权限） {#geolocationpluginpermissions}
 
 | 属性              | 类型                                     |
 | ----------------- | ---------------------------------------- |
@@ -203,15 +205,15 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 
 ### 类型别名
 
-#### WatchPositionCallback（监听位置回调）
+#### WatchPositionCallback（监听位置回调） {#watchpositioncallback}
 
 <code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
 
-#### CallbackID（回调ID）
+#### CallbackID（回调ID） {#callbackid}
 
 <code>string</code>
 
-#### PermissionState（权限状态）
+#### PermissionState（权限状态） {#permissionstate}
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 

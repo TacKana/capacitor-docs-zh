@@ -178,7 +178,9 @@ addListener(eventName: "browserClosed" | "browserPageLoaded", listenerFunc: () =
 
 **返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
---------------------### addListener('browserPageNavigationCompleted', ...)
+--------------------
+
+### addListener('browserPageNavigationCompleted', ...)
 
 ```typescript
 addListener(eventName: "browserPageNavigationCompleted", listenerFunc: (data: BrowserPageNavigationCompletedEventData) => void) => Promise<PluginListenerHandle>
@@ -244,7 +246,9 @@ removeAllListeners() => void
 | ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | **`allowZoom`**    | <code>boolean</code> | 显示 Android 浏览器的缩放控件。                                                                                                    |
 | **`hardwareBack`** | <code>boolean</code> | 使用硬件返回键在 Web 视图的历史记录中向后导航。如果没有上一页，则关闭 Web 视图。                                                    |
-| **`pauseMedia`**   | <code>boolean</code> | 使 Web 视图随应用暂停/恢复以停止后台音频播放。                                                                                      |#### iOSWebViewOptions
+| **`pauseMedia`**   | <code>boolean</code> | 使 Web 视图随应用暂停/恢复以停止后台音频播放。                                                                                      |
+
+#### iOSWebViewOptions
 
 | 属性                                      | 类型                                                  | 说明                                                                                                                                                                                                    |
 | ----------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -291,7 +295,9 @@ removeAllListeners() => void
 | 属性          | 类型                 | 说明                                                                                                                                                                        |
 | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`height`**  | <code>number</code>  | 设置底部弹窗的高度（以像素为单位）。Custom Tabs 会将底部高度设置为至少屏幕的 50%。如果未传递值，则默认为最小值。 |
-| **`isFixed`** | <code>boolean</code> | 设置底部弹窗是否为固定高度。                                                                                                                                            |#### iOSSystemBrowserOptions
+| **`isFixed`** | <code>boolean</code> | 设置底部弹窗是否为固定高度。                                                                                                                                            |
+
+#### iOSSystemBrowserOptions
 
 | 属性                      | 类型                                                  | 描述                                           |
 | ------------------------- | ----------------------------------------------------- | ---------------------------------------------- |

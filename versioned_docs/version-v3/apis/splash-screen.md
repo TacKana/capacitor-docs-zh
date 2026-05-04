@@ -69,7 +69,9 @@ await SplashScreen.show({
 - `large`（默认值）
 - `small`
 
-要设置加载指示器的颜色，请使用 `spinnerColor`，其值为 `#RRGGBB` 或 `#RRGGBBAA` 格式。## 配置
+要设置加载指示器的颜色，请使用 `spinnerColor`，其值为 `#RRGGBB` 或 `#RRGGBBAA` 格式。
+
+## 配置
 
 <docgen-config>
 
@@ -147,7 +149,9 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-</docgen-config>### Android 平台
+</docgen-config>
+
+### Android 平台
 
 如果要使用非默认名称 `splash.png` 的启动画面图片，可以将 `androidSplashResourceName` 设置为新的资源名称。此外，在 `android/app/src/main/res/values/styles.xml` 文件中，修改以下代码块中的资源名称：
 

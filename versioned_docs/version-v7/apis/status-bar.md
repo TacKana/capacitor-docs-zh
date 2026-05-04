@@ -191,7 +191,9 @@ hide(options?: AnimationOptions | undefined) => Promise<void>
 
 **自：** 1.0.0
 
---------------------### getInfo()
+--------------------
+
+### getInfo()
 
 ```typescript
 getInfo() => Promise<StatusBarInfo>

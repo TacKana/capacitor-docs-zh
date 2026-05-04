@@ -141,7 +141,9 @@ createAlbum(options: PhotosCreateAlbumOptions) => Promise<void>
 
 | 属性           | 类型                 | 说明                     |
 | ------------- | -------------------- | ------------------------ |
-| **`success`** | <code>boolean</code> | 照片是否创建成功         |#### PhotosSaveOptions
+| **`success`** | <code>boolean</code> | 照片是否创建成功         |
+
+#### PhotosSaveOptions
 
 | 属性                  | 类型                | 说明                                                                       |
 | --------------------- | ------------------- | -------------------------------------------------------------------------- |

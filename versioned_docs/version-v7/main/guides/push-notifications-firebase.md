@@ -195,7 +195,9 @@ npx cap copy
 
 为项目命名，接受 Firebase 服务条款，点击 **创建项目** 继续。系统会自动为你生成一个项目 ID。
 
-## Android### 将 Firebase 集成到 Android 应用
+## Android
+
+### 将 Firebase 集成到 Android 应用
 
 本部分内容基本参照 [使用 Firebase 控制台设置 Firebase 的官方文档](https://firebase.google.com/docs/android/setup?authuser=0)。以下是与 Capacitor 相关的具体注意事项。
 
@@ -327,7 +329,9 @@ end
 
 ```bash
 npx cap update ios
-```### 添加初始化代码
+```
+
+### 添加初始化代码
 
 要在 iOS 应用启动时连接到 Firebase，你需要将以下代码添加到 `AppDelegate.swift` 文件中。
 
@@ -467,7 +471,9 @@ Firebase Messaging SDK 可以在其负载中包含 `ImageUrl` 属性并显示图
 
 在使用 `@capacitor/push-notifications` 时，Android 会自动显示图片。如果你在 [Firebase 控制台](https://console.firebase.google.com/) 中通过设置 `Notification image` 来测试，推送通知将在 Android 设备上显示，效果类似于下面的截图：
 
-![Android 带图片的推送通知](/img/v6/docs/guides/firebase-push-notifications/android-push-image.jpeg)### iOS 平台上的图片推送
+![Android 带图片的推送通知](/img/v6/docs/guides/firebase-push-notifications/android-push-image.jpeg)
+
+### iOS 平台上的图片推送
 
 要在 iOS 设备上显示包含图片的推送通知，需要在项目中添加 [通知服务扩展（Notification Service Extension）](https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension)。
 

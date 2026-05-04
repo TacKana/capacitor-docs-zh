@@ -188,7 +188,9 @@ removeAllListeners() => void
 
 ### 接口
 
-<!-- 此部分已按原样保留，因为它主要是程序化内容，由 docgen 工具生成。翻译将主要涉及前文提供的说明性文本。 -->#### OpenInWebViewParameterModel
+<!-- 此部分已按原样保留，因为它主要是程序化内容，由 docgen 工具生成。翻译将主要涉及前文提供的说明性文本。 -->
+
+#### OpenInWebViewParameterModel
 
 定义在网页视图中打开 URL 的选项。
 
@@ -233,7 +235,9 @@ removeAllListeners() => void
 | **`allowInLineMediaPlayback`**     | <code>boolean</code>                                  | 允许 HTML5 媒体内联播放，即在浏览器窗口内播放，而不是使用设备特定的播放界面。注意：HTML 的 video 元素也必须包含 webkit-playsinline 属性。                                                                       |
 | **`surpressIncrementalRendering`** | <code>boolean</code>                                  | 等待接收到所有新的视图内容后再进行渲染。                                                                                                                                                                       |
 | **`viewStyle`**                    | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | 设置 Web View 的呈现样式。                                                                                                                                                                                    |
-| **`animationEffect`**              | <code><a href="#iosanimation">iOSAnimation</a></code> | 设置 Web View 的过渡动画样式。                                                                                                                                                                                |#### OpenInSystemBrowserParameterModel
+| **`animationEffect`**              | <code><a href="#iosanimation">iOSAnimation</a></code> | 设置 Web View 的过渡动画样式。                                                                                                                                                                                |
+
+#### OpenInSystemBrowserParameterModel
 
 定义在系统浏览器中打开 URL 的选项。
 

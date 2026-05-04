@@ -176,7 +176,9 @@ addEventListener('remoteNotification', (resolve, reject, args) => {
 
 在每个由运行器调用的事件处理程序中，调用 `resolve()` \ `reject()` 是 **必需** 的。如果不这样做，当你的事件在应用处于后台时被调用，可能会导致运行器被操作系统终止。如果应用在前台，对 `dispatchEvent` 的异步调用可能不会解析。
 
-有关使用 Background Runner 的更多实际示例，请查看 [Background Runner 测试应用](https://github.com/ionic-team/background-runner-testapp)。## 配置后台运行器
+有关使用 Background Runner 的更多实际示例，请查看 [Background Runner 测试应用](https://github.com/ionic-team/background-runner-testapp)。
+
+## 配置后台运行器 {#configuring-background-runner}
 
 <docgen-config>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
@@ -313,7 +315,9 @@ checkPermissions() => any
 
 **自版本：** 1.0.0
 
---------------------### requestPermissions(...)
+--------------------
+
+### requestPermissions(...)
 
 ```typescript
 requestPermissions(options: RequestPermissionOptions) => any
@@ -446,7 +450,11 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | -------------- | ------------------------------------- | ----------------------------- | ----- |
 | **`schedule`** | <code>(options: {}) =&gt; void</code> | 调度一个本地通知 | 1.0.0 |
 
-</capacitor-api-docs>#### 通知计划选项| 属性                  | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
+</capacitor-api-docs>
+
+#### 通知计划选项
+
+| 属性                  | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
 | --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | **`id`**              | <code>number</code>  | 通知标识符。在 Android 上它是一个 32 位整数，因此值应在 -2147483648 到 2147483647 之间（包含两端）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 1.0.0    |
 | **`title`**           | <code>string</code>  | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0    |
@@ -464,7 +472,9 @@ dispatchEvent<T = void>(options: DispatchEventOptions) => any
 | **`summaryText`**      | <code>string</code>  | 用于在收件箱和大文本通知样式中设置摘要文本详情。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
 | **`smallIcon`**        | <code>string</code>  | 设置自定义状态栏图标。如果设置，将覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID（即不带扩展名的文件名）。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
 | **`largeIcon`**        | <code>string</code>  | 为通知设置大图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID（即不带扩展名的文件名）。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 1.0.0 |
-| **`channelId`**        | <code>string</code>  | 指定通知应投递到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setChannelId()` 并传入该值。仅在 Android 26+ 版本可用。                                                                                                                                                                                                                                                                                                             | 1.0.0 |#### CapacitorGeolocation
+| **`channelId`**        | <code>string</code>  | 指定通知应投递到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setChannelId()` 并传入该值。仅在 Android 26+ 版本可用。                                                                                                                                                                                                                                                                                                             | 1.0.0 |
+
+#### CapacitorGeolocation
 
 获取设备位置信息。
 

@@ -220,7 +220,9 @@ setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 
 **自版本：** 1.0.0
 
---------------------### getResizeMode()
+--------------------
+
+### getResizeMode()
 
 ```typescript
 getResizeMode() => Promise<KeyboardResizeOptions>

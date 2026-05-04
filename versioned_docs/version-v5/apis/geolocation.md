@@ -174,7 +174,9 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | 属性                | 类型                                                                                                                                                                                    | 描述                                             | 自版本 |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------ |
 | **`timestamp`**     | <code>number</code>                                                                                                                                                                     | 坐标的创建时间戳                                 | 1.0.0  |
-| **`coords`**        | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code>     | GPS 坐标以及数据的精确度                          | 1.0.0  |#### PositionOptions
+| **`coords`**        | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code>     | GPS 坐标以及数据的精确度                          | 1.0.0  |
+
+#### PositionOptions
 
 | 属性                      | 类型                  | 描述                                                                                                                                                                   | 默认值              | 始于  |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |

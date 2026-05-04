@@ -133,7 +133,9 @@ export default config;
 
 </docgen-config>
 
-## 静默推送通知 / 纯数据通知#### iOS
+## 静默推送通知 / 纯数据通知
+
+#### iOS
 此插件不支持 iOS 静默推送（远程通知）。我们建议使用原生代码解决方案来处理这类通知，请参阅 [推送后台更新到你的应用](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)。
 
 #### Android
@@ -361,7 +363,9 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自：** 1.0.0
 
---------------------### requestPermissions()
+--------------------
+
+### requestPermissions()
 
 ```typescript
 requestPermissions() => Promise<PermissionStatus>
@@ -502,7 +506,9 @@ removeAllListeners() => Promise<void>
 | **`click_action`**   | <code>string</code>  | 用户点击通知时要执行的操作。仅 Android 可用。                                                                                 | 1.0.0 |
 | **`link`**           | <code>string</code>  | 通知中的深度链接。仅 Android 可用。                                                                                           | 1.0.0 |
 | **`group`**          | <code>string</code>  | 设置通知分组的组标识符。仅 Android 可用。功能类似于 iOS 的 `threadIdentifier`。                                               | 1.0.0 |
-| **`groupSummary`**   | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要通知。仅 Android 可用。                                                                      | 1.0.0 |#### Channel
+| **`groupSummary`**   | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要通知。仅 Android 可用。                                                                      | 1.0.0 |
+
+#### Channel
 
 | 属性              | 类型                                              | 说明                                                                                                                                                                                                                                     | 默认值           | 始于 |
 | ----------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- |

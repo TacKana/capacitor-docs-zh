@@ -38,7 +38,7 @@ export class EchoWeb extends WebPlugin implements EchoPlugin {
 
 `EchoPlugin` 接口定义了插件的方法签名。在 TypeScript 中，我们可以确保 Web 实现（`EchoWeb` 类）正确实现了该接口。
 
-## 权限管理
+## 权限管理 {#permissions}
 
 如果你的插件在 Web 上运行时需要获取最终用户的权限，那么你就需要实现权限管理机制。
 
@@ -57,7 +57,7 @@ export class EchoWeb extends WebPlugin implements EchoPlugin {
 
 权限别名是跨平台的，因此在决定插件的别名时，请务必考虑 iOS、Android 和 Web 的权限差异。
 
-### 权限状态定义
+### 权限状态定义 {#permission-status-definitions}
 
 在 `src/definitions.ts` 中，从 Capacitor 导入 `PermissionState`，并定义一个 `PermissionStatus` 接口，用于表示插件中权限的状态，键名为你定义的别名。
 
@@ -137,7 +137,7 @@ async requestPermissions(): Promise<PermissionStatus> {
 }
 ```
 
-## 错误处理
+## 错误处理 {#error-handling}
 
 Web 端的 Capacitor 插件通常需要处理那些尚未被某些浏览器采纳甚至尚未标准化的 API。尽管如此，我们通常会为插件的 Web 实现采取尽力而为的策略，并在 API 不可用时优雅地失败。这就是为什么 Web 端的错误处理尤为重要！
 

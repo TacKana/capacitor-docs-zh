@@ -222,7 +222,9 @@ setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 
 **始于版本：** 1.0.0
 
---------------------### addListener('keyboardWillShow', ...)
+--------------------
+
+### addListener('keyboardWillShow', ...)
 
 ```typescript
 addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) => void) => Promise<PluginListenerHandle> & PluginListenerHandle

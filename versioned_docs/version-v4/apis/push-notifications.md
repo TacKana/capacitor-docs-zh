@@ -114,7 +114,9 @@ export default config;
 * 如果设备已进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，你的应用可能会受到功能限制。为了提高通知被接收的几率，请考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
 * 开发环境和生产环境之间存在行为差异。尝试在 Android Studio 启动应用之外的情况下测试你的应用。更多信息请阅读[此处](https://stackoverflow.com/a/50238790/1351469)。
 
----## 示例
+---
+
+## 示例
 
 ```typescript
 import { PushNotifications } from '@capacitor/push-notifications';
@@ -353,7 +355,9 @@ addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => 
 
 **自：** 1.0.0
 
---------------------### addListener('registrationError', ...)
+--------------------
+
+### addListener('registrationError', ...)
 
 ```typescript
 addListener(eventName: 'registrationError', listenerFunc: (error: RegistrationError) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
@@ -453,7 +457,9 @@ removeAllListeners() => Promise<void>
 | **`click_action`**   | <code>string</code>  | 用户点击通知时要执行的操作。仅在 Android 上可用。                                                             | 1.0.0  |
 | **`link`**           | <code>string</code>  | 通知中的深层链接。仅在 Android 上可用。                                                                       | 1.0.0  |
 | **`group`**          | <code>string</code>  | 设置通知分组的组标识符。仅在 Android 上可用。功能类似于 iOS 上的 `threadIdentifier`。                         | 1.0.0  |
-| **`groupSummary`**   | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                                      | 1.0.0  |#### Channel
+| **`groupSummary`**   | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                                      | 1.0.0  |
+
+#### Channel
 
 | 属性               | 类型                                              | 说明                                                                                                                                                                                                                                               | 默认值           | 始于 |
 | ------------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- |

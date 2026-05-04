@@ -24,7 +24,7 @@ node --version
 
 安装 Node 后，您就可以开始使用 Capacitor 创建渐进式 Web 应用程序（PWA）。
 
-## iOS 要求
+## iOS 要求 {#ios-requirements}
 
 要构建 iOS 应用，您需要 **macOS** 系统。虽然如果您没有 Mac，可以使用像 [Ionic Appflow](http://ionicframework.com/appflow) 这样的解决方案进行 iOS 云端构建，但强烈建议您本地安装这些工具，以便正确测试您的 Capacitor 应用程序。
 

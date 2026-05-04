@@ -19,7 +19,7 @@ ionic start
 
 如果你希望有一个构建首个基于 Capacitor 的 Ionic 应用的教程，可以参考 Ionic Framework 团队提供的[这个教程](https://ionicframework.com/docs/intro/next)。
 
-## 在现有 Ionic 项目中安装 Capacitor
+## 在现有 Ionic 项目中安装 Capacitor {#installing-capacitor-to-an-existing-ionic-project}
 如果你有一个尚未启用 Capacitor 的现有 Ionic 项目，可以通过运行以下命令来启用：
 
 ```bash

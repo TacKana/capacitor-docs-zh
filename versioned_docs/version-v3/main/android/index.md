@@ -32,7 +32,7 @@ npm install @capacitor/android
 npx cap add android
 ```
 
-## 打开 Android 项目
+## 打开 Android 项目 {#opening-the-android-project}
 
 要在 Android Studio 中打开项目，请运行：
 
@@ -42,7 +42,7 @@ npx cap open android
 
 或者，你也可以打开 Android Studio 并导入 `android/` 目录作为 Android Studio 项目。
 
-## 运行应用
+## 运行应用 {#running-your-app}
 
 你可以通过命令行或 Android Studio 运行应用。
 

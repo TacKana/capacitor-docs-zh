@@ -209,7 +209,9 @@ previewMediaContentFromUrl(options: PreviewMediaFromUrlOptions) => Promise<void>
 
 <code><a href="#openfromurloptions">OpenFromUrlOptions</a></code>
 
-</docgen-api>### 错误代码
+</docgen-api>
+
+### 错误代码 {#错误}
 
 该插件在原生 Android 和 iOS 平台上返回以下带特定代码的错误：
 

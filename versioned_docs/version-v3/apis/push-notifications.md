@@ -114,7 +114,9 @@ export default config;
 * 如果设备已进入 [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) 模式，你的应用可能会受到能力限制。为了提高通知被接收的几率，请考虑使用 [FCM 高优先级消息](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)。
 * 开发环境和生产环境的行为存在差异。尝试在应用未被 Android Studio 启动的情况下进行测试。更多信息请阅读[此处](https://stackoverflow.com/a/50238790/1351469)。
 
----## 示例
+---
+
+## 示例
 
 ```typescript
 import { PushNotifications } from '@capacitor/push-notifications';
@@ -353,7 +355,9 @@ addListener(eventName: 'registration', listenerFunc: (token: Token) => void) => 
 
 **自版本：** 1.0.0
 
---------------------### addListener('registrationError', ...)
+--------------------
+
+### addListener('registrationError', ...)
 
 ```typescript
 addListener(eventName: 'registrationError', listenerFunc: (error: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
@@ -452,7 +456,9 @@ removeAllListeners() => Promise<void>
 | **`click_action`**      | <code>string</code>  | 用户打开通知时要执行的操作。仅在 Android 上可用。                                                  | 1.0.0 |
 | **`link`**              | <code>string</code>  | 通知中的深度链接。仅在 Android 上可用。                                                            | 1.0.0 |
 | **`group`**             | <code>string</code>  | 设置用于通知分组的组标识符。仅在 Android 上可用。功能类似于 iOS 上的 `threadIdentifier`。          | 1.0.0 |
-| **`groupSummary`**      | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                           | 1.0.0 |#### 频道
+| **`groupSummary`**      | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅在 Android 上可用。                                           | 1.0.0 |
+
+#### 频道 {#channel}
 
 | 属性                | 类型                                                                      | 说明                                                                                                                                                                                                                                                              | 起始版本 |
 | ------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -467,35 +473,35 @@ removeAllListeners() => Promise<void>
 | **`vibration`**     | <code>boolean</code>                                                      | 发送到此频道的通知是否振动。                                                                                                                                                                                                                                      | 1.0.0    |
 
 
-#### 列出频道结果
+#### 列出频道结果 {#listchannelsresult}
 
 | 属性            | 类型                   | 说明                                           | 起始版本 |
 | --------------- | ---------------------- | ---------------------------------------------- | -------- |
 | **`channels`**  | <code>Channel[]</code> | 由你的应用创建的所有频道列表。                 | 1.0.0    |
 
 
-#### 权限状态
+#### 权限状态 {#permissionstatus}
 
 | 属性            | 类型                                                              | 说明                       | 起始版本 |
 | --------------- | ----------------------------------------------------------------- | -------------------------- | -------- |
 | **`receive`**   | <code><a href="#permissionstate">PermissionState</a></code>       | 接收通知的权限状态。       | 1.0.0    |
 
 
-#### 插件监听器句柄
+#### 插件监听器句柄 {#pluginlistenerhandle}
 
 | 属性            | 类型                                      |
 | --------------- | ----------------------------------------- |
 | **`remove`**    | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-#### 令牌
+#### 令牌 {#token}
 
 | 属性            | 类型                | 说明                                                                   | 起始版本 |
 | --------------- | ------------------- | ---------------------------------------------------------------------- | -------- |
 | **`value`**     | <code>string</code> | 在 iOS 上包含 APNS 令牌。在 Android 上包含 FCM 令牌。                  | 1.0.0    |
 
 
-#### 已执行操作
+#### 已执行操作 {#actionperformed}
 
 | 属性                  | 类型                                                                          | 说明                                                     | 起始版本 |
 | --------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------- | -------- |
@@ -507,21 +513,21 @@ removeAllListeners() => Promise<void>
 ### 类型别名
 
 
-#### 重要性
+#### 重要性 {#importance}
 
 重要性级别。更多详情请参阅 [Android 开发者文档](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
 
 <code>1 | 2 | 3 | 4 | 5</code>
 
 
-#### 可见性
+#### 可见性 {#visibility}
 
 通知可见性。更多详情请参阅 [Android 开发者文档](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE)
 
 <code>-1 | 0 | 1</code>
 
 
-#### 权限状态
+#### 权限状态 {#permissionstate}
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 

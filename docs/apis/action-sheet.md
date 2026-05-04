@@ -126,7 +126,9 @@ showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 | **`Cancel`**    | <code>'CANCEL'</code>    | 取消按钮样式，用于指示操作将取消当前操作并返回先前的状态。在 iOS 上，此样式会使按钮以粗体显示。 | 1.0.0 |
 | **`Destructive`** | <code>'DESTRUCTIVE'</code> | 破坏性按钮样式，用于指示操作可能改变或删除数据。                                   | 1.0.0 |
 
-</docgen-api>#### ActionSheetButtonStyle
+</docgen-api>
+
+#### ActionSheetButtonStyle
 
 | 成员           | 值                          | 描述                                                                                                                                                                                  | 始于 |
 | -------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |

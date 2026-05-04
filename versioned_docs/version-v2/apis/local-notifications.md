@@ -222,7 +222,9 @@ removeAllListeners() => void
 
 ### 接口
 
-#### LocalNotificationScheduleResult#### LocalNotification
+#### LocalNotificationScheduleResult {#localnotificationscheduleresult}
+
+#### LocalNotification
 
 | 属性                   | 类型                                                                            | 说明                                                                                                                                                                                                                                                            |
 | ---------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -242,7 +244,9 @@ removeAllListeners() => void
 | **`groupSummary`**     | <code>boolean</code>                                                            | 仅限 Android：将此通知指定为组的摘要（应与 `group` 属性一起使用）。                                                                                                                                                                                             |
 | **`channelId`**        | <code>string</code>                                                             | 仅限 Android：设置将生成本地通知的通知渠道。如果具有给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。                                                                                                                                          |
 | **`ongoing`**          | <code>boolean</code>                                                            | 仅限 Android：设置通知为持续状态。如果设置为 true，通知无法被滑动清除。                                                                                                                                                                                         |
-| **`autoCancel`**       | <code>boolean</code>                                                            | 仅限 Android：设置通知在用户点击时自动移除                                                                                                                                                                                                                      |#### LocalNotificationSchedule（本地通知调度）
+| **`autoCancel`**       | <code>boolean</code>                                                            | 仅限 Android：设置通知在用户点击时自动移除                                                                                                                                                                                                                      |
+
+#### LocalNotificationSchedule（本地通知调度） {#localnotificationschedule}
 
 | 属性          | 类型                                                                                               |
 | ------------- | -------------------------------------------------------------------------------------------------- |
@@ -250,7 +254,9 @@ removeAllListeners() => void
 | **`repeats`** | <code>boolean</code>                                                                               |
 | **`every`**   | <code>"year" \| "month" \| "two-weeks" \| "week" \| "day" \| "hour" \| "minute" \| "second"</code> |
 | **`count`**   | <code>number</code>                                                                                |
-| **`on`**      | `{ year?: number; month?: number; day?: number; hour?: number; minute?: number; }`      |#### 日期
+| **`on`**      | `{ year?: number; month?: number; day?: number; hour?: number; minute?: number; }`      |
+
+#### 日期 {#date}
 
 提供日期和时间的基本存储与检索功能。| 方法                 | 签名                                                             | 描述                                                                                                                             |
 | ---------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -295,7 +301,9 @@ removeAllListeners() => void
 | **setUTCFullYear**     | (year: number, month?: number, date?: number) =&gt; number            | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的年份值。                                                                        |
 | **toUTCString**        | () =&gt; string                                                       | 返回一个使用协调世界时 (UTC) 转换为字符串的日期。                                                                                          |
 | **toISOString**        | () =&gt; string                                                       | 以 ISO 格式返回日期的字符串值。                                                                                                           |
-| **toJSON**             | (key?: any) =&gt; string                                              | 由 JSON.stringify 方法使用，以便在 JavaScript 对象表示法 (JSON) 序列化过程中转换对象的数据。                                               |#### LocalNotificationAttachment
+| **toJSON**             | (key?: any) =&gt; string                                              | 由 JSON.stringify 方法使用，以便在 JavaScript 对象表示法 (JSON) 序列化过程中转换对象的数据。                                               |
+
+#### LocalNotificationAttachment
 
 | 属性          | 类型                                                                                              |
 | ------------- | ------------------------------------------------------------------------------------------------- |

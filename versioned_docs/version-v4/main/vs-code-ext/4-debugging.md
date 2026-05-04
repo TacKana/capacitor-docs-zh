@@ -42,7 +42,7 @@ slug: /vscode/debugging
 - 任何正在运行的 Web 视图都将作为远程目标出现，你可以打开它们。
 - 使用 Edge 的调试和检查工具。
 
-### 使用 Safari
+### 使用 Safari {#use-safari}
 
 当你通过 `Run` > `iOS` 或 XCode 运行应用后：
 - 打开 **Safari** 并从 `开发` 菜单中选择 iOS 设备。

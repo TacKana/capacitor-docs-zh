@@ -199,7 +199,9 @@ addListener(eventName: 'appRestoredResult', listenerFunc: (data: AppRestoredResu
 
 **返回值：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
----### addListener(...)
+---
+
+### addListener(...)
 
 ```typescript
 addListener(eventName: 'backButton', listenerFunc: (data: AppUrlOpen) => void) => PluginListenerHandle

@@ -25,7 +25,9 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-如果你的项目没有使用 TypeScript，你可以用同样的方式使用 `capacitor.config.json` 文件。## 配置架构
+如果你的项目没有使用 TypeScript，你可以用同样的方式使用 `capacitor.config.json` 文件。
+
+## 配置架构 {#schema}
 
 以下是 Capacitor 配置的 TypeScript 接口，包含完整描述和默认值。
 
@@ -473,7 +475,9 @@ export interface PluginsConfig {
 }
 | undefined;
 }
-```## 环境变量
+```
+
+## 环境变量
 
 Capacitor CLI 会自动查找您系统上的依赖项。如果需要配置这些路径，可以使用以下环境变量：
 

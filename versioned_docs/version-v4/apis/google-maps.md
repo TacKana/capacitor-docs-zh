@@ -190,7 +190,9 @@ export class MyMap {
     });
   }
 }
-```### React
+```
+
+### React
 
 ```jsx
 import { GoogleMap } from '@capacitor/google-maps';
@@ -464,7 +466,9 @@ enableIndoorMaps(enabled: boolean) => Promise<void>
 | ------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
---------------------### enableTrafficLayer(...)
+--------------------
+
+### enableTrafficLayer(...)
 
 ```typescript
 enableTrafficLayer(enabled: boolean) => Promise<void>
@@ -617,7 +621,9 @@ setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData>
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`**   | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
---------------------### setOnMarkerDragStartListener(...)
+--------------------
+
+### setOnMarkerDragStartListener(...)
 
 ```typescript
 setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
@@ -695,7 +701,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`apiKey`**       | <code>string</code>                                         | Google Maps SDK API 密钥。                                                                 |                      |
 | **`config`**       | <code><a href="#googlemapconfig">GoogleMapConfig</a></code> | 地图的初始配置设置。                                                                       |                      |
 | **`element`**      | <code>HTMLElement</code>                                    | 用于挂载 Google Map 视图的 DOM 元素，它决定了地图的大小和位置。                            |                      |
-| **`forceCreate`**  | <code>boolean</code>                                        | 如果提供的 id 已存在对应的地图实例，是否强制销毁并重新创建它。                              | <code>false</code>   |#### GoogleMapConfig
+| **`forceCreate`**  | <code>boolean</code>                                        | 如果提供的 id 已存在对应的地图实例，是否强制销毁并重新创建它。                              | <code>false</code>   |
+
+#### GoogleMapConfig
 
 在 Web 平台上，所有 JavaScript Google Maps 选项均可用，因为 GoogleMapConfig 继承了 google.maps.MapOptions。
 在 iOS 和 Android 平台上，只有 <a href="#googlemapconfig">GoogleMapConfig</a> 中声明的配置选项可用。
@@ -727,7 +735,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 
 | 属性        | 类型                |
 | ----------- | ------------------- |
-| **`mapId`** | <code>string</code> |#### 标记点
+| **`mapId`** | <code>string</code> |
+
+#### 标记点 {#marker}
 
 标记点是放置在地图表面特定位置的图标。
 
@@ -746,7 +756,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`draggable`**    | <code>boolean</code>                                                 | 控制此标记点是否可以通过交互拖动。                                                                                                                                                | <code>false</code>   |          |
 
 
-#### 尺寸
+#### 尺寸 {#size}
 
 | 属性           | 类型                |
 | -------------- | ------------------- |
@@ -754,7 +764,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`height`**   | <code>number</code> |
 
 
-#### 点
+#### 点 {#point}
 
 <a href="#point">点</a>几何对象。
 https://tools.ietf.org/html/rfc7946#section-3.1.2
@@ -765,7 +775,7 @@ https://tools.ietf.org/html/rfc7946#section-3.1.2
 | **`coordinates`**   | <code><a href="#position">Position</a></code>     |                              |
 
 
-#### 相机配置
+#### 相机配置 {#cameraconfig}
 
 Google 地图相机的配置属性
 
@@ -779,7 +789,7 @@ Google 地图相机的配置属性
 | **`animationDuration`**   | <code>number</code>                       | 此配置选项当前未使用。                                                                                           |                      |
 
 
-#### 地图内边距
+#### 地图内边距 {#mappadding}
 
 用于设置视图“可见”区域的内边距控制项。
 
@@ -791,7 +801,7 @@ Google 地图相机的配置属性
 | **`bottom`**   | <code>number</code> |
 
 
-#### 相机空闲回调数据
+#### 相机空闲回调数据 {#cameraidlecallbackdata}
 
 | 属性              | 类型                      |
 | ----------------- | ------------------------- |
@@ -804,12 +814,14 @@ Google 地图相机的配置属性
 | **`zoom`**        | <code>number</code>       |
 
 
-#### 相机移动开始回调数据
+#### 相机移动开始回调数据 {#cameramovestartedcallbackdata}
 
 | 属性              | 类型                 |
 | ----------------- | -------------------- |
 | **`mapId`**       | <code>string</code>  |
-| **`isGesture`**   | <code>boolean</code> |#### ClusterClickCallbackData
+| **`isGesture`**   | <code>boolean</code> |
+
+#### ClusterClickCallbackData
 
 | 属性            | 类型                              |
 | --------------- | --------------------------------- |

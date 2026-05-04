@@ -20,7 +20,7 @@ Capacitor 项目的一个优势在于 Ionic 团队对技术栈拥有更强的控
 
 从本质上讲，Capacitor 和 Cordova 非常相似。两者都管理 Web View，并提供一种结构化的方式将原生功能暴露给你的 Web 代码。然而，Capacitor 有几个关键差异，这要求之前习惯于 Cordova 方式的 Web 开发者改变应用开发工作流程。
 
-### 原生项目管理
+### 原生项目管理 {#native-project-management}
 
 Capacitor 将每个平台项目视为**源代码资产**，而非**构建时资产**。这意味着你需要将 Xcode 和 Android Studio 项目提交到源代码版本控制中，并且在必要时使用这些集成开发环境进行特定平台的配置、构建和测试。
 

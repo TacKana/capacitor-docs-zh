@@ -37,7 +37,7 @@ slug: /vscode/build-and-run
 - **`Android`** - 附加到正在运行的 Android WebView 并开始调试会话。
 - **`iOS`** - VS Code 目前不支持 iOS 调试。您可以使用 [Safari](debugging#use-safari)。
 
-## 使用 HTTPS
+## 使用 HTTPS {#using-https}
 
 此功能（`Settings` > `Use HTTPS`）将创建一个证书并使用 HTTPS 提供您的应用。同时会显示在网页、iOS 和 Android 上信任该证书的说明。
 

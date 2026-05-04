@@ -26,7 +26,7 @@ Capacitor 被设计为可以轻松集成到任何现代 JavaScript Web 应用中
 - 必须有一个单独的目录用于存放 Web 静态资源。
 - 必须在 Web 静态资源目录的根目录下有一个包含 `<head>` 标签的 `index.html` 文件。
 
-## 将 Capacitor 添加到你的应用
+## 将 Capacitor 添加到你的应用 {#adding-capacitor-to-your-app}
 
 在你的应用根目录下，安装 Capacitor：
 

@@ -247,7 +247,9 @@ getUri(options: GetUriOptions) => Promise<GetUriResult>
 
 **自：** 1.0.0
 
---------------------### stat(...)
+--------------------
+
+### stat(...)
 
 ```typescript
 stat(options: StatOptions) => Promise<StatResult>
@@ -376,7 +378,9 @@ requestPermissions() => Promise<PermissionStatus>
 | **`path`**      | <code>string</code>                             | 要追加内容的文件路径。                                                                                                                            | 1.0.0 |
 | **`data`**      | <code>string</code>                             | 要写入的数据。                                                                                                                                         | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 用于存储文件的 <a href="#directory">`Directory`</a>。                                                                                             | 1.0.0 |
-| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件时的编码方式。如果未提供，数据将以 base64 编码形式写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以将数据作为字符串写入。 | 1.0.0 |#### DeleteFileOptions
+| **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件时的编码方式。如果未提供，数据将以 base64 编码形式写入。传递 <a href="#encoding">Encoding.UTF8</a> 可以将数据作为字符串写入。 | 1.0.0 |
+
+#### DeleteFileOptions
 
 | 属性名           | 类型                                            | 描述                                           | 起始版本 |
 | ---------------- | ----------------------------------------------- | ---------------------------------------------- | -------- |
@@ -458,7 +462,9 @@ requestPermissions() => Promise<PermissionStatus>
 | **`from`**         | <code>string</code>                             | 现有的文件或目录                                                                                                                 | 1.0.0    |
 | **`to`**           | <code>string</code>                             | 目标文件或目录                                                                                                                   | 1.0.0    |
 | **`directory`**    | <code><a href="#directory">Directory</a></code> | 包含现有文件或目录的 <a href="#directory">`Directory`</a>                                                                        | 1.0.0    |
-| **`toDirectory`**  | <code><a href="#directory">Directory</a></code> | 包含目标文件或目录的 <a href="#directory">`Directory`</a>。如果未提供，则会使用 'directory' 参数作为目标位置                     | 1.0.0    |#### PermissionStatus
+| **`toDirectory`**  | <code><a href="#directory">Directory</a></code> | 包含目标文件或目录的 <a href="#directory">`Directory`</a>。如果未提供，则会使用 'directory' 参数作为目标位置                     | 1.0.0    |
+
+#### PermissionStatus
 
 | 属性                 | 类型                                                                          |
 | -------------------- | ----------------------------------------------------------------------------- |

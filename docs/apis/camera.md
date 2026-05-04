@@ -155,7 +155,9 @@ const takePicture = async () => {
     console.error('takePhoto failed:', message);
   }
 };
-```### 从相册中选择
+```
+
+### 从相册中选择
 
 ```typescript
 import { Camera, MediaTypeSelection } from '@capacitor/camera';
@@ -346,7 +348,7 @@ const result = await Camera.takePhoto({ quality: 90 });
 const { results } = await Camera.chooseFromGallery({ quality: 90 });
 ```
 
-#### 结果类型的变化
+#### 结果类型的变化 {#result-type-changes}
 
 `getPhoto` 返回一个 `Photo` 对象，其中可用的字段取决于 `resultType`。新版 API 完全移除了 `resultType`——无论照片如何拍摄，`MediaResult` 都有一组固定的字段。
 
@@ -375,7 +377,9 @@ import { Filesystem } from '@capacitor/filesystem';
 
 const { data } = await Filesystem.readFile({ path: result.uri });
 const dataUrl = `data:image/${result.metadata.format};base64,${data}`;
-```### 替换 `pickImages` → `chooseFromGallery`
+```
+
+### 替换 `pickImages` → `chooseFromGallery`
 
 `pickImages` 允许从相册中选择多张照片。向 `chooseFromGallery` 传入 `allowMultipleSelection: true` 即可获得相同行为。
 
@@ -609,7 +613,9 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自版本：** 1.0.0
 
---------------------### requestPermissions(...)
+--------------------
+
+### requestPermissions(...)
 
 ```typescript
 requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise<PermissionStatus>
@@ -678,7 +684,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`thumbnail`** | <code>string</code>                                     | 返回媒体文件的缩略图（Base64 编码）。在 Web 平台上，对于 <a href="#mediatype">`MediaType.Photo`</a> 类型，此处返回完整图片（同样是 Base64 编码）；对于 <a href="#mediatype">`MediaType.Video`</a> 类型，返回从视频中捕获的一帧全分辨率 JPEG 图像，Base64 编码，质量 80%。 | 8.1.0 |
 | **`saved`**     | <code>boolean</code>                                    | 媒体文件是否成功保存到相册。仅当输入选项中 `saveToGallery` 设为 `true` 时有效，否则始终返回 `false`。在 Web 平台上不可用。                                                                                                                                                                          | 8.1.0 |
 | **`webPath`**   | <code>string</code>                                     | webPath 返回一个路径，可用于设置媒体元素的 `src` 属性，以实现高效的加载和渲染。                                                                                                                                                                                                      | 8.1.0 |
-| **`metadata`**  | <code><a href="#mediametadata">MediaMetadata</a></code> | 与媒体结果关联的元数据。仅当输入选项中 `includeMetadata` 设为 `true` 时才会包含。                                                                                                                                                                                                            | 8.1.0 |#### MediaMetadata
+| **`metadata`**  | <code><a href="#mediametadata">MediaMetadata</a></code> | 与媒体结果关联的元数据。仅当输入选项中 `includeMetadata` 设为 `true` 时才会包含。                                                                                                                                                                                                            | 8.1.0 |
+
+#### MediaMetadata
 
 | 属性               | 类型                  | 描述                                                                                                                                                                                                                                                                                                                                                                                                                     | 引入版本 |
 | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
@@ -687,7 +695,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`format`**       | <code>string</code> | 图片格式，例如：jpeg、png、mp4。Android 和 iOS 可能返回 'jpg' 而非 'jpeg'，两者格式相同只是名称不同。判断返回媒体是否为 JPEG 格式时，请同时比对 'jpeg' 和 'jpg'。Web 端支持 jpeg、png 和 gif，但具体支持情况因浏览器而异。Web 端仅当使用 `chooseFromGallery` 时支持 gif。 | 8.1.0 |
 | **`resolution`**   | <code>string</code> | 媒体的分辨率，格式为 `&lt;宽度&gt;x&lt;高度&gt;`，例如：'1920x1080'。                                                                                                                                                                                                                                                                                                                                                     | 8.1.0 |
 | **`creationDate`** | <code>string</code> | 媒体创建日期和时间，采用 ISO 8601 格式。如果创建日期不可用（例如 Android 7 及更低版本），则返回最后修改日期。Web 端始终返回最后修改日期。                                                                                                                                                                                                                                                                               | 8.1.0 |
-| **`exif`**         | <code>string</code> | 从媒体项中提取的 Exif 数据（如果有）。仅适用于 <a href="#mediatype">`MediaType.Photo`</a>。Web 端不可用。                                                                                                                                                                                                                                                                                                                   | 8.1.0 |#### TakePhotoOptions 选项
+| **`exif`**         | <code>string</code> | 从媒体项中提取的 Exif 数据（如果有）。仅适用于 <a href="#mediatype">`MediaType.Photo`</a>。Web 端不可用。                                                                                                                                                                                                                                                                                                                   | 8.1.0 |
+
+#### TakePhotoOptions 选项 {#takephotooptions}
 
 | 属性                      | 类型                                                          | 描述                                                                                                                                                                                                                                                                                                                                                                       | 默认值                               | 起始版本 |
 | ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ | -------- |
@@ -701,7 +711,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`editable`**            | <code>'in-app' \| 'external' \| 'no'</code>                   | 决定用户是否可以对照片进行编辑，以及如何编辑。<br>- `'in-app'`：使用应用内编辑器进行照片编辑。<br>- `'external'`：打开一个独立的（平台特定的）原生应用来处理照片编辑，如果没有可用的原生应用，则回退到应用内编辑器。注意：iOS 不支持外部编辑，将改用 `'in-app'`。<br>- `'no'`：不允许编辑。Web 平台不可用。                                                              | <code>'no'</code>                    | 8.1.0    |
 | **`presentationStyle`**   | <code>'fullscreen' \| 'popover'</code>                        | 仅 iOS：摄像头的呈现样式。                                                                                                                                                                                                                                                                                                                                               | <code>'fullscreen'</code>            | 8.1.0    |
 | **`webUseInput`**         | <code>boolean</code>                                          | 仅 Web：是否使用 PWA 元素体验或文件输入。默认行为是：如果已安装 PWA 元素则使用，否则回退到文件输入。若要始终使用文件输入，请将此选项设为 `true`。了解更多关于 PWA 元素的信息：https://capacitorjs.com/docs/web/pwa-elements                                                                                                                                           |                                      | 8.1.0    |
-| **`includeMetadata`**     | <code>boolean</code>                                          | <a href="#mediaresult">MediaResult</a> 是否应包含其元数据。如果在获取元数据时发生错误，将返回空值。                                                                                                                                                                                                                                                                      | <code>false</code>                   | 8.1.0    |#### RecordVideoOptions
+| **`includeMetadata`**     | <code>boolean</code>                                          | <a href="#mediaresult">MediaResult</a> 是否应包含其元数据。如果在获取元数据时发生错误，将返回空值。                                                                                                                                                                                                                                                                      | <code>false</code>                   | 8.1.0    |
+
+#### RecordVideoOptions
 
 | Prop                  | Type                 | Description                                                                                                                                                                                                                                            | Default            | Since |
 | --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ----- |
@@ -719,7 +731,11 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 
 | Prop          | Type                       | Description                | Since |
 | ------------- | -------------------------- | -------------------------- | ----- |
-| **`results`** | <code>MediaResult[]</code> | 媒体结果列表。             | 8.1.0 |#### 从画廊选择选项| 属性                           | 类型                                                                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 默认值                                  | 支持版本 |
+| **`results`** | <code>MediaResult[]</code> | 媒体结果列表。             | 8.1.0 |
+
+#### 从画廊选择选项 {#choosefromgalleryoptions}
+
+| 属性                           | 类型                                                                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 默认值                                  | 支持版本 |
 | ------------------------------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------- |
 | **`mediaType`**                | <code><a href="#mediatypeselection">MediaTypeSelection</a></code>    | 要选择的媒体类型，可以是图片、视频或两者兼有。                                                                                                                                                                                                                                                                                                                                                                                                                                                | <code>MediaTypeSelection.Photo</code>   | 8.1.0    |
 | **`allowMultipleSelection`**   | <code>boolean</code>                                                | 是否允许从图库中选择多个媒体文件。                                                                                                                                                                                                                                                                                                                                                                                                                                                  | <code>false</code>                      | 8.1.0    |
@@ -730,7 +746,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`quality`**                  | <code>number</code>                                                 | 返回图片的质量，范围 0-100。仅适用于 <a href="#mediatype">`MediaType.Photo`</a> 和 JPEG 格式。注意：此选项仅在 Android 和 iOS 上受支持。                                                                                                                                                                                                                                                                                                                         | <code>100</code>                        | 8.1.0    |
 | **`targetWidth`**              | <code>number</code>                                                 | 要应用的图片目标宽度。必须为正数，需与 `targetHeight` 配合使用。选择视频时不适用。注意：此选项仅在 Android 和 iOS 上受支持。                                                                                                                                                                                                                                                                                                                                              |                                         | 1.0.0    |
 | **`targetHeight`**             | <code>number</code>                                                 | 要应用的图片目标高度。必须为正数，需与 `targetWidth` 配合使用。选择视频时不适用。注意：此选项仅在 Android 和 iOS 上受支持。                                                                                                                                                                                                                                                                                                                                              |                                         | 8.1.0    || **`correctOrientation`**     | <code>boolean</code>                                              | 是否自动将图像旋转到“向上”以修正竖屏模式下的方向。当选择视频时不适用。注意：此选项仅在 Android 和 iOS 上支持。                                                                                                                                                                                                                                                                                                                     | <code>true</code>                     | 8.1.0 |
-| **`webUseInput`**            | <code>boolean</code>                                              | 仅限 Web：是否使用 PWA Element 体验或文件输入。默认情况下，如果已安装 PWA Elements 则使用它，否则回退到文件输入。要始终使用文件输入，请将此选项设为 `true`。了解更多关于 PWA Elements 的信息：https://capacitorjs.com/docs/web/pwa-elements                                                                                                                                                                                                                                      |                                       | 8.1.0 |#### EditPhotoResult
+| **`webUseInput`**            | <code>boolean</code>                                              | 仅限 Web：是否使用 PWA Element 体验或文件输入。默认情况下，如果已安装 PWA Elements 则使用它，否则回退到文件输入。要始终使用文件输入，请将此选项设为 `true`。了解更多关于 PWA Elements 的信息：https://capacitorjs.com/docs/web/pwa-elements                                                                                                                                                                                                                                      |                                       | 8.1.0 |
+
+#### EditPhotoResult
 
 | Prop              | Type                | Description                  | Since |
 | ----------------- | ------------------- | ---------------------------- | ----- |
@@ -788,7 +806,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`webPath`**      | <code>string</code>  | webPath 返回一个可用于设置图像 `src` 属性的路径，以实现高效的加载与渲染。                                                                                                                                                                                     | 1.0.0 |
 | **`exif`**         | <code>any</code>     | 从图像中提取的 Exif 数据（如果有）。                                                                                                                                                                                                                          | 1.0.0 |
 | **`format`**       | <code>string</code>  | 图像的格式，例如：jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 端支持 jpeg、png 和 gif，但确切可用性可能因浏览器而异。当 `webUseInput` 设为 `true` 或 `source` 设为 `Photos` 时，才支持 gif 格式。                                                          | 1.0.0 |
-| **`saved`**        | <code>boolean</code> | 图像是否已保存到相册。在 Android 和 iOS 上，如果用户未授予所需权限，保存到相册可能会失败。Web 端没有相册概念，因此始终返回 `false`。                                                                                                                          | 1.1.0 |#### ImageOptions
+| **`saved`**        | <code>boolean</code> | 图像是否已保存到相册。在 Android 和 iOS 上，如果用户未授予所需权限，保存到相册可能会失败。Web 端没有相册概念，因此始终返回 `false`。                                                                                                                          | 1.1.0 |
+
+#### ImageOptions
 
 | Prop                     | 类型                                                           | 描述                                                                                                                                                                                                                                                                           | 默认值                            | 版本   |
 | ------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- | ----- |
@@ -806,7 +826,9 @@ pickImages(options: GalleryImageOptions) => Promise<GalleryPhotos>
 | **`promptLabelHeader`**  | <code>string</code>                                            | 显示提示框时使用的文本。                                                                                                                                                                                                                                                        | <code>'Photo'</code>              | 1.0.0 |
 | **`promptLabelCancel`**  | <code>string</code>                                            | 显示提示框时使用的文本。仅 iOS：取消按钮的标签。                                                                                                                                                                                                                               | <code>'Cancel'</code>             | 1.0.0 |
 | **`promptLabelPhoto`**   | <code>string</code>                                            | 显示提示框时使用的文本。选择已保存图片的按钮标签。                                                                                                                                                                                                                             | <code>'From Photos'</code>        | 1.0.0 |
-| **`promptLabelPicture`** | <code>string</code>                                            | 显示提示框时使用的文本。打开相机的按钮标签。                                                                                                                                                                                                                                   | <code>'Take Picture'</code>       | 1.0.0 |#### GalleryImageOptions
+| **`promptLabelPicture`** | <code>string</code>                                            | 显示提示框时使用的文本。打开相机的按钮标签。                                                                                                                                                                                                                                   | <code>'Take Picture'</code>       | 1.0.0 |
+
+#### GalleryImageOptions
 
 | 属性                          | 类型                                   | 描述                                                                                           | 默认值                     | 起始版本 |
 | ----------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------- | -------- |

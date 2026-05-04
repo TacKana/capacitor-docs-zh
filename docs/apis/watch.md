@@ -171,7 +171,9 @@ async uploadMyWatchUI() {
 
 效果如图所示：
 
-<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />## 与手表通信
+<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />
+
+## 与手表通信
 
 这篇文章很好地总结了原生通信方法及其应用：https://alexanderweiss.dev/blog/2023-01-18-three-ways-to-communicate-via-watchconnectivity
 

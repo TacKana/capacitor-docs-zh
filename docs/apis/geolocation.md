@@ -192,8 +192,8 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 <span id="permissionstatus"></span>
 <span id="positionoptions"></span>
 <span id="watchpositioncallback"></span>
-</docgen-api>
-```#### PositionOptions
+
+#### PositionOptions {#positionoptions}
 
 | 属性                           | 类型                 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 默认值                 | 起始版本 |
 | ---------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ----- |
@@ -204,11 +204,13 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`interval`**               | <code>number</code>  | 在 `watchPosition` 中接收位置更新的期望间隔（毫秒）。当 `interval` 取值非常小（几秒或更少）时，平台可能无法保证及时的位置更新——实际耗时可能超过指定值。平台也可能以比 `interval` 更快的频率提供位置更新。您可以使用 `minimumUpdateInterval` 来控制该行为。为了向后兼容 7.1.x 版本，如果未传入值，此参数的默认值与 `timeout` 相同。该参数仅适用于 Android，在 iOS 或 Web 平台上无效。                                                                                                                                                                                                                                  | <code>`timeout`</code> | 8.0.0 |
 | **`enableLocationFallback`** | <code>boolean</code> | 当 Google Play 服务的位置设置检查失败时，是否回退到 Android 框架的 `LocationManager`。失败可能由多种原因导致——例如设备未安装 Play 服务，或设备处于无网络连接状态（飞行模式）。若设置为 `false`，失败将直接传递给调用方。请注意，`LocationManager` 的效果可能不如 Google Play 服务实现。如果设备处于飞行模式，则仅使用 GPS 提供程序，根据 GPS 信号强度，获取位置的时间可能更长。这意味着，在这种情况下接收位置，您可能需要设置更高的超时时间。该参数仅适用于 Android，在 iOS 或 Web 平台上无效。                                                                                             | <code>true</code>      | 8.0.0 |
 
-#### ClearWatchOptions
+#### ClearWatchOptions {#clearwatchoptions}
 
 | 属性     | 类型                                              |
 | -------- | ------------------------------------------------- |
-| **`id`** | <code><a href="#callbackid">CallbackID</a></code> |#### PermissionStatus
+| **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
+
+#### PermissionStatus {#permissionstatus}
 
 | 属性                  | 类型                                                        | 描述                                                                                                                                                                                                                                                                                                                                                        | 自版本 |
 | -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
@@ -216,16 +218,16 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | 粗略位置别名（coarseLocation）对应的权限状态。在 Android 上，它会请求/检查 ACCESS_COARSE_LOCATION 权限。在 Android 12+ 中，用户可以选择大致位置（ACCESS_COARSE_LOCATION）或精确位置（ACCESS_FINE_LOCATION），因此当应用不需要高精度时可以使用此别名。在 iOS 和 Web 上，该值与 location 别名相同。 | 1.2.0 |
 
 
-#### GeolocationPluginPermissions
+#### GeolocationPluginPermissions {#geolocationpluginpermissions}
 
 | 属性              | 类型                                     |
 | ----------------- | ---------------------------------------- |
 | **`permissions`** | <code>GeolocationPermissionType[]</code> |
 
 
-### 类型别名
+### 类型别名 {#类型别名}
 
-#### WatchPositionCallback
+#### WatchPositionCallback {#watchpositioncallback}
 
 <code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
 
@@ -265,7 +267,7 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 <span id="watchpositioncallback"></span>
 </docgen-api>
 
-### 错误码
+### 错误码 {#错误}
 
 该插件在原生 Android 和 iOS 平台上会返回带有特定错误码的错误信息。Web 平台不遵循此错误标准。
 

@@ -31,7 +31,7 @@ npm install @capacitor/ios
 npx cap add ios
 ```
 
-## 打开 iOS 项目
+## 打开 iOS 项目 {#opening-the-ios-project}
 
 要在 Xcode 中打开项目，运行：
 
@@ -45,7 +45,7 @@ npx cap open ios
 open ios/App/App.xcworkspace
 ```
 
-## 运行你的应用
+## 运行你的应用 {#running-your-app}
 
 你可以通过命令行或在 Xcode 中运行你的应用。
 

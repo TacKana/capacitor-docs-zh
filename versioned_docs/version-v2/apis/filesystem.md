@@ -337,7 +337,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 ---
 
-### Interfaces
+### Interfaces {#接口}
 
 #### FileReadResult
 
@@ -467,7 +467,7 @@ copy(options: CopyOptions) => Promise<CopyResult>
 | **`directory`**   | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 包含现有文件或目录的 <a href="#filesystemdirectory">FilesystemDirectory</a>                                                  |
 | **`toDirectory`** | <code><a href="#filesystemdirectory">FilesystemDirectory</a></code> | 包含目标文件或目录的 <a href="#filesystemdirectory">FilesystemDirectory</a>。如果不提供，将使用 'directory' 参数作为目标位置 |
 
-### Enums
+### Enums {#枚举}
 
 #### FilesystemDirectory
 

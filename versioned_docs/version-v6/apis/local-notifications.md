@@ -17,7 +17,7 @@ npm install @capacitor/local-notifications@latest-6
 npx cap sync
 ```
 
-## Android 平台说明
+## Android 平台说明 {#android}
 
 Android 13 要求进行权限检查才能发送通知。您需要相应地调用 `checkPermissions()` 和 `requestPermissions()`。
 
@@ -124,7 +124,9 @@ export default config;
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
-```### schedule(...)
+```
+
+### schedule(...)
 
 ```typescript
 schedule(options: ScheduleOptions) => Promise<ScheduleResult>
@@ -379,7 +381,9 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 
 **自：** 1.0.0
 
---------------------### addListener('localNotificationActionPerformed', ...)
+--------------------
+
+### addListener('localNotificationActionPerformed', ...)
 
 ```typescript
 addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notificationAction: ActionPerformed) => void) => Promise<PluginListenerHandle>
@@ -435,7 +439,11 @@ removeAllListeners() => Promise<void>
 
 | 属性                    | 类型                                   | 描述                               | 自 |
 | ----------------------- | -------------------------------------- | ---------------------------------- | -- |
-| **`notifications`**     | <code>LocalNotificationSchema[]</code> | 要安排的本地通知列表。             | 1.0.0 |#### LocalNotificationSchema| 属性                   | 类型                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
+| **`notifications`**     | <code>LocalNotificationSchema[]</code> | 要安排的本地通知列表。             | 1.0.0 |
+
+#### LocalNotificationSchema
+
+| 属性                   | 类型                                          | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
 | ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`title`**            | <code>string</code>                           | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
 | **`body`**             | <code>string</code>                           | 通知的主体内容，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
@@ -456,7 +464,9 @@ removeAllListeners() => Promise<void>
 | **`channelId`**        | <code>string</code>                           | 指定通知应投递到的通道。如果具有给定名称的通道不存在，则通知不会触发。如果未提供，将使用默认通道。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setChannelId()` 并传入提供的值。仅适用于 Android 26+。                                                                                                                                                                                                                                                                                                                                      | 1.0.0 |
 | **`ongoing`**          | <code>boolean</code>                          | 如果为 true，通知将无法被滑动清除。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setOngoing()` 并传入提供的值。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
 | **`autoCancel`**       | <code>boolean</code>                          | 如果为 true，当用户点击通知时，通知将被取消。在 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上调用 `setAutoCancel()` 并传入提供的值。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 || **`inboxList`**        | <code>string[]</code>                         | 设置一个字符串列表，用于在收件箱风格的通知中显示。最多允许 5 个字符串。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 1.0.0 |
-| **`silent`**           | <code>boolean</code>                          | 如果为 true，当应用在前台运行时，通知将不会显示。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 5.0.0 |#### 调度设置
+| **`silent`**           | <code>boolean</code>                          | 如果为 true，当应用在前台运行时，通知将不会显示。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 5.0.0 |
+
+#### 调度设置
 
 表示通知的调度计划。
 
@@ -469,7 +479,9 @@ removeAllListeners() => Promise<void>
 | **`allowWhileIdle`**| <code>boolean</code>                                    | 允许此通知在设备处于[休眠模式](https://developer.android.com/training/monitoring-device-state/doze-standby)时触发。仅适用于 Android 23+。注意，这些通知[每个应用每 9 分钟只能触发一次](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)。                                                                                               | 1.0.0    |
 | **`on`**            | <code><a href="#scheduleon">ScheduleOn</a></code>       | 在特定时间间隔<a href="#schedule">调度</a>通知。这类似于调度 [cron](https://en.wikipedia.org/wiki/Cron) 任务。仅适用于 iOS 和 Android。                                                                                                                                                                                                         | 1.0.0    |
 | **`every`**         | <code><a href="#scheduleevery">ScheduleEvery</a></code> | 按特定时间间隔<a href="#schedule">调度</a>通知。                                                                                                                                                                                                                                                                                               | 1.0.0    |
-| **`count`**         | <code>number</code>                                     | 限制按 `every` 指定的时间间隔投递通知的次数。                                                                                                                                                                                                                                                                                                    | 1.0.0    |#### 日期
+| **`count`**         | <code>number</code>                                     | 限制按 `every` 指定的时间间隔投递通知的次数。                                                                                                                                                                                                                                                                                                    | 1.0.0    |
+
+#### 日期 {#date}
 
 支持日期和时间的基本存储与检索功能。| 方法                 | 签名                                                                                                       | 描述                                                                                                                                    |
 | --------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -514,7 +526,9 @@ removeAllListeners() => Promise<void>
 | **setUTCFullYear**     | (year: number, month?: number \| undefined, date?: number \| undefined) => number                         | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象的年份值。                                           |
 | **toUTCString**        | () => string                                                                                              | 返回一个使用协调世界时 (UTC) 转换为字符串的日期。                                                           |
 | **toISOString**        | () => string                                                                                              | 以 ISO 格式返回日期的字符串值。                                                                           |
-| **toJSON**             | (key?: any) => string                                                                                     | 由 JSON.stringify 方法使用，用于将对象数据转换为 JavaScript 对象表示法 (JSON) 序列化所需的格式。            |#### ScheduleOn
+| **toJSON**             | (key?: any) => string                                                                                     | 由 JSON.stringify 方法使用，用于将对象数据转换为 JavaScript 对象表示法 (JSON) 序列化所需的格式。            |
+
+#### ScheduleOn
 
 | 属性           | 类型                                        |
 | -------------- | ------------------------------------------- |
@@ -570,7 +584,9 @@ removeAllListeners() => Promise<void>
 
 | 属性        | 类型                      | 描述                           | 始于 |
 | ----------- | ------------------------- | ------------------------------------- | ----- |
-| **`types`** | <code>ActionType[]</code> | 要注册的操作类型列表。 | 1.0.0 |#### ActionType
+| **`types`** | <code>ActionType[]</code> | 要注册的操作类型列表。 | 1.0.0 |
+
+#### ActionType
 
 一个操作类型的集合。
 
@@ -619,7 +635,9 @@ removeAllListeners() => Promise<void>
 
 | 属性                | 类型                                       | 描述                               | 始于 |
 | ------------------- | ------------------------------------------ | ---------------------------------- | ---- |
-| **`notifications`** | <code>DeliveredNotificationSchema[]</code> | 在通知屏幕上可见的通知列表。       | 1.0.0 |#### DeliveredNotificationSchema
+| **`notifications`** | <code>DeliveredNotificationSchema[]</code> | 在通知屏幕上可见的通知列表。       | 1.0.0 |
+
+#### DeliveredNotificationSchema
 
 | 属性               | 类型                                          | 描述                                                                                    | 引入版本 |
 | ------------------ | --------------------------------------------- | -------------------------------------------------------------------------------------- | -------- |
@@ -649,7 +667,9 @@ removeAllListeners() => Promise<void>
 | **`visibility`**  | <code><a href="#visibility">Visibility</a></code> | 发布到此频道的通知的可见性。此设置决定发布到此频道的通知是否显示在锁屏上，以及如果显示，是否以脱敏形式呈现。                                                                                                                                                                                                                               |                  | 1.0.0    |
 | **`lights`**      | <code>boolean</code>                              | 发布到此频道的通知是否应显示指示灯（在支持的设备上）。                                                                                                                                                                                                                                                                                   |                  | 1.0.0    |
 | **`lightColor`**  | <code>string</code>                               | 发布到此频道的通知的指示灯颜色。仅在此频道启用指示灯且设备支持时有效。支持的颜色格式为 `#RRGGBB` 和 `#RRGGBBAA`。                                                                                                                                                                                                                        |                  | 1.0.0    |
-| **`vibration`**   | <code>boolean</code>                              | 发布到此频道的通知是否应振动。                                                                                                                                                                                                                                                                                                           |                  | 1.0.0    |#### ListChannelsResult
+| **`vibration`**   | <code>boolean</code>                              | 发布到此频道的通知是否应振动。                                                                                                                                                                                                                                                                                                           |                  | 1.0.0    |
+
+#### ListChannelsResult
 
 | 属性           | 类型                   | 描述                       | 始于   |
 | -------------- | ---------------------- | -------------------------- | ------ |

@@ -219,7 +219,9 @@ addListener(eventName: 'pause', listenerFunc: () => void) => Promise<PluginListe
 
 **自：** 4.1.0
 
---------------------### addListener('resume', ...)
+--------------------
+
+### addListener('resume', ...)
 
 ```typescript
 addListener(eventName: 'resume', listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle
@@ -352,7 +354,9 @@ removeAllListeners() => Promise<void>
 
 | 属性          | 类型                                      |
 | ------------- | ----------------------------------------- |
-| **`remove`**  | <code>() =&gt; Promise&lt;void&gt;</code> |#### URLOpenListenerEvent
+| **`remove`**  | <code>() =&gt; Promise&lt;void&gt;</code> |
+
+#### URLOpenListenerEvent
 
 | 属性                       | 类型                 | 说明                                                                                                                                                                        | 始于 |
 | -------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |

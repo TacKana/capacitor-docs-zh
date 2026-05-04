@@ -164,7 +164,9 @@ android: {
 
 测试一下：运行 `npx cap run android`，你会看到应用名称不同了。
 
-## 为不同环境动态构建### 导出环境特定的 Capacitor 配置
+## 为不同环境动态构建
+
+### 导出环境特定的 Capacitor 配置
 
 所有组件都已就位，现在可以编写 `capacitor.config.ts` 文件，使其根据特定值导出不同的配置对象。
 

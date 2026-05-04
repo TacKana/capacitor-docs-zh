@@ -161,7 +161,9 @@ deinit {
 }
 ```
 
-iOS 会检测三个维度的方向变化。如代码注释所述，当方向变化不涉及横屏或竖屏方向时，我们将忽略通知监听器。## 锁定与解锁屏幕方向
+iOS 会检测三个维度的方向变化。如代码注释所述，当方向变化不涉及横屏或竖屏方向时，我们将忽略通知监听器。
+
+## 锁定与解锁屏幕方向
 
 锁定屏幕方向时，我们会将 View Controller 的 `supportedOrientations` 限制为请求的方向。解锁屏幕方向时，我们需要恢复原本设置的 `supportedOrientations`。修改代码以保存当前的 View Controller 及其当前的 `supportedOrientations`。将以下代码添加到 `ScreenOrientation` 类中。
 
@@ -330,7 +332,9 @@ public func unlock(completion: @escaping (Error?) -> Void) {
     call.resolve()
   }
 }
-```## 测试体验！
+```
+
+## 测试体验！
 
 在 Xcode 中，在设备或模拟器上运行该应用。该插件按预期工作！按下“旋转我的设备”按钮将使屏幕方向转为横屏模式，如果进一步旋转，您将看到屏幕方向已被锁定。按下“确认签名”将解除屏幕方向锁定。
 

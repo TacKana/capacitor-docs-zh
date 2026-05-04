@@ -70,7 +70,7 @@ npx cap open android
 
 打开原生项目可以让您完全控制应用的原生运行时。您可以 [创建插件](/plugins.mdx)、[添加自定义原生代码](/main/ios/custom-code.md) 或为发布 [编译您的应用](#compiling-your-native-binary)。
 
-## 编译您的原生可执行文件
+## 编译您的原生可执行文件 {#compiling-your-native-binary}
 
 在 `sync` 之后，建议您打开目标平台的 IDE：iOS 使用 Xcode，Android 使用 Android Studio，来编译您的原生应用。
 

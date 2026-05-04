@@ -92,7 +92,9 @@ await SplashScreen.show({
 - `large` (默认)
 - `small`
 
-要设置加载指示器的颜色，请使用 `spinnerColor`，其值为 `#RRGGBB` 或 `#RRGGBBAA` 格式。## 配置
+要设置加载指示器的颜色，请使用 `spinnerColor`，其值为 `#RRGGBB` 或 `#RRGGBBAA` 格式。
+
+## 配置
 
 <docgen-config>
 <!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
@@ -115,7 +117,9 @@ await SplashScreen.show({
 | **`splashImmersive`**             | <code>boolean</code>                                                                                                          | 是否在闪屏上隐藏状态栏和软件导航按钮。在启动时使用 Android 12 API 时此配置无效。仅适用于 Android。                                                                                                                                                                 |                      | 1.0.0    |
 | **`layoutName`**                  | <code>string</code>                                                                                                           | 如果 `useDialog` 设置为 true，则配置 Dialog 布局。如果 `useDialog` 未设置或为 false，则使用布局代替 ImageView。在启动时使用 Android 12 API 时此配置无效。仅适用于 Android。                                                                                        |                      | 1.1.0    |
 | **`useDialog`**                   | <code>boolean</code>                                                                                                          | 是否使用 Dialog 代替 ImageView。如果未配置 `layoutName`，将使用一个以闪屏图像为背景的布局。在启动时使用 Android 12 API 时此配置无效。仅适用于 Android。                                                                                                              |                      | 1.1.0    |
-</docgen-config>### 示例
+</docgen-config>
+
+### 示例
 
 在 `capacitor.config.json` 文件中：
 

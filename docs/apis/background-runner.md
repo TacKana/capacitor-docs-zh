@@ -141,7 +141,9 @@ Android 13 需要进行权限检查才能发送通知。您需要相应地调用
 
 ## 使用后台运行器
 
-后台运行器包含一个无头的 JavaScript 环境，该环境会调用您在 `capacitor.config.ts` 文件中指定的 JavaScript 文件中的事件处理程序。如果运行器在您的运行器文件中找到与传入事件对应的事件处理程序，它将执行该事件处理程序，然后在调用 `resolve()` 或 `reject()` 后关闭（或者如果操作系统强制终止了您的进程）。#### 示例运行器 JS 文件
+后台运行器包含一个无头的 JavaScript 环境，该环境会调用您在 `capacitor.config.ts` 文件中指定的 JavaScript 文件中的事件处理程序。如果运行器在您的运行器文件中找到与传入事件对应的事件处理程序，它将执行该事件处理程序，然后在调用 `resolve()` 或 `reject()` 后关闭（或者如果操作系统强制终止了您的进程）。
+
+#### 示例运行器 JS 文件
 
 ```js
 addEventListener('myCustomEvent', (resolve, reject, args) => {
@@ -186,7 +188,7 @@ addEventListener('remoteNotification', (resolve, reject, args) => {
 
 要查看更真实的使用 Background Runner 的示例，请查看 [Background Runner 测试应用](https://github.com/ionic-team/background-runner-testapp)。
 
-## 配置 Background Runner
+## 配置 Background Runner {#configuring-background-runner}
 
 <docgen-config>
 <!--更新源文件 JSDoc 注释并重新运行文档生成器以更新以下文档-->
@@ -283,7 +285,9 @@ Background Runner 不在浏览器或 Web 视图中执行你的 JavaScript 代码
 
 ## 后台任务的限制
 
-在移动操作系统上不可能运行持久、始终在后台运行的服务。由于 iOS 和 Android 为减少电池和数据消耗施加的限制，后台任务受到各种限制，在设计和实现后台任务时必须牢记这些限制。### iOS
+在移动操作系统上不可能运行持久、始终在后台运行的服务。由于 iOS 和 Android 为减少电池和数据消耗施加的限制，后台任务受到各种限制，在设计和实现后台任务时必须牢记这些限制。
+
+### iOS
 
 - 每次调用你的任务时，大约有最多 30 秒的运行时间，之后必须调用 `completed()`，否则任务会被终止。
 - 虽然你可以设置一个时间间隔来定义应用进入后台后任务何时运行，或者任务应运行的频率，但这并不保证。iOS 会最终决定你的任务何时运行以及运行频率，这部分取决于你的应用使用频率。
@@ -508,7 +512,9 @@ removeNotificationListeners() => any
 | ------------ | ---------------------------------------------------- | -------------------------------------- | ----- |
 | **`set`**    | <code>(key: string, value: string) =&gt; void</code> | 使用给定的键设置一个字符串值。 | 1.0.0 |
 | **`get`**    | <code>(key: string) =&gt; { value: string; }</code>  | 获取给定键的字符串值。  | 1.0.0 |
-| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。     | 1.0.0 |#### CapacitorNotifications
+| **`remove`** | <code>(key: string) =&gt; void</code>                | 移除给定键的值。     | 1.0.0 |
+
+#### CapacitorNotifications
 
 发送本地通知。
 
@@ -516,7 +522,11 @@ removeNotificationListeners() => any
 | ---------------- | --------------------------------------------------------------------------------------------------- | -------------------------- | -------- |
 | **`schedule`**   | <code>(options: {}) =&gt; void</code>                                                               | 安排本地通知               | 1.0.0    |
 | **`setBadge`**   | <code>(options: <a href="#notificationbadgeoptions">NotificationBadgeOptions</a>) =&gt; void</code> | 设置应用角标数量           | 2.0.0    |
-| **`clearBadge`** | <code>() =&gt; void</code>                                                                          | 清除应用角标数量           | 2.0.0    |#### NotificationScheduleOptions| 属性                   | 类型                 | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
+| **`clearBadge`** | <code>() =&gt; void</code>                                                                          | 清除应用角标数量           | 2.0.0    |
+
+#### NotificationScheduleOptions
+
+| 属性                   | 类型                 | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 始于版本 |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | **`id`**               | <code>number</code>  | 通知标识符。在 Android 上是 32 位整数，因此值应在 -2147483648 到 2147483647 之间（包含两端）。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 1.0.0    |
 | **`title`**            | <code>string</code>  | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1.0.0    |
@@ -534,7 +544,9 @@ removeNotificationListeners() => any
 | **`summaryText`**      | <code>string</code>  | 用于设置收件箱和大文本通知样式中的摘要文本详情。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1.0.0 |
 | **`smallIcon`**        | <code>string</code>  | 设置自定义状态栏图标。如果设置，此选项会覆盖 Capacitor 配置中的 `smallIcon` 选项。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                         | 1.0.0 |
 | **`largeIcon`**        | <code>string</code>  | 设置通知的大图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为可绘制资源 ID，即不带扩展名的文件名。仅在 Android 平台可用。                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1.0.0 |
-| **`channelId`**        | <code>string</code>  | 指定通知应发送到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。会调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 的 `setChannelId()` 方法并传入该值。仅在 Android 26+ 版本可用。                                                                                                                                                                                                                                                                                       | 1.0.0 |#### NotificationBadgeOptions
+| **`channelId`**        | <code>string</code>  | 指定通知应发送到的渠道。如果给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。会调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 的 `setChannelId()` 方法并传入该值。仅在 Android 26+ 版本可用。                                                                                                                                                                                                                                                                                       | 1.0.0 |
+
+#### NotificationBadgeOptions
 
 | 属性                    | 类型                | 说明                                                                     | 始于  |
 | ----------------------- | ------------------- | ------------------------------------------------------------------------ | ----- |

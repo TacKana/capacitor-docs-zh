@@ -162,7 +162,9 @@ async uploadMyWatchUI() {
 
 将产生以下效果：
 
-<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />## 与手表通信
+<img src="https://raw.githubusercontent.com/ionic-team/CapacitorWatch/main/img/example-watchui.png" />
+
+## 与手表通信
 
 这篇文章对原生方法及其影响做了很好的总结：https://alexanderweiss.dev/blog/2023-01-18-three-ways-to-communicate-via-watchconnectivity
 

@@ -210,7 +210,9 @@ addListener(eventName: 'appUrlOpen', listenerFunc: URLOpenListener) => Promise<P
 
 **自版本：** 1.0.0
 
---------------------### addListener('appRestoredResult', ...)
+--------------------
+
+### addListener('appRestoredResult', ...)
 
 ```typescript
 addListener(eventName: 'appRestoredResult', listenerFunc: RestoredListener) => Promise<PluginListenerHandle> & PluginListenerHandle
@@ -313,7 +315,9 @@ removeAllListeners() => Promise<void>
 | ------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | **`url`**                       | <code>string</code>  | 打开应用时使用的 URL。                                                                                                                                                                             | 1.0.0  |
 | **`iosSourceApplication`**      | <code>any</code>     | 打开应用的源应用程序（仅限 iOS）https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623128-sourceapplication                                                          | 1.0.0  |
-| **`iosOpenInPlace`**            | <code>boolean</code> | 应用是应该就地打开传递的文档，还是必须先复制它。https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace                                                 | 1.0.0  |#### RestoredListenerEvent
+| **`iosOpenInPlace`**            | <code>boolean</code> | 应用是应该就地打开传递的文档，还是必须先复制它。https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionskey/1623123-openinplace                                                 | 1.0.0  |
+
+#### RestoredListenerEvent
 
 | 属性              | 类型                              | 描述                                                                                                                                             | 始于版本 |
 | ----------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |

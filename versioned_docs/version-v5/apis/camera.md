@@ -206,7 +206,9 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 --------------------
 
 
-### 接口#### 照片
+### 接口
+
+#### 照片 {#photo}
 
 | 属性               | 类型                  | 说明                                                                                                                                                                                                                                                                                                                                                                                               | 引入版本 |
 | ------------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -216,7 +218,9 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`webPath`**      | <code>string</code>   | webPath 返回一个路径，可用于设置图片的 src 属性以实现高效的加载和渲染。                                                                                                                                                                                                                                                                                                                            | 1.0.0    |
 | **`exif`**         | <code>any</code>      | 从图片中检索出的 Exif 数据（如果有的话）。                                                                                                                                                                                                                                                                                                                                                         | 1.0.0    |
 | **`format`**       | <code>string</code>   | 图片的格式，例如：jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg、png 和 gif，但具体可用性可能因浏览器而异。仅当 `webUseInput` 设置为 `true` 或 `source` 设置为 `Photos` 时，才支持 gif。                                                                                                                                                                                                 | 1.0.0    |
-| **`saved`**        | <code>boolean</code>  | 图片是否已保存到相册。在 Android 和 iOS 上，如果用户未授予必要的权限，保存到相册可能会失败。在 Web 上没有相册，因此始终返回 false。                                                                                                                                                                                                                                                                 | 1.1.0    |#### 图像选项
+| **`saved`**        | <code>boolean</code>  | 图片是否已保存到相册。在 Android 和 iOS 上，如果用户未授予必要的权限，保存到相册可能会失败。在 Web 上没有相册，因此始终返回 false。                                                                                                                                                                                                                                                                 | 1.1.0    |
+
+#### 图像选项 {#imageoptions}
 
 | 属性                      | 类型                                                          | 说明                                                                                                                                                                                                                                                                    | 默认值                              | 始于版本 |
 | ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------- |
@@ -237,11 +241,13 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`promptLabelPicture`**  | <code>string</code>                                           | 显示提示时使用的文本值。<br/>打开相机的按钮标签。                                                                                                                                                                                                                        | <code>: 'Take Picture'</code>       | 1.0.0    |
 
 
-#### 相册照片
+#### 相册照片 {#galleryphotos}
 
 | 属性          | 类型                        | 说明                       | 始于版本 |
 | ------------- | --------------------------- | -------------------------- | -------- |
-| **`photos`**  | <code>GalleryPhoto[]</code> | 所有已选取照片的数组。     | 1.2.0    |#### GalleryPhoto（相册照片）
+| **`photos`**  | <code>GalleryPhoto[]</code> | 所有已选取照片的数组。     | 1.2.0    |
+
+#### GalleryPhoto（相册照片）
 
 | 属性           | 类型                  | 描述                                                                                               | 引入版本 |
 | -------------- | --------------------- | -------------------------------------------------------------------------------------------------- | -------- |
@@ -251,7 +257,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`format`**   | <code>string</code>   | 图片的格式，例如：jpeg、png、gif。iOS 和 Android 仅支持 jpeg。Web 支持 jpeg、png 和 gif。          | 1.2.0    |
 
 
-#### GalleryImageOptions（相册图片选项）
+#### GalleryImageOptions（相册图片选项） {#galleryimageoptions}
 
 | 属性                     | 类型                                   | 描述                                                                                                                   | 默认值                        | 引入版本 |
 | ------------------------ | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------- |
@@ -263,7 +269,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`limit`**              | <code>number</code>                    | 仅限 iOS：用户能够选择的图片最大数量。                                                                                 | <code>0 (无限制)</code>       | 1.2.0    |
 
 
-#### PermissionStatus（权限状态）
+#### PermissionStatus（权限状态） {#permissionstatus}
 
 | 属性           | 类型                                                                    |
 | -------------- | ----------------------------------------------------------------------- |
@@ -271,7 +277,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`photos`**   | <code><a href="#camerapermissionstate">CameraPermissionState</a></code> |
 
 
-#### CameraPluginPermissions（相机插件权限）
+#### CameraPluginPermissions（相机插件权限） {#camerapluginpermissions}
 
 | 属性                | 类型                                |
 | ------------------- | ----------------------------------- |
@@ -281,12 +287,12 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 ### 类型别名
 
 
-#### CameraPermissionState（相机权限状态）
+#### CameraPermissionState（相机权限状态） {#camerapermissionstate}
 
 <code><a href="#permissionstate">PermissionState</a> | 'limited'</code>
 
 
-#### PermissionState（权限状态）
+#### PermissionState（权限状态） {#permissionstate}
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
@@ -299,7 +305,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 ### 枚举
 
 
-#### CameraResultType（相机结果类型）
+#### CameraResultType（相机结果类型） {#cameraresulttype}
 
 | 成员            | 值                        |
 | --------------- | ------------------------- |
@@ -308,7 +314,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`DataUrl`**   | <code>'dataUrl'</code>    |
 
 
-#### CameraSource（相机来源）
+#### CameraSource（相机来源） {#camerasource}
 
 | 成员           | 值                        | 描述                                             |
 | -------------- | ------------------------- | ------------------------------------------------ |
@@ -317,7 +323,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`Photos`**   | <code>'PHOTOS'</code>     | 从相册或照片库中选择现有照片。                   |
 
 
-#### CameraDirection（相机方向）
+#### CameraDirection（相机方向） {#cameradirection}
 
 | 成员          | 值                       |
 | ------------- | ------------------------ |

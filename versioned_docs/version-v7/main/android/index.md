@@ -32,7 +32,7 @@ npm install @capacitor/android
 npx cap add android
 ```
 
-## 打开 Android 项目
+## 打开 Android 项目 {#opening-the-android-project}
 
 要在 Android Studio 中打开项目，请运行：
 
@@ -60,7 +60,7 @@ npx cap run android
 
 > 使用 `run` 命令需要一台物理 Android 设备或一个已下载的模拟器系统映像。请参阅 [Android Studio 中创建模拟器设备和下载系统映像的文档](https://developer.android.com/studio/run/managing-avds)。
 
-### 通过 Android Studio 运行
+### 通过 Android Studio 运行 {#running-with-android-studio}
 
 在 Android Studio 中，首先选择设备或模拟器，然后点击运行或调试按钮来启动应用。除非你正在调试 Java 或 Kotlin 代码，否则建议使用运行按钮。
 

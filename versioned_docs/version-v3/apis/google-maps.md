@@ -221,7 +221,9 @@ const MyMap: React.FC = () => {
 }
 
 export default MyMap;
-```### JavaScript
+```
+
+### JavaScript
 
 ```html
 <capacitor-google-map id="map"></capacitor-google-map>
@@ -496,7 +498,9 @@ setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
 
---------------------### setOnCameraIdleListener(...)
+--------------------
+
+### setOnCameraIdleListener(...)
 
 ```typescript
 setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
@@ -613,7 +617,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 --------------------
 
 
-### 接口#### CreateMapArgs
+### 接口
+
+#### CreateMapArgs
 
 用于创建地图时包含选项的接口。
 
@@ -683,7 +689,9 @@ Google 地图相机的配置属性。
 | **`bearing`**           | <code>number</code>                       | 相机的方位角，以度为单位，从正北方向顺时针测量。                                                                | <code>0</code>       |
 | **`angle`**             | <code>number</code>                       | 相机与天底（直接面向地球）的角度，以度为单位。唯一允许的值是 0 和 45。                                           | <code>0</code>       |
 | **`animate`**           | <code>boolean</code>                      | 是否以动画方式过渡到新的相机属性。                                                                              | <code>false</code>   |
-| **`animationDuration`** | <code>number</code>                       | 动画持续时间（毫秒）。                                                                                          |                      |#### MapPadding
+| **`animationDuration`** | <code>number</code>                       | 动画持续时间（毫秒）。                                                                                          |                      |
+
+#### MapPadding
 
 控制视图"可见"区域的内边距设置。
 

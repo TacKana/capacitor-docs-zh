@@ -122,7 +122,7 @@ npm uninstall echo
 - `docgen`：根据插件接口生成文档（参见[文档](#documentation)）
 - `build`：将 Web 代码构建为 ESM 和 bundle 分发版本
 
-## 文档
+## 文档 {#documentation}
 
 要为插件功能编写文档，请在方法和属性上添加 [JSDoc](https://jsdoc.app) 注释块。
 

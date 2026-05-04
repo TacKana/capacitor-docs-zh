@@ -49,13 +49,13 @@ Capacitor 与某些 Cordova 插件可能存在兼容性问题。许多官方 Cor
 
 如果您发现现有 Cordova 插件存在问题，请[告知我们](https://github.com/ionic-team/capacitor/issues/new)，并提供问题的详细信息和插件信息。
 
-### 变量与钩子
+### 变量与钩子 {#variables-and-hooks}
 
 由于我们的理念是让您控制原生项目源代码（这意味着像钩子这样的东西是不必要的），Capacitor 不支持 Cordova 安装变量、自动配置或钩子。如果您的插件需要设置变量或配置，您需要手动应用这些配置设置，方法是将插件的 `plugin.xml` 与 iOS 和 Android 上的所需设置进行映射。
 
 请查阅 [iOS](/main/ios/configuration.md) 和 [Android](/main/android/configuration.md) 配置指南，了解如何配置每个平台。
 
-### 已知不兼容插件
+### 已知不兼容插件 {#known-incompatible-plugins}
 
 如果已知某个插件会冲突或导致构建问题，那么在运行 `npx cap sync` 时，该插件将被跳过。
 

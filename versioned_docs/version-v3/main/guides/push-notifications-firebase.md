@@ -210,7 +210,9 @@ export class HomePage implements OnInit {
 ```bash
 ionic build
 npx cap copy
-```## 为你的应用在 Firebase 创建项目
+```
+
+## 为你的应用在 Firebase 创建项目
 
 在将 Firebase Cloud Messaging 连接到你的应用并发送推送通知之前，你需要在 Firebase 中创建一个项目。
 
@@ -342,7 +344,9 @@ end
 
 ```bash
 npx cap update ios
-```### 添加初始化代码
+```
+
+### 添加初始化代码
 
 为了让您的 iOS 应用在启动时连接到 Firebase，您需要在 `AppDelegate.swift` 文件中添加以下内容。
 

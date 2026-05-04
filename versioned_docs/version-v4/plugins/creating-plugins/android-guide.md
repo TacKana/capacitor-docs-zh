@@ -174,7 +174,9 @@ public void load() {
 
 ### 实现权限请求
 
-通过在 `@CapacitorPlugin` 注解中定义权限，`checkPermissions()` 和 `requestPermissions()` 方法应该完全功能正常。应用开发者将能够根据需要手动请求权限。然而，最佳实践是将插件功能与自动权限请求一起包装。#### 权限回调
+通过在 `@CapacitorPlugin` 注解中定义权限，`checkPermissions()` 和 `requestPermissions()` 方法应该完全功能正常。应用开发者将能够根据需要手动请求权限。然而，最佳实践是将插件功能与自动权限请求一起包装。
+
+#### 权限回调
 
 创建一个包含单个 `PluginCall` 参数的 void 方法，并用 `@PermissionCallback` 注解进行标记，然后将该方法名称作为字符串传入权限请求调用中。该回调将在权限请求完成后执行。
 
@@ -231,7 +233,7 @@ private void cameraPermsCallback(PluginCall call) {
   </manifest>
 ```
 
-## 错误处理
+## 错误处理 {#error-handling}
 
 ### 不可用
 
@@ -304,7 +306,7 @@ class ImagePicker extends Plugin {
 }
 ```
 
-## 插件事件
+## 插件事件 {#plugin-events}
 
 插件可以发出自定义事件，您可以通过为插件对象添加监听器来接收这些事件：
 

@@ -209,7 +209,9 @@ public void handleOnConfigurationChanged(Configuration newConfig) {
 }
 ```
 
-现在，插件将仅在运行时配置更改涉及方向变化时通知监听器。## 锁定与解锁屏幕方向
+现在，插件将仅在运行时配置更改涉及方向变化时通知监听器。
+
+## 锁定与解锁屏幕方向
 
 正如我们在 iOS 实现中看到的，我们需要一个辅助方法来将 JavaScript 的 OrientationType 映射为对应的原生枚举值。对于 Android 系统，我们将 OrientationType 映射到 ActivityInfo 的枚举值。在 `ScreenOrientation` 类中添加以下方法：
 

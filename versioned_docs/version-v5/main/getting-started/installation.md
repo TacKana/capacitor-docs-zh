@@ -18,7 +18,7 @@ slug: /getting-started
 npm init @capacitor/app
 ```
 
-## 将 Capacitor 添加到您的 Web 应用
+## 将 Capacitor 添加到您的 Web 应用 {#add-capacitor-to-your-web-app}
 
 Capacitor 被设计为可以轻松集成到任何现代 JavaScript Web 应用中。但是，为了在现有应用中使用 Capacitor，您的项目需要满足以下三个要求：
 

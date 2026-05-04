@@ -161,7 +161,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 | **`ADAPTIVE`**  | <code>3</code>  |
 
 
-#### CapacitorBarcodeScannerAndroidScanningLibrary
+#### CapacitorBarcodeScannerAndroidScanningLibrary {#capacitorbarcodeScannerAndroidScanningLibrary}
 
 | 成员        | 值                     |
 | ----------- | ---------------------- |

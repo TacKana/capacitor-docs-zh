@@ -41,7 +41,7 @@ Capacitor 插件应努力为跨平台提供统一的体验，并且符合 JavaSc
 - **优先使用统一的单位。** 示例：如果 iOS API 使用摄氏度，而 Android API 使用华氏度，那么在数据传递给 JavaScript 使用者之前，应将其转换为其中一种单位。
 - **优先使用带时区的 ISO 8601 日期时间格式，而非其他格式。** 示例：从像 `"2020-12-13T20:21:58.415Z"` 这样的字符串可以轻松获得准确的 JavaScript `Date` 对象，但如果给定 Unix 时间戳（JavaScript 时间戳以毫秒为单位）则会令人困惑。始终包含时区，否则不同地区的日期时间可能会被不准确地解释。
 
-## 插件生成器
+## 插件生成器 {#plugin-generator}
 
 准备好开始了吗？Capacitor 有一个 [插件生成器](https://github.com/ionic-team/create-capacitor-plugin)，您可以用它来开始开发您的插件。
 

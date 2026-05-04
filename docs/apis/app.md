@@ -243,7 +243,9 @@ toggleBackButtonHandler(options: ToggleBackButtonHandlerOptions) => Promise<void
 
 **自版本：** 7.1.0
 
---------------------### addListener('appStateChange', ...)
+--------------------
+
+### addListener('appStateChange', ...)
 
 ```typescript
 addListener(eventName: 'appStateChange', listenerFunc: StateChangeListener) => Promise<PluginListenerHandle>
@@ -400,7 +402,9 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### 接口#### AppInfo
+### 接口
+
+#### AppInfo
 
 | 属性            | 类型                 | 描述                                                                                         | 起始版本 |
 | --------------- | -------------------- | -------------------------------------------------------------------------------------------- | -------- |

@@ -105,7 +105,7 @@ override public func load() {
 }
 ```
 
-### 导出到 Capacitor
+### 导出到 Capacitor {#export-to-capacitor}
 
 为确保 Capacitor 能够识别你的插件，插件生成器会做两件事：将你的 Swift 类导出到 Objective-C，并使用提供的 Capacitor Objective-C 宏进行注册。
 
@@ -175,7 +175,9 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
     call.resolve(["location": locationState])
 }
-```#### `requestPermissions()`
+```
+
+#### `requestPermissions()`
 
 **基于块的 API**
 
@@ -260,7 +262,7 @@ let store = CNContactStore()
 
 有关如何持久化插件调用的详细信息，请参阅[保存插件调用指南](/main/reference/core-apis/saving-calls.md)。
 
-## 错误处理
+## 错误处理 {#error-handling}
 
 ### 不可用
 
@@ -288,7 +290,7 @@ let store = CNContactStore()
 }
 ```
 
-## 插件事件
+## 插件事件 {#plugin-events}
 
 插件可以发出自己的事件，您可以通过向插件对象附加监听器来监听这些事件：
 

@@ -12,7 +12,7 @@ slug: /vscode/debugging
 你可以按下 `⌥` + D 来调试你的应用（Windows 上是 `ALT` + `D`）。
 :::
 
-## 在 VS Code 中调试
+## 在 VS Code 中调试 {#debug-in-vs-code}
 
 点击 `Debug` 项目以启动一个 Web 浏览器或附加到正在运行的 Android Web 视图进行调试。
 
@@ -22,7 +22,7 @@ slug: /vscode/debugging
 你可以从 `Settings` > `Advanced` > `Browser` 中选择要调试的浏览器。
 :::
 
-## 附加到 Web 视图
+## 附加到 Web 视图 {#attach-to-web-view}
 
 你可以通过先点击 `Run` > `Android` 或在 Android Studio 中运行应用来调试正在运行的真实或模拟 Android 设备。
 
@@ -46,7 +46,7 @@ slug: /vscode/debugging
 - 任何正在运行的 Web 视图将作为远程目标显示，你可以打开它们。
 - 使用 Edge 的调试和检查工具。
 
-### 使用 Safari
+### 使用 Safari {#use-safari}
 
 当你从 `Run` > `iOS` 或 XCode 运行应用后：
 - 打开 **Safari**，从 `Develop` 菜单中选择 iOS 设备。
@@ -58,7 +58,7 @@ slug: /vscode/debugging
 你还需要确保你的移动设备已启用调试功能。
 :::
 
-## 远程日志记录
+## 远程日志记录 {#remote-logging}
 
 远程日志记录功能会将所有对 `console.log`（以及 `console.error` 等）的调用发送到 VS Code 的 `output` 窗口。这使得在设备上运行应用时进行调试变得更加容易，因为你不需要附加到其 Web 视图。
 

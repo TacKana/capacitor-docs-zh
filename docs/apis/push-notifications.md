@@ -133,7 +133,9 @@ export default config;
 
 </docgen-config>
 
-## 静默推送通知 / 纯数据通知#### iOS
+## 静默推送通知 / 纯数据通知
+
+#### iOS
 此插件不支持 iOS 静默推送（远程通知）。我们建议使用原生代码解决方案来处理这类通知，详见[向应用推送后台更新](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)。
 
 #### Android
@@ -361,7 +363,9 @@ checkPermissions() => Promise<PermissionStatus>
 
 **自版本：** 1.0.0
 
---------------------### requestPermissions()
+--------------------
+
+### requestPermissions()
 
 ```typescript
 requestPermissions() => Promise<PermissionStatus>
@@ -502,7 +506,9 @@ removeAllListeners() => Promise<void>
 | **`click_action`**    | <code>string</code>  | 用户打开通知时要执行的操作。仅 Android 可用。                                                                 | 1.0.0  |
 | **`link`**            | <code>string</code>  | 通知中的深层链接。仅 Android 可用。                                                                           | 1.0.0  |
 | **`group`**           | <code>string</code>  | 设置通知分组的组标识符。仅 Android 可用。功能类似于 iOS 的 `threadIdentifier`。                               | 1.0.0  |
-| **`groupSummary`**    | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅 Android 可用。                                                          | 1.0.0  |#### 频道
+| **`groupSummary`**    | <code>boolean</code> | 将此通知指定为关联 `group` 的摘要。仅 Android 可用。                                                          | 1.0.0  |
+
+#### 频道 {#channel}
 
 | 属性               | 类型                                              | 说明                                                                                                                                                                                                                                                           | 默认值            | 始于 |
 | ------------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---- |
@@ -517,42 +523,42 @@ removeAllListeners() => Promise<void>
 | **`vibration`**    | <code>boolean</code>                              | 发布到该频道的通知是否应振动。                                                                                                                                                                                                                                 |                   | 1.0.0 |
 
 
-#### 列出频道结果
+#### 列出频道结果 {#listchannelsresult}
 
 | 属性            | 类型                   | 说明                                     | 始于 |
 | --------------- | ---------------------- | ---------------------------------------- | ---- |
 | **`channels`**  | <code>Channel[]</code> | 由您的应用创建的所有频道列表。           | 1.0.0 |
 
 
-#### 权限状态
+#### 权限状态 {#permissionstatus}
 
 | 属性           | 类型                                                        | 说明                     | 始于 |
 | -------------- | ----------------------------------------------------------- | ------------------------ | ---- |
 | **`receive`**  | <code><a href="#permissionstate">PermissionState</a></code> | 接收通知的权限状态。     | 1.0.0 |
 
 
-#### 插件监听器句柄
+#### 插件监听器句柄 {#pluginlistenerhandle}
 
 | 属性          | 类型                                      |
 | ------------- | ----------------------------------------- |
 | **`remove`**  | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-#### 令牌
+#### 令牌 {#token}
 
 | 属性          | 类型                | 说明                                                               | 始于 |
 | ------------- | ------------------- | ------------------------------------------------------------------ | ---- |
 | **`value`**   | <code>string</code> | 在 iOS 上包含 APNS 令牌。在 Android 上包含 FCM 令牌。              | 1.0.0 |
 
 
-#### 注册错误
+#### 注册错误 {#registrationerror}
 
 | 属性          | 类型                | 说明                                 | 始于 |
 | ------------- | ------------------- | ------------------------------------ | ---- |
 | **`error`**   | <code>string</code> | 描述注册失败的错误信息。             | 4.0.0 |
 
 
-#### 已执行的操作
+#### 已执行的操作 {#actionperformed}
 
 | 属性                | 类型                                                                      | 说明                                                              | 始于 |
 | ------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---- |
@@ -564,21 +570,21 @@ removeAllListeners() => Promise<void>
 ### 类型别名
 
 
-#### 重要性
+#### 重要性 {#importance}
 
 重要性级别。更多详情，请参阅 [Android 开发者文档](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
 
 <code>1 | 2 | 3 | 4 | 5</code>
 
 
-#### 可见性
+#### 可见性 {#visibility}
 
 通知可见性。更多详情，请参阅 [Android 开发者文档](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE)
 
 <code>-1 | 0 | 1</code>
 
 
-#### 权限状态
+#### 权限状态 {#permissionstate}
 
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 

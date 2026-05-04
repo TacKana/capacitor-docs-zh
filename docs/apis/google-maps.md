@@ -165,7 +165,9 @@ await newMap.setOnMarkerClickListener((event) => {...});
 await newMap.destroy();
 ```
 
-## 完整示例### Angular
+## 完整示例
+
+### Angular
 
 ```typescript
 import { GoogleMap } from '@capacitor/google-maps';
@@ -445,7 +447,9 @@ enableTouch() => Promise<void>
 disableTouch() => Promise<void>
 ```
 
---------------------### enableClustering(...)
+--------------------
+
+### enableClustering(...)
 
 ```typescript
 enableClustering(minClusterSize?: number | undefined) => Promise<void>
@@ -735,7 +739,9 @@ getMapBounds() => Promise<LatLngBounds>
 
 **返回值:** <code>Promise&lt;LatLngBounds&gt;</code>
 
---------------------### fitBounds(...)
+--------------------
+
+### fitBounds(...)
 
 ```typescript
 fitBounds(bounds: LatLngBounds, padding?: number | undefined) => Promise<void>
@@ -856,7 +862,9 @@ setOnPolygonClickListener(callback?: MapListenerCallback<PolygonClickCallbackDat
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`**  | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#polygonclickcallbackdata">PolygonClickCallbackData</a>&gt;</code> |
 
---------------------### setOnCircleClickListener(...)
+--------------------
+
+### setOnCircleClickListener(...)
 
 ```typescript
 setOnCircleClickListener(callback?: MapListenerCallback<CircleClickCallbackData> | undefined) => Promise<void>
@@ -947,7 +955,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 --------------------
 
 
-### 接口#### CreateMapArgs
+### 接口
+
+#### CreateMapArgs
 
 一个包含创建地图时所用选项的接口。
 
@@ -959,7 +969,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`element`**     | <code>HTMLElement</code>                                    | Google 地图视图将挂载的 DOM 元素，它决定了地图的大小和定位。                                                                                     |                    |
 | **`forceCreate`** | <code>boolean</code>                                        | 如果已存在具有所提供 id 的地图实例，则销毁并重新创建它。                                                                                                    | <code>false</code> |
 | **`region`**      | <code>string</code>                                         | 区域参数会更改您的应用以提供不同的地图图块或使应用产生偏向（例如，使地理编码结果偏向该区域）。仅适用于 Web 平台。      |                    |
-| **`language`**    | <code>string</code>                                         | 语言参数会影响控件名称、版权声明、驾驶路线、控件标签的显示，以及服务请求的响应。仅适用于 Web 平台。 |                    |#### GoogleMapConfig
+| **`language`**    | <code>string</code>                                         | 语言参数会影响控件名称、版权声明、驾驶路线、控件标签的显示，以及服务请求的响应。仅适用于 Web 平台。 |                    |
+
+#### GoogleMapConfig
 
 在 Web 端，所有 JavaScript 版本的 Google Maps 选项都可用，因为 GoogleMapConfig 扩展了 `google.maps.MapOptions`。
 在 iOS 和 Android 端，只有 <a href="#googlemapconfig">GoogleMapConfig</a> 上声明的配置选项可用。| 属性                   | 类型                                      | 描述                                                                                                                                                                                                                                                                                                                                                             | 默认值             | 引入版本 |
@@ -979,7 +991,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`maxZoom`**          | <code>number \| null</code>               | 地图上显示的最大缩放级别。如果省略或设置为 &lt;code&gt;null&lt;/code&gt;，则使用当前地图类型的最大缩放级别。有效的缩放值是从零到支持的 &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;最大缩放级别&lt;/a&gt; 的数字。                                                                                                                                 |                    |          |
 | **`minZoom`**          | <code>number \| null</code>               | 地图上显示的最小缩放级别。如果省略或设置为 &lt;code&gt;null&lt;/code&gt;，则使用当前地图类型的最小缩放级别。有效的缩放值是从零到支持的 &lt;a href="https://developers.google.com/maps/documentation/javascript/maxzoom"&gt;最大缩放级别&lt;/a&gt; 的数字。                                                                                                                                 |                    |          |
 | **`mapTypeId`**        | <code>string \| null</code>               | 初始地图的 mapTypeId。默认为 &lt;code&gt;ROADMAP&lt;/code&gt;。                                                                                                                                                                                                                                                                                               |                    |          || **`heading`**          | <code>number \| null</code>               | 航拍影像的朝向，以正北方向为基准，按顺时针方向以度数表示。朝向会自动捕捉到有可用影像的最接近角度。                                                                                                                                                                                           |                    |       |
-| **`restriction`**      | <code>MapRestriction \| null</code>       | 定义限制用户可访问地图区域的边界。设置后，用户只能在相机视图保持在边界限制范围内时进行平移和缩放操作。                                                                                                                                                                                       |                    |       |#### LatLng
+| **`restriction`**      | <code>MapRestriction \| null</code>       | 定义限制用户可访问地图区域的边界。设置后，用户只能在相机视图保持在边界限制范围内时进行平移和缩放操作。                                                                                                                                                                                       |                    |       |
+
+#### LatLng
 
 表示一对经纬度坐标的接口。
 
@@ -1036,7 +1050,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | 属性      | 类型                |
 | --------- | ------------------- |
 | **`x`**   | <code>number</code> |
-| **`y`**   | <code>number</code> |#### 多边形
+| **`y`**   | <code>number</code> |
+
+#### 多边形 {#polygon}
 
 在网页端，所有 JavaScript <a href="#polygon">Polygon</a> 选项均可使用，
 因为 Polygon 扩展了 google.maps.PolygonOptions。
@@ -1050,7 +1066,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`fillOpacity`**   | <code>number</code>                       | 填充的不透明度，取值范围为 0.0 到 1.0。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          || **`geodesic`**      | <code>boolean</code>                      | 当设为 &lt;code&gt;true&lt;/code&gt; 时，多边形的边将被解释为测地线并会沿着地球的曲率延伸。当设为 &lt;code&gt;false&lt;/code&gt; 时，多边形的边将在屏幕空间中以直线渲染。请注意，拖动时测地线多边形的形状可能会发生变化，因为其尺寸是相对于地球表面保持的。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | **`clickable`**     | <code>boolean</code>                      | 指示此 &lt;code&gt;<a href="#polygon">Polygon</a>&lt;/code&gt; 是否处理鼠标事件。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **`title`**         | <code>string</code>                       | 标题，即覆盖物的简短描述。某些覆盖物（例如标记）会在地图上显示标题。标题也是默认的无障碍访问文本。仅 iOS 可用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **`tag`**           | <code>string</code>                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |#### 圆形
+| **`tag`**           | <code>string</code>                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+#### 圆形 {#circle}
 
 在 Web 端，所有 JavaScript <a href="#circle">Circle</a> 选项均可用，因为 Circle 继承了 google.maps.CircleOptions。
 在 iOS 和 Android 端，仅支持 <a href="#circle">Circle</a> 上声明的配置选项。
@@ -1067,7 +1085,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`tag`**          | <code>string</code>   |                                                                                                                                                                                        |
 
 
-#### 折线
+#### 折线 {#polyline}
 
 在 Web 端，所有 JavaScript <a href="#polyline">Polyline</a> 选项均可用，因为 Polyline 继承了 google.maps.PolylineOptions。
 在 iOS 和 Android 端，仅支持 <a href="#polyline">Polyline</a> 上声明的配置选项。
@@ -1083,14 +1101,16 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`styleSpans`**    | <code>StyleSpan[]</code>  | 用于指定折线一个或多个线段的颜色。styleSpans 属性是一个 <a href="#stylespan">StyleSpan</a> 对象数组。设置 spans 属性是更改折线颜色的推荐方式。仅在 iOS 和 Android 平台可用。                                                                                                                                |
 
 
-#### 样式跨度（StyleSpan）
+#### 样式跨度（StyleSpan） {#stylespan}
 
 描述折线某一部分的样式。
 
 | 属性           | 类型                | 描述                                                                       |
 | -------------- | ------------------- | --------------------------------------------------------------------------------- |
 | **`color`**    | <code>string</code> | 描边颜色。支持所有 CSS3 颜色，但不包括扩展的命名颜色。 |
-| **`segments`** | <code>number</code> | 此跨度所包含的线段数量。                                    |#### CameraConfig
+| **`segments`** | <code>number</code> | 此跨度所包含的线段数量。                                    |
+
+#### CameraConfig
 
 Google 地图摄像头的配置属性
 

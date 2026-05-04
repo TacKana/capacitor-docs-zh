@@ -192,7 +192,9 @@ App.addListener('appUrlOpen', function (event: URLOpenListenerEvent) {
 
 iOS 配置涉及创建站点关联文件，并配置原生应用以识别应用域。
 
-> 您必须注册 Apple Developer Program。### 创建网站关联文件
+> 您必须注册 Apple Developer Program。
+
+### 创建网站关联文件
 
 首先，登录 [Apple 开发者网站](https://developer.apple.com)。进入“证书、标识符和描述文件”部分，选择你的应用标识符。记下团队 ID 和 Bundle ID，然后在“功能”下开启“关联域”，并保存：
 

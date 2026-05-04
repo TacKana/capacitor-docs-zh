@@ -173,7 +173,9 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | 属性              | 类型                                                                                                                                                                                | 描述                                             | 自     |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----- |
 | **`timestamp`**   | <code>number</code>                                                                                                                                                                 | 坐标的创建时间戳                           | 1.0.0 |
-| **`coords`**      | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | GPS 坐标及其数据精度 | 1.0.0 |#### 位置选项
+| **`coords`**      | `{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }` | GPS 坐标及其数据精度 | 1.0.0 |
+
+#### 位置选项 {#positionoptions}
 
 | 属性                       | 类型                  | 说明                                                                                                                                                                                                      | 默认值             | 开始版本 |
 | -------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
@@ -182,14 +184,14 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`maximumAge`**           | <code>number</code>   | 可返回的缓存位置的最大年龄（毫秒）。                                                                                                                                                                      | <code>0</code>     | 1.0.0    |
 
 
-#### 清除监听选项
+#### 清除监听选项 {#clearwatchoptions}
 
 | 属性     | 类型                                              |
 | -------- | ------------------------------------------------- |
 | **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
 
 
-#### 权限状态
+#### 权限状态 {#permissionstatus}
 
 | 属性                 | 类型                                                        | 说明                                                                                                                                                                                                                                                                                                                                                                                      | 开始版本 |
 | -------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -197,7 +199,7 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | coarseLocation 别名的权限状态。在 Android 上，它请求/检查 ACCESS_COARSE_LOCATION。在 Android 12+ 上，用户可以选择"大致位置"（ACCESS_COARSE_LOCATION）或"精确位置"（ACCESS_FINE_LOCATION），因此如果应用不需要高精度，可以使用此别名。在 iOS 和 Web 上，其值与 location 别名相同。                                                                                                          | 1.2.0    |
 
 
-#### 地理定位插件权限
+#### 地理定位插件权限 {#geolocationpluginpermissions}
 
 | 属性              | 类型                                     |
 | ----------------- | ---------------------------------------- |

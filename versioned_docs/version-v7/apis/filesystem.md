@@ -132,7 +132,7 @@ FileTransfer.addListener('progress', (progress) => {
 
 处理大文件时，您可能需要将 `android:largeHeap="true"` 添加到 `AndroidManifest.xml` 的 `<application>` 标签中。
 
-## 理解目录和文件
+## 理解目录和文件 {#directory}
 
 iOS 和 Android 在文件之间有额外的隔离层，例如备份到云端的特殊目录，或用于存储文档的目录。文件系统 API 提供了一种简单的方法，将每个操作限定在设备上的特定特殊目录。
 
@@ -209,7 +209,9 @@ const readFilePath = async () => {
 有关现有错误代码列表，请参阅 [错误](#错误)。
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->### checkPermissions()
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### checkPermissions()
 
 ```typescript
 checkPermissions() => Promise<PermissionStatus>
@@ -447,7 +449,9 @@ copy(options: CopyOptions) => Promise<CopyResult>
 
 **自版本:** 1.0.0
 
---------------------### downloadFile(...)
+--------------------
+
+### downloadFile(...)
 
 ```typescript
 downloadFile(options: DownloadFileOptions) => Promise<DownloadFileResult>
@@ -556,7 +560,9 @@ removeAllListeners() => Promise<void>
 | **`data`**      | <code>string \| Blob</code>                     | 要写入的数据。注意：Blob 数据仅在 Web 平台上受支持。                                                                                               |                    | 1.0.0 |
 | **`directory`** | <code><a href="#directory">Directory</a></code> | 存储文件的 <a href="#directory">`Directory`</a>                                                                                                  |                    | 1.0.0 |
 | **`encoding`**  | <code><a href="#encoding">Encoding</a></code>   | 写入文件的编码方式。如果未提供，数据将以 base64 编码写入。传递 <a href="#encoding">Encoding.UTF8</a> 以字符串形式写入数据。 |                    | 1.0.0 |
-| **`recursive`** | <code>boolean</code>                            | 是否创建所有缺失的父目录。                                                                                                                         | <code>false</code> | 1.0.0 |#### AppendFileOptions
+| **`recursive`** | <code>boolean</code>                            | 是否创建所有缺失的父目录。                                                                                                                         | <code>false</code> | 1.0.0 |
+
+#### AppendFileOptions
 
 | 属性            | 类型                                            | 描述                                                                                                                                               | 起始版本 |
 | --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -631,7 +637,9 @@ removeAllListeners() => Promise<void>
 | 属性            | 类型                                            | 描述                                                    | 起始版本 |
 | --------------- | ----------------------------------------------- | -------------------------------------------------------------- | ----- |
 | **`path`**      | <code>string</code>                             | 要获取 URI 的文件路径                        | 1.0.0 |
-| **`directory`** | <code><a href="#directory">Directory</a></code> | 文件所在的 <a href="#directory">`Directory`</a> 目录 | 1.0.0 |#### StatOptions
+| **`directory`** | <code><a href="#directory">Directory</a></code> | 文件所在的 <a href="#directory">`Directory`</a> 目录 | 1.0.0 |
+
+#### StatOptions
 
 | 属性            | 类型                                           | 描述                                    | 始于 |
 | --------------- | ---------------------------------------------- | --------------------------------------- | ---- |
@@ -713,7 +721,9 @@ removeAllListeners() => Promise<void>
 
 <code>(progress: <a href="#progressstatus">ProgressStatus</a>): void</code>
 
-### 枚举#### 目录
+### 枚举
+
+#### 目录
 
 | 成员名称             | 值                               | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 起始版本 |
 | -------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -727,7 +737,7 @@ removeAllListeners() => Promise<void>
 | **`LibraryNoCloud`** | <code>'LIBRARY_NO_CLOUD'</code>  | 无云备份的资源库目录。用于 iOS。在 Android 上为存放应用文件的目录。                                                                                                                                                                                                                                                                                                                                                                                                                         | 7.1.0    |
 | **`Temporary`**      | <code>'TEMPORARY'</code>         | iOS 的临时目录。在 Android 上为存放应用缓存的目录。                                                                                                                                                                                                                                                                                                                                                                                                                                       | 7.1.0    |
 
-#### 编码
+#### 编码 {#encoding}
 
 | 成员名称    | 值                     | 描述                                                                                                                              | 起始版本 |
 | ----------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -735,7 +745,9 @@ removeAllListeners() => Promise<void>
 | **`ASCII`** | <code>'ascii'</code>   | 七位 ASCII，即 ISO646-US，即 Unicode 字符集的基本拉丁语块。此编码仅在 Android 上受支持。                                              | 1.0.0    |
 | **`UTF16`** | <code>'utf16'</code>   | 十六位 UCS 转换格式，字节顺序由可选的字节顺序标记标识。此编码仅在 Android 上受支持。                                                   | 1.0.0    |
 
-</docgen-api>### 错误信息
+</docgen-api>
+
+### 错误信息 {#错误}
 
 自 7.1.0 版本起，该插件在原生 Android 和 iOS 平台上会返回带有特定代码的详细错误信息。Web 平台不遵循此错误标准。
 

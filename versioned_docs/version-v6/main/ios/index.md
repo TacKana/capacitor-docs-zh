@@ -31,7 +31,7 @@ npm install @capacitor/ios
 npx cap add ios
 ```
 
-## 打开 iOS 项目
+## 打开 iOS 项目 {#opening-the-ios-project}
 
 要在 Xcode 中打开项目，运行：
 
@@ -59,7 +59,7 @@ npx cap run ios
 
 该命令会提示你选择一个目标。 [了解更多关于 `run` 命令的信息](/cli/commands/run.md)。
 
-### 在 Xcode 中运行
+### 在 Xcode 中运行 {#running-in-xcode}
 
 在 Xcode 中，首先选择设备或模拟器，然后点击播放按钮来运行你的应用。
 

@@ -93,7 +93,9 @@ await SplashScreen.show({
 - `large`（默认）
 - `small`
 
-要设置指示器的颜色，请使用 `spinnerColor`，其值可以是 `#RRGGBB` 或 `#RRGGBBAA`。## 配置
+要设置指示器的颜色，请使用 `spinnerColor`，其值可以是 `#RRGGBB` 或 `#RRGGBBAA`。
+
+## 配置
 
 <docgen-config>
 
@@ -115,7 +117,9 @@ await SplashScreen.show({
 | **`splashImmersive`**           | <code>boolean</code>                                                                                                          | 是否在启动屏上隐藏状态栏和软件导航按钮。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                                                                          |                     | 1.0.0 |
 | **`layoutName`**                | <code>string</code>                                                                                                           | 如果 `useDialog` 设置为 true，则配置 Dialog 的布局。如果 `useDialog` 未设置或为 false，则使用布局代替 ImageView。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                 |                     | 1.1.0 |
 | **`useDialog`**                 | <code>boolean</code>                                                                                                          | 是否使用 Dialog 代替 ImageView。如果未配置 `layoutName`，则将使用以启动图像作为背景的布局。在启动时使用 Android 12 API 时无效。仅适用于 Android。                                |                     | 1.1.0 |
-</docgen-config>### 示例
+</docgen-config>
+
+### 示例
 
 在 `capacitor.config.json` 中：
 

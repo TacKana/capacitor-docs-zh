@@ -203,7 +203,9 @@ export class MyMap {
     });
   }
 }
-```### React
+```
+
+### React
 
 ```jsx
 import { GoogleMap } from '@capacitor/google-maps';
@@ -461,7 +463,9 @@ addPolygons(polygons: Polygon[]) => Promise<string[]>
 
 **返回值:** <code>Promise&lt;string[]&gt;</code>
 
---------------------### removePolygons(...)
+--------------------
+
+### removePolygons(...)
 
 ```typescript
 removePolygons(ids: string[]) => Promise<void>
@@ -708,7 +712,9 @@ setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackDat
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`**   | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
 
---------------------### setOnClusterInfoWindowClickListener(...)
+--------------------
+
+### setOnClusterInfoWindowClickListener(...)
 
 ```typescript
 setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
@@ -835,7 +841,9 @@ setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackDat
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`**   | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
---------------------### setOnMyLocationButtonClickListener(...)
+--------------------
+
+### setOnMyLocationButtonClickListener(...)
 
 ```typescript
 setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButtonClickCallbackData> | undefined) => Promise<void>
@@ -876,7 +884,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`element`**     | <code>HTMLElement</code>                                    | Google 地图视图将挂载的 DOM 元素，它决定了地图的大小和位置。                                                                                     |                    |
 | **`forceCreate`** | <code>boolean</code>                                        | 如果已存在具有所提供 id 的地图实例，则销毁并重新创建它。                                                                                                    | <code>false</code> |
 | **`region`**      | <code>string</code>                                         | `region` 参数会改变您的应用程序，以提供不同的地图图块或使应用程序产生偏好（例如，将地理编码结果偏向于该区域）。仅适用于 Web 平台。      |                    |
-| **`language`**    | <code>string</code>                                         | `language` 参数会影响控件名称、版权声明、驾驶路线和控制标签的显示语言，以及服务请求的响应语言。仅适用于 Web 平台。 |                    |#### GoogleMapConfig
+| **`language`**    | <code>string</code>                                         | `language` 参数会影响控件名称、版权声明、驾驶路线和控制标签的显示语言，以及服务请求的响应语言。仅适用于 Web 平台。 |                    |
+
+#### GoogleMapConfig
 
 在网页端，所有 JavaScript 的 Google Maps 选项都可用，因为 GoogleMapConfig 扩展了 google.maps.MapOptions。
 在 iOS 和 Android 上，只有 <a href="#googlemapconfig">GoogleMapConfig</a> 中声明的配置选项可用。
@@ -911,7 +921,9 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 
 | 属性        | 类型                |
 | ----------- | ------------------- |
-| **`mapId`** | <code>string</code> |#### 标记点
+| **`mapId`** | <code>string</code> |
+
+#### 标记点 {#marker}
 
 标记点是在地图表面特定位置放置的图标。
 
@@ -931,7 +943,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`zIndex`**     | <code>number</code>                                          | 指定此标记点相对于地图上其他标记点的堆叠顺序。具有较高 z-index 的标记点会绘制在具有较低 z-index 的标记点之上。                              | <code>0</code>     |       |
 
 
-#### 尺寸
+#### 尺寸 {#size}
 
 | 属性         | 类型                |
 | ------------ | ------------------- |
@@ -939,7 +951,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 | **`height`** | <code>number</code> |
 
 
-#### 点
+#### 点 {#point}
 
 <a href="#point">点</a> 几何对象。
 https://tools.ietf.org/html/rfc7946#section-3.1.2
@@ -950,7 +962,7 @@ https://tools.ietf.org/html/rfc7946#section-3.1.2
 | **`coordinates`** | <code><a href="#position">Position</a></code> |                                       |
 
 
-#### 多边形
+#### 多边形 {#polygon}
 
 <a href="#polygon">多边形</a> 几何对象。
 https://tools.ietf.org/html/rfc7946#section-3.1.6
@@ -958,7 +970,9 @@ https://tools.ietf.org/html/rfc7946#section-3.1.6
 | 属性              | 类型                                          | 描述                           |
 | ----------------- | --------------------------------------------- | ------------------------------------- |
 | **`type`**        | <code>'<a href="#polygon">Polygon</a>'</code> | 指定 GeoJSON 对象的类型。 |
-| **`coordinates`** | <code>Position[][]</code>                     |                                       |#### 圆形
+| **`coordinates`** | <code>Position[][]</code>                     |                                       |
+
+#### 圆形 {#circle}
 
 在网页端，所有 JavaScript <a href="#circle">Circle</a> 选项都可用，因为 Polygon 继承自 google.maps.CircleOptions。
 在 iOS 和 Android 上，只有 <a href="#circle">Circle</a> 中声明的配置选项可用。
@@ -975,7 +989,7 @@ https://tools.ietf.org/html/rfc7946#section-3.1.6
 | **`tag`**          | <code>string</code>   |                                                                                                                                                                                        |
 
 
-#### 折线
+#### 折线 {#polyline}
 
 在网页端，所有 JavaScript <a href="#polyline">Polyline</a> 选项都可用，因为 Polyline 继承自 google.maps.PolylineOptions。
 在 iOS 和 Android 上，只有 <a href="#polyline">Polyline</a> 中声明的配置选项可用。
@@ -998,7 +1012,9 @@ https://tools.ietf.org/html/rfc7946#section-3.1.6
 | 属性           | 类型                 | 描述                                                                       |
 | -------------- | -------------------- | --------------------------------------------------------------------------------- |
 | **`color`**    | <code>string</code>  | 描边颜色，支持所有 CSS3 颜色（扩展命名颜色除外）。 |
-| **`segments`** | <code>number</code>  | 此样式跨度所覆盖的线段数量。                                    |#### CameraConfig
+| **`segments`** | <code>number</code>  | 此样式跨度所覆盖的线段数量。                                    |
+
+#### CameraConfig
 
 Google 地图摄像头的配置属性
 

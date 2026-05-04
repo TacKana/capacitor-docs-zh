@@ -45,7 +45,7 @@ public class EchoPlugin: CAPPlugin, CAPBridgedPlugin {
 
 > 必须使用 `@objc` 装饰器，以确保 Capacitor 运行时（它必须使用 Objective-C 来支持动态插件）能够识别它。
 
-### 注册插件
+### 注册插件 {#register-the-plugin}
 
 我们必须在 iOS 端和 Web 端都注册自定义插件，以便 Capacitor 能在 Swift 和 JavaScript 之间建立桥接。
 
