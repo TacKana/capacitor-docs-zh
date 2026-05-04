@@ -328,7 +328,7 @@
         {
           "type": "link",
           "label": "Plugin APIs",
-          "href": "/apis"
+          "href": "/v5/apis"
         },
         {
           "type": "doc",
@@ -337,7 +337,7 @@
         {
           "type": "link",
           "label": "CLI",
-          "href": "/cli"
+          "href": "/v5/cli"
         }
       ],
       "collapsible": true
