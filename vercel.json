@@ -16,8 +16,5 @@
     { "source": "/cli/commands/list", "destination": "/cli/commands/ls" },
     { "source": "/next/:match*", "destination": "/:match*" }
   ],
-  "rewrites": [
-    { "source": "/docs", "destination": "/" },
-    { "source": "/:match*", "destination": "/:match*" }
-  ]
+  "rewrites": [{ "source": "/:match*", "destination": "/:match*" }]
 }
