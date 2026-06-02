@@ -9,7 +9,7 @@ slug: /cli
 
 # Capacitor CLI
 
-Capacitor 命令行界面 (CLI) 工具用于开发 Capacitor 应用程序。
+Capacitor 命令行界面（CLI）工具用于开发 Capacitor 应用。
 
 ## CLI 参考
 
@@ -17,10 +17,10 @@ Capacitor 命令行界面 (CLI) 工具用于开发 Capacitor 应用程序。
 npx cap [-V] [-h] [<command>]
 ```
 
-<strong>选项:</strong>
+<strong>选项：</strong>
 
-- `-V, --version` (可选): 输出版本号
-- `-h, --help` (可选): 输出使用信息。也可以与单个命令一起使用。
+- `-V, --version`（可选）：输出版本号
+- `-h, --help`（可选）：输出使用信息。也可与单个命令一起使用。
 
 ### 命令列表
 
@@ -38,4 +38,4 @@ npx cap [-V] [-h] [<command>]
 
 [了解如何安装 Capacitor CLI &#8250;](/main/getting-started/installation.md)
 
-[了解 CLI 工作流程 &#8250;](/main/basics/workflow.md)
+[了解 CLI 工作流 &#8250;](/main/basics/workflow.md)

@@ -8,19 +8,19 @@ sidebar_label: update
 
 # Capacitor CLI - cap update
 
-更新 `package.json` 中引用的原生插件和依赖项。
+更新 `package.json` 中引用的原生插件和依赖。
 
 ```bash
 npx cap update [<platform>]
 ```
 
-<strong>输入参数:</strong>
+<strong>输入参数：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`、`ios`
 
-<strong>选项:</strong>
+<strong>选项：</strong>
 
-- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
+- `--deployment`：不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
 ## 钩子
 

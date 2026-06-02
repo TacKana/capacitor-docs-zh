@@ -1,16 +1,17 @@
 ---
-title: Text Zoom Capacitor 插件 API
-description: Text Zoom API 提供了更改 Web View 文本大小的功能，以提升视觉可访问性。
+title: 文字缩放 Capacitor 插件 API
+description: Text Zoom API 提供了更改 Web View 文字大小以实现视觉辅助功能的能力。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/text-zoom/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/text-zoom/src/definitions.ts
-sidebar_label: Text Zoom
+sidebar_label: 文字缩放
+translated: true
 ---
 
 # @capacitor/text-zoom
 
-Text Zoom API 提供了更改 Web View 文本大小的功能，以提升视觉可访问性。
+Text Zoom API 提供了更改 Web View 文字大小以实现视觉辅助功能的能力。
 
-**注意：** 除非在你的 [Capacitor 配置文件](https://capacitorjs.com/docs/config) 中将 `preferredContentMode` 配置设置为 `mobile`，否则 text-zoom 插件在 iPad 上将无法工作。
+**注意：** 除非在您的 [Capacitor 配置文件](https://capacitorjs.com/docs/config) 中将 `preferredContentMode` 配置设置为 `mobile`，否则 text-zoom 插件在 iPad 上无法工作。
 
 ```json
 {
@@ -34,12 +35,12 @@ npx cap sync
 * [`get()`](#get)
 * [`getPreferred()`](#getpreferred)
 * [`set(...)`](#set)
-* [接口](#接口)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
 
 ### get()
 
@@ -49,11 +50,11 @@ get() => Promise<GetResult>
 
 获取当前的缩放级别。
 
-缩放级别以十进制表示（例如，1.2 代表 120%）。
+缩放级别以小数表示（例如 1.2 表示 120%）。
 
-**返回值：** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
 
-**自：** 1.0.0
+**从版本:** 1.0.0
 
 --------------------
 
@@ -66,11 +67,11 @@ getPreferred() => Promise<GetPreferredResult>
 
 获取首选的缩放级别。
 
-缩放级别以十进制表示（例如，1.2 代表 120%）。
+缩放级别以小数表示（例如 1.2 表示 120%）。
 
-**返回值：** <code>Promise&lt;<a href="#getpreferredresult">GetPreferredResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#getpreferredresult">GetPreferredResult</a>&gt;</code>
 
-**自：** 1.0.0
+**从版本:** 1.0.0
 
 --------------------
 
@@ -83,38 +84,38 @@ set(options: SetOptions) => Promise<void>
 
 设置当前的缩放级别。
 
-缩放级别以十进制表示（例如，1.2 代表 120%）。
+缩放级别以小数表示（例如 1.2 表示 120%）。
 
-| 参数           | 类型                                              |
-| -------------- | ------------------------------------------------- |
-| **`options`** | <code><a href="#setoptions">SetOptions</a></code> |
+| 参数            | 类型                                              |
+| --------------- | ------------------------------------------------- |
+| **`options`**   | <code><a href="#setoptions">SetOptions</a></code> |
 
-**自：** 1.0.0
+**从版本:** 1.0.0
 
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### GetResult
 
-| 属性           | 类型                | 描述                                         | 自     |
-| -------------- | ------------------- | -------------------------------------------- | ------ |
-| **`value`** | <code>number</code> | 当前的缩放级别（以十进制表示）。 | 1.0.0 |
+| 属性        | 类型                | 描述                            | 从版本 |
+| ----------- | ------------------- | ------------------------------- | ------ |
+| **`value`** | <code>number</code> | 当前的缩放级别（以小数表示）。  | 1.0.0  |
 
 
 #### GetPreferredResult
 
-| 属性           | 类型                | 描述                                           | 自     |
-| -------------- | ------------------- | ---------------------------------------------- | ------ |
-| **`value`** | <code>number</code> | 首选的缩放级别（以十进制表示）。 | 1.0.0 |
+| 属性        | 类型                | 描述                              | 从版本 |
+| ----------- | ------------------- | --------------------------------- | ------ |
+| **`value`** | <code>number</code> | 首选的缩放级别（以小数表示）。    | 1.0.0  |
 
 
 #### SetOptions
 
-| 属性           | 类型                | 描述                                     | 自     |
-| -------------- | ------------------- | ---------------------------------------- | ------ |
-| **`value`** | <code>number</code> | 新的缩放级别（以十进制表示）。 | 1.0.0 |
+| 属性        | 类型                | 描述                        | 从版本 |
+| ----------- | ------------------- | --------------------------- | ------ |
+| **`value`** | <code>number</code> | 新的缩放级别（以小数表示）。| 1.0.0  |
 
 </docgen-api>

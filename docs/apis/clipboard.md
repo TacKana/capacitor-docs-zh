@@ -1,9 +1,11 @@
 ---
 title: Clipboard Capacitor 插件 API
-description: Clipboard API 支持从系统剪贴板进行复制和粘贴。
+description: Clipboard API 支持从系统剪贴板进行复制和粘贴操作。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/src/definitions.ts
-sidebar_label: Clipboard
+sidebar_label: 剪贴板
+translated: true
+source_hash: 5db66aaf
 ---
 
 # @capacitor/clipboard
@@ -31,7 +33,7 @@ const writeToClipboard = async () => {
 const checkClipboard = async () => {
   const { type, value } = await Clipboard.read();
 
-  console.log(`从剪贴板获取 ${type}: ${value}`);
+  console.log(`Got ${type} from clipboard: ${value}`);
 };
 ```
 
@@ -41,12 +43,12 @@ const checkClipboard = async () => {
 
 * [`write(...)`](#write)
 * [`read()`](#read)
-* [接口](#接口)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
 
 ### write(...)
 
@@ -54,13 +56,13 @@ const checkClipboard = async () => {
 write(options: WriteOptions) => Promise<void>
 ```
 
-向剪贴板写入一个值（“复制”动作）
+向剪贴板写入一个值（"复制"操作）
 
-| 参数          | 类型                                                  |
-| ------------- | ----------------------------------------------------- |
-| **`options`** | <code><a href="#writeoptions">WriteOptions</a></code> |
+| 参数            | 类型                                                    |
+| --------------- | ------------------------------------------------------- |
+| **`options`**   | <code><a href="#writeoptions">WriteOptions</a></code>   |
 
-**自：** 1.0.0
+**Since:** 1.0.0
 
 --------------------
 
@@ -71,11 +73,11 @@ write(options: WriteOptions) => Promise<void>
 read() => Promise<ReadResult>
 ```
 
-从剪贴板读取一个值（“粘贴”动作）
+从剪贴板读取一个值（"粘贴"操作）
 
-**返回值：** <code>Promise&lt;<a href="#readresult">ReadResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#readresult">ReadResult</a>&gt;</code>
 
-**自：** 1.0.0
+**Since:** 1.0.0
 
 --------------------
 
@@ -87,21 +89,21 @@ read() => Promise<ReadResult>
 
 表示要写入剪贴板的数据。
 
-| 属性          | 类型                | 描述                                                                                                     | 自     |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------- | ------ |
-| **`string`** | <code>string</code> | 要复制的文本值。                                                                                          | 1.0.0 |
-| **`image`**  | <code>string</code> | 要复制的图片，格式为 [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) | 1.0.0 |
-| **`url`**    | <code>string</code> | 要复制的 URL 字符串。                                                                                     | 1.0.0 |
-| **`label`**  | <code>string</code> | 伴随复制数据的用户可见标签（仅限 Android）。                                                               | 1.0.0 |
+| 属性           | 类型                  | 描述                                                                                                           | Since |
+| -------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- | ----- |
+| **`string`**   | <code>string</code>   | 要复制的文本值。                                                                                               | 1.0.0 |
+| **`image`**    | <code>string</code>   | 要复制的 [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) 格式图像。     | 1.0.0 |
+| **`url`**      | <code>string</code>   | 要复制的 URL 字符串。                                                                                          | 1.0.0 |
+| **`label`**    | <code>string</code>   | 用户可见的标签，用于伴随复制的数据（仅 Android）。                                                              | 1.0.0 |
 
 
 #### ReadResult
 
 表示从剪贴板读取的数据。
 
-| 属性         | 类型                | 描述                     | 自     |
-| ----------- | ------------------- | ------------------------ | ------ |
-| **`value`** | <code>string</code> | 从剪贴板读取的数据。      | 1.0.0 |
-| **`type`**  | <code>string</code> | 剪贴板中数据的类型。      | 1.0.0 |
+| 属性          | 类型                  | 描述                        | Since |
+| ------------- | --------------------- | --------------------------- | ----- |
+| **`value`**   | <code>string</code>   | 从剪贴板读取的数据。        | 1.0.0 |
+| **`type`**    | <code>string</code>   | 剪贴板中数据的类型。        | 1.0.0 |
 
 </docgen-api>

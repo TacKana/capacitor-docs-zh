@@ -1,17 +1,18 @@
 ---
-title: 分享 Capacitor 插件 API
-description: 分享 API 提供了在用户已安装的支持分享功能的应用中分享内容的方法。
+title: Share Capacitor 插件 API
+description: Share API 提供了在用户可能已安装的任何支持分享的应用中分享内容的方法。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/share/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/share/src/definitions.ts
-sidebar_label: 分享
+sidebar_label: Share
+translated: true
 ---
 
 # @capacitor/share
 
-分享 API 提供了在用户已安装的支持分享功能的应用中分享内容的方法。
+Share API 提供了在用户可能已安装的任何支持分享的应用中分享内容的方法。
 
-该 API 支持 iOS、Android 和 Web 平台（使用新的 [Web 分享
-API](https://web.dev/web-share/)），不过目前 Web 平台的支持尚不全面。
+Share API 适用于 iOS、Android 和 Web（使用新的 [Web Share
+API](https://web.dev/web-share/)），不过 Web 支持目前尚不完善。
 
 ## 安装
 
@@ -26,14 +27,14 @@ npx cap sync
 import { Share } from '@capacitor/share';
 
 await Share.share({
-  title: '看看这个很酷的东西',
-  text: '你真的需要立刻看看这个超赞的东西',
+  title: 'See cool stuff',
+  text: 'Really awesome thing you need to see right meow',
   url: 'http://ionicframework.com/',
-  dialogTitle: '分享给朋友们',
+  dialogTitle: 'Share with buddies',
 });
 ```
 
-每个平台使用的字段集略有不同，但建议您提供所有字段。
+每个平台使用不同的字段集，但您应该提供所有字段。
 
 ## API
 
@@ -41,7 +42,7 @@ await Share.share({
 
 * [`canShare()`](#canshare)
 * [`share(...)`](#share)
-* [接口](#接口)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -54,11 +55,11 @@ await Share.share({
 canShare() => Promise<CanShareResult>
 ```
 
-检查当前是否支持分享功能。
+检查是否支持分享。
 
-**返回值：** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
 
-**自版本：** 1.1.0
+**Since:** 1.1.0
 
 --------------------
 
@@ -69,43 +70,43 @@ canShare() => Promise<CanShareResult>
 share(options: ShareOptions) => Promise<ShareResult>
 ```
 
-显示一个分享模态框，用于与其他应用分享内容。
+显示分享模态框，与其他应用分享内容
 
-| 参数            | 类型                                                      |
-| --------------- | --------------------------------------------------------- |
-| **`options`**   | <code><a href="#shareoptions">ShareOptions</a></code>     |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
 
-**自版本：** 1.0.0
+**Since:** 1.0.0
 
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### CanShareResult
 
-| 属性           | 类型                  | 描述                       | 自版本 |
-| -------------- | --------------------- | -------------------------- | ------ |
-| **`value`**    | <code>boolean</code>  | 指示是否支持分享功能。     | 1.1.0  |
+| Prop        | Type                 | Description                          | Since |
+| ----------- | -------------------- | ------------------------------------ | ----- |
+| **`value`** | <code>boolean</code> | 是否支持分享。 | 1.1.0 |
 
 
 #### ShareResult
 
-| 属性                  | 类型                | 描述                                                                                               | 自版本 |
-| --------------------- | ------------------- | -------------------------------------------------------------------------------------------------- | ------ |
-| **`activityType`**    | <code>string</code> | 接收分享操作的应用标识符。在某些情况下可能为空字符串。在 Web 平台上此属性为 undefined。            | 1.0.0  |
+| Prop               | Type                | Description                                                                                                              | Since |
+| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`activityType`** | <code>string</code> | 接收分享操作的应用的标识符。某些情况下可能为空字符串。在 Web 上将是 undefined。 | 1.0.0 |
 
 
 #### ShareOptions
 
-| 属性                | 类型                | 描述                                                                | 自版本 |
-| ------------------- | ------------------- | ------------------------------------------------------------------- | ------ |
-| **`title`**         | <code>string</code> | 设置消息的标题。如果分享到电子邮件，此标题将作为邮件主题。          | 1.0.0  |
-| **`text`**          | <code>string</code> | 设置要分享的文本内容。                                              | 1.0.0  |
-| **`url`**           | <code>string</code> | 设置要分享的 URL，可以是 http、https 或 file:// 协议的 URL。        | 1.0.0  |
-| **`dialogTitle`**   | <code>string</code> | 设置分享模态框的标题。此选项仅在 Android 平台上支持。               | 1.0.0  |
+| Prop              | Type                | Description                                                                | Since |
+| ----------------- | ------------------- | -------------------------------------------------------------------------- | ----- |
+| **`title`**       | <code>string</code> | 为任何消息设置标题。如果是分享到邮件，这将是主题。 | 1.0.0 |
+| **`text`**        | <code>string</code> | 设置要分享的文本                                                     | 1.0.0 |
+| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或 file:// URL                      | 1.0.0 |
+| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题。此选项仅在 Android 上受支持。 | 1.0.0 |
 
 </docgen-api>

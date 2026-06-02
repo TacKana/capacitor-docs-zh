@@ -11,14 +11,14 @@ sidebar_label: add
 向你的应用添加原生平台项目。
 
 ```bash
-npx cap add <平台>
+npx cap add <platform>
 ```
 
 <strong>输入参数：</strong>
 
-- `platform`（必需）：`android`, `ios`
+- `platform`（必需）：`android`、`ios`
 
 <strong>选项：</strong>
 
 仅 iOS：
-- `--packagemanager`: `SPM`, `Cocoapods`
+- `--packagemanager`：`SPM`、`Cocoapods`

@@ -1,5 +1,5 @@
 ---
-title: Plugin Development Workflow
+title: 插件开发工作流
 description: Capacitor 插件开发工作流
 contributors:
   - dotNetkow
@@ -9,13 +9,13 @@ slug: /plugins/workflow
 
 # 插件开发工作流
 
-创建好新插件后，您可以开始在各种平台上实现功能。
+创建新插件后，你可以开始在各种平台上实现功能。
 
 ## 实现新方法
 
-要在插件中实现新功能，首先需要在 `src/definitions.ts` 中为插件导出的 TypeScript 接口定义方法签名。
+要在插件中实现新功能，首先在 `src/definitions.ts` 中导出的 TypeScript 接口中定义方法的签名。
 
-在下面的示例中，我们添加了接收 `latitude` 和 `longitude` 参数的 `openMap()` 方法。为方法参数定义接口是一个好习惯，这样可以在应用程序中导入和使用。
+在下面的示例中，添加了 `openMap()` 方法，该方法接收 `latitude` 和 `longitude`。为方法参数定义可导入并在应用中使用的接口是一个好的实践。
 
 ```diff
  export interface EchoPlugin {
@@ -29,7 +29,7 @@ slug: /plugins/workflow
 +}
 ```
 
-在 `src/web.ts` 中实现 Web 端功能：
+在 `src/web.ts` 中实现 Web 实现：
 
 ```diff
  import type {
@@ -41,12 +41,12 @@ slug: /plugins/workflow
    // 其他方法
 
 +  async openMap(location: OpenMapOptions): Promise<void> {
-+    // 此处实现逻辑
++    // 逻辑代码
 +  }
  }
 ```
 
-要编译插件，请进入插件目录并运行：
+要编译插件，进入插件目录然后运行：
 
 ```bash
 npm run build
@@ -79,25 +79,25 @@ public void openMap(PluginCall call) {
 }
 ```
 
-> 记得在 `.swift` 文件中[注册插件方法](/plugins/creating-plugins/ios-guide.md#export-to-capacitor)。
+> 记得在你的 `.swift` 文件中[注册插件方法](/plugins/creating-plugins/ios-guide.md#export-to-capacitor)。
 
-此示例包含了插件中最常见的方法类型，所有支持类型的详细信息[可在此处查看](/plugins/creating-plugins/method-types.md)。
+此示例包含插件中最常见的方法类型，但有关所有支持类型的详细信息，[请见此处](/plugins/creating-plugins/method-types.md)。
 
 ## 本地测试
 
-在开发过程中要本地测试插件，可以使用 `npm install` 并指定插件路径，将插件文件夹链接到您的应用程序。
+要在开发时本地测试插件，使用 `npm install` 将插件文件夹链接到你的应用，并提供插件路径。
 
 ```bash
 npm install ../path/to/echo
 ```
 
-项目的 `package.json` 文件现在会在依赖项列表中显示插件包的链接：
+项目的 `package.json` 文件现在会在依赖列表中显示插件包链接：
 
 ```json
 "echo": "file:../path/to/echo",
 ```
 
-最后，运行 `npx cap sync` 让原生项目识别您的插件。如果检测正确，它将打印类似以下信息：
+最后，运行 `npx cap sync` 使原生项目识别你的插件。如果正确检测到，它将打印类似以下信息：
 
 ```bash
 [info] Found 1 Capacitor plugin for android:
@@ -106,7 +106,7 @@ npm install ../path/to/echo
 
 ### 取消链接插件
 
-要从应用程序取消链接本地插件，请使用 `npm uninstall` 并指定插件包名。
+要取消本地插件与应用之间的链接，使用 `npm uninstall` 并指定插件的包名称。
 
 ```bash
 npm uninstall echo
@@ -114,28 +114,28 @@ npm uninstall echo
 
 ## 包脚本
 
-插件模板在 `package.json` 中提供了多种脚本。
+插件模板在 `package.json` 中附带多种脚本。
 
-- `verify`：构建并测试 Web 和原生代码
-- `lint`：检查 Web 和原生代码的代码规范
+- `verify`：构建和测试 Web 和原生代码
+- `lint`：检查 Web 和原生代码的格式
 - `fmt`：自动格式化 Web 和原生代码
-- `docgen`：根据插件接口生成文档（参见[文档](#documentation)）
-- `build`：将 Web 代码构建为 ESM 和 bundle 分发版本
+- `docgen`：从插件接口生成文档（参见[文档](#documentation)）
+- `build`：将 Web 代码构建为 ESM 和 bundle 分发格式
 
-## 文档 {#documentation}
+## 文档
 
-要为插件功能编写文档，请在方法和属性上添加 [JSDoc](https://jsdoc.app) 注释块。
+要记录插件功能，在方法和属性上添加 [JSDoc](https://jsdoc.app) 注释块。
 
-> 在 TypeScript 文件中，通常不需要在 `@param` 和 `@returns` JSDoc 标签中包含类型信息。
+> 通常不需要在 TypeScript 文件中使用 `@param` 和 `@returns` JSDoc 标签包含类型信息。
 
-以我们的 `openMap()` 方法为例，打开 `src/definitions.ts` 开始编写文档！
+以我们的 `openMap()` 方法为例，打开 `src/definitions.ts` 并开始记录文档！
 
 ```diff
  export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 
 +  /**
-+   * 在指定位置打开地图。
++   * 在给定位置打开地图。
 +   *
 +   * @since 1.1.0
 +   */
@@ -144,18 +144,18 @@ npm uninstall echo
 
  export interface OpenMapOptions {
 +  /**
-+   * 要打开地图的纬度坐标。
++   * 打开地图所在的纬度。
 +   */
    latitude: number;
 
 +  /**
-+   * 要打开地图的经度坐标。
++   * 打开地图所在的经度。
 +   */
    longitude: number;
  }
 ```
 
-插件模板内置了 [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen)，它会将生成的文档写入 `README.md`。文档会在 `npm run build` 过程中生成。您也可以手动运行：
+插件模板附带了 [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen)，它会将生成的文档写入 `README.md`。文档在 `npm run build` 期间生成。你也可以手动运行：
 
 ```bash
 npm run docgen
@@ -163,12 +163,12 @@ npm run docgen
 
 ## 发布
 
-当您准备好发布插件时，只需使用：
+当你准备好发布插件时，只需使用：
 
 ```bash
 npm publish
 ```
 
-这将构建插件的 JavaScript 部分，并将其余插件文件发布到 npm。
+这将构建插件的 JS 部分，并将插件的其余文件发布到 npm。
 
-现在，任何 Capacitor 应用程序都可以使用 `npm install echo` 安装您的包。
+现在可以在任何 Capacitor 应用中使用 `npm install echo` 安装你的包。

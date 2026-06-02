@@ -1,17 +1,17 @@
 ---
 title: Capacitor 配置
-description: Capacitor 配置指南
+description: 配置 Capacitor
 sidebar_label: 配置
 slug: /config
 ---
 
 # Capacitor 配置
 
-Capacitor 配置文件用于设置 Capacitor 工具链的高级选项。
+Capacitor 配置文件用于设置 Capacitor 工具的高级选项。
 
 ## 示例
 
-以下是一个 `capacitor.config.ts` 文件的示例：
+以下是一个 `capacitor.config.ts` 文件示例：
 
 ```typescript
 import { CapacitorConfig } from '@capacitor/cli';
@@ -25,37 +25,37 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-如果你的项目不使用 TypeScript，可以按照相同方式使用 `capacitor.config.json` 文件。
+如果您在项目中不使用 TypeScript，也可以使用 `capacitor.config.json` 文件。
 
-## 配置架构 {#schema}
+## Schema
 
-以下是 Capacitor 配置的 TypeScript 接口，包含完整描述和默认值。
+以下是 Capacitor 配置的 TypeScript 接口，包含描述和默认值。
 
 ```typescript
 export interface CapacitorConfig {
   /**
    * 打包应用的唯一标识符。
    *
-   * 在 iOS 中称为 Bundle ID，在 Android 中称为 Application ID。
-   * 必须使用反向域名表示法，通常代表您或公司拥有的域名。
+   * 在 iOS 中也称为 Bundle ID，在 Android 中称为 Application ID。
+   * 必须使用反向域名表示法，通常代表您或您的公司拥有的域名。
    *
    * @since 1.0.0
    */
   appId?: string;
 
   /**
-   * 应用的用户友好名称。
+   * 应用的友好名称。
    *
-   * 这应该是您在应用商店中看到的名称，但生成后可以在各个原生平台内修改。
+   * 这应该是您在 App Store 中看到的名字，但生成后可以在每个原生平台内更改。
    *
    * @since 1.0.0
    */
   appName?: string;
 
   /**
-   * 已编译 Web 资源的目录。
+   * 编译后的 Web 资产目录。
    *
-   * 此目录应包含应用的最终 `index.html` 文件。
+   * 此目录应包含应用的最终 `index.html`。
    *
    * @since 1.0.0
    */
@@ -64,11 +64,11 @@ export interface CapacitorConfig {
   /**
    * 是否复制 Capacitor 运行时包。
    *
-   * 如果您的应用未使用打包工具，请将此设置为 `true`，然后 Capacitor
+   * 如果您的应用不使用打包工具，请将其设置为 `true`，然后 Capacitor
    * 将创建一个 `capacitor.js` 文件，您需要将其作为脚本添加到
-   * 您的 `index.html` 文件中。
+   * `index.html` 文件中。
    *
-   * 已弃用，将在 Capacitor 6 中移除
+   * 此选项已弃用，将在 Capacitor 6 中移除。
    *
    * @since 1.0.0
    * @deprecated 5.0.0
@@ -77,16 +77,14 @@ export interface CapacitorConfig {
   bundledWebRuntime?: boolean;
 
   /**
-   * 构建配置（由原生应用定义），在此配置下 Capacitor
-   * 将向日志系统发送语句。这适用于原生代码中的日志语句
-   * 以及从 JavaScript 重定向的语句（`console.debug`、
-   * `console.error` 等）。启用日志记录将允许语句在
-   * Xcode 和 Android Studio 窗口中显示，但如果发布版本中启用
-   * 可能会泄露设备信息。
+   * Capacitor 将语句发送到日志系统的构建配置（由原生应用定义）。
+   * 这适用于原生代码中的日志语句以及从 JavaScript 重定向的语句
+   * （`console.debug`、`console.error` 等）。启用日志记录将使语句显示在
+   * Xcode 和 Android Studio 窗口中，但如果启用了发布版本，可能会在设备上泄露信息。
    *
-   * 'none' = 从不生成日志
-   * 'debug' = 在调试版本中生成日志，但不在生产版本中生成
-   * 'production' = 始终生成日志
+   * 'none' = 从不产生日志
+   * 'debug' = 在调试构建中产生日志，但在生产构建中不产生
+   * 'production' = 始终产生日志
    *
    * @since 3.0.0
    * @default debug
@@ -94,23 +92,23 @@ export interface CapacitorConfig {
   loggingBehavior?: 'none' | 'debug' | 'production';
 
   /**
-   * Capacitor Web View 的用户代理。
+   * Capacitor WebView 的用户代理。
    *
    * @since 1.4.0
    */
   overrideUserAgent?: string;
 
   /**
-   * 附加到 Capacitor Web View 原始用户代理的字符串。
+   * 附加到 Capacitor WebView 原始用户代理的字符串。
    *
-   * 如果使用了 `overrideUserAgent`，则此设置将被忽略。
+   * 如果使用了 `overrideUserAgent`，则忽略此项。
    *
    * @since 1.4.0
    */
   appendUserAgent?: string;
 
   /**
-   * Capacitor Web View 的背景颜色。
+   * Capacitor WebView 的背景颜色。
    *
    * @since 1.1.0
    */
@@ -126,7 +124,7 @@ export interface CapacitorConfig {
     path?: string;
 
     /**
-     * Android 上 Capacitor Web View 的用户代理。
+     * Android 上 Capacitor WebView 的用户代理。
      *
      * 覆盖全局 `overrideUserAgent` 选项。
      *
@@ -135,18 +133,18 @@ export interface CapacitorConfig {
     overrideUserAgent?: string;
 
     /**
-     * 附加到 Android 上 Capacitor Web View 原始用户代理的字符串。
+     * 附加到 Android 上 Capacitor WebView 原始用户代理的字符串。
      *
      * 覆盖全局 `appendUserAgent` 选项。
      *
-     * 如果使用了 `overrideUserAgent`，则此设置将被忽略。
+     * 如果使用了 `overrideUserAgent`，则忽略此项。
      *
      * @since 1.4.0
      */
     appendUserAgent?: string;
 
     /**
-     * Android 上 Capacitor Web View 的背景颜色。
+     * Android 上 Capacitor WebView 的背景颜色。
      *
      * 覆盖全局 `backgroundColor` 选项。
      *
@@ -155,12 +153,12 @@ export interface CapacitorConfig {
     backgroundColor?: string;
 
     /**
-     * 在 Android 的 Capacitor Web View 中启用混合内容。
-   *
-     * 出于安全考虑，默认禁用[混合内容](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content)。
-     * 在开发过程中，您可能需要启用它以允许 Web View 从不同的协议加载文件。
+     * 在 Android 上的 Capacitor WebView 中启用混合内容。
      *
-     * **此功能不适用于生产环境。**
+     * 出于安全考虑，默认情况下禁用[混合内容]。
+     * 在开发期间，您可能需要启用它以允许 WebView 从不同 scheme 加载文件。
+     *
+     * **不适用于生产环境。**
      *
      * @since 1.0.0
      * @default false
@@ -168,10 +166,10 @@ export interface CapacitorConfig {
     allowMixedContent?: boolean;
 
     /**
-     * 启用一个更简单的键盘，但可能有一些限制。
+     * 启用更简单的键盘，可能有一些限制。
      *
-     * 这将使用替代的[`InputConnection`](https://developer.android.com/reference/android/view/inputmethod/InputConnection)
-     * 来捕获 JS 按键。
+     * 这将使用替代的
+     * [`InputConnection`](https://developer.android.com/reference/android/view/inputmethod/InputConnection) 捕获 JS 按键。
      *
      * @since 1.0.0
      * @default false
@@ -181,7 +179,7 @@ export interface CapacitorConfig {
     /**
      * 始终启用可调试的 Web 内容。
      *
-     * 在开发过程中会自动启用此功能。
+     * 在开发期间自动启用。
      *
      * @since 1.0.0
      * @default false
@@ -189,7 +187,7 @@ export interface CapacitorConfig {
     webContentsDebuggingEnabled?: boolean;
 
     /**
-     * Android 上 Capacitor 生成日志的构建配置。
+     * Capacitor 在 Android 上生成日志的构建配置。
      *
      * 覆盖全局 `loggingBehavior` 选项。
      *
@@ -199,7 +197,7 @@ export interface CapacitorConfig {
     loggingBehavior?: 'none' | 'debug' | 'production';
 
     /**
-     * 在 Android 上执行 `npx cap sync` 时要包含的插件白名单。
+     * 在 `npx cap sync` 期间为 Android 包含的插件允许列表。
      *
      * 覆盖全局 `includePlugins` 选项。
      *
@@ -208,17 +206,17 @@ export interface CapacitorConfig {
     includePlugins?: string[];
 
     /**
-     * 要使用的 Android 风味。
+     * 要使用的 Android flavor。
      *
-     * 如果应用在 `build.gradle` 中声明了风味，
-     * 请配置您希望使用 `npx cap run` 命令运行的风味。
+     * 如果在 `build.gradle` 中声明了 flavors，
+     * 请配置要使用 `npx cap run` 命令运行的 flavor。
      *
      * @since 3.1.0
      */
     flavor?: string;
 
     /**
-     * 是否给予 webview 初始焦点。
+     * 是否让 webview 获得初始焦点。
      *
      * @since 3.5.1
      * @default true
@@ -226,11 +224,11 @@ export interface CapacitorConfig {
     initialFocus?: boolean;
 
     /**
-     * 您的应用支持的 Android 上 WebView 最低版本。
+     * 您的应用支持的 Android 最低 WebView 版本。
      *
-     * 最低支持的版本不能低于 `55`，这是 Capacitor 的要求。
+     * 最低支持版本不能低于 `55`，这是 Capacitor 所需的最低版本。
      *
-     * 如果设备使用更低版本的 WebView，将在 Logcat 中显示错误信息。
+     * 如果设备使用较低的 WebView 版本，Logcat 上将显示错误消息。
      * 如果配置了 `server.errorPath`，WebView 将重定向到该文件，因此可以
      * 用于显示自定义错误。
      *
@@ -240,11 +238,11 @@ export interface CapacitorConfig {
     minWebViewVersion?: number;
 
     /**
-     * 您的应用支持的 Android 上华为 WebView 最低版本。
+     * 您的应用支持的 Android 最低华为 WebView 版本。
      *
-     * 最低支持的版本不能低于 `10`，这是 Capacitor 的要求。
+     * 最低支持版本不能低于 `10`，这是 Capacitor 所需的最低版本。
      *
-     * 如果设备使用更低版本的 WebView，将在 Logcat 中显示错误信息。
+     * 如果设备使用较低的 WebView 版本，Logcat 上将显示错误消息。
      * 如果配置了 `server.errorPath`，WebView 将重定向到该文件，因此可以
      * 用于显示自定义错误。
      *
@@ -255,35 +253,35 @@ export interface CapacitorConfig {
 
     buildOptions?: {
       /**
-       * 密钥库的路径
+       * 您的 keystore 路径。
        *
        * @since 4.4.0
        */
       keystorePath?: string;
 
       /**
-       * 密钥库的密码
+       * 您的 keystore 密码。
        *
        * @since 4.4.0
        */
       keystorePassword?: string;
 
       /**
-       * 要使用的密钥库中的别名
+       * 要使用的 keystore 别名。
        *
        * @since 4.4.0
        */
       keystoreAlias?: string;
 
       /**
-       * 要使用的密钥库中别名的密码
+       * 要使用的 keystore 别名密码。
        *
        * @since 4.4.0
        */
       keystoreAliasPassword?: string;
 
       /**
-       * 发布版本的打包类型
+       * 发布构建的包类型。
        *
        * @since 4.4.0
        * @default "AAB"
@@ -291,7 +289,7 @@ export interface CapacitorConfig {
       releaseType?: 'AAB' | 'APK';
 
       /**
-       * 用于签名构建的程序
+       * 用于签名构建的程序。
        *
        * @since 5.1.0
        * @default "jarsigner"
@@ -300,15 +298,16 @@ export interface CapacitorConfig {
     };
 
     /**
-     * 使用旧的 [addJavascriptInterface](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object, java.lang.String))
-     * 而不是新的更安全的 [addWebMessageListener](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set<java.lang.String>,androidx.webkit.WebViewCompat.WebMessageListener))
+     * 使用传统的 [addJavascriptInterface](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String))
+     * 而不是新的更安全的 [addWebMessageListener](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E,androidx.webkit.WebViewCompat.WebMessageListener))
      *
      * @since 4.5.0
      * @default false
      */
     useLegacyBridge?: boolean;
   };
-```ios?: {
+
+  ios?: {
     /**
      * 指定原生 iOS 项目的自定义路径。
      *
@@ -318,9 +317,10 @@ export interface CapacitorConfig {
     path?: string;
 
     /**
-     * 要使用的 iOS 构建方案。
+     * 要使用的 iOS 构建 scheme。
      *
-     * 通常这与 Xcode 中应用的 target 匹配。可以使用以下命令列出方案：
+     * 通常这与您应用的 Xcode target 名称匹配。您可以使用
+     * 以下命令列出 schemes：
      *
      * ```shell
      * xcodebuild -workspace ios/App/App.xcworkspace -list
@@ -332,7 +332,7 @@ export interface CapacitorConfig {
     scheme?: string;
 
     /**
-     * iOS 上 Capacitor Web View 的用户代理（User Agent）。
+     * iOS 上 Capacitor WebView 的用户代理。
      *
      * 覆盖全局 `overrideUserAgent` 选项。
      *
@@ -341,18 +341,18 @@ export interface CapacitorConfig {
     overrideUserAgent?: string;
 
     /**
-     * 附加到 iOS Capacitor Web View 原始用户代理的字符串。
+     * 附加到 iOS 上 Capacitor WebView 原始用户代理的字符串。
      *
      * 覆盖全局 `appendUserAgent` 选项。
      *
-     * 如果使用了 `overrideUserAgent`，则此选项将被忽略。
+     * 如果使用了 `overrideUserAgent`，则忽略此项。
      *
      * @since 1.4.0
      */
     appendUserAgent?: string;
 
     /**
-     * iOS 上 Capacitor Web View 的背景颜色。
+     * iOS 上 Capacitor WebView 的背景颜色。
      *
      * 覆盖全局 `backgroundColor` 选项。
      *
@@ -363,7 +363,11 @@ export interface CapacitorConfig {
     /**
      * 配置滚动视图的内容插入调整行为。
      *
-     * 这将设置 Web View 的 `UIScrollView` 上的 `contentInsetAdjustmentBehavior` 属性。
+     * 这将设置 WebView 的
+     * [`UIScrollView`](https://developer.apple.com/documentation/uikit/uiscrollview)
+     * 上的
+     * [`contentInsetAdjustmentBehavior`](https://developer.apple.com/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior)
+     * 属性。
      *
      * @since 2.0.0
      * @default never
@@ -373,14 +377,18 @@ export interface CapacitorConfig {
     /**
      * 配置滚动视图是否可滚动。
      *
-     * 这将设置 Web View 的 `UIScrollView` 上的 `isScrollEnabled` 属性。
+     * 这将设置 WebView 的
+     * [`UIScrollView`](https://developer.apple.com/documentation/uikit/uiscrollview)
+     * 上的
+     * [`isScrollEnabled`](https://developer.apple.com/documentation/uikit/uiscrollview/1619395-isscrollenabled)
+     * 属性。
      *
      * @since 1.0.0
      */
     scrollEnabled?: boolean;
 
     /**
-     * 为编译 Cordova 插件配置自定义链接器标志（linker flags）。
+     * 配置用于编译 Cordova 插件的自定义链接器标志。
      *
      * @since 1.0.0
      * @default []
@@ -388,16 +396,18 @@ export interface CapacitorConfig {
     cordovaLinkerFlags?: string[];
 
     /**
-     * 允许按下链接时显示目标预览。
+     * 允许在按下链接时显示目标预览。
      *
-     * 这将设置 Web View 上的 `allowsLinkPreview` 属性，而不是使用默认值。
+     * 这将设置 WebView 上的
+     * [`allowsLinkPreview`](https://developer.apple.com/documentation/webkit/wkwebview/1415000-allowslinkpreview)
+     * 属性，而不是使用默认值。
      *
      * @since 2.0.0
      */
     allowsLinkPreview?: boolean;
 
     /**
-     * Capacitor 在 iOS 上生成日志时所使用的构建配置。
+     * Capacitor 在 iOS 上生成日志的构建配置。
      *
      * 覆盖全局 `loggingBehavior` 选项。
      *
@@ -407,7 +417,7 @@ export interface CapacitorConfig {
     loggingBehavior?: 'none' | 'debug' | 'production';
 
     /**
-     * 在 iOS 上执行 `npx cap sync` 时要包含的插件白名单。
+     * 在 `npx cap sync` 期间为 iOS 包含的插件允许列表。
      *
      * 覆盖全局 `includePlugins` 选项。
      *
@@ -416,11 +426,14 @@ export interface CapacitorConfig {
     includePlugins?: string[];
 
     /**
-     * 为 WKWebView 配置 limitsNavigationsToAppBoundDomains 属性。
+     * 设置 WKWebView 配置的 limitsNavigationsToAppBoundDomains。
      *
-     * 如果 Info.plist 文件中包含 `WKAppBoundDomains` 键，建议将此选项设置为 true，否则某些功能将无法正常工作。
-     * 但副作用是，它会阻止导航到 `WKAppBoundDomains` 列表之外的域。
-     * `localhost`（或配置为 `server.hostname` 的值）也需要添加到 `WKAppBoundDomains` 列表中。
+     * 如果 Info.plist 文件包含 `WKAppBoundDomains` 键，建议
+     * 将此选项设置为 true，否则某些功能将无法工作。
+     * 但副作用是它会阻止导航到
+     * `WKAppBoundDomains` 列表之外的域名。
+     * `localhost`（或配置为 `server.hostname` 的值）也需要
+     * 添加到 `WKAppBoundDomains` 列表中。
      *
      * @since 3.1.0
      * @default false
@@ -428,9 +441,9 @@ export interface CapacitorConfig {
     limitsNavigationsToAppBoundDomains?: boolean;
 
     /**
-     * Web 视图在加载和呈现 Web 内容时使用的内容模式。
+     * WebView 加载和渲染 Web 内容时使用的内容模式。
      *
-     * - 'recommended'：适用于当前设备的内容模式。
+     * - 'recommended'：适合当前设备的内容模式。
      * - 'desktop'：代表桌面体验的内容模式。
      * - 'mobile'：代表移动体验的内容模式。
      *
@@ -441,7 +454,7 @@ export interface CapacitorConfig {
 
     /**
      * 配置 Capacitor 是否处理本地/推送通知。
-     * 如果你想使用自己的 UNUserNotificationCenter 来处理通知，请设置为 false。
+     * 如果要使用自己的 UNUserNotificationCenter 处理通知，请设置为 false。
      *
      * @since 4.5.0
      * @default true
@@ -449,9 +462,9 @@ export interface CapacitorConfig {
     handleApplicationNotifications?: boolean;
 
     /**
-     * 在 Xcode 14.3 及以上版本中，对于 iOS 16.4 及以上版本，为发布版本启用可调试的 Web 内容。
+     * 使用 Xcode 14.3，在 iOS 16.4 及以上版本，为发布构建启用可调试的 Web 内容。
      *
-     * 如果未设置，则开发版本默认为 `true`。
+     * 如果未设置，则在开发构建中默认为 `true`。
      *
      * @since 4.8.0
      * @default false
@@ -463,7 +476,12 @@ export interface CapacitorConfig {
     /**
      * 配置设备的本地主机名。
      *
-     * 建议保持为 `localhost`，因为它允许使用需要安全上下文的 Web API，例如 `navigator.geolocation` 和 `MediaDevices.getUserMedia`。
+     * 建议保持为 `localhost`，因为它允许使用
+     * 否则需要[安全上下文]的 Web API，
+     * 例如
+     * [`navigator.geolocation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)
+     * 和
+     * [`MediaDevices.getUserMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)。
      *
      * @since 1.0.0
      * @default localhost
@@ -471,10 +489,12 @@ export interface CapacitorConfig {
     hostname?: string;
 
     /**
-     * 配置 iOS 上的本地方案（scheme）。
+     * 配置 iOS 上的本地 scheme。
      *
-     * 不能设置为 WKWebView 已处理的方案，如 http 或 https。
-     * 这在使用 `cordova-plugin-ionic-webview` 迁移时很有用，因为在 iOS 上默认方案是 `ionic`。
+     * [不能设置为 WKWebView 已经处理的 scheme，如 http 或 https](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/2875766-seturlschemehandler)
+     * 这在从
+     * [`cordova-plugin-ionic-webview`](https://github.com/ionic-team/cordova-plugin-ionic-webview)
+     * 迁移时很有用，其中 iOS 上的默认 scheme 是 `ionic`。
      *
      * @since 1.2.0
      * @default capacitor
@@ -482,10 +502,14 @@ export interface CapacitorConfig {
     iosScheme?: string;
 
     /**
-     * 配置 Android 上的本地方案（scheme）。
+     * 配置 Android 上的本地 scheme。
      *
-     * 从 Webview 117 开始，Android 上的自定义方案无法更改 URL 路径。将此值从 `http` 或 `https` 更改为其他值可能导致应用程序无法解析路由。
-     * 如果出于某些原因必须更改此值，请考虑使用基于哈希（hash-based）的 URL 策略，但不能保证这将长期有效，因为允许非标准方案修改查询参数和 URL 片段仅出于兼容性考虑。
+     * Android 上的自定义 scheme 无法更改 URL 路径（截至 Webview 117）。将此值更改为 `http` 或 `https` 以外的任何值
+     * 可能导致应用无法解析路由。如果出于某种原因必须更改它，
+     * 请考虑使用基于哈希的 URL 策略，但不能保证
+     * 长期有效，因为允许非标准 scheme 修改查询参数和 URL 片段
+     * 仅为兼容性原因而允许。
+     * https://ionic.io/blog/capacitor-android-customscheme-issue-with-chrome-117
      *
      * @since 1.2.0
      * @default http
@@ -493,9 +517,9 @@ export interface CapacitorConfig {
     androidScheme?: string;
 
     /**
-     * 在 Web View 中加载外部 URL。
+     * 在 WebView 中加载外部 URL。
      *
-     * 此选项旨在与实时重载服务器一起使用。
+     * 用于热重载服务器。
      *
      * **不适用于生产环境。**
      *
@@ -504,11 +528,11 @@ export interface CapacitorConfig {
     url?: string;
 
     /**
-     * 允许 Web View 中的明文流量。
+     * 允许 WebView 中的明文流量。
      *
-     * 在 Android 上，从 API 28 开始，默认禁用所有明文流量。
+     * 在 Android 上，从 API 28 开始，默认情况下禁用所有明文流量。
      *
-     * 此选项旨在与实时重载服务器一起使用，这些服务器通常使用未加密的 HTTP 流量。
+     * 用于使用未加密 HTTP 流量的热重载服务器。
      *
      * **不适用于生产环境。**
      *
@@ -518,9 +542,9 @@ export interface CapacitorConfig {
     cleartext?: boolean;
 
     /**
-     * 设置 Web View 可以导航到的其他 URL。
+     * 设置 WebView 可以导航到的额外 URL。
      *
-     * 默认情况下，所有外部 URL 都在外部浏览器（而非 Web View）中打开。
+     * 默认情况下，所有外部 URL 都在外部浏览器中打开（而不是 WebView）。
      *
      * **不适用于生产环境。**
      *
@@ -530,18 +554,20 @@ export interface CapacitorConfig {
     allowNavigation?: string[];
 
     /**
-     * 指定发生错误时显示的本地 HTML 页面路径。
-     * 在 Android 上，HTML 文件将无法访问 Capacitor 插件。
+     * 指定在发生错误时显示的本地 HTML 页面的路径。
+     * 在 Android 上，HTML 文件无法访问 Capacitor 插件。
      *
      * @since 4.0.0
      * @default null
      */
     errorPath?: string;
-  };cordova?: {
+  };
+
+  cordova?: {
     /**
-     * 在 config.xml 中填充 <access> 标签，将其 origin 属性设置为此处输入的值。
+     * 使用此处输入的值为 config.xml 中的 <access> 标签填充源。
      * 如果未提供，则包含一个 <access origin="*" /> 标签。
-     * 仅对少数遵循白名单规则的 Cordova 插件有效。
+     * 仅对少数尊重白名单的 Cordova 插件有效。
      *
      * @since 3.3.0
      */
@@ -555,7 +581,7 @@ export interface CapacitorConfig {
     preferences?: { [key: string]: string | undefined };
 
     /**
-     * 需要设置为静态但不在静态插件列表中的 Cordova 插件列表。
+     * 需要静态但尚未在静态插件列表中的 Cordova 插件列表。
      *
      * @since 3.3.0
      */
@@ -565,16 +591,18 @@ export interface CapacitorConfig {
   /**
    * 配置插件。
    *
-   * 这是一个对象，其配置值由插件类名指定。
+   * 这是一个包含按插件类名指定的配置值的对象。
    *
    * @since 1.0.0
    */
   plugins?: PluginsConfig;
 
   /**
-   * 在运行 `npx cap sync` 时要包含的插件白名单。
+   * 在 `npx cap sync` 期间包含的插件允许列表。
    *
-   * 这应该是一个字符串数组，表示运行 `npx cap sync` 时要包含的插件的 npm 包名。如果未设置，Capacitor 将检查 `package.json` 以获取潜在的插件列表。
+   * 这应该是表示在运行 `npx cap sync` 时要包含的插件的 npm 包名
+   * 字符串数组。如果未设置，Capacitor 将
+   * 检查 `package.json` 以获取潜在插件列表。
    *
    * @since 3.0.0
    */
@@ -599,7 +627,7 @@ export type AutoUpdateMethod = 'none' | 'background';
 
 export interface PluginsConfig {
   /**
-   * 按类名配置插件。
+   * 按类名的插件配置。
    *
    * @since 1.0.0
    */
@@ -634,15 +662,15 @@ export interface PluginsConfig {
    */
   CapacitorCookies?: {
     /**
-     * 启用 CapacitorCookies 以在原生平台上覆写全局的 `document.cookie`。
+     * 启用 CapacitorCookies 以覆盖原生上全局的 `document.cookie`。
      *
      * @default false
      */
     enabled?: boolean;
     /**
-     * 允许在 Android 上读取和访问 `httpOnly` 及其他不安全的 Cookie。
+     * 允许在 Android 上读取和访问 `httpOnly` 和其他不安全 cookie。
      *
-     * 注意：这可能存在潜在的安全风险，仅当您的应用在 Android 上使用自定义 scheme 时才应使用此选项。
+     * 注意：这可能存在安全风险，仅适用于您的应用在 Android 上使用自定义 scheme 的情况。
      *
      */
     androidCustomSchemeAllowInsecureAccess?: boolean;
@@ -655,7 +683,7 @@ export interface PluginsConfig {
    */
   CapacitorHttp?: {
     /**
-     * 启用 CapacitorHttp 以在原生平台上覆写全局的 `fetch` 和 `XMLHttpRequest`。
+     * 启用 CapacitorHttp 以覆盖原生上全局的 `fetch` 和 `XMLHttpRequest`。
      *
      * @default false
      */
@@ -666,7 +694,7 @@ export interface PluginsConfig {
 
 ## 环境变量
 
-Capacitor CLI 会自动查找您系统上的依赖项。如需配置这些路径，可使用以下环境变量：
+Capacitor CLI 会自动在您的系统上查找依赖项。如果您需要配置这些路径，以下环境变量可用：
 
-- `CAPACITOR_ANDROID_STUDIO_PATH`: 您系统上 Android Studio 可执行文件的路径。
-- `CAPACITOR_COCOAPODS_PATH`: 您系统上 `pod` 二进制文件的路径。
+- `CAPACITOR_ANDROID_STUDIO_PATH`：系统上 Android Studio 可执行文件的路径。
+- `CAPACITOR_COCOAPODS_PATH`：系统上 `pod` 二进制文件的路径。

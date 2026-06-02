@@ -4,11 +4,12 @@ description: Capacitor CLI 命令 - cap sync
 contributors:
   - dotNetkow
 sidebar_label: sync
+translated: true
 ---
 
 # Capacitor CLI - cap sync
 
-此命令依次执行 [`copy`](/cli/commands/copy.md) 和 [`update`](/cli/commands/update.md)。
+此命令依次运行 [`copy`](/cli/commands/copy.md) 和 [`update`](/cli/commands/update.md)。
 
 ```bash
 npx cap sync [options] [<platform>]
@@ -20,11 +21,11 @@ npx cap sync [options] [<platform>]
 
 <strong>选项：</strong>
 
-- `--deployment`：不会删除 Podfile.lock，且 pod install 将使用 `--deployment` 选项。
+- `--deployment`：不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
 ## 钩子
 
-sync 命令可使用以下钩子：
+以下钩子可用于 sync 命令：
 
 - `capacitor:sync:before`
 - `capacitor:sync:after`

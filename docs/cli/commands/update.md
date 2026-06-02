@@ -16,15 +16,15 @@ npx cap update [<platform>]
 
 <strong>输入参数：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`、`ios`
 
 <strong>选项：</strong>
 
-- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
+- `--deployment`：不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
 ## 钩子
 
-update 命令可用的钩子如下：
+以下是 update 命令可用的钩子：
 
 - `capacitor:update:before`
 - `capacitor:update:after`

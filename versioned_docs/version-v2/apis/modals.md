@@ -1,21 +1,22 @@
 ---
 title: Modals
-description: 模态窗 API
+description: Modals API
 contributors:
   - mlynch
   - jcesarmobile
+translated: true
 ---
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-Modals API 提供了触发原生模态窗口的方法，可用于显示警告、确认和输入提示对话框，以及操作菜单（Action Sheets）。
+Modals API 提供了触发原生模态窗口的方法，用于警告、确认和输入提示，以及操作列表。
 
 - [`alert(...)`](#alert)
 - [`prompt(...)`](#prompt)
 - [`confirm(...)`](#confirm)
 - [`showActions(...)`](#showactions)
-- [接口](#接口)
-- [枚举](#枚举)
+- [接口](#interfaces)
+- [枚举](#enums)
 
 ## 示例
 
@@ -26,45 +27,45 @@ const { Modals } = Plugins;
 
 async showAlert() {
   let alertRet = await Modals.alert({
-    title: 'Stop',
-    message: 'this is an error'
+    title: '停止',
+    message: '这是一个错误'
   });
 }
 
 async showConfirm() {
   let confirmRet = await Modals.confirm({
-    title: 'Confirm',
-    message: 'Are you sure you\'d like to press the red button?'
+    title: '确认',
+    message: '您确定要按下红色按钮吗？'
   });
-  console.log('Confirm ret', confirmRet);
+  console.log('确认返回', confirmRet);
 }
 
 async showPrompt() {
   let promptRet = await Modals.prompt({
-    title: 'Hello',
-    message: 'What\'s your name?'
+    title: '你好',
+    message: '你叫什么名字？'
   });
-  console.log('Prompt ret', promptRet);
+  console.log('提示返回', promptRet);
 }
 
 async showActions() {
   let promptRet = await Modals.showActions({
-    title: 'Photo Options',
-    message: 'Select an option to perform',
+    title: '照片选项',
+    message: '选择一个操作来执行',
     options: [
       {
-        title: 'Upload'
+        title: '上传'
       },
       {
-        title: 'Share'
+        title: '分享'
       },
       {
-        title: 'Remove',
+        title: '删除',
         style: ActionSheetOptionStyle.Destructive
       }
     ]
   })
-  console.log('You selected', promptRet);
+  console.log('你选择了', promptRet);
 }
 ```
 
@@ -76,11 +77,11 @@ async showActions() {
 alert(options: AlertOptions) => Promise<void>
 ```
 
-显示一个警告模态窗
+显示警告模态框
 
-| 参数            | 类型                                                  |
-| --------------- | ----------------------------------------------------- |
-| **`options`**   | <code><a href="#alertoptions">AlertOptions</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#alertoptions">AlertOptions</a></code> |
 
 ---
 
@@ -90,13 +91,13 @@ alert(options: AlertOptions) => Promise<void>
 prompt(options: PromptOptions) => Promise<PromptResult>
 ```
 
-显示一个提示输入模态窗
+显示提示模态框
 
-| 参数            | 类型                                                    |
-| --------------- | ------------------------------------------------------- |
-| **`options`**   | <code><a href="#promptoptions">PromptOptions</a></code> |
+| 参数 | 类型 |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#promptoptions">PromptOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#promptresult">PromptResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#promptresult">PromptResult</a>&gt;</code>
 
 ---
 
@@ -106,13 +107,13 @@ prompt(options: PromptOptions) => Promise<PromptResult>
 confirm(options: ConfirmOptions) => Promise<ConfirmResult>
 ```
 
-显示一个确认模态窗
+显示确认模态框
 
-| 参数            | 类型                                                      |
-| --------------- | --------------------------------------------------------- |
-| **`options`**   | <code><a href="#confirmoptions">ConfirmOptions</a></code> |
+| 参数 | 类型 |
+| ------------- | --------------------------------------------------------- |
+| **`options`** | <code><a href="#confirmoptions">ConfirmOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#confirmresult">ConfirmResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#confirmresult">ConfirmResult</a>&gt;</code>
 
 ---
 
@@ -122,13 +123,13 @@ confirm(options: ConfirmOptions) => Promise<ConfirmResult>
 showActions(options: ActionSheetOptions) => Promise<ActionSheetResult>
 ```
 
-显示一个操作菜单（Action Sheet）样式的模态窗，为用户提供多个选项进行选择。
+显示操作列表样式的模态框，为用户提供多种选项进行选择。
 
-| 参数            | 类型                                                              |
-| --------------- | ----------------------------------------------------------------- |
-| **`options`**   | <code><a href="#actionsheetoptions">ActionSheetOptions</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#actionsheetoptions">ActionSheetOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#actionsheetresult">ActionSheetResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#actionsheetresult">ActionSheetResult</a>&gt;</code>
 
 ---
 
@@ -136,73 +137,73 @@ showActions(options: ActionSheetOptions) => Promise<ActionSheetResult>
 
 #### AlertOptions
 
-| 属性                | 类型                |
-| ------------------- | ------------------- |
-| **`title`**         | <code>string</code> |
-| **`message`**       | <code>string</code> |
-| **`buttonTitle`**   | <code>string</code> |
+| 属性 | 类型 |
+| ----------------- | ------------------- |
+| **`title`**       | <code>string</code> |
+| **`message`**     | <code>string</code> |
+| **`buttonTitle`** | <code>string</code> |
 
 #### PromptResult
 
-| 属性              | 类型                 |
-| ----------------- | -------------------- |
-| **`value`**       | <code>string</code>  |
-| **`cancelled`**   | <code>boolean</code> |
+| 属性 | 类型 |
+| --------------- | -------------------- |
+| **`value`**     | <code>string</code>  |
+| **`cancelled`** | <code>boolean</code> |
 
 #### PromptOptions
 
-| 属性                      | 类型                |
-| ------------------------- | ------------------- |
-| **`title`**               | <code>string</code> |
-| **`message`**             | <code>string</code> |
-| **`okButtonTitle`**       | <code>string</code> |
-| **`cancelButtonTitle`**   | <code>string</code> |
-| **`inputPlaceholder`**    | <code>string</code> |
-| **`inputText`**           | <code>string</code> |
+| 属性 | 类型 |
+| ----------------------- | ------------------- |
+| **`title`**             | <code>string</code> |
+| **`message`**           | <code>string</code> |
+| **`okButtonTitle`**     | <code>string</code> |
+| **`cancelButtonTitle`** | <code>string</code> |
+| **`inputPlaceholder`**  | <code>string</code> |
+| **`inputText`**         | <code>string</code> |
 
 #### ConfirmResult
 
-| 属性            | 类型                 |
-| --------------- | -------------------- |
-| **`value`**     | <code>boolean</code> |
+| 属性 | 类型 |
+| ----------- | -------------------- |
+| **`value`** | <code>boolean</code> |
 
 #### ConfirmOptions
 
-| 属性                      | 类型                |
-| ------------------------- | ------------------- |
-| **`title`**               | <code>string</code> |
-| **`message`**             | <code>string</code> |
-| **`okButtonTitle`**       | <code>string</code> |
-| **`cancelButtonTitle`**   | <code>string</code> |
+| 属性 | 类型 |
+| ----------------------- | ------------------- |
+| **`title`**             | <code>string</code> |
+| **`message`**           | <code>string</code> |
+| **`okButtonTitle`**     | <code>string</code> |
+| **`cancelButtonTitle`** | <code>string</code> |
 
 #### ActionSheetResult
 
-| 属性            | 类型                |
-| --------------- | ------------------- |
-| **`index`**     | <code>number</code> |
+| 属性 | 类型 |
+| ----------- | ------------------- |
+| **`index`** | <code>number</code> |
 
 #### ActionSheetOptions
 
-| 属性            | 类型                             | 描述         |
-| --------------- | -------------------------------- | ------------ |
-| **`title`**     | <code>string</code>              |              |
-| **`message`**   | <code>string</code>              | 仅限 iOS     |
-| **`options`**   | <code>ActionSheetOption[]</code> |              |
+| 属性 | 类型 | 描述 |
+| ----------- | -------------------------------- | ----------- |
+| **`title`**   | <code>string</code>              |             |
+| **`message`** | <code>string</code>              | 仅 iOS |
+| **`options`** | <code>ActionSheetOption[]</code> |             |
 
 #### ActionSheetOption
 
-| 属性            | 类型                                                                      | 描述                                     |
-| --------------- | ------------------------------------------------------------------------- | ---------------------------------------- |
-| **`title`**     | <code>string</code>                                                       |                                          |
-| **`style`**     | <code><a href="#actionsheetoptionstyle">ActionSheetOptionStyle</a></code> |                                          |
-| **`icon`**      | <code>string</code>                                                       | Web 端图标（遵循 ionicon 命名规范） |
+| 属性 | 类型 | 描述 |
+| ----------- | ------------------------------------------------------------------------- | ---------------------------------------- |
+| **`title`** | <code>string</code>                                                       | |
+| **`style`** | <code><a href="#actionsheetoptionstyle">ActionSheetOptionStyle</a></code> | |
+| **`icon`**  | <code>string</code>                                                       | Web 图标（ionicon 命名约定） |
 
 ### 枚举
 
 #### ActionSheetOptionStyle
 
-| 成员               | 值                          |
-| ------------------ | -------------------------- |
-| **`Default`**      | <code>"DEFAULT"</code>     |
-| **`Destructive`**  | <code>"DESTRUCTIVE"</code> |
-| **`Cancel`**       | <code>"CANCEL"</code>      |
+| 成员 | 值 |
+| ----------------- | -------------------------- |
+| **`Default`**     | <code>"DEFAULT"</code>     |
+| **`Destructive`** | <code>"DESTRUCTIVE"</code> |
+| **`Cancel`**      | <code>"CANCEL"</code>      |

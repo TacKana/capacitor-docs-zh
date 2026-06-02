@@ -19,11 +19,11 @@ export default function ReleaseNotes(props: { [key: string]: any }) {
   if (releases.length === 0) {
     return [
       <p>
-        Unable to load Releases. Please see all releases{' '}
+        无法加载发布版本。请在{' '}
         <a href="https://github.com/ionic-team/ionic/releases" target="_blank">
-          on GitHub
+          GitHub
         </a>
-        .
+        上查看所有发布版本。
       </p>,
     ];
   }
@@ -31,16 +31,16 @@ export default function ReleaseNotes(props: { [key: string]: any }) {
   return (
     <article>
       <p className={styles.intro}>
-        A complete release history for Ionic Framework is available{' '}
+        Ionic Framework 的完整发布历史可在{' '}
         <a href="https://github.com/ionic-team/ionic/releases" target="_blank">
-          on GitHub
+          GitHub
         </a>
-        . Documentation for recent releases can also be found below.
+        上查看。以下也可找到近期版本的文档。
       </p>
 
       <p>
-        See versioning for information about our{' '}
-        <a href="/docs/reference/versioning">policy and commitment to stability</a>.
+        查看版本控制文档以了解我们的{' '}
+        <a href="/docs/reference/versioning">策略和稳定性承诺</a>。
       </p>
       <div className={styles['release-notes']}>
         {releases.map((release: Release, index) => (
@@ -63,7 +63,7 @@ export default function ReleaseNotes(props: { [key: string]: any }) {
                 <span className={styles['release-badge']}>{release.type}</span>
                 {index === 0 ? (
                   <span className={clsx(styles['release-badge'], styles['release-badge-latest'])}>
-                    Latest Production Version
+                    最新生产版本
                   </span>
                 ) : null}
               </div>
@@ -80,11 +80,11 @@ export default function ReleaseNotes(props: { [key: string]: any }) {
         ))}
       </div>
       <blockquote>
-        To see more releases, visit{' '}
+        要查看更多发布版本，请访问{' '}
         <a href="https://github.com/ionic-team/ionic/releases/" target="_blank">
           GitHub
         </a>
-        .
+        。
       </blockquote>
     </article>
   );

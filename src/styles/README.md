@@ -1,6 +1,6 @@
-# Styles 文件夹
+# Styles folder
 
-此文件夹包含一个全局样式文件，该文件在 [docusaurus.config.js](/docusaurus.config.js) 中被引入主题。此外，还包含一个 components 文件夹，用于为主题组件设置样式，而无需进行 swizzling 操作。
+This folder houses a global style file that is brought into the theme in [docusaurus.config.js](/docusaurus.config.js). In addition, there is a components folder that is used to style theme components instead of swizzling them.
 
-相关议题：https://github.com/facebook/docusaurus/pull/5987
-由于目前无法覆盖主题样式，我们使用基础的 #\_\_docusaurus 标签来增加选择器的特异性。
+Related issue: https://github.com/facebook/docusaurus/pull/5987
+Since theme styles cannot be overridden at the moment, the base #\_\_docusaurus tag is being used to +1 the specificity of selectors.

@@ -90,7 +90,7 @@ export default function ColorAccordion({ ...props }) {
                 }
               >
                 <div className={styles.colorMenuText}>
-                  Shade
+                  阴影色
                   <div className={styles.colorMenuValue}>{shadeColor}</div>
                 </div>
               </li>
@@ -104,7 +104,7 @@ export default function ColorAccordion({ ...props }) {
                 }
               >
                 <div className={styles.colorMenuText}>
-                  Tint
+                  浅色调
                   <div className={styles.colorMenuValue}>{tintColor}</div>
                 </div>
               </li>

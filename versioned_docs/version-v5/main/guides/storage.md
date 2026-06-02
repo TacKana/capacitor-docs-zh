@@ -1,6 +1,6 @@
 ---
-title: Storage
-description: 在 Capacitor 中存储小到大量的数据
+title: 存储
+description: 在 Capacitor 中存储小量到大量数据
 contributors:
   - mlynch
 slug: /guides/storage
@@ -8,21 +8,21 @@ slug: /guides/storage
 
 # Capacitor 中的数据存储
 
-大多数应用都需要持久化并读取本地数据。根据具体的使用场景，有几种不同的方法可供选择。
+大多数应用需要持久化并读取本地数据。根据具体用例，有几种方法可供选择。
 
-> 需要加密本地数据吗？Ionic 为 Capacitor 应用提供了一套开箱即用的安全套件，包含身份验证、生物识别和安全存储功能。[了解更多](https://ionic.io/secure)。
+> 需要加密您的本地数据？Ionic 为 Capacitor 应用提供了一个开箱即用的安全套件，包括认证、生物识别和安全存储。[了解更多](https://ionic.io/secure)。
 
-## 为什么不能直接使用 LocalStorage 或 IndexedDB？
+## 为什么我不能直接使用 LocalStorage 或 IndexedDB？
 
-由于 Capacitor 应用主要在 Web 视图或浏览器中运行，因此 Capacitor 开发者可以使用 Web 存储 API。然而，在使用这些 API 时，需要注意一些重要的限制。
+由于 Capacitor 应用主要运行在 WebView 或浏览器中，Capacitor 开发者可以使用存储的 Web API。但是，使用这些 API 时需要注意一些主要问题。
 
-Local Storage 可用于存储少量临时数据，例如用户 ID，但必须将其视为临时存储，这意味着你的应用需要预期数据最终可能会丢失。这是因为如果设备存储空间不足，操作系统会回收 Web 视图中的本地存储。至少对于 iOS 上的 IndexedDB 也是如此（在 Android 上，可以使用[持久存储 API](https://web.dev/persistent-storage/) 将 IndexedDB 标记为持久存储）。有关浏览器中[数据存储驱逐策略](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria)的更多信息，请阅读相关文档。
+Local Storage 可用于少量的临时数据，例如用户 ID，但_必须被视为临时的_，这意味着您的应用需要预期数据最终会丢失。这是因为如果设备空间不足，操作系统会从 WebView 回收本地存储空间。同样的情况也适用于 IndexedDB，至少在 iOS 上如此（在 Android 上，[持久化存储 API](https://web.dev/persistent-storage/) 可用于将 IndexedDB 标记为持久化）。在浏览器中阅读更多关于[数据存储驱逐策略](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria)的信息。
 
 ## Capacitor Preferences API
 
-Capacitor 内置了原生的 [Preferences API](/apis/preferences.md)，可以避免上述的驱逐问题，但该 API 设计用于存储少量数据。
+Capacitor 带有一个原生的 [Preferences API](/apis/preferences.md)，可以避免上述的驱逐问题，但它适用于少量数据。
 
-Preferences API 提供了一个简单的键/值 API，不支持高级查询功能：
+Preferences API 提供了一个简单的键/值 API，没有高级查询支持：
 
 ```typescript
 import { Preferences } from '@capacitor/preferences';
@@ -45,10 +45,10 @@ async getObject() {
 }
 ```
 
-## 大数据量或高性能存储选项
+## 大数据或高性能存储选项
 
 对于存储大量数据并以高性能方式访问，有几种选择。
 
-最广泛支持的选项是 SQLite。有许多社区维护的 SQLite 插件可以在 Capacitor 中使用，包括 [capacitor-sqlite](https://github.com/jepiqueau/capacitor-sqlite) 和 [cordova-plugin-sqlite](https://github.com/xpbrew/cordova-sqlite-storage)。
+最广泛支持的选择是 SQLite。有一些社区维护的 SQLite 插件可以在 Capacitor 中工作，包括 [capacitor-sqlite](https://github.com/jepiqueau/capacitor-sqlite) 和 [cordova-plugin-sqlite](https://github.com/xpbrew/cordova-sqlite-storage)。
 
-Capacitor 团队还提供了一个[企业版 SQLite 存储解决方案](https://ionicframework.com/enterprise/offline-storage)，支持加密功能，并能与设备上的[安全密钥管理 API](https://ionicframework.com/enterprise/identity-vault) 集成。
+Capacitor 团队还提供了一个[企业级 SQLite 存储解决方案](https://ionicframework.com/enterprise/offline-storage)，具有加密支持和与设备上[安全密钥管理 API](https://ionicframework.com/enterprise/identity-vault) 的集成。

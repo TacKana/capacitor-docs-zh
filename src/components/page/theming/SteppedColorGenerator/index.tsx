@@ -26,10 +26,10 @@ export default function ColorGenerator(props) {
     <div className={clsx(props.className, 'stepped-color-generator')}>
       <div className={clsx(styles.inputRows)}>
         <ColorDot color={backgroundColor} />
-        <h3>Background</h3>
+        <h3>背景色</h3>
         <ColorInput color={backgroundColor} setColor={setBackgroundColor} />
         <ColorDot color={textColor} />
-        <h3>Text</h3>
+        <h3>文本色</h3>
         <ColorInput color={textColor} setColor={setTextColor} />
       </div>
       <pre className={clsx(styles.codePre)}>

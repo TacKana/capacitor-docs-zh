@@ -1,5 +1,5 @@
 ---
-title: CLI Command - cap
+title: CLI 命令 - cap
 description: Capacitor CLI 命令 - cap
 contributors:
   - dotNetkow
@@ -16,5 +16,5 @@ npx cap [-V] [-h]
 
 <strong>选项：</strong>
 
-- `-V, --version` (可选)：输出版本号
-- `-h, --help` (可选)：输出使用信息。也可用于单个命令。
+- `-V, --version`（可选）：输出版本号
+- `-h, --help`（可选）：输出使用信息。也可与单独的命令一起使用。

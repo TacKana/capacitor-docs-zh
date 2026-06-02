@@ -11,19 +11,19 @@ slug: /android/custom-code
 
 # 自定义原生 Android 代码
 
-使用 Capacitor 时，我们鼓励您编写 Java 或 Kotlin 代码来实现应用所需的本机功能。
+使用 Capacitor，我们鼓励您编写 Java 或 Kotlin 代码来实现应用所需的原生功能。
 
-并非所有功能都有现成的 [Capacitor 插件](/plugins.mdx)——这没关系！您可以直接在应用中编写 WebView 可访问的原生代码。
+可能并非所有功能都有 [对应的 Capacitor 插件](/plugins.mdx)——但这没关系！您可以在应用中直接编写 WebView 可访问的原生代码。
 
 ## WebView 可访问的原生代码
 
-在 JavaScript 和原生代码之间通信的最简单方法，是在您的应用中构建一个本地自定义 Capacitor 插件。
+在 JavaScript 和原生代码之间进行通信的最简单方法是在您的应用中构建一个本地的自定义 Capacitor 插件。
 
 ### `EchoPlugin.java`
 
-首先，通过 [打开 Android Studio](/main/android/index.md#opening-the-android-project) 创建一个 `EchoPlugin.java` 文件：展开 **app** 模块和 **java** 文件夹，右键点击应用的 Java 包，从上下文菜单中选择 **New** -> **Java Class**，然后创建该文件。
+首先，通过 [打开 Android Studio](/main/android/index.md#opening-the-android-project)，展开 **app** 模块和 **java** 文件夹，右键点击应用的 Java 包，从上下文菜单中选择 **New** -> **Java Class**，创建 `EchoPlugin.java` 文件。
 
-![Android Studio app package](../../../../static/img/v3/docs/android/studio-app-package.png)
+![Android Studio 应用包](../../../../static/img/v3/docs/android/studio-app-package.png)
 
 将以下 Java 代码复制到 `EchoPlugin.java` 中：
 
@@ -52,11 +52,11 @@ public class EchoPlugin extends Plugin {
 
 ### 注册插件
 
-我们必须在 Android 和 Web 端都注册自定义插件，这样 Capacitor 才能在 Java 和 JavaScript 之间建立桥梁。
+我们必须在 Android 和 Web 端都注册自定义插件，以便 Capacitor 能够在 Java 和 JavaScript 之间建立桥接。
 
 #### `MainActivity.java`
 
-在应用的 `MainActivity.java` 中，使用 `registerPlugin()` 或 `registerPlugins()` 来注册您的自定义插件。
+在您的应用的 `MainActivity.java` 中，使用 `registerPlugin()` 或 `registerPlugins()` 来注册自定义插件。
 
 ```diff
  public class MainActivity extends BridgeActivity {
@@ -70,7 +70,7 @@ public class EchoPlugin extends Plugin {
 
 #### JavaScript
 
-在 JS 中，我们使用来自 `@capacitor/core` 的 `registerPlugin()` 创建一个链接到 Java 插件的对象。
+在 JS 中，我们使用 `@capacitor/core` 中的 `registerPlugin()` 来创建一个与我们的 Java 插件相关联的对象。
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -84,7 +84,7 @@ export default Echo;
 
 **TypeScript**
 
-我们可以通过定义一个接口并在调用 `registerPlugin()` 时使用它，来为链接的对象定义类型。
+我们可以通过定义接口并在调用 `registerPlugin()` 时使用它，来为关联的对象定义类型。
 
 ```diff
  import { registerPlugin } from '@capacitor/core';
@@ -99,19 +99,19 @@ export default Echo;
  export default Echo;
 ```
 
-`registerPlugin()` 的泛型参数定义了链接对象的结构。如果需要，您可以使用 `registerPlugin<any>('Echo')` 来忽略类型。我们不做评判。❤️
+`registerPlugin()` 的泛型参数定义了关联对象的结构。如果需要，您也可以使用 `registerPlugin<any>('Echo')` 来忽略类型。这完全没问题。❤️
 
 ### 使用插件
 
-使用导出的 `Echo` 对象来调用插件方法。以下代码片段将在 Android 上调用 Java 代码并打印结果：
+使用导出的 `Echo` 对象来调用您的插件方法。以下代码段将在 Android 上调用 Java 代码并打印结果：
 
 ```typescript
 import Echo from '../path/to/echo-plugin';
 
 const { value } = await Echo.echo({ value: 'Hello World!' });
-console.log('Response from native:', value);
+console.log('来自原生的响应：', value);
 ```
 
-### 后续步骤
+### 下一步
 
 [阅读 Android 插件指南 &#8250;](/plugins/creating-plugins/android-guide.md)

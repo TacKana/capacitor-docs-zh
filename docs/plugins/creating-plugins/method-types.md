@@ -1,15 +1,15 @@
 ---
-title: Method Types
+title: 方法类型
 description: Capacitor 插件方法类型
 contributors:
   - ikeith
-sidebar_label: Method Types
+sidebar_label: 方法类型
 slug: /plugins/method-types
 ---
 
 # 方法类型
 
-开发插件时，可以使用三种不同类型的方法签名。所有方法都是异步的且基于 Promise。
+在开发插件时，可以使用三种不同类型的方法签名。所有方法都是异步且基于 Promise 的。
 
 让我们来看一个包含所有三种类型的插件定义：
 
@@ -29,11 +29,11 @@ export interface MyPlugin {
 }
 ```
 
-## 无返回值
+## Void 返回
 
 `method1()` 是最简单的情况，预期不返回任何数据。
 
-对于 Android，你需要像这样注解方法：
+对于 Android，你需要这样注解该方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -57,11 +57,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 返回值
+## 值返回
 
-`method2()` 是最常见的情况：一个通常会返回某些值的 Promise。
+`method2()` 是最常见的情况：一个通常会返回某个值的 Promise。
 
-对于 Android，这种方法是默认类型，指定返回类型是可选的：
+对于 Android，此方法类型是默认值，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -69,7 +69,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -85,11 +85,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 回调函数
+## 回调
 
-`method3()` 是最复杂的类型，但在实际使用中也最不常见。当你的插件需要重复返回数据时使用，比如通过地理位置 API 监控设备位置。
+`method3()` 是最复杂的类型，但在实践中也是最不常见的。当插件需要重复返回数据时使用，例如通过地理定位 API 监控设备位置。
 
-对于 Android，你需要像这样注解方法：
+对于 Android，你需要这样注解该方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -97,7 +97,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -113,6 +113,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接收一个函数，该函数将从原生代码中调用（可能多次），并返回一个包含标识符的 Promise。
+回调方法接受一个将从原生代码中被调用（可能多次）的函数，并返回一个将解析为标识符的 Promise。
 
-在原生端，实现回调意味着你需要保存调用，以便在稍后时间调用。具体如何处理 [在此处讨论](/main/reference/core-apis/saving-calls.md)。
+在原生端，实现回调意味着你需要保存该调用以便以后调用。关于如何处理的具体细节，[请参见此处讨论。](/main/reference/core-apis/saving-calls.md)

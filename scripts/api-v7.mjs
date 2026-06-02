@@ -302,12 +302,72 @@ const pluginApis = [
  * @param {PluginApi} plugin
  */
 async function buildPluginApiDocs(plugin) {
-  const [readme, pkgJson] = await Promise.all([getReadme(plugin), getPkgJsonData(plugin)]);
-
-  const apiContent = createApiPage(plugin, readme, pkgJson);
   const fileName = `${plugin.id}.md`;
   const filePath = new URL(fileName, API_DIR);
+
+  // 获取最新源内容
+  const [readme, pkgJson] = await Promise.all([getReadme(plugin), getPkgJsonData(plugin)]);
+
+  // 检查文件是否已被翻译
+  const existingTranslation = getExistingTranslation(filePath);
+  if (existingTranslation) {
+    const newHash = hashContent(readme);
+    const storedHash = existingTranslation.sourceHash;
+    if (storedHash && newHash === storedHash) {
+      console.log(`跳过 ${fileName}（已被翻译，上游无变更）`);
+      return;
+    }
+    if (!storedHash) {
+      console.log(`更新 ${fileName}（补充 source_hash）`);
+      const updatedContent = updateSourceHash(existingTranslation.content, newHash);
+      fs.writeFileSync(filePath, updatedContent);
+      return;
+    }
+    console.warn(`⚠️  ${fileName}：上游文档已更新，翻译需要同步！`);
+    console.warn(`   存储哈希: ${storedHash}`);
+    console.warn(`   最新哈希: ${newHash}`);
+    const updatedContent = updateSourceHash(existingTranslation.content, newHash);
+    fs.writeFileSync(filePath, updatedContent);
+    return;
+  }
+
+  const apiContent = createApiPage(plugin, readme, pkgJson);
   fs.writeFileSync(filePath, apiContent);
+}
+
+function getExistingTranslation(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    if (frontmatterMatch && /translated:\s*true/.test(frontmatterMatch[1])) {
+      const hashMatch = frontmatterMatch[1].match(/source_hash:\s*(\S+)/);
+      return { content, sourceHash: hashMatch ? hashMatch[1] : '' };
+    }
+  } catch (e) {}
+  return null;
+}
+
+function hashContent(content) {
+  let hash = 0;
+  for (let i = 0; i < content.length; i++) {
+    const chr = content.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  return Math.abs(hash).toString(16);
+}
+
+function updateSourceHash(content, newHash) {
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!frontmatterMatch) return content;
+  const oldFm = frontmatterMatch[1];
+  let newFm;
+  if (/source_hash:/.test(oldFm)) {
+    newFm = oldFm.replace(/source_hash:\s*\S+/, `source_hash: ${newHash}`);
+  } else {
+    newFm = oldFm + `\nsource_hash: ${newHash}`;
+  }
+  return content.replace(oldFm, newFm);
 }
 
 /**

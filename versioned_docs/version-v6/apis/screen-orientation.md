@@ -1,9 +1,10 @@
 ---
-title: Screen Orientation Capacitor Plugin API
+title: Screen Orientation Capacitor 插件 API
 description: Screen Orientation API 提供锁定和解锁屏幕方向的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/screen-orientation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/screen-orientation/src/definitions.ts
 sidebar_label: Screen Orientation
+translated: true
 ---
 
 # @capacitor/screen-orientation
@@ -19,8 +20,8 @@ npx cap sync
 
 ## iOS
 
-锁定屏幕方向仅对 Capacitor 视图控制器生效，而对其他被呈现的视图控制器（如 Browser 插件呈现的视图控制器）无效。
-若也需要锁定被呈现的视图控制器，可以将以下代码添加到应用的 `AppDelegate.swift` 文件中：
+锁定屏幕方向仅对 Capacitor 视图控制器有效，但对其他被呈现的视图控制器（例如由 Browser 插件呈现的控制器）无效。
+要同时锁定被呈现的视图控制器，可以将此代码添加到应用的 `AppDelegate.swift` 文件中：
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -30,7 +31,7 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 
 ### iPad 方向锁定
 
-默认情况下，iPad 允许多任务处理，并且其方向无法被锁定。如果你需要在 iPad 上锁定方向，可以将 `Requires Full Screen` 选项设置为 `YES`，方法是在 `Info.plist` 中添加以下内容：
+默认情况下，iPad 允许多任务处理，其方向无法锁定。如果您需要在 iPad 上锁定方向，请通过向 `Info.plist` 添加以下内容将 `Requires Full Screen` 选项设置为 `YES`：
 
 ```
   <key>UIRequiresFullScreen</key>
@@ -46,8 +47,8 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 * [`unlock()`](#unlock)
 * [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#接口)
-* [类型别名](#类型别名)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -62,9 +63,9 @@ orientation() => Promise<ScreenOrientationResult>
 
 返回当前屏幕方向。
 
-**返回值：** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#screenorientationresult">ScreenOrientationResult</a>&gt;</code>
 
-**自版本：** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -77,11 +78,11 @@ lock(options: OrientationLockOptions) => Promise<void>
 
 锁定屏幕方向。
 
-| 参数          | 类型                                                                      |
-| ------------- | ------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#orientationlockoptions">OrientationLockOptions</a></code> |
+| 参数              | 类型                                                                        |
+| ----------------- | --------------------------------------------------------------------------- |
+| **`options`**     | <code><a href="#orientationlockoptions">OrientationLockOptions</a></code>   |
 
-**自版本：** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -94,7 +95,7 @@ unlock() => Promise<void>
 
 解锁屏幕方向。
 
-**自版本：** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -107,14 +108,14 @@ addListener(eventName: 'screenOrientationChange', listenerFunc: (orientation: Sc
 
 监听屏幕方向变化。
 
-| 参数               | 类型                                                                                                  |
-| ------------------ | ----------------------------------------------------------------------------------------------------- |
-| **`eventName`**    | <code>'screenOrientationChange'</code>                                                                |
-| **`listenerFunc`** | <code>(orientation: <a href="#screenorientationresult">ScreenOrientationResult</a>) =&gt; void</code> |
+| 参数                | 类型                                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| **`eventName`**     | <code>'screenOrientationChange'</code>                                                                  |
+| **`listenerFunc`**  | <code>(orientation: <a href="#screenorientationresult">ScreenOrientationResult</a>) =&gt; void</code>   |
 
-**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
-**自版本：** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
@@ -127,26 +128,26 @@ removeAllListeners() => Promise<void>
 
 移除所有监听器。
 
-**自版本：** 4.0.0
+**始于：** 4.0.0
 
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### ScreenOrientationResult
 
-| 属性         | 类型                         |
-| ------------ | ---------------------------- |
-| **`type`**   | <code>OrientationType</code> |
+| 属性         | 类型                           |
+| ------------ | ------------------------------ |
+| **`type`**   | <code>OrientationType</code>   |
 
 
 #### OrientationLockOptions
 
-| 属性                 | 类型                                                                | 描述                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **`orientation`**    | <code><a href="#orientationlocktype">OrientationLockType</a></code> | 注意：TypeScript v5.2+ 用户应从 @capacitor/screen-orientation 导入 <a href="#orientationlocktype">OrientationLockType</a>。 |
+| 属性                | 类型                                                                  | 描述                                                                                                                             |
+| ------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **`orientation`**   | <code><a href="#orientationlocktype">OrientationLockType</a></code>   | 注意：TypeScript v5.2+ 用户应从 @capacitor/screen-orientation 导入 <a href="#orientationlocktype">OrientationLockType</a>。       |
 
 
 #### PluginListenerHandle
@@ -156,7 +157,7 @@ removeAllListeners() => Promise<void>
 | **`remove`**   | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### 类型别名
+### Type Aliases
 
 
 #### OrientationLockType

@@ -21,40 +21,40 @@ export default function LayeredColorsSelect({ ...props }) {
     setVariations([
       {
         property: `--ion-color-${color}`,
-        name: 'Base',
-        description: 'The main color that all variations are derived from',
+        name: '基础色',
+        description: '所有变体所衍生自的主色',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}`),
       },
       {
         property: `--ion-color-${color}-rgb`,
-        name: 'Base (rgb)',
+        name: '基础色 (RGB)',
         rgb: true,
-        description: 'The base color in red, green, blue format',
+        description: '以红、绿、蓝格式表示的基础色',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}-rgb`),
       },
       {
         property: `--ion-color-${color}-contrast`,
-        name: 'Contrast',
-        description: 'The opposite of the base color, should be visible against the base color',
+        name: '对比色',
+        description: '基础色的对比色，应在基础色上清晰可见',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}-contrast`),
       },
       {
         property: `--ion-color-${color}-contrast-rgb`,
-        name: 'Contrast (rgb)',
+        name: '对比色 (RGB)',
         rgb: true,
-        description: 'The contrast color in red, green, blue format',
+        description: '以红、绿、蓝格式表示的对比色',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}-contrast-rgb`),
       },
       {
         property: `--ion-color-${color}-shade`,
-        name: 'Shade',
-        description: 'A slightly darker version of the base color',
+        name: '阴影色',
+        description: '比基础色略深的版本',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}-shade`),
       },
       {
         property: `--ion-color-${color}-tint`,
-        name: 'Tint',
-        description: 'A slightly lighter version of the base color',
+        name: '浅色调',
+        description: '比基础色略浅的版本',
         value: getComputedStyle(el.current).getPropertyValue(`--ion-color-${color}-tint`),
       },
     ]);
@@ -70,24 +70,24 @@ export default function LayeredColorsSelect({ ...props }) {
         <ColorDot color={`var(--ion-color-${color})`} />
         <InputWrapper>
           <select value={color} onChange={(ev) => setColor((ev.target as HTMLSelectElement).value)}>
-            <option value="primary">Primary</option>
-            <option value="secondary">Secondary</option>
-            <option value="tertiary">Tertiary</option>
-            <option value="success">Success</option>
-            <option value="warning">Warning</option>
-            <option value="danger">Danger</option>
-            <option value="dark">Dark</option>
-            <option value="medium">Medium</option>
-            <option value="light">Light</option>
+            <option value="primary">主要</option>
+            <option value="secondary">次要</option>
+            <option value="tertiary">第三</option>
+            <option value="success">成功</option>
+            <option value="warning">警告</option>
+            <option value="danger">危险</option>
+            <option value="dark">深色</option>
+            <option value="medium">中等</option>
+            <option value="light">浅色</option>
           </select>
         </InputWrapper>
       </div>
       <table>
         <tr>
-          <th>Name</th>
-          <th>Property</th>
-          <th>Default Value</th>
-          <th>Description</th>
+          <th>名称</th>
+          <th>属性</th>
+          <th>默认值</th>
+          <th>描述</th>
         </tr>
         {variations.map((variation) => {
           const codeColor = variation.rgb ? `rgb(${variation.value})` : `${variation.value}`;

@@ -1,5 +1,5 @@
 ---
-title: CLI Hooks
+title: CLI 钩子
 description: Capacitor CLI 钩子
 contributors:
   - jcesarmobile
@@ -16,9 +16,9 @@ contributors:
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-要使用它们，请在你的应用程序 `package.json` 文件的 scripts 部分添加事件名称和你想要运行的代码。
+要使用它们，请在应用的 `package.json` 的 scripts 部分添加事件名称和要运行的代码。
 
-以下是一个简单的示例，它会回显命令和运行该命令的平台：
+示例，仅 echo 命令及其运行的平台：
 
 ```json
 "scripts": {
@@ -29,4 +29,3 @@ contributors:
   "capacitor:sync:before": "echo sync before $CAPACITOR_PLATFORM_NAME",
   "capacitor:sync:after": "echo sync after $CAPACITOR_PLATFORM_NAME"
 }
-```

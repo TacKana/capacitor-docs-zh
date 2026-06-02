@@ -8,17 +8,17 @@ sidebar_label: init
 
 # Capacitor CLI - cap init
 
-通过提供应用名称、应用 ID 以及现有 Web 应用的可选 Web 目录，初始化 Capacitor 配置。
+通过提供应用名称、应用 ID 和现有 Web 应用的可选 Web 目录来初始化 Capacitor 配置。
 
 ```bash
 npx cap init <appName> <appID>
 ```
 
-<strong>输入参数：</strong>
+<strong>输入：</strong>
 
-- `appName` (必需): 应用程序的名称
-- `appID` (必需): 应用程序的 App ID，格式类似 `com.example.appname`
+- `appName`（必需）：应用的名称
+- `appID`（必需）：应用的应用 ID；类似 `com.example.appname`
 
 <strong>选项：</strong>
 
-- `--web-dir <值>`: 用于初始化的现有 Web 应用程序目录
+- `--web-dir <value>`：要与初始化一起使用的现有 Web 应用

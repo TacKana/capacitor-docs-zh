@@ -4,11 +4,12 @@ description: Capacitor - cap update
 contributors:
   - dotNetkow
 sidebar_label: update
+translated: true
 ---
 
-# Capacitor CLI - cap 更新
+# Capacitor CLI - cap update
 
-更新在 `package.json` 中引用的原生插件和依赖项。
+更新 `package.json` 中引用的原生插件和依赖项。
 
 ```bash
 npx cap update [<platform>]
@@ -22,9 +23,9 @@ npx cap update [<platform>]
 
 - `--deployment`：不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
 
-## 钩子函数
+## 钩子
 
-update 命令可使用以下钩子函数：
+以下钩子可用于 update 命令：
 
 - `capacitor:update:before`
 - `capacitor:update:after`

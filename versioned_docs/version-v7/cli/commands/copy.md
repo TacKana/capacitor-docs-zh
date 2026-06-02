@@ -8,7 +8,7 @@ sidebar_label: copy
 
 # Capacitor CLI - cap copy
 
-将 Web 应用构建文件和 Capacitor 配置文件复制到原生平台项目中。每次对 Web 应用进行更改或修改配置值时，都需要运行此命令。
+将 Web 应用构建产物和 Capacitor 配置文件复制到原生平台项目中。每次对 Web 应用做出更改或更改配置值时，请运行此命令。
 
 ```bash
 npx cap copy [<platform>]
@@ -20,11 +20,11 @@ npx cap copy [<platform>]
 
 <strong>选项：</strong>
 
-- `--inline`：同步后，所有 JS 源映射将被内联，以便在基于 Chromium 的浏览器中调试 Android WebView。
+- `--inline`：同步后，所有 JS 源码映射将被内联，允许在基于 Chromium 的浏览器中调试 Android Web View。
 
-## 钩子
+## Hooks
 
-copy 命令可使用以下钩子：
+以下 hooks 可用于 copy 命令：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`

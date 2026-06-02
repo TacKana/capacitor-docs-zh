@@ -1,3 +1,3 @@
 # Capacitor 基础
 
-点击左侧链接，了解使用和开发 Capacitor 的基础知识。
+请点击左侧链接了解使用 Capacitor 进行开发的基础知识。

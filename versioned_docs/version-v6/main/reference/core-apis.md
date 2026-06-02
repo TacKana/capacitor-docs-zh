@@ -1,17 +1,17 @@
 ---
-title: Capacitor APIs
-description: Capacitor 核心 API
+title: Capacitor API
+description: Capacitor 核心的 API
 sidebar_label: 核心 API
 slug: /core-apis
 ---
 
 # Capacitor API
 
-无论是开发应用还是插件，Capacitor API 都是您工具箱中的重要补充。
+无论开发应用还是插件，Capacitor API 都是您工具箱中的重要补充。
 
 ## 概述
 
-本文档按平台组织。
+这些文档按平台组织。
 
 - [iOS](/main/reference/core-apis/ios.md)
 - [Android](/main/reference/core-apis/android.md)

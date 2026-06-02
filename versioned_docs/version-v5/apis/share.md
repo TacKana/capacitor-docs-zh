@@ -1,16 +1,18 @@
 ---
-title: Share Capacitor Plugin API
-description: Share API 提供了在用户已安装的任意支持分享功能的应用程序中分享内容的方法。
+title: Share - Capacitor 分享插件 API
+description: 分享 API 提供了在用户可能已安装的任何支持分享的应用中分享内容的方法。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/share/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/share/src/definitions.ts
-sidebar_label: Share
+sidebar_label: Share 分享
+translated: true
 ---
 
 # @capacitor/share
 
-Share API 提供了在用户已安装的任意支持分享功能的应用程序中分享内容的方法。
+分享 API 提供了在用户可能已安装的任何支持分享的应用中分享内容的方法。
 
-Share API 支持 iOS、Android 和 Web（使用新的 [Web Share API](https://web.dev/web-share/)），不过目前 Web 端的支持尚不完善。
+分享 API 适用于 iOS、Android 和 Web（使用新的 [Web Share
+API](https://web.dev/web-share/)），尽管 Web 支持目前尚不完善。
 
 ## 安装
 
@@ -18,10 +20,9 @@ Share API 支持 iOS、Android 和 Web（使用新的 [Web Share API](https://we
 npm install @capacitor/share@latest-5
 npx cap sync
 ```
-
 ## Android
 
-默认情况下，Capacitor 应用仅允许分享缓存文件夹中的文件。若要使其他 Android 文件夹可被分享，需要将它们添加到 `android/app/src/main/res/xml/file_paths.xml` 文件中。请查阅 [FileProvider 文档](https://developer.android.com/reference/androidx/core/content/FileProvider) 中“指定可用文件”部分，了解可用的位置。
+默认情况下，Capacitor 应用只允许从缓存文件夹分享文件。要使其他 Android 文件夹可分享，必须将其添加到 `android/app/src/main/res/xml/file_paths.xml` 文件中。请查看 [FileProvider 文档](https://developer.android.com/reference/androidx/core/content/FileProvider) 中的"指定可用文件"部分，了解可用位置。
 
 ## 示例
 
@@ -29,18 +30,18 @@ npx cap sync
 import { Share } from '@capacitor/share';
 
 await Share.share({
-  title: '看看这个很酷的东西',
-  text: '你绝对需要立刻看看这个超棒的东西',
+  title: '看酷炫的东西',
+  text: '你现在必须看的非常棒的东西',
   url: 'http://ionicframework.com/',
-  dialogTitle: '分享给好友',
+  dialogTitle: '和朋友们分享',
 });
 
 // 仅分享文本
 await Share.share({
-  text: '你绝对需要立刻看看这个超棒的东西',
+  text: '你现在必须看的非常棒的东西',
 });
 
-// 仅分享链接
+// 仅分享 URL
 await Share.share({
   url: 'http://ionicframework.com/',
 });
@@ -58,7 +59,7 @@ await Share.share({
 });
 ```
 
-每个平台使用不同的字段集，但建议您提供所有字段。
+每个平台使用不同的字段集，但你应该提供所有字段。
 
 ## API
 
@@ -66,12 +67,12 @@ await Share.share({
 
 * [`canShare()`](#canshare)
 * [`share(...)`](#share)
-* [接口](#接口)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### canShare()
 
@@ -79,11 +80,11 @@ await Share.share({
 canShare() => Promise<CanShareResult>
 ```
 
-检查当前环境是否支持分享功能。
+检查是否支持分享。
 
-**返回值：** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
 
-**自版本：** 1.1.0
+**自从:** 1.1.0
 
 --------------------
 
@@ -94,15 +95,15 @@ canShare() => Promise<CanShareResult>
 share(options: ShareOptions) => Promise<ShareResult>
 ```
 
-显示分享模态框，用于将内容分享到其他应用程序。
+显示分享模态框，用于与其他应用分享内容。
 
-| 参数            | 类型                                                  |
-| --------------- | ----------------------------------------------------- |
-| **`options`**   | <code><a href="#shareoptions">ShareOptions</a></code> |
+| 参数          | 类型                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
+**返回:** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -112,26 +113,26 @@ share(options: ShareOptions) => Promise<ShareResult>
 
 #### CanShareResult
 
-| 属性          | 类型                  | 描述                           | 自版本 |
-| ------------- | --------------------- | ------------------------------ | ------ |
-| **`value`**   | <code>boolean</code>  | 表示当前环境是否支持分享功能。 | 1.1.0  |
+| 属性        | 类型                 | 描述                          | 自从 |
+| ----------- | -------------------- | ----------------------------- | ----- |
+| **`value`** | <code>boolean</code> | 是否支持分享。 | 1.1.0 |
 
 
 #### ShareResult
 
-| 属性                 | 类型                  | 描述                                                                                                   | 自版本 |
-| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------ | ------ |
-| **`activityType`**   | <code>string</code>   | 接收分享操作的应用程序标识符。在某些情况下可能为空字符串。在 Web 端此属性为 undefined。                | 1.0.0  |
+| 属性               | 类型                | 描述                                                                                                              | 自从 |
+| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------- | ----- |
+| **`activityType`** | <code>string</code> | 接收分享操作的应用的标识符。在某些情况下可能为空字符串。在 Web 上将为 undefined。 | 1.0.0 |
 
 
 #### ShareOptions
 
-| 属性                | 类型                    | 描述                                                                                            | 自版本 |
-| ------------------- | ----------------------- | ----------------------------------------------------------------------------------------------- | ------ |
-| **`title`**         | <code>string</code>     | 设置分享消息的标题。在分享到电子邮件时，这将作为邮件主题。                                        | 1.0.0  |
-| **`text`**          | <code>string</code>     | 设置要分享的文本内容。                                                                          | 1.0.0  |
-| **`url`**           | <code>string</code>     | 设置要分享的链接，可以是 http、https 或 file:// 协议的 URL。                                      | 1.0.0  |
-| **`files`**         | <code>string[]</code>   | 要分享的文件路径数组，必须是 file:// 协议的 URL。仅在 iOS 和 Android 平台支持。                   | 4.1.0  |
-| **`dialogTitle`**   | <code>string</code>     | 设置分享模态框的标题。此选项仅在 Android 平台支持。                                                | 1.0.0  |
+| 属性              | 类型                  | 描述                                                                         | 自从 |
+| ----------------- | --------------------- | ---------------------------------------------------------------------------- | ----- |
+| **`title`**       | <code>string</code>   | 为任何消息设置标题。如果分享到电子邮件，这将是主题。                           | 1.0.0 |
+| **`text`**        | <code>string</code>   | 设置要分享的一些文本                                                              | 1.0.0 |
+| **`url`**         | <code>string</code>   | 设置要分享的 URL，可以是 http、https 或 file:// URL                               | 1.0.0 |
+| **`files`**       | <code>string[]</code> | 要分享的文件的 file:// URL 数组。仅 iOS 和 Android 支持。 | 4.1.0 |
+| **`dialogTitle`** | <code>string</code>   | 设置分享模态框的标题。此选项仅 Android 支持。          | 1.0.0 |
 
 </docgen-api>

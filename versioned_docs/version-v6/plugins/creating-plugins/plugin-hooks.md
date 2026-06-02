@@ -1,13 +1,13 @@
 ---
-title: Plugin Hooks
+title: 插件钩子
 description: Capacitor 插件钩子
-sidebar_label: Plugin Hooks
+sidebar_label: 插件钩子
 slug: /plugins/plugin-hooks
 ---
 
 # Capacitor 插件钩子
 
-从 Capacitor 6.1 开始，插件中可以使用以下事件来挂钩到 Capacitor 命令：
+从 Capacitor 6.1 开始，插件可以使用以下事件来挂接到 Capacitor 命令中：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`
@@ -16,9 +16,9 @@ slug: /plugins/plugin-hooks
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-要使用它们，请在你的插件的 `package.json` 的 `scripts` 部分添加事件名称以及你想要运行的代码。
+要使用它们，请将事件名称和要运行的代码添加到插件 `package.json` 的 scripts 部分。
 
-以下是一个简单示例，它会回显命令以及运行该命令的平台：
+以下示例仅回显命令及其运行的平台：
 
 ```json
 "scripts": {
@@ -32,5 +32,5 @@ slug: /plugins/plugin-hooks
 ```
 
 :::note
-Capacitor 插件钩子在 Cordova 插件中添加时同样有效
+Capacitor 插件钩子也适用于添加到 Cordova 插件中的情况。
 :::

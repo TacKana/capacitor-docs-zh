@@ -1,16 +1,17 @@
 ---
-title: Haptics Capacitor 插件 API
-description: Haptics API 通过触感或震动为用户提供物理反馈。
+title: Haptics - Capacitor 触觉反馈插件 API
+description: Haptics API 通过触摸或振动向用户提供物理反馈。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/haptics/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/haptics/src/definitions.ts
-sidebar_label: Haptics
+sidebar_label: Haptics 触觉反馈
+translated: true
 ---
 
 # @capacitor/haptics
 
-Haptics API 通过触感或震动为用户提供物理反馈。
+Haptics API 通过触摸或振动向用户提供物理反馈。
 
-在不支持 Taptic Engine 或振动马达的设备上，API 调用会正常返回但不会执行任何操作。
+在没有 Taptic Engine 或振动器的设备上，API 调用将解析而不执行任何操作。
 
 ## 安装
 
@@ -59,13 +60,13 @@ const hapticsSelectionEnd = async () => {
 * [`selectionStart()`](#selectionstart)
 * [`selectionChanged()`](#selectionchanged)
 * [`selectionEnd()`](#selectionend)
-* [接口](#接口)
-* [枚举](#枚举)
+* [Interfaces](#interfaces)
+* [Enums](#enums)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### impact(...)
 
@@ -73,13 +74,13 @@ const hapticsSelectionEnd = async () => {
 impact(options?: ImpactOptions | undefined) => Promise<void>
 ```
 
-触发触感"碰撞"反馈
+触发触觉"冲击"反馈。
 
-| 参数           | 类型                                                    |
-| -------------- | ------------------------------------------------------- |
-| **`options`**  | <code><a href="#impactoptions">ImpactOptions</a></code> |
+| 参数          | 类型                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#impactoptions">ImpactOptions</a></code> |
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -90,13 +91,13 @@ impact(options?: ImpactOptions | undefined) => Promise<void>
 notification(options?: NotificationOptions | undefined) => Promise<void>
 ```
 
-触发触感"通知"反馈
+触发触觉"通知"反馈。
 
-| 参数           | 类型                                                                |
-| -------------- | ------------------------------------------------------------------- |
-| **`options`**  | <code><a href="#notificationoptions">NotificationOptions</a></code> |
+| 参数          | 类型                                                                |
+| ------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#notificationoptions">NotificationOptions</a></code> |
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -107,13 +108,13 @@ notification(options?: NotificationOptions | undefined) => Promise<void>
 vibrate(options?: VibrateOptions | undefined) => Promise<void>
 ```
 
-震动设备
+振动设备。
 
-| 参数           | 类型                                                      |
-| -------------- | --------------------------------------------------------- |
-| **`options`**  | <code><a href="#vibrateoptions">VibrateOptions</a></code> |
+| 参数          | 类型                                                      |
+| ------------- | --------------------------------------------------------- |
+| **`options`** | <code><a href="#vibrateoptions">VibrateOptions</a></code> |
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -124,9 +125,9 @@ vibrate(options?: VibrateOptions | undefined) => Promise<void>
 selectionStart() => Promise<void>
 ```
 
-触发选择开始触感提示
+触发选择开始的触觉提示。
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -137,9 +138,10 @@ selectionStart() => Promise<void>
 selectionChanged() => Promise<void>
 ```
 
-触发选择变更触感提示。如果选择已经启动，此操作将使设备提供触感反馈
+触发选择变化的触觉提示。如果选择
+已经开始，这将使设备提供触觉反馈。
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -150,9 +152,10 @@ selectionChanged() => Promise<void>
 selectionEnd() => Promise<void>
 ```
 
-如果已调用 selectionStart()，selectionEnd() 将结束选择。例如，当用户从控件上抬起手指时调用此方法
+如果调用了 selectionStart()，则 selectionEnd() 结束选择。
+例如，当用户从控件上抬起手指时调用此方法。
 
-**自版本：** 1.0.0
+**自从:** 1.0.0
 
 --------------------
 
@@ -162,23 +165,23 @@ selectionEnd() => Promise<void>
 
 #### ImpactOptions
 
-| 属性           | 类型                                                | 描述                                                                                                                                                                              | 默认值                        | 自版本 |
-| -------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
-| **`style`**    | <code><a href="#impactstyle">ImpactStyle</a></code> | 碰撞反馈样式<br>模拟碰撞中物体质量的 [UIImpactFeedbackGenerator](https://developer.apple.com/documentation/uikit/uiimpactfeedbackstyle) 对象 | <code>ImpactStyle.Heavy</code> | 1.0.0 |
+| 属性        | 类型                                                | 描述                                                                                                                                                                              | 默认值                        | 自从 |
+| ----------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
+| **`style`** | <code><a href="#impactstyle">ImpactStyle</a></code> | 冲击反馈样式。[UIImpactFeedbackGenerator](https://developer.apple.com/documentation/uikit/uiimpactfeedbackstyle) 对象模拟的碰撞中物体的质量。 | <code>ImpactStyle.Heavy</code> | 1.0.0 |
 
 
 #### NotificationOptions
 
-| 属性          | 类型                                                          | 描述                                                                                                                                                                                       | 默认值                               | 自版本 |
-| ------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----- |
-| **`type`**    | <code><a href="#notificationtype">NotificationType</a></code> | 通知反馈类型<br>由 [UINotificationFeedbackGenerator](https://developer.apple.com/documentation/uikit/uinotificationfeedbacktype) 对象生成的通知反馈类型 | <code>NotificationType.SUCCESS</code> | 1.0.0 |
+| 属性       | 类型                                                          | 描述                                                                                                                                                                                       | 默认值                               | 自从 |
+| ---------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ----- |
+| **`type`** | <code><a href="#notificationtype">NotificationType</a></code> | 通知反馈类型。[UINotificationFeedbackGenerator](https://developer.apple.com/documentation/uikit/uinotificationfeedbacktype) 对象生成的通知反馈类型。 | <code>NotificationType.SUCCESS</code> | 1.0.0 |
 
 
 #### VibrateOptions
 
-| 属性              | 类型                | 描述                                | 默认值          | 自版本 |
-| ----------------- | ------------------- | ------------------------------------------ | ---------------- | ----- |
-| **`duration`**    | <code>number</code> | 震动持续时间（单位：毫秒） | <code>300</code> | 1.0.0 |
+| 属性           | 类型                | 描述                                | 默认值          | 自从 |
+| -------------- | ------------------- | ----------------------------------- | ---------------- | ----- |
+| **`duration`** | <code>number</code> | 振动的持续时间，以毫秒为单位。       | <code>300</code> | 1.0.0 |
 
 
 ### 枚举
@@ -186,19 +189,19 @@ selectionEnd() => Promise<void>
 
 #### ImpactStyle
 
-| 成员           | 值                 | 描述                                                  | 自版本 |
-| -------------- | --------------------- | ------------------------------------------------------------ | ----- |
-| **`Heavy`**    | <code>'HEAVY'</code>  | 大型、重型用户界面元素之间的碰撞     | 1.0.0 |
-| **`Medium`**   | <code>'MEDIUM'</code> | 中等大小用户界面元素之间的碰撞 | 1.0.0 |
-| **`Light`**    | <code>'LIGHT'</code>  | 小型、轻型用户界面元素之间的碰撞     | 1.0.0 |
+| 成员      | 值                 | 描述                                                  | 自从 |
+| ------------ | --------------------- | ------------------------------------------------------------ | ----- |
+| **`Heavy`**  | <code>'HEAVY'</code>  | 大型、重型用户界面元素之间的碰撞。     | 1.0.0 |
+| **`Medium`** | <code>'MEDIUM'</code> | 中等大小用户界面元素之间的碰撞。 | 1.0.0 |
+| **`Light`**  | <code>'LIGHT'</code>  | 小型、轻型用户界面元素之间的碰撞。     | 1.0.0 |
 
 
 #### NotificationType
 
-| 成员             | 值                  | 描述                                                                    | 自版本 |
-| ---------------- | ---------------------- | ------------------------------------------------------------------------------ | ----- |
-| **`Success`**    | <code>'SUCCESS'</code> | 表示任务已成功完成的通知反馈类型 | 1.0.0 |
-| **`Warning`**    | <code>'WARNING'</code> | 表示任务产生警告的通知反馈类型     | 1.0.0 |
-| **`Error`**      | <code>'ERROR'</code>   | 表示任务已失败的通知反馈类型                 | 1.0.0 |
+| 成员       | 值                  | 描述                                                                    | 自从 |
+| ------------- | ---------------------- | ------------------------------------------------------------------------------ | ----- |
+| **`Success`** | <code>'SUCCESS'</code> | 指示任务已成功完成的通知反馈类型。 | 1.0.0 |
+| **`Warning`** | <code>'WARNING'</code> | 指示任务产生警告的通知反馈类型。     | 1.0.0 |
+| **`Error`**   | <code>'ERROR'</code>   | 指示任务失败的通知反馈类型。                 | 1.0.0 |
 
 </docgen-api>

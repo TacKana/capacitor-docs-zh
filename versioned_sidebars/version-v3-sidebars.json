@@ -118,12 +118,12 @@
         {
           "type": "link",
           "label": "Plugin APIs",
-          "href": "/v3/apis"
+          "href": "/docs/apis"
         },
         {
           "type": "link",
           "label": "CLI",
-          "href": "/v3/cli"
+          "href": "/docs/cli"
         }
       ]
     }

@@ -9,17 +9,17 @@ canonicalUrl: https://capacitorjs.com/docs/web/pwa-elements
 
 # PWA Elements
 
-一些 Capacitor 插件，例如 `Camera` 或 `Toast`，在非原生运行时提供了基于 Web 的用户界面。例如，在 Web 端调用 `Camera.getPhoto()` 会加载一个响应式的拍照体验：
+某些 Capacitor 插件，如 `Camera` 或 `Toast`，在非原生运行时具有基于 Web 的 UI。例如，在 Web 上运行时调用 `Camera.getPhoto()` 将加载一个响应式的拍照体验：
 
 <img src="/assets/img/docs/pwa-elements.png" style={{ height: "200px" }} />
 
-该 UI 是使用 Web Components 实现的。由于这些元素被 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) 封装，因此这些组件不会与您自己的 UI 产生冲突。
+此 UI 使用 Web 组件实现。由于这些元素被 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) 封装，这些组件不应与您自己的 UI 冲突。
 
 ## 安装
 
-为了启用这些控件，您必须在您的应用中添加 `@ionic/pwa-elements`。
+要启用这些控件，您必须将 `@ionic/pwa-elements` 添加到您的应用中。
 
-典型的安装方式包括导入包并注册元素，或在应用的 `index.html` 的 `<head>` 中添加脚本标签：
+典型的安装涉及导入包并注册元素，或在您的应用的 `index.html` 的 `<head>` 中添加 script 标签：
 
 #### 导入 PWA Elements
 
@@ -27,7 +27,7 @@ canonicalUrl: https://capacitorjs.com/docs/web/pwa-elements
 npm install @ionic/pwa-elements
 ```
 
-然后，根据您选择的框架，导入元素加载器并在适当的时机调用它：
+然后，根据您选择的框架，导入元素加载器并在正确的时间调用它：
 
 ##### React
 
@@ -62,7 +62,7 @@ new Vue({
   components: { App },
 });
 
-// 在平台启动后调用元素加载器
+// 在平台引导完成后调用元素加载器
 defineCustomElements(window);
 ```
 
@@ -87,13 +87,13 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
-// 在平台启动后调用元素加载器
+// 在平台引导完成后调用元素加载器
 defineCustomElements(window);
 ```
 
-#### 通过脚本标签引入
+#### 通过 script 标签包含
 
-PWA Elements 可以通过在 `index.html` 中添加脚本标签来引入。但请注意，这种方式在离线场景下将无法工作：
+PWA Elements 可以通过 `index.html` 中的 script 标签包含。但是，请记住这不适用于离线场景：
 
 ```html
 <script

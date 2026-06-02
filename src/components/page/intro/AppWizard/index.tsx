@@ -7,15 +7,14 @@ export default function AppWizard(props) {
   return (
     <div {...props} className={clsx(props.className, 'app-wizard', styles.appWizard)}>
       <div className="heading-group">
-        <header>Try our App Wizard</header>
+        <header>试试我们的应用向导</header>
         <p>
-          Use our App Wizard to generate an Ionic project visually. Choose a template, custom colors, app icon, and
-          JavaScript Framework to get building quicker.
+          使用我们的应用向导以可视化方式生成 Ionic 项目。选择模板、自定义颜色、应用图标和 JavaScript 框架，快速开始构建。
         </p>
       </div>
       <div>
         <a href="https://ionicframework.com/start" className="wizard-button">
-          Open Wizard <ion-icon name="arrow-forward-outline" />
+          打开向导 <ion-icon name="arrow-forward-outline" />
         </a>
       </div>
     </div>

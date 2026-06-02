@@ -1,21 +1,20 @@
 ---
-title: Local Notifications
-description: Local Notifications API
+title: 本地通知
+description: 本地通知 API
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/apis/local-notifications
+translated: true
 ---
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
 # 本地通知
 
-Local Notification API 提供了一种调度“本地”通知的方式——这些通知在设备上被调度和传递，与从服务器发送的“推送”通知不同。
+本地通知 API 提供了一种安排"本地"通知的方法——这些通知是在设备上安排和交付的，而不是从服务器发送的"推送"通知。
 
-本地通知非常适合提醒用户自上次访问应用以来发生的变化，提供提醒功能，以及在应用不在前台时传递离线信息。
-
-
+本地通知非常适合提醒用户自上次访问以来应用发生了变化、提供提醒功能以及在应用不在前台时传递离线信息。
 
 - [`schedule(...)`](#schedule)
 - [`getPending()`](#getpending)
@@ -29,9 +28,7 @@ Local Notification API 提供了一种调度“本地”通知的方式——这
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#接口)
-
-
+- [接口](#interfaces)
 
 ## 示例
 
@@ -53,16 +50,16 @@ const notifs = await LocalNotifications.schedule({
     },
   ],
 });
-console.log('已调度的通知', notifs);
+console.log('已安排的通知', notifs);
 ```
 
-## 本地通知配置（仅适用于 Android）
+## 本地通知配置（仅 Android）
 
-本地通知插件允许在 `capacitor.config.json` 中的 Android 平台配置项中添加以下配置值：
+本地通知插件允许在 `capacitor.config.json` 中为 Android 平台添加以下配置值：
 
-- `smallIcon`: 允许您设置本地通知的默认图标。
-- `iconColor`: 允许您设置本地通知图标的默认颜色。
-- `sound`: 允许您设置默认的通知提示音。在 Android 26+ 上，它设置的是默认通道的提示音，并且除非卸载应用，否则无法更改。
+- `smallIcon`：允许您设置本地通知的默认图标。
+- `iconColor`：允许您设置本地通知图标的默认颜色。
+- `sound`：允许您设置默认通知声音。在 Android 26+ 上，设置默认频道声音，除非应用被卸载，否则无法更改。
 
 ```json
  "plugins": {
@@ -76,19 +73,17 @@ console.log('已调度的通知', notifs);
 
 ## API
 
-
-
 ### schedule(...)
 
 ```typescript
 schedule(options: { notifications: LocalNotification[]; }) => Promise<LocalNotificationScheduleResult>
 ```
 
-| 参数            | 类型                                                  |
-| --------------- | ----------------------------------------------------- |
-| **`options`**   | `{ notifications: LocalNotification[]; }` |
+| 参数 | 类型 |
+| ------------- | ---------------------------------------------------- |
+| **`options`** | `{ notifications: LocalNotification[]; }` |
 
-**返回值:** <code>Promise&lt;<a href="#localnotificationscheduleresult">LocalNotificationScheduleResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#localnotificationscheduleresult">LocalNotificationScheduleResult</a>&gt;</code>
 
 ---
 
@@ -98,7 +93,7 @@ schedule(options: { notifications: LocalNotification[]; }) => Promise<LocalNotif
 getPending() => Promise<LocalNotificationPendingList>
 ```
 
-**返回值:** <code>Promise&lt;<a href="#localnotificationpendinglist">LocalNotificationPendingList</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#localnotificationpendinglist">LocalNotificationPendingList</a>&gt;</code>
 
 ---
 
@@ -108,9 +103,9 @@ getPending() => Promise<LocalNotificationPendingList>
 registerActionTypes(options: { types: LocalNotificationActionType[]; }) => Promise<void>
 ```
 
-| 参数            | 类型                                                    |
-| --------------- | ------------------------------------------------------- |
-| **`options`**   | `{ types: LocalNotificationActionType[]; }` |
+| 参数 | 类型 |
+| ------------- | ------------------------------------------------------ |
+| **`options`** | `{ types: LocalNotificationActionType[]; }` |
 
 ---
 
@@ -120,9 +115,9 @@ registerActionTypes(options: { types: LocalNotificationActionType[]; }) => Promi
 cancel(pending: LocalNotificationPendingList) => Promise<void>
 ```
 
-| 参数            | 类型                                                                                   |
-| --------------- | -------------------------------------------------------------------------------------- |
-| **`pending`**   | <code><a href="#localnotificationpendinglist">LocalNotificationPendingList</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------------------------------- |
+| **`pending`** | <code><a href="#localnotificationpendinglist">LocalNotificationPendingList</a></code> |
 
 ---
 
@@ -132,7 +127,7 @@ cancel(pending: LocalNotificationPendingList) => Promise<void>
 areEnabled() => Promise<LocalNotificationEnabledResult>
 ```
 
-**返回值:** <code>Promise&lt;<a href="#localnotificationenabledresult">LocalNotificationEnabledResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#localnotificationenabledresult">LocalNotificationEnabledResult</a>&gt;</code>
 
 ---
 
@@ -142,9 +137,9 @@ areEnabled() => Promise<LocalNotificationEnabledResult>
 createChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-| 参数            | 类型                                                                 |
-| --------------- | -------------------------------------------------------------------- |
-| **`channel`**   | <code><a href="#notificationchannel">NotificationChannel</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------------- |
+| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> |
 
 ---
 
@@ -154,9 +149,9 @@ createChannel(channel: NotificationChannel) => Promise<void>
 deleteChannel(channel: NotificationChannel) => Promise<void>
 ```
 
-| 参数            | 类型                                                                 |
-| --------------- | -------------------------------------------------------------------- |
-| **`channel`**   | <code><a href="#notificationchannel">NotificationChannel</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------------- |
+| **`channel`** | <code><a href="#notificationchannel">NotificationChannel</a></code> |
 
 ---
 
@@ -166,7 +161,7 @@ deleteChannel(channel: NotificationChannel) => Promise<void>
 listChannels() => Promise<NotificationChannelList>
 ```
 
-**返回值:** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#notificationchannellist">NotificationChannelList</a>&gt;</code>
 
 ---
 
@@ -176,7 +171,7 @@ listChannels() => Promise<NotificationChannelList>
 requestPermission() => Promise<NotificationPermissionResponse>
 ```
 
-**返回值:** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#notificationpermissionresponse">NotificationPermissionResponse</a>&gt;</code>
 
 ---
 
@@ -186,12 +181,12 @@ requestPermission() => Promise<NotificationPermissionResponse>
 addListener(eventName: 'localNotificationReceived', listenerFunc: (notification: LocalNotification) => void) => PluginListenerHandle
 ```
 
-| 参数                 | 类型                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------ |
-| **`eventName`**      | <code>"localNotificationReceived"</code>                                                         |
-| **`listenerFunc`**   | <code>(notification: <a href="#localnotification">LocalNotification</a>) =&gt; void</code> |
+| 参数 | 类型 |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"localNotificationReceived"</code>                                                   |
+| **`listenerFunc`** | <code>(notification: <a href="#localnotification">LocalNotification</a>) =&gt; void</code> |
 
-**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -201,12 +196,12 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notificationAction: LocalNotificationActionPerformed) => void) => PluginListenerHandle
 ```
 
-| 参数                 | 类型                                                                                                                                                |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`eventName`**      | <code>"localNotificationActionPerformed"</code>                                                                                                     |
-| **`listenerFunc`**   | <code>(notificationAction: <a href="#localnotificationactionperformed">LocalNotificationActionPerformed</a>) =&gt; void</code> |
+| 参数 | 类型 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **`eventName`**    | <code>"localNotificationActionPerformed"</code>                                                                                |
+| **`listenerFunc`** | <code>(notificationAction: <a href="#localnotificationactionperformed">LocalNotificationActionPerformed</a>) =&gt; void</code> |
 
-**返回值:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -216,39 +211,39 @@ addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notifi
 removeAllListeners() => void
 ```
 
-移除此插件的所有原生监听器
+移除该插件的所有原生监听器
 
 ---
 
 ### 接口
 
-#### LocalNotificationScheduleResult {#localnotificationscheduleresult}
+#### LocalNotificationScheduleResult
 
 #### LocalNotification
 
-| 属性                   | 类型                                                                            | 说明                                                                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`title`**            | <code>string</code>                                                             | 通知标题                                                                                                                                                                                                                                                        |
-| **`body`**             | <code>string</code>                                                             | 通知正文                                                                                                                                                                                                                                                        |
-| **`id`**               | <code>number</code>                                                             | 通知唯一标识符                                                                                                                                                                                                                                                  |
-| **`schedule`**         | <code><a href="#localnotificationschedule">LocalNotificationSchedule</a></code> | 通知触发时间安排                                                                                                                                                                                                                                                |
-| **`sound`**            | <code>string</code>                                                             | 带扩展名的音频文件名。在 iOS 上，文件应位于应用程序包中。在 Android 上，文件应位于 res/raw 文件夹中。不适用于 Android 26+ 版本（Android O 及更新版本），建议使用 .wav 格式，因为该格式受到两个平台的支持。                                                     |
-| **`smallIcon`**        | <code>string</code>                                                             | 仅限 Android：设置自定义状态栏图标。如果设置，将覆盖 capacitor.config.json 中的默认图标                                                                                                                                                                        |
-| **`iconColor`**        | <code>string</code>                                                             | 仅限 Android：设置通知图标的颜色                                                                                                                                                                                                                                |
-| **`attachments`**      | <code>LocalNotificationAttachment[]</code>                                      | 通知附件                                                                                                                                                                                                                                                        |
-| **`actionTypeId`**     | <code>string</code>                                                             | 操作类型标识符                                                                                                                                                                                                                                                  |
-| **`extra`**            | <code>any</code>                                                                | 额外数据                                                                                                                                                                                                                                                        |
-| **`threadIdentifier`** | <code>string</code>                                                             | 仅限 iOS：设置用于通知分组的线程标识符                                                                                                                                                                                                                          |
-| **`summaryArgument`**  | <code>string</code>                                                             | 仅限 iOS 12+：设置用于通知分组的摘要参数                                                                                                                                                                                                                        |
-| **`group`**            | <code>string</code>                                                             | 仅限 Android：设置用于通知分组的组标识符，类似于 iOS 上的 threadIdentifier。                                                                                                                                                                                    |
-| **`groupSummary`**     | <code>boolean</code>                                                            | 仅限 Android：将此通知指定为组的摘要（应与 `group` 属性一起使用）。                                                                                                                                                                                             |
-| **`channelId`**        | <code>string</code>                                                             | 仅限 Android：设置将生成本地通知的通知渠道。如果具有给定名称的渠道不存在，则通知不会触发。如果未提供，将使用默认渠道。                                                                                                                                          |
-| **`ongoing`**          | <code>boolean</code>                                                            | 仅限 Android：设置通知为持续状态。如果设置为 true，通知无法被滑动清除。                                                                                                                                                                                         |
-| **`autoCancel`**       | <code>boolean</code>                                                            | 仅限 Android：设置通知在用户点击时自动移除                                                                                                                                                                                                                      |
+| 属性 | 类型 | 描述 |
+| ---------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`title`**            | <code>string</code>                                                             | |
+| **`body`**             | <code>string</code>                                                             | |
+| **`id`**               | <code>number</code>                                                             | |
+| **`schedule`**         | <code><a href="#localnotificationschedule">LocalNotificationSchedule</a></code> | |
+| **`sound`**            | <code>string</code>                                                             | 带扩展名的音频文件名。在 iOS 上，文件应位于应用 bundle 中。在 Android 上，文件应放在 res/raw 文件夹中。在 Android 26+（Android O 及更新版本）上不起作用。推荐格式为 .wav，因为它受两个平台支持。 |
+| **`smallIcon`**        | <code>string</code>                                                             | 仅 Android：设置自定义状态栏图标。如果设置，将覆盖 capacitor.config.json 中的默认图标。 |
+| **`iconColor`**        | <code>string</code>                                                             | 仅 Android：设置通知图标的颜色。 |
+| **`attachments`**      | <code>LocalNotificationAttachment[]</code>                                      | |
+| **`actionTypeId`**     | <code>string</code>                                                             | |
+| **`extra`**            | <code>any</code>                                                                | |
+| **`threadIdentifier`** | <code>string</code>                                                             | 仅 iOS：设置通知分组的线程标识符。 |
+| **`summaryArgument`**  | <code>string</code>                                                             | 仅 iOS 12+：设置通知分组的摘要参数。 |
+| **`group`**            | <code>string</code>                                                             | 仅 Android：设置通知分组的组标识符，类似于 iOS 上的 threadIdentifier。 |
+| **`groupSummary`**     | <code>boolean</code>                                                            | 仅 Android：将此通知指定为组的摘要（应与 `group` 属性一起使用）。 |
+| **`channelId`**        | <code>string</code>                                                             | 仅 Android：设置本地通知将生成的频道名称。如果给定名称的频道不存在，则通知不会触发。如果未提供，将使用默认频道。 |
+| **`ongoing`**          | <code>boolean</code>                                                            | 仅 Android：将通知设置为进行中。如果设置为 true，则通知不能被滑动清除。 |
+| **`autoCancel`**       | <code>boolean</code>                                                            | 仅 Android：设置用户点击通知时自动移除通知。 |
 
-#### LocalNotificationSchedule（本地通知调度） {#localnotificationschedule}
+#### LocalNotificationSchedule
 
-| 属性          | 类型                                                                                               |
+| 属性 | 类型 |
 | ------------- | -------------------------------------------------------------------------------------------------- |
 | **`at`**      | <code><a href="#date">Date</a></code>                                                              |
 | **`repeats`** | <code>boolean</code>                                                                               |
@@ -256,56 +251,59 @@ removeAllListeners() => void
 | **`count`**   | <code>number</code>                                                                                |
 | **`on`**      | `{ year?: number; month?: number; day?: number; hour?: number; minute?: number; }`      |
 
-#### 日期 {#date}
+#### Date
 
-提供日期和时间的基本存储与检索功能。| 方法                 | 签名                                                             | 描述                                                                                                                             |
+支持日期和时间的存储和检索。
+
+| 方法 | 签名 | 描述 |
 | ---------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **toString**           | () => string                                                       | 返回日期的字符串表示形式。字符串的格式取决于区域设置。                                              |
-| **toDateString**       | () => string                                                       | 将日期作为字符串值返回。                                                                                                       |
-| **toTimeString**       | () => string                                                       | 将时间作为字符串值返回。                                                                                                       |
-| **toLocaleString**     | () => string                                                       | 返回适合主机环境当前区域设置的字符串值。                                                 |
-| **toLocaleDateString** | () => string                                                       | 返回适合主机环境当前区域设置的日期字符串值。                                                  |
-| **toLocaleTimeString** | () => string                                                       | 返回适合主机环境当前区域设置的时间字符串值。                                                  |
-| **valueOf**            | () => number                                                       | 返回自 1970 年 1 月 1 日午夜（UTC）以来存储的时间值（毫秒）。                                                      |
-| **getTime**            | () => number                                                       | 获取时间值（毫秒）。                                                                                                    |
-| **getFullYear**        | () => number                                                       | 使用本地时间获取年份。                                                                                                        |
-| **getUTCFullYear**     | () => number                                                       | 使用协调世界时（UTC）获取年份。                                                                                   |
-| **getMonth**           | () => number                                                       | 使用本地时间获取月份。                                                                                                       |
-| **getUTCMonth**        | () => number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的月份。                                             |
-| **getDate**            | () => number                                                       | 使用本地时间获取月份中的日期。                                                                                            |
-| **getUTCDate**         | () => number                                                       | 使用协调世界时（UTC）获取月份中的日期。                                                                      |
-| **getDay**             | () => number                                                       | 使用本地时间获取星期几。                                                                                             |
-| **getUTCDay**          | () => number                                                       | 使用协调世界时（UTC）获取星期几。                                                                        |
-| **getHours**           | () => number                                                       | 使用本地时间获取日期中的小时数。                                                                                             |
-| **getUTCHours**        | () => number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的小时值。                                       |
-| **getMinutes**         | () => number                                                       | 使用本地时间获取 <a href="#date">Date</a> 对象的分钟数。                                                                |
-| **getUTCMinutes**      | () => number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的分钟数。                                           |
-| **getSeconds**         | () => number                                                       | 使用本地时间获取 <a href="#date">Date</a> 对象的秒数。                                                                |
-| **getUTCSeconds**      | () => number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的秒数。                                           |
-| **getMilliseconds**    | () => number                                                       | 使用本地时间获取 <a href="#date">Date</a> 的毫秒数。                                                                  |
-| **getUTCMilliseconds** | () => number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的毫秒数。                                      |
-| **getTimezoneOffset**  | () => number                                                       | 获取本地计算机时间与协调世界时（UTC）之间的分钟差。                             |
-| **setTime**            | (time: number) => number                                           | 设置 <a href="#date">Date</a> 对象中的日期和时间值。                                                                    |
-| **setMilliseconds**    | (ms: number) => number                                             | 使用本地时间设置 <a href="#date">Date</a> 对象中的毫秒值。                                                    |
-| **setUTCMilliseconds** | (ms: number) => number                                             | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的毫秒值。                              |
-| **setSeconds**         | (sec: number, ms?: number) => number                               | 使用本地时间设置 <a href="#date">Date</a> 对象中的秒值。                                                         |
-| **setUTCSeconds**      | (sec: number, ms?: number) => number                               | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的秒值。                                   || **setMinutes**         | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用本地时间设置 <a href="#date">Date</a> 对象中的分钟值。                                                                               |
-| **setUTCMinutes**      | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的分钟值。                                                                       |
-| **setHours**           | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用本地时间设置 <a href="#date">Date</a> 对象中的小时值。                                                                                |
-| **setUTCHours**        | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的小时值。                                                                        |
-| **setDate**            | (date: number) =&gt; number                                           | 使用本地时间设置 <a href="#date">Date</a> 对象中的月份日期值（数值）。                                                                     |
-| **setUTCDate**         | (date: number) =&gt; number                                           | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的月份日期值（数值）。                                                            |
-| **setMonth**           | (month: number, date?: number) =&gt; number                           | 使用本地时间设置 <a href="#date">Date</a> 对象中的月份值。                                                                                 |
-| **setUTCMonth**        | (month: number, date?: number) =&gt; number                           | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的月份值。                                                                        |
-| **setFullYear**        | (year: number, month?: number, date?: number) =&gt; number            | 使用本地时间设置 <a href="#date">Date</a> 对象中的年份值。                                                                                 |
-| **setUTCFullYear**     | (year: number, month?: number, date?: number) =&gt; number            | 使用协调世界时 (UTC) 设置 <a href="#date">Date</a> 对象中的年份值。                                                                        |
-| **toUTCString**        | () =&gt; string                                                       | 返回一个使用协调世界时 (UTC) 转换为字符串的日期。                                                                                          |
-| **toISOString**        | () =&gt; string                                                       | 以 ISO 格式返回日期的字符串值。                                                                                                           |
-| **toJSON**             | (key?: any) =&gt; string                                              | 由 JSON.stringify 方法使用，以便在 JavaScript 对象表示法 (JSON) 序列化过程中转换对象的数据。                                               |
+| **toString**           | () =&gt; string                                                       | 返回日期的字符串表示形式。字符串格式取决于区域设置。 |
+| **toDateString**       | () =&gt; string                                                       | 以字符串值形式返回日期。 |
+| **toTimeString**       | () =&gt; string                                                       | 以字符串值形式返回时间。 |
+| **toLocaleString**     | () =&gt; string                                                       | 返回适合宿主环境当前区域设置的字符串值。 |
+| **toLocaleDateString** | () =&gt; string                                                       | 返回适合宿主环境当前区域设置的日期字符串值。 |
+| **toLocaleTimeString** | () =&gt; string                                                       | 返回适合宿主环境当前区域设置的时间字符串值。 |
+| **valueOf**            | () =&gt; number                                                       | 返回自 1970 年 1 月 1 日 UTC 午夜以来存储的时间值（以毫秒为单位）。 |
+| **getTime**            | () =&gt; number                                                       | 获取时间值（以毫秒为单位）。 |
+| **getFullYear**        | () =&gt; number                                                       | 使用本地时间获取年份。 |
+| **getUTCFullYear**     | () =&gt; number                                                       | 使用协调世界时（UTC）获取年份。 |
+| **getMonth**           | () =&gt; number                                                       | 使用本地时间获取月份。 |
+| **getUTCMonth**        | () =&gt; number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的月份。 |
+| **getDate**            | () =&gt; number                                                       | 使用本地时间获取月份中的日期。 |
+| **getUTCDate**         | () =&gt; number                                                       | 使用协调世界时（UTC）获取月份中的日期。 |
+| **getDay**             | () =&gt; number                                                       | 使用本地时间获取星期几。 |
+| **getUTCDay**          | () =&gt; number                                                       | 使用协调世界时（UTC）获取星期几。 |
+| **getHours**           | () =&gt; number                                                       | 使用本地时间获取日期中的小时。 |
+| **getUTCHours**        | () =&gt; number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象中的小时值。 |
+| **getMinutes**         | () =&gt; number                                                       | 使用本地时间获取 <a href="#date">Date</a> 对象的分钟。 |
+| **getUTCMinutes**      | () =&gt; number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的分钟。 |
+| **getSeconds**         | () =&gt; number                                                       | 使用本地时间获取 <a href="#date">Date</a> 对象的秒。 |
+| **getUTCSeconds**      | () =&gt; number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的秒。 |
+| **getMilliseconds**    | () =&gt; number                                                       | 使用本地时间获取 <a href="#date">Date</a> 的毫秒。 |
+| **getUTCMilliseconds** | () =&gt; number                                                       | 使用协调世界时（UTC）获取 <a href="#date">Date</a> 对象的毫秒。 |
+| **getTimezoneOffset**  | () =&gt; number                                                       | 获取本地计算机时间与协调世界时（UTC）之间的分钟差。 |
+| **setTime**            | (time: number) =&gt; number                                           | 设置 <a href="#date">Date</a> 对象中的日期和时间值。 |
+| **setMilliseconds**    | (ms: number) =&gt; number                                             | 使用本地时间设置 <a href="#date">Date</a> 对象中的毫秒值。 |
+| **setUTCMilliseconds** | (ms: number) =&gt; number                                             | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的毫秒值。 |
+| **setSeconds**         | (sec: number, ms?: number) =&gt; number                               | 使用本地时间设置 <a href="#date">Date</a> 对象中的秒值。 |
+| **setUTCSeconds**      | (sec: number, ms?: number) =&gt; number                               | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的秒值。 |
+| **setMinutes**         | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用本地时间设置 <a href="#date">Date</a> 对象中的分钟值。 |
+| **setUTCMinutes**      | (min: number, sec?: number, ms?: number) =&gt; number                 | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的分钟值。 |
+| **setHours**           | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用本地时间设置 <a href="#date">Date</a> 对象中的小时值。 |
+| **setUTCHours**        | (hours: number, min?: number, sec?: number, ms?: number) =&gt; number | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的小时值。 |
+| **setDate**            | (date: number) =&gt; number                                           | 使用本地时间设置 <a href="#date">Date</a> 对象中的月份日期值。 |
+| **setUTCDate**         | (date: number) =&gt; number                                           | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的月份日期值。 |
+| **setMonth**           | (month: number, date?: number) =&gt; number                           | 使用本地时间设置 <a href="#date">Date</a> 对象中的月份值。 |
+| **setUTCMonth**        | (month: number, date?: number) =&gt; number                           | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的月份值。 |
+| **setFullYear**        | (year: number, month?: number, date?: number) =&gt; number            | 使用本地时间设置 <a href="#date">Date</a> 对象的年份。 |
+| **setUTCFullYear**     | (year: number, month?: number, date?: number) =&gt; number            | 使用协调世界时（UTC）设置 <a href="#date">Date</a> 对象中的年份值。 |
+| **toUTCString**        | () =&gt; string                                                       | 使用协调世界时（UTC）将日期转换为字符串。 |
+| **toISOString**        | () =&gt; string                                                       | 以 ISO 格式返回日期字符串值。 |
+| **toJSON**             | (key?: any) =&gt; string                                              | 由 JSON.stringify 方法使用，以便转换对象的数据进行 JavaScript Object Notation (JSON) 序列化。 |
 
 #### LocalNotificationAttachment
 
-| 属性          | 类型                                                                                              |
+| 属性 | 类型 |
 | ------------- | ------------------------------------------------------------------------------------------------- |
 | **`id`**      | <code>string</code>                                                                               |
 | **`url`**     | <code>string</code>                                                                               |
@@ -313,7 +311,7 @@ removeAllListeners() => void
 
 #### LocalNotificationAttachmentOptions
 
-| 属性                                                             | 类型                |
+| 属性 | 类型 |
 | ---------------------------------------------------------------- | ------------------- |
 | **`iosUNNotificationAttachmentOptionsTypeHintKey`**              | <code>string</code> |
 | **`iosUNNotificationAttachmentOptionsThumbnailHiddenKey`**       | <code>string</code> |
@@ -322,19 +320,19 @@ removeAllListeners() => void
 
 #### LocalNotificationPendingList
 
-| 属性                | 类型                                    |
+| 属性 | 类型 |
 | ------------------- | --------------------------------------- |
 | **`notifications`** | <code>LocalNotificationRequest[]</code> |
 
 #### LocalNotificationRequest
 
-| 属性     | 类型                |
+| 属性 | 类型 |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
 
 #### LocalNotificationActionType
 
-| 属性                                   | 类型                                   |
+| 属性 | 类型 |
 | -------------------------------------- | -------------------------------------- |
 | **`id`**                               | <code>string</code>                    |
 | **`actions`**                          | <code>LocalNotificationAction[]</code> |
@@ -346,27 +344,27 @@ removeAllListeners() => void
 
 #### LocalNotificationAction
 
-| 属性                         | 类型                 |
-| ---------------------------- | -------------------- |
-| **`id`**                     | <code>string</code>  |
-| **`title`**                  | <code>string</code>  |
-| **`requiresAuthentication`** | <code>boolean</code> |
-| **`foreground`**             | <code>boolean</code> |
-| **`destructive`**            | <code>boolean</code> |
-| **`input`**                  | <code>boolean</code> |
-| **`inputButtonTitle`**       | <code>string</code>  |
-| **`inputPlaceholder`**       | <code>string</code>  |
+| 属性 | 类型 | 描述 |
+| ---------------------------- | -------------------- | -------------------- |
+| **`id`**                     | <code>string</code>  | |
+| **`title`**                  | <code>string</code>  | |
+| **`requiresAuthentication`** | <code>boolean</code> | |
+| **`foreground`**             | <code>boolean</code> | |
+| **`destructive`**            | <code>boolean</code> | |
+| **`input`**                  | <code>boolean</code> | |
+| **`inputButtonTitle`**       | <code>string</code>  | |
+| **`inputPlaceholder`**       | <code>string</code>  | |
 
 #### LocalNotificationEnabledResult
 
-| 属性        | 类型                 | 描述                                               |
+| 属性 | 类型 | 描述 |
 | ----------- | -------------------- | --------------------------------------------------------- |
 | **`value`** | <code>boolean</code> | 设备是否启用了本地通知 |
 
 #### NotificationChannel
 
-| 属性              | 类型                               |
-| ----------------- | ---------------------------------- |
+| 属性 | 类型 |
+| --------------- | -------------------------------- |
 | **`id`**          | <code>string</code>                |
 | **`name`**        | <code>string</code>                |
 | **`description`** | <code>string</code>                |
@@ -379,26 +377,26 @@ removeAllListeners() => void
 
 #### NotificationChannelList
 
-| 属性           | 类型                               |
-| -------------- | ---------------------------------- |
+| 属性 | 类型 |
+| ------------ | -------------------------------- |
 | **`channels`** | <code>NotificationChannel[]</code> |
 
 #### NotificationPermissionResponse
 
-| 属性          | 类型                 |
+| 属性 | 类型 |
 | ------------- | -------------------- |
 | **`granted`** | <code>boolean</code> |
 
 #### PluginListenerHandle
 
-| 属性         | 类型                       |
+| 属性 | 类型 |
 | ------------ | -------------------------- |
 | **`remove`** | <code>() =&gt; void</code> |
 
 #### LocalNotificationActionPerformed
 
-| 属性               | 类型                                                            |
-| ------------------ | --------------------------------------------------------------- |
+| 属性 | 类型 |
+| ---------------- | --------------------------------------------------------------- |
 | **`actionId`**     | <code>string</code>                                             |
 | **`inputValue`**   | <code>string</code>                                             |
 | **`notification`** | <code><a href="#localnotification">LocalNotification</a></code> |

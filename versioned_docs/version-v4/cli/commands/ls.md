@@ -1,5 +1,5 @@
 ---
-title: CLI Command - cap ls
+title: CLI 命令 - cap ls
 description: Capacitor CLI - cap ls
 contributors:
   - dotNetkow
@@ -16,4 +16,4 @@ npx cap ls [<platform>]
 
 <strong>输入参数：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`、`ios`

@@ -8,7 +8,7 @@ sidebar_label: open
 
 # Capacitor CLI - cap open
 
-在指定的原生 IDE 中打开原生项目工作区（iOS 使用 Xcode，Android 使用 Android Studio）。
+在指定的原生 IDE（iOS 使用 Xcode，Android 使用 Android Studio）中打开原生项目工作区。
 
 ```bash
 npx cap open <platform>

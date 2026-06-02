@@ -320,12 +320,12 @@
         {
           "type": "link",
           "label": "Plugin APIs",
-          "href": "/v4/apis"
+          "href": "/docs/apis"
         },
         {
           "type": "link",
           "label": "CLI",
-          "href": "/v4/cli"
+          "href": "/docs/cli"
         }
       ],
       "collapsible": true

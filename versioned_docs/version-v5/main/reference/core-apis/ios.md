@@ -1,24 +1,24 @@
 ---
 title: Capacitor iOS API
-description: iOS 平台上的 Capacitor API
+description: Capacitor 在 iOS 上的 API
 slug: /core-apis/ios
 ---
 
 # Capacitor iOS API
 
-Capacitor iOS 是为 iOS 上 Capacitor 应用提供支持的本地运行时。
+Capacitor iOS 是在 iOS 上驱动 Capacitor 应用的原生运行时。
 
 ## Bridge
 
-iOS Bridge 是 Capacitor iOS 库的核心。Bridge 上提供了多个属性和方法，用于获取信息或改变行为。
+iOS bridge 是 Capacitor iOS 库的核心。bridge 上有几个可用的属性和方法，提供信息或改变行为。
 
-当插件在 Capacitor 中注册后，它们会持有一个对 bridge 的弱引用：
+当注册到 Capacitor 时，插件有一个对 bridge 的弱引用：
 
 ```swift
 self.bridge?
 ```
 
-> 如果你的方法需要使用 bridge，可以使用 guard 语句来解包并提前返回：
+> 如果您的插件需要 bridge，您可以使用 guard 来解包并提前退出：
 >
 > ```swift
 > guard let bridge = self.bridge else { return }
@@ -32,7 +32,7 @@ self.bridge?
 var viewController: UIViewController? { get }
 ```
 
-此属性包含 Capacitor 的主视图控制器，可用于在应用上方展示原生视图。
+此属性包含 Capacitor 的主视图控制器，可用于在应用上呈现原生视图。
 
 示例：
 
@@ -42,7 +42,7 @@ DispatchQueue.main.async {
 }
 ```
 
-在 iPad 设备上可以呈现弹出窗口：
+在 iPad 设备上，可以呈现弹出窗口：
 
 ```swift
 self.setCenteredPopover(ourCustomViewController)
@@ -68,7 +68,7 @@ func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议使用 [插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events) 代替。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)。
 
 示例：
 
@@ -87,12 +87,12 @@ bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "{ '
 func localURL(fromWebURL webURL: URL?) -> URL?
 ```
 
-将来自 Web 视图的 URL 转换为 iOS 原生的文件 URL。
+将 WebView 中的 URL 转换为原生 iOS 的文件 URL。
 
-Web 视图可能处理多种不同类型的 URL：
+WebView 可能处理几种不同类型的 URL：
 
-- `res://`（指向 Web 资源的快捷方案）
-- `file://`（指向本地设备文件的完整限定 URL）
+- `res://`（Web 资产的快捷 scheme）
+- `file://`（本地设备上文件的完全限定 URL）
 
 ---
 
@@ -102,16 +102,16 @@ Web 视图可能处理多种不同类型的 URL：
 func portablePath(fromLocalURL localURL: URL?) -> URL?
 ```
 
-将 iOS 原生的文件 URL 转换为可在 Web 视图中加载的 URL。
+将原生 iOS 的文件 URL 转换为在 WebView 中加载的 URL。
 
 ---
 
 ## 传递数据
 
-关于如何在环境之间处理传递数据的说明可以 [在此处找到](/main/reference/core-apis/data-types.md#ios)。
+关于如何在环境之间传递数据的说明[在此处](/main/reference/core-apis/data-types.md#ios)。
 
 ---
 
 ## 保存 CAPPluginCall
 
-关于为异步或重复操作持久化插件调用的说明可以 [在此处找到](/main/reference/core-apis/saving-calls.md)。
+关于为异步或重复操作持久化插件调用的说明[在此处](/main/reference/core-apis/saving-calls.md)。

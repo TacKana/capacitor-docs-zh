@@ -14,16 +14,16 @@ canonicalUrl: https://capacitorjs.com/docs/cli/list
 npx cap ls [platform]
 ```
 
-<strong>输入参数：</strong>
+<strong>输入：</strong>
 
 - `platform`（可选）：`android`、`ios`
 
 <strong>示例输出：</strong>
 
 ```
-为 android 找到 1 个 Capacitor 插件：
+找到 1 个适用于 android 的 Capacitor 插件：
     capacitor-mapbox (0.0.1)
-为 android 找到 2 个 Cordova 插件：
+找到 2 个适用于 android 的 Cordova 插件：
     cordova-plugin-camera
     cordova-plugin-splashscreen
 ```

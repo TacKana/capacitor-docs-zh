@@ -10,7 +10,7 @@ import ColorInput from '../ColorInput';
 import ColorDot from '../ColorDot';
 
 export default function ColorGenerator() {
-  const [name, setName] = useState('New');
+  const [name, setName] = useState('新颜色');
   const [value, setValue] = useState('#69bb7b');
   const [color, setColor] = useState(generateColor(value));
 

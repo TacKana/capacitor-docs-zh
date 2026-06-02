@@ -1,5 +1,5 @@
 ---
-title: 官方插件
+title: Capacitor 插件
 description: Capacitor 插件
 sidebar_label: 官方插件
 contributors:
@@ -11,36 +11,36 @@ slug: /apis
 
 # 官方插件
 
-官方插件是由 Capacitor 团队维护的一套插件，提供了对常用原生 API 的访问。
+官方插件是由 Capacitor 团队维护的一组 Capacitor 插件，提供对常用原生 API 的访问。
 
-这些插件的 API 文档可在下方找到。
+这些插件的 API 文档可以在下方找到。
 
 ## 官方插件列表
 
-- [操作表](/apis/action-sheet.md)
-- [应用](/apis/app.md)
-- [应用启动器](/apis/app-launcher.md)
-- [浏览器](/apis/browser.md)
-- [相机](/apis/camera.md)
-- [剪贴板](/apis/clipboard.md)
-- [设备](/apis/device.md)
-- [对话框](/apis/dialog.md)
-- [文件系统](/apis/filesystem.md)
-- [地理位置](/apis/geolocation.md)
-- [谷歌地图](/apis/google-maps.md)
-- [触觉反馈](/apis/haptics.md)
-- [键盘](/apis/keyboard.md)
-- [本地通知](/apis/local-notifications.md)
-- [运动传感器](/apis/motion.md)
-- [网络](/apis/network.md)
-- [推送通知](/apis/push-notifications.md)
-- [屏幕阅读器](/apis/screen-reader.md)
-- [分享](/apis/share.md)
-- [启动屏](/apis/splash-screen.md)
-- [状态栏](/apis/status-bar.md)
-- [存储](/apis/storage.md)
-- [文本缩放](/apis/text-zoom.md)
-- [提示框](/apis/toast.md)
+- [Action Sheet（操作列表）](/apis/action-sheet.md)
+- [App（应用）](/apis/app.md)
+- [App Launcher（应用启动器）](/apis/app-launcher.md)
+- [Browser（浏览器）](/apis/browser.md)
+- [Camera（相机）](/apis/camera.md)
+- [Clipboard（剪贴板）](/apis/clipboard.md)
+- [Device（设备）](/apis/device.md)
+- [Dialog（对话框）](/apis/dialog.md)
+- [Filesystem（文件系统）](/apis/filesystem.md)
+- [Geolocation（地理定位）](/apis/geolocation.md)
+- [Google Maps（谷歌地图）](/apis/google-maps.md)
+- [Haptics（触觉反馈）](/apis/haptics.md)
+- [Keyboard（键盘）](/apis/keyboard.md)
+- [Local Notifications（本地通知）](/apis/local-notifications.md)
+- [Motion（运动）](/apis/motion.md)
+- [Network（网络）](/apis/network.md)
+- [Push Notifications（推送通知）](/apis/push-notifications.md)
+- [Screen Reader（屏幕阅读器）](/apis/screen-reader.md)
+- [Share（分享）](/apis/share.md)
+- [Splash Screen（启动屏）](/apis/splash-screen.md)
+- [Status Bar（状态栏）](/apis/status-bar.md)
+- [Storage（存储）](/apis/storage.md)
+- [Text Zoom（文字缩放）](/apis/text-zoom.md)
+- [Toast（提示）](/apis/toast.md)
 
 ## GitHub
 

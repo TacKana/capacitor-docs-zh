@@ -1,14 +1,15 @@
 ---
-title: 网络电容插件 API
-description: Network API 提供网络和连接信息。
+title: 网络 - Capacitor 插件 API
+description: 网络 API 提供网络和连接信息。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/network/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/network/src/definitions.ts
 sidebar_label: 网络
+translated: true
 ---
 
 # @capacitor/network
 
-Network API 提供网络和连接信息。
+网络 API 提供网络和连接信息。
 
 ## 安装
 
@@ -40,8 +41,8 @@ const logCurrentNetworkStatus = async () => {
 * [`getStatus()`](#getstatus)
 * [`addListener('networkStatusChange', ...)`](#addlistenernetworkstatuschange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#接口)
-* [类型别名](#类型别名)
+* [接口](#interfaces)
+* [类型别名](#type-aliases)
 
 </docgen-index>
 
@@ -54,11 +55,11 @@ const logCurrentNetworkStatus = async () => {
 getStatus() => Promise<ConnectionStatus>
 ```
 
-查询网络连接的当前状态。
+查询当前网络连接的状态。
 
-**返回值：** <code>Promise&lt;<a href="#connectionstatus">ConnectionStatus</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#connectionstatus">ConnectionStatus</a>&gt;</code>
 
-**自：** 1.0.0
+**起始版本：** 1.0.0
 
 --------------------
 
@@ -71,14 +72,14 @@ addListener(eventName: 'networkStatusChange', listenerFunc: ConnectionStatusChan
 
 监听网络连接的变化。
 
-| 参数                 | 类型                                                                                      |
-| -------------------- | ----------------------------------------------------------------------------------------- |
-| **`eventName`**      | <code>'networkStatusChange'</code>                                                        |
-| **`listenerFunc`**   | <code><a href="#connectionstatuschangelistener">ConnectionStatusChangeListener</a></code> |
+| 参数                | 类型                                                                                      |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'networkStatusChange'</code>                                                        |
+| **`listenerFunc`** | <code><a href="#connectionstatuschangelistener">ConnectionStatusChangeListener</a></code> |
 
-**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**自：** 1.0.0
+**起始版本：** 1.0.0
 
 --------------------
 
@@ -89,9 +90,9 @@ addListener(eventName: 'networkStatusChange', listenerFunc: ConnectionStatusChan
 removeAllListeners() => Promise<void>
 ```
 
-移除此插件的所有监听器（包括网络状态变化监听器）。
+移除该插件的所有监听器（包括网络状态变化监听器）。
 
-**自：** 1.0.0
+**起始版本：** 1.0.0
 
 --------------------
 
@@ -103,17 +104,17 @@ removeAllListeners() => Promise<void>
 
 表示网络连接的状态和类型。
 
-| 属性                   | 类型                                                      | 描述                                                                                                                   | 自 |
-| ---------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`connected`**        | <code>boolean</code>                                      | 是否存在活动连接。                                                                                 | 1.0.0 |
-| **`connectionType`**   | <code><a href="#connectiontype">ConnectionType</a></code> | 当前正在使用的网络连接类型。如果没有活动的网络连接，`connectionType` 将为 `'none'`。 | 1.0.0 |
+| 属性                   | 类型                                                      | 描述                                                                                                                   | 起始版本 |
+| -------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`connected`**      | <code>boolean</code>                                      | 是否存在活跃连接。                                                                                 | 1.0.0 |
+| **`connectionType`** | <code><a href="#connectiontype">ConnectionType</a></code> | 当前使用的网络连接类型。如果没有活跃的网络连接，`connectionType` 将为 `'none'`。 | 1.0.0 |
 
 
 #### PluginListenerHandle
 
 | 属性           | 类型                                      |
-| -------------- | ----------------------------------------- |
-| **`remove`**   | <code>() =&gt; Promise&lt;void&gt;</code> |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 ### 类型别名
@@ -121,7 +122,7 @@ removeAllListeners() => Promise<void>
 
 #### ConnectionType
 
-设备可能具有的网络连接类型。
+设备可能拥有的网络连接类型。
 
 <code>'wifi' | 'cellular' | 'none' | 'unknown'</code>
 

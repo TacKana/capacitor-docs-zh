@@ -1,3 +1,3 @@
 # 管理部署平台
 
-Capacitor 支持 iOS、Android 和 PWA（渐进式 Web 应用）。
+Capacitor 支持 iOS、Android 和 PWA。

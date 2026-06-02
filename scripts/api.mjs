@@ -74,8 +74,8 @@ const pluginApis = [
     isCore: false,
     isExperimental: false,
     npmScope: '@capacitor',
-    editUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/camera/README.md',
-    editApiUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/camera/src/definitions.ts',
+    editUrl: 'https://github.com/ionic-team/capacitor-camera/blob/main/README.md',
+    editApiUrl: 'https://github.com/ionic-team/capacitor-camera/blob/main/src/definitions.ts',
   },
   {
     id: 'clipboard',
@@ -306,18 +306,113 @@ const pluginApis = [
     editUrl: 'https://github.com/ionic-team/CapacitorWatch/blob/main/README.md',
     editApiUrl: 'https://github.com/ionic-team/CapacitorWatch/blob/main/packages/capacitor-plugin/src/definitions.ts',
   },
+  {
+    id: 'local-llm',
+    title: "Local LLM",
+    isCore: false,
+    isExperimental: true,
+    npmScope: '@capacitor',
+    editUrl: 'https://github.com/ionic-team/capacitor-local-llm/blob/main/README.md',
+    editApiUrl: 'https://github.com/ionic-team/capacitor-local-llm/blob/main/src/definitions.ts',
+  }
 ];
 
 /**
  * @param {PluginApi} plugin
  */
 async function buildPluginApiDocs(plugin) {
-  const [readme, pkgJson] = await Promise.all([getReadme(plugin), getPkgJsonData(plugin)]);
-
-  const apiContent = createApiPage(plugin, readme, pkgJson);
   const fileName = `${plugin.id}.md`;
   const filePath = new URL(fileName, API_DIR);
+
+  // 获取最新源内容
+  const [readme, pkgJson] = await Promise.all([getReadme(plugin), getPkgJsonData(plugin)]);
+  const apiContent = createApiPage(plugin, readme, pkgJson);
+
+  // 检查文件是否已被翻译
+  const existingTranslation = getExistingTranslation(filePath);
+  if (existingTranslation) {
+    // 计算源内容哈希，与翻译文件中存储的哈希对比
+    const newHash = hashContent(readme);
+    const storedHash = existingTranslation.sourceHash;
+    if (storedHash && newHash === storedHash) {
+      console.log(`跳过 ${fileName}（已被翻译，上游无变更）`);
+      return;
+    }
+    if (!storedHash) {
+      // 翻译文件缺少 source_hash，补充它
+      console.log(`更新 ${fileName}（补充 source_hash）`);
+      const updatedContent = updateSourceHash(existingTranslation.content, newHash);
+      fs.writeFileSync(filePath, updatedContent);
+      return;
+    }
+    // 上游有更新！保留翻译文件但提示需要同步
+    console.warn(`⚠️  ${fileName}：上游文档已更新，翻译需要同步！`);
+    console.warn(`   存储哈希: ${storedHash}`);
+    console.warn(`   最新哈希: ${newHash}`);
+    const updatedContent = updateSourceHash(existingTranslation.content, newHash);
+    fs.writeFileSync(filePath, updatedContent);
+    return;
+  }
+
+  // 新文件，正常生成
   fs.writeFileSync(filePath, apiContent);
+}
+
+/**
+ * 获取已存在文件的翻译信息和源哈希
+ * @param {URL} filePath
+ * @returns {{ content: string, sourceHash: string } | null}
+ */
+function getExistingTranslation(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    if (frontmatterMatch && /translated:\s*true/.test(frontmatterMatch[1])) {
+      const hashMatch = frontmatterMatch[1].match(/source_hash:\s*(\S+)/);
+      return {
+        content,
+        sourceHash: hashMatch ? hashMatch[1] : '',
+      };
+    }
+  } catch (e) {
+    // 文件不存在
+  }
+  return null;
+}
+
+/**
+ * 简单的内容哈希
+ * @param {string} content
+ * @returns {string}
+ */
+function hashContent(content) {
+  let hash = 0;
+  for (let i = 0; i < content.length; i++) {
+    const chr = content.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0; // 转为32位整数
+  }
+  return Math.abs(hash).toString(16);
+}
+
+/**
+ * 更新文件 frontmatter 中的 source_hash
+ * @param {string} content
+ * @param {string} newHash
+ * @returns {string}
+ */
+function updateSourceHash(content, newHash) {
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!frontmatterMatch) return content;
+
+  const oldFm = frontmatterMatch[1];
+  let newFm;
+  if (/source_hash:/.test(oldFm)) {
+    newFm = oldFm.replace(/source_hash:\s*\S+/, `source_hash: ${newHash}`);
+  } else {
+    newFm = oldFm + `\nsource_hash: ${newHash}`;
+  }
+  return content.replace(oldFm, newFm);
 }
 
 /**

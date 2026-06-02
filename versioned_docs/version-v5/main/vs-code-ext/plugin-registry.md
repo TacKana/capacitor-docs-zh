@@ -1,63 +1,60 @@
 ---
-title: 插件
-description: 发现新的 Capacitor 插件
+title: Plugins
+description: Discovering new Plugins for Capacitor
 contributors:
   - dtarnawsky
 slug: /vscode/plugins
 ---
 
-插件为 Capacitor 提供了强大的原生功能，因此寻找高质量的插件是在您的应用中实现功能的重要环节。
+Plugins provide Capacitor with great native features, so finding high quality plugins is an important part of implementing features in your app.
 
-## 查找插件
+## Finding Plugins
 
-要查找插件，请按下 `F1` 并输入 `plugins`，或点击 Ionic VS Code 扩展中 `Plugins` 旁边的 `...`。
+To find a plugin, press `F1` and type `plugins` or click the `...` next to `Plugins` from the Ionic VS Code Extension.
 
-![Monorepo 项目](/img/vscode-plugins.png)
+![Monorepo projects](/img/vscode-plugins.png)
 
-输入插件的关键词、功能或部分名称，然后按 `Enter` 或点击 `搜索` 来显示匹配的插件列表。
+Type a keyword, feature, or part of the name of a plugin and press `enter` or click `Search` to display the list of matching plugins. 
 
-## 安装其他包
+## Installing Other Packages
+You may need to install a dependency that is not a plugin. If your search is an exact match for an NPM package then it will also show (eg try `angularx-qrcode`). You can then click `Install` to add that dependency to your project.
 
-您可能需要安装一个非插件的依赖项。如果您的搜索完全匹配某个 NPM 包，它也会显示出来（例如尝试搜索 `angularx-qrcode`）。然后您可以点击 `安装` 将该依赖项添加到您的项目中。
+## About the Plugin List
+Around 1100 plugins are indexed daily. This list comes from the most popular Capacitor and Cordova plugins that are used in projects. You can contribute to this list by filing an Issue or PR to the [repo](https://github.com/ionic-team/capacitor-plugin-registry).
 
-## 关于插件列表
+## Plugin Ratings
+The star rating for a plugin is automatically calculated based on the [NPM](https://www.npmjs.com/) and GitHub statistics for the plugin project:
+1. Is the plugin's project open source?
+2. Are there at least 100 Github stars?
+3. Has the plugin been published to npm in the last year?
+4. Is the version considered stable? (ie version 0.x)
+5. Are there at least 1000 downloads on npm per month?
 
-每天大约有 1100 个插件被编入索引。此列表来源于项目中最受欢迎的 Capacitor 和 Cordova 插件。您可以通过向[代码仓库](https://github.com/ionic-team/capacitor-plugin-registry)提交 Issue 或 PR 来为此列表做出贡献。
+The goal of the rating system is to highlight projects that are regularly used, maintained and liked by the community. 
 
-## 插件评级
+## Tips
 
-插件的星级评分是基于该插件项目的[NPM](https://www.npmjs.com/) 和 GitHub 统计数据自动计算的：
-1. 该插件项目是否开源？
-2. 是否有至少 100 个 GitHub star？
-3. 该插件是否在过去一年内发布到 npm？
-4. 版本是否被认为是稳定的？（即版本号不是 0.x）
-5. 在 npm 上每月是否有至少 1000 次下载？
+- You can choose a particular version of a plugin to install by clicking the down arrow (↓).
+- Clicking `install` or `update` will install the latest version of the plugin that works with your project.
+- The `More Information` link will open a browser to the listing in NPM or to official documentation.
+- The `Source Code` link will open a browser showing the Github project.
+- The `Report Issue` link will link to where a plugin author wants you to file issues.
+- Cordova plugins will show the Cordova logo, Capacitor plugins show the Capacitor logo.
+- If a plugin targets only Android, or only iOS then an Android or Apple logo will show next to it.
+- If you are using the latest version of a plugin you may see `Up To Date`. Plugins are checked daily so its possible that a plugin released today may still show `Up To Date`.
 
-评级系统的目标是突出那些被社区经常使用、维护良好且受到喜爱的项目。
+## Plugin Authors
 
-## 提示
+To ensure your plugin looks great by ensuring your `package.json` meets these requirements before publishing to npm:
+1. Provide a list of appropriate keywords that a user may search for in the `keywords` property.
+1. Provide a good description of what the plugin does in the `description` property.
+1. Be sure to specify an appropriate license type in the `license` property (eg `MIT`,`Apache-2.0`, `BSD`) .
+1. Set to the Github repo url `repository` > `url` property.
+1. Set the url to where to file issues in the `bugs` > `url` property.
+1. Be sure to set the author's name in the `author` property (eg `author: { name: 'John Smith'}`).
 
-- 您可以通过点击向下箭头（↓）来选择安装插件的特定版本。
-- 点击 `安装` 或 `更新` 将安装与您的项目兼容的插件最新版本。
-- `更多信息` 链接将在浏览器中打开 NPM 上的列表页面或官方文档。
-- `源代码` 链接将在浏览器中显示 Github 项目页面。
-- `报告问题` 链接将指向插件作者希望您提交问题的地方。
-- Cordova 插件将显示 Cordova 徽标，Capacitor 插件将显示 Capacitor 徽标。
-- 如果插件仅针对 Android 或仅针对 iOS，则会在旁边显示 Android 或 Apple 徽标。
-- 如果您正在使用插件的最新版本，可能会看到 `已是最新`。插件每天都会检查，因此今天发布的插件可能仍会显示为 `已是最新`。
-
-## 插件作者
-
-为了确保您的插件看起来很棒，请在发布到 npm 之前确保您的 `package.json` 满足以下要求：
-1. 在 `keywords` 属性中提供用户可能搜索的适当关键词列表。
-2. 在 `description` 属性中提供对插件功能的良好描述。
-3. 确保在 `license` 属性中指定适当的许可证类型（例如 `MIT`、`Apache-2.0`、`BSD`）。
-4. 将 `repository` > `url` 属性设置为 Github 仓库的 URL。
-5. 将 `bugs` > `url` 属性设置为提交问题的 URL。
-6. 确保在 `author` 属性中设置作者姓名（例如 `author: { name: 'John Smith'}`）。
-
-### 其他建议
-- 在您的 Github 项目中使用与您的插件功能或公司相匹配的头像。
-- 除非处于测试阶段，否则避免使用 0.x 版本号。
-- 避免关键词堆砌（例如使用 `plugin` 这类关键词或与您的插件无关的术语）。这些在索引过程中会自动排除。
-- 对现有维护中插件的 fork 可能会被排除。
+### Other Tips
+- Use an avatar in your Github project that matches your plugin function or company.
+- Avoid using a 0.x version number unless you are in beta.
+- Avoid keyword stuffing (eg using keywords like `plugin` or terms unrelated to your plugin). These are automatically excluded during indexing.
+- Forks of existing maintained plugins may be excluded.

@@ -4,6 +4,7 @@ description: Capacitor CLI - cap ls
 contributors:
   - dotNetkow
 sidebar_label: ls
+translated: true
 ---
 
 # Capacitor CLI - cap ls
@@ -16,4 +17,4 @@ npx cap ls [<platform>]
 
 <strong>输入参数：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`、`ios`

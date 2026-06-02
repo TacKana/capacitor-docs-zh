@@ -1,17 +1,17 @@
 ---
-title: Method Types
+title: 方法类型
 description: Capacitor 插件方法类型
 contributors:
   - ikeith
-sidebar_label: Method Types
+sidebar_label: 方法类型
 slug: /plugins/method-types
 ---
 
 # 方法类型
 
-开发插件时，可以使用三种不同的方法签名类型。所有方法都是异步且基于 Promise 的。
+在开发插件时，可以使用三种不同类型的方法签名。它们都是异步且基于 Promise 的。
 
-让我们来看一个包含所有三种类型的插件定义：
+让我们考虑一个包含所有三种类型的插件定义：
 
 ```typescript
 export type CallbackID = string;
@@ -31,9 +31,9 @@ export interface MyPlugin {
 
 ## 无返回值
 
-`method1()` 是最简单的情况，预期不返回任何数据。你可以检查 Promise 是否有错误，但当它成功解析时，其结果会被忽略。
+`method1()` 是最简单的情况，预期不返回任何数据。您可以检查 Promise 是否有错误，但当它 resolve 时，结果会被忽略。
 
-对于 Android，你可以这样注解方法：
+对于 Android，您可以像这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，您可以在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -49,11 +49,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 值返回
+## 返回值
 
-`method2()` 是最常见的情况：一个解析后返回某个值的 Promise。
+`method2()` 是最常见的情况：一个 resolve 后带有某个值的 Promise。
 
-对于 Android，这种方法是默认类型，指定返回类型是可选的：
+对于 Android，此方法类型是默认的，指定返回类型是可选的：
 
 ```java
 @PluginMethod()
@@ -61,7 +61,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，您可以在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -69,11 +69,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 回调函数
+## 回调
 
-`method3()` 是最复杂的类型，但在实际使用中也是最不常见的。当你的插件需要重复返回数据时使用，例如通过地理位置 API 监控设备位置时。
+`method3()` 是最复杂的类型，但在实践中也是最不常见的。当您的插件需要重复返回数据时使用，例如通过 Geolocation API 监控设备位置时。
 
-对于 Android，你可以这样注解方法：
+对于 Android，您可以像这样注解方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -81,7 +81,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-对于 iOS，你需要在插件的 `.m` 文件中这样声明方法：
+对于 iOS，您可以在插件的 `.m` 文件中这样声明方法：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -89,6 +89,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接受一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
+回调方法接受一个将从原生代码中被调用（可能多次）的函数，并返回一个将 resolve 为标识符的 Promise。
 
-在原生端，实现回调意味着你需要保存调用，以便在稍后时间调用。具体如何处理 [在这里讨论](/main/reference/core-apis/saving-calls.md)
+在原生端，实现回调意味着您需要保存调用，以便稍后可以调用它。如何处理的具体细节[在此讨论](/main/reference/core-apis/saving-calls.md)。

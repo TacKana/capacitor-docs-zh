@@ -14,10 +14,10 @@ canonicalUrl: https://capacitorjs.com/docs/cli/update
 npx cap update
 ```
 
-<strong>参数:</strong>
+<strong>输入：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`、`ios`
 
-<strong>选项:</strong>
+<strong>选项：</strong>
 
-- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
+- `--deployment`：Podfile.lock 不会被删除，pod install 将使用 `--deployment` 选项。

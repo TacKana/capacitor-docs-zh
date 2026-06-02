@@ -1,6 +1,6 @@
 {
-  "name": "Ionic Documentation",
-  "short_name": "Ionic Docs",
+  "name": "Capacitor 文档",
+  "short_name": "Capacitor 文档",
   "start_url": "/docs/",
   "display": "standalone",
   "icons": [

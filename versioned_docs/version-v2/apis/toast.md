@@ -5,18 +5,19 @@ contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/apis/toast
+translated: true
 ---
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-Toast API 提供了一种通知弹出窗口，用于向用户显示重要信息。就像真实的吐司一样！
+Toast API 提供了一个通知弹出框，用于向用户显示重要信息。就像真正的吐司一样！
 
 - [`show(...)`](#show)
-- [接口](#接口)
+- [接口](#interfaces)
 
 ## PWA 注意事项
 
-Toast 插件需要 [PWA Elements](/web/pwa-elements.mdx) 才能正常工作。
+Toast 插件需要 [PWA Elements](/web/pwa-elements.mdx) 才能工作。
 
 ## 示例
 
@@ -26,7 +27,7 @@ const { Toast } = Plugins;
 
 async show() {
   await Toast.show({
-    text: 'Hello!'
+    text: '你好！'
   });
 }
 ```
@@ -39,8 +40,8 @@ async show() {
 show(options: ToastShowOptions) => Promise<void>
 ```
 
-| 参数            | 类型                                                            |
-| --------------- | --------------------------------------------------------------- |
+| 参数 | 类型 |
+| ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#toastshowoptions">ToastShowOptions</a></code> |
 
 ---
@@ -49,8 +50,8 @@ show(options: ToastShowOptions) => Promise<void>
 
 #### ToastShowOptions
 
-| 属性             | 类型                                       | 描述                                                                       |
-| ---------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
-| **`text`**     | <code>string</code>                        | 显示的文本内容                                                               |
-| **`duration`** | <code>"short" \| "long"</code>             | Toast 显示时长，可选 'short'（2000毫秒，默认值）或 'long'（3500毫秒）             |
-| **`position`** | <code>"center" \| "bottom" \| "top"</code> | Toast 显示位置                                                               |
+| 属性 | 类型 | 描述 |
+| ------------ | ------------------------------------------ | -------------------------------------------------------------------------- |
+| **`text`**     | <code>string</code>                        | |
+| **`duration`** | <code>"short" \| "long"</code>             | Toast 的持续时间，'short'（2000ms，默认）或 'long'（3500ms） |
+| **`position`** | <code>"center" \| "bottom" \| "top"</code> | |

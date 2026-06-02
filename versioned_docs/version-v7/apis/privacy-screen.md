@@ -1,16 +1,17 @@
 ---
-title: Privacy Screen Capacitor Plugin API
-description: Privacy Screen 插件提供防止敏感信息在应用切换器和离开应用时可见的功能。
+title: Privacy Screen - Capacitor 插件 API
+description: Privacy Screen 插件提供了防止敏感信息在应用切换器和离开应用时可见的功能。
 custom_edit_url: https://github.com/ionic-team/capacitor-privacy-screen/blob/1.x/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-privacy-screen/blob/1.x/src/definitions.ts
 sidebar_label: Privacy Screen
+translated: true
 ---
 
 # @capacitor/privacy-screen
 
-Privacy Screen 插件提供防止敏感信息在应用切换器和离开应用时可见的功能。
+Privacy Screen 插件提供了防止敏感信息在应用切换器和离开应用时可见的功能。
 
-> **注意：** 此插件仅支持 Android 和 iOS 平台，不适用于 Web 平台。
+> **注意：** 此插件仅支持 Android 和 iOS 平台。不适用于 Web 平台。
 
 ## 安装
 
@@ -24,20 +25,22 @@ npx cap sync
 #### Android
 
 ##### FLAG_SECURE 行为
-当隐私屏幕启用时，插件会自动将 Android 的 [`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) 标志应用到窗口。这提供了全面的内容保护：
 
-- **防止截屏**：防止用户对您的应用进行截屏或屏幕录制
-- **应用切换器/最近应用**：当应用出现在最近应用视图中时，FLAG_SECURE 会导致系统显示黑屏或应用 FLAG_SECURE 之前捕获的最后一帧（通常为空白）
-- **非安全显示保护**：防止窗口内容出现在非安全显示器上，例如电视、投影仪或屏幕镜像到不受信任的设备
-- **实时视图保护**：在 FLAG_SECURE 无法完全保护内容的情况下（例如手势导航或可能持续数分钟的实时视图片段），插件会显示一个临时的隐私屏幕覆盖层。此覆盖层可通过 `dimBackground` 进行配置（显示变暗覆盖层），或默认显示启动画面。
+启用隐私屏幕后，插件会自动将 Android 的 [`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) 标志应用于窗口。这提供了全面的内容保护：
+
+- **截图阻止**：阻止用户对您的应用进行截图或屏幕录制
+- **应用切换器/最近应用**：当应用出现在最近应用视图中时，FLAG_SECURE 会导致系统显示黑屏或在应用 FLAG_SECURE 之前捕获的最后一帧（通常为空白）
+- **非安全显示保护**：防止窗口内容出现在非安全显示器上，如电视、投影仪或屏幕镜像到不受信任的设备
+- **实时视图保护**：在 FLAG_SECURE 无法完全保护内容的情况下（例如手势导航或可持久显示数分钟的实时视图片段），插件会显示一个临时的隐私屏幕覆盖层。此覆盖层可通过 `dimBackground` 进行配置（显示变暗的覆盖层），或默认显示启动画面。
 
 ##### 导航方式差异
-隐私屏幕的行为根据用户离开应用的方式而有所不同：
-- **最近应用按钮/手势**：在查看应用切换器时，隐私对话框会按配置显示
-- **主页按钮**：FLAG_SECURE 确保应用切换器快照中的内容保护
-- **Activity 后台事件**：通过 `privacyModeOnActivityHidden` 单独控制，适用于生物识别提示等场景
 
-## 使用方法
+隐私屏幕的行为因用户离开应用的方式而异：
+- **最近应用按钮/手势**：查看应用切换器时，隐私对话框按配置方式显示
+- **主页按钮**：FLAG_SECURE 确保应用切换器快照中的内容保护
+- **活动后台事件**：通过 `privacyModeOnActivityHidden` 单独控制，用于生物识别提示等场景
+
+## 使用
 
 ### 基本使用
 
@@ -47,7 +50,7 @@ import { PrivacyScreen } from '@capacitor/privacy-screen';
 // 使用默认设置启用隐私屏幕
 await PrivacyScreen.enable();
 
-// 使用平台特定配置启用隐私屏幕
+// 使用平台特定配置启用
 await PrivacyScreen.enable({
   android: {
     dimBackground: true,
@@ -65,9 +68,9 @@ await PrivacyScreen.disable();
 const { enabled } = await PrivacyScreen.isEnabled();
 ```
 
-### 按屏幕保护
+### 逐屏幕保护
 
-您可以在进入特定屏幕时调用 `enable()`，离开时调用 `disable()` 来启用和禁用隐私屏幕。注意：确保在屏幕之间导航时（包括使用返回导航时）调用相应的方法。
+您可以通过在进入屏幕时调用 `enable()` 和在离开屏幕时调用 `disable()` 来在特定屏幕上启用和禁用隐私屏幕。注意：在屏幕之间导航时，包括使用返回导航时，请确保调用相应的方法。
 
 ```typescript
 import { PrivacyScreen } from '@capacitor/privacy-screen';
@@ -81,10 +84,10 @@ async function navigateToSecureScreen() {
   // 导航到您的安全屏幕
 }
 
-// 导航到非安全屏幕时禁用隐私屏幕
+// 导航到非安全屏幕时禁用
 async function navigateToPublicScreen() {
   await PrivacyScreen.disable();
-  // 导航到您的公开屏幕
+  // 导航到您的公共屏幕
 }
 ```
 
@@ -95,12 +98,12 @@ async function navigateToPublicScreen() {
 * [`enable(...)`](#enable)
 * [`disable()`](#disable)
 * [`isEnabled()`](#isenabled)
-* [接口](#接口)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->
 
 ### enable(...)
 
@@ -110,11 +113,11 @@ enable(config?: PrivacyScreenConfig | undefined) => Promise<{ success: boolean; 
 
 启用隐私屏幕保护
 
-| 参数         | 类型                                                                | 描述                             |
-| ------------ | ------------------------------------------------------------------- | -------------------------------- |
-| **`config`** | <code><a href="#privacyscreenconfig">PrivacyScreenConfig</a></code> | 平台特定行为的可选配置           |
+| 参数         | 类型                                                                | 描述                                           |
+| ------------ | ------------------------------------------------------------------- | ----------------------------------------------------- |
+| **`config`** | <code><a href="#privacyscreenconfig">PrivacyScreenConfig</a></code> | 平台特定行为的可选配置 |
 
-**返回值：** <code>Promise&lt;{ success: boolean; }&gt;</code>
+**返回:** <code>Promise&lt;{ success: boolean; }&gt;</code>
 
 --------------------
 
@@ -127,7 +130,7 @@ disable() => Promise<{ success: boolean; }>
 
 禁用隐私屏幕保护
 
-**返回值：** <code>Promise&lt;{ success: boolean; }&gt;</code>
+**返回:** <code>Promise&lt;{ success: boolean; }&gt;</code>
 
 --------------------
 
@@ -140,7 +143,7 @@ isEnabled() => Promise<{ enabled: boolean; }>
 
 检查隐私屏幕当前是否已启用
 
-**返回值：** <code>Promise&lt;{ enabled: boolean; }&gt;</code>
+**返回:** <code>Promise&lt;{ enabled: boolean; }&gt;</code>
 
 --------------------
 
@@ -151,8 +154,8 @@ isEnabled() => Promise<{ enabled: boolean; }>
 #### PrivacyScreenConfig
 
 | 属性           | 类型                                                                                                                               |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **`android`**  | <code>{ dimBackground?: boolean; preventScreenshots?: boolean; privacyModeOnActivityHidden?: 'none' \| 'dim' \| 'splash'; }</code> |
-| **`ios`**      | <code>{ blurEffect?: 'none' \| 'light' \| 'dark'; }</code>                                                                         |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **`android`** | <code>{ dimBackground?: boolean; preventScreenshots?: boolean; privacyModeOnActivityHidden?: 'none' \| 'dim' \| 'splash'; }</code> |
+| **`ios`**     | <code>{ blurEffect?: 'none' \| 'light' \| 'dark'; }</code>                                                                         |
 
 </docgen-api>

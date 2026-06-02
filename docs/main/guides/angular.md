@@ -8,7 +8,7 @@ slug: /guides/angular
 
 ## NgZone
 
-Capacitor 插件的事件监听器在 Angular 的 `NgZone` 执行上下文之外运行。需要将处理程序逻辑包裹在 `NgZone.run` 代码块中，以确保 Angular 的变更检测被触发：
+Capacitor 插件的事件监听器在 Angular 的 `NgZone` 执行上下文之外运行。请将处理逻辑包含在 `NgZone.run` 块中，以确保 Angular 的变更检测被触发：
 
 ```typescript
 constructor(private ngZone: NgZone) { }
@@ -17,7 +17,7 @@ async ngOnInit() {
   Network.addListener("networkStatusChange", (status) => {
     this.ngZone.run(() => {
       // 此代码将在 Angular 的执行上下文中运行
-      this.networkStatus = status.connected ? "在线" : "离线";
+      this.networkStatus = status.connected ? "Online" : "Offline";
     });
   });
 }

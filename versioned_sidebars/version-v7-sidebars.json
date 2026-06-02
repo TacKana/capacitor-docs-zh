@@ -132,13 +132,13 @@
         {
           "type": "link",
           "label": "Plugin APIs",
-          "href": "/v7/apis"
+          "href": "/docs/apis"
         },
         "main/reference/support-policy",
         {
           "type": "link",
           "label": "CLI",
-          "href": "/v7/cli"
+          "href": "/docs/cli"
         }
       ]
     }

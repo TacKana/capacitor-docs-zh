@@ -1,6 +1,6 @@
 ---
-title: Screen Orientation
-description: 管理 Capacitor 应用中的屏幕方向设置
+title: 屏幕方向
+description: 在你的 Capacitor 应用中管理屏幕方向设置
 contributors:
   - mlynch
 slug: /guides/screen-orientation
@@ -8,17 +8,17 @@ slug: /guides/screen-orientation
 
 ## Capacitor 应用中的屏幕方向
 
-许多应用在设备的纵向和横向模式下都能良好运行。然而，也有许多应用并非如此，并且有充分的理由要求应用完全或偶尔在某种模式下运行。
+许多应用在竖屏和横屏设备方向下都能正常工作。然而，很多应用并不如此，并且有充分的理由要求应用完全或偶尔以其中一种模式运行。
 
 ## 全局方向设置
 
-要为 Capacitor 应用设置全局方向配置，你需要根据目标平台设置相应的配置值。
+要在你的 Capacitor 应用中设置全局方向配置，你需要为你 targeting 的平台设置必要的配置值。
 
 ### iOS 配置
 
-iOS 允许在 iPhone 和 iPad 上支持不同的屏幕方向。要限制 iOS 允许的方向，可以打开 Xcode 并编辑 `Info.plist` 文件。找到以下键：`Supported interface orientation` 和 `Supported interface orientation (iPad)`。使用这些值，指定你希望在 iPhone 和 iPad 上支持的不同方向。
+iOS 允许在 iPhone 和 iPad 上支持不同的屏幕方向。要限制 iOS 允许的方向，请打开 Xcode，然后打开 `Info.plist` 文件。找到以下键：`Supported interface orientation` 和 `Supported interface orientation (iPad)`。使用这些值，指定你希望为 iPhone 和 iPad 支持的不同方向。
 
-如果直接编辑 `Info.plist` 文件，请查找以下键：`UISupportedInterfaceOrientations` 和 `UISupportedInterfaceOrientations~ipad`。例如，以下设置将限制 iPhone 仅支持正向的 `Portrait`（纵向）方向，而 iPad 则支持两种 `Landscape`（横向）方向：
+如果直接编辑 `Info.plist` 文件，请查找以下键：`UISupportedInterfaceOrientations` 和 `UISupportedInterfaceOrientations~ipad`。例如，以下设置将限制 iPhone 为正面朝上的 `Portrait` 方向，限制 iPad 为 `Landscape` 方向之一：
 
 ```
   <key>UISupportedInterfaceOrientations</key>
@@ -34,11 +34,11 @@ iOS 允许在 iPhone 和 iPad 上支持不同的屏幕方向。要限制 iOS 允
 
 ### Android 配置
 
-在 Android 上，可以通过修改 `AndroidManifest.xml` 文件，在主应用的 `<activity>` 条目中设置 `android:screenOrientation` 来配置方向。有关可能值的详细信息，请参阅 [Android Manifest 文档](https://developer.android.com/guide/topics/manifest/activity-element#screen)。
+在 Android 上，可以通过修改 `AndroidManifest.xml` 并在主应用 Activity 的 `<activity>` 条目上设置 `android:screenOrientation` 来设置方向。有关可能条目的详细信息，请参见 [Android Manifest 文档](https://developer.android.com/guide/topics/manifest/activity-element#screen)。
 
 ## 动态方向设置
 
-许多应用需要支持多种方向，同时能够根据内容偶尔锁定方向。
+许多应用需要支持多种方向，并能够根据内容偶尔锁定方向。
 
 Capacitor 通过 `@capacitor/screen-orientation` 插件支持此功能：
 
@@ -55,17 +55,17 @@ import { ScreenOrientation } from '@capacitor/screen-orientation';
 await ScreenOrientation.lock({ orientation: 'portrait' });
 await ScreenOrientation.lock({ orientation: 'landscape' });
 
-// 解锁方向，将恢复为全局设置：
+// 解锁方向，将回退到全局设置：
 await ScreenOrientation.unlock();
 ```
 
-查看完整的[方向插件文档](https://capacitorjs.com/docs/apis/screen-orientation)，了解所有可能的方向值和配置选项。
+请参阅[方向插件文档](https://capacitorjs.com/docs/apis/screen-orientation)，了解可能的方向值和配置选项的完整范围。
 
 ### iPad 方向锁定
 
-默认情况下，iPad 允许多任务处理，其方向无法锁定。如果需要在 iPad 上锁定方向，请将 `Requires Full Screen` 选项设置为 `YES`，即在 `Info.plist` 中添加以下内容：
+默认情况下，iPad 允许多任务处理，其方向无法锁定。如果需要在 iPad 上锁定方向，请将选项 `Requires Full Screen` 设置为 `YES`，在 `Info.plist` 中添加以下内容：
 
 ```
-	<key>UIRequiresFullScreen</key>
-	<true/>
+    <key>UIRequiresFullScreen</key>
+    <true/>
 ```

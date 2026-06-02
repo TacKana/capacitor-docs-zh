@@ -1,5 +1,5 @@
 ---
-title: CLI 命令参考
+title: CLI 命令
 description: Capacitor CLI 命令参考列表
 contributors:
   - dotNetkow
@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli
 
 # Capacitor CLI 参考
 
-Capacitor 命令行界面 (CLI) 工具用于开发 Capacitor 应用程序。查看安装详情请访问[这里](/getting-started/index.md)。
+Capacitor 命令行界面（CLI）工具用于开发 Capacitor 应用。查看 [此处](/getting-started/index.md) 的安装详情。
 
 - [Add](/cli/add.md)
 - [Cap](/cli/cap.md)

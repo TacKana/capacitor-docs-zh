@@ -9,7 +9,7 @@ const BASE_URL = '';
 module.exports = {
   title: 'Capacitor 官方中文文档',
   tagline:
-    'Capacitor 是一个跨平台的原生运行时，它能让构建可在 iOS、Android 和网页端原生运行的现代 Web 应用变得轻松简单。',
+    'Capacitor 是一个跨平台原生运行时，让你能轻松构建在 iOS、Android 和 Web 上原生运行的现代 Web 应用。',
   url: `https://${HOSTNAME}`,
   baseUrl: `${BASE_URL}/`,
   i18n: {
@@ -26,13 +26,13 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/meta/favicon.png',
-  organizationName: 'ionic-team',
-  projectName: 'capacitor-docs',
+  organizationName: 'TacKana',
+  projectName: 'capacitor-docs-zh',
   themeConfig: {
     announcementBar: {
       id: 'announcement-bar',
       content:
-        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
+        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span><strong>OutSystems</strong> 旗下公司 →</span></a>',
       isCloseable: false,
     },
     colorMode: {
@@ -68,7 +68,7 @@ module.exports = {
         {
           type: 'doc',
           docId: 'cli/index',
-          label: '命令行工具',
+          label: '命令行',
           position: 'left',
         },
         {
@@ -76,55 +76,55 @@ module.exports = {
           position: 'right',
         },
         {
-          label: 'Community',
+          label: '社区',
           position: 'right',
           items: [
             {
               href: 'https://ionicframework.com/community',
-              label: 'Community Hub',
+              label: '社区中心',
               target: '_blank',
               rel: null,
             },
             {
               href: 'https://forum.ionicframework.com/',
-              label: 'Forum',
+              label: '论坛',
               target: '_blank',
               rel: null,
             },
             {
               href: 'https://ionic.io/blog/tag/capacitor',
-              label: 'Blog',
+              label: '博客',
               target: '_blank',
               rel: null,
             },
-            // {
-            //   href: 'https://twitter.com/capacitorjs',
-            //   label: 'Twitter',
-            //   target: '_blank',
-            //   rel: null,
-            // },
+            {
+              href: 'https://twitter.com/capacitorjs',
+              label: 'Twitter',
+              target: '_blank',
+              rel: null,
+            },
           ],
           className: 'navbar__link--community',
         },
         {
-          label: 'Support',
+          label: '支持',
           position: 'right',
           items: [
             {
               href: 'https://ionicframework.com/support',
-              label: 'Help Center',
+              label: '帮助中心',
               target: '_blank',
               rel: null,
             },
             {
               href: 'https://ionic.zendesk.com/',
-              label: 'Customer Support',
+              label: '客户支持',
               target: '_blank',
               rel: null,
             },
             {
               href: 'https://ionicframework.com/advisory',
-              label: 'Enterprise Advisory',
+              label: '企业咨询',
               target: '_blank',
               rel: null,
             },
@@ -155,13 +155,13 @@ module.exports = {
           ],
           className: 'icon-link language navbar__item',
         },
-        // {
-        //   href: 'https://twitter.com/capacitorjs',
-        //   position: 'right',
-        //   className: 'icon-link icon-link-mask icon-link-twitter',
-        //   'aria-label': 'Twitter',
-        //   target: '_blank',
-        // },
+        {
+          href: 'https://twitter.com/capacitorjs',
+          position: 'right',
+          className: 'icon-link icon-link-mask icon-link-twitter',
+          'aria-label': 'Twitter',
+          target: '_blank',
+        },
         {
           href: 'https://ionic.link/discord',
           position: 'right',
@@ -170,7 +170,7 @@ module.exports = {
           target: '_blank',
         },
         {
-          href: 'https://github.com/ionic-team/capacitor',
+          href: 'https://github.com/TacKana/capacitor-docs-zh',
           position: 'right',
           className: 'icon-link icon-link-mask icon-link-github',
           'aria-label': 'GitHub repository',
@@ -181,7 +181,7 @@ module.exports = {
     sidebar: {
       versionDropdown: {},
       productDropdown: {
-        title: 'Capacitor Docs',
+        title: 'Capacitor 文档',
         logo: {
           width: 20,
           height: 20,
@@ -202,19 +202,19 @@ module.exports = {
           {
             key: 'github',
             url: {
-              href: 'https://github.com/ionic-team/capacitor',
+              href: 'https://github.com/TacKana/capacitor-docs-zh',
               target: '_blank',
               rel: 'noopener nofollow',
             },
           },
-          // {
-          //   key: 'twitter',
-          //   url: {
-          //     href: 'https://twitter.com/capacitorjs',
-          //     target: '_blank',
-          //     rel: 'noopener nofollow',
-          //   },
-          // },
+          {
+            key: 'twitter',
+            url: {
+              href: 'https://twitter.com/capacitorjs',
+              target: '_blank',
+              rel: 'noopener nofollow',
+            },
+          },
         ],
       },
     },

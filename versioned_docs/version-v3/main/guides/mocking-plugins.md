@@ -1,20 +1,20 @@
 ---
-title: Mocking Plugins
-description: 如何为 Capacitor 插件创建模拟对象
+title: Mock 插件
+description: 如何为 Capacitor 插件创建 mock 对象
 contributors:
   - kensodemann
 slug: /guides/mocking-plugins
 ---
 
-# 模拟 Capacitor 插件
+# Mock Capacitor 插件
 
-在应用中编写单元测试时，最佳实践是为被测单元的所有外部依赖创建模拟对象，这包括组件或服务正在使用的 Capacitor 插件。
+在应用中创建单元测试时，最佳实践是为被测单元的任何外部依赖项创建 mock。这包括您的组件或服务正在使用的 Capacitor 插件。
 
-大多数模拟库通过将对象包装在 JavaScript 代理中来创建模拟，以便可以检查对该对象方法的调用，并控制方法的返回值。然而，Capacitor 插件在 JavaScript 层本身就是作为代理实现的。不支持创建代理的代理，这会导致失败。手动模拟可用于规避此问题。
+大多数 mock 库通过获取一个对象并将其包装在 JavaScript 代理中来创建 mock，以便可以检查对该对象方法的调用并控制方法的返回值。然而，Capacitor 插件是在 JavaScript 层中作为代理实现的。不支持创建代理的代理，并且会失败。手动 mock 可以用来绕过此问题。
 
-## 手动模拟
+## 手动 Mock
 
-手动模拟允许用户轻松地模拟整个 JavaScript 模块的功能。因此，当测试执行 `import { Storage } from '@capacitor/storage'` 时，测试加载的将不是真正的 `Storage` JavaScript 代理对象，而是类似这样的内容：
+手动 mock 允许用户轻松地模拟整个 JavaScript 模块的功能。因此，当测试执行 `import { Storage } from '@capacitor/storage'` 时，测试会加载如下内容，而不是加载真实的 `Storage` JavaScript 代理对象：
 
 ```TypeScript
 export const Storage = {
@@ -27,13 +27,13 @@ export const Storage = {
 };
 ```
 
-由于这是一个普通的 JavaScript 对象，而不是代理对象，因此很容易进行监视。此外，由于它是模拟对象，不会尝试进行任何原生调用。这使得手动模拟成为测试使用 Capacitor 插件的代码时的理想选择。
+由于这是一个普通的 JavaScript 对象，而不是代理对象，因此很容易进行监视。此外，由于它是 mock，它不会尝试进行任何原生调用。这使得使用手动 mock 成为测试使用 Capacitor 插件的代码的理想选择。
 
 ### Jest
 
-Jest 测试框架内置了<a href="https://jestjs.io/docs/manual-mocks" _target="blank">手动模拟</a>功能。在项目的根目录下创建一个 `__mocks__/@capacitor` 文件夹，Jest 将自动从该文件夹加载文件，而不是从 `node_modules` 加载。
+Jest 测试框架内置了<a href="https://jestjs.io/docs/manual-mocks" _target="blank">手动 mock</a>。在项目根目录创建一个 `__mocks__/@capacitor` 文件夹，Jest 将自动从那里加载文件，而不是从 `node_modules` 加载。
 
-例如，假设你有以下目录结构：
+例如，假设您有以下目录结构：
 
 ```
 .
@@ -48,17 +48,17 @@ Jest 测试框架内置了<a href="https://jestjs.io/docs/manual-mocks" _target=
 +- src
 ```
 
-你的测试将使用 `storage.ts` 和 `toast.ts` 中定义的存根，而不是 `node_modules` 中真正的 `@capacitor/storage` 和 `@capacitor/toast` 插件。
+您的测试将使用 `storage.ts` 和 `toast.ts` 中定义的存根，而不是 `node_modules` 中真实的 `@capacitor/storage` 和 `@capacitor/toast` 插件。
 
 ### Jasmine
 
-Jasmine 测试框架不包含“手动模拟”的概念，但我们可以通过使用 TypeScript 路径映射轻松模拟此功能。
+Jasmine 测试框架不包含"手动 mock"的概念，但我们可以通过使用 TypeScript 路径映射来轻松模拟这一点。
 
 首先，在项目的根级别创建与 Jest 示例相同的目录结构。
 
-Angular 项目（使用 Jasmine 作为测试框架的最常见场景）包含一个 `tsconfig.spec.json` 文件，在执行单元测试时会扩展 `tsconfig.json` 的基本配置。修改此文件以扩展基本级别可能已有的任何 `paths` 映射。
+Angular 项目（使用 Jasmine 作为测试框架的最常见场景）包含一个 `tsconfig.spec.json` 文件，该文件在执行单元测试时扩展了 `tsconfig.json` 的基本配置。修改此文件以扩展您可能在基本级别拥有的任何 `paths` 映射。
 
-例如，如果你的 `tsconfig.json` 文件包含以下 `paths` 映射：
+例如，如果您的 `tsconfig.json` 文件包含以下 `paths` 映射：
 
 ```JSON
     "paths": {
@@ -67,7 +67,7 @@ Angular 项目（使用 Jasmine 作为测试框架的最常见场景）包含一
     },
 ```
 
-然后更新你的 `tsconfig.spec.json` 文件以包含这些路径以及你希望在单元测试中使用的任何路径：
+然后更新您的 `tsconfig.spec.json` 文件以包含这些路径以及您想要用于单元测试的路径：
 
 ```JSON
     "paths": {
@@ -78,13 +78,13 @@ Angular 项目（使用 Jasmine 作为测试框架的最常见场景）包含一
     }
 ```
 
-现在，当编译单元测试时，`import { Storage } from '@capacitor/storage';` 将使用 `__mocks__/@capacitor` 下的存根文件，而不是 `node_modules` 中的真实文件。
+现在，当单元测试编译时，`import { Storage } from '@capacitor/storage';` 将使用 `__mocks__/@capacitor` 下的存根文件，而不是 `node_modules` 中的真实文件。
 
-**注意：** `paths` 对象是完全替换而不是合并的，因此如果你在 `tsconfig.json` 中定义了任何路径，则它们也**必须**包含在 `tsconfig.spec.json` 中。
+**注意：** `paths` 对象是整体替换而不是合并，因此如果您在 `tsconfig.json` 中定义了任何路径，它们**也**必须包含在 `tsconfig.spec.json` 中。
 
-## 模拟存根
+## Mock 存根
 
-有了手动模拟后，现在就可以以所有常规方式编写测试来模拟和监视方法调用。
+有了手动 mock 之后，现在可以编写测试，以所有常规方式 mock 和监视方法调用。
 
 ### Jest
 
@@ -142,5 +142,5 @@ Angular 项目（使用 Jasmine 作为测试框架的最常见场景）包含一
 
 ## 示例
 
-- [在 Jasmine 中模拟 Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jasmine)
-- [在 Jest 中模拟 Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jest)
+- [在 Jasmine 中 Mock Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jasmine)
+- [在 Jest 中 Mock Capacitor 插件](https://github.com/ionic-team/cap-plugin-mock-jest)

@@ -1,24 +1,26 @@
 ---
 title: Cookies Capacitor 插件 API
-description: Capacitor Cookies API 通过修补 `document.cookie` 以使用原生库，提供原生 Cookie 支持。
+description: Capacitor Cookies API 通过修补 `document.cookie` 使用原生库来提供原生 cookie 支持。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/7.x/core/cookies.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/7.x/core/src/core-plugins.ts
 sidebar_label: Cookies
+translated: true
 ---
 
 # CapacitorCookies
 
-Capacitor Cookies API 通过修补 `document.cookie` 以使用原生库，提供原生 Cookie 支持。它还提供了在特定 URL 修改 Cookie 的方法。此插件已捆绑在 `@capacitor/core` 中。
+Capacitor Cookies API 通过修补 `document.cookie` 使用原生库来提供原生 cookie 支持。它还提供了在特定 URL 修改 cookie 的方法。此插件随 `@capacitor/core` 一起提供。
 
 ## 配置
 
-默认情况下，修补 `document.cookie` 以使用原生库的功能是禁用的。如果你想启用此功能，请在 `capacitor.config` 文件中修改以下配置。
+默认情况下，修补 `document.cookie` 以使用原生库是禁用的。
+如果您想启用此功能，请在 `capacitor.config` 文件中修改以下配置。
 
-| 属性          | 类型                 | 描述                                                               | 默认值            |
+| 属性 | 类型 | 描述 | 默认值 |
 | ------------- | -------------------- | ------------------------------------------------------------------------- | ------------------ |
 | **`enabled`** | <code>boolean</code> | 启用修补 `document.cookie` 以使用原生库。 | <code>false</code> |
 
-### 配置示例
+### 示例配置
 
 在 `capacitor.config.json` 中：
 
@@ -89,7 +91,7 @@ const clearAllCookies = async () => {
 
 ## iOS 上的第三方 Cookie
 
-从 iOS 14 开始，默认情况下无法使用第三方 Cookie。请将以下行添加到你的 Info.plist 文件中，以在 iOS 上获得更好的 Cookie 支持。最多可以添加 10 个域。
+从 iOS 14 开始，默认情况下无法使用第三方 cookie。将以下行添加到您的 Info.plist 文件以获得更好的 iOS cookie 支持。您最多可以添加 10 个域名。
 
 ```xml
 <key>WKAppBoundDomains</key>
@@ -109,13 +111,13 @@ const clearAllCookies = async () => {
 * [`deleteCookie(...)`](#deletecookie)
 * [`clearCookies(...)`](#clearcookies)
 * [`clearAllCookies()`](#clearallcookies)
-* [接口](#接口)
-* [类型别名](#类型别名)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### getCookies(...)
 
@@ -123,11 +125,11 @@ const clearAllCookies = async () => {
 getCookies(options?: GetCookieOptions) => Promise<HttpCookieMap>
 ```
 
-| 参数         | 类型                                                          |
+| 参数 | 类型 |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#getcookieoptions">GetCookieOptions</a></code> |
 
-**返回值:** <code>Promise&lt;<a href="#httpcookiemap">HttpCookieMap</a>&gt;</code>
+**返回值：** <code>Promise&lt;<a href="#httpcookiemap">HttpCookieMap</a>&gt;</code>
 
 --------------------
 
@@ -138,10 +140,10 @@ getCookies(options?: GetCookieOptions) => Promise<HttpCookieMap>
 setCookie(options: SetCookieOptions) => Promise<void>
 ```
 
-将 Cookie 写入设备。
+向设备写入一个 cookie。
 
-| 参数         | 类型                                                          |
-| ------------- | ------------------------------------------------------------- |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#setcookieoptions">SetCookieOptions</a></code> |
 
 --------------------
@@ -153,10 +155,10 @@ setCookie(options: SetCookieOptions) => Promise<void>
 deleteCookie(options: DeleteCookieOptions) => Promise<void>
 ```
 
-从设备删除 Cookie。
+从设备删除一个 cookie。
 
-| 参数         | 类型                                                                |
-| ------------- | ------------------------------------------------------------------- |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecookieoptions">DeleteCookieOptions</a></code> |
 
 --------------------
@@ -168,10 +170,10 @@ deleteCookie(options: DeleteCookieOptions) => Promise<void>
 clearCookies(options: ClearCookieOptions) => Promise<void>
 ```
 
-清除设备上指定 URL 的 Cookie。
+清除设备上指定 URL 的 cookie。
 
-| 参数         | 类型                                                              |
-| ------------- | ----------------------------------------------------------------- |
+| 参数 | 类型 |
+| ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#clearcookieoptions">ClearCookieOptions</a></code> |
 
 --------------------
@@ -183,12 +185,12 @@ clearCookies(options: ClearCookieOptions) => Promise<void>
 clearAllCookies() => Promise<void>
 ```
 
-清除设备上的所有 Cookie。
+清除设备上的所有 cookie。
 
 --------------------
 
 
-### 接口
+### Interfaces
 
 
 #### HttpCookieMap
@@ -196,22 +198,22 @@ clearAllCookies() => Promise<void>
 
 #### HttpCookie
 
-| 属性        | 类型                | 描述              |
+| 属性 | 类型 | 描述 |
 | ----------- | ------------------- | ------------------------ |
-| **`url`**   | <code>string</code> | Cookie 的 URL。   |
-| **`key`**   | <code>string</code> | Cookie 的键。   |
-| **`value`** | <code>string</code> | Cookie 的值。 |
+| **`url`**   | <code>string</code> | cookie 的 URL。 |
+| **`key`**   | <code>string</code> | cookie 的键。 |
+| **`value`** | <code>string</code> | cookie 的值。 |
 
 
 #### HttpCookieExtras
 
-| 属性          | 类型                | 描述                      |
+| 属性 | 类型 | 描述 |
 | ------------- | ------------------- | -------------------------------- |
-| **`path`**    | <code>string</code> | 写入 Cookie 的路径。 |
-| **`expires`** | <code>string</code> | Cookie 的过期日期。   |
+| **`path`**    | <code>string</code> | 写入 cookie 的路径。 |
+| **`expires`** | <code>string</code> | cookie 的过期日期。 |
 
 
-### 类型别名
+### Type Aliases
 
 
 #### GetCookieOptions
@@ -221,16 +223,16 @@ clearAllCookies() => Promise<void>
 
 #### Omit
 
-构造一个类型，该类型具有 T 的属性，但排除了 K 中的类型。
+构造一个类型，该类型包含 T 的所有属性，但不包含类型 K 中的属性。
 
 <code><a href="#pick">Pick</a>&lt;T, <a href="#exclude">Exclude</a>&lt;keyof T, K&gt;&gt;</code>
 
 
 #### Pick
 
-从 T 中选取一组键在联合类型 K 中的属性。
+从 T 中选择一组属性，其键在并集 K 中。
 
-<code>{ [P in K]: T[P]; }</code>
+<code>{ [P in K]: T[P]; }</code>
 
 
 #### Exclude

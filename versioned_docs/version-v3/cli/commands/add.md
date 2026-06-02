@@ -4,6 +4,7 @@ description: Capacitor CLI - cap add
 contributors:
   - dotNetkow
 sidebar_label: add
+translated: true
 ---
 
 # Capacitor CLI - cap add
@@ -16,4 +17,4 @@ npx cap add <platform>
 
 <strong>输入参数：</strong>
 
-- `platform`（必需）：`android`、`ios`
+- `platform`（必填）：`android`、`ios`

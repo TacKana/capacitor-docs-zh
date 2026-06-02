@@ -1,20 +1,21 @@
 ---
 title: Network
-description: 网络 API
+description: Network API
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/apis/network
+translated: true
 ---
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-网络 API 提供用于监听网络状态变化的事件，并支持查询当前的网络状态。
+Network API 提供监控网络状态变化的事件，以及查询当前网络状态。
 
 - [`getStatus()`](#getstatus)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#接口)
+- [接口](#interfaces)
 
 ## 示例
 
@@ -24,7 +25,7 @@ import { Plugins } from '@capacitor/core';
 const { Network } = Plugins;
 
 let handler = Network.addListener('networkStatusChange', (status) => {
-  console.log("网络状态已变更", status);
+  console.log("网络状态已更改", status);
 });
 // 停止监听：
 // handler.remove();
@@ -32,7 +33,7 @@ let handler = Network.addListener('networkStatusChange', (status) => {
 // 获取当前网络状态
 let status = await Network.getStatus();
 
-// 输出示例：
+// 示例输出：
 {
   "connected": true,
   "connectionType": "wifi"
@@ -41,13 +42,13 @@ let status = await Network.getStatus();
 
 ## Android 注意事项
 
-网络 API 需要在你的 `AndroidManifest.xml` 中添加以下权限：
+Network API 需要在 `AndroidManifest.xml` 中添加以下权限：
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-此权限允许应用访问当前网络的信息，例如是否连接到 Wi-Fi 或蜂窝网络。
+此权限允许应用访问关于当前网络的信息，例如是否连接到 wifi 或蜂窝网络。
 
 ## API
 
@@ -59,7 +60,7 @@ getStatus() => Promise<NetworkStatus>
 
 查询当前网络状态
 
-**返回值：** <code>Promise&lt;<a href="#networkstatus">NetworkStatus</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#networkstatus">NetworkStatus</a>&gt;</code>
 
 ---
 
@@ -69,14 +70,14 @@ getStatus() => Promise<NetworkStatus>
 addListener(eventName: 'networkStatusChange', listenerFunc: (status: NetworkStatus) => void) => PluginListenerHandle
 ```
 
-监听网络状态变更事件
+监听网络状态变化事件
 
-| 参数                  | 类型                                                                         |
-| --------------------- | ---------------------------------------------------------------------------- |
-| **`eventName`**       | <code>"networkStatusChange"</code>                                           |
-| **`listenerFunc`**    | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
+| 参数 | 类型 |
+| ------------------ | ---------------------------------------------------------------------------- |
+| **`eventName`**    | <code>"networkStatusChange"</code>                                           |
+| **`listenerFunc`** | <code>(status: <a href="#networkstatus">NetworkStatus</a>) =&gt; void</code> |
 
-**返回值：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 ---
 
@@ -86,7 +87,7 @@ addListener(eventName: 'networkStatusChange', listenerFunc: (status: NetworkStat
 removeAllListeners() => void
 ```
 
-移除此插件的所有原生监听器
+移除该插件的所有原生监听器
 
 ---
 
@@ -94,13 +95,13 @@ removeAllListeners() => void
 
 #### NetworkStatus
 
-| 属性                    | 类型                                                     |
-| ----------------------- | -------------------------------------------------------- |
-| **`connected`**         | <code>boolean</code>                                     |
-| **`connectionType`**    | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
+| 属性 | 类型 |
+| -------------------- | -------------------------------------------------------- |
+| **`connected`**      | <code>boolean</code>                                     |
+| **`connectionType`** | <code>"none" \| "unknown" \| "wifi" \| "cellular"</code> |
 
 #### PluginListenerHandle
 
-| 属性            | 类型                       |
-| --------------- | -------------------------- |
-| **`remove`**    | <code>() =&gt; void</code> |
+| 属性 | 类型 |
+| ------------ | -------------------------- |
+| **`remove`** | <code>() =&gt; void</code> |

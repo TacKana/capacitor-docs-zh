@@ -5,16 +5,17 @@ contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/apis/share
+translated: true
 ---
 
 <plugin-platforms platforms="pwa,ios,android"></plugin-platforms>
 
-Share API 提供了分享内容到用户已安装且支持分享功能的应用的方法。
+Share API 提供了在任何用户已安装的支持分享的应用中分享内容的方法。
 
-Share API 支持 iOS、Android 和 Web 平台（使用新的 [Web Share API](https://developers.google.com/web/updates/2016/09/navigator-share)），但目前 Web 平台的支持尚不完善。
+Share API 可在 iOS、Android 和 Web 上运行（使用新的 [Web Share API](https://developers.google.com/web/updates/2016/09/navigator-share)），尽管 Web 支持目前还不完善。
 
 - [`share(...)`](#share)
-- [Interfaces](#接口)
+- [接口](#interfaces)
 
 ## 示例
 
@@ -23,14 +24,14 @@ import { Plugins } from '@capacitor/core';
 const { Share } = Plugins;
 
 let shareRet = await Share.share({
-  title: 'See cool stuff',
-  text: 'Really awesome thing you need to see right meow',
+  title: '看看好东西',
+  text: '你现在必须看看这个非常棒的东西',
   url: 'http://ionicframework.com/',
-  dialogTitle: 'Share with buddies',
+  dialogTitle: '与朋友分享',
 });
 ```
 
-不同平台使用的字段集有所不同，但建议您提供所有字段。
+每个平台使用不同的字段集，但您应该提供所有字段。
 
 ## API
 
@@ -40,23 +41,23 @@ let shareRet = await Share.share({
 share(options: ShareOptions) => Promise<any>
 ```
 
-显示分享模态框，用于将应用中的内容分享到其他应用
+显示分享模态框，用于在您的应用中与其他应用分享内容
 
-| 参数            | 类型                                                  |
-| --------------- | ----------------------------------------------------- |
-| **`options`**   | <code><a href="#shareoptions">ShareOptions</a></code> |
+| 参数 | 类型 |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
-**返回值:** <code>Promise&lt;any&gt;</code>
+**返回：** <code>Promise&lt;any&gt;</code>
 
 ---
 
-### Interfaces {#接口}
+### 接口
 
 #### ShareOptions
 
-| 属性              | 类型                | 描述                                                               |
+| 属性 | 类型 | 描述 |
 | ----------------- | ------------------- | ------------------------------------------------------------------------- |
-| **`title`**       | <code>string</code> | 设置消息标题。如果分享到电子邮件，该字段将作为邮件主题 |
-| **`text`**        | <code>string</code> | 设置要分享的文本内容                                                    |
-| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或文件 URL                        |
-| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题（仅限 Android 平台）                             |
+| **`title`**       | <code>string</code> | 为任何消息设置标题。如果是分享到邮件，这将是主题。 |
+| **`text`**        | <code>string</code> | 设置要分享的文本 |
+| **`url`**         | <code>string</code> | 设置要分享的 URL，可以是 http、https 或 file URL |
+| **`dialogTitle`** | <code>string</code> | 设置分享模态框的标题。仅 Android。 |

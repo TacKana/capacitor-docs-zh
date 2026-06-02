@@ -8,24 +8,24 @@ sidebar_label: sync
 
 # Capacitor CLI - cap sync
 
-此命令会依次执行 [`copy`](/cli/commands/copy.md) 和 [`update`](/cli/commands/update.md)。
+此命令依次运行 [`copy`](/cli/commands/copy.md) 和 [`update`](/cli/commands/update.md)。
 
 ```bash
-npx cap sync [options] [<平台>]
+npx cap sync [options] [<platform>]
 ```
 
 <strong>输入参数：</strong>
 
-- `平台`（可选）：`android`、`ios`
+- `platform`（可选）：`android`、`ios`
 
 <strong>选项：</strong>
 
-- `--deployment`：不删除 Podfile.lock 文件，并且 pod install 命令会使用 `--deployment` 选项。
-- `--inline`：同步完成后，所有 JS 源映射将被内联，以便在基于 Chromium 的浏览器中调试 Android Web View。
+- `--deployment`：Podfile.lock 不会被删除，pod install 将使用 `--deployment` 选项。
+- `--inline`：同步后，所有 JS 源映射将被内联，从而允许在基于 Chromium 的浏览器中调试 Android Web View。
 
 ## 钩子
 
-sync 命令可使用以下钩子：
+以下是 sync 命令可用的钩子：
 
 - `capacitor:sync:before`
 - `capacitor:sync:after`

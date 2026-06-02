@@ -1,14 +1,14 @@
 ---
 title: Angular
-description: 在 Angular 中使用 Capacitor
+description: 将 Angular 与 Capacitor 一起使用
 slug: /guides/angular
 ---
 
-# 在 Angular 中使用 Capacitor
+# 将 Angular 与 Capacitor 一起使用
 
 ## NgZone
 
-Capacitor 插件的事件监听器在 Angular 的 `NgZone` 执行上下文之外运行。请将处理逻辑放在 `NgZone.run` 代码块内，以确保触发 Angular 的变更检测：
+Capacitor 插件事件监听器在 Angular 的 `NgZone` 执行上下文之外运行。将处理逻辑包含在 `NgZone.run` 块内，以确保触发 Angular 的变更检测：
 
 ```typescript
 constructor(private ngZone: NgZone) { }

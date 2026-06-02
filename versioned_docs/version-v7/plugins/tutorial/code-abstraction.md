@@ -1,44 +1,44 @@
 ---
-title: 构建 Capacitor 插件
-description: 构建 Capacitor 插件 - 代码抽象模式
+title: Building a Capacitor Plugin
+description: Building a Capacitor Plugin - Code Abstraction Patterns
 contributors:
   - eric-horodyski
-sidebar_label: 代码抽象模式
+sidebar_label: Code Abstraction Patterns
 slug: /plugins/tutorial/code-abstraction-patterns
 ---
 
-# Capacitor 插件抽象模式
+# Capacitor Plugin Abstraction Patterns
 
-为 Capacitor 构建的插件在复杂度上可能各不相同。我们以 <a href="https://capacitorjs.com/docs/plugins" target="_blank">官方 Capacitor 插件</a> 为例：<a href="https://github.com/ionic-team/capacitor-plugins/blob/main/toast/android/src/main/java/com/capacitorjs/plugins/toast/Toast.java" target="_blank">Toast 插件</a> 的 Android 实现相对简单，而 <a href="https://github.com/ionic-team/capacitor-plugins/tree/main/push-notifications/android/src/main/java/com/capacitorjs/plugins/pushnotifications" target="_blank">Push Notifications</a> 则相当复杂，包含多个文件。
+Plugins that get built for Capacitor can vary in complexity. Let’s use the <a href="https://capacitorjs.com/docs/plugins" target="_blank">Official Capacitor Plugins</a> as an example: the Android implementation of the <a href="https://github.com/ionic-team/capacitor-plugins/blob/main/toast/android/src/main/java/com/capacitorjs/plugins/toast/Toast.java" target="_blank">Toast plugin</a> is simple, while <a href="https://github.com/ionic-team/capacitor-plugins/tree/main/push-notifications/android/src/main/java/com/capacitorjs/plugins/pushnotifications" target="_blank">Push Notifications</a> is quite complex with multiple files.
 
-根据插件的复杂度和需求，将构建插件所需的工作范围界定为一个独立的软件项目并不过分，特别是当 iOS 和 Android 的实现需求不同时。
+Depending on the plugin’s complexity and requirements, it would not be a stretch to scope the work required to build a plugin as its own software project, specifically if implementing requirements vary between iOS and Android.
 
-因此，重温设计模式并回顾标准的 Capacitor 插件代码抽象是非常必要的。
+That said, a refresher on design patterns and a review of standard Capacitor plugin code abstractions are in order.
 
-## 设计模式入门
+## Design Patterns 101
 
-设计模式是软件设计中针对常见问题的通用、可复用的解决方案。设计模式并不是解决问题的程序化方案，而是指导或蓝图，用于通过抽象代码来解决反复出现的问题。
+Design patterns are general, reusable solutions to common problems in software design. Design patterns aren’t programmatic solutions to problems; instead, they are guides or blueprints on abstracting code to solve recurring problems.
 
-即使你没有意识到，很可能你已经使用过设计模式。Angular 严重依赖依赖注入和单例模式。React 使用了中介者模式和状态模式。推送通知使用了观察者模式。
+You have most likely used design patterns even if you aren’t aware of them. Angular heavily relies on the Dependency Injection and Singleton patterns. React uses the Mediator and State patterns. Push notifications use the Observer pattern.
 
-作为一名开发者，你应该掌握使用设计模式库来为你的 Capacitor 插件构建合适的代码抽象。
+As a developer, you should feel empowered to use the library of design patterns to craft code abstractions that work for your Capacitor plugins.
 
-以下是一些描述设计模式并提供示例的优秀资源：
+Some good resources that describe and provide examples of design patterns are:
 
 - <a href="https://www.oreilly.com/library/view/head-first-design/0596007124/" target="_blank">Head First Design Patterns (O'Reilly Publishing)</a>
 - <a href="https://refactoring.guru/design-patterns" target="_blank">Design Patterns (Refactoring Guru)</a>
 
-> 就我个人而言，我会在项目规划阶段翻阅《Head First Design Patterns》，而在埋头写代码时浏览 Refactoring Guru。
+> Personally speaking, I keep a copy of _Head First Design Patterns_ to leaf through in the planning phases of projects and browse _Refactoring Guru_ when I’m heads-down writing code.
 
-## 实际应用中的模式
+## Patterns in the wild
 
-如果你查看足够多的 Capacitor 插件源代码，会发现某些设计模式在 Capacitor 插件开发者中特别受欢迎。
+If you look through the source code of enough Capacitor plugins, you will see that specific design patterns are popular with Capacitor plugin developers.
 
-**桥接模式**
+**Bridge Design Pattern**
 
-桥接模式将代码的抽象与实现分离。它是一种设计机制，将实现类封装在接口类内部。
+The Bridge design pattern splits the abstraction from the implementation of code. It is a design mechanism that encapsulates an implementation class inside of an interface class.
 
-官方 Capacitor 插件大量使用了桥接模式，从 Device 插件的这个例子中可以看出：
+The Official Capacitor plugins heavily use the Bridge pattern, evidenced by this example from the Device plugin:
 
 ```swift
 @objc func getLanguageCode(_ call: CAPPluginCall) {
@@ -47,18 +47,18 @@ slug: /plugins/tutorial/code-abstraction-patterns
 }
 ```
 
-为什么这种设计模式如此适合 Capacitor 插件？
+Why does this design pattern fit so well for Capacitor plugins?
 
-- 你可以在抽象层关注高层逻辑，在实现层关注平台细节
-- 对客户端隐藏实现细节
-- 可以独立地引入新的实现
-- 可以创建与平台无关的类和实现
+- You can focus on high-level logic in the abstraction and on platform details in the implementation.
+- You hide implementation details from the client.
+- You can introduce new implementations independently from each other.
+- You can create platform-independent classes and implementations.
 
-**外观模式**
+**Facade Design Pattern**
 
-外观模式为包含许多组件的复杂子系统提供了一个简单的接口。它可能不会暴露子系统的所有功能，但会暴露客户端关心的特性。
+The Facade design pattern provides a simple interface to a complex subsystem containing many moving parts. It may not expose all the functionality of the subsystem. However, it does expose the features that clients care about.
 
-一些更复杂的官方 Capacitor 插件使用了外观模式，包括 Local Notifications 插件：
+Some of the more complex Capacitor Official plugins use the Facade pattern, including the Local Notifications plugin:
 
 ```java
 @Override
@@ -72,12 +72,12 @@ public void load() {
 }
 ```
 
-为什么这种设计模式适合 Capacitor 插件？
+Why does this design pattern fit well for Capacitor plugins?
 
-- 可以将代码与子系统的复杂性隔离
-- 可以保护客户端代码免受子系统代码变化的影响
-- 可以将子系统结构分层
+- You can isolate your code from the complexity of a subsystem.
+- You can protect the client code from any changes in the subsystem code.
+- You can structure a subsystem into layers.
 
-## 屏幕方向插件将使用哪种模式？
+## What will the screen orientation plugin use?
 
-`ScreenOrientation` 插件将使用桥接模式。虽然我们还没有涉及实现插件功能所需的底层 iOS 和 Android API，但正如你将在下一步（iOS 实现）中看到的，实现我们插件的 API 是直接且相对简单的。
+The `ScreenOrientation` plugin will use the Bridge design pattern. While we haven’t addressed the underlying iOS and Android APIs required to perform the actions the plugin requires, implementing our plugin’s API is straightforward and relatively simple, as you will see, starting with the next step: the iOS implementation.

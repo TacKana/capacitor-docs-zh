@@ -1,18 +1,19 @@
 ---
 title: Capacitor Android API
-description: Capacitor 在 Android 平台上的 API
+description: Android 上 Capacitor 的 API
+translated: true
 slug: /core-apis/android
 ---
 
 # Capacitor Android API
 
-Capacitor Android 是驱动 Capacitor 应用在 Android 上运行的原生运行时环境。
+Capacitor Android 是在 Android 上驱动 Capacitor 应用的原生运行时。
 
 ## Bridge
 
-Android Bridge 是 Capacitor Android 库的核心。Bridge 上提供了多个方法，用于获取信息或改变行为。
+Android bridge 是 Capacitor Android 库的核心。bridge 上有多个可用的方法，提供信息或改变行为。
 
-当插件在 Capacitor 中注册后，即可访问 Bridge：
+当向 Capacitor 注册后，插件可以访问 bridge：
 
 ```java
 this.bridge
@@ -37,7 +38,7 @@ public void triggerJSEvent(final String eventName, final String target)
 public void triggerJSEvent(final String eventName, final String target, final String data)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（例如 `window` 或 `document`）上触发一个事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/android-guide.md#plugin-events)。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议使用[插件事件](/plugins/creating-plugins/android-guide.md#plugin-events)代替。
 
 示例：
 
@@ -46,16 +47,16 @@ bridge.triggerJSEvent("myCustomEvent", "window");
 bridge.triggerJSEvent("myCustomEvent", "document", "{ 'dataKey': 'dataValue' }");
 ```
 
-注意：`data` 必须是一个序列化的 JSON 字符串值。
+注意：`data` 必须是序列化的 JSON 字符串值。
 
 ---
 
-## 数据传递
+## 传递数据
 
-关于如何处理在不同环境之间传递的数据，相关说明可以[在此处找到](/main/reference/core-apis/data-types.md)。
+关于如何在环境之间传递数据的工作方式，请[参见此处](/main/reference/core-apis/data-types.md)。
 
 ---
 
 ## 保存 CAPPluginCall
 
-关于如何持久化插件调用以用于异步或重复操作，相关说明可以[在此处找到](/main/reference/core-apis/saving-calls.md)。
+关于为异步或重复操作持久化插件调用的说明，请[参见此处](/main/reference/core-apis/saving-calls.md)。

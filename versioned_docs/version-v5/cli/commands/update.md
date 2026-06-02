@@ -14,17 +14,17 @@ sidebar_label: update
 npx cap update [<platform>]
 ```
 
-<strong>输入参数：</strong>
+<strong>输入：</strong>
 
-- `platform` (可选): `android`, `ios`
+- `platform`（可选）：`android`，`ios`
 
 <strong>选项：</strong>
 
-- `--deployment`: 不会删除 Podfile.lock，并且 pod install 将使用 `--deployment` 选项。
+- `--deployment`：Podfile.lock 不会被删除，pod install 将使用 `--deployment` 选项。
 
 ## 钩子
 
-update 命令提供以下可用的钩子：
+以下钩子可用于 update 命令：
 
 - `capacitor:update:before`
 - `capacitor:update:after`

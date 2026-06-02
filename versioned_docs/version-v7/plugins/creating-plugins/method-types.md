@@ -1,17 +1,17 @@
 ---
-title: Method Types
+title: 方法类型
 description: Capacitor 插件方法类型
 contributors:
   - ikeith
-sidebar_label: Method Types
+sidebar_label: 方法类型
 slug: /plugins/method-types
 ---
 
 # 方法类型
 
-开发插件时，可以使用三种不同类型的方法签名。所有方法都是异步且基于 Promise 的。
+开发插件时，可以使用三种不同类型的方法签名。它们都是异步且基于 Promise 的。
 
-让我们来看一个包含所有三种类型的插件定义示例：
+让我们考虑一个包含所有三种类型的插件定义：
 
 ```typescript
 export type CallbackID = string;
@@ -33,7 +33,7 @@ export interface MyPlugin {
 
 `method1()` 是最简单的情况，预期不返回任何数据。
 
-在 Android 中，你需要这样注解该方法：
+对于 Android，你需要这样注解该方法：
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -41,7 +41,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -49,7 +49,7 @@ public let pluginMethods: [CAPPluginMethod] = [
 ]
 ```
 
-或者对于 Objective-C 插件，在 `.m` 文件中：
+或者在 Objective-C 插件的 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -57,9 +57,9 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## 值返回
+## 返回值
 
-`method2()` 是最常见的情况：一个通常会解析出某个值的 Promise。
+`method2()` 是最常见的情况：一个 Promise，通常会解析并返回一些值。
 
 对于 Android，此方法类型是默认的，指定返回类型是可选的：
 
@@ -69,7 +69,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -77,7 +77,7 @@ public let pluginMethods: [CAPPluginMethod] = [
 ]
 ```
 
-或者对于 Objective-C 插件，在 `.m` 文件中：
+或者在 Objective-C 插件的 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -87,7 +87,7 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 
 ## 回调
 
-`method3()` 是最复杂的类型，但在实际使用中也是最不常见的。当你的插件需要重复返回数据时使用，例如通过地理位置 API 监控设备位置时。
+`method3()` 是最复杂的类型，但在实践中也是最不常见的。当你的插件需要重复返回数据时使用，例如通过地理定位 API 监控设备位置。
 
 对于 Android，你需要这样注解该方法：
 
@@ -97,7 +97,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-在 iOS 中，你需要在插件的 `.swift` 文件中这样声明方法：
+对于 iOS，你需要在插件的 `.swift` 文件中这样声明该方法：
 
 ```swift
 public let pluginMethods: [CAPPluginMethod] = [
@@ -105,7 +105,7 @@ public let pluginMethods: [CAPPluginMethod] = [
 ]
 ```
 
-或者对于 Objective-C 插件，在 `.m` 文件中：
+或者在 Objective-C 插件的 `.m` 文件中：
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -113,6 +113,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-回调方法接受一个函数，该函数将从原生代码中调用（可能多次），并返回一个解析为标识符的 Promise。
+回调方法接受一个将从原生代码调用（可能多次）的函数，并返回一个将解析为标识符的 Promise。
 
-在原生端，实现回调意味着你需要保存调用，以便在稍后能够调用它。具体如何处理[在此处讨论](/main/reference/core-apis/saving-calls.md)
+在原生端，实现回调意味着你需要保存调用，以便稍后可以调用它。有关如何处理的具体细节，[请在此处讨论](/main/reference/core-apis/saving-calls.md)。

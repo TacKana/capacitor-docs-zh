@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI 钩子
 
-从 Capacitor 3.1 开始，以下事件可用于挂钩到 Capacitor 命令中：
+从 Capacitor 3.1 开始，以下事件可用于挂接到 Capacitor 命令中：
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`
@@ -16,7 +16,7 @@ contributors:
 - `capacitor:sync:before`
 - `capacitor:sync:after`
 
-要使用它们，请在你的应用 `package.json` 文件的 scripts 部分添加事件名称和要运行的代码。
+要使用它们，请在应用的 `package.json` 的 scripts 部分中添加事件名称和要运行的代码。
 
 以下示例仅输出命令及其运行的平台：
 

@@ -12,10 +12,9 @@ export default function NativeEnterpriseCard(props) {
       </div>
 
       <div className="heading-group">
-        <header>Ionic Native Enterprise Edition</header>
+        <header>Ionic Native 企业版</header>
         <p>
-          Premium, supported Capacitor and Cordova plugins, third-party integrations, and pre-built native solutions for
-          building enterprise-grade apps.
+          面向企业级应用构建的高级、受支持的 Capacitor 和 Cordova 插件、第三方集成以及预构建的原生解决方案。
         </p>
       </div>
     </a>

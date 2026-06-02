@@ -11,7 +11,9 @@
     }
   ],
   "redirects": [
-    { "source": "/apis/storage", "destination": "/apis/preferences", "permanent": true },
-    { "source": "/cli/commands/list", "destination": "/cli/commands/ls", "permanent": true }
-  ]
+    { "source": "/apis/storage", "destination": "/apis/preferences" },
+    { "source": "/cli/commands/list", "destination": "/cli/commands/ls" },
+    { "source": "/next/:match*", "destination": "/:match*" }
+  ],
+  "rewrites": [{ "source": "/:match*", "destination": "/:match*" }]
 }
