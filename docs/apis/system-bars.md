@@ -128,9 +128,9 @@ export default config;
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
 * [`setAnimation(...)`](#setanimation)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -207,7 +207,7 @@ setAnimation(options: SystemBarsAnimationOptions) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### SystemBarsStyleOptions
@@ -233,7 +233,7 @@ setAnimation(options: SystemBarsAnimationOptions) => Promise<void>
 | **`animation`** | <code><a href="#systembarsanimation">SystemBarsAnimation</a></code> | 显示或隐藏时使用的状态栏动画类型。此选项仅在 iOS 上受支持。                          | <code>'FADE'</code> | 8.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### SystemBarsAnimation
@@ -243,7 +243,7 @@ setAnimation(options: SystemBarsAnimationOptions) => Promise<void>
 <code>'FADE' | 'NONE'</code>
 
 
-### Enums
+### 枚举
 
 
 #### SystemBarsStyle

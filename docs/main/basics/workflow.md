@@ -47,19 +47,19 @@ npx cap run android
 当你完成迭代和测试后，就可以编译最终的二进制文件以分发到其他移动设备了。
 
 :::info
-你也可以[通过 Xcode 在 iOS 上运行你的应用](/main/ios/index.md#running-in-xcode)或[通过 Android Studio 在 Android 上运行你的应用](/main/android/index.md#running-with-android-studio)。两种方式都适用于开发。不妨都试一下，看看你更喜欢哪种方式！
+你也可以[通过 Xcode 在 iOS 上运行你的应用](/main/ios/index.md#在-xcode-中运行)或[通过 Android Studio 在 Android 上运行你的应用](/main/android/index.md#使用-android-studio-运行)。两种方式都适用于开发。不妨都试一下，看看你更喜欢哪种方式！
 :::
 
 ### 打开你的原生 IDE
 
 如果你希望对原生项目有更多控制，可以使用 Capacitor CLI 快速打开原生 IDE。
 
-要[在 Xcode 中打开 iOS Capacitor `.xcworkspace` 项目](/main/ios/index.md#opening-the-ios-project)，请运行：
+要[在 Xcode 中打开 iOS Capacitor `.xcworkspace` 项目](/main/ios/index.md#打开-ios-项目)，请运行：
 ```bash
 npx cap open ios
 ```
 
-同样地，要[在 Android Studio 中打开 Android Capacitor 项目](/main/android/index.md#opening-the-android-project)，请运行：
+同样地，要[在 Android Studio 中打开 Android Capacitor 项目](/main/android/index.md#打开-android-项目)，请运行：
 ```bash
 npx cap open android
 ```

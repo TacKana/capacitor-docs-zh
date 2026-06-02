@@ -25,7 +25,7 @@ npx cap sync
 
 在 Android 上，可以通过以下选项配置本地通知：
 
-| Prop            | Type                | Description                                                                                                                                                                                                                                                                                                                  | Since |
+| 属性 | Type                | 描述 | 始于 |
 | --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`smallIcon`** | <code>string</code> | 设置通知的默认状态栏图标。图标应放置在应用的 `res/drawable` 文件夹中。此选项的值应为 drawable 资源 ID，即不带扩展名的文件名。仅适用于 Android。                                                                         | 1.0.0 |
 | **`iconColor`** | <code>string</code> | 设置通知状态栏图标的默认颜色。仅适用于 Android。                                                                                                                                                                                                                                     | 1.0.0 |
@@ -90,9 +90,9 @@ export default config;
 * [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
 * [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -107,13 +107,13 @@ schedule(options: ScheduleOptions) => Promise<ScheduleResult>
 
 安排一个或多个本地通知。
 
-| Param         | Type                                                        |
+| 参数 | Type                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#scheduleoptions">ScheduleOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#scheduleresult">ScheduleResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#scheduleresult">ScheduleResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -126,9 +126,9 @@ getPending() => Promise<PendingResult>
 
 获取待处理通知列表。
 
-**Returns:** <code>Promise&lt;<a href="#pendingresult">PendingResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#pendingresult">PendingResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -143,11 +143,11 @@ registerActionTypes(options: RegisterActionTypesOptions) => Promise<void>
 
 仅适用于 iOS 和 Android。
 
-| Param         | Type                                                                              |
+| 参数 | Type                                                                              |
 | ------------- | --------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#registeractiontypesoptions">RegisterActionTypesOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -160,11 +160,11 @@ cancel(options: CancelOptions) => Promise<void>
 
 取消待处理的通知。
 
-| Param         | Type                                                    |
+| 参数 | Type                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#canceloptions">CancelOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -177,9 +177,9 @@ areEnabled() => Promise<EnabledResult>
 
 检查通知是否已启用。
 
-**Returns:** <code>Promise&lt;<a href="#enabledresult">EnabledResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#enabledresult">EnabledResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -194,11 +194,11 @@ createChannel(channel: NotificationChannel) => Promise<void>
 
 仅适用于 Android。
 
-| Param         | Type                                        |
+| 参数 | Type                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -213,11 +213,11 @@ deleteChannel(channel: NotificationChannel) => Promise<void>
 
 仅适用于 Android。
 
-| Param         | Type                                        |
+| 参数 | Type                                        |
 | ------------- | ------------------------------------------- |
 | **`channel`** | <code><a href="#channel">Channel</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -232,9 +232,9 @@ listChannels() => Promise<ListChannelsResult>
 
 仅适用于 Android。
 
-**Returns:** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -247,9 +247,9 @@ checkPermissions() => Promise<PermissionStatus>
 
 检查显示本地通知的权限。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -262,9 +262,9 @@ requestPermissions() => Promise<PermissionStatus>
 
 请求显示本地通知的权限。
 
-**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -277,14 +277,14 @@ addListener(eventName: 'localNotificationReceived', listenerFunc: (notification:
 
 监听通知显示的事件。
 
-| Param              | Type                                                                                                   |
+| 参数 | Type                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'localNotificationReceived'</code>                                                               |
 | **`listenerFunc`** | <code>(notification: <a href="#localnotificationschema">LocalNotificationSchema</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -297,14 +297,14 @@ addListener(eventName: 'localNotificationActionPerformed', listenerFunc: (notifi
 
 监听通知上执行操作的事件。
 
-| Param              | Type                                                                                         |
+| 参数 | Type                                                                                         |
 | ------------------ | -------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'localNotificationActionPerformed'</code>                                              |
 | **`listenerFunc`** | <code>(notificationAction: <a href="#actionperformed">ActionPerformed</a>) =&gt; void</code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -317,17 +317,17 @@ removeAllListeners() => Promise<void>
 
 移除该插件的所有监听器。
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ScheduleResult
 
-| Prop                | Type                                       | Description                          | Since |
+| 属性 | Type                                       | 描述 | 始于 |
 | ------------------- | ------------------------------------------ | ------------------------------------ | ----- |
 | **`notifications`** | <code>LocalNotificationDescriptor[]</code> | 已安排的通知列表。 | 1.0.0 |
 
@@ -336,21 +336,21 @@ removeAllListeners() => Promise<void>
 
 描述本地通知的对象。
 
-| Prop     | Type                | Description                  | Since |
+| 属性 | Type                | 描述 | 始于 |
 | -------- | ------------------- | ---------------------------- | ----- |
 | **`id`** | <code>number</code> | 通知标识符。 | 1.0.0 |
 
 
 #### ScheduleOptions
 
-| Prop                | Type                                   | Description                            | Since |
+| 属性 | Type                                   | 描述 | 始于 |
 | ------------------- | -------------------------------------- | -------------------------------------- | ----- |
 | **`notifications`** | <code>LocalNotificationSchema[]</code> | 要安排的通知列表。 | 1.0.0 |
 
 
 #### LocalNotificationSchema
 
-| Prop                   | Type                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Since |
+| 属性 | Type                                          | 描述 | 始于 |
 | ---------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`title`**            | <code>string</code>                           | 通知的标题。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
 | **`body`**             | <code>string</code>                           | 通知的正文，显示在标题下方。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |
@@ -381,7 +381,7 @@ removeAllListeners() => Promise<void>
 
 使用 `at`、`on` 或 `every` 之一来安排通知。
 
-| Prop                 | Type                                                    | Description                                                                                                                                                                                                                                                                                                                             | Since |
+| 属性 | Type                                                    | 描述 | 始于 |
 | -------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`at`**             | <code><a href="#date">Date</a></code>                   | 在特定的日期和时间安排通知。                                                                                                                                                                                                                                                            | 1.0.0 |
 | **`repeats`**        | <code>boolean</code>                                    | 在 `at` 指定的日期和时间重复投递此通知。仅适用于 iOS 和 Android。                                                                                                                                                                                                                        | 1.0.0 |
@@ -395,7 +395,7 @@ removeAllListeners() => Promise<void>
 
 支持日期和时间的 basic storage and retrieval。
 
-| Method                 | Signature                                                                                                    | Description                                                                                                                             |
+| 方法 | 签名 | 描述 |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **toString**           | () =&gt; string                                                                                              | 返回日期的字符串表示形式。格式取决于区域设置。                                              |
 | **toDateString**       | () =&gt; string                                                                                              | 以字符串值形式返回日期。                                                                                                       |
@@ -444,7 +444,7 @@ removeAllListeners() => Promise<void>
 
 #### ScheduleOn
 
-| Prop          | Type                                        |
+| 属性 | Type                                        |
 | ------------- | ------------------------------------------- |
 | **`year`**    | <code>number</code>                         |
 | **`month`**   | <code>number</code>                         |
@@ -459,7 +459,7 @@ removeAllListeners() => Promise<void>
 
 表示通知附件。
 
-| Prop          | Type                                                            | Description                                                                                                                           | Since |
+| 属性 | Type                                                            | 描述 | 始于 |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`id`**      | <code>string</code>                                             | 附件标识符。                                                                                                            | 1.0.0 |
 | **`url`**     | <code>string</code>                                             | 附件的 URL。使用 `res` 方案引用 Web 资源，例如 `res:///assets/img/icon.png`。也接受 `file` URL。 | 1.0.0 |
@@ -468,7 +468,7 @@ removeAllListeners() => Promise<void>
 
 #### AttachmentOptions
 
-| Prop                                                             | Type                | Description                                                                                                                                                                                                                                   | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ---------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`iosUNNotificationAttachmentOptionsTypeHintKey`**              | <code>string</code> | 设置 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中的 `UNNotificationAttachmentOptionsTypeHintKey` 键。仅适用于 iOS。              | 1.0.0 |
 | **`iosUNNotificationAttachmentOptionsThumbnailHiddenKey`**       | <code>string</code> | 设置 [`UNNotificationAttachment`](https://developer.apple.com/documentation/usernotifications/unnotificationattachment) 的可哈希选项中的 `UNNotificationAttachmentOptionsThumbnailHiddenKey` 键。仅适用于 iOS。       | 1.0.0 |
@@ -478,14 +478,14 @@ removeAllListeners() => Promise<void>
 
 #### PendingResult
 
-| Prop                | Type                                          | Description                        | Since |
+| 属性 | Type                                          | 描述 | 始于 |
 | ------------------- | --------------------------------------------- | ---------------------------------- | ----- |
 | **`notifications`** | <code>PendingLocalNotificationSchema[]</code> | 待处理通知列表。 | 1.0.0 |
 
 
 #### PendingLocalNotificationSchema
 
-| Prop           | Type                                          | Description                                                          | Since |
+| 属性 | Type                                          | 描述 | 始于 |
 | -------------- | --------------------------------------------- | -------------------------------------------------------------------- | ----- |
 | **`title`**    | <code>string</code>                           | 通知的标题。                                       | 1.0.0 |
 | **`body`**     | <code>string</code>                           | 通知的正文，显示在标题下方。                 | 1.0.0 |
@@ -496,7 +496,7 @@ removeAllListeners() => Promise<void>
 
 #### RegisterActionTypesOptions
 
-| Prop        | Type                      | Description                           | Since |
+| 属性 | Type                      | 描述 | 始于 |
 | ----------- | ------------------------- | ------------------------------------- | ----- |
 | **`types`** | <code>ActionType[]</code> | 要注册的操作类型列表。 | 1.0.0 |
 
@@ -505,7 +505,7 @@ removeAllListeners() => Promise<void>
 
 操作的集合。
 
-| Prop                                   | Type                  | Description                                                                                                                                                                                     | Since |
+| 属性 | Type                  | 描述 | 始于 |
 | -------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`id`**                               | <code>string</code>   | 操作类型的 ID。由通知中的 `actionTypeId` 键引用。                                                                                                               | 1.0.0 |
 | **`actions`**                          | <code>Action[]</code> | 与此操作类型关联的操作列表。                                                                                                                                           | 1.0.0 |
@@ -520,7 +520,7 @@ removeAllListeners() => Promise<void>
 
 通知显示时可以执行的操作。
 
-| Prop                         | Type                 | Description                                                                                                                                                                                                     | Since |
+| 属性 | Type                 | 描述 | 始于 |
 | ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`id`**                     | <code>string</code>  | 操作标识符。由 `'actionPerformed'` 事件中的 `actionId` 引用。                                                                                                                               | 1.0.0 |
 | **`title`**                  | <code>string</code>  | 为此操作显示的标题文本。                                                                                                                                                                      | 1.0.0 |
@@ -534,21 +534,21 @@ removeAllListeners() => Promise<void>
 
 #### CancelOptions
 
-| Prop                | Type                                       | Description                          | Since |
+| 属性 | Type                                       | 描述 | 始于 |
 | ------------------- | ------------------------------------------ | ------------------------------------ | ----- |
 | **`notifications`** | <code>LocalNotificationDescriptor[]</code> | 要取消的通知列表。 | 1.0.0 |
 
 
 #### EnabledResult
 
-| Prop        | Type                 | Description                                                | Since |
+| 属性 | Type                 | 描述 | 始于 |
 | ----------- | -------------------- | ---------------------------------------------------------- | ----- |
 | **`value`** | <code>boolean</code> | 设备是否已启用本地通知。 | 1.0.0 |
 
 
 #### Channel
 
-| Prop              | Type                                              | Description                                                                                                                                                                                                                                                                                                                                    | Since |
+| 属性 | Type                                              | 描述 | 始于 |
 | ----------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`id`**          | <code>string</code>                               | 频道标识符。                                                                                                                                                                                                                                                                                                                        | 1.0.0 |
 | **`name`**        | <code>string</code>                               | 此频道的人类可读名称（展示给用户）。                                                                                                                                                                                                                                                                               | 1.0.0 |
@@ -563,35 +563,35 @@ removeAllListeners() => Promise<void>
 
 #### ListChannelsResult
 
-| Prop           | Type                   | Description                        | Since |
+| 属性 | Type                   | 描述 | 始于 |
 | -------------- | ---------------------- | ---------------------------------- | ----- |
 | **`channels`** | <code>Channel[]</code> | 通知频道列表。 | 1.0.0 |
 
 
 #### PermissionStatus
 
-| Prop          | Type                                                        | Description                                   | Since |
+| 属性 | Type                                                        | 描述 | 始于 |
 | ------------- | ----------------------------------------------------------- | --------------------------------------------- | ----- |
 | **`display`** | <code><a href="#permissionstate">PermissionState</a></code> | 显示通知的权限状态。 | 1.0.0 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性 | Type                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### ActionPerformed
 
-| Prop               | Type                                                                        | Description                                                                                                            | Since |
+| 属性 | Type                                                                        | 描述 | 始于 |
 | ------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`actionId`**     | <code>string</code>                                                         | 执行的操作的标识符。                                                                                | 1.0.0 |
 | **`inputValue`**   | <code>string</code>                                                         | 用户在通知上输入的值。仅适用于 iOS 中 `input` 设置为 `true` 的通知。 | 1.0.0 |
 | **`notification`** | <code><a href="#localnotificationschema">LocalNotificationSchema</a></code> | 原始通知模式。                                                                                      | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### ScheduleEvery
@@ -623,12 +623,12 @@ removeAllListeners() => Promise<void>
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
 
-### Enums
+### 枚举
 
 
 #### Weekday
 
-| Members         | Value          |
+| 成员 | Value          |
 | --------------- | -------------- |
 | **`Sunday`**    | <code>1</code> |
 | **`Monday`**    | <code>2</code> |

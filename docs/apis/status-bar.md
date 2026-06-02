@@ -134,9 +134,9 @@ export default config;
 * [`setOverlaysWebView(...)`](#setoverlayswebview)
 * [`addListener('statusBarVisibilityChanged', ...)`](#addlistenerstatusbarvisibilitychanged-)
 * [`addListener('statusBarOverlayChanged', ...)`](#addlistenerstatusbaroverlaychanged-)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -289,7 +289,7 @@ addListener(eventName: 'statusBarOverlayChanged', listenerFunc: OverlayChangeLis
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### StyleOptions
@@ -338,7 +338,7 @@ addListener(eventName: 'statusBarOverlayChanged', listenerFunc: OverlayChangeLis
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### VisibilityChangeListener
@@ -351,7 +351,7 @@ addListener(eventName: 'statusBarOverlayChanged', listenerFunc: OverlayChangeLis
 <code>(info: <a href="#statusbarinfo">StatusBarInfo</a>): void</code>
 
 
-### Enums
+### 枚举
 
 
 #### Style

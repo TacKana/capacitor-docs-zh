@@ -1,5 +1,5 @@
 ---
-title: Swift Package Manager
+title: Swift 包管理器
 description: SPM 基础
 contributors:
   - giralte-ionic

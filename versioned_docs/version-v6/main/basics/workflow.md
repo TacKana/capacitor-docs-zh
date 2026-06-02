@@ -47,24 +47,24 @@ npx cap run android
 当您完成迭代和测试后，就可以编译最终的二进制文件以分发给其他移动设备了。
 
 :::info
-您也可以[通过 Xcode 在 iOS 上运行应用](/main/ios/index.md#running-in-xcode) 或[通过 Android Studio 在 Android 上运行应用](/main/android/index.md#running-with-android-studio)。两种方式都适用于开发。您可以尝试两种方式，看看哪种更适合您！
+您也可以[通过 Xcode 在 iOS 上运行应用](/main/ios/index.md#在-xcode-中运行) 或[通过 Android Studio 在 Android 上运行应用](/main/android/index.md#使用-android-studio-运行)。两种方式都适用于开发。您可以尝试两种方式，看看哪种更适合您！
 :::
 
 ### 打开您的原生 IDE
 
 如果您希望对原生项目有更多控制，可以使用 Capacitor CLI 快速打开原生 IDE。
 
-要[在 Xcode 中打开 iOS Capacitor `.xcworkspace` 项目](/main/ios/index.md#opening-the-ios-project)，您可以运行：
+要[在 Xcode 中打开 iOS Capacitor `.xcworkspace` 项目](/main/ios/index.md#打开-ios-项目)，您可以运行：
 ```bash
 npx cap open ios
 ```
 
-同样，要[在 Android Studio 中打开 Android Capacitor 项目](/main/android/index.md#opening-the-android-project)，您可以运行：
+同样，要[在 Android Studio 中打开 Android Capacitor 项目](/main/android/index.md#打开-android-项目)，您可以运行：
 ```bash
 npx cap open android
 ```
 
-打开原生项目可以让您完全控制应用的原生运行时。您可以[创建插件](/plugins.mdx)、[添加自定义原生代码](/main/ios/custom-code.md)或[编译应用](#compiling-your-native-binary)以供发布。
+打开原生项目可以让您完全控制应用的原生运行时。您可以[创建插件](/plugins.mdx)、[添加自定义原生代码](/main/ios/custom-code.md)或[编译应用](#编译原生二进制文件)以供发布。
 
 ## 编译原生二进制文件
 

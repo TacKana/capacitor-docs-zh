@@ -60,8 +60,8 @@ const hapticsSelectionEnd = async () => {
 * [`selectionStart()`](#selectionstart)
 * [`selectionChanged()`](#selectionchanged)
 * [`selectionEnd()`](#selectionend)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -161,7 +161,7 @@ selectionEnd() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ImpactOptions
@@ -185,7 +185,7 @@ selectionEnd() => Promise<void>
 | **`duration`**  | <code>number</code> | 振动的持续时间（毫秒）。 | <code>300</code> | 1.0.0   |
 
 
-### Enums
+### 枚举
 
 
 #### ImpactStyle

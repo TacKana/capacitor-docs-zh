@@ -37,7 +37,7 @@ public void triggerJSEvent(final String eventName, final String target)
 public void triggerJSEvent(final String eventName, final String target, final String data)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/android-guide.md#plugin-events)替代。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议优先使用[插件事件](/plugins/creating-plugins/android-guide.md#插件事件)替代。
 
 示例：
 

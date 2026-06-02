@@ -79,7 +79,7 @@ await SplashScreen.show({
 
 这些配置值可用：
 
-| Prop                            | Type                                                                                                                          | Description                                                                                                                                                                                                  | Default             | Since |
+| 属性 | Type                                                                                                                          | 描述 | 默认值 | 始于 |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | ----- |
 | **`launchShowDuration`**        | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动画面显示的时间（毫秒）                                                                                                                                                   | <code>500</code>    | 1.0.0 |
 | **`launchAutoHide`**            | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏启动画面。                                                                                                                                                    | <code>true</code>   | 1.0.0 |
@@ -175,7 +175,7 @@ export default config;
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [Interfaces](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
@@ -190,11 +190,11 @@ show(options?: ShowOptions | undefined) => Promise<void>
 
 显示启动画面
 
-| Param         | Type                                                |
+| 参数 | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -207,21 +207,21 @@ hide(options?: HideOptions | undefined) => Promise<void>
 
 隐藏启动画面
 
-| Param         | Type                                                |
+| 参数 | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#hideoptions">HideOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions
 
-| Prop                  | Type                 | Description                                                         | Default           | Since |
+| 属性 | Type                 | 描述 | 默认值 | 始于 |
 | --------------------- | -------------------- | ------------------------------------------------------------------- | ----------------- | ----- |
 | **`autoHide`**        | <code>boolean</code> | 是否在 showDuration 后自动隐藏启动画面。                  |                   | 1.0.0 |
 | **`fadeInDuration`**  | <code>number</code>  | 淡入时间（毫秒）。                                        | <code>200</code>  | 1.0.0 |
@@ -231,7 +231,7 @@ hide(options?: HideOptions | undefined) => Promise<void>
 
 #### HideOptions
 
-| Prop                  | Type                | Description                   | Default          | Since |
+| 属性 | Type                | 描述 | 默认值 | 始于 |
 | --------------------- | ------------------- | ----------------------------- | ---------------- | ----- |
 | **`fadeOutDuration`** | <code>number</code> | 淡出时间（毫秒）。 | <code>200</code> | 1.0.0 |
 

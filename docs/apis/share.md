@@ -67,7 +67,7 @@ await Share.share({
 
 * [`canShare()`](#canshare)
 * [`share(...)`](#share)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -108,7 +108,7 @@ share(options: ShareOptions) => Promise<ShareResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CanShareResult

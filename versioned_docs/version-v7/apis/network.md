@@ -41,8 +41,8 @@ const logCurrentNetworkStatus = async () => {
 * [`getStatus()`](#getstatus)
 * [`addListener('networkStatusChange', ...)`](#addlistenernetworkstatuschange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -97,7 +97,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ConnectionStatus
@@ -117,7 +117,7 @@ removeAllListeners() => Promise<void>
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### ConnectionType

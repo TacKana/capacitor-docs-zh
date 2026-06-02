@@ -1,29 +1,29 @@
 ---
-title: Custom Native iOS Code
-description: Custom Native iOS Code
+title: 自定义原生 iOS 代码
+description: 自定义原生 iOS 代码
 contributors:
   - dotNetkow
   - mlynch
 slug: /ios/custom-code
 ---
 
-# Custom Native iOS Code
+# 自定义原生 iOS 代码
 
-With Capacitor, you are encouraged to write Swift or Objective-C code to implement the native features your app needs.
+使用 Capacitor，我们鼓励你编写 Swift 或 Objective-C 代码来实现应用所需的原生功能。
 
-There may not be [a Capacitor plugin](/plugins.mdx) for everything--and that's okay! It is possible to write WebView-accessible native code right in your app.
+可能并非所有功能都有[对应的 Capacitor 插件](/plugins.mdx)——这也没关系！你完全可以在应用中编写 WebView 可访问的原生代码。
 
-## WebView-Accessible Native Code
+## WebView 可访问的原生代码
 
-The easiest way to communicate between JavaScript and native code is to build a custom Capacitor plugin that is local to your app.
+在 JavaScript 和原生代码之间进行通信的最简单方法是构建一个本地于你应用的自定义 Capacitor 插件。
 
 ### `EchoPlugin.swift`
 
-First, create a `EchoPlugin.swift` file by [opening Xcode](/main/ios/index.md#opening-the-ios-project), right-clicking on the **App** group (under the **App** target), selecting **New File...** from the context menu, choosing **Swift File** in the window, and creating the file.
+首先，通过[打开 Xcode](/main/ios/index.md#打开-ios-项目)，右键单击 **App** 组（在 **App** target 下），从上下文菜单中选择 **New File...**，在窗口中选择 **Swift File**，然后创建文件来创建一个 `EchoPlugin.swift` 文件。
 
-![New Swift File in Xcode](../../../../static/img/v4/docs/ios/xcode-new-swift-file.png)
+![在 Xcode 中新建 Swift 文件](../../../../static/img/v4/docs/ios/xcode-new-swift-file.png)
 
-Copy the following Swift code into `EchoPlugin.swift`:
+将以下 Swift 代码复制到 `EchoPlugin.swift` 中：
 
 ```swift
 import Capacitor
@@ -37,21 +37,21 @@ public class EchoPlugin: CAPPlugin {
 }
 ```
 
-> The `@objc` decorators are required to make sure Capacitor's runtime (which must use Objective-C for dynamic plugin support) can see it.
+> `@objc` 装饰器是必需的，以确保 Capacitor 的运行时（必须使用 Objective-C 以支持动态插件）能够看到它。
 
-### Register the Plugin
+### 注册插件
 
-We must register custom plugins on both iOS and web so that Capacitor can bridge between Swift and JavaScript.
+我们必须同时在 iOS 和 Web 上注册自定义插件，以便 Capacitor 能够在 Swift 和 JavaScript 之间进行桥接。
 
 #### `EchoPlugin.m`
 
-Next, create a `EchoPlugin.m` file with Xcode in the same way, but choose **Objective-C** in the window. Leave the **File Type** as **Empty File**. If prompted by Xcode to create a Bridging Header, click **Create Bridging Header**.
+接下来，用同样的方式在 Xcode 中创建一个 `EchoPlugin.m` 文件，但在窗口中选择 **Objective-C**。将**文件类型**保留为**空文件**。如果 Xcode 提示创建桥接头文件，请点击**创建桥接头文件**。
 
-> Using Xcode to create native files is recommended because it ensures the references are added to the project appropriately.
+> 建议使用 Xcode 创建原生文件，因为它能确保引用被正确添加到项目中。
 >
-> These changes to project files should be committed to your project along with the new files themselves.
+> 这些对项目文件的更改应与新文件本身一起提交到你的项目中。
 
-Copy the following Swift code into `EchoPlugin.m`:
+将以下 Objective-C 代码复制到 `EchoPlugin.m` 中：
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -61,11 +61,11 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 )
 ```
 
-> These Objective-C macros register your plugin with Capacitor, making `EchoPlugin` and its `echo` method available to JavaScript. Whenever you add or remove methods in `EchoPlugin.swift`, this file must be updated.
+> 这些 Objective-C 宏将你的插件注册到 Capacitor，使 `EchoPlugin` 及其 `echo` 方法可用于 JavaScript。每当你在 `EchoPlugin.swift` 中添加或移除方法时，都需要更新此文件。
 
 #### JavaScript
 
-In JS, we use `registerPlugin()` from `@capacitor/core` to create an object which is linked to our Swift plugin.
+在 JS 中，我们使用 `@capacitor/core` 的 `registerPlugin()` 来创建一个与我们的 Swift 插件关联的对象。
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -75,11 +75,11 @@ const Echo = registerPlugin('Echo');
 export default Echo;
 ```
 
-> The first parameter to `registerPlugin()` is the plugin name, which must match the second parameter to the `CAP_PLUGIN` macro in `EchoPlugin.m`.
+> `registerPlugin()` 的第一个参数是插件名称，它必须与 `EchoPlugin.m` 中 `CAP_PLUGIN` 宏的第二个参数匹配。
 
 **TypeScript**
 
-We can define types on our linked object by defining an interface and using it in the call to `registerPlugin()`.
+我们可以通过定义一个接口并在调用 `registerPlugin()` 时使用它来为关联的对象定义类型。
 
 ```diff
  import { registerPlugin } from '@capacitor/core';
@@ -94,11 +94,11 @@ We can define types on our linked object by defining an interface and using it i
  export default Echo;
 ```
 
-The generic parameter of `registerPlugin()` is what defines the structure of the linked object. You can use `registerPlugin<any>('Echo')` to ignore types if you need to. No judgment. ❤️
+`registerPlugin()` 的泛型参数定义了关联对象的结构。如果需要，你也可以使用 `registerPlugin<any>('Echo')` 来忽略类型。没关系。❤️
 
-### Use the Plugin
+### 使用插件
 
-Use the exported `Echo` object to call your plugin methods. The following snippet will call into Swift on iOS and print the result:
+使用导出的 `Echo` 对象来调用你的插件方法。以下代码片段将在 iOS 上调用 Swift 并打印结果：
 
 ```typescript
 import Echo from '../path/to/echo-plugin';
@@ -107,6 +107,6 @@ const { value } = await Echo.echo({ value: 'Hello World!' });
 console.log('Response from native:', value);
 ```
 
-### Next Steps
+### 下一步
 
-[Read the iOS Plugin Guide &#8250;](/plugins/creating-plugins/ios-guide.md)
+[阅读 iOS 插件指南 &#8250;](/plugins/creating-plugins/ios-guide.md)

@@ -68,7 +68,7 @@ func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议使用[插件事件](/plugins/creating-plugins/ios-guide.md#plugin-events)替代。
+在 JavaScript 的 [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)（如 `window` 或 `document`）上触发事件。如果可能，建议使用[插件事件](/plugins/creating-plugins/ios-guide.md#插件事件)替代。
 
 示例：
 

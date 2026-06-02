@@ -117,9 +117,9 @@ const takePicture = async () => {
 * [`getLimitedLibraryPhotos()`](#getlimitedlibraryphotos)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions(...)`](#requestpermissions)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -231,7 +231,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### Photo
@@ -312,7 +312,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 | **`permissions`**   | <code>CameraPermissionType[]</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### CameraPermissionState
@@ -330,7 +330,7 @@ requestPermissions(permissions?: CameraPluginPermissions | undefined) => Promise
 <code>'camera' | 'photos'</code>
 
 
-### Enums
+### 枚举
 
 
 #### CameraResultType

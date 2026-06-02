@@ -409,9 +409,9 @@ Vue({
 * [`setOnMarkerDragEndListener(...)`](#setonmarkerdragendlistener)
 * [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
 * [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -424,7 +424,7 @@ Vue({
 create(options: CreateMapArgs, callback?: MapListenerCallback<MapReadyCallbackData> | undefined) => Promise<GoogleMap>
 ```
 
-| Param          | Type                                                                                                                                |
+| 参数          | 类型                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`options`**  | <code><a href="#createmapargs">CreateMapArgs</a></code>                                                                             |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapreadycallbackdata">MapReadyCallbackData</a>&gt;</code> |
@@ -458,7 +458,7 @@ disableTouch() => Promise<void>
 enableClustering(minClusterSize?: number | undefined) => Promise<void>
 ```
 
-| Param                | Type                | Description                                              |
+| 参数                | 类型                | 描述                                              |
 | -------------------- | ------------------- | -------------------------------------------------------- |
 | **`minClusterSize`** | <code>number</code> | 可以聚类在一起的最小标记数量。默认值为 4 个标记。 |
 
@@ -480,7 +480,7 @@ disableClustering() => Promise<void>
 addTileOverlay(tileOverlay: TileOverlay) => Promise<{ id: string; }>
 ```
 
-| Param             | Type                                                |
+| 参数             | 类型                                                |
 | ----------------- | --------------------------------------------------- |
 | **`tileOverlay`** | <code><a href="#tileoverlay">TileOverlay</a></code> |
 
@@ -495,7 +495,7 @@ addTileOverlay(tileOverlay: TileOverlay) => Promise<{ id: string; }>
 removeTileOverlay(id: string) => Promise<void>
 ```
 
-| Param    | Type                |
+| 参数    | 类型                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
 
@@ -508,7 +508,7 @@ removeTileOverlay(id: string) => Promise<void>
 addMarker(marker: Marker) => Promise<string>
 ```
 
-| Param        | Type                                      |
+| 参数        | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`marker`** | <code><a href="#marker">Marker</a></code> |
 
@@ -523,7 +523,7 @@ addMarker(marker: Marker) => Promise<string>
 addMarkers(markers: Marker[]) => Promise<string[]>
 ```
 
-| Param         | Type                  |
+| 参数         | 类型                  |
 | ------------- | --------------------- |
 | **`markers`** | <code>Marker[]</code> |
 
@@ -538,7 +538,7 @@ addMarkers(markers: Marker[]) => Promise<string[]>
 removeMarker(id: string) => Promise<void>
 ```
 
-| Param    | Type                |
+| 参数    | 类型                |
 | -------- | ------------------- |
 | **`id`** | <code>string</code> |
 
@@ -551,7 +551,7 @@ removeMarker(id: string) => Promise<void>
 removeMarkers(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
+| 参数     | 类型                  |
 | --------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
@@ -564,7 +564,7 @@ removeMarkers(ids: string[]) => Promise<void>
 addPolygons(polygons: Polygon[]) => Promise<string[]>
 ```
 
-| Param          | Type                   |
+| 参数          | 类型                   |
 | -------------- | ---------------------- |
 | **`polygons`** | <code>Polygon[]</code> |
 
@@ -579,7 +579,7 @@ addPolygons(polygons: Polygon[]) => Promise<string[]>
 removePolygons(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
+| 参数     | 类型                  |
 | --------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
@@ -592,7 +592,7 @@ removePolygons(ids: string[]) => Promise<void>
 addCircles(circles: Circle[]) => Promise<string[]>
 ```
 
-| Param         | Type                  |
+| 参数         | 类型                  |
 | ------------- | --------------------- |
 | **`circles`** | <code>Circle[]</code> |
 
@@ -607,7 +607,7 @@ addCircles(circles: Circle[]) => Promise<string[]>
 removeCircles(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
+| 参数     | 类型                  |
 | --------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
@@ -620,7 +620,7 @@ removeCircles(ids: string[]) => Promise<void>
 addPolylines(polylines: Polyline[]) => Promise<string[]>
 ```
 
-| Param           | Type                    |
+| 参数           | 类型                    |
 | --------------- | ----------------------- |
 | **`polylines`** | <code>Polyline[]</code> |
 
@@ -635,7 +635,7 @@ addPolylines(polylines: Polyline[]) => Promise<string[]>
 removePolylines(ids: string[]) => Promise<void>
 ```
 
-| Param     | Type                  |
+| 参数     | 类型                  |
 | --------- | --------------------- |
 | **`ids`** | <code>string[]</code> |
 
@@ -657,7 +657,7 @@ destroy() => Promise<void>
 setCamera(config: CameraConfig) => Promise<void>
 ```
 
-| Param        | Type                                                  |
+| 参数        | 类型                                                  |
 | ------------ | ----------------------------------------------------- |
 | **`config`** | <code><a href="#cameraconfig">CameraConfig</a></code> |
 
@@ -683,7 +683,7 @@ getMapType() => Promise<MapType>
 setMapType(mapType: MapType) => Promise<void>
 ```
 
-| Param         | Type                                        |
+| 参数         | 类型                                        |
 | ------------- | ------------------------------------------- |
 | **`mapType`** | <code><a href="#maptype">MapType</a></code> |
 
@@ -696,7 +696,7 @@ setMapType(mapType: MapType) => Promise<void>
 enableIndoorMaps(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
+| 参数         | 类型                 |
 | ------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
@@ -709,7 +709,7 @@ enableIndoorMaps(enabled: boolean) => Promise<void>
 enableTrafficLayer(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
+| 参数         | 类型                 |
 | ------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
@@ -722,7 +722,7 @@ enableTrafficLayer(enabled: boolean) => Promise<void>
 enableAccessibilityElements(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
+| 参数         | 类型                 |
 | ------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
@@ -735,7 +735,7 @@ enableAccessibilityElements(enabled: boolean) => Promise<void>
 enableCurrentLocation(enabled: boolean) => Promise<void>
 ```
 
-| Param         | Type                 |
+| 参数         | 类型                 |
 | ------------- | -------------------- |
 | **`enabled`** | <code>boolean</code> |
 
@@ -748,7 +748,7 @@ enableCurrentLocation(enabled: boolean) => Promise<void>
 setPadding(padding: MapPadding) => Promise<void>
 ```
 
-| Param         | Type                                              |
+| 参数         | 类型                                              |
 | ------------- | ------------------------------------------------- |
 | **`padding`** | <code><a href="#mappadding">MapPadding</a></code> |
 
@@ -776,7 +776,7 @@ fitBounds(bounds: LatLngBounds, padding?: number | undefined) => Promise<void>
 
 设置地图视口以包含给定的边界。
 
-| Param         | Type                      | Description                                                                    |
+| 参数         | 类型                      | 描述                                                                    |
 | ------------- | ------------------------- | ------------------------------------------------------------------------------ |
 | **`bounds`**  | <code>LatLngBounds</code> | 要适配到视口中的边界。                                                     |
 | **`padding`** | <code>number</code>       | 可选的内边距（像素）。边界将适配到移除内边距后剩余的地图部分。 |
@@ -790,7 +790,7 @@ fitBounds(bounds: LatLngBounds, padding?: number | undefined) => Promise<void>
 setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                    |
+| 参数          | 类型                                                                                                                                    |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
 
@@ -803,7 +803,7 @@ setOnBoundsChangedListener(callback?: MapListenerCallback<CameraIdleCallbackData
 setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                    |
+| 参数          | 类型                                                                                                                                    |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameraidlecallbackdata">CameraIdleCallbackData</a>&gt;</code> |
 
@@ -816,7 +816,7 @@ setOnCameraIdleListener(callback?: MapListenerCallback<CameraIdleCallbackData> |
 setOnCameraMoveStartedListener(callback?: MapListenerCallback<CameraMoveStartedCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                                  |
+| 参数          | 类型                                                                                                                                                  |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#cameramovestartedcallbackdata">CameraMoveStartedCallbackData</a>&gt;</code> |
 
@@ -829,7 +829,7 @@ setOnCameraMoveStartedListener(callback?: MapListenerCallback<CameraMoveStartedC
 setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
+| 参数          | 类型                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
 
@@ -842,7 +842,7 @@ setOnClusterClickListener(callback?: MapListenerCallback<ClusterClickCallbackDat
 setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
+| 参数          | 类型                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#clusterclickcallbackdata">ClusterClickCallbackData</a>&gt;</code> |
 
@@ -855,7 +855,7 @@ setOnClusterInfoWindowClickListener(callback?: MapListenerCallback<ClusterClickC
 setOnInfoWindowClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
@@ -868,7 +868,7 @@ setOnInfoWindowClickListener(callback?: MapListenerCallback<MarkerClickCallbackD
 setOnMapClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
+| 参数          | 类型                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
 
@@ -881,7 +881,7 @@ setOnMapClickListener(callback?: MapListenerCallback<MapClickCallbackData> | und
 setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
@@ -894,7 +894,7 @@ setOnMarkerClickListener(callback?: MapListenerCallback<MarkerClickCallbackData>
 setOnPolygonClickListener(callback?: MapListenerCallback<PolygonClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                        |
+| 参数          | 类型                                                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#polygonclickcallbackdata">PolygonClickCallbackData</a>&gt;</code> |
 
@@ -907,7 +907,7 @@ setOnPolygonClickListener(callback?: MapListenerCallback<PolygonClickCallbackDat
 setOnCircleClickListener(callback?: MapListenerCallback<CircleClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#circleclickcallbackdata">CircleClickCallbackData</a>&gt;</code> |
 
@@ -920,7 +920,7 @@ setOnCircleClickListener(callback?: MapListenerCallback<CircleClickCallbackData>
 setOnPolylineClickListener(callback?: MapListenerCallback<PolylineCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
+| 参数          | 类型                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#polylinecallbackdata">PolylineCallbackData</a>&gt;</code> |
 
@@ -933,7 +933,7 @@ setOnPolylineClickListener(callback?: MapListenerCallback<PolylineCallbackData> 
 setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
@@ -946,7 +946,7 @@ setOnMarkerDragStartListener(callback?: MapListenerCallback<MarkerClickCallbackD
 setOnMarkerDragListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
@@ -959,7 +959,7 @@ setOnMarkerDragListener(callback?: MapListenerCallback<MarkerClickCallbackData> 
 setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                      |
+| 参数          | 类型                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#markerclickcallbackdata">MarkerClickCallbackData</a>&gt;</code> |
 
@@ -972,7 +972,7 @@ setOnMarkerDragEndListener(callback?: MapListenerCallback<MarkerClickCallbackDat
 setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButtonClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                                          |
+| 参数          | 类型                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mylocationbuttonclickcallbackdata">MyLocationButtonClickCallbackData</a>&gt;</code> |
 
@@ -985,21 +985,21 @@ setOnMyLocationButtonClickListener(callback?: MapListenerCallback<MyLocationButt
 setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData> | undefined) => Promise<void>
 ```
 
-| Param          | Type                                                                                                                                |
+| 参数          | 类型                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`callback`** | <code><a href="#maplistenercallback">MapListenerCallback</a>&lt;<a href="#mapclickcallbackdata">MapClickCallbackData</a>&gt;</code> |
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CreateMapArgs
 
 创建地图时使用的选项接口。
 
-| Prop              | Type                                                        | Description                                                                                                                                                                | Default            |
+| 属性              | 类型                                                        | 描述                                                                                                                                                                | 默认值            |
 | ----------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | **`id`**          | <code>string</code>                                         | 地图实例的唯一标识符。                                                                                                                                                  |                    |
 | **`apiKey`**      | <code>string</code>                                         | Google Maps SDK API 密钥。                                                                                                                                               |                    |
@@ -1016,7 +1016,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 GoogleMapConfig 继承了 google.maps.MapOptions。
 对于 iOS 和 Android，只有 <a href="#googlemapconfig">GoogleMapConfig</a> 上声明的配置选项可用。
 
-| Prop                   | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                   | Default            | Since |
+| 属性                   | 类型                                      | 描述                                                                                                                                                                                                                                                                                                                                                   | 默认值            | Since |
 | ---------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
 | **`width`**            | <code>number</code>                       | 覆盖原生地图的宽度。                                                                                                                                                                                                                                                                                                                                        |                    |       |
 | **`height`**           | <code>number</code>                       | 覆盖原生地图的高度。                                                                                                                                                                                                                                                                                                                                        |                    |       |
@@ -1041,7 +1041,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 表示纬度和经度坐标对的接口。
 
-| Prop      | Type                | Description                                                   |
+| 属性      | 类型                | 描述                                                   |
 | --------- | ------------------- | ------------------------------------------------------------- |
 | **`lat`** | <code>number</code> | 坐标纬度，以度为单位。该值在 [-90, 90] 范围内。        |
 | **`lng`** | <code>number</code> | 坐标经度，以度为单位。该值在 [-180, 180] 范围内。 |
@@ -1049,7 +1049,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 #### MapReadyCallbackData
 
-| Prop        | Type                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
@@ -1058,7 +1058,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 瓦片叠加层是放置在地图上方特定缩放级别的图像。适用于 iOS、Android 和 Web。
 
-| Prop          | Type                 | Description                                                                                                                               | Default                |
+| 属性          | 类型                 | 描述                                                                                                                               | 默认值                |
 | ------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | **`url`**     | <code>string</code>  | 表示瓦片 URL 的字符串。应包含 `{x}`、`{y}` 和 `{z}`，以便它们可以被实际的 x、y 和缩放值替换。适用于 iOS、Android 和 Web。              |                        |
 | **`opacity`** | <code>number</code>  | 瓦片叠加层的透明度，介于 0（完全透明）和 1（不透明）之间。适用于 iOS、Android 和 Web。                                                 | <code>undefined</code> |
@@ -1070,7 +1070,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 标记是放置在地图表面上特定位置的图标。
 
-| Prop             | Type                                                         | Description                                                                                                                                                                                   | Default            | Since |
+| 属性             | 类型                                                         | 描述                                                                                                                                                                                   | 默认值            | Since |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
 | **`coordinate`** | <code><a href="#latlng">LatLng</a></code>                    | <a href="#marker">标记</a> 位置                                                                                                                                                             |                    |       |
 | **`opacity`**    | <code>number</code>                                          | 设置标记的透明度，介于 0（完全透明）和 1（不透明）之间。                                                                                                                           | <code>1</code>     |       |
@@ -1088,7 +1088,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 #### Size
 
-| Prop         | Type                |
+| 属性         | 类型                |
 | ------------ | ------------------- |
 | **`width`**  | <code>number</code> |
 | **`height`** | <code>number</code> |
@@ -1096,7 +1096,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 
 #### Point
 
-| Prop    | Type                |
+| 属性    | 类型                |
 | ------- | ------------------- |
 | **`x`** | <code>number</code> |
 | **`y`** | <code>number</code> |
@@ -1108,7 +1108,7 @@ GoogleMapConfig 继承了 google.maps.MapOptions。
 Polygon 继承了 google.maps.PolygonOptions。
 对于 iOS 和 Android，只有 <a href="#polygon">Polygon</a> 上声明的配置选项可用。
 
-| Prop                | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 属性                | 类型                                      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **`paths`**         | <code>any[] \| MVCArray&lt;any&gt;</code> | 指定闭合循环的有序坐标序列。与折线不同，多边形可能由一条或多条路径组成。因此，paths 属性可以指定一个或多个 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; 坐标数组。路径会自动闭合；不要重复路径的第一个顶点作为最后一个顶点。简单多边形可以使用单个 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; 数组定义。更复杂的多边形可以指定一个数组的数组。任何简单数组都会被转换为 &lt;code&gt;&lt;a href="#MVCArray"&gt;MVCArray&lt;/a&gt;&lt;/code&gt;。从 &lt;code&gt;MVCArray&lt;/code&gt; 中插入或删除 &lt;code&gt;<a href="#latlng">LatLng</a>&lt;/code&gt; 将自动更新地图上的多边形。 |
 | **`strokeColor`**   | <code>string</code>                       | 描边颜色。支持所有 CSS3 颜色，除了扩展命名颜色。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -1128,7 +1128,7 @@ Polygon 继承了 google.maps.PolygonOptions。
 Circle 继承了 google.maps.CircleOptions。
 对于 iOS 和 Android，只有 <a href="#circle">Circle</a> 上声明的配置选项可用。
 
-| Prop               | Type                 | Description                                                                                                                                                                            |
+| 属性               | 类型                 | 描述                                                                                                                                                                            |
 | ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`fillColor`**    | <code>string</code>  | 填充颜色。支持所有 CSS3 颜色，除了扩展命名颜色。                                                                                                                                    |
 | **`fillOpacity`**  | <code>number</code>  | 填充透明度，介于 0.0 和 1.0 之间。                                                                                                                                                  |
@@ -1146,7 +1146,7 @@ Circle 继承了 google.maps.CircleOptions。
 Polyline 继承了 google.maps.PolylineOptions。
 对于 iOS 和 Android，只有 <a href="#polyline">Polyline</a> 上声明的配置选项可用。
 
-| Prop                | Type                     | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| 属性                | 类型                     | 描述                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`strokeColor`**   | <code>string</code>      | 描边颜色。支持所有 CSS3 颜色，除了扩展命名颜色。                                                                                                                                                                                                                                                                                                              |
 | **`strokeOpacity`** | <code>number</code>      | 描边透明度，介于 0.0 和 1.0 之间。                                                                                                                                                                                                                                                                                                                                                        |
@@ -1161,7 +1161,7 @@ Polyline 继承了 google.maps.PolylineOptions。
 
 描述折线某个区域的样式。
 
-| Prop           | Type                | Description                                                                           |
+| 属性           | 类型                | 描述                                                                           |
 | -------------- | ------------------- | ------------------------------------------------------------------------------------- |
 | **`color`**    | <code>string</code> | 描边颜色。支持所有 CSS3 颜色，除了扩展命名颜色。 |
 | **`segments`** | <code>number</code> | 此跨度的长度，以段数表示。                                    |
@@ -1171,7 +1171,7 @@ Polyline 继承了 google.maps.PolylineOptions。
 
 Google 地图相机的配置属性。
 
-| Prop                    | Type                                      | Description                                                                                                                | Default            |
+| 属性                    | 类型                                      | 描述                                                                                                                | 默认值            |
 | ----------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | **`coordinate`**        | <code><a href="#latlng">LatLng</a></code> | 相机指向的地球上的位置。                                                                                                     |                    |
 | **`zoom`**              | <code>number</code>                       | 设置地图的缩放级别。                                                                                                      |                    |
@@ -1185,7 +1185,7 @@ Google 地图相机的配置属性。
 
 控制视图"可见"区域的内边距设置。
 
-| Prop         | Type                |
+| 属性         | 类型                |
 | ------------ | ------------------- |
 | **`top`**    | <code>number</code> |
 | **`left`**   | <code>number</code> |
@@ -1195,7 +1195,7 @@ Google 地图相机的配置属性。
 
 #### CameraIdleCallbackData
 
-| Prop            | Type                      |
+| 属性            | 类型                      |
 | --------------- | ------------------------- |
 | **`mapId`**     | <code>string</code>       |
 | **`bounds`**    | <code>LatLngBounds</code> |
@@ -1208,7 +1208,7 @@ Google 地图相机的配置属性。
 
 #### CameraMoveStartedCallbackData
 
-| Prop            | Type                 |
+| 属性            | 类型                 |
 | --------------- | -------------------- |
 | **`mapId`**     | <code>string</code>  |
 | **`isGesture`** | <code>boolean</code> |
@@ -1216,7 +1216,7 @@ Google 地图相机的配置属性。
 
 #### ClusterClickCallbackData
 
-| Prop            | Type                              |
+| 属性            | 类型                              |
 | --------------- | --------------------------------- |
 | **`mapId`**     | <code>string</code>               |
 | **`latitude`**  | <code>number</code>               |
@@ -1227,7 +1227,7 @@ Google 地图相机的配置属性。
 
 #### MarkerCallbackData
 
-| Prop            | Type                |
+| 属性            | 类型                |
 | --------------- | ------------------- |
 | **`markerId`**  | <code>string</code> |
 | **`latitude`**  | <code>number</code> |
@@ -1238,14 +1238,14 @@ Google 地图相机的配置属性。
 
 #### MarkerClickCallbackData
 
-| Prop        | Type                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
 
 #### MapClickCallbackData
 
-| Prop            | Type                |
+| 属性            | 类型                |
 | --------------- | ------------------- |
 | **`mapId`**     | <code>string</code> |
 | **`latitude`**  | <code>number</code> |
@@ -1254,7 +1254,7 @@ Google 地图相机的配置属性。
 
 #### PolygonClickCallbackData
 
-| Prop            | Type                |
+| 属性            | 类型                |
 | --------------- | ------------------- |
 | **`mapId`**     | <code>string</code> |
 | **`polygonId`** | <code>string</code> |
@@ -1263,7 +1263,7 @@ Google 地图相机的配置属性。
 
 #### CircleClickCallbackData
 
-| Prop           | Type                |
+| 属性           | 类型                |
 | -------------- | ------------------- |
 | **`mapId`**    | <code>string</code> |
 | **`circleId`** | <code>string</code> |
@@ -1272,7 +1272,7 @@ Google 地图相机的配置属性。
 
 #### PolylineCallbackData
 
-| Prop             | Type                |
+| 属性             | 类型                |
 | ---------------- | ------------------- |
 | **`polylineId`** | <code>string</code> |
 | **`tag`**        | <code>string</code> |
@@ -1280,12 +1280,12 @@ Google 地图相机的配置属性。
 
 #### MyLocationButtonClickCallbackData
 
-| Prop        | Type                |
+| 属性        | 类型                |
 | ----------- | ------------------- |
 | **`mapId`** | <code>string</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### MapListenerCallback
@@ -1302,12 +1302,12 @@ Google 地图相机的配置属性。
 <code>google.maps.<a href="#marker">Marker</a> | google.maps.marker.AdvancedMarkerElement</code>
 
 
-### Enums
+### 枚举
 
 
 #### MapType
 
-| Members         | Value                    | Description                              |
+| Members         | Value                    | 描述                              |
 | --------------- | ------------------------ | ---------------------------------------- |
 | **`Normal`**    | <code>'Normal'</code>    | 基本地图。                               |
 | **`Hybrid`**    | <code>'Hybrid'</code>    | 带有道路和标签的卫星图像。 |

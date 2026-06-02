@@ -61,12 +61,12 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 * [`clearWatch(...)`](#clearwatch)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions(...)`](#requestpermissions)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
-有关错误代码列表，请参阅[错误](#errors)
+有关错误代码列表，请参阅[错误](#错误)
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->

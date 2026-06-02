@@ -209,7 +209,7 @@ export default config;
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -250,7 +250,7 @@ hide(options?: HideOptions | undefined) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions

@@ -42,7 +42,7 @@ await Share.share({
 
 * [`canShare()`](#canshare)
 * [`share(...)`](#share)
-* [Interfaces](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
@@ -57,9 +57,9 @@ canShare() => Promise<CanShareResult>
 
 检查是否支持分享。
 
-**Returns:** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#canshareresult">CanShareResult</a>&gt;</code>
 
-**Since:** 1.1.0
+**始于：** 1.1.0
 
 --------------------
 
@@ -72,37 +72,37 @@ share(options: ShareOptions) => Promise<ShareResult>
 
 显示分享模态框，与其他应用分享内容
 
-| Param         | Type                                                  |
+| 参数 | Type                                                  |
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#shareoptions">ShareOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#shareresult">ShareResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CanShareResult
 
-| Prop        | Type                 | Description                          | Since |
+| 属性 | Type                 | 描述 | 始于 |
 | ----------- | -------------------- | ------------------------------------ | ----- |
 | **`value`** | <code>boolean</code> | 是否支持分享。 | 1.1.0 |
 
 
 #### ShareResult
 
-| Prop               | Type                | Description                                                                                                              | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----- |
 | **`activityType`** | <code>string</code> | 接收分享操作的应用的标识符。某些情况下可能为空字符串。在 Web 上将是 undefined。 | 1.0.0 |
 
 
 #### ShareOptions
 
-| Prop              | Type                | Description                                                                | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ----------------- | ------------------- | -------------------------------------------------------------------------- | ----- |
 | **`title`**       | <code>string</code> | 为任何消息设置标题。如果是分享到邮件，这将是主题。 | 1.0.0 |
 | **`text`**        | <code>string</code> | 设置要分享的文本                                                     | 1.0.0 |

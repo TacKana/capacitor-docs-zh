@@ -13,7 +13,7 @@ slug: /ios/configuration
 
 `Info.plist` 文件是 iOS 应用的主要配置文件。每当 Capacitor 插件需要新设置或权限时，您可能需要编辑它。
 
-要修改它，[在 Xcode 中打开您的项目](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目和 **App** 目标，然后点击 **Info** 标签页。
+要修改它，[在 Xcode 中打开您的项目](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目和 **App** 目标，然后点击 **Info** 标签页。
 
 ![Xcode info 编辑器](../../../../static/img/v4/docs/ios/xcode-info-editor.png)
 
@@ -35,7 +35,7 @@ Capabilities 用于启用您的应用可能需要的关键功能。每当 Capaci
 
 与其他配置选项和使用说明不同，capabilities _不是_在 `Info.plist` 中配置的。
 
-要添加新的 capability，[在 Xcode 中打开您的应用](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目和 **App** 目标，点击标签栏中的 **Signing & Capabilities**，然后点击 **+ Capability** 按钮。有关 iOS capabilities 的更多信息，请参阅[此文章](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app)。
+要添加新的 capability，[在 Xcode 中打开您的应用](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目和 **App** 目标，点击标签栏中的 **Signing & Capabilities**，然后点击 **+ Capability** 按钮。有关 iOS capabilities 的更多信息，请参阅[此文章](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app)。
 
 ![Xcode Capabilities 界面](../../../../static/img/v4/docs/ios/xcode-capabilities.png)
 
@@ -43,7 +43,7 @@ Capabilities 用于启用您的应用可能需要的关键功能。每当 Capaci
 
 您不能重命名 `App` 目录，但可以通过重命名 **App** target 来设置应用的名称。
 
-要重命名 **App** target，[在 Xcode 中打开您的项目](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目，然后双击 **App** target。
+要重命名 **App** target，[在 Xcode 中打开您的项目](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目，然后双击 **App** target。
 
 ![Xcode Target 界面](../../../../static/img/v4/docs/ios/xcode-target.png)
 
@@ -57,7 +57,7 @@ Capabilities 用于启用您的应用可能需要的关键功能。每当 Capaci
  end
 ```
 
-最后，在 [Capacitor 配置文件](/main/reference/config.md#schema)的 `ios` 对象中添加 `scheme` 属性。
+最后，在 [Capacitor 配置文件](/main/reference/config.md#模式)的 `ios` 对象中添加 `scheme` 属性。
 
 ## 深度链接（又名 Universal Links）
 

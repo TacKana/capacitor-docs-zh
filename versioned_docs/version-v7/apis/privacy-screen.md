@@ -98,7 +98,7 @@ async function navigateToPublicScreen() {
 * [`enable(...)`](#enable)
 * [`disable()`](#disable)
 * [`isEnabled()`](#isenabled)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 

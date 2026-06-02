@@ -4,6 +4,7 @@ description: 启动屏幕 API 提供了显示或隐藏启动图片的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/splash-screen/src/definitions.ts
 sidebar_label: 启动屏幕
+translated: true
 ---
 
 # @capacitor/splash-screen
@@ -207,7 +208,7 @@ export default config;
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

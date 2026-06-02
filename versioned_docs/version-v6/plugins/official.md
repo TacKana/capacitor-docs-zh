@@ -1,7 +1,7 @@
 ---
-title: Capacitor Plugins
-description: Capacitor Plugins
-sidebar_label: Official Plugins
+title: Capacitor 插件
+description: Capacitor 插件
+sidebar_label: 官方插件
 contributors:
   - mlynch
   - jcesarmobile
@@ -9,13 +9,13 @@ contributors:
 slug: /apis
 ---
 
-# Official Plugins
+# 官方插件
 
-The Official Plugins are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs.
+官方插件是一组由 Capacitor 团队维护的 Capacitor 插件，提供对常用原生 API 的访问。
 
-The API documentation for these plugins can be found below.
+这些插件的 API 文档可以在下面找到。
 
-## List of Official Plugins
+## 官方插件列表
 
 - [Action Sheet](/apis/action-sheet.md)
 - [App Launcher](/apis/app-launcher.md)
@@ -51,4 +51,4 @@ The API documentation for these plugins can be found below.
 
 ## GitHub
 
-You can find the source for these plugins [on GitHub](https://github.com/ionic-team/capacitor-plugins).
+您可以在 [GitHub](https://github.com/ionic-team/capacitor-plugins) 上找到这些插件的源代码。

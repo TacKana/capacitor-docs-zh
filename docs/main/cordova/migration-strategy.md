@@ -42,4 +42,4 @@ Capacitor 是 Ionic Framework 官方支持的原生运行时。将 Ionic 和 Cap
 
 要在你的 Capacitor 应用中使用 Cordova 插件，[请参见此处](/plugins/cordova.md)。如果不存在替代插件，请继续按原样使用 Cordova 插件。如果你希望某个插件得到支持，请提交一个[插件提案](https://github.com/capacitor-community/proposals)！
 
-准备好[迁移到 Capacitor](/main/cordova/migrating-from-cordova-to-capacitor/) 了吗？
+准备好[迁移到 Capacitor](/cordova/migrating-from-cordova-to-capacitor) 了吗？

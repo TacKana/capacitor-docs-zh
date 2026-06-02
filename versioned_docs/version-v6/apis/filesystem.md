@@ -143,9 +143,9 @@ const readFilePath = async () => {
 * [`downloadFile(...)`](#downloadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -435,7 +435,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ReadFileResult
@@ -627,7 +627,7 @@ removeAllListeners() => Promise<void>
 | **`contentLength`**   | <code>number</code> | 此文件要下载的总字节数。                     | 5.1.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### RenameOptions
@@ -647,7 +647,7 @@ removeAllListeners() => Promise<void>
 <code>(progress: <a href="#progressstatus">ProgressStatus</a>): void</code>
 
 
-### Enums
+### 枚举
 
 
 #### Directory

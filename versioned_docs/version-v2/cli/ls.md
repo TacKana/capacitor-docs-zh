@@ -1,6 +1,6 @@
 ---
 title: CLI 命令 - cap ls
-description: Capacitor CLI - cap ls
+description: Capacitor CLI 命令 - cap ls
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/list

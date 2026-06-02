@@ -1,6 +1,6 @@
 ---
-title: Camera
-description: Camera API
+title: 相机
+description: 相机 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -13,8 +13,8 @@ translated: true
 Camera API 允许用户从相册中选择照片或拍照。在 iOS 上，使用 `UIImagePickerController`；在 Android 上，此 API 发送一个 intent，默认情况下将由核心相机应用处理。
 
 - [`getPhoto(...)`](#getphoto)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## iOS 注意事项
 

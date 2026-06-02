@@ -66,7 +66,7 @@ public class EchoPlugin extends Plugin {
 }
 ```
 
-> 为了让 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出到 Capacitor](#export-to-capacitor)。
+> 为了让 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出到 Capacitor](#导出到-capacitor)。
 
 ### Kotlin 示例
 
@@ -96,7 +96,7 @@ class EchoPlugin : Plugin() {
 }
 ```
 
-> 为了让 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出到 Capacitor](#export-to-capacitor)。
+> 为了让 Capacitor 识别你的插件，你需要在应用的 `MainActivity` 中[将其导出到 Capacitor](#导出到-capacitor)。
 
 建议将 Kotlin 文件放在 `android/src/main/java/` 目录下，Java 文件也可以放在同一目录中。
 
@@ -346,7 +346,7 @@ Capacitor 插件可以重写 WebView 导航。为此，插件可以重写 `publi
 这一步在应用的 `MainActivity` 中完成，例如在 `src/main/java/com/example/myapp/MainActivity.java` 中通过 `add` 方法添加：
 
 ```java
-// Other imports...
+// 其他导入...
 import com.example.myapp.EchoPlugin;
 
 public class MainActivity extends BridgeActivity {
@@ -354,10 +354,10 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // Initializes the Bridge
+    // 初始化 Bridge
     this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      // Ex: add(TotallyAwesomePlugin.class);
+      // 你安装的其他插件放在这里
+      // 例如：add(TotallyAwesomePlugin.class);
       add(EchoPlugin.class);
     }});
   }

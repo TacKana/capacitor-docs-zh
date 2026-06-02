@@ -69,8 +69,8 @@ const showStatusBar = async () => {
 * [`hide(...)`](#hide)
 * [`getInfo()`](#getinfo)
 * [`setOverlaysWebView(...)`](#setoverlayswebview)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -184,7 +184,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### StyleOptions
@@ -225,7 +225,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 | **`overlay`** | <code>boolean</code> | 是否覆盖状态栏。       | 1.0.0  |
 
 
-### Enums
+### 枚举
 
 
 #### Style

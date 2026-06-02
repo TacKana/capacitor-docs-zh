@@ -48,8 +48,8 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 * [`unlock()`](#unlock)
 * [`addListener('screenOrientationChange', ...)`](#addlistenerscreenorientationchange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 

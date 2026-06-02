@@ -75,7 +75,7 @@ public void openMap(PluginCall call) {
 }
 ```
 
-> 记得在 [iOS](/plugins/ios.md#export-to-capacitor) 和 [Android](/plugins/android.md#export-to-capacitor) 上将插件导出到 Capacitor（使其被 Capacitor 识别）。
+> 记得在 [iOS](/plugins/ios.md#导出到-capacitor) 和 [Android](/plugins/android.md#导出到-capacitor) 上将插件导出到 Capacitor（使其被 Capacitor 识别）。
 
 ## 本地测试
 

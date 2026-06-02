@@ -213,13 +213,13 @@ const appendBinaryData = async () => {
 * [`downloadFile(...)`](#downloadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 
-有关现有错误代码列表，请参阅[错误](#errors)。
+有关现有错误代码列表，请参阅[错误](#错误)。
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->

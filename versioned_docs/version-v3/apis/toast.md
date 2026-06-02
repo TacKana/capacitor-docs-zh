@@ -39,7 +39,7 @@ const showHelloToast = async () => {
 <docgen-index>
 
 * [`show(...)`](#show)
-* [Interfaces](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
@@ -54,21 +54,21 @@ show(options: ShowOptions) => Promise<void>
 
 在屏幕上显示 Toast
 
-| Param         | Type                                                |
+| 参数 | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions
 
-| Prop           | Type                                       | Description                                                       | Default               | Since |
+| 属性 | Type                                       | 描述 | 默认值 | 始于 |
 | -------------- | ------------------------------------------ | ----------------------------------------------------------------- | --------------------- | ----- |
 | **`text`**     | <code>string</code>                        | Toast 上显示的文字                                      |                       | 1.0.0 |
 | **`duration`** | <code>'short' \| 'long'</code>             | Toast 的持续时间，'short'（2000ms）或 'long'（3500ms） | <code>'short'</code>  | 1.0.0 |

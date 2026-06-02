@@ -66,8 +66,8 @@ const removeListeners = () => {
 * [`addListener('accel', ...)`](#addlisteneraccel-)
 * [`addListener('orientation', ...)`](#addlistenerorientation-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 

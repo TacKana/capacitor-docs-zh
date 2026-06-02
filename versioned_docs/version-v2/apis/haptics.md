@@ -1,6 +1,6 @@
 ---
-title: Haptics
-description: Haptics API
+title: 触觉反馈
+description: 触觉反馈 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -18,8 +18,8 @@ Haptics API 通过触摸或振动向用户提供物理反馈。
 - [`selectionStart()`](#selectionstart)
 - [`selectionChanged()`](#selectionchanged)
 - [`selectionEnd()`](#selectionend)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## Android 注意事项
 

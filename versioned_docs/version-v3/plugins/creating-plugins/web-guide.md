@@ -15,7 +15,7 @@ Capacitor 利用 Web/原生兼容层，使得构建同时在原生环境以及 W
 
 ## 开始
 
-首先，按照插件指南的[开始](/plugins/creating-plugins/overview.md#plugin-generator)部分中的说明生成一个插件。
+首先，按照插件指南的[开始](/plugins/creating-plugins/overview.md#插件生成器)部分中的说明生成一个插件。
 
 接下来，在你选择的编辑器中打开 `echo/src/web.ts`。
 

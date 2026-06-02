@@ -1,6 +1,6 @@
 ---
-title: App
-description: App API
+title: 应用
+description: 应用 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -24,7 +24,7 @@ App API 处理高级别的应用状态和事件。
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 关于 `canOpenUrl` 的说明
 

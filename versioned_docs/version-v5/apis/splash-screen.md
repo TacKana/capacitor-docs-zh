@@ -208,7 +208,7 @@ export default config;
 
 * [`show(...)`](#show)
 * [`hide(...)`](#hide)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 

@@ -46,8 +46,8 @@ const logBatteryInfo = async () => {
 * [`getBatteryInfo()`](#getbatteryinfo)
 * [`getLanguageCode()`](#getlanguagecode)
 * [`getLanguageTag()`](#getlanguagetag)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 

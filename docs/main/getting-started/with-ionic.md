@@ -50,7 +50,7 @@ ionic capacitor add android
 ionic capacitor add ios
 ```
 
-这将在项目根目录下为原生平台创建一个新目录。该目录是一个原生项目，应被视为源代码产物。了解更多关于[原生项目管理](/main/cordova/index.md#native-project-management)的信息。
+这将在项目根目录下为原生平台创建一个新目录。该目录是一个原生项目，应被视为源代码产物。了解更多关于[原生项目管理](/main/cordova/index.md#原生项目管理)的信息。
 
 :::info
 如果你的 Ionic 应用使用了 Cordova，我们还提供了关于如何[从 Cordova 迁移到 Capacitor](/main/cordova/migrating-from-cordova-to-capacitor.md)的指南。

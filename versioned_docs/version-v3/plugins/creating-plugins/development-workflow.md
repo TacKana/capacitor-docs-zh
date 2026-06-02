@@ -79,7 +79,7 @@ public void openMap(PluginCall call) {
 }
 ```
 
-> 记得在你的 `.m` 文件中[注册插件方法](/plugins/creating-plugins/ios-guide.md#export-to-capacitor)。
+> 记得在你的 `.m` 文件中[注册插件方法](/plugins/creating-plugins/ios-guide.md#导出到-capacitor)。
 
 这个示例包含了插件中最常见的方法类型，但所有支持类型的详细信息[可以在这里找到](/plugins/creating-plugins/method-types.md)。
 
@@ -119,7 +119,7 @@ npm uninstall echo
 - `verify`：构建并测试 Web 和原生代码
 - `lint`：检查 Web 和原生代码的格式
 - `fmt`：自动格式化 Web 和原生代码
-- `docgen`：从插件接口生成文档（参见[文档](#documentation)）
+- `docgen`：从插件接口生成文档（参见[文档](#文档)）
 - `build`：将 Web 代码构建为 ESM 和打包分发版本
 
 ## 文档

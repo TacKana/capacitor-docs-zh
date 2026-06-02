@@ -99,8 +99,8 @@ InAppBrowser.removeAllListeners();
 * [`addListener('browserClosed' | 'browserPageLoaded', ...)`](#addlistenerbrowserclosed--browserpageloaded-)
 * [`addListener('browserPageNavigationCompleted', ...)`](#addlistenerbrowserpagenavigationcompleted-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -210,7 +210,7 @@ removeAllListeners() => void
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenInWebViewParameterModel
@@ -336,7 +336,7 @@ removeAllListeners() => void
 | **`url`**  | <code>string</code> | 已加载页面的 URL。        |
 
 
-### Enums
+### 枚举
 
 
 #### ToolbarPosition

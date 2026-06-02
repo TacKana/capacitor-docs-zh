@@ -20,8 +20,8 @@ translated: true
 - [`hide(...)`](#hide)
 - [`getInfo()`](#getinfo)
 - [`setOverlaysWebView(...)`](#setoverlayswebview)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## iOS 注意事项
 

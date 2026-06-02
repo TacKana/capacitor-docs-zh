@@ -31,7 +31,7 @@ slug: /vscode/build-and-run
 您可以通过点击 `Debug` 项目并选择以下选项来进行调试（使用断点、检查变量等）：
 - **`Web`** - 启动 Chrome 或 Edge 并开始调试会话。
 - **`Android`** - 附加到正在运行的 Android web view 并开始调试会话。
-- **`iOS`** - VS Code 目前不支持 iOS。您可以使用 [Safari](debugging#use-safari)。
+- **`iOS`** - VS Code 目前不支持 iOS。您可以使用 [Safari](debugging#使用-safari)。
 
 ## 使用 HTTPS
 

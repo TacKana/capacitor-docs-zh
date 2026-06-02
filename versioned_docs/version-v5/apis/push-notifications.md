@@ -203,8 +203,8 @@ const getDeliveredNotifications = async () => {
 * [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
 * [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 

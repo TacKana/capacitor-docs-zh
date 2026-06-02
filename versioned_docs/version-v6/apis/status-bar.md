@@ -1,5 +1,5 @@
 ---
-title: Status Bar Capacitor Plugin API
+title: Status Bar Capacitor 插件 API
 description: StatusBar API 提供用于配置状态栏样式以及显示或隐藏状态栏的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/status-bar/src/definitions.ts
@@ -66,8 +66,8 @@ const showStatusBar = async () => {
 * [`hide(...)`](#hide)
 * [`getInfo()`](#getinfo)
 * [`setOverlaysWebView(...)`](#setoverlayswebview)
-* [接口](#interfaces)
-* [枚举](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -86,7 +86,7 @@ setStyle(options: StyleOptions) => Promise<void>
 | ------------- | ----------------------------------------------------- |
 | **`options`** | <code><a href="#styleoptions">StyleOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -105,7 +105,7 @@ setBackgroundColor(options: BackgroundColorOptions) => Promise<void>
 | ------------- | ------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#backgroundcoloroptions">BackgroundColorOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -126,7 +126,7 @@ show(options?: AnimationOptions | undefined) => Promise<void>
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#animationoptions">AnimationOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -143,7 +143,7 @@ hide(options?: AnimationOptions | undefined) => Promise<void>
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#animationoptions">AnimationOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -158,7 +158,7 @@ getInfo() => Promise<StatusBarInfo>
 
 **返回：** <code>Promise&lt;<a href="#statusbarinfo">StatusBarInfo</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -177,7 +177,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#setoverlayswebviewoptions">SetOverlaysWebViewOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -187,28 +187,28 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 
 #### StyleOptions
 
-| 属性          | 类型                                    | 描述                           | Since |
+| 属性          | 类型                                    | 描述                           | 始于 |
 | ------------- | --------------------------------------- | ------------------------------ | ----- |
 | **`style`**   | <code><a href="#style">Style</a></code> | 状态栏文本的<a href="#style">样式</a>。 | 1.0.0 |
 
 
 #### BackgroundColorOptions
 
-| 属性          | 类型                | 描述                                             | Since |
+| 属性          | 类型                | 描述                                             | 始于 |
 | ------------- | ------------------- | ------------------------------------------------ | ----- |
 | **`color`**   | <code>string</code> | 状态栏颜色被设置为此十六进制颜色。此选项仅支持 Android。 | 1.0.0 |
 
 
 #### AnimationOptions
 
-| 属性              | 类型                                            | 描述                                                   | 默认                           | Since |
+| 属性              | 类型                                            | 描述                                                   | 默认                           | 始于 |
 | ----------------- | ----------------------------------------------- | ------------------------------------------------------ | ----------------------------- | ----- |
 | **`animation`**   | <code><a href="#animation">Animation</a></code> | 显示或隐藏时使用的状态栏动画类型。此选项仅支持 iOS。       | <code>Animation.Fade</code> | 1.0.0 |
 
 
 #### StatusBarInfo
 
-| 属性             | 类型                                    | 描述                                           | Since |
+| 属性             | 类型                                    | 描述                                           | 始于 |
 | ---------------- | --------------------------------------- | ---------------------------------------------- | ----- |
 | **`visible`**    | <code>boolean</code>                    | 状态栏是否可见。                                   | 1.0.0 |
 | **`style`**      | <code><a href="#style">Style</a></code> | 当前状态栏样式。                                   | 1.0.0 |
@@ -218,7 +218,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 
 #### SetOverlaysWebViewOptions
 
-| 属性            | 类型                 | 描述                     | Since |
+| 属性            | 类型                 | 描述                     | 始于 |
 | --------------- | -------------------- | ------------------------ | ----- |
 | **`overlay`**   | <code>boolean</code> | 是否覆盖状态栏。           | 1.0.0 |
 
@@ -228,7 +228,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 
 #### Style
 
-| 成员            | 值                     | 描述                                                                                                                                                                                                                              | Since |
+| 成员            | 值                     | 描述                                                                                                                                                                                                                              | 始于 |
 | --------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`Dark`**      | <code>'DARK'</code>    | 深色背景下的浅色文本。                                                                                                                                                                                                             | 1.0.0 |
 | **`Light`**     | <code>'LIGHT'</code>   | 浅色背景下的深色文本。                                                                                                                                                                                                             | 1.0.0 |
@@ -237,7 +237,7 @@ setOverlaysWebView(options: SetOverlaysWebViewOptions) => Promise<void>
 
 #### Animation
 
-| 成员       | 值                  | 描述                         | Since |
+| 成员       | 值                  | 描述                         | 始于 |
 | ---------- | ------------------- | ---------------------------- | ----- |
 | **`None`** | <code>'NONE'</code> | 显示/隐藏时无动画。             | 1.0.0 |
 | **`Slide`**| <code>'SLIDE'</code>| 显示/隐藏时的滑动动画。在 iOS 15+ 上无效。 | 1.0.0 |

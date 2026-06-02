@@ -209,8 +209,8 @@ const getDeliveredNotifications = async () => {
 * [`addListener('pushNotificationReceived', ...)`](#addlistenerpushnotificationreceived-)
 * [`addListener('pushNotificationActionPerformed', ...)`](#addlistenerpushnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -487,7 +487,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### DeliveredNotifications
@@ -574,7 +574,7 @@ removeAllListeners() => Promise<void>
 | **`notification`**   | <code><a href="#pushnotificationschema">PushNotificationSchema</a></code>   | 执行操作的通知。                                               | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### Importance

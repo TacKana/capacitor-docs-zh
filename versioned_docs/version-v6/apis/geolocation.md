@@ -68,8 +68,8 @@ const printCurrentPosition = async () => {
 * [`clearWatch(...)`](#clearwatch)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions(...)`](#requestpermissions)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -166,7 +166,7 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### Position
@@ -209,7 +209,7 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | **`permissions`**   | <code>GeolocationPermissionType[]</code>   |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### WatchPositionCallback

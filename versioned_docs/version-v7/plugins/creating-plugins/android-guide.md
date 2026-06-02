@@ -135,11 +135,11 @@ public void load() {
 
 如果你的插件在 Android 上的功能需要最终用户的权限，那么你需要实现权限模式。
 
-在继续本部分之前，请确保你已经设置了权限别名和状态接口。如果还没有，请参阅[Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#permissions)。
+在继续本部分之前，请确保你已经设置了权限别名和状态接口。如果还没有，请参阅[Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#权限)。
 
 ### 注解更改
 
-> 仍在使用 `@NativePlugin`？请参阅[升级指南](/main/updating/plugins/3-0.md#use-the-new-capacitorplugin-annotation)切换到 `@CapacitorPlugin`。
+> 仍在使用 `@NativePlugin`？请参阅[升级指南](/main/updating/plugins/3-0.md#使用新的-capacitorplugin-注解)切换到 `@CapacitorPlugin`。
 
 ```diff
  @CapacitorPlugin(

@@ -13,13 +13,13 @@ slug: /ios/viewcontroller
 
 ## 何时创建子类
 
-需要子类化的一些示例包括：在运行时覆盖 Capacitor 的配置值、更改 [`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) 的属性、为 Capacitor 提供自定义的 [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview) 子类、集成建议在 [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) 中添加代码的第三方 SDK、在原生视图显示在屏幕上之前操作它们，或[注册自定义插件](../ios/custom-code.md#register-the-plugin)。
+需要子类化的一些示例包括：在运行时覆盖 Capacitor 的配置值、更改 [`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) 的属性、为 Capacitor 提供自定义的 [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview) 子类、集成建议在 [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) 中添加代码的第三方 SDK、在原生视图显示在屏幕上之前操作它们，或[注册自定义插件](../ios/custom-code.md#注册插件)。
 
 如果您确实需要创建自定义子类，有几个步骤可以开始。
 
 ### 创建 `MyViewController.swift`
 
-首先，通过[打开 Xcode](/main/ios/index.md#opening-the-ios-project)，右键点击 **App** 组（在 **App** target 下），从上下文菜单中选择 **New File...**，在窗口中选择 **Cocoa Touch Class**，在下一个屏幕中将 **Subclass of:** 设置为 `UIViewController`，并保存文件，来创建一个 `MyViewController.swift` 文件。
+首先，通过[打开 Xcode](/main/ios/index.md#打开-ios-项目)，右键点击 **App** 组（在 **App** target 下），从上下文菜单中选择 **New File...**，在窗口中选择 **Cocoa Touch Class**，在下一个屏幕中将 **Subclass of:** 设置为 `UIViewController`，并保存文件，来创建一个 `MyViewController.swift` 文件。
 
 ![在 Xcode 中新建 ViewController](/img/v6/docs/ios/xcode-create-viewcontroller.png)
 ![在 Xcode 中命名 ViewController](/img/v6/docs/ios/xcode-name-viewcontroller.png)

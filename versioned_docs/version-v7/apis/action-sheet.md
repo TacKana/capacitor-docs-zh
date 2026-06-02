@@ -60,8 +60,8 @@ const showActions = async () => {
 <docgen-index>
 
 * [`showActions(...)`](#showactions)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -87,7 +87,7 @@ showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowActionsResult

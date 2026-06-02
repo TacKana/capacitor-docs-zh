@@ -13,7 +13,7 @@ slug: /ios/configuration
 
 `Info.plist` 文件是 iOS 应用的主要配置文件。每当 Capacitor 插件需要新的设置或权限时，你可能需要编辑它。
 
-要修改它，请[在 Xcode 中打开你的项目](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目和 **App** target，然后点击 **Info** 选项卡。
+要修改它，请[在 Xcode 中打开你的项目](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目和 **App** target，然后点击 **Info** 选项卡。
 
 ![Xcode info 编辑器](/img/v6/docs/ios/xcode-info-editor.png)
 
@@ -35,7 +35,7 @@ Capabilities 用于启用你的应用可能需要的关键功能。每当 Capaci
 
 与其他配置选项和使用说明不同，Capabilities **不在** `Info.plist` 中配置。
 
-要添加新的 capability，请[在 Xcode 中打开你的应用](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目和 **App** target，点击选项卡栏中的 **Signing & Capabilities**，然后点击 **+ Capability** 按钮。有关 iOS capabilities 的更多信息，请参见[此文章](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app)。
+要添加新的 capability，请[在 Xcode 中打开你的应用](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目和 **App** target，点击选项卡栏中的 **Signing & Capabilities**，然后点击 **+ Capability** 按钮。有关 iOS capabilities 的更多信息，请参见[此文章](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app)。
 
 ![Xcode Capabilities](/img/v6/docs/ios/xcode-capabilities.png)
 
@@ -43,7 +43,7 @@ Capabilities 用于启用你的应用可能需要的关键功能。每当 Capaci
 
 你不能重命名 `App` 目录，但可以通过重命名 **App** target 来设置应用的名称。
 
-要重命名 **App** target，请[在 Xcode 中打开你的项目](/main/ios/index.md#opening-the-ios-project)，选择 **App** 项目，然后双击 **App** target。
+要重命名 **App** target，请[在 Xcode 中打开你的项目](/main/ios/index.md#打开-ios-项目)，选择 **App** 项目，然后双击 **App** target。
 
 ![Xcode Target](/img/v6/docs/ios/xcode-target.png)
 

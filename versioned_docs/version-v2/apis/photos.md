@@ -1,6 +1,6 @@
 ---
-title: Photos
-description: Photos API
+title: 相册
+description: 相册 API
 contributors:
   - mlynch
   - jcesarmobile

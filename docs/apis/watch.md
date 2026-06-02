@@ -236,7 +236,7 @@ npx cap sync
 * [`addListener('runCommand', ...)`](#addlistenerruncommand-)
 * [`updateWatchUI(...)`](#updatewatchui)
 * [`updateWatchData(...)`](#updatewatchdata)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -291,7 +291,7 @@ updateWatchData(options: { data: { [key: string]: string; }; }) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### PluginListenerHandle

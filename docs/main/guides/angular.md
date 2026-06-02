@@ -1,5 +1,5 @@
 ---
-title: Angular
+title: Angular 集成
 description: 在 Capacitor 中使用 Angular
 slug: /guides/angular
 ---

@@ -1,6 +1,6 @@
 ---
-title: Keyboard
-description: Keyboard API
+title: 键盘
+description: 键盘 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -23,8 +23,8 @@ Keyboard API 提供键盘显示和可见性控制，以及在键盘显示和隐�
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
-- [枚举](#enums)
+- [接口](#接口)
+- [枚举](#枚举)
 
 ## 与 cordova-plugin-ionic-keyboard 兼容的 Window 事件
 

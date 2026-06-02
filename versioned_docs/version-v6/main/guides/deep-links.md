@@ -1,5 +1,5 @@
 ---
-title: Deep Links
+title: 深度链接
 description: 在 iOS 和 Android 应用中实现深度链接功能
 contributors:
   - dotNetkow

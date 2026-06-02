@@ -78,8 +78,8 @@ const logBatteryInfo = async () => {
 * [`getBatteryInfo()`](#getbatteryinfo)
 * [`getLanguageCode()`](#getlanguagecode)
 * [`getLanguageTag()`](#getlanguagetag)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -161,7 +161,7 @@ getLanguageTag() => Promise<LanguageTag>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### DeviceId
@@ -214,7 +214,7 @@ getLanguageTag() => Promise<LanguageTag>
 | **`value`**   | <code>string</code> | 返回一个格式良好的 IETF BCP 47 语言标签。       | 4.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### OperatingSystem

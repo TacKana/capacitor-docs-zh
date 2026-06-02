@@ -1,5 +1,5 @@
 ---
-title: Text Zoom Capacitor Plugin API
+title: Text Zoom Capacitor 插件 API
 description: Text Zoom API 提供了更改 Web View 文字大小以实现视觉无障碍的能力。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/text-zoom/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/text-zoom/src/definitions.ts
@@ -35,7 +35,7 @@ npx cap sync
 * [`get()`](#get)
 * [`getPreferred()`](#getpreferred)
 * [`set(...)`](#set)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

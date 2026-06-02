@@ -139,7 +139,7 @@ Android 13 需要权限检查才能发送通知。你需要相应地调用 `chec
 
 在构建复杂应用的过程中，有时需要在应用不在前台时执行工作。标准 Capacitor 应用的挑战在于，当这些后台事件发生时，Web 视图不可用，因此你需要编写原生代码来处理这些事件。这就是 Background Runner 插件的作用所在。
 
-Background Runner 让你可以轻松编写 JavaScript 代码来处理原生后台事件。你只需要创建你的 runner JavaScript 文件并[定义配置](#configuring-background-runner)，然后 Background Runner 插件将自动配置和调度一个原生后台任务，该任务将根据你的配置和平台的规则执行。无需修改你的 UI 代码。
+Background Runner 让你可以轻松编写 JavaScript 代码来处理原生后台事件。你只需要创建你的 runner JavaScript 文件并[定义配置](#配置-background-runner)，然后 Background Runner 插件将自动配置和调度一个原生后台任务，该任务将根据你的配置和平台的规则执行。无需修改你的 UI 代码。
 
 
 ## 使用 Background Runner
@@ -310,8 +310,8 @@ Background Runner 不在浏览器或 Web 视图中执行你的 JavaScript 代码
 * [`dispatchEvent(...)`](#dispatchevent)
 * [`addListener('backgroundRunnerNotificationReceived', ...)`](#addlistenerbackgroundrunnernotificationreceived-)
 * [`removeNotificationListeners()`](#removenotificationlisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -406,7 +406,7 @@ removeNotificationListeners() => any
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### PermissionStatus
@@ -448,7 +448,7 @@ removeNotificationListeners() => any
 | **`remove`** | <code>() =&gt; any</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### PermissionState
@@ -468,7 +468,7 @@ removeNotificationListeners() => any
 
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
-### Interfaces
+### 接口
 
 
 #### CapacitorDevice

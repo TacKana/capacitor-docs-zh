@@ -113,7 +113,7 @@ public class ScreenOrientationPlugin: CAPPlugin, CAPBridgedPlugin {
 }
 ```
 
-最后，按照 <a href="https://capacitorjs.com/docs/ios/custom-code#register-the-plugin" _target="blank">这些说明</a> 执行以下操作：
+最后，按照 <a href="https://capacitorjs.com/docs/ios/custom-code#注册插件" _target="blank">这些说明</a> 执行以下操作：
 
 - 创建一个自定义 View Controller。
 - 注册插件实例。

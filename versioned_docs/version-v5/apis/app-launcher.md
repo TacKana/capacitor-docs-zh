@@ -53,12 +53,12 @@ const openPortfolioPage = async () => {
 
 * [`canOpenUrl(...)`](#canopenurl)
 * [`openUrl(...)`](#openurl)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### canOpenUrl(...)
 
@@ -109,7 +109,7 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CanOpenURLResult

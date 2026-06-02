@@ -113,8 +113,8 @@ export default config;
 * [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
 * [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -343,7 +343,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### KeyboardStyleOptions
@@ -374,7 +374,7 @@ removeAllListeners() => Promise<void>
 | **`keyboardHeight`**   | <code>number</code> | 键盘的高度。       | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### KeyboardStyle

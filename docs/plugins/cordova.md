@@ -13,7 +13,7 @@ slug: /plugins/cordova
 
 Capacitor 插件使用常规的包管理器安装，然后同步到原生项目中。Cordova 插件在 Capacitor 中的安装过程相同。
 
-安装插件，同步，然后完成所需的原生项目配置（请参阅[变量和钩子](#variables-and-hooks)）：
+安装插件，同步，然后完成所需的原生项目配置（请参阅[变量和钩子](#变量和钩子)）：
 
 ```bash
 npm install cordova-plugin-name
@@ -45,7 +45,7 @@ npx cap ls
 
 ## 兼容性问题
 
-Capacitor 与某些 Cordova 插件之间可能存在兼容性问题。许多官方 Cordova 插件不应使用，因为 Capacitor 提供了[官方替代方案](/plugins/official.md)。使用变量和钩子的 Cordova 插件可能部分兼容。某些 Cordova 插件完全不兼容（请参阅[此列表](#known-incompatible-plugins)）。
+Capacitor 与某些 Cordova 插件之间可能存在兼容性问题。许多官方 Cordova 插件不应使用，因为 Capacitor 提供了[官方替代方案](/plugins/official.md)。使用变量和钩子的 Cordova 插件可能部分兼容。某些 Cordova 插件完全不兼容（请参阅[此列表](#已知不兼容的插件)）。
 
 如果你发现现有 Cordova 插件存在问题，请[告诉我们](https://github.com/ionic-team/capacitor/issues/new)，提供问题的详细信息和插件相关信息。
 

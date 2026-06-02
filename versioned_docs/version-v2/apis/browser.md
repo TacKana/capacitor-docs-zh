@@ -1,6 +1,6 @@
 ---
-title: Browser
-description: Browser API
+title: 浏览器
+description: 浏览器 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -16,7 +16,7 @@ translated: true
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 Browser API 使得打开应用内浏览器会话以显示外部 Web 内容、处理认证流程等变得简单。
 

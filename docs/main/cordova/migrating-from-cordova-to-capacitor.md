@@ -14,7 +14,7 @@ slug: /cordova/migrating-from-cordova-to-capacitor
 
 ## 添加 Capacitor
 
-首先在终端中打开你的项目，然后按照指南[将 Capacitor 添加到 Web 应用](/main/getting-started/installation.md#add-capacitor-to-your-web-app)或[将 Capacitor 添加到 Ionic 应用](/main/getting-started/with-ionic.md#installing-capacitor-to-an-existing-ionic-project)进行操作。
+首先在终端中打开你的项目，然后按照指南[将 Capacitor 添加到 Web 应用](/main/getting-started/installation.md#将-capacitor-添加到你的-web-应用)或[将 Capacitor 添加到 Ionic 应用](/main/getting-started/with-ionic.md#在现有-ionic-项目中安装-capacitor)进行操作。
 
 使用 Capacitor 初始化你的应用。系统提示你输入的一些信息可以在 Cordova 的 `config.xml` 文件中找到：
 
@@ -44,7 +44,7 @@ npx cap add ios
 npx cap add android
 ```
 
-android 和 ios 文件夹都创建在项目的根目录下。这些是完全独立的原生项目产物，应被视为你应用的一部分（即，将它们签入源代码管理，在它们自己的 IDE 中编辑等）。此外，在 `package.json` 的 `dependencies` 中找到的任何 Cordova 插件都会由 Capacitor 自动安装到每个新的原生项目中（排除任何[不兼容的插件](/plugins/cordova.md#known-incompatible-plugins)）：
+android 和 ios 文件夹都创建在项目的根目录下。这些是完全独立的原生项目产物，应被视为你应用的一部分（即，将它们签入源代码管理，在它们自己的 IDE 中编辑等）。此外，在 `package.json` 的 `dependencies` 中找到的任何 Cordova 插件都会由 Capacitor 自动安装到每个新的原生项目中（排除任何[不兼容的插件](/plugins/cordova.md#已知不兼容的插件)）：
 
 ```json
 "dependencies": {
@@ -79,7 +79,7 @@ npx @capacitor/assets generate --android
 
 某些插件可能在功能上不完全匹配，但根据你所需的功能，这可能并不重要。
 
-请注意，任何[不兼容或导致构建问题的插件](/plugins/cordova.md#known-incompatible-plugins)都会被自动跳过。
+请注意，任何[不兼容或导致构建问题的插件](/plugins/cordova.md#已知不兼容的插件)都会被自动跳过。
 
 ### 移除 Cordova 插件
 

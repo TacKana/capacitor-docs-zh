@@ -124,8 +124,8 @@ InAppBrowser.removeAllListeners();
 * [`addListener('browserClosed' | 'browserPageLoaded', ...)`](#addlistenerbrowserclosed--browserpageloaded-)
 * [`addListener('browserPageNavigationCompleted', ...)`](#addlistenerbrowserpagenavigationcompleted-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -140,7 +140,7 @@ openInWebView(model: OpenInWebViewParameterModel) => Promise<void>
 
 在你的移动应用中使用自定义 WebView 打开给定 URL 的 Web 内容。
 
-| Param       | Type                                                                                | Description                                    |
+| 参数       | 类型                                                                                | 描述                                    |
 | ----------- | ----------------------------------------------------------------------------------- | ---------------------------------------------- |
 | **`model`** | <code><a href="#openinwebviewparametermodel">OpenInWebViewParameterModel</a></code> | 在 WebView 中打开 URL 的参数 |
 
@@ -155,7 +155,7 @@ openInSystemBrowser(model: OpenInSystemBrowserParameterModel) => Promise<void>
 
 在你的移动应用中使用 SafariViewController（iOS）和 Custom Tabs（Android）打开给定 URL 的 Web 内容。
 
-| Param       | Type                                                                                            | Description                                          |
+| 参数       | 类型                                                                                            | 描述                                          |
 | ----------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 | **`model`** | <code><a href="#openinsystembrowserparametermodel">OpenInSystemBrowserParameterModel</a></code> | 在系统浏览器中打开 URL 的参数 |
 
@@ -170,7 +170,7 @@ openInExternalBrowser(model: OpenInDefaultParameterModel) => Promise<void>
 
 在移动应用外部的单独浏览器中打开给定 URL 的 Web 内容。
 
-| Param       | Type                                                                                | Description                                            |
+| 参数       | 类型                                                                                | 描述                                            |
 | ----------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | **`model`** | <code><a href="#openindefaultparametermodel">OpenInDefaultParameterModel</a></code> | 在外部浏览器中打开 URL 的参数 |
 
@@ -196,7 +196,7 @@ addListener(eventName: "browserClosed" | "browserPageLoaded", listenerFunc: () =
 
 为指定的浏览器事件添加监听器，不返回数据。
 
-| Param              | Type                                                | Description                                                                          |
+| 参数              | 类型                                                | 描述                                                                          |
 | ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'browserClosed' \| 'browserPageLoaded'</code> | 要监听的浏览器事件名称：'browserClosed' 或 'browserPageLoaded'。 |
 | **`listenerFunc`** | <code>() =&gt; void</code>                          | 事件发生时调用的函数。                                     |
@@ -214,7 +214,7 @@ addListener(eventName: "browserPageNavigationCompleted", listenerFunc: (data: Br
 
 为指定的浏览器事件添加监听器，该事件接收数据。
 
-| Param              | Type                                                                                                                           | Description                                                                                                   |
+| 参数              | 类型                                                                                                                           | 描述                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'browserPageNavigationCompleted'</code>                                                                                  | 要监听的浏览器事件名称：'browserPageNavigationCompleted'。仅适用于 openInWebView。 |
 | **`listenerFunc`** | <code>(data: <a href="#browserpagenavigationcompletedeventdata">BrowserPageNavigationCompletedEventData</a>) =&gt; void</code> | 事件发生时调用的函数。                                                              |
@@ -235,14 +235,14 @@ removeAllListeners() => void
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenInWebViewParameterModel
 
 定义在 WebView 中打开 URL 的选项。
 
-| Prop                | Type                                                      | Description                                                          |
+| 属性                | 类型                                                      | 描述                                                          |
 | ------------------- | --------------------------------------------------------- | -------------------------------------------------------------------- |
 | **`options`**       | <code><a href="#webviewoptions">WebViewOptions</a></code> | 包含一些要应用于 WebView 的配置的结构体。 |
 | **`customHeaders`** | <code>{ [key: string]: string; }</code>                   | 随请求发送的自定义请求头映射。                 |
@@ -250,7 +250,7 @@ removeAllListeners() => void
 
 #### WebViewOptions
 
-| Prop                                  | Type                                                                    | Description                                                                                             |
+| 属性                                  | 类型                                                                    | 描述                                                                                             |
 | ------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **`showURL`**                         | <code>boolean</code>                                                    | 在 WebView 上显示 URL。                                                                       |
 | **`showToolbar`**                     | <code>boolean</code>                                                    | 在 WebView 上显示工具栏。                                                                   |
@@ -268,7 +268,7 @@ removeAllListeners() => void
 
 #### AndroidWebViewOptions
 
-| Prop               | Type                 | Description                                                                                                                                |
+| 属性               | 类型                 | 描述                                                                                                                                |
 | ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **`allowZoom`**    | <code>boolean</code> | 显示 Android 浏览器的缩放控件。                                                                                                 |
 | **`hardwareBack`** | <code>boolean</code> | 使用硬件返回按钮在 WebView 的历史记录中向后导航。如果没有上一页，WebView 将关闭。 |
@@ -278,7 +278,7 @@ removeAllListeners() => void
 
 #### iOSWebViewOptions
 
-| Prop                                      | Type                                                  | Description                                                                                                                                                                                                    |
+| 属性                                      | 类型                                                  | 描述                                                                                                                                                                                                    |
 | ----------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`allowOverScroll`**                     | <code>boolean</code>                                  | 打开 WebView 的弹跳属性。                                                                                                                                                                         |
 | **`enableViewportScale`**                 | <code>boolean</code>                                  | 通过 meta 标签防止视口缩放。                                                                                                                                                                  |
@@ -293,14 +293,14 @@ removeAllListeners() => void
 
 定义在系统浏览器中打开 URL 的选项。
 
-| Prop          | Type                                                                  | Description                                                                |
+| 属性          | 类型                                                                  | 描述                                                                |
 | ------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#systembrowseroptions">SystemBrowserOptions</a></code> | 包含一些要应用于系统浏览器的配置的结构体。 |
 
 
 #### SystemBrowserOptions
 
-| Prop          | Type                                                                                | Description                              |
+| 属性          | 类型                                                                                | 描述                              |
 | ------------- | ----------------------------------------------------------------------------------- | ---------------------------------------- |
 | **`android`** | <code><a href="#androidsystembrowseroptions">AndroidSystemBrowserOptions</a></code> | Android 特定的系统浏览器选项。 |
 | **`iOS`**     | <code><a href="#iossystembrowseroptions">iOSSystemBrowserOptions</a></code>         | iOS 特定的系统浏览器选项。     |
@@ -308,7 +308,7 @@ removeAllListeners() => void
 
 #### AndroidSystemBrowserOptions
 
-| Prop                      | Type                                                              | Description                                                                                                                      |
+| 属性                      | 类型                                                              | 描述                                                                                                                      |
 | ------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | **`showTitle`**           | <code>boolean</code>                                              | 启用标题显示。                                                                                                       |
 | **`hideToolbarOnScroll`** | <code>boolean</code>                                              | 滚动时隐藏工具栏。                                                                                                |
@@ -320,7 +320,7 @@ removeAllListeners() => void
 
 #### AndroidBottomSheet
 
-| Prop          | Type                 | Description                                                                                                                                                                        |
+| 属性          | 类型                 | 描述                                                                                                                                                                        |
 | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`height`**  | <code>number</code>  | 设置底部表单的高度（以像素为单位）。Custom Tabs 将底部高度设置为至少屏幕的 50%。如果未传递值，则默认为最小值。 |
 | **`isFixed`** | <code>boolean</code> | 设置底部表单是否固定。                                                                                                                                            |
@@ -328,7 +328,7 @@ removeAllListeners() => void
 
 #### iOSSystemBrowserOptions
 
-| Prop                       | Type                                                  | Description                                          |
+| 属性                       | 类型                                                  | 描述                                          |
 | -------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
 | **`closeButtonText`**      | <code><a href="#dismissstyle">DismissStyle</a></code> | 设置用作关闭按钮标题的文本。    |
 | **`viewStyle`**            | <code><a href="#iosviewstyle">iOSViewStyle</a></code> | 设置 SafariViewController 的呈现样式。 |
@@ -341,14 +341,14 @@ removeAllListeners() => void
 
 定义在外部浏览器中打开 URL 的选项，并被其他选项使用。
 
-| Prop      | Type                | Description                                                                            |
+| 属性      | 类型                | 描述                                                                            |
 | --------- | ------------------- | -------------------------------------------------------------------------------------- |
 | **`url`** | <code>string</code> | 要打开的 URL。必须包含 'http' 或 'https' 作为协议前缀。 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
@@ -357,12 +357,12 @@ removeAllListeners() => void
 
 定义 'browserPageNavigationCompleted' 事件的数据。
 
-| Prop      | Type                | Description                          |
+| 属性      | 类型                | 描述                          |
 | --------- | ------------------- | ------------------------------------ |
 | **`url`** | <code>string</code> | 已加载页面的 URL。 |
 
 
-### Enums
+### 枚举
 
 
 #### ToolbarPosition

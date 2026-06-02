@@ -51,7 +51,7 @@ npm install @capacitor/app @capacitor/haptics @capacitor/keyboard @capacitor/sta
 ionic capacitor add
 ```
 
-这将在项目根目录中为原生平台创建一个新目录。该目录是一个原生项目，应被视为源代码资产。了解更多关于[原生项目管理](/main/cordova/index.md#native-project-management)的信息。
+这将在项目根目录中为原生平台创建一个新目录。该目录是一个原生项目，应被视为源代码资产。了解更多关于[原生项目管理](/main/cordova/index.md#原生项目管理)的信息。
 
 ## 工作流
 

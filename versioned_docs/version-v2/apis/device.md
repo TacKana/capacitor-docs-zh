@@ -1,6 +1,6 @@
 ---
-title: Device
-description: Device API
+title: 设备
+description: 设备 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -15,7 +15,7 @@ Device API 公开了设备的内部信息，例如型号和操作系统版本，
 - [`getInfo()`](#getinfo)
 - [`getBatteryInfo()`](#getbatteryinfo)
 - [`getLanguageCode()`](#getlanguagecode)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

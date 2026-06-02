@@ -47,12 +47,12 @@ const openCapacitorSite = async () => {
 * [`addListener('browserFinished', ...)`](#addlistenerbrowserfinished-)
 * [`addListener('browserPageLoaded', ...)`](#addlistenerbrowserpageloaded-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### open(...)
 
@@ -142,7 +142,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenOptions

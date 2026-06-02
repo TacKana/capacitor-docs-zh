@@ -1,6 +1,6 @@
 ---
-title: Console
-description: Console API
+title: 控制台
+description: 控制台 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -11,7 +11,7 @@ translated: true
 
 Console API 自动将 `console.debug`、`console.error`、`console.info`、`console.log`、`console.trace` 和 `console.warn` 调用发送到每个平台的原生日志系统。这使得例如 `console.log` 调用可以在 Xcode 和 Android Studio 的日志窗口中显示。
 
-可以通过在 `capacitor.config.json` 中使用 `hideLogs` 配置项来禁用它，查看[通用配置](/basics/configuring-your-app.md#common-configuration)了解更多信息。
+可以通过在 `capacitor.config.json` 中使用 `hideLogs` 配置项来禁用它，查看[通用配置](/basics/configuring-your-app.md#通用配置)了解更多信息。
 
 ## 示例
 

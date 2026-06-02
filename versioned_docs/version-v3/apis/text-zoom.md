@@ -25,7 +25,7 @@ npx cap sync
 * [`get()`](#get)
 * [`getPreferred()`](#getpreferred)
 * [`set(...)`](#set)
-* [Interfaces](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 
@@ -42,9 +42,9 @@ get() => Promise<GetResult>
 
 缩放级别表示为小数（例如 1.2 表示 120%）。
 
-**Returns:** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#getresult">GetResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -59,9 +59,9 @@ getPreferred() => Promise<GetPreferredResult>
 
 缩放级别表示为小数（例如 1.2 表示 120%）。
 
-**Returns:** <code>Promise&lt;<a href="#getpreferredresult">GetPreferredResult</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#getpreferredresult">GetPreferredResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -76,35 +76,35 @@ set(options: SetOptions) => Promise<void>
 
 缩放级别表示为小数（例如 1.2 表示 120%）。
 
-| Param         | Type                                              |
+| 参数 | Type                                              |
 | ------------- | ------------------------------------------------- |
 | **`options`** | <code><a href="#setoptions">SetOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### GetResult
 
-| Prop        | Type                | Description                                        | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ----------- | ------------------- | -------------------------------------------------- | ----- |
 | **`value`** | <code>number</code> | 当前缩放级别（表示为小数）。 | 1.0.0 |
 
 
 #### GetPreferredResult
 
-| Prop        | Type                | Description                                          | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ----------- | ------------------- | ---------------------------------------------------- | ----- |
 | **`value`** | <code>number</code> | 首选缩放级别（表示为小数）。 | 1.0.0 |
 
 
 #### SetOptions
 
-| Prop        | Type                | Description                                    | Since |
+| 属性 | Type                | 描述 | 始于 |
 | ----------- | ------------------- | ---------------------------------------------- | ----- |
 | **`value`** | <code>number</code> | 新的缩放级别（表示为小数）。 | 1.0.0 |
 

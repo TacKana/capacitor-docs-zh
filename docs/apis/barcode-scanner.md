@@ -44,8 +44,8 @@ ext {
 <docgen-index>
 
 * [`scanBarcode(...)`](#scanbarcode)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -76,7 +76,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 --------------------
 
 
-### Type Aliases
+### 类型别名
 
 
 #### CapacitorBarcodeScannerScanResult
@@ -103,7 +103,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 <code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
 
 
-### Enums
+### 枚举
 
 
 #### Html5QrcodeSupportedFormats

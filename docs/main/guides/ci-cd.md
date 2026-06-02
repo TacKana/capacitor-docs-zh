@@ -1,5 +1,5 @@
 ---
-title: CI/CD
+title: CI/CD 集成
 description: 为你的 Capacitor 应用开发流程添加移动端 CI/CD
 contributors:
   - mlynch

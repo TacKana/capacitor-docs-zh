@@ -286,7 +286,7 @@ const editFromURI = async (uri: string) => {
 
 #### `CameraSource.Camera` 替换为 `takePhoto`
 
-新 API 不再支持 `CameraResultType.Base64` 和 `CameraResultType.DataUrl`。请参阅[结果类型变更](#result-type-changes)了解替代方案。
+新 API 不再支持 `CameraResultType.Base64` 和 `CameraResultType.DataUrl`。请参阅[结果类型变更](#结果类型变更)了解替代方案。
 
 ```typescript
 // 之前
@@ -422,7 +422,7 @@ for (const result of results) {
 | `height` | `targetHeight` (1) | `takePhoto`, `chooseFromGallery` |
 | `direction` | `cameraDirection` | `takePhoto` |
 | `allowEditing` | `editable: 'in-app'` | `takePhoto`, `chooseFromGallery` |
-| `resultType` | —（已移除，请参阅[结果类型变更](#result-type-changes)） | — |
+| `resultType` | —（已移除，请参阅[结果类型变更](#结果类型变更)） | — |
 | `source` | —（已移除，请使用单独的方法） | — |
 | `promptLabel*` | —（已移除，请构建自己的 UI） | — |
 
@@ -444,13 +444,13 @@ for (const result of results) {
 * [`requestPermissions(...)`](#requestpermissions)
 * [`getPhoto(...)`](#getphoto)
 * [`pickImages(...)`](#pickimages)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
-有关现有错误代码的列表，请参阅 [错误](#errors)。
+有关现有错误代码的列表，请参阅 [错误](#错误)。
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新以下文档-->

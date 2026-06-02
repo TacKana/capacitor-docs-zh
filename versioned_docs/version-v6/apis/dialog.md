@@ -57,7 +57,7 @@ const showPrompt = async () => {
 * [`alert(...)`](#alert)
 * [`prompt(...)`](#prompt)
 * [`confirm(...)`](#confirm)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -119,7 +119,7 @@ confirm(options: ConfirmOptions) => Promise<ConfirmResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### AlertOptions

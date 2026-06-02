@@ -132,7 +132,7 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
 如果您的插件在 iOS 上的功能需要最终用户的权限，那么您需要实现权限模式。
 
-在遵循此部分之前，请确保您已设置好权限别名和状态接口。如果尚未设置，请参阅 [Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#permissions)。
+在遵循此部分之前，请确保您已设置好权限别名和状态接口。如果尚未设置，请参阅 [Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#权限)。
 
 ### 实现权限
 
@@ -157,7 +157,7 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
 #### `checkPermissions()`
 
-此方法应返回插件中权限的当前状态，这应该是一个匹配您定义的[权限状态定义](/plugins/creating-plugins/web-guide.md#permission-status-definitions)结构的字典。通常，这些信息可以直接从您使用的框架中获得。
+此方法应返回插件中权限的当前状态，这应该是一个匹配您定义的[权限状态定义](/plugins/creating-plugins/web-guide.md#权限状态定义)结构的字典。通常，这些信息可以直接从您使用的框架中获得。
 
 在下面的示例中，我们将定位服务的当前授权状态映射为权限状态，并将 `location` 别名与该状态关联。
 

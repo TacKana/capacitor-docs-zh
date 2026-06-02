@@ -1,6 +1,6 @@
 ---
-title: Network
-description: Network API
+title: 网络
+description: 网络 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -15,7 +15,7 @@ Network API 提供监控网络状态变化的事件，以及查询当前网络�
 - [`getStatus()`](#getstatus)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

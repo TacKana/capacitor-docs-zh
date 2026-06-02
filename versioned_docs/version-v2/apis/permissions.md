@@ -1,6 +1,6 @@
 ---
-title: Permissions
-description: Permissions API
+title: 权限
+description: 权限 API
 contributors:
   - mlynch
 translated: true

@@ -60,8 +60,8 @@ const hapticsSelectionEnd = async () => {
 * [`selectionStart()`](#selectionstart)
 * [`selectionChanged()`](#selectionchanged)
 * [`selectionEnd()`](#selectionend)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 

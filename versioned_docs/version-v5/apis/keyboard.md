@@ -113,8 +113,8 @@ export default config;
 * [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
 * [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 

@@ -46,7 +46,7 @@ await Share.share({
 
 * [`canShare()`](#canshare)
 * [`share(...)`](#share)
-* [接口](#interfaces)
+* [接口](#接口)
 
 </docgen-index>
 

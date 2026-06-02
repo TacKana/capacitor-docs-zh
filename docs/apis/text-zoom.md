@@ -36,7 +36,7 @@ npx cap sync
 * [`get()`](#get)
 * [`getPreferred()`](#getpreferred)
 * [`set(...)`](#set)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -96,7 +96,7 @@ set(options: SetOptions) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### GetResult

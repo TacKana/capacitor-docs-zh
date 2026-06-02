@@ -117,9 +117,9 @@ export default config;
 * [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
 * [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -432,7 +432,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ScheduleResult
@@ -734,7 +734,7 @@ removeAllListeners() => Promise<void>
 | **`notification`**   | <code><a href="#localnotificationschema">LocalNotificationSchema</a></code>   | 原始通知架构。                                                                                                    | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### ScheduleEvery
@@ -761,7 +761,7 @@ removeAllListeners() => Promise<void>
 <code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
 
-### Enums
+### 枚举
 
 
 #### Weekday

@@ -40,7 +40,7 @@ const showHelloToast = async () => {
 <docgen-index>
 
 * [`show(...)`](#show)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -64,7 +64,7 @@ show(options: ShowOptions) => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowOptions

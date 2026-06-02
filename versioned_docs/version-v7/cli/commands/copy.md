@@ -22,7 +22,7 @@ npx cap copy [<platform>]
 
 - `--inline`：同步后，所有 JS 源码映射将被内联，允许在基于 Chromium 的浏览器中调试 Android Web View。
 
-## Hooks
+## 钩子
 
 以下 hooks 可用于 copy 命令：
 

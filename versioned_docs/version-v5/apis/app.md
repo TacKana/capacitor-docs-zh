@@ -91,13 +91,13 @@ const checkAppLaunchUrl = async () => {
 * [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
 * [`addListener('backButton', ...)`](#addlistenerbackbutton-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### exitApp()
 
@@ -334,7 +334,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### AppInfo
@@ -395,7 +395,7 @@ removeAllListeners() => Promise<void>
 | **`canGoBack`** | <code>boolean</code>| 指示浏览器是否可以返回历史记录。当历史堆栈在第一个条目上时为 false。             | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### StateChangeListener

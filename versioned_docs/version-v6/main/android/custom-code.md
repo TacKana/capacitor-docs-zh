@@ -21,7 +21,7 @@ slug: /android/custom-code
 
 ### `EchoPlugin.java`
 
-首先，通过[打开 Android Studio](/main/android/index.md#opening-the-android-project)，展开 **app** 模块和 **java** 文件夹，右键点击应用的 Java 包，从上下文菜单中选择 **New** -> **Java Class**，来创建一个 `EchoPlugin.java` 文件。
+首先，通过[打开 Android Studio](/main/android/index.md#打开-android-项目)，展开 **app** 模块和 **java** 文件夹，右键点击应用的 Java 包，从上下文菜单中选择 **New** -> **Java Class**，来创建一个 `EchoPlugin.java` 文件。
 
 ![Android Studio 应用包](/img/v6/docs/android/studio-app-package.png)
 

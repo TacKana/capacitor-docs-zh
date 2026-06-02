@@ -17,7 +17,7 @@ translated: true
 
 - [`show(...)`](#show)
 - [`hide(...)`](#hide)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

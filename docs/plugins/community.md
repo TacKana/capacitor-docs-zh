@@ -25,6 +25,6 @@ slug: /plugins/community
 
 ## Cordova 生态系统
 
-Capacitor 支持大多数 Cordova 插件，因此开发者可以在其 Capacitor 应用中使用[数百个现有的 Cordova 插件](https://cordova.apache.org/plugins/)。虽然某些 Cordova 插件与 Capacitor [不兼容](/plugins/cordova.md#known-incompatible-plugins)，但大多数都是兼容的，因此如果没有现成的 Capacitor 专用插件，值得一试。
+Capacitor 支持大多数 Cordova 插件，因此开发者可以在其 Capacitor 应用中使用[数百个现有的 Cordova 插件](https://cordova.apache.org/plugins/)。虽然某些 Cordova 插件与 Capacitor [不兼容](/plugins/cordova.md#已知不兼容的插件)，但大多数都是兼容的，因此如果没有现成的 Capacitor 专用插件，值得一试。
 
 另请参阅 [`@awesome-cordova-plugins` 社区](https://github.com/danielsogl/awesome-cordova-plugins)插件，获取一份主要包含 Cordova 插件的列表，这些插件提供了便捷的封装，使其更易于在你的应用中使用。你可以随意使用 `@awesome-cordova-plugins` 社区的封装，或者仅将该列表作为优质 Cordova 插件的参考。

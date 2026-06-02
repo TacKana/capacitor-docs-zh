@@ -53,7 +53,7 @@ const openPortfolioPage = async () => {
 
 * [`canOpenUrl(...)`](#canopenurl)
 * [`openUrl(...)`](#openurl)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
@@ -105,7 +105,7 @@ openUrl(options: OpenURLOptions) => Promise<OpenURLResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CanOpenURLResult

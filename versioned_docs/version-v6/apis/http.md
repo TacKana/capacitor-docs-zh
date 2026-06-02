@@ -99,8 +99,8 @@ const doPost = () => {
 * [`put(...)`](#put)
 * [`patch(...)`](#patch)
 * [`delete(...)`](#delete)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -211,7 +211,7 @@ delete(options: HttpOptions) => Promise<HttpResponse>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### HttpResponse
@@ -610,7 +610,7 @@ https://nodejs.org/api/url.html#class-urlsearchparams
 | **forEach**   | (callbackfn: (value: string, key: string, parent: <a href="#headers">Headers</a>) =&gt; void, thisArg?: any) =&gt; void |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### BodyInit

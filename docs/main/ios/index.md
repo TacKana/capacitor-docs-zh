@@ -15,7 +15,7 @@ Capacitor iOS 应用通过 Xcode 和 [CocoaPods](https://cocoapods.org/) 进行�
 
 ## iOS 支持
 
-支持 iOS 15+。需要 Xcode 26.0+（请参阅[环境搭建](/main/getting-started/environment-setup.md#ios-requirements)）。Capacitor 使用 [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)，而非已废弃的 [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)。
+支持 iOS 15+。需要 Xcode 26.0+（请参阅[环境搭建](/main/getting-started/environment-setup.md#ios-要求)）。Capacitor 使用 [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)，而非已废弃的 [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)。
 
 ## 添加 iOS 平台
 

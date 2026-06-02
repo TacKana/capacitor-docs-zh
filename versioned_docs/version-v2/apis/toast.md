@@ -1,6 +1,6 @@
 ---
-title: Toast
-description: Toast API
+title: 提示框
+description: 提示框 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -13,7 +13,7 @@ translated: true
 Toast API 提供了一个通知弹出框，用于向用户显示重要信息。就像真正的吐司一样！
 
 - [`show(...)`](#show)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## PWA 注意事项
 

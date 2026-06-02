@@ -1,5 +1,5 @@
 ---
-title: Status Bar Capacitor Plugin API
+title: Status Bar Capacitor 插件 API
 description: StatusBar API 提供了配置状态栏样式以及显示或隐藏状态栏的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/status-bar/src/definitions.ts
@@ -117,9 +117,9 @@ export default config;
 * [`setOverlaysWebView(...)`](#setoverlayswebview)
 * [`addListener('statusBarVisibilityChanged', ...)`](#addlistenerstatusbarvisibilitychanged-)
 * [`addListener('statusBarOverlayChanged', ...)`](#addlistenerstatusbaroverlaychanged-)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
-* [枚举](#enums)
+* [接口](#接口)
+* [类型别名](#类型别名)
+* [枚举](#枚举)
 
 </docgen-index>
 

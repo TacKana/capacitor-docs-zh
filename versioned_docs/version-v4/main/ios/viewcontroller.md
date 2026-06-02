@@ -19,7 +19,7 @@ slug: /ios/viewcontroller
 
 ### 创建 `MyViewController.swift`
 
-首先，通过[打开 Xcode](/main/ios/index.md#opening-the-ios-project)，右键点击 **App** 组（在 **App** 目标下），从上下文菜单中选择 **New File...**，在窗口中选择 **Cocoa Touch Class**，在下一个屏幕中将 **Subclass of:** 设置为 `UIViewController`，然后保存文件，来创建一个 `MyViewController.swift` 文件。
+首先，通过[打开 Xcode](/main/ios/index.md#打开-ios-项目)，右键点击 **App** 组（在 **App** 目标下），从上下文菜单中选择 **New File...**，在窗口中选择 **Cocoa Touch Class**，在下一个屏幕中将 **Subclass of:** 设置为 `UIViewController`，然后保存文件，来创建一个 `MyViewController.swift` 文件。
 
 ![在 Xcode 中新建 ViewController](../../../../static/img/v4/docs/ios/xcode-create-viewcontroller.png)
 ![在 Xcode 中命名 ViewController](../../../../static/img/v4/docs/ios/xcode-name-viewcontroller.png)

@@ -40,7 +40,7 @@ export default function ReleaseNotes(props: { [key: string]: any }) {
 
       <p>
         查看版本控制文档以了解我们的{' '}
-        <a href="/docs/reference/versioning">策略和稳定性承诺</a>。
+        <a href="/reference/versioning">策略和稳定性承诺</a>。
       </p>
       <div className={styles['release-notes']}>
         {releases.map((release: Release, index) => (

@@ -4,6 +4,7 @@ description: 屏幕阅读器 API 提供对 TalkBack/VoiceOver 等功能的访问
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/screen-reader/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/screen-reader/src/definitions.ts
 sidebar_label: 屏幕阅读器
+translated: true
 ---
 
 # @capacitor/screen-reader
@@ -45,8 +46,8 @@ const sayHello = async () => {
 * [`speak(...)`](#speak)
 * [`addListener('stateChange', ...)`](#addlistenerstatechange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [接口](#interfaces)
-* [类型别名](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 

@@ -27,4 +27,4 @@ Capacitor 是 [Apache Cordova](https://cordova.apache.org/) 和 [Adobe PhoneGap]
 
 开始使用 Capacitor 非常简单！Capacitor 可以集成到任何现有的现代 JavaScript 项目中，也可以从头创建一个全新的 Capacitor 项目。
 
-请按照 <a href="/docs/getting-started">安装</a> 指南开始构建您的应用。
+请按照 <a href="/v2/getting-started">安装</a> 指南开始构建您的应用。

@@ -15,7 +15,7 @@ translated: true
 
 - [`beforeExit(...)`](#beforeexit)
 - [`finish(...)`](#finish)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 后台任务指南
 

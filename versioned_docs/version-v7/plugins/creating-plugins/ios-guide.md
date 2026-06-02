@@ -148,7 +148,7 @@ public let pluginMethods: [CAPPluginMethod] = [
 
 如果你的插件在 iOS 上的功能需要最终用户的权限，那么你需要实现权限模式。
 
-在继续本部分之前，请确保你已经设置了权限别名和状态接口。如果还没有，请参阅[Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#permissions)。
+在继续本部分之前，请确保你已经设置了权限别名和状态接口。如果还没有，请参阅[Web 指南中的权限部分](/plugins/creating-plugins/web-guide.md#权限)。
 
 ### 实现权限
 
@@ -173,7 +173,7 @@ public let pluginMethods: [CAPPluginMethod] = [
 
 #### `checkPermissions()`
 
-此方法应返回插件中权限的当前状态，应是一个与你所定义的[权限状态定义](/plugins/creating-plugins/web-guide.md#permission-status-definitions)结构匹配的字典。通常，这些信息可以直接在你使用的框架中获得。
+此方法应返回插件中权限的当前状态，应是一个与你所定义的[权限状态定义](/plugins/creating-plugins/web-guide.md#权限状态定义)结构匹配的字典。通常，这些信息可以直接在你使用的框架中获得。
 
 在下面的示例中，我们将位置服务的当前授权状态映射为权限状态，并将 `location` 别名与该状态关联。
 

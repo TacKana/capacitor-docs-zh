@@ -1,6 +1,6 @@
 ---
-title: Storage
-description: Storage API
+title: 存储
+description: 存储 API
 contributors:
   - mlynch
   - jcesarmobile

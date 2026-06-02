@@ -40,7 +40,7 @@ import Capacitor
 @objc(MyPlugin)
 public class MyPlugin: CAPPlugin {
   @objc override public func load() {
-    // Called when the plugin is first constructed in the bridge
+    // 当插件首次在 bridge 中构建时调用
   }
 
   @objc func echo(_ call: CAPPluginCall) {
@@ -110,7 +110,7 @@ call.reject(error.localizedDescription, error, [
 @objc(MyPlugin)
 public class MyPlugin: CAPPlugin {
   @objc override public func load() {
-    // Called when the plugin is first constructed in the bridge
+    // 当插件首次在 bridge 中构建时调用
   }
 }
 ```

@@ -28,7 +28,7 @@ translated: true
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

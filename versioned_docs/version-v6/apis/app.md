@@ -91,8 +91,8 @@ const checkAppLaunchUrl = async () => {
 * [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
 * [`addListener('backButton', ...)`](#addlistenerbackbutton-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -329,7 +329,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### AppInfo
@@ -390,7 +390,7 @@ removeAllListeners() => Promise<void>
 | **`canGoBack`**   | <code>boolean</code> | 指示浏览器是否可以返回历史记录。当历史记录栈位于第一个条目时为 false。                                | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### StateChangeListener

@@ -60,13 +60,13 @@ const showActions = async () => {
 <docgen-index>
 
 * [`showActions(...)`](#showactions)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件的 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### showActions(...)
 
@@ -87,7 +87,7 @@ showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ShowActionsResult
@@ -115,7 +115,7 @@ showActions(options: ShowActionsOptions) => Promise<ShowActionsResult>
 | **`icon`**  | <code>string</code>                                                     | 选项的图标（ionicon 命名约定）。此选项仅 Web 支持。    | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### ActionSheetButtonStyle

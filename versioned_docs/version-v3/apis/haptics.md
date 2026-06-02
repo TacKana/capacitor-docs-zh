@@ -60,8 +60,8 @@ const hapticsSelectionEnd = async () => {
 * [`selectionStart()`](#selectionstart)
 * [`selectionChanged()`](#selectionchanged)
 * [`selectionEnd()`](#selectionend)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [接口](#接口)
+* [枚举](#枚举)
 
 </docgen-index>
 
@@ -76,11 +76,11 @@ impact(options?: ImpactOptions | undefined) => Promise<void>
 
 触发触觉"冲击"反馈
 
-| Param         | Type                                                    |
+| 参数 | Type                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`options`** | <code><a href="#impactoptions">ImpactOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -93,11 +93,11 @@ notification(options?: NotificationOptions | undefined) => Promise<void>
 
 触发触觉"通知"反馈
 
-| Param         | Type                                                                |
+| 参数 | Type                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#notificationoptions">NotificationOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -110,11 +110,11 @@ vibrate(options?: VibrateOptions | undefined) => Promise<void>
 
 使设备振动
 
-| Param         | Type                                                      |
+| 参数 | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#vibrateoptions">VibrateOptions</a></code> |
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -127,7 +127,7 @@ selectionStart() => Promise<void>
 
 触发选择开始的触觉提示
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -142,7 +142,7 @@ selectionChanged() => Promise<void>
 开始，这将使设备提供触觉
 反馈
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -156,41 +156,41 @@ selectionEnd() => Promise<void>
 如果调用了 selectionStart()，则 selectionEnd() 结束选择。
 例如，当用户将手指从控件上抬起时调用此方法
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ImpactOptions
 
-| Prop        | Type                                                | Description                                                                                                                                                                              | Default                        | Since |
+| 属性 | Type                                                | 描述 | 默认值 | 始于 |
 | ----------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
 | **`style`** | <code><a href="#impactstyle">ImpactStyle</a></code> | 冲击反馈样式。由 [UIImpactFeedbackGenerator](https://developer.apple.com/documentation/uikit/uiimpactfeedbackstyle) 对象模拟的碰撞中物体的质量。 | <code>ImpactStyle.Heavy</code> | 1.0.0 |
 
 
 #### NotificationOptions
 
-| Prop       | Type                                                          | Description                                                                                                                                                                                       | Default                               | Since |
+| 属性 | Type                                                          | 描述 | 默认值 | 始于 |
 | ---------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----- |
 | **`type`** | <code><a href="#notificationtype">NotificationType</a></code> | 通知反馈类型。由 [UINotificationFeedbackGenerator](https://developer.apple.com/documentation/uikit/uinotificationfeedbacktype) 对象生成的振动反馈类型。 | <code>NotificationType.SUCCESS</code> | 1.0.0 |
 
 
 #### VibrateOptions
 
-| Prop           | Type                | Description                                                                   | Default          | Since |
+| 属性 | Type                | 描述 | 默认值 | 始于 |
 | -------------- | ------------------- | ----------------------------------------------------------------------------- | ---------------- | ----- |
 | **`duration`** | <code>number</code> | 振动持续时间，以毫秒为单位。iOS 12 及更早版本不支持。 | <code>300</code> | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### ImpactStyle
 
-| Members      | Value                 | Description                                                  | Since |
+| 成员 | Value                 | 描述 | 始于 |
 | ------------ | --------------------- | ------------------------------------------------------------ | ----- |
 | **`Heavy`**  | <code>'HEAVY'</code>  | 大型、重型用户界面元素之间的碰撞     | 1.0.0 |
 | **`Medium`** | <code>'MEDIUM'</code> | 中等大小用户界面元素之间的碰撞 | 1.0.0 |
@@ -199,7 +199,7 @@ selectionEnd() => Promise<void>
 
 #### NotificationType
 
-| Members       | Value                  | Description                                                                    | Since |
+| 成员 | Value                  | 描述 | 始于 |
 | ------------- | ---------------------- | ------------------------------------------------------------------------------ | ----- |
 | **`Success`** | <code>'SUCCESS'</code> | 指示任务已成功完成的通知反馈类型 | 1.0.0 |
 | **`Warning`** | <code>'WARNING'</code> | 指示任务产生了警告的通知反馈类型     | 1.0.0 |

@@ -1,6 +1,6 @@
 ---
-title: Motion
-description: Motion API
+title: 运动传感器
+description: 运动传感器 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -15,7 +15,7 @@ Motion API 跟踪加速度计和设备方向（指南针方向等）。
 - [`addListener(...)`](#addlistener)
 - [`addListener(...)`](#addlistener)
 - [`removeAllListeners()`](#removealllisteners)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 权限
 

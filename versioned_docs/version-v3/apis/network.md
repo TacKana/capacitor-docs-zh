@@ -41,8 +41,8 @@ const logCurrentNetworkStatus = async () => {
 * [`getStatus()`](#getstatus)
 * [`addListener('networkStatusChange', ...)`](#addlistenernetworkstatuschange-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
@@ -57,9 +57,9 @@ getStatus() => Promise<ConnectionStatus>
 
 查询网络连接的当前状态。
 
-**Returns:** <code>Promise&lt;<a href="#connectionstatus">ConnectionStatus</a>&gt;</code>
+**返回：** <code>Promise&lt;<a href="#connectionstatus">ConnectionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -72,14 +72,14 @@ addListener(eventName: 'networkStatusChange', listenerFunc: ConnectionStatusChan
 
 监听网络连接的变化。
 
-| Param              | Type                                                                                      |
+| 参数 | Type                                                                                      |
 | ------------------ | ----------------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'networkStatusChange'</code>                                                        |
 | **`listenerFunc`** | <code><a href="#connectionstatuschangelistener">ConnectionStatusChangeListener</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**返回：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
@@ -92,19 +92,19 @@ removeAllListeners() => Promise<void>
 
 移除该插件的所有监听器（包括网络状态变化）。
 
-**Since:** 1.0.0
+**始于：** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### ConnectionStatus
 
 表示网络连接的状态和类型。
 
-| Prop                 | Type                                                      | Description                                                                                                                   | Since |
+| 属性 | Type                                                      | 描述 | 始于 |
 | -------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`connected`**      | <code>boolean</code>                                      | 是否存在活动连接。                                                                                 | 1.0.0 |
 | **`connectionType`** | <code><a href="#connectiontype">ConnectionType</a></code> | 当前使用的网络连接类型。如果没有活动的网络连接，`connectionType` 将为 `'none'`。 | 1.0.0 |
@@ -112,12 +112,12 @@ removeAllListeners() => Promise<void>
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性 | Type                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### ConnectionType

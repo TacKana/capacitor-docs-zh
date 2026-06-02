@@ -50,7 +50,7 @@ npx cap init
 CLI 会问你几个问题，首先是你的应用名称，以及你希望为应用使用的包 ID。它会根据这些配置信息创建 Capacitor 配置文件，包括你的打包工具构建过程的预期输出目录（例如 Angular 为 `www`，React 为 `build`，Vue 为 `public` 等）。
 
 :::info
-你可以通过修改在 `npx cap init` 期间创建的 [Capacitor Config](/docs/config) 文件中的 `webDir` 变量，来自定义 Capacitor 使用的文件夹。请注意，Capacitor 会通过检测你使用的框架来尝试自动检测 Web 项目的默认目录。不过，在首次构建同步遇到问题时，最好还是交叉检查这个配置变量。
+你可以通过修改在 `npx cap init` 期间创建的 [Capacitor Config](/config) 文件中的 `webDir` 变量，来自定义 Capacitor 使用的文件夹。请注意，Capacitor 会通过检测你使用的框架来尝试自动检测 Web 项目的默认目录。不过，在首次构建同步遇到问题时，最好还是交叉检查这个配置变量。
 :::
 
 ### 创建你的 Android 和 iOS 项目
@@ -76,7 +76,7 @@ npx cap add ios
 npx cap sync
 ```
 
-`npx cap sync` 会将预期在 [Capacitor Config](/docs/config) 文件的 `webDir` 中找到的已构建的 Web 包复制到你的原生项目，并安装原生项目的依赖。
+`npx cap sync` 会将预期在 [Capacitor Config](/config) 文件的 `webDir` 中找到的已构建的 Web 包复制到你的原生项目，并安装原生项目的依赖。
 
 ## 下一步
 

@@ -331,9 +331,9 @@ export default MyMap;
 * [`setOnMarkerDragEndListener(...)`](#setonmarkerdragendlistener)
 * [`setOnMyLocationButtonClickListener(...)`](#setonmylocationbuttonclicklistener)
 * [`setOnMyLocationClickListener(...)`](#setonmylocationclicklistener)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -886,7 +886,7 @@ setOnMyLocationClickListener(callback?: MapListenerCallback<MapClickCallbackData
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CreateMapArgs
@@ -1156,7 +1156,7 @@ Google 地图相机的配置属性。
 | **`mapId`**   | <code>string</code> |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### MapListenerCallback
@@ -1177,7 +1177,7 @@ https://tools.ietf.org/html/rfc7946#section-3.1.1
 <code>number[]</code>
 
 
-### Enums
+### 枚举
 
 
 #### MapType

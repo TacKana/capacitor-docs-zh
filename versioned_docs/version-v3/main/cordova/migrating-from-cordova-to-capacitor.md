@@ -14,7 +14,7 @@ slug: /cordova/migrating-from-cordova-to-capacitor
 
 ## 添加 Capacitor
 
-首先在终端中打开您的项目，然后按照指南[将 Capacitor 添加到 Web 应用](/main/getting-started/installation.md#adding-capacitor-to-your-app)或[将 Capacitor 添加到 Ionic 应用](/main/getting-started/with-ionic.md#existing-ionic-project)进行操作。
+首先在终端中打开您的项目，然后按照指南[将 Capacitor 添加到 Web 应用](/main/getting-started/installation.md#将-capacitor-添加到您的应用)或[将 Capacitor 添加到 Ionic 应用](/main/getting-started/with-ionic.md#现有-ionic-项目)进行操作。
 
 使用 Capacitor 初始化您的应用。系统提示您输入的某些信息可以在 Cordova 的 `config.xml` 文件中找到：
 
@@ -85,7 +85,7 @@ cordova-res android --skip-config --copy
 
 有些插件的功能可能不完全匹配，但根据您所需的功能，这可能并不重要。
 
-请注意，任何[不兼容或会导致构建问题](/plugins/cordova.md#known-incompatible-plugins)的插件都会被自动跳过。
+请注意，任何[不兼容或会导致构建问题](/plugins/cordova.md#已知不兼容的插件)的插件都会被自动跳过。
 
 ### 移除 Cordova 插件
 

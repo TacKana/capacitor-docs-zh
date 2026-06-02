@@ -61,8 +61,8 @@ allprojects {
 <docgen-index>
 
 * [`scanBarcode(...)`](#scanbarcode)
-* [Type Aliases](#type-aliases)
-* [Enums](#enums)
+* [Type Aliases](#类型别名)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -87,7 +87,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 --------------------
 
 
-### Type Aliases
+### 类型别名
 
 
 #### CapacitorBarcodeScannerScanResult
@@ -114,7 +114,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 <code><a href="#html5qrcodesupportedformats">Html5QrcodeSupportedFormats</a> | <a href="#capacitorbarcodescannertypehintalloption">CapacitorBarcodeScannerTypeHintALLOption</a></code>
 
 
-### Enums
+### 枚举
 
 
 #### Html5QrcodeSupportedFormats

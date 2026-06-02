@@ -1,6 +1,6 @@
 ---
 title: CLI 命令 - cap add
-description: Capacitor CLI - cap add
+description: Capacitor CLI 命令 - cap add
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/add

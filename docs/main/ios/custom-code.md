@@ -19,7 +19,7 @@ slug: /ios/custom-code
 
 ### `EchoPlugin.swift`
 
-首先，创建 `EchoPlugin.swift` 文件：[打开 Xcode](/main/ios/index.md#opening-the-ios-project)，右键点击 **App** 组（位于 **App** target 下），从上下文菜单中选择 **New File...**，在窗口中选择 **Swift File**，然后创建文件。
+首先，创建 `EchoPlugin.swift` 文件：[打开 Xcode](/main/ios/index.md#打开-ios-项目)，右键点击 **App** 组（位于 **App** target 下），从上下文菜单中选择 **New File...**，在窗口中选择 **Swift File**，然后创建文件。
 
 ![在 Xcode 中新建 Swift 文件](../../../static/img/v6/docs/ios/xcode-new-swift-file.png)
 

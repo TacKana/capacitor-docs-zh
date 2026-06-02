@@ -94,8 +94,8 @@ InAppBrowser.removeAllListeners();
 * [`close()`](#close)
 * [`addListener('browserClosed' | 'browserPageLoaded', ...)`](#addlistenerbrowserclosed--browserpageloaded-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -187,7 +187,7 @@ removeAllListeners() => void
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### OpenInWebViewParameterModel
@@ -302,7 +302,7 @@ removeAllListeners() => void
 | **`remove`**   | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
-### Enums
+### 枚举
 
 
 #### ToolbarPosition

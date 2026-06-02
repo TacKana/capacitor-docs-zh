@@ -6,7 +6,7 @@ contributors:
 slug: /vscode/debugging
 ---
 
-使用[扩展](#debug-in-vs-code)或[附加到 Web View](#attach-to-web-view) 来调试您的应用。您也可以使用[远程日志记录](#remote-logging)来执行 `console.log` 风格的调试。
+使用[扩展](#在-vs-code-中调试)或[附加到 Web View](#附加到-web-view) 来调试您的应用。您也可以使用[远程日志记录](#远程日志记录)来执行 `console.log` 风格的调试。
 
 :::tip
 您可以按 `⌥` + D 来调试应用（Windows 上为 `ALT` + `D`）。

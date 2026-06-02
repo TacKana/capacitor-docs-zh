@@ -1,6 +1,6 @@
 ---
-title: Clipboard
-description: Clipboard API
+title: 剪贴板
+description: 剪贴板 API
 contributors:
   - mlynch
   - jcesarmobile
@@ -14,7 +14,7 @@ Clipboard API 支持剪贴板的复制和粘贴操作。在 iOS 上，此 API �
 
 - [`write(...)`](#write)
 - [`read()`](#read)
-- [接口](#interfaces)
+- [接口](#接口)
 
 ## 示例
 

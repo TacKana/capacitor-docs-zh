@@ -67,8 +67,8 @@ API 以了解 'accel' 事件中提供的数据。
 * [`addListener('accel', ...)`](#addlisteneraccel-)
 * [`addListener('orientation', ...)`](#addlistenerorientation-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [Interfaces](#接口)
+* [Type Aliases](#类型别名)
 
 </docgen-index>
 
@@ -128,7 +128,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### PluginListenerHandle
@@ -166,7 +166,7 @@ removeAllListeners() => Promise<void>
 | **`gamma`**  | <code>number</code> | 绕 Y 轴的旋转量，以度/秒为单位。               | 1.0.0   |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### AccelListener

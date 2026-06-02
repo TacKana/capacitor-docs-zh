@@ -1,6 +1,6 @@
 ---
 title: CLI 命令 - cap update
-description: Capacitor - cap update
+description: Capacitor CLI 命令 - cap update
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/cli/update

@@ -45,7 +45,7 @@ Keyboard.addListener('keyboardDidHide', () => {
 
 键盘可以通过以下选项进行配置：
 
-| Prop                     | Type                                                      | Description                                                                                                                                                                                                                                                                                                       | Default             | Since |
+| 属性                     | 类型                                                      | 描述                                                                                                                                                                                                                                                                                                       | 默认值             | Since |
 | ------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
 | **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | 配置键盘出现时应用调整大小的方式。仅适用于 iOS。                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
 | **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | 如果你的应用不支持暗/亮主题切换，则覆盖键盘样式。如果未设置，键盘样式将取决于设备外观。仅适用于 iOS。                                                                                                                                     |                     | 1.0.0 |
@@ -115,8 +115,8 @@ export default config;
 * [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
 * [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+* [Interfaces](#接口)
+* [Enums](#枚举)
 
 </docgen-index>
 
@@ -161,7 +161,7 @@ setAccessoryBarVisible(options: { isVisible: boolean; }) => Promise<void>
 
 此方法仅支持 iPhone 设备。
 
-| Param         | Type                                 |
+| 参数         | 类型                                 |
 | ------------- | ------------------------------------ |
 | **`options`** | <code>{ isVisible: boolean; }</code> |
 
@@ -180,7 +180,7 @@ setScroll(options: { isDisabled: boolean; }) => Promise<void>
 
 此方法仅支持 iOS。
 
-| Param         | Type                                  |
+| 参数         | 类型                                  |
 | ------------- | ------------------------------------- |
 | **`options`** | <code>{ isDisabled: boolean; }</code> |
 
@@ -199,7 +199,7 @@ setStyle(options: KeyboardStyleOptions) => Promise<void>
 
 此方法仅支持 iOS。
 
-| Param         | Type                                                                  |
+| 参数         | 类型                                                                  |
 | ------------- | --------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardstyleoptions">KeyboardStyleOptions</a></code> |
 
@@ -218,7 +218,7 @@ setResizeMode(options: KeyboardResizeOptions) => Promise<void>
 
 此方法仅支持 iOS。
 
-| Param         | Type                                                                    |
+| 参数         | 类型                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#keyboardresizeoptions">KeyboardResizeOptions</a></code> |
 
@@ -254,7 +254,7 @@ addListener(eventName: 'keyboardWillShow', listenerFunc: (info: KeyboardInfo) =>
 
 在 Android 上，keyboardWillShow 和 keyboardDidShow 几乎同时触发。
 
-| Param              | Type                                                                     |
+| 参数              | 类型                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'keyboardWillShow'</code>                                          |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
@@ -276,7 +276,7 @@ addListener(eventName: 'keyboardDidShow', listenerFunc: (info: KeyboardInfo) => 
 
 在 Android 上，keyboardWillShow 和 keyboardDidShow 几乎同时触发。
 
-| Param              | Type                                                                     |
+| 参数              | 类型                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
 | **`eventName`**    | <code>'keyboardDidShow'</code>                                           |
 | **`listenerFunc`** | <code>(info: <a href="#keyboardinfo">KeyboardInfo</a>) =&gt; void</code> |
@@ -298,7 +298,7 @@ addListener(eventName: 'keyboardWillHide', listenerFunc: () => void) => Promise<
 
 在 Android 上，keyboardWillHide 和 keyboardDidHide 几乎同时触发。
 
-| Param              | Type                            |
+| 参数              | 类型                            |
 | ------------------ | ------------------------------- |
 | **`eventName`**    | <code>'keyboardWillHide'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>      |
@@ -320,7 +320,7 @@ addListener(eventName: 'keyboardDidHide', listenerFunc: () => void) => Promise<P
 
 在 Android 上，keyboardWillHide 和 keyboardDidHide 几乎同时触发。
 
-| Param              | Type                           |
+| 参数              | 类型                           |
 | ------------------ | ------------------------------ |
 | **`eventName`**    | <code>'keyboardDidHide'</code> |
 | **`listenerFunc`** | <code>() =&gt; void</code>     |
@@ -345,43 +345,43 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### KeyboardStyleOptions
 
-| Prop        | Type                                                    | Description            | Default                            | Since |
+| 属性        | 类型                                                    | 描述            | 默认值                            | Since |
 | ----------- | ------------------------------------------------------- | ---------------------- | ---------------------------------- | ----- |
 | **`style`** | <code><a href="#keyboardstyle">KeyboardStyle</a></code> | 键盘的样式。 | <code>KeyboardStyle.Default</code> | 1.0.0 |
 
 
 #### KeyboardResizeOptions
 
-| Prop       | Type                                                      | Description                                             | Since |
+| 属性       | 类型                                                      | 描述                                             | Since |
 | ---------- | --------------------------------------------------------- | ------------------------------------------------------- | ----- |
 | **`mode`** | <code><a href="#keyboardresize">KeyboardResize</a></code> | 键盘出现时用于调整元素大小的模式。 | 1.0.0 |
 
 
 #### PluginListenerHandle
 
-| Prop         | Type                                      |
+| 属性         | 类型                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### KeyboardInfo
 
-| Prop                 | Type                | Description             | Since |
+| 属性                 | 类型                | 描述             | Since |
 | -------------------- | ------------------- | ----------------------- | ----- |
 | **`keyboardHeight`** | <code>number</code> | 键盘的高度。 | 1.0.0 |
 
 
-### Enums
+### 枚举
 
 
 #### KeyboardStyle
 
-| Members       | Value                  | Description                                                                                                                                                                       | Since |
+| Members       | Value                  | 描述                                                                                                                                                                       | Since |
 | ------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`Dark`**    | <code>'DARK'</code>    | 深色键盘。                                                                                                                                                                    | 1.0.0 |
 | **`Light`**   | <code>'LIGHT'</code>   | 浅色键盘。                                                                                                                                                                   | 1.0.0 |
@@ -390,7 +390,7 @@ removeAllListeners() => Promise<void>
 
 #### KeyboardResize
 
-| Members      | Value                 | Description                                                                                                          | Since |
+| Members      | Value                 | 描述                                                                                                          | Since |
 | ------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`Body`**   | <code>'body'</code>   | 仅调整 `body` HTML 元素的大小。由于视口不改变，相对单位不受影响。 | 1.0.0 |
 | **`Ionic`**  | <code>'ionic'</code>  | 仅调整 `ion-app` HTML 元素的大小。仅用于 Ionic Framework 应用。                               | 1.0.0 |
