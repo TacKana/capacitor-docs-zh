@@ -102,13 +102,13 @@ try {
 * [`uploadFile(...)`](#uploadfile)
 * [`addListener('progress', ...)`](#addlistenerprogress-)
 * [`removeAllListeners()`](#removealllisteners)
-* [Interfaces](#interfaces)
+* [Interfaces](#接口)
 
 </docgen-index>
 
 注意：部分输入选项来自 `@capacitor/core` 中的 `HttpOptions`，但插件并未使用 `HttpOptions` 中的所有参数。以下记录的是实际使用的参数。
 
-关于现有错误代码的列表，请参见[错误](#errors)。
+关于现有错误代码的列表，请参见[错误](#错误)。
 
 <docgen-api>
 <!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
@@ -190,7 +190,7 @@ removeAllListeners() => Promise<void>
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### DownloadFileResult
@@ -209,8 +209,8 @@ removeAllListeners() => Promise<void>
 | **`path`**                  | <code>string</code>                                 | 下载文件应移动到的完整文件路径。 | 1.0.0 |
 | **`progress`**              | <code>boolean</code>                                | 如果为 true，将在每个接收到的块上分发进度事件。默认为 `false`。 | 1.0.0 |
 | **`method`**                | <code>string</code>                                 | 要执行的 HTTP 请求方法。（默认是 GET） | 1.0.0 |
-| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>   | 要附加到请求的 URL 参数。 | 1.0.0 |
-| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code> | 随请求发送的 HTTP 请求头。 | 1.0.0 |
+| **`params`**                | <code>HttpParams</code>   | 要附加到请求的 URL 参数。 | 1.0.0 |
+| **`headers`**               | <code>HttpHeaders</code> | 随请求发送的 HTTP 请求头。 | 1.0.0 |
 | **`readTimeout`**           | <code>number</code>                                 | 等待读取额外数据的毫秒数。每次收到新数据时重置。默认值为 60000 毫秒（1 分钟）。web 上不支持。 | 1.0.0 |
 | **`connectTimeout`**        | <code>number</code>                                 | 等待初始连接的毫秒数。默认值为 60000 毫秒（1 分钟）。 | 1.0.0 |
 | **`disableRedirects`**      | <code>boolean</code>                                | 设置是否禁用自动 HTTP 重定向。 | 1.0.0 |
@@ -239,8 +239,8 @@ removeAllListeners() => Promise<void>
 | **`fileKey`**               | <code>string</code>                                 | 表单元素的类型。默认设置为 "file"。 | 1.0.0 |
 | **`progress`**              | <code>boolean</code>                                | 如果为 true，将在每个接收到的块上分发进度事件。默认为 `false`。 | 1.0.0 |
 | **`method`**                | <code>string</code>                                 | 要执行的 HTTP 请求方法。（默认是 POST） | 1.0.0 |
-| **`params`**                | <code><a href="#httpparams">HttpParams</a></code>   | 要附加到请求的 URL 参数。 | 1.0.0 |
-| **`headers`**               | <code><a href="#httpheaders">HttpHeaders</a></code> | 随请求发送的 HTTP 请求头。 | 1.0.0 |
+| **`params`**                | <code>HttpParams</code>   | 要附加到请求的 URL 参数。 | 1.0.0 |
+| **`headers`**               | <code>HttpHeaders</code> | 随请求发送的 HTTP 请求头。 | 1.0.0 |
 | **`readTimeout`**           | <code>number</code>                                 | 等待读取额外数据的毫秒数。默认值为 60000 毫秒（1 分钟）。web 上不支持。 | 1.0.0 |
 | **`connectTimeout`**        | <code>number</code>                                 | 等待初始连接的毫秒数。默认值为 60000 毫秒（1 分钟）。web 上不支持。 | 1.0.0 |
 | **`disableRedirects`**      | <code>boolean</code>                                | 设置是否禁用自动 HTTP 重定向。web 上不支持。 | 1.0.0 |
