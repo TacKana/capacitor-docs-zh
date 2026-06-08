@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "npm run build:${VERCEL_ENV:-preview}",
-    "build:preview": "docusaurus build --locale en",
-    "build:production": "docusaurus build",
+    "build:preview": "npm run generate-plugin-docs && docusaurus build --locale en",
+    "build:production": "npm run generate-plugin-docs && docusaurus build",
     "clear": "docusaurus clear",
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus",
