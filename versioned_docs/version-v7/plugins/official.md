@@ -50,7 +50,6 @@ slug: /apis
 - [Status Bar](/apis/status-bar.md)
 - [Text Zoom](/apis/text-zoom.md)
 - [Toast](/apis/toast.md)
-- [Watch 🧪](/apis/watch.md)
 
 ## GitHub
 
