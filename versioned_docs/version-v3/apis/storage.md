@@ -1,9 +1,9 @@
 ---
-title: Storage Capacitor 插件 API
+title: 存储 - Capacitor 插件 API
 description: Storage API 为轻量级数据提供了一个简单的键值持久化存储。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/storage/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/storage/src/definitions.ts
-sidebar_label: Storage
+sidebar_label: 存储
 translated: true
 ---
 

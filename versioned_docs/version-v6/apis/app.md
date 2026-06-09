@@ -1,9 +1,9 @@
 ---
-title: App Capacitor 插件 API
+title: 应用 - Capacitor 插件 API
 description: App API 处理高级应用状态和事件。例如，此 API 在应用进入和离开前台时发出事件、处理深度链接、打开其他应用以及管理持久化插件状态。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/app/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/app/src/definitions.ts
-sidebar_label: App
+sidebar_label: 应用
 translated: true
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Motion Capacitor 插件 API
+title: 运动传感器 - Capacitor 插件 API
 description: Motion API 跟踪加速度计和设备方向（指南针方向等）
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/src/definitions.ts
-sidebar_label: Motion
+sidebar_label: 运动传感器
 translated: true
 ---
 

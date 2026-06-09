@@ -1,5 +1,5 @@
 ---
-title: Share（分享）Capacitor 插件 API
+title: 分享 - Capacitor 插件 API
 description: 分享 API 提供了在用户已安装的任何支持分享的应用中共享内容的方法。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/share/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/share/src/definitions.ts

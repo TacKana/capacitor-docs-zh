@@ -1,5 +1,5 @@
 ---
-title: Capacitor Cookies 插件 API
+title: Cookies - Capacitor 插件 API
 description: Capacitor Cookies API 通过修补 `document.cookie` 以使用原生库的方式提供原生 Cookie 支持。
 sidebar_label: Cookies
 translated: true

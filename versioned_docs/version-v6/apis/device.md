@@ -1,9 +1,9 @@
 ---
-title: Device Capacitor 插件 API
+title: 设备 - Capacitor 插件 API
 description: Device API 暴露有关设备的内部信息，例如型号和操作系统版本，以及用户信息，例如唯一标识符。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/device/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/device/src/definitions.ts
-sidebar_label: Device
+sidebar_label: 设备
 translated: true
 ---
 

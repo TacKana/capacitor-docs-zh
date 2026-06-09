@@ -1,5 +1,5 @@
 ---
-title: 文本缩放 - Capacitor 插件 API
+title: 文字缩放 - Capacitor 插件 API
 description: 文本缩放 API 提供了更改 Web View 文本大小以实现视觉辅助的功能。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/src/definitions.ts

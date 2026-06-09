@@ -1,5 +1,5 @@
 ---
-title: React Hooks
+title: React Hooks 指南
 description: 使用这些 React hooks 简化 Capacitor 的原生移动 API 访问
 contributors:
   - mlynch

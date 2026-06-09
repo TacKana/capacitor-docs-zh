@@ -1,10 +1,10 @@
 ---
-title: Keyboard Capacitor 插件 API
+title: 键盘 - Capacitor 插件 API
 description: Keyboard API 提供键盘显示和可见性控制，以及在键盘显示和隐藏时的事件跟踪。
 translated: true
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/src/definitions.ts
-sidebar_label: Keyboard
+sidebar_label: 键盘
 ---
 
 # @capacitor/keyboard

@@ -1,9 +1,9 @@
 ---
-title: InAppBrowser Capacitor 插件 API
+title: 应用内浏览器 - Capacitor 插件 API
 description: InAppBrowser 插件提供一个 Web 浏览器视图，允许您从外部加载任何网页。它的行为类似于标准 Web 浏览器，对于加载不受信任的内容而不危及应用安全非常有用。它提供了三种不同的 URL 打开方式：在 WebView 中、在应用内系统浏览器中（Android 的 Custom Tabs 和 iOS 的 SFSafariViewController）以及在设备的默认浏览器中。
 custom_edit_url: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/src/definitions.ts
-sidebar_label: InAppBrowser
+sidebar_label: 应用内浏览器
 translated: true
 ---
 

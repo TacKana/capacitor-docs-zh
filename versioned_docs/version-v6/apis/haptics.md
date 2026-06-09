@@ -1,9 +1,9 @@
 ---
-title: Haptics Capacitor 插件 API
+title: 触觉反馈 - Capacitor 插件 API
 description: Haptics API 通过触摸或振动向用户提供物理反馈。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/6.x/haptics/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/6.x/haptics/src/definitions.ts
-sidebar_label: Haptics
+sidebar_label: 触觉反馈
 translated: true
 ---
 

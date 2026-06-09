@@ -1,5 +1,5 @@
 ---
-title: 状态栏 Capacitor 插件 API
+title: 状态栏 - Capacitor 插件 API
 description: StatusBar API 提供了配置状态栏样式以及显示或隐藏状态栏的方法。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/status-bar/src/definitions.ts

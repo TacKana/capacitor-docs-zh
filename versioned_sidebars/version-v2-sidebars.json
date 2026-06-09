@@ -2,7 +2,7 @@
   "docs": [
     {
       "type": "category",
-      "label": "Getting Started",
+      "label": "快速入门",
       "collapsed": false,
       "items": [
         "index",
@@ -13,7 +13,7 @@
     },
     {
       "type": "category",
-      "label": "Basics",
+      "label": "基础知识",
       "collapsed": false,
       "items": [
         "basics/workflow",
@@ -24,7 +24,7 @@
     },
     {
       "type": "category",
-      "label": "Cordova/PhoneGap",
+      "label": "Cordova 迁移",
       "collapsed": false,
       "items": [
         "cordova/index",
@@ -34,7 +34,7 @@
     },
     {
       "type": "category",
-      "label": "Concepts",
+      "label": "开发指南",
       "collapsed": false,
       "items": [
         "guides/ads",
@@ -82,18 +82,26 @@
       "type": "category",
       "label": "Web/PWA",
       "collapsed": false,
-      "items": ["web/index", "web/pwa-elements"]
+      "items": [
+        "web/index",
+        "web/pwa-elements"
+      ]
     },
     {
       "type": "category",
-      "label": "Reference",
+      "label": "参考",
       "collapsed": false,
       "items": [
         "config",
         {
-          "type": "doc",
+          "type": "link",
+          "label": "插件 API",
+          "href": "/apis"
+        },
+        {
+          "type": "link",
           "label": "CLI",
-          "id": "cli/index"
+          "href": "/cli"
         }
       ]
     }
@@ -102,26 +110,17 @@
   "api": [
     {
       "type": "category",
-      "label": "Overview",
-      "collapsed": false,
-      "items": ["plugins", "plugins/community", "plugins/enterprise"]
-    },
-    {
-      "type": "category",
-      "label": "Creating Plugins",
+      "label": "概览",
       "collapsed": false,
       "items": [
-        "plugins/creating-plugins",
-        "plugins/workflow",
-        "plugins/ios",
-        "plugins/android",
-        "plugins/web",
-        "plugins/js"
+        "plugins",
+        "plugins/community",
+        "plugins/enterprise"
       ]
     },
     {
       "type": "category",
-      "label": "Official Plugins",
+      "label": "官方插件",
       "collapsed": false,
       "items": [
         "apis/index",
@@ -149,16 +148,36 @@
         "apis/storage",
         "apis/toast"
       ]
+    },
+    {
+      "type": "category",
+      "label": "插件开发",
+      "collapsed": false,
+      "items": [
+        "plugins/creating-plugins",
+        "plugins/workflow",
+        "plugins/ios",
+        "plugins/android",
+        "plugins/web",
+        "plugins/js"
+      ]
     }
   ],
 
   "cli": [
     {
       "type": "category",
-      "label": "CLI Documentation",
+      "label": "CLI 文档",
       "collapsed": false,
       "items": [
-        "cli/index",
+        "cli/index"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "命令参考",
+      "collapsed": false,
+      "items": [
         "cli/add",
         "cli/cap",
         "cli/copy",

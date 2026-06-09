@@ -663,7 +663,9 @@ https://nodejs.org/api/url.html#class-urlsearchparams
 
 构造一个具有一组属性 K 的类型，类型为 T
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### RequestMode

@@ -1,9 +1,9 @@
 ---
-title: Dialog Capacitor 插件 API
+title: 对话框 - Capacitor 插件 API
 description: Dialog API 提供触发原生对话框窗口的方法，用于警告、确认和输入提示。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/dialog/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/dialog/src/definitions.ts
-sidebar_label: Dialog
+sidebar_label: 对话框
 translated: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Cookies Capacitor 插件 API
+title: Cookies - Capacitor 插件 API
 description: Capacitor Cookies API 通过修补 `document.cookie` 以使用原生库来提供原生 cookie 支持。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/cookies.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
@@ -232,7 +232,9 @@ Construct a type with the properties of T except for those in type K.
 
 From T, pick a set of properties whose keys are in the union K
 
-<code>{ [P in K]: T[P]; }</code>
+<code>{
+ [P in K]: T[P];
+ }</code>
 
 
 #### Exclude

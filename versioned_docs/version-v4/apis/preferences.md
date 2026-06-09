@@ -1,9 +1,9 @@
 ---
-title: Preferences - Capacitor 插件 API
+title: 偏好设置 - Capacitor 插件 API
 description: Preferences API 提供了一个简单的键值持久化存储，用于轻量级数据。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/src/definitions.ts
-sidebar_label: Preferences
+sidebar_label: 偏好设置
 translated: true
 ---
 

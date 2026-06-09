@@ -1,9 +1,9 @@
 ---
-title: File Transfer Capacitor 插件 API
+title: 文件传输 - Capacitor 插件 API
 description: FileTransfer API 提供下载和上传文件的机制。
 custom_edit_url: https://github.com/ionic-team/capacitor-file-transfer/blob/1.x/packages/capacitor-plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-file-transfer/blob/1.x/packages/capacitor-plugin/src/definitions.ts
-sidebar_label: File Transfer
+sidebar_label: 文件传输
 translated: true
 ---
 

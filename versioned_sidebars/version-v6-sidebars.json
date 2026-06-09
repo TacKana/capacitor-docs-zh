@@ -2,7 +2,7 @@
   "docs": [
     {
       "type": "category",
-      "label": "Getting Started",
+      "label": "快速入门",
       "collapsed": false,
       "items": [
         "index",
@@ -12,7 +12,7 @@
         "main/getting-started/with-ionic",
         {
           "type": "category",
-          "label": "VS Code Extension",
+          "label": "VS Code 扩展",
           "collapsed": true,
           "items": [
             {
@@ -27,7 +27,7 @@
     },
     {
       "type": "category",
-      "label": "Basics",
+      "label": "基础知识",
       "collapsed": false,
       "items": [
         "main/basics/workflow",
@@ -38,7 +38,7 @@
     },
     {
       "type": "category",
-      "label": "Upgrade Guides",
+      "label": "升级指南",
       "collapsed": false,
       "items": [
         "main/updating/6-0",
@@ -54,7 +54,7 @@
     },
     {
       "type": "category",
-      "label": "Cordova/PhoneGap",
+      "label": "Cordova 迁移",
       "collapsed": false,
       "items": [
         "main/cordova/index",
@@ -64,7 +64,7 @@
     },
     {
       "type": "category",
-      "label": "Concepts",
+      "label": "开发指南",
       "collapsed": false,
       "items": [
         "main/guides/ads",
@@ -128,7 +128,7 @@
     },
     {
       "type": "category",
-      "label": "Reference",
+      "label": "参考",
       "collapsed": false,
       "items": [
         "main/reference/config",
@@ -139,7 +139,7 @@
         "main/reference/core-apis/saving-calls",
         {
           "type": "link",
-          "label": "Plugin APIs",
+          "label": "插件 API",
           "href": "/apis"
         },
         "main/reference/support-policy",
@@ -151,10 +151,11 @@
       ]
     }
   ],
+
   "api": [
     {
       "type": "category",
-      "label": "Overview",
+      "label": "概览",
       "collapsed": false,
       "items": [
         "plugins",
@@ -166,7 +167,7 @@
     },
     {
       "type": "category",
-      "label": "APIs",
+      "label": "API",
       "collapsed": false,
       "items": [
         {
@@ -177,7 +178,7 @@
     },
     {
       "type": "category",
-      "label": "Creating Plugins",
+      "label": "插件开发",
       "collapsed": false,
       "items": [
         "plugins/creating-plugins/overview",
@@ -192,7 +193,7 @@
     },
     {
       "type": "category",
-      "label": "Plugin Tutorial",
+      "label": "插件教程",
       "collapsed": false,
       "items": [
         "plugins/tutorial/getting-started",
@@ -206,10 +207,11 @@
       ]
     }
   ],
+
   "cli": [
     {
       "type": "category",
-      "label": "CLI Documentation",
+      "label": "CLI 文档",
       "collapsed": false,
       "items": [
         "cli/index",
@@ -218,7 +220,7 @@
     },
     {
       "type": "category",
-      "label": "Command Reference",
+      "label": "命令参考",
       "collapsed": false,
       "items": [
         {

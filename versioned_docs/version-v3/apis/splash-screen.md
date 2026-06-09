@@ -1,9 +1,9 @@
 ---
-title: Splash Screen Capacitor 插件 API
+title: 启动屏 - Capacitor 插件 API
 description: Splash Screen API 提供显示或隐藏启动画面的方法。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
-sidebar_label: Splash Screen
+sidebar_label: 启动屏
 translated: true
 ---
 

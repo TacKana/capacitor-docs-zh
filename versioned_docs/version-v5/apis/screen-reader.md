@@ -1,9 +1,9 @@
 ---
-title: Screen Reader - Capacitor 屏幕阅读器插件 API
+title: 屏幕阅读器 - Capacitor 插件 API
 description: 屏幕阅读器 API 提供对 TalkBack/VoiceOver 等的访问，并为视觉无障碍提供简单的文本转语音功能。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/screen-reader/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/screen-reader/src/definitions.ts
-sidebar_label: Screen Reader 屏幕阅读器
+sidebar_label: 屏幕阅读器
 translated: true
 ---
 

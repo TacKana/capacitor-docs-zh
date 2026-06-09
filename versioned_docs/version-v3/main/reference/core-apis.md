@@ -1,5 +1,5 @@
 ---
-title: Capacitor API
+title: Capacitor API 参考
 description: Capacitor 核心 API
 sidebar_label: 核心 API
 slug: /core-apis

@@ -1,7 +1,7 @@
 ---
-title: Capacitor Http 插件 API
+title: HTTP - Capacitor 插件 API
 description: Capacitor Http API 通过修补 `fetch` 和 `XMLHttpRequest` 以使用原生库的方式提供原生 HTTP 支持。
-sidebar_label: Http
+sidebar_label: HTTP
 translated: true
 ---
 

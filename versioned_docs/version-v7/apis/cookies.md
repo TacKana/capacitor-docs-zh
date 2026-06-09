@@ -1,5 +1,5 @@
 ---
-title: Cookies Capacitor 插件 API
+title: Cookies - Capacitor 插件 API
 description: Capacitor Cookies API 通过修补 `document.cookie` 使用原生库来提供原生 cookie 支持。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/7.x/core/cookies.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/7.x/core/src/core-plugins.ts

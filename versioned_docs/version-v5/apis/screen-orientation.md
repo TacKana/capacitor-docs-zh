@@ -1,9 +1,9 @@
 ---
-title: Screen Orientation - Capacitor 屏幕方向插件 API
+title: 屏幕方向 - Capacitor 插件 API
 description: 屏幕方向 API 提供锁定和解锁屏幕方向的方法。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/screen-orientation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/screen-orientation/src/definitions.ts
-sidebar_label: Screen Orientation 屏幕方向
+sidebar_label: 屏幕方向
 translated: true
 ---
 

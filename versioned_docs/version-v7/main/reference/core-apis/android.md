@@ -1,5 +1,5 @@
 ---
-title: Capacitor Android API
+title: Android 平台 Capacitor API
 description: Android 上 Capacitor 的 API
 translated: true
 slug: /core-apis/android

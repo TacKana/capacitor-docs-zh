@@ -1,9 +1,9 @@
 ---
-title: Geolocation - Capacitor 地理位置插件 API
+title: 地理位置 - Capacitor 插件 API
 description: Geolocation API 提供了获取和跟踪设备当前位置的简单方法，包括海拔、方向和速度信息（如果可用）。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/geolocation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/geolocation/src/definitions.ts
-sidebar_label: Geolocation 地理位置
+sidebar_label: 地理位置
 translated: true
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Clipboard - Capacitor 剪贴板插件 API
+title: 剪贴板 - Capacitor 插件 API
 description: 剪贴板 API 实现了从系统剪贴板复制和粘贴的功能。
-sidebar_label: Clipboard 剪贴板
+sidebar_label: 剪贴板
 translated: true
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Camera Capacitor 插件 API
+title: 相机 - Capacitor 插件 API
 description: Camera API 提供使用相机拍照或从相册中选择现有照片的能力。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/7.x/camera/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/7.x/camera/src/definitions.ts
-sidebar_label: Camera
+sidebar_label: 相机
 translated: true
 ---
 

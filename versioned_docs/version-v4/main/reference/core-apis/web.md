@@ -1,5 +1,5 @@
 ---
-title: Capacitor Web API
+title: Web 平台 Capacitor API
 description: Capacitor 在 Web 平台上的 API
 slug: /core-apis/web
 ---

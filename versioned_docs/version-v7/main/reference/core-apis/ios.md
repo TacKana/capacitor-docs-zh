@@ -1,5 +1,5 @@
 ---
-title: Capacitor iOS API
+title: iOS 平台 Capacitor API
 description: iOS 上 Capacitor 的 API
 translated: true
 slug: /core-apis/ios

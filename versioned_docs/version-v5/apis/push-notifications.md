@@ -1,9 +1,9 @@
 ---
-title: Push Notifications - Capacitor 推送通知插件 API
+title: 推送通知 - Capacitor 插件 API
 description: 推送通知 API 提供对原生推送通知的访问。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/push-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/push-notifications/src/definitions.ts
-sidebar_label: Push Notifications 推送通知
+sidebar_label: 推送通知
 translated: true
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Google Maps - Capacitor 谷歌地图插件 API
+title: Google 地图 - Capacitor 插件 API
 description: Capacitor 上的谷歌地图
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/google-maps/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/5.x/google-maps/src/definitions.ts
-sidebar_label: Google Maps 谷歌地图
+sidebar_label: Google 地图
 translated: true
 ---
 

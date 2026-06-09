@@ -1,9 +1,9 @@
 ---
-title: Barcode Scanner Capacitor 插件 API
+title: 条码扫描 - Capacitor 插件 API
 description: 使用 Outsystems 条码库的 Capacitor 插件
 custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/src/definitions.ts
-sidebar_label: Barcode Scanner
+sidebar_label: 条码扫描
 translated: true
 ---
 
