@@ -50,6 +50,7 @@ Keyboard.addListener('keyboardDidHide', () => {
 | **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | 配置键盘出现时应用调整大小的方式。仅适用于 iOS。                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
 | **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | 如果你的应用不支持暗/亮主题切换，则覆盖键盘样式。如果未设置，键盘样式将取决于设备外观。仅适用于 iOS。                                                                                                                                     |                     | 1.0.0 |
 | **`resizeOnFullScreen`** | <code>boolean</code>                                      | 存在一个 Android 错误，当应用处于全屏模式时（例如使用 StatusBar 插件覆盖状态栏），键盘无法调整 WebView 大小。如果此设置设为 true，则会添加一个解决方案，即使应用处于全屏模式也能调整 WebView 大小。仅适用于 Android。 |                     | 1.1.0 |
+| **`autoBackdropColor`**  | <code>'off' \| 'auto' \| 'dom'</code>                     | 控制每次键盘即将显示时键盘背景色（键盘后方可见区域）的设置方式。`'off'` — 不对背景进行着色。`'auto'` — 使用 Capacitor 配置中设置的 `backgroundColor`；否则从 Web 应用的 DOM 主体背景中提取颜色。`'dom'` — 始终从 Web 应用的 DOM 主体背景中提取颜色，忽略 `backgroundColor` 配置。如果 DOM 没有可解析的背景，则背景保持不变。仅适用于 iOS。 | <code>"off"</code>  | 8.0.4 |
 
 ### 示例
 
@@ -61,7 +62,8 @@ Keyboard.addListener('keyboardDidHide', () => {
     "Keyboard": {
       "resize": "body",
       "style": "DARK",
-      "resizeOnFullScreen": true
+      "resizeOnFullScreen": true,
+      "autoBackdropColor": "auto"
     }
   }
 }
@@ -81,6 +83,7 @@ const config: CapacitorConfig = {
       resize: KeyboardResize.Body,
       style: KeyboardStyle.Dark,
       resizeOnFullScreen: true,
+      autoBackdropColor: 'auto'
     },
   },
 };
