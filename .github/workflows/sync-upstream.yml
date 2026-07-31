@@ -1,0 +1,150 @@
+name: Sync Upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Check upstream changes
+        id: check
+        run: |
+          git remote add upstream https://github.com/ionic-team/capacitor-docs.git
+          git fetch --prune upstream main
+          if git merge-base --is-ancestor upstream/main origin/main; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new upstream changes, skip."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "last_sync=$(git rev-parse origin/main)" >> "$GITHUB_OUTPUT"
+            echo "new_head=$(git rev-parse upstream/main)" >> "$GITHUB_OUTPUT"
+            git log --oneline --no-merges origin/main..upstream/main
+          fi
+
+      - name: Run opencode to sync and translate
+        if: steps.check.outputs.changed == 'true'
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          model: opencode/deepseek-v4-flash-free
+          use_github_token: true
+          prompt: |
+            # 任务：同步上游英文文档并更新中文翻译
+
+            本仓库是 Capacitor 官方文档的中文翻译（TacKana/capacitor-docs-zh），上游英文仓库
+            ionic-team/capacitor-docs 已配置为 `upstream` remote，最新内容已 fetch 到 `upstream/main`。
+            当前分支是 main，上游有新提交尚未合并，请完成以下工作：
+
+            1. 合并上游：执行 `git merge --no-edit upstream/main`。若产生冲突：
+               - 文档文件（docs/ 下除 docs/apis/ 外的 .md/.mdx）：保留本仓库中文翻译的内容与
+                 翻译习惯，同时把上游英文侧新增或修改的部分翻译成中文并合并进来；
+               - 非文档文件冲突：以英文上游为准，但保留本仓库中文站相关的必要配置
+                 （如 docusaurus.config.js、sidebars.js 中的中文本地化内容）。
+            2. 翻译同步：检查被上游改动影响的 docs/ 目录下所有中文翻译文件，将其中文内容更新到与
+               上游最新英文一致；docs/apis/ 下带 `translated: true` 标记的插件文档，如果因上游
+               README 更新导致 source_hash 不匹配（运行 scripts/api.mjs 时会输出警告），
+               请同步更新对应翻译。
+            3. 重新生成插件 API 文档：执行 `npm install` 后运行 `npm run generate-plugin-docs`，
+               让 docs/apis/ 与最新插件版本保持一致。脚本新生成的英文文件无需翻译
+               （未标记 translated: true）。
+            4. 约束：不要修改与本次同步无关的文件；不要修改 .github/ 下的文件；不要删除已有的
+               中文翻译内容。
+            5. 提交并推送：有变更时提交，提交信息格式为 `sync: 同步上游 <UTC 日期>`，然后
+               `git push origin main` 推送到本仓库；若确认没有任何变更，则不要创建提交，
+               直接说明无需更新。
+            6. 汇报：完成后在最终回复中总结——合并了哪些上游提交、翻译/解决了哪些文件的冲突、
+               最终提交哈希是什么。
+
+      - name: Notify repository owner
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        env:
+          LAST_SYNC: ${{ steps.check.outputs.last_sync }}
+          NEW_HEAD: ${{ steps.check.outputs.new_head }}
+        with:
+          script: |
+            const { execSync } = require('child_process');
+
+            const lastSync = process.env.LAST_SYNC;
+            const newHead = process.env.NEW_HEAD;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const upstreamCommits = execSync(
+              `git log --oneline --no-merges ${lastSync}..${newHead}`,
+              { encoding: 'utf8' }
+            ).trim().split('\n').filter(Boolean);
+
+            const ourCommits = execSync(
+              `git log --oneline --no-merges ${lastSync}..HEAD`,
+              { encoding: 'utf8' }
+            ).trim().split('\n').filter(Boolean);
+
+            const files = execSync(
+              `git diff --name-only ${lastSync}...HEAD`,
+              { encoding: 'utf8' }
+            ).trim().split('\n').filter(Boolean);
+
+            const date = new Date().toISOString().slice(0, 10);
+            const title = `[自动同步] ${date} 上游更新已同步并翻译`;
+
+            const body = [
+              `@${owner} 上游 ${repo} 的上游仓库（ionic-team/capacitor-docs）有更新，`,
+              `已由 opencode 自动完成合并、翻译同步与冲突处理，并提交到 main。`,
+              ``,
+              `- 上游最新提交：\`${newHead}\``,
+              `- 本次并入的上游提交（${upstreamCommits.length} 个）：`,
+              `\`\`\``,
+              ...(upstreamCommits.length ? upstreamCommits : ['(无)']),
+              `\`\`\``,
+              `- 本仓库新增提交（${ourCommits.length} 个）：`,
+              `\`\`\``,
+              ...(ourCommits.length ? ourCommits : ['(无)']),
+              `\`\`\``,
+              `- 变更文件（${files.length} 个）：`,
+              `\`\`\``,
+              ...(files.length ? files : ['(无)']),
+              `\`\`\``,
+              ``,
+              `请检查同步结果与翻译质量，如有问题请在 Actions 日志或此 issue 中反馈。`,
+            ].join('\n');
+
+            const existing = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              per_page: 20,
+            });
+            const found = existing.data.find((i) => i.title.startsWith('[自动同步]'));
+            if (found) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: found.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body });
+            }
