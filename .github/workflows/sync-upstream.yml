@@ -127,23 +127,40 @@ jobs:
               ...(files.length ? files : ['(无)']),
               `\`\`\``,
               ``,
-              `请检查同步结果与翻译质量，如有问题请在 Actions 日志或此 issue 中反馈。`,
+              `请检查同步结果与翻译质量，如有问题请在 Actions 日志中反馈。`,
             ].join('\n');
 
-            const existing = await github.rest.issues.listForRepo({
-              owner,
-              repo,
-              state: 'open',
-              per_page: 20,
-            });
-            const found = existing.data.find((i) => i.title.startsWith('[自动同步]'));
-            if (found) {
-              await github.rest.issues.createComment({
+            core.summary.addMarkdown(body);
+            await core.summary.write();
+
+            try {
+              const existing = await github.rest.issues.listForRepo({
                 owner,
                 repo,
-                issue_number: found.number,
+                state: 'open',
+                per_page: 20,
+              });
+              const found = existing.data.find((i) => i.title.startsWith('[自动同步]'));
+              if (found) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: found.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({ owner, repo, title, body });
+              }
+            } catch (err) {
+              if (err.status !== 410 && err.status !== 403 && err.status !== 404) {
+                throw err;
+              }
+              const head = execSync('git rev-parse origin/main', { encoding: 'utf8' }).trim();
+              await github.rest.repos.createCommitComment({
+                owner,
+                repo,
+                commit_sha: head,
                 body,
               });
-            } else {
-              await github.rest.issues.create({ owner, repo, title, body });
+              core.info('Issues disabled, notified via commit comment instead.');
             }
