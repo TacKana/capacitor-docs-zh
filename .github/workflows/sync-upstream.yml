@@ -19,7 +19,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -98,12 +97,12 @@ jobs:
             ).trim().split('\n').filter(Boolean);
 
             const ourCommits = execSync(
-              `git log --oneline --no-merges ${lastSync}..HEAD`,
+              `git log --oneline --no-merges ${lastSync}..origin/main`,
               { encoding: 'utf8' }
             ).trim().split('\n').filter(Boolean);
 
             const files = execSync(
-              `git diff --name-only ${lastSync}...HEAD`,
+              `git diff --name-only ${lastSync}...origin/main`,
               { encoding: 'utf8' }
             ).trim().split('\n').filter(Boolean);
 
