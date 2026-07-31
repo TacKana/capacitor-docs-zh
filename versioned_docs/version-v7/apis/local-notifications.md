@@ -748,7 +748,7 @@ removeAllListeners() => Promise<void>
 
 重要性级别。更多详情，请参阅 [Android 开发者文档](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT)
 
-<code>1 | 2 | 3 | 4 | 5</code>
+<code>0 | 1 | 2 | 3 | 4 | 5</code>
 
 
 #### Visibility

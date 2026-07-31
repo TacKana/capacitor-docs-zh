@@ -32,6 +32,7 @@ module.exports = {
       label: '升级指南',
       collapsed: false,
       items: [
+        'main/updating/8-5',
         'main/updating/8-0',
         'main/updating/plugins/8-0',
         'main/updating/7-0',

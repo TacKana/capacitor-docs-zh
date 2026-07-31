@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor-barcode-scanner/blob/ma
 editApiUrl: https://github.com/ionic-team/capacitor-barcode-scanner/blob/main/plugin/src/definitions.ts
 sidebar_label: 条形码扫描
 translated: true
-source_hash: 62402958
+source_hash: 668ded59
 ---
 
 # @capacitor/barcode-scanner
@@ -100,7 +100,7 @@ scanBarcode(options: CapacitorBarcodeScannerOptions) => Promise<CapacitorBarcode
 
 定义配置条码扫描的选项。
 
-<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
+<code>{ hint: <a href="#capacitorbarcodescannertypehint">CapacitorBarcodeScannerTypeHint</a>; scanInstructions?: string; scanButton?: boolean; scanText?: string; cameraDirection?: <a href="#capacitorbarcodescannercameradirection">CapacitorBarcodeScannerCameraDirection</a>; scanOrientation?: <a href="#capacitorbarcodescannerscanorientation">CapacitorBarcodeScannerScanOrientation</a>; /** * Accessibility label (alternative text) read by screen readers for the cancel button. * When omitted, no accessibility label is set. Has no effect on web. */ cancelButtonAccessibilityLabel?: string; /** * Accessibility label (alternative text) read by screen readers for the torch button when the torch is on. * When omitted, no accessibility label is set. Has no effect on web. */ torchButtonOnAccessibilityLabel?: string; /** * Accessibility label (alternative text) read by screen readers for the torch button when the torch is off. * When omitted, no accessibility label is set. Has no effect on web. */ torchButtonOffAccessibilityLabel?: string; android?: { scanningLibrary?: <a href="#capacitorbarcodescannerandroidscanninglibrary">CapacitorBarcodeScannerAndroidScanningLibrary</a>; }; web?: { showCameraSelection?: boolean; scannerFPS?: number; }; }</code>
 
 
 ### 枚举

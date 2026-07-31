@@ -5,7 +5,7 @@ translated: true
 custom_edit_url: https://github.com/ionic-team/capacitor-keyboard/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-keyboard/blob/main/src/definitions.ts
 sidebar_label: 键盘
-source_hash: 7a6e5179
+source_hash: 74f1abfb
 ---
 
 # @capacitor/keyboard
