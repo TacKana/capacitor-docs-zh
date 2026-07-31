@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/brows
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/browser/src/definitions.ts
 sidebar_label: 浏览器
 translated: true
-source_hash: 77484b4e
+source_hash: 47454093
 ---
 
 # @capacitor/browser
@@ -78,9 +78,7 @@ open(options: OpenOptions) => Promise<void>
 close() => Promise<void>
 ```
 
-Web 和 iOS 专用：关闭已打开的浏览器窗口。
-
-在其他平台上无操作。
+关闭已打开的浏览器窗口。
 
 **Since:** 1.0.0
 

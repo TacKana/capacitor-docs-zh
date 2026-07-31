@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/motio
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/src/definitions.ts
 sidebar_label: 动作传感器
 translated: true
-source_hash: 63b810e0
+source_hash: 25c97932
 ---
 
 # @capacitor/motion
@@ -21,7 +21,9 @@ npx cap sync
 
 ## 权限
 
-此插件目前使用 Web API 实现。大多数浏览器需要获得权限后才能使用此 API。要请求权限，请在用户发起的任何操作（如按钮点击）中提示用户：
+此插件目前使用 Web API 实现。在 iOS 设备上，
+在访问设备运动或方向事件之前必须请求权限。要请求权限，请在用户发起的任何操作
+（如按钮点击）中提示用户：
 
 ```typescript
 import { PluginListenerHandle } from '@capacitor/core';
@@ -29,13 +31,17 @@ import { Motion } from '@capacitor/motion';
 
 
 let accelHandler: PluginListenerHandle;
+let orientationHandler: PluginListenerHandle;
 
-myButton.addEventListener('click', async () => {
-  try {
-    await DeviceMotionEvent.requestPermission();
-  } catch (e) {
-    // 处理错误
-    return;
+myAccelerationButton.addEventListener('click', async () => {
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    try {
+      const permission = await DeviceMotionEvent.requestPermission();
+      if (permission !== 'granted') return;
+    } catch (e) {
+      // 处理错误
+      return;
+    }
   }
 
   // 一旦用户批准，就可以开始监听：
@@ -44,10 +50,34 @@ myButton.addEventListener('click', async () => {
   });
 });
 
+myOrientationButton.addEventListener('click', async () => {
+  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    try {
+      const permission = await DeviceOrientationEvent.requestPermission();
+      if (permission !== 'granted') return;
+    } catch (e) {
+      // 处理错误
+      return;
+    }
+  }
+
+  // 一旦用户批准，就可以开始监听：
+  orientationHandler = await Motion.addListener('orientation', event => {
+    console.log('设备方向事件：', event);
+  });
+});
+
 // 停止加速度监听器
 const stopAcceleration = () => {
   if (accelHandler) {
     accelHandler.remove();
+  }
+};
+
+// 停止方向监听器
+const stopOrientation = () => {
+  if (orientationHandler) {
+    orientationHandler.remove();
   }
 };
 
@@ -59,7 +89,9 @@ const removeListeners = () => {
 
 请参阅
 [`DeviceMotionEvent`](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent)
-API 以了解 'accel' 事件中提供的数据。
+和
+[`DeviceOrientationEvent`](https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent)
+API，以分别了解 `'accel'` 和 `'orientation'` 事件中提供的数据。
 
 ## API
 

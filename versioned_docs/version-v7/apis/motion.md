@@ -20,8 +20,9 @@ npx cap sync
 
 ## 权限
 
-此插件目前使用 Web API 实现。大多数浏览器要求
-在使用此 API 之前获得权限。要请求权限，请在用户发起的任何操作（如按钮点击）上提示用户：
+此插件目前使用 Web API 实现。在 iOS 设备上，
+在访问设备运动或方向事件之前必须请求权限。要请求权限，请在用户发起的任何操作
+（如按钮点击）上提示用户：
 
 ```typescript
 import { PluginListenerHandle } from '@capacitor/core';
@@ -29,18 +30,39 @@ import { Motion } from '@capacitor/motion';
 
 
 let accelHandler: PluginListenerHandle;
+let orientationHandler: PluginListenerHandle;
 
-myButton.addEventListener('click', async () => {
-  try {
-    await DeviceMotionEvent.requestPermission();
-  } catch (e) {
-    // 处理错误
-    return;
+myAccelerationButton.addEventListener('click', async () => {
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    try {
+      const permission = await DeviceMotionEvent.requestPermission();
+      if (permission !== 'granted') return;
+    } catch (e) {
+      // 处理错误
+      return;
+    }
   }
 
   // 用户批准后，可以开始监听：
   accelHandler = await Motion.addListener('accel', event => {
     console.log('设备运动事件：', event);
+  });
+});
+
+myOrientationButton.addEventListener('click', async () => {
+  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    try {
+      const permission = await DeviceOrientationEvent.requestPermission();
+      if (permission !== 'granted') return;
+    } catch (e) {
+      // 处理错误
+      return;
+    }
+  }
+
+  // 用户批准后，可以开始监听：
+  orientationHandler = await Motion.addListener('orientation', event => {
+    console.log('设备方向事件：', event);
   });
 });
 
@@ -51,14 +73,24 @@ const stopAcceleration = () => {
   }
 };
 
+// 停止方向监听器
+const stopOrientation = () => {
+  if (orientationHandler) {
+    orientationHandler.remove();
+  }
+};
+
 // 移除所有监听器
 const removeListeners = () => {
   Motion.removeAllListeners();
 };
 ```
 
-请参阅 [`DeviceMotionEvent`](https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceMotionEvent)
-API 以了解 'accel' 事件中提供的数据。
+请参阅
+[`DeviceMotionEvent`](https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceMotionEvent)
+和
+[`DeviceOrientationEvent`](https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent)
+API，以分别了解 `'accel'` 和 `'orientation'` 事件中提供的数据。
 
 ## API
 
