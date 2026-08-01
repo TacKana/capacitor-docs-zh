@@ -1,30 +1,32 @@
 ---
-title: Calendar Capacitor Plugin API
-description: Create, find, modify and remove events in the device calendar.
+title: Calendar Capacitor 插件 API
+description: 在设备日历中创建、查找、修改和删除事件。
 custom_edit_url: https://github.com/ionic-team/capacitor-calendar/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-calendar/blob/main/src/definitions.ts
-sidebar_label: Calendar
+sidebar_label: 日历
+translated: true
+source_hash: f4c1f4c
 ---
 
 # @capacitor/calendar
 
-Create, find, modify and remove events in the device calendar.
+在设备日历中创建、查找、修改和删除事件。
 
-## Install
+## 安装
 
-To use npm
+使用 npm
 
 ```bash
 npm install @capacitor/calendar
 ```
 
-To use yarn
+使用 yarn
 
 ```bash
 yarn add @capacitor/calendar
 ```
 
-Sync native files
+同步原生文件
 
 ```bash
 npx cap sync
@@ -32,61 +34,45 @@ npx cap sync
 
 ## iOS
 
-Add the calendar usage-description keys to your app's `Info.plist`; iOS
-crashes on first calendar access without them. iOS 17 split calendar access
-into two levels with their own keys; keep the pre-17 key for older devices:
+在应用的 `Info.plist` 中添加日历使用说明键；如果没有这些键，iOS 会在首次访问日历时崩溃。iOS 17 将日历访问分为两个级别，各有自己的键；请保留 17 之前的键以兼容旧设备：
 
 ```xml
 <key>NSCalendarsFullAccessUsageDescription</key>
-<string>We need access to your calendar to search, create and remove events.</string>
+<string>我们需要访问你的日历，以搜索、创建和删除事件。</string>
 <key>NSCalendarsWriteOnlyAccessUsageDescription</key>
-<string>We need access to your calendar to create events.</string>
+<string>我们需要访问你的日历，以创建事件。</string>
 <key>NSCalendarsUsageDescription</key>
-<string>We need access to your calendar to search, create and remove events.</string>
+<string>我们需要访问你的日历，以搜索、创建和删除事件。</string>
 ```
 
-Notes:
+注意：
 
-- The plugin uses the current EventKit access APIs
-  (`requestFullAccessToEvents` / `requestWriteOnlyAccessToEvents` on iOS
-  17+), never the deprecated `requestAccess(to:)`. `writeCalendar` is
-  satisfied by write-only access ("Add Events Only"); `readCalendar`
-  requires full access.
-- `createEventInteractively` presents the system event editor, which on
-  iOS 17+ needs no calendar permission at all.
-- EventKit stores dates at second granularity, so `startDate`/`endDate`
-  read back with milliseconds truncated. Android keeps exact milliseconds.
+- 该插件使用当前 EventKit 访问 API（iOS 17+ 上的 `requestFullAccessToEvents` / `requestWriteOnlyAccessToEvents`），绝不使用已弃用的 `requestAccess(to:)`。`writeCalendar` 可由只写访问（"仅添加事件"）满足；`readCalendar` 需要完全访问权限。
+- `createEventInteractively` 展示系统事件编辑器，在 iOS 17+ 上完全不需要日历权限。
+- EventKit 以秒为粒度存储日期，因此读取到的 `startDate`/`endDate` 毫秒部分会被截断。Android 保留精确的毫秒。
 
 ## Android
 
-The plugin declares `READ_CALENDAR` and `WRITE_CALENDAR` in its own
-manifest; Gradle manifest merging adds them to your app automatically.
-Methods also request the runtime permission they need when it has not been
-granted yet: read for `findEvents`/`listCalendars`, write for
-`createEvent`/`createCalendar`, both for `modifyEvent`/`deleteEvent`/
-`deleteCalendar`.
+该插件在自己的 manifest 中声明了 `READ_CALENDAR` 和 `WRITE_CALENDAR`；Gradle 的 manifest 合并会自动将其添加到你的应用中。方法还会在权限尚未授予时请求所需的运行时权限：`findEvents`/`listCalendars` 需要读取权限，`createEvent`/`createCalendar` 需要写入权限，`modifyEvent`/`deleteEvent`/`deleteCalendar` 需要读写权限。
 
-Platform notes:
+平台注意事项：
 
-- `createEventInteractively` opens the system calendar editor, which
-  reports neither the saved event's id nor a cancel, so the call resolves
-  with an empty result when the editor closes.
-- `CreateEventOptions.url` is ignored: the platform's event model has no
-  URL field.
+- `createEventInteractively` 打开系统日历编辑器，该编辑器既不返回所保存事件的 id，也不返回取消事件，因此当编辑器关闭时，调用会以空结果解析。
+- `CreateEventOptions.url` 会被忽略：该平台的日历事件模型没有 URL 字段。
 
-## Errors
+## 错误
 
-Every rejection carries a structured code + message:
+每次拒绝都会携带结构化的错误码与消息：
 
-| Code                 | Meaning                                      |
-| -------------------- | -------------------------------------------- |
-| `OS-PLUG-CLDR-0000` | Unknown error                                |
-| `OS-PLUG-CLDR-0001` | Invalid argument (e.g. no matching event)    |
-| `OS-PLUG-CLDR-0003` | Pending operation (e.g. editor already open) |
-| `OS-PLUG-CLDR-0004` | I/O error                                    |
-| `OS-PLUG-CLDR-0005` | Not supported                                |
-| `OS-PLUG-CLDR-0006` | Operation cancelled (editor closed)          |
-| `OS-PLUG-CLDR-0020` | Permission denied                            |
+| 错误码                | 含义                                  |
+| --------------------- | ------------------------------------- |
+| `OS-PLUG-CLDR-0000`   | 未知错误                              |
+| `OS-PLUG-CLDR-0001`   | 无效参数（例如没有匹配的事件）        |
+| `OS-PLUG-CLDR-0003`   | 挂起的操作（例如编辑器已打开）        |
+| `OS-PLUG-CLDR-0004`   | I/O 错误                              |
+| `OS-PLUG-CLDR-0005`   | 不支持                                |
+| `OS-PLUG-CLDR-0006`   | 操作已取消（编辑器已关闭）            |
+| `OS-PLUG-CLDR-0020`   | 权限被拒绝                            |
 
 ## API
 
@@ -103,13 +89,13 @@ Every rejection carries a structured code + message:
 * [`createCalendar(...)`](#createcalendar)
 * [`deleteCalendar(...)`](#deletecalendar)
 * [`openCalendar(...)`](#opencalendar)
-* [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
+* [接口](#接口)
+* [类型别名](#类型别名)
 
 </docgen-index>
 
 <docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<!--更新源文件 JSDoc 注释并重新运行 docgen 以更新下面的文档-->
 
 ### checkPermissions()
 
@@ -117,14 +103,13 @@ Every rejection carries a structured code + message:
 checkPermissions() => Promise<CalendarPermissionStatus>
 ```
 
-Returns the current calendar permission state without prompting.
+返回当前的日历权限状态，不进行提示。
 
-On iOS 17+, `readCalendar` reflects full access; `writeCalendar` is also
-granted by write-only access ("Add Events Only").
+在 iOS 17+ 上，`readCalendar` 反映完全访问权限；`writeCalendar` 也可通过只写访问（"仅添加事件"）获得。
 
-**Returns:** <code>Promise&lt;<a href="#calendarpermissionstatus">CalendarPermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#calendarpermissionstatus">CalendarPermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -135,18 +120,17 @@ granted by write-only access ("Add Events Only").
 requestPermissions(options?: RequestPermissionsOptions | undefined) => Promise<CalendarPermissionStatus>
 ```
 
-Prompts for the given calendar permissions (both when omitted).
+请求给定的日历权限（省略时请求两者）。
 
-On iOS, requesting `readCalendar` prompts for full access; requesting only
-`writeCalendar` prompts for write-only access on iOS 17+.
+在 iOS 上，请求 `readCalendar` 会提示完全访问；仅请求 `writeCalendar` 时，在 iOS 17+ 上会提示只写访问。
 
-| Param         | Type                                                                            |
+| 参数          | 类型                                                                            |
 | ------------- | ------------------------------------------------------------------------------- |
 | **`options`** | <code><a href="#requestpermissionsoptions">RequestPermissionsOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#calendarpermissionstatus">CalendarPermissionStatus</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#calendarpermissionstatus">CalendarPermissionStatus</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -157,17 +141,17 @@ On iOS, requesting `readCalendar` prompts for full access; requesting only
 createEvent(options: CreateEventOptions) => Promise<CreateEventResult>
 ```
 
-Creates a calendar event silently and resolves with its id.
+静默创建日历事件，并以其 id 作为结果解析。
 
-Requires write permission; requests it when not yet determined.
+需要写入权限；在权限尚未确定时会请求。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#createeventoptions">CreateEventOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#createeventresult">CreateEventResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#createeventresult">CreateEventResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -178,21 +162,17 @@ Requires write permission; requests it when not yet determined.
 createEventInteractively(options: CreateEventOptions) => Promise<CreateEventResult>
 ```
 
-Opens the system event-editing UI prefilled with the given values.
-Resolves when the user saves (with the new event's id where the platform
-provides one; Android does not) and fails with `OS-PLUG-CLDR-0006` when
-the user cancels.
+打开预先填充了给定值的系统事件编辑界面。当用户保存时解析（在平台提供 id 时带上新事件的 id；Android 不提供），当用户取消时以 `OS-PLUG-CLDR-0006` 失败。
 
-On iOS 17+ the editor needs no calendar permission. On Android and older
-iOS versions, write permission is requested first.
+在 iOS 17+ 上编辑器无需日历权限。在 Android 和旧版 iOS 上，会先请求写入权限。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#createeventoptions">CreateEventOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#createeventresult">CreateEventResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#createeventresult">CreateEventResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -203,17 +183,15 @@ iOS versions, write permission is requested first.
 modifyEvent(options: ModifyEventOptions) => Promise<void>
 ```
 
-Updates the first event matching `filter` with the values in `newEvent`.
-Only the fields present in `newEvent` are changed. Fails with
-`OS-PLUG-CLDR-0001` when no event matches.
+用 `newEvent` 中的值更新第一个匹配 `filter` 的事件。仅更改 `newEvent` 中存在的字段。没有匹配的事件时以 `OS-PLUG-CLDR-0001` 失败。
 
-Requires read and write permission.
+需要读写权限。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#modifyeventoptions">ModifyEventOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -224,21 +202,17 @@ Requires read and write permission.
 findEvents(options: FindEventsOptions) => Promise<FindEventsResult>
 ```
 
-Returns events matching the filter fields within the date range.
-`title`, `location` and `notes` match case-insensitive substrings;
-`calendarName` restricts the search to that calendar. A recurring
-event is returned once per occurrence in the range, each with its
-own dates.
+返回日期范围内与筛选字段匹配的事件。`title`、`location` 和 `notes` 按不区分大小写的子串匹配；`calendarName` 将搜索限制在该日历内。重复事件在范围内每次发生都会返回一次，每次都有各自的日期。
 
-Requires read permission.
+需要读取权限。
 
-| Param         | Type                                                            |
+| 参数          | 类型                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#findeventsoptions">FindEventsOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#findeventsresult">FindEventsResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#findeventsresult">FindEventsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -249,17 +223,15 @@ Requires read permission.
 deleteEvent(options: DeleteEventOptions) => Promise<void>
 ```
 
-Deletes events: by `id` when given, otherwise every event matching the
-filter fields. Fails with `OS-PLUG-CLDR-0001` when nothing matches.
-Deleting a recurring event removes the entire series.
+删除事件：指定 `id` 时按 id 删除，否则删除所有匹配筛选字段的事件。没有匹配项时以 `OS-PLUG-CLDR-0001` 失败。删除重复事件会移除整个事件系列。
 
-Requires read and write permission.
+需要读写权限。
 
-| Param         | Type                                                              |
+| 参数          | 类型                                                              |
 | ------------- | ----------------------------------------------------------------- |
 | **`options`** | <code><a href="#deleteeventoptions">DeleteEventOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -270,13 +242,13 @@ Requires read and write permission.
 listCalendars() => Promise<ListCalendarsResult>
 ```
 
-Returns the calendars available on the device.
+返回设备上可用的日历。
 
-Requires read permission.
+需要读取权限。
 
-**Returns:** <code>Promise&lt;<a href="#listcalendarsresult">ListCalendarsResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#listcalendarsresult">ListCalendarsResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -287,17 +259,17 @@ Requires read permission.
 createCalendar(options: CreateCalendarOptions) => Promise<CreateCalendarResult>
 ```
 
-Creates a calendar and resolves with its id.
+创建日历，并以其 id 作为结果解析。
 
-Requires write permission.
+需要写入权限。
 
-| Param         | Type                                                                    |
+| 参数          | 类型                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#createcalendaroptions">CreateCalendarOptions</a></code> |
 
-**Returns:** <code>Promise&lt;<a href="#createcalendarresult">CreateCalendarResult</a>&gt;</code>
+**返回值:** <code>Promise&lt;<a href="#createcalendarresult">CreateCalendarResult</a>&gt;</code>
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -308,16 +280,15 @@ Requires write permission.
 deleteCalendar(options: DeleteCalendarOptions) => Promise<void>
 ```
 
-Deletes the calendar with the given name. Fails with
-`OS-PLUG-CLDR-0001` when no calendar has that name.
+删除具有给定名称的日历。没有同名日历时以 `OS-PLUG-CLDR-0001` 失败。
 
-Requires read and write permission.
+需要读写权限。
 
-| Param         | Type                                                                    |
+| 参数          | 类型                                                                    |
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#deletecalendaroptions">DeleteCalendarOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
@@ -328,236 +299,231 @@ Requires read and write permission.
 openCalendar(options?: OpenCalendarOptions | undefined) => Promise<void>
 ```
 
-Opens the system calendar app at the given date (today when omitted).
-Needs no calendar permission.
+在给定日期打开系统日历应用（省略时为今天）。无需日历权限。
 
-| Param         | Type                                                                |
+| 参数          | 类型                                                                |
 | ------------- | ------------------------------------------------------------------- |
 | **`options`** | <code><a href="#opencalendaroptions">OpenCalendarOptions</a></code> |
 
-**Since:** 1.0.0
+**自版本:** 1.0.0
 
 --------------------
 
 
-### Interfaces
+### 接口
 
 
 #### CalendarPermissionStatus
 
-Permission state per calendar permission.
+每个日历权限的权限状态。
 
-| Prop                | Type                                                        | Description                               | Since |
-| ------------------- | ----------------------------------------------------------- | ----------------------------------------- | ----- |
-| **`readCalendar`**  | <code><a href="#permissionstate">PermissionState</a></code> | Permission to read calendar events.       | 1.0.0 |
-| **`writeCalendar`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission to add events to the calendar. | 1.0.0 |
+| 属性                | 类型                                                        | 描述                                 | 自版本 |
+| ------------------- | ----------------------------------------------------------- | ------------------------------------ | ----- |
+| **`readCalendar`**  | <code><a href="#permissionstate">PermissionState</a></code> | 读取日历事件的权限。                 | 1.0.0 |
+| **`writeCalendar`** | <code><a href="#permissionstate">PermissionState</a></code> | 向日历添加事件的权限。               | 1.0.0 |
 
 
 #### RequestPermissionsOptions
 
-Options accepted by {@link CalendarPlugin.requestPermissions}.
+{@link CalendarPlugin.requestPermissions} 接受的选项。
 
-| Prop              | Type                                  | Description                                                  | Since |
-| ----------------- | ------------------------------------- | ------------------------------------------------------------ | ----- |
-| **`permissions`** | <code>CalendarPermissionType[]</code> | The permissions to request. Both are requested when omitted. | 1.0.0 |
+| 属性              | 类型                                  | 描述                                                   | 自版本 |
+| ----------------- | ------------------------------------- | ------------------------------------------------------ | ----- |
+| **`permissions`** | <code>CalendarPermissionType[]</code> | 要请求的权限。省略时请求两者。                         | 1.0.0 |
 
 
 #### CreateEventResult
 
-Result of {@link CalendarPlugin.createEvent} and
-{@link CalendarPlugin.createEventInteractively}.
+{@link CalendarPlugin.createEvent} 和 {@link CalendarPlugin.createEventInteractively} 的结果。
 
-| Prop     | Type                | Description                                                                                         | Since |
-| -------- | ------------------- | --------------------------------------------------------------------------------------------------- | ----- |
-| **`id`** | <code>string</code> | The created event's id. Absent when the platform does not report it (Android's interactive editor). | 1.0.0 |
+| 属性     | 类型                | 描述                                                                                                 | 自版本 |
+| -------- | ------------------- | ---------------------------------------------------------------------------------------------------- | ----- |
+| **`id`** | <code>string</code> | 创建的事件 id。平台未返回时缺失（如 Android 的交互式编辑器）。                                      | 1.0.0 |
 
 
 #### CreateEventOptions
 
-Options accepted by {@link CalendarPlugin.createEvent} and
-{@link CalendarPlugin.createEventInteractively}, and the new values of
-{@link CalendarPlugin.modifyEvent}.
+{@link CalendarPlugin.createEvent} 和 {@link CalendarPlugin.createEventInteractively} 接受的选项，也是 {@link CalendarPlugin.modifyEvent} 的新值。
 
-| Prop                        | Type                                                        | Description                                                                                                                        | Since |
-| --------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**                 | <code>string</code>                                         | The event title.                                                                                                                   | 1.0.0 |
-| **`location`**              | <code>string</code>                                         | The event location.                                                                                                                | 1.0.0 |
-| **`notes`**                 | <code>string</code>                                         | Free-form event notes.                                                                                                             | 1.0.0 |
-| **`startDate`**             | <code>number</code>                                         | Event start as epoch milliseconds.                                                                                                 | 1.0.0 |
-| **`endDate`**               | <code>number</code>                                         | Event end as epoch milliseconds.                                                                                                   | 1.0.0 |
-| **`isAllDay`**              | <code>boolean</code>                                        | Whether the event lasts all day.                                                                                                   | 1.0.0 |
-| **`calendarId`**            | <code>string</code>                                         | Id of the calendar to create the event in. Takes precedence over `calendarName`; the default calendar is used when neither is set. | 1.0.0 |
-| **`calendarName`**          | <code>string</code>                                         | Name of the calendar to create the event in.                                                                                       | 1.0.0 |
-| **`url`**                   | <code>string</code>                                         | URL attached to the event. **Android:** the platform's event model has no URL field; the value is ignored.                         | 1.0.0 |
-| **`firstReminderMinutes`**  | <code>number</code>                                         | Minutes before the event for the first reminder.                                                                                   | 1.0.0 |
-| **`secondReminderMinutes`** | <code>number</code>                                         | Minutes before the event for the second reminder.                                                                                  | 1.0.0 |
-| **`recurrence`**            | <code><a href="#eventrecurrence">EventRecurrence</a></code> | Recurrence rule for a repeating event.                                                                                             | 1.0.0 |
+| 属性                        | 类型                                                        | 描述                                                                                                                                | 自版本 |
+| --------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`title`**                 | <code>string</code>                                         | 事件标题。                                                                                                                          | 1.0.0 |
+| **`location`**              | <code>string</code>                                         | 事件地点。                                                                                                                          | 1.0.0 |
+| **`notes`**                 | <code>string</code>                                         | 自由格式的事件备注。                                                                                                                | 1.0.0 |
+| **`startDate`**             | <code>number</code>                                         | 事件开始时间，以纪元毫秒表示。                                                                                                      | 1.0.0 |
+| **`endDate`**               | <code>number</code>                                         | 事件结束时间，以纪元毫秒表示。                                                                                                      | 1.0.0 |
+| **`isAllDay`**              | <code>boolean</code>                                        | 事件是否持续一整天。                                                                                                                | 1.0.0 |
+| **`calendarId`**            | <code>string</code>                                         | 要创建事件的日历 id。优先于 `calendarName`；两者都未设置时使用默认日历。                                                           | 1.0.0 |
+| **`calendarName`**          | <code>string</code>                                         | 要创建事件的日历名称。                                                                                                              | 1.0.0 |
+| **`url`**                   | <code>string</code>                                         | 附加到事件的 URL。**Android：**平台的日历事件模型没有 URL 字段；该值会被忽略。                                                     | 1.0.0 |
+| **`firstReminderMinutes`**  | <code>number</code>                                         | 第一个提醒的事件前分钟数。                                                                                                          | 1.0.0 |
+| **`secondReminderMinutes`** | <code>number</code>                                         | 第二个提醒的事件前分钟数。                                                                                                          | 1.0.0 |
+| **`recurrence`**            | <code><a href="#eventrecurrence">EventRecurrence</a></code> | 重复事件的重复规则。                                                                                                                | 1.0.0 |
 
 
 #### EventRecurrence
 
-Recurrence rule applied to a created event.
+应用于已创建事件的重复规则。
 
-| Prop            | Type                                                                | Description                                                                                                                   | Since |
-| --------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`frequency`** | <code><a href="#recurrencefrequency">RecurrenceFrequency</a></code> | How often the event repeats.                                                                                                  | 1.0.0 |
-| **`interval`**  | <code>number</code>                                                 | Repeat every `interval` periods of `frequency` (default 1).                                                                   | 1.0.0 |
-| **`endDate`**   | <code>number</code>                                                 | Last possible date of a repetition, as epoch milliseconds. Mutually exclusive with `count`; `endDate` wins when both are set. | 1.0.0 |
-| **`count`**     | <code>number</code>                                                 | Total number of repetitions.                                                                                                  | 1.0.0 |
+| 属性            | 类型                                                                | 描述                                                                                                                               | 自版本 |
+| --------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`frequency`** | <code><a href="#recurrencefrequency">RecurrenceFrequency</a></code> | 事件重复的频率。                                                                                                                   | 1.0.0 |
+| **`interval`**  | <code>number</code>                                                 | 每隔 `interval` 个 `frequency` 周期重复一次（默认 1）。                                                                            | 1.0.0 |
+| **`endDate`**   | <code>number</code>                                                 | 重复的最后可能日期，以纪元毫秒表示。与 `count` 互斥；两者都设置时 `endDate` 优先。                                                | 1.0.0 |
+| **`count`**     | <code>number</code>                                                 | 重复的总次数。                                                                                                                     | 1.0.0 |
 
 
 #### ModifyEventOptions
 
-Options accepted by {@link CalendarPlugin.modifyEvent}.
+{@link CalendarPlugin.modifyEvent} 接受的选项。
 
-| Prop           | Type                                                                                                    | Description                                               | Since |
-| -------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----- |
-| **`filter`**   | <code><a href="#eventfilter">EventFilter</a></code>                                                     | Fields identifying the event to change.                   | 1.0.0 |
-| **`newEvent`** | <code><a href="#partial">Partial</a>&lt;<a href="#createeventoptions">CreateEventOptions</a>&gt;</code> | New values to apply. Only the fields present are changed. | 1.0.0 |
+| 属性           | 类型                                                                                                    | 描述                                                   | 自版本 |
+| -------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----- |
+| **`filter`**   | <code><a href="#eventfilter">EventFilter</a></code>                                                     | 标识要更改事件的字段。                                 | 1.0.0 |
+| **`newEvent`** | <code><a href="#partial">Partial</a>&lt;<a href="#createeventoptions">CreateEventOptions</a>&gt;</code> | 要应用的新值。仅更改存在的字段。                       | 1.0.0 |
 
 
 #### EventFilter
 
-Fields used to locate the event to change in
-{@link CalendarPlugin.modifyEvent}. Set fields must all match.
+用于在 {@link CalendarPlugin.modifyEvent} 中定位要更改事件的字段。已设置的字段必须全部匹配。
 
-| Prop               | Type                | Description                                        | Since |
-| ------------------ | ------------------- | -------------------------------------------------- | ----- |
-| **`title`**        | <code>string</code> | Title substring to match (case-insensitive).       | 1.0.0 |
-| **`location`**     | <code>string</code> | Location substring to match (case-insensitive).    | 1.0.0 |
-| **`notes`**        | <code>string</code> | Notes substring to match (case-insensitive).       | 1.0.0 |
-| **`startDate`**    | <code>number</code> | Start of the date range as epoch milliseconds.     | 1.0.0 |
-| **`endDate`**      | <code>number</code> | End of the date range as epoch milliseconds.       | 1.0.0 |
-| **`calendarName`** | <code>string</code> | Restrict the match to the calendar with this name. | 1.0.0 |
+| 属性               | 类型                | 描述                                          | 自版本 |
+| ------------------ | ------------------- | --------------------------------------------- | ----- |
+| **`title`**        | <code>string</code> | 要匹配的标题子串（不区分大小写）。             | 1.0.0 |
+| **`location`**     | <code>string</code> | 要匹配的地点子串（不区分大小写）。             | 1.0.0 |
+| **`notes`**        | <code>string</code> | 要匹配的备注子串（不区分大小写）。             | 1.0.0 |
+| **`startDate`**    | <code>number</code> | 日期范围的开始，以纪元毫秒表示。               | 1.0.0 |
+| **`endDate`**      | <code>number</code> | 日期范围的结束，以纪元毫秒表示。               | 1.0.0 |
+| **`calendarName`** | <code>string</code> | 将匹配限制在该名称的日历内。                   | 1.0.0 |
 
 
 #### FindEventsResult
 
-Result of {@link CalendarPlugin.findEvents}.
+{@link CalendarPlugin.findEvents} 的结果。
 
-| Prop         | Type                         | Description                     | Since |
-| ------------ | ---------------------------- | ------------------------------- | ----- |
-| **`events`** | <code>CalendarEvent[]</code> | The events matching the search. | 1.0.0 |
+| 属性         | 类型                         | 描述                         | 自版本 |
+| ------------ | ---------------------------- | ---------------------------- | ----- |
+| **`events`** | <code>CalendarEvent[]</code> | 匹配搜索的事件。             | 1.0.0 |
 
 
 #### CalendarEvent
 
-A calendar event.
+一个日历事件。
 
-| Prop               | Type                         | Description                                            | Since |
-| ------------------ | ---------------------------- | ------------------------------------------------------ | ----- |
-| **`id`**           | <code>string</code>          | Platform-assigned event id.                            | 1.0.0 |
-| **`title`**        | <code>string</code>          | The event title.                                       | 1.0.0 |
-| **`location`**     | <code>string</code>          | The event location.                                    | 1.0.0 |
-| **`notes`**        | <code>string</code>          | Free-form event notes.                                 | 1.0.0 |
-| **`startDate`**    | <code>number</code>          | Event start as epoch milliseconds.                     | 1.0.0 |
-| **`endDate`**      | <code>number</code>          | Event end as epoch milliseconds.                       | 1.0.0 |
-| **`isAllDay`**     | <code>boolean</code>         | Whether the event lasts all day.                       | 1.0.0 |
-| **`calendarId`**   | <code>string</code>          | Id of the calendar containing the event.               | 1.0.0 |
-| **`calendarName`** | <code>string</code>          | Name of the calendar containing the event.             | 1.0.0 |
-| **`attendees`**    | <code>EventAttendee[]</code> | The event's attendees. Absent when the event has none. | 1.0.0 |
+| 属性               | 类型                         | 描述                                                 | 自版本 |
+| ------------------ | ---------------------------- | ---------------------------------------------------- | ----- |
+| **`id`**           | <code>string</code>          | 平台分配的事件 id。                                  | 1.0.0 |
+| **`title`**        | <code>string</code>          | 事件标题。                                           | 1.0.0 |
+| **`location`**     | <code>string</code>          | 事件地点。                                           | 1.0.0 |
+| **`notes`**        | <code>string</code>          | 自由格式的事件备注。                                 | 1.0.0 |
+| **`startDate`**    | <code>number</code>          | 事件开始时间，以纪元毫秒表示。                       | 1.0.0 |
+| **`endDate`**      | <code>number</code>          | 事件结束时间，以纪元毫秒表示。                       | 1.0.0 |
+| **`isAllDay`**     | <code>boolean</code>         | 事件是否持续一整天。                                 | 1.0.0 |
+| **`calendarId`**   | <code>string</code>          | 包含该事件的日历 id。                                | 1.0.0 |
+| **`calendarName`** | <code>string</code>          | 包含该事件的日历名称。                               | 1.0.0 |
+| **`attendees`**    | <code>EventAttendee[]</code> | 事件的参与者。没有参与者时该属性缺失。               | 1.0.0 |
 
 
 #### EventAttendee
 
-An attendee of a {@link <a href="#calendarevent">CalendarEvent</a>}.
+{@link <a href="#calendarevent">CalendarEvent</a>} 的参与者。
 
-| Prop         | Type                                                                                                                         | Description                          | Since |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----- |
-| **`name`**   | <code>string</code>                                                                                                          | The attendee's display name.         | 1.0.0 |
-| **`email`**  | <code>string</code>                                                                                                          | The attendee's email address.        | 1.0.0 |
-| **`status`** | <code>'unknown' \| 'pending' \| 'accepted' \| 'declined' \| 'tentative' \| 'delegated' \| 'completed' \| 'in-process'</code> | The attendee's participation status. | 1.0.0 |
+| 属性         | 类型                                                                                                                         | 描述                                  | 自版本 |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----- |
+| **`name`**   | <code>string</code>                                                                                                          | 参与者的显示名称。                    | 1.0.0 |
+| **`email`**  | <code>string</code>                                                                                                          | 参与者的电子邮件地址。                | 1.0.0 |
+| **`status`** | <code>'unknown' \| 'pending' \| 'accepted' \| 'declined' \| 'tentative' \| 'delegated' \| 'completed' \| 'in-process'</code> | 参与者的参与状态。                    | 1.0.0 |
 
 
 #### FindEventsOptions
 
-Options accepted by {@link CalendarPlugin.findEvents}.
+{@link CalendarPlugin.findEvents} 接受的选项。
 
-| Prop               | Type                | Description                                                                                     | Since |
-| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------- | ----- |
-| **`title`**        | <code>string</code> | Title substring to match (case-insensitive).                                                    | 1.0.0 |
-| **`location`**     | <code>string</code> | Location substring to match (case-insensitive).                                                 | 1.0.0 |
-| **`notes`**        | <code>string</code> | Notes substring to match (case-insensitive).                                                    | 1.0.0 |
-| **`startDate`**    | <code>number</code> | Start of the search range as epoch milliseconds. Defaults to the current time minus six months. | 1.0.0 |
-| **`endDate`**      | <code>number</code> | End of the search range as epoch milliseconds. Defaults to the current time plus two years.     | 1.0.0 |
-| **`calendarName`** | <code>string</code> | Restrict the search to the calendar with this name.                                             | 1.0.0 |
+| 属性               | 类型                | 描述                                                                                         | 自版本 |
+| ------------------ | ------------------- | -------------------------------------------------------------------------------------------- | ----- |
+| **`title`**        | <code>string</code> | 要匹配的标题子串（不区分大小写）。                                                            | 1.0.0 |
+| **`location`**     | <code>string</code> | 要匹配的地点子串（不区分大小写）。                                                            | 1.0.0 |
+| **`notes`**        | <code>string</code> | 要匹配的备注子串（不区分大小写）。                                                            | 1.0.0 |
+| **`startDate`**    | <code>number</code> | 搜索范围的开始，以纪元毫秒表示。默认为当前时间减去六个月。                                   | 1.0.0 |
+| **`endDate`**      | <code>number</code> | 搜索范围的结束，以纪元毫秒表示。默认为当前时间加上两年。                                     | 1.0.0 |
+| **`calendarName`** | <code>string</code> | 将搜索限制在该名称的日历内。                                                                 | 1.0.0 |
 
 
 #### DeleteEventOptions
 
-Options accepted by {@link CalendarPlugin.deleteEvent}.
+{@link CalendarPlugin.deleteEvent} 接受的选项。
 
-| Prop               | Type                | Description                                                                                                                        | Since |
-| ------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`id`**           | <code>string</code> | Id of the event to delete. When set, the filter fields are ignored.                                                                | 1.0.0 |
-| **`fromDate`**     | <code>number</code> | Only with `id`, for a recurring event: keeps occurrences before this date (epoch milliseconds) and removes the rest of the series. | 1.0.0 |
-| **`title`**        | <code>string</code> | Title substring to match (case-insensitive).                                                                                       | 1.0.0 |
-| **`location`**     | <code>string</code> | Location substring to match (case-insensitive).                                                                                    | 1.0.0 |
-| **`notes`**        | <code>string</code> | Notes substring to match (case-insensitive).                                                                                       | 1.0.0 |
-| **`startDate`**    | <code>number</code> | Start of the date range as epoch milliseconds.                                                                                     | 1.0.0 |
-| **`endDate`**      | <code>number</code> | End of the date range as epoch milliseconds.                                                                                       | 1.0.0 |
-| **`calendarName`** | <code>string</code> | Restrict the match to the calendar with this name.                                                                                 | 1.0.0 |
+| 属性               | 类型                | 描述                                                                                                                        | 自版本 |
+| ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`id`**           | <code>string</code> | 要删除的事件 id。设置时忽略筛选字段。                                                                                       | 1.0.0 |
+| **`fromDate`**     | <code>number</code> | 仅与 `id` 一起使用，针对重复事件：保留此日期（纪元毫秒）之前的重复，并移除其余系列。                                       | 1.0.0 |
+| **`title`**        | <code>string</code> | 要匹配的标题子串（不区分大小写）。                                                                                          | 1.0.0 |
+| **`location`**     | <code>string</code> | 要匹配的地点子串（不区分大小写）。                                                                                          | 1.0.0 |
+| **`notes`**        | <code>string</code> | 要匹配的备注子串（不区分大小写）。                                                                                          | 1.0.0 |
+| **`startDate`**    | <code>number</code> | 日期范围的开始，以纪元毫秒表示。                                                                                            | 1.0.0 |
+| **`endDate`**      | <code>number</code> | 日期范围的结束，以纪元毫秒表示。                                                                                            | 1.0.0 |
+| **`calendarName`** | <code>string</code> | 将匹配限制在该名称的日历内。                                                                                                | 1.0.0 |
 
 
 #### ListCalendarsResult
 
-Result of {@link CalendarPlugin.listCalendars}.
+{@link CalendarPlugin.listCalendars} 的结果。
 
-| Prop            | Type                          | Description                  | Since |
-| --------------- | ----------------------------- | ---------------------------- | ----- |
-| **`calendars`** | <code>DeviceCalendar[]</code> | The calendars on the device. | 1.0.0 |
+| 属性            | 类型                          | 描述                     | 自版本 |
+| --------------- | ----------------------------- | ------------------------ | ----- |
+| **`calendars`** | <code>DeviceCalendar[]</code> | 设备上的日历。           | 1.0.0 |
 
 
 #### DeviceCalendar
 
-A calendar available on the device.
+设备上可用的日历。
 
-| Prop              | Type                 | Description                                                             | Since |
-| ----------------- | -------------------- | ----------------------------------------------------------------------- | ----- |
-| **`id`**          | <code>string</code>  | Platform-assigned calendar id.                                          | 1.0.0 |
-| **`name`**        | <code>string</code>  | The calendar name.                                                      | 1.0.0 |
-| **`displayName`** | <code>string</code>  | Name shown to the user, when the platform distinguishes it from `name`. | 1.0.0 |
-| **`isPrimary`**   | <code>boolean</code> | Whether this is the default calendar for new events.                    | 1.0.0 |
+| 属性              | 类型                 | 描述                                                              | 自版本 |
+| ----------------- | -------------------- | ----------------------------------------------------------------- | ----- |
+| **`id`**          | <code>string</code>  | 平台分配的日历 id。                                               | 1.0.0 |
+| **`name`**        | <code>string</code>  | 日历名称。                                                        | 1.0.0 |
+| **`displayName`** | <code>string</code>  | 当平台将它与 `name` 区分时，向用户展示的名称。                    | 1.0.0 |
+| **`isPrimary`**   | <code>boolean</code> | 是否为新事件的默认日历。                                          | 1.0.0 |
 
 
 #### CreateCalendarResult
 
-Result of {@link CalendarPlugin.createCalendar}.
+{@link CalendarPlugin.createCalendar} 的结果。
 
-| Prop     | Type                | Description                | Since |
-| -------- | ------------------- | -------------------------- | ----- |
-| **`id`** | <code>string</code> | The created calendar's id. | 1.0.0 |
+| 属性     | 类型                | 描述                     | 自版本 |
+| -------- | ------------------- | ------------------------ | ----- |
+| **`id`** | <code>string</code> | 创建的日历 id。          | 1.0.0 |
 
 
 #### CreateCalendarOptions
 
-Options accepted by {@link CalendarPlugin.createCalendar}.
+{@link CalendarPlugin.createCalendar} 接受的选项。
 
-| Prop        | Type                | Description                                                                    | Since |
-| ----------- | ------------------- | ------------------------------------------------------------------------------ | ----- |
-| **`name`**  | <code>string</code> | The calendar name.                                                             | 1.0.0 |
-| **`color`** | <code>string</code> | Calendar color as a `#RRGGBB` hex string. The platform picks one when omitted. | 1.0.0 |
+| 属性        | 类型                | 描述                                                                     | 自版本 |
+| ----------- | ------------------- | ------------------------------------------------------------------------ | ----- |
+| **`name`**  | <code>string</code> | 日历名称。                                                               | 1.0.0 |
+| **`color`** | <code>string</code> | 日历颜色，为 `#RRGGBB` 十六进制字符串。省略时由平台选择。                | 1.0.0 |
 
 
 #### DeleteCalendarOptions
 
-Options accepted by {@link CalendarPlugin.deleteCalendar}.
+{@link CalendarPlugin.deleteCalendar} 接受的选项。
 
-| Prop       | Type                | Description                     | Since |
-| ---------- | ------------------- | ------------------------------- | ----- |
-| **`name`** | <code>string</code> | Name of the calendar to delete. | 1.0.0 |
+| 属性       | 类型                | 描述                       | 自版本 |
+| ---------- | ------------------- | -------------------------- | ----- |
+| **`name`** | <code>string</code> | 要删除的日历名称。         | 1.0.0 |
 
 
 #### OpenCalendarOptions
 
-Options accepted by {@link CalendarPlugin.openCalendar}.
+{@link CalendarPlugin.openCalendar} 接受的选项。
 
-| Prop       | Type                | Description                                              | Since |
-| ---------- | ------------------- | -------------------------------------------------------- | ----- |
-| **`date`** | <code>number</code> | Date to show, as epoch milliseconds. Today when omitted. | 1.0.0 |
+| 属性       | 类型                | 描述                                                  | 自版本 |
+| ---------- | ------------------- | ----------------------------------------------------- | ----- |
+| **`date`** | <code>number</code> | 要显示的日期，以纪元毫秒表示。省略时为今天。          | 1.0.0 |
 
 
-### Type Aliases
+### 类型别名
 
 
 #### PermissionState
@@ -567,22 +533,24 @@ Options accepted by {@link CalendarPlugin.openCalendar}.
 
 #### CalendarPermissionType
 
-The individually requestable calendar permissions.
+可单独请求的日历权限。
 
 <code>'readCalendar' | 'writeCalendar'</code>
 
 
 #### RecurrenceFrequency
 
-How often a recurring event repeats.
+重复事件的重复频率。
 
 <code>'daily' | 'weekly' | 'monthly' | 'yearly'</code>
 
 
 #### Partial
 
-Make all properties in T optional
+使 T 中的所有属性变为可选
 
-<code>{ [P in keyof T]?: T[P]; }</code>
+<code>{
+ [P in keyof T]?: T[P];
+ }</code>
 
 </docgen-api>
