@@ -5,13 +5,13 @@ description: 一个跨平台原生运行时，用于为 iOS、Android 及更多�
 hide_table_of_contents: true
 ---
 
-:::info 关于本文档
-这是 CapacitorJS 官方文档的中文翻译版本。文档源码托管在 [GitHub](https://github.com/TacKana/capacitor-docs-zh)，欢迎 Star、Fork 和贡献翻译！如发现翻译问题或需要改进，请提交 Issue 或 Pull Request。
+> 这是 CapacitorJS 官方文档的中文翻译版本。文档源码托管在 **_[GitHub](https://github.com/TacKana/capacitor-docs-zh)_**，欢迎 Star、Fork 和贡献翻译！如发现翻译问题或需要改进，请提交 Issue 或 Pull Request。
+> 加入我们的 QQ 群，与其他 CapacitorJS 开发者交流、分享经验、解决问题。
+> 点击链接加入群聊 **_[CapacitorJs中文交流群](https://qm.qq.com/q/GdCI7N5nSa)_**
 
-加入我们的 QQ 群，与其他 CapacitorJS 开发者交流、分享经验、解决问题。
+---
 
-点击链接加入群聊[CapacitorJs中文交流群](https://qm.qq.com/q/GdCI7N5nSa)
-:::
+> 当前文档站点的翻译已经交由 CICD 自动处理，追踪上游文档更新 AI 实时同步本文档站点的翻译，内容翻译滞后性为一天。
 
 # Capacitor：跨平台原生运行时，用于 Web 应用
 
