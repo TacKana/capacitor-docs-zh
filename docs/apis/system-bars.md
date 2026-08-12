@@ -1,8 +1,8 @@
 ---
 title: System Bars - Capacitor 插件 API
 description: System Bars API 提供了配置设备系统栏/状态栏样式和可见性的方法。
-custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/system-bars.md
-editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
+custom_edit_url: https://github.com/ionic-team/capacitor/blob/next/core/system-bars.md
+editApiUrl: https://github.com/ionic-team/capacitor/blob/next/core/src/core-plugins.ts
 sidebar_label: 系统栏
 translated: true
 source_hash: 393a5215

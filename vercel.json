@@ -13,7 +13,8 @@
   "redirects": [
     { "source": "/apis/storage", "destination": "/apis/preferences" },
     { "source": "/cli/commands/list", "destination": "/cli/commands/ls" },
-    { "source": "/next/:match*", "destination": "/:match*" }
+    { "source": "/v8", "destination": "/" },
+    { "source": "/v8/:match*", "destination": "/:match*" }
   ],
   "rewrites": [{ "source": "/:match*", "destination": "/:match*" }]
 }

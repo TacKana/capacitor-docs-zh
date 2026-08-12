@@ -1,8 +1,8 @@
 ---
 title: Clipboard Capacitor 插件 API
 description: Clipboard API 支持从系统剪贴板进行复制和粘贴操作。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/clipboard/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/clipboard/src/definitions.ts
 sidebar_label: 剪贴板
 translated: true
 source_hash: 5db66aaf

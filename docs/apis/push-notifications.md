@@ -1,8 +1,8 @@
 ---
 title: Push Notifications - Capacitor 插件 API
 description: Push Notifications API 提供对原生推送通知的访问。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/push-notifications/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/push-notifications/src/definitions.ts
 sidebar_label: 推送通知
 translated: true
 source_hash: 705e5518
@@ -71,7 +71,7 @@ Android Studio 有一个图标生成器，您可以使用它来创建推送通�
 
 ## 推送通知渠道
 
-从 Android 8.0（API 级别 26）开始，支持并推荐使用通知渠道。SDK 将按以下顺序推导传入推送通知的 `channelId`：
+SDK 将按以下顺序推导传入推送通知的 `channelId`：
 
 1. **首先会检查传入通知是否设置了 `channelId`。**
    从 FCM 控制台或通过其 API 发送推送通知时，可以指定 `channelId`。
@@ -99,7 +99,7 @@ Android Studio 有一个图标生成器，您可以使用它来创建推送通�
 
 | 属性                      | 类型                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 始于 |
 | ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`presentationOptions`** | <code>PresentationOption[]</code> | 这是一个可以组合的字符串数组。数组中可能的值有：- `badge`：应用图标上的角标数量更新（默认值）- `sound`：收到推送通知时设备会响铃/振动 - `alert`：**在 iOS 上已弃用。** 请使用 `banner` 和 `list` 替代。在 Android 上，此值仍用于显示通知。- `banner`：推送通知显示为横幅。在 Android 上，默认行为与 `alert` 相同。- `list`：推送通知显示在通知中心。在 Android 上，默认行为与 `alert` 相同。如果不需要任何选项，可以提供一个空数组。badge 仅适用于 iOS。 | 1.0.0 |
+| **`presentationOptions`** | <code>PresentationOption[]</code> | 这是一个可以组合的字符串数组。数组中可能的值有：- `badge`：应用图标上的角标数量更新（默认值）- `sound`：收到推送通知时设备会响铃/振动 - `alert`：推送通知以原生对话框显示。仅适用于 Android。- `banner`：推送通知显示为横幅。在 Android 上，默认行为与 `alert` 相同。- `list`：推送通知显示在通知中心。在 Android 上，默认行为与 `alert` 相同。如果不需要任何选项，可以提供一个空数组。badge 仅适用于 iOS。 | 1.0.0 |
 
 ### 示例
 
@@ -304,7 +304,7 @@ createChannel(channel: Channel) => Promise<void>
 
 创建一个通知渠道。
 
-仅在 Android O 或更高版本（SDK 26+）上可用。
+仅在 Android 上可用。
 
 | 参数         | 类型                                        |
 | ------------- | ------------------------------------------- |
@@ -323,7 +323,7 @@ deleteChannel(args: { id: string; }) => Promise<void>
 
 删除一个通知渠道。
 
-仅在 Android O 或更高版本（SDK 26+）上可用。
+仅在 Android 上可用。
 
 | 参数      | 类型                         |
 | ---------- | ---------------------------- |
@@ -342,7 +342,7 @@ listChannels() => Promise<ListChannelsResult>
 
 列出可用的通知渠道。
 
-仅在 Android O 或更高版本（SDK 26+）上可用。
+仅在 Android 上可用。
 
 **返回：** <code>Promise&lt;<a href="#listchannelsresult">ListChannelsResult</a>&gt;</code>
 

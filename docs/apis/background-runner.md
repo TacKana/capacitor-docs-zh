@@ -1,7 +1,7 @@
 ---
 title: Background Runner Capacitor 插件 API
 description: Capacitor Background Runner（后台运行器）
-custom_edit_url: https://github.com/ionic-team/capacitor-background-runner/blob/main/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-background-runner/blob/main/packages/capacitor-plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-background-runner/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 后台运行
 translated: true

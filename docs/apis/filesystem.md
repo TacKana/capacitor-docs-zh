@@ -1,8 +1,8 @@
 ---
 title: Filesystem Capacitor 插件 API
 description: Filesystem API 提供了一个类似 NodeJS 的 API，用于在设备上操作文件。
-custom_edit_url: https://github.com/ionic-team/capacitor-filesystem/blob/main/packages/capacitor-plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-filesystem/blob/main/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-filesystem/blob/next/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-filesystem/blob/next/src/definitions.ts
 sidebar_label: 文件系统
 translated: true
 source_hash: 355644dc

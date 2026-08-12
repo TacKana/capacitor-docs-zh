@@ -1,8 +1,8 @@
 ---
 title: Browser Capacitor 插件 API
 description: Browser API 提供了打开应用内浏览器以及订阅浏览器事件的能力。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/browser/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/browser/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/browser/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/browser/src/definitions.ts
 sidebar_label: 浏览器
 translated: true
 source_hash: 47454093

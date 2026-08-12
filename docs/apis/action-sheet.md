@@ -1,8 +1,8 @@
 ---
 title: Action Sheet Capacitor 插件 API
 description: Action Sheet API 提供对原生 Action Sheet 的访问，它从屏幕底部弹出并显示用户可以执行的操作。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/action-sheet/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/action-sheet/src/definitions.ts
 sidebar_label: 动作面板
 translated: true
 source_hash: 429e4d3d

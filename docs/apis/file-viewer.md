@@ -1,8 +1,8 @@
 ---
 title: File Viewer Capacitor 插件 API
 description: FileViewer API 提供了打开文件和预览媒体的机制。在 Web 上不可用。
-custom_edit_url: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-file-viewer/blob/main/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-file-viewer/blob/next/packages/capacitor-plugin/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-file-viewer/blob/next/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 文件查看器
 translated: true
 source_hash: 62e627d4
@@ -226,6 +226,6 @@ previewMediaContentFromUrl(options: PreviewMediaFromUrlOptions) => Promise<void>
 | OS-PLUG-FLVW-0008 | Android, iOS      | 无法打开文件。                   |
 | OS-PLUG-FLVW-0009 | Android, iOS      | 参数无效。                       |
 | OS-PLUG-FLVW-0010 | Android           | 没有可打开此文件的应用。         |
-| OS-PLUG-FLVW-0011 | iOS               | Cordova / Capacitor 桥接未初始化。 |
+| OS-PLUG-FLVW-0011 | iOS               | Capacitor 桥接未初始化。 |
 | OS-PLUG-FLVW-0012 | iOS               | 下载失败。                       |
 | OS-PLUG-FLVW-0013 | iOS               | 文件没有扩展名。                 |

@@ -1,8 +1,8 @@
 ---
 title: App Capacitor 插件 API
 description: App API 处理高级别的应用状态和事件。例如，此 API 在应用进入和离开前台时发出事件，处理深层链接，打开其他应用，以及管理持久化的插件状态。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/app/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/app/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/app/src/definitions.ts
 sidebar_label: 应用
 translated: true
 source_hash: 1c23f457
@@ -53,6 +53,10 @@ npx cap sync
 
 `custom_url_scheme` 的值存储在 `strings.xml` 中。当添加 Android 平台时，`@capacitor/cli` 会以应用的包名作为默认值，但可以通过编辑 `strings.xml` 文件进行替换。
 
+## Android 预测性返回
+
+Android 预测性返回还需要在你的 `AndroidManifest.xml` 的 `<application>` 上设置 `android:enableOnBackInvokedCallback="true"`（在 Android 14 上；在 Android 15+ 上默认为开启）。
+
 ## 示例
 
 ```typescript
@@ -85,6 +89,7 @@ const checkAppLaunchUrl = async () => {
 | 属性                              | 类型                 | 描述                                              | 默认值            | 自      |
 | --------------------------------- | -------------------- | ------------------------------------------------- | ------------------ | ----- |
 | **`disableBackButtonHandler`**    | <code>boolean</code> | 禁用插件的默认返回按钮处理。仅 Android 可用。     | <code>false</code> | 7.1.0 |
+| **`enableEdgeGestureHandler`**    | <code>boolean</code> | 在启动时启用插件的边缘手势处理器。启用后，插件会为系统边缘滑动（iOS 左/右屏幕边缘滑动，Android 预测性返回）发出 `edgeGesture` 事件。在 Android 上，启用此处理器会在边缘手势处理器处于活动状态期间抑制默认的 `backButton` 处理器。Android 预测性返回集成需要 API 34（Android 14）或更高版本；在更早的版本上，配置会被接受但不会发出任何事件。Android 预测性返回还需要在你的 `AndroidManifest.xml` 中的 `<application>` 上设置 `android:enableOnBackInvokedCallback="true"`（在 Android 14 上；在 Android 15+ 上默认为开启）。 | <code>false</code> | 9.0.0 |
 
 ### 示例
 
@@ -94,7 +99,8 @@ const checkAppLaunchUrl = async () => {
 {
   "plugins": {
     "App": {
-      "disableBackButtonHandler": true
+      "disableBackButtonHandler": true,
+      "enableEdgeGestureHandler": true
     }
   }
 }
@@ -111,6 +117,7 @@ const config: CapacitorConfig = {
   plugins: {
     App: {
       disableBackButtonHandler: true,
+      enableEdgeGestureHandler: true,
     },
   },
 };
@@ -131,12 +138,14 @@ export default config;
 * [`minimizeApp()`](#minimizeapp)
 * [`getAppLanguage()`](#getapplanguage)
 * [`toggleBackButtonHandler(...)`](#togglebackbuttonhandler)
+* [`toggleEdgeGestureHandler(...)`](#toggleedgegesturehandler)
 * [`addListener('appStateChange', ...)`](#addlistenerappstatechange-)
 * [`addListener('pause', ...)`](#addlistenerpause-)
 * [`addListener('resume', ...)`](#addlistenerresume-)
 * [`addListener('appUrlOpen', ...)`](#addlistenerappurlopen-)
 * [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
 * [`addListener('backButton', ...)`](#addlistenerbackbutton-)
+* [`addListener('edgeGesture', ...)`](#addlisteneredgegesture-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#接口)
 * [Type Aliases](#类型别名)
@@ -251,6 +260,27 @@ toggleBackButtonHandler(options: ToggleBackButtonHandlerOptions) => Promise<void
 | **`options`** | <code><a href="#togglebackbuttonhandleroptions">ToggleBackButtonHandlerOptions</a></code> |
 
 **自：** 7.1.0
+
+--------------------
+
+
+### toggleEdgeGestureHandler(...)
+
+```typescript
+toggleEdgeGestureHandler(options: ToggleEdgeGestureHandlerOptions) => Promise<void>
+```
+
+在运行时启用或禁用插件的边缘手势处理。
+
+启用后，插件会安装平台边缘手势识别器并开始发出 `edgeGesture` 事件。禁用时，识别器会被移除，不会再发出任何事件。
+
+在 Android 上，启用边缘手势处理器会暂时禁用默认的 `backButton` 处理器；禁用它会恢复之前的返回按钮处理器状态。Android 预测性返回集成需要 API 34（Android 14）或更高版本；在更早的版本上，调用会成功解析但不会发出任何事件。Android 预测性返回还需要在你的 `AndroidManifest.xml` 中的 `<application>` 上设置 `android:enableOnBackInvokedCallback="true"`（在 Android 14 上；在 Android 15+ 上默认为开启）。
+
+| 参数          | 类型                                                                                        |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#toggleedgegesturehandleroptions">ToggleEdgeGestureHandlerOptions</a></code> |
+
+**自：** 9.0.0
 
 --------------------
 
@@ -399,6 +429,32 @@ addListener(eventName: 'backButton', listenerFunc: BackButtonListener) => Promis
 --------------------
 
 
+### addListener('edgeGesture', ...)
+
+```typescript
+addListener(eventName: 'edgeGesture', listenerFunc: EdgeGestureListener) => Promise<PluginListenerHandle>
+```
+
+监听系统边缘滑动手势。
+
+在 iOS 上，这会为 `UIScreenEdgePanGestureRecognizer` 跟踪的左边缘和右边缘屏幕滑动触发。在 Android 上，这会为预测性返回手势触发（需要 Android 14 / API 34 或更高版本）。
+
+边缘手势处理器必须处于活动状态才能触发事件；你可以通过 `enableEdgeGestureHandler` 配置选项或在运行时通过 `toggleEdgeGestureHandler({ enabled: true })` 启用它。
+
+每个手势都会产生一个事件序列：一个单独的 `start`、零个或多个 `progress`，然后是 `commit`（手势完成）或 `cancel`（手势被放弃）。
+
+| 参数              | 类型                                                                |
+| ------------------ | ------------------------------------------------------------------- |
+| **`eventName`**    | <code>'edgeGesture'</code>                                          |
+| **`listenerFunc`** | <code><a href="#edgegesturelistener">EdgeGestureListener</a></code> |
+
+**返回值：** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
+
+**自：** 9.0.0
+
+--------------------
+
+
 ### removeAllListeners()
 
 ```typescript
@@ -453,6 +509,13 @@ removeAllListeners() => Promise<void>
 | **`enabled`** | <code>boolean</code> | 指示是启用还是禁用默认的返回按钮处理。            | 7.1.0 |
 
 
+#### ToggleEdgeGestureHandlerOptions
+
+| 属性            | 类型                 | 描述                                              | 自      |
+| ------------- | -------------------- | ------------------------------------------------ | ----- |
+| **`enabled`** | <code>boolean</code> | 是否启用或禁用插件的边缘手势处理。                | 9.0.0 |
+
+
 #### PluginListenerHandle
 
 | 属性           | 类型                                      |
@@ -487,6 +550,17 @@ removeAllListeners() => Promise<void>
 | **`canGoBack`**   | <code>boolean</code> | 指示浏览器是否可以在历史记录中返回。当历史记录栈位于第一条记录时，该值为 false。                       | 1.0.0 |
 
 
+#### EdgeGestureListenerEvent
+
+| 属性             | 类型                                                       | 描述                                                                                                                                                                                                                                                                                                                                   | 自      |
+| --------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`phase`**     | <code>'start' \| 'progress' \| 'cancel' \| 'commit'</code> | 边缘手势的当前阶段。 - `start`：用户已开始边缘滑动。 - `progress`：用户正在移动手指；在手势期间持续发出。 - `commit`：用户释放手势且系统已接受（例如，应发生返回导航）。 - `cancel`：用户在未提交的情况下释放了手势，或系统取消了该手势。 | 9.0.0 |
+| **`progress`**  | <code>number</code>                                        | 手势已进行的程度，归一化在 `0` 和 `1` 之间。在 `start` 时，这是系统报告的初始进度。在 `progress` 时，它会随着用户拖动而更新。在 `commit` 和 `cancel` 时，它会报告最后观察到的进度值。                                                                                                                                                | 9.0.0 |
+| **`swipeEdge`** | <code>'none' \| 'left' \| 'right'</code>                   | 手势来源的屏幕边缘。在 iOS 上为 `'left'` 或 `'right'`（跟踪左/右屏幕边缘滑动）。在 Android 上，它反映预测性返回系统报告的值，当平台未报告特定边缘时也可能为 `'none'`。                                                                                                 | 9.0.0 |
+| **`touchX`**    | <code>number</code>                                        | 发起或驱动手势的触摸的 X 坐标。在 iOS 上，该值以相对于 WebView 的点为单位。在 Android 上，该值由平台的 `BackEvent.getTouchX()` 提供。                                                                                                                                  | 9.0.0 |
+| **`touchY`**    | <code>number</code>                                        | 发起或驱动手势的触摸的 Y 坐标。在 iOS 上，该值以相对于 WebView 的点为单位。在 Android 上，该值由平台的 `BackEvent.getTouchY()` 提供。                                                                                                                                  | 9.0.0 |
+
+
 ### 类型别名
 
 
@@ -508,5 +582,10 @@ removeAllListeners() => Promise<void>
 #### BackButtonListener
 
 <code>(event: <a href="#backbuttonlistenerevent">BackButtonListenerEvent</a>): void</code>
+
+
+#### EdgeGestureListener
+
+<code>(event: <a href="#edgegesturelistenerevent">EdgeGestureListenerEvent</a>): void</code>
 
 </docgen-api>

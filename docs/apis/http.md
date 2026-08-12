@@ -2,8 +2,8 @@
 title: Http Capacitor 插件 API
 description: Capacitor Http API 通过修补 `fetch` 和 `XMLHttpRequest` 以使用原生库来提供原生 http 支持。
 translated: true
-custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/http.md
-editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
+custom_edit_url: https://github.com/ionic-team/capacitor/blob/next/core/http.md
+editApiUrl: https://github.com/ionic-team/capacitor/blob/next/core/src/core-plugins.ts
 sidebar_label: HTTP
 source_hash: 2009574d
 ---
@@ -663,7 +663,9 @@ https://nodejs.org/api/url.html#class-urlsearchparams
 
 构造一个具有类型 T 的一组属性 K 的类型。
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### RequestMode

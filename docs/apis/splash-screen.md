@@ -1,8 +1,8 @@
 ---
 title: Splash Screen - Capacitor 插件 API
 description: Splash Screen API 提供了显示或隐藏启动画面图像的方法。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/splash-screen/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/splash-screen/src/definitions.ts
 sidebar_label: 启动画面
 translated: true
 source_hash: 3cf1190c
@@ -108,7 +108,7 @@ await SplashScreen.show({
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
 | **`launchShowDuration`**          | <code>number</code>                                                                                                           | 当 autoHide 启用时，启动画面显示的时间（毫秒）                                                                                                                                                                              | <code>500</code>     | 1.0.0 |
 | **`launchAutoHide`**              | <code>boolean</code>                                                                                                          | 是否在 launchShowDuration 后自动隐藏启动画面。                                                                                                                                                                              | <code>true</code>    | 1.0.0 |
-| **`launchFadeOutDuration`**       | <code>number</code>                                                                                                           | 启动画面淡出动画的持续时间（毫秒）。仅在使用 Android 12 启动画面 API 时适用于 Android。                                                                                                                                     | <code>200</code>     | 4.2.0 |
+| **`launchFadeOutDuration`**       | <code>number</code>                                                                                                           | 启动画面淡出动画的持续时间（毫秒）。在 Android 上，仅在使用 Android 12 启动画面 API 时可用。                                                                                                                                     | <code>0</code>       | 4.2.0 |
 | **`backgroundColor`**             | <code>string</code>                                                                                                           | 启动画面背景颜色，十六进制格式 #RRGGBB 或 #RRGGBBAA。如果 `useDialog` 为 true 或在使用 Android 12 API 启动时无效。                                                                                                          |                      | 1.0.0 |
 | **`androidSplashResourceName`**   | <code>string</code>                                                                                                           | 用作启动画面的资源名称。在使用 Android 12 API 启动时无效。仅适用于 Android。                                                                                                                                               | <code>splash</code>  | 1.0.0 |
 | **`androidScaleType`**            | <code>'CENTER' \| 'CENTER_CROP' \| 'CENTER_INSIDE' \| 'FIT_CENTER' \| 'FIT_END' \| 'FIT_START' \| 'FIT_XY' \| 'MATRIX'</code> | 用于缩放启动画面图像的 [ImageView.ScaleType](https://developer.android.com/reference/android/widget/ImageView.ScaleType)。如果 `useDialog` 为 true 或在使用 Android 12 API 启动时无效。仅适用于 Android。                   | <code>FIT_XY</code>  | 1.0.0 |

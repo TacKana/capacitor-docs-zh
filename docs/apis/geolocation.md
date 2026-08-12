@@ -1,8 +1,8 @@
 ---
 title: Geolocation Capacitor 插件 API
 description: Geolocation API 提供了使用 GPS 获取和跟踪设备当前位置的简单方法，以及可用的海拔、方向和速度信息。
-custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/next/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-geolocation/blob/next/src/definitions.ts
 sidebar_label: 地理定位
 translated: true
 source_hash: 6f27580e
@@ -26,13 +26,16 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 - `NSLocationAlwaysAndWhenInUseUsageDescription`（始终和使用期间的位置访问权限描述）
 - `NSLocationWhenInUseUsageDescription`（使用期间的位置访问权限描述）
 
-> [!NOTE]
-> 此 Capacitor 插件不直接支持后台地理定位。然而，它依赖于
-> [`ion-ios-geolocation`](https://github.com/ionic-team/ion-ios-geolocation)，该库可以在
-> 后台报告位置。因此，Apple 要求你在 `Info.plist` 中包含
-> `NSLocationAlwaysAndWhenInUseUsageDescription` 条目。由于此权限
-> 提示不会向用户显示，你可以安全地使用与
-> `NSLocationWhenInUseUsageDescription` 相同的描述字符串。
+:::info[后台定位用途描述字符串]
+
+此 Capacitor 插件不直接支持后台地理定位。然而，它依赖于
+[`ion-ios-geolocation`](https://github.com/ionic-team/ion-ios-geolocation)，该库可以在
+后台报告位置。因此，Apple 要求你在 `Info.plist` 中包含
+`NSLocationAlwaysAndWhenInUseUsageDescription` 条目。由于此权限
+提示不会向用户显示，你可以安全地使用与
+`NSLocationWhenInUseUsageDescription` 相同的描述字符串。
+
+:::info
 
 在 [iOS 指南](https://capacitorjs.com/docs/ios) 中阅读有关[配置 `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 的更多信息，了解如何在 Xcode 中设置 iOS 权限。
 
@@ -48,6 +51,12 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 ```
 
 前两个权限请求位置数据（粗略和精确），最后一行是可选的，但如果你的应用 _需要_ GPS 才能运行，则是必需的。你可以省略它，但请注意这可能导致你的应用安装在缺乏 GPS 硬件的设备上。
+
+:::note
+
+如果你只需要近似位置（精度可变，但通常约 2 公里），你只需在 `AndroidManifest.xml` 中声明 `ACCESS_COARSE_LOCATION` 和 `<uses-feature`，并在请求位置时使用 `enableHighAccuracy=false`。
+
+:::note
 
 在 [Android 指南](https://capacitorjs.com/docs/android) 中阅读有关[设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions) 的更多信息，了解如何设置 Android 权限。
 
@@ -257,3 +266,4 @@ requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Pr
 | OS-PLUG-GLOC-0015   | Android           | Google Play Services 错误。           |
 | OS-PLUG-GLOC-0016   | Android           | 定位设置错误。                        |
 | OS-PLUG-GLOC-0017   | Android           | 无法获取位置，因为设备的网络和定位均已关闭。|
+| OS-PLUG-GLOC-0018   | Android           | 定位权限未在清单中声明。请确保在 AndroidManifest.xml 中至少声明了 ACCESS_COARSE_LOCATION，如果应用需要精确位置访问，还可选择性地声明 ACCESS_FINE_LOCATION。|

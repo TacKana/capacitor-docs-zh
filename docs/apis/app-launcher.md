@@ -1,8 +1,8 @@
 ---
 title: App Launcher Capacitor 插件 API
 description: AppLauncher API 允许打开其他应用
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/src/definitions.ts
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/next/app-launcher/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/next/app-launcher/src/definitions.ts
 sidebar_label: 应用启动器
 translated: true
 source_hash: 29276e34
