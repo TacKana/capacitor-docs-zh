@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/next/R
 editApiUrl: https://github.com/ionic-team/capacitor-geolocation/blob/next/src/definitions.ts
 sidebar_label: 地理定位
 translated: true
-source_hash: 6f27580e
+source_hash: 5ace3cd
 ---
 
 # @capacitor/geolocation
@@ -23,8 +23,8 @@ npx cap sync
 
 Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 
-- `NSLocationAlwaysAndWhenInUseUsageDescription`（始终和使用期间的位置访问权限描述）
-- `NSLocationWhenInUseUsageDescription`（使用期间的位置访问权限描述）
+- `NSLocationAlwaysAndWhenInUseUsageDescription`（`Privacy - Location Always and When In Use Usage Description`——始终和使用期间的位置访问权限描述）
+- `NSLocationWhenInUseUsageDescription`（`Privacy - Location When In Use Usage Description`——使用期间的位置访问权限描述）
 
 :::info[后台定位用途描述字符串]
 
