@@ -35,7 +35,7 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 提示不会向用户显示，你可以安全地使用与
 `NSLocationWhenInUseUsageDescription` 相同的描述字符串。
 
-:::info
+:::
 
 在 [iOS 指南](https://capacitorjs.com/docs/ios) 中阅读有关[配置 `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) 的更多信息，了解如何在 Xcode 中设置 iOS 权限。
 
@@ -56,7 +56,7 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 
 如果你只需要近似位置（精度可变，但通常约 2 公里），你只需在 `AndroidManifest.xml` 中声明 `ACCESS_COARSE_LOCATION` 和 `<uses-feature`，并在请求位置时使用 `enableHighAccuracy=false`。
 
-:::note
+:::
 
 在 [Android 指南](https://capacitorjs.com/docs/android) 中阅读有关[设置权限](https://capacitorjs.com/docs/android/configuration#setting-permissions) 的更多信息，了解如何设置 Android 权限。
 
