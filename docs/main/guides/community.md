@@ -20,6 +20,10 @@ slug: /guides/community
 
 [在 Vue.js 应用中使用 Capacitor &#8250;](https://akhromieiev.com/tutorials/using-capacitor-in-vue-js-app/)
 
+[在 Next.js 应用中使用 Capacitor &#8250;](https://capgo.app/blog/building-a-native-mobile-app-with-nextjs-and-capacitor/)
+
+[在 Nuxt.js 应用中使用 Capacitor &#8250;](https://capgo.app/blog/building-a-native-mobile-app-with-nuxt-and-capacitor/)
+
 ## API
 
 [相机：构建 Ionic 框架相机应用](/main/guides/ionic-framework-app.md)
