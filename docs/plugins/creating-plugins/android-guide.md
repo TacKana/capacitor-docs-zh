@@ -137,7 +137,7 @@ public void load() {
 
 ### 注解变更
 
-> 仍在使用 `@NativePlugin`？请参阅[升级指南](/main/updating/plugins/3-0.md#使用新的-capacitorplugin-注解)切换到 `@CapacitorPlugin`。
+> Capacitor 9 已移除 `@NativePlugin` 注解。如果您的插件仍在使用它，请参阅[升级指南](/main/updating/plugins/3-0.md#使用新的-capacitorplugin-注解)，切换到 `@CapacitorPlugin`。
 
 ```diff
  @CapacitorPlugin(

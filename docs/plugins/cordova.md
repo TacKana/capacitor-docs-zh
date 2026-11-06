@@ -55,6 +55,19 @@ Capacitor 不支持 Cordova 安装变量、自动配置或钩子，因为我们�
 
 请查阅 [iOS](/main/ios/configuration.md) 和 [Android](/main/android/configuration.md) 配置指南，了解如何配置每个平台。
 
+### R8 规则
+
+Capacitor 已经通过 R8 保留 Cordova 插件类。如果插件还需要其他规则（例如针对按名称加载的类），必须在其 Gradle 文件中编写这些规则（即 `plugin.xml` 中的 `<framework custom="true" type="gradleReference" />`），因为 Cordova 应用只能获取该文件。请将规则文件写在 build 目录之外，以免 R8 运行前执行 `clean` 时将其删除：
+
+```groovy
+def rules = new File(rootDir, '.gradle/my-plugin-rules.pro')
+rules.parentFile.mkdirs()
+rules.text = '-keep class com.example.LoadedByName { <init>(); }\n'
+android.buildTypes.release.proguardFile(rules)
+```
+
+这在 Capacitor 和 Cordova 应用中均适用。
+
 ### 已知不兼容的插件
 
 如果某个插件已知会导致冲突或构建问题，则在运行 `npx cap sync` 时会被跳过。

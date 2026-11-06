@@ -118,20 +118,59 @@ Capacitor 允许你管理自己的 Android 项目。就像任何基于 IDE 的�
 
 如果仍然出现"Plugin not implemented"错误，请确保你没有使用 service worker，这会阻止 Capacitor 和插件代码的注入。或者，如果你想使用它们，你可以使用[这个临时解决方案](https://github.com/ionic-team/capacitor/issues/1655#issuecomment-579229390)来使注入生效。
 
-## 使用 ProGuard
+## 使用 R8
 
-ProGuard 是一种用于缩减、混淆和减小应用大小的工具。通过在 `build.gradle` 中将 `minifyEnabled` 选项设置为 `true` 来启用它。此过程有时可能会导致 Capacitor 出现问题，当使用依赖于代码在运行时保持可读性的插件或自定义原生代码时，例如代码反射。ProGuard 会扫描代码以尝试优化和缩小应用大小，有时此过程可能会删除对插件功能重要的类或方法。
+当 `app/build.gradle` 的 release 构建类型中 `minifyEnabled` 为 `true` 时，R8 会缩减、优化并混淆应用代码。Capacitor 9 应用默认启用 R8。要关闭它，请设置 `minifyEnabled false`。
 
-从 Capacitor v3.2.3 开始，Capacitor 中包含了涵盖 Capacitor 插件、权限和 Activity 结果核心功能的 ProGuard 规则。如果你使用的 Capacitor 版本早于 v3.2.3，请将[以下规则](https://github.com/ionic-team/capacitor/blob/main/android/capacitor/proguard-rules.pro)添加到你的 Android 项目的 `proguard-rules.pro` 文件中。这些规则应能解决任何核心 Capacitor 功能和核心插件的问题。
+Capacitor 和官方插件已提供所需规则，因此大多数应用无需自行添加规则。R8 仅在 release 构建中运行，因此发布前请测试 release 构建。
 
-如果在添加这些规则后仍然遇到任何问题，请尝试找出问题来源的插件或原生代码，并添加一条规则来覆盖特定的插件代码，例如：
+### 仅在 release 构建中出现问题
 
-```
--keep class com.mythirdpartyplugin.** { *; }
-```
-
-如果你确定某个 Capacitor 插件导致了 ProGuard 问题，并且你不介意所有插件都免除 ProGuard 处理，则以下 ProGuard 规则将覆盖任何插件类代码：
+R8 会移除或重命名它无法发现正在使用的代码，例如通过名称查找的类、由原生代码调用的代码，以及未使用 `@SerializedName` 的 Gson 模型。请在错误信息中找到对应的类，并在 `app/proguard-rules.pro` 中为其添加 keep 规则：
 
 ```
--keep public class * extends com.getcapacitor.Plugin
+-keep class com.example.MyModel { <fields>; }
+```
+
+尽可能缩小 keep 规则的适用范围，因为保留整个程序包会阻止 R8 对其中所有代码进行优化。如果问题类来自某个插件，请向插件作者报告，以便插件提供所需规则。
+
+如果 release 构建因 "Missing classes"（缺少类）而失败，请添加 R8 在 `app/build/outputs/mapping/release/missing_rules.txt` 中列出的规则。
+
+### 使用旧 keep 规则的库
+
+AGP 9 不会再仅因为保留了某个类就同时保留其构造函数。这些库的旧版本依赖此行为，因此在 R8 下会在运行时失败。如果应用自身的依赖项引入其中某个库，请升级该库，或将其规则添加到 `app/proguard-rules.pro`：
+
+| 库 | 修复版本 | 规则 |
+| :------ | :------- | :--- |
+| Room | 2.7 | `-keep class * extends androidx.room.RoomDatabase { <init>(); }` |
+| WorkManager | 2.10 | `-keepclassmembers class * extends androidx.work.InputMerger { <init>(); }` |
+| firebase-components（Firebase 和 ML Kit 使用） | 18.0.1 | `-keep class * implements com.google.firebase.components.ComponentRegistrar { <init>(); }` |
+
+如果其他库也有相同问题，请将其仅保留类的规则复制到 `app/proguard-rules.pro`，并在规则中添加 `{ <init>(); }`。
+
+### 堆栈跟踪
+
+R8 会将重命名后的类和方法映射写入 `app/build/outputs/mapping/release/mapping.txt`，并将其添加到 AAB 中，供 Google Play 读取。Crashlytics Gradle 插件也会上传此文件。若要自行解码堆栈跟踪，请使用 [retrace](https://developer.android.com/tools/retrace)。
+
+### 资源缩减
+
+`shrinkResources` 默认仍处于关闭状态。Google Play 的代码优化评分只衡量应用代码，因此资源缩减对评分几乎没有影响，尽管 Play Console 会将其列为关闭状态。如果启用资源缩减，请使用如 `app/src/main/res/raw/keep.xml` 这样的文件，保留应用仅通过名称读取的资源，例如在 `capacitor.config.json` 中指定名称的通知图标和声音：
+
+```xml
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@drawable/ic_stat_notify" />
+```
+
+### Capacitor 8
+
+Capacitor 8 应用默认关闭 R8。要启用 R8，请使用 Capacitor 8.5.4 或更高版本，并同时切换到 `proguard-android-optimize.txt`，因为 `proguard-android.txt` 会关闭 R8 的优化：
+
+```diff
+buildTypes {
+    release {
+-       minifyEnabled false
+-       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++       minifyEnabled true
++       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+}
 ```

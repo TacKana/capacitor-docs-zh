@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor/blob/next/core/system-b
 editApiUrl: https://github.com/ionic-team/capacitor/blob/next/core/src/core-plugins.ts
 sidebar_label: 系统栏
 translated: true
-source_hash: 393a5215
+source_hash: 41e7ec12
 ---
 
 # SystemBars
@@ -29,7 +29,7 @@ SystemBars API 提供了配置设备系统栏/状态栏样式和可见性的方�
 
 ## Android 注意
 
-由于某些较旧版本的 Android WebView（< 140）中存在一个 [bug](https://issues.chromium.org/issues/40699457)，无法通过 CSS `env` 变量 `safe-area-inset-x` 获取正确的安全区域值。此插件会将正确的内边距值注入到一个名为 `--safe-area-inset-x` 的新 CSS 变量中，你可以在前端样式中将其作为后备方案使用：
+由于某些低于 140 的旧版 Android WebView 存在一个 [bug](https://issues.chromium.org/issues/40699457)，CSS `env` 变量 `safe-area-inset-x` 无法提供正确的安全区域值。此插件提供两种解决方法。若 `insetsHandling` 设为 `css`，插件会将正确的内边距值注入名为 `--safe-area-inset-x` 的 CSS 变量；你可以在前端样式中将其作为后备方案使用：
 
 ```css
 html {
@@ -78,7 +78,8 @@ const setStatusBarAnimation = async () => {
 ## 配置
 | 属性          | 类型                 | 描述                                                                                                                                                              | 默认值            |
 | ------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **`insetsHandling`** | <code>string</code> | 指定如何处理 Android 上有问题的内边距。此选项仅在 Android 上受支持。<br>`css` = 将包含正确安全区域内边距值的 CSS 变量（`--safe-area-inset-*`）注入到 webview 中。<br>`disable` = 禁用 CSS 变量注入。 | <code>css</code> |
+| **`insetsHandling`** | <code>string</code> | 指定如何处理 Android 上有问题的安全区域内边距。<br>仅在 Android 上支持此选项。<br><br>`native` =（推荐）对于较旧的 Chromium 版本（`< v140`），为 webview 添加内边距，并将 `env(safe-area-inset-*)` 变量设为 `0px`。对于较新的 Chromium 版本（`>= v140`），确保 webview 遵循 `viewport-fit` meta 标签。如果设置为 `viewport-fit="cover"`，webview 将采用 edge-to-edge 布局，且 `env(safe-area-inset-*)` 变量会包含正确的值。你可以使用这些值设置内边距，从而确保 webview 正常显示。<br><br>`css` = 与 `native` 相同，但还会向 webview 注入包含正确安全区域内边距值的 CSS 变量（`--safe-area-inset-*`）。<br><br>`disable` =（不推荐）完全禁用安全区域内边距处理。此时由你自己的代码负责处理这些内边距。请注意，如果原生应用代码和 webview 中加载的内容未能正确处理安全区域内边距，界面可能会显示异常。 | <code>native</code> |
+| **`initialViewportFitValueHint`** | <code>string</code> | 为待检测的 `viewport-fit=` meta 标签值设置初始值。<br>对于大多数支持 edge-to-edge 的应用，此值最终会是 `cover`。<br>因此，你可能希望将其设为 `cover`，以避免布局跳动和显示瑕疵。<br>如果你知道初始值为 `cover`，可以在此设置。<br>只要 `insetsHandling` 设为 `native` 或 `css`，无论此处设置什么值，最终都会得到正确值。<br>此选项仅用于避免布局跳动和显示瑕疵。<br><br>仅在 Android 上支持此选项。 | <code>undefined</code> |
 | **`style`** | <code>string</code> | 系统栏文本和图标的样式。 | <code>DEFAULT</code> |
 | **`hidden`** | <code>boolean</code> | 启动时隐藏系统栏。 | <code>false</code> |
 | **`animation`** | <code>string</code> | 显示或隐藏时使用的状态栏动画类型。此选项仅在 iOS 上受支持。 | <code>FADE</code> |

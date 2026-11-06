@@ -73,5 +73,5 @@ npx cap open android
 除了在 `capacitor.config.json` 中设置 `url` 之外，您还可以在从命令行运行应用时直接通过 CLI 设置热重载 URL：
 
 ```bash
-npx cap run --live-reload --port 8100
+npx cap run --url http://192.168.1.68:8100
 ```

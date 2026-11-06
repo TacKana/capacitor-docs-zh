@@ -33,4 +33,5 @@ npx cap run [options] <platform>
 - `--host <host>`：配置 live-reload URL 的主机地址（与 `--live-reload` 一起使用）
 - `--port <port>`：配置 live-reload URL 的端口号（与 `--live-reload` 一起使用）
 - `--https`：live-reload URL 使用 https:// 代替 http://（与 `--live-reload` 一起使用）
+- `--url <url>`：在 Web View 中加载外部 URL，可用于 live-reload（覆盖 `server.url` 配置）
 - `--forwardPorts <port1:port2>`：自动运行 "adb reverse" 以获得更好的 live-reload 支持

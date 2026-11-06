@@ -14,7 +14,7 @@ Capacitor 配置文件用于设置 Capacitor 工具的高级选项。
 以下是一个 `capacitor.config.ts` 文件示例：
 
 ```typescript
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.company.appname',
@@ -26,6 +26,10 @@ export default config;
 ```
 
 如果您在项目中不使用 TypeScript，可以同样使用 `capacitor.config.json` 文件。
+
+## ES 模块
+
+`capacitor.config.ts` 和 `capacitor.config.js` 可以使用 `import.meta` 和顶层 `await`。使用这些功能的 `capacitor.config.ts` 必须像上面的示例那样通过 `import type` 导入 `CapacitorConfig`。如果 `package.json` 设置了 `"type": "module"`，`capacitor.config.js` 必须使用 `export default`，而不是 `module.exports`。
 
 ## Schema
 
@@ -115,6 +119,14 @@ export interface CapacitorConfig {
    * @default true
    */
   initialFocus?: boolean;
+
+  /**
+   * 设为 `true` 时，将始终包含 Cordova 支持库，无论插件是否需要。
+   *
+   * @since 9.0.0
+   * @default false
+   */
+  forceCordovaInclusion?: boolean;
 
   android?: {
     /**
@@ -797,13 +809,30 @@ export interface PluginsConfig {
      *
      * 此选项仅在 Android 上受支持。
      *
-     * `css` = 将包含正确安全区域插入值的 CSS 变量（`--safe-area-inset-*`）注入到 webview 中。
+     * `native` =（推荐）对于较旧的 Chromium 版本（< v140），会在 WebView 周围添加内边距，并将 `env(safe-area-inset-*)` 变量设为 `0px`。对于较新的 Chromium 版本（>= v140），会确保 WebView 遵循 `viewport-fit` meta 标签。若设置为 `viewport-fit="cover"`，WebView 将延伸至屏幕边缘，且 `env(safe-area-inset-*)` 变量会包含正确值。您可以使用这些值设置内边距等，从而确保 WebView 正确显示。
      *
-     * `disable` = 禁用 CSS 变量注入。
+     * `css` = 与 `native` 相同，但还会向 WebView 注入包含正确安全区域插入值的 CSS 变量（`--safe-area-inset-*`）。
      *
-     * @default "css"
+     * `disable` =（不推荐）完全禁用安全区域插入处理。这样会将处理插入区域的责任从 Capacitor 转移到您自己的代码。如果原生应用代码和加载到 WebView 中的内容未能正确处理安全区域插入，界面可能会显示异常。
+     *
+     * @default "native"
      */
-    insetsHandling?: 'css' | 'disable';
+    insetsHandling?: 'native' | 'css' | 'disable';
+
+    /**
+     * 为将要检测到的 `viewport-fit=` meta 标签值设置一个初始提示值。
+     * 对于大多数支持边到边显示的应用，该值最终会是 `cover`。
+     * 因此，您可能希望将此值设为 `cover`，以帮助避免布局跳动和显示异常。
+     * 如果您知道初始值会是 `cover`，可以在此处设置。
+     * 只要 `insetsHandling` 设置为 `native` 或 `css`，无论此处设置什么，该值最终都会被正确检测。
+     * 此选项仅用于帮助避免布局跳动和显示异常。
+     *
+     * 此选项仅在 Android 上受支持。
+     *
+     * @default undefined
+     */
+    initialViewportFitValueHint?: 'auto' | 'contain' | 'cover';
+
     /**
      * 系统栏文字和图标的样式。
      *

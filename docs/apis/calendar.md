@@ -5,12 +5,12 @@ custom_edit_url: https://github.com/ionic-team/capacitor-calendar/blob/main/READ
 editApiUrl: https://github.com/ionic-team/capacitor-calendar/blob/main/src/definitions.ts
 sidebar_label: 日历
 translated: true
-source_hash: f4c1f4c
+source_hash: 5a4c0a5d
 ---
 
 # @capacitor/calendar
 
-在设备日历中创建、查找、修改和删除事件。
+在设备日历中创建、查找、修改和删除事件。Web 平台不支持此功能。
 
 ## 安装
 

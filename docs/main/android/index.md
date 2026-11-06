@@ -16,7 +16,7 @@ Capacitor Android 应用通过 Android Studio 进行配置和管理。
 
 ## Android 支持
 
-支持 API 24+（Android 7 或更高版本），这覆盖了约 99% 的 Android 市场。Capacitor 需要 Chrome 60 或更高版本的 Android WebView。在 Android 7-9 上，[Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) 提供 WebView。在 Android 10+ 上，Capacitor 使用 [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview)。
+支持 API 26+（Android 8 或更高版本）。Capacitor 需要 Chrome 60 或更高版本的 Android WebView。在 Android 8-9 上，[Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) 提供 WebView。在 Android 10+ 上，Capacitor 使用 [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview)。
 
 ## 添加 Android 平台
 
@@ -46,7 +46,7 @@ npx cap open android
 
 你可以通过命令行或 Android Studio 运行你的应用。
 
-> 要使用 Android 模拟器，你必须使用 API 24+ 的系统镜像。模拟器上的 System WebView 不会自动更新。只要 System WebView 已更新，物理设备应能支持低至 API 24 的版本。
+> 使用 Android 模拟器时，必须使用 API 26+ 的系统镜像。模拟器上的 System WebView 不会自动更新。只要 System WebView 已更新，物理设备最低可支持 API 26。
 
 ### 在命令行上运行
 

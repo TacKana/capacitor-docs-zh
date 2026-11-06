@@ -10,13 +10,13 @@ Capacitor 有三个官方支持的应用目标平台：Android、iOS 和 Web。�
 
 ## 核心要求
 
-要使用 Capacitor 开发任何应用，你需要安装 NodeJS 22 或更高版本。你可以通过[Node 官网](https://nodejs.org)的安装程序、使用 [Volta](https://volta.sh/)（一个 JavaScript 工具管理器），或者通过 [Homebrew](https://brew.sh/) 或 [Chocolatey](https://chocolatey.org/) 等包管理器来安装 Node。
+要使用 Capacitor 开发任何应用，你需要安装 NodeJS 24 或更高版本。你可以通过[Node 官网](https://nodejs.org)的安装程序、使用 [Volta](https://volta.sh/)（一个 JavaScript 工具管理器），或者通过 [Homebrew](https://brew.sh/) 或 [Chocolatey](https://chocolatey.org/) 等包管理器来安装 Node。
 
 安装 Node 后，打开你选择的终端，输入以下命令以确保 Node 已正确安装：
 
 ```bash
 node --version
-# v22.21.1
+# v24.19.0
 ```
 
 安装 Node 后，你就可以开始使用 Capacitor 创建渐进式 Web 应用（PWA）了。
@@ -34,7 +34,7 @@ node --version
 
 ### Xcode
 
-Xcode 是 Apple 用于创建原生 macOS、iOS 和 iPadOS 应用的 IDE。你可以通过 Mac 上的 [Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) 安装 Xcode。Capacitor 8 要求最低 Xcode 版本为 26.0。
+Xcode 是 Apple 用于创建原生 macOS、iOS 和 iPadOS 应用的 IDE。你可以通过 Mac 上的 [Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) 安装 Xcode。Capacitor 9 要求最低 Xcode 版本为 27.0。
 
 ### Xcode Command Line Tools
 
@@ -120,16 +120,16 @@ sudo gem install cocoapods
 
 ### Android Studio
 
-Android Studio 是 Google 用于创建原生 Android 应用的 IDE。你可以通过访问 [Android Studio 下载页面](https://developer.android.com/studio) 来安装 Android Studio。Capacitor 8 要求最低 Android Studio 版本为 2025.2.1。
+Android Studio 是 Google 用于创建原生 Android 应用的 IDE。你可以通过访问 [Android Studio 下载页面](https://developer.android.com/studio) 来安装 Android Studio。Capacitor 9 要求最低 Android Studio 版本为 2026.1.4。
 
 ### Android SDK
 
 安装 Android Studio 后，你需要安装 Android SDK 包。
 
-开发 Android 应用需要安装一些 Android SDK 包。请确保安装了 Android SDK Tools，以及 API 24 或更高版本的 Android SDK Platforms。
+开发 Android 应用需要安装一些 Android SDK 包。请确保安装了 Android SDK Tools，以及 API 26 或更高版本的 Android SDK Platforms。
 
 在 Android Studio 中，从菜单打开 **Tools -> SDK Manager**，然后在 **SDK Platforms** 标签页中安装你想要测试的平台版本：
 
 ![SDK Platforms](/img/v6/docs/android/sdk-platforms.png)
 
-开始时，你只需要安装一个 API 版本。上图中安装了 Android 9（API 28）和 Android 10（API 29）的 SDK。最新的稳定版本是 Android 16（API 36）。
+开始时，你只需要安装一个 API 版本。上图中安装了 Android 9（API 28）和 Android 10（API 29）的 SDK。最新的稳定版本是 Android 17（API 37）。

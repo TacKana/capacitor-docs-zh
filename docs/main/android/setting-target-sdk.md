@@ -8,8 +8,12 @@ slug: /android/setting-target-sdk
 所有 Android 应用都必须指定一个 target SDK 版本，即该应用设计所针对的 Android 版本。每年，Google 都会发布 Android 操作系统的更新，并随之提高应用需要目标的版本号。通常，[这个日期是每年的 8 月 31 日](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en)。因此，保持你的应用与最新版本的 Android 同步更新非常重要。在 Capacitor 应用中，这是通过在 `/android/variables.gradle` 文件中指定 target SDK 来完成的。
 
 ```groovy
-targetSdkVersion = 36
+targetSdkVersion = 37
 ```
+
+:::note
+从 Capacitor 9 开始，如果应用的 `build.gradle` 中未显式设置 `targetSdkVersion`，AGP 9 会根据 `compileSdkVersion` 推断该值，因此两者始终相等。`variables.gradle` 仍会定义 `targetSdkVersion`，供参考和库模块使用，但应用的 `defaultConfig` 不再读取该值。
+:::
 
 ## Capacitor Android 要求
 
@@ -21,6 +25,7 @@ targetSdkVersion = 36
 
 | Capacitor Android | Target SDK 版本 |
 | ----------------- | ------------------ |
+| 9.x               | 37                 |
 | 8.x               | 36                 |
 | 7.x               | 35                 |
 | 6.x               | 34                 |

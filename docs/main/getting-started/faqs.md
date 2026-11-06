@@ -16,8 +16,8 @@ Capacitor 可以通过我们的官方平台和社区平台支持几乎任何设�
 ### 官方平台
 
 Capacitor 官方支持以下平台：
-- iOS 15+
-- Android 7+
+- iOS 16+
+- Android 8+
   - 需要 Chrome WebView 60+
 - 现代 Web 浏览器
   - Chrome

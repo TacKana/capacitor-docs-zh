@@ -5,12 +5,12 @@ custom_edit_url: https://github.com/ionic-team/capacitor-contacts/blob/main/READ
 editApiUrl: https://github.com/ionic-team/capacitor-contacts/blob/main/src/definitions.ts
 sidebar_label: 通讯录
 translated: true
-source_hash: 7e5423da
+source_hash: 1c7996e3
 ---
 
 # @capacitor/contacts
 
-访问、搜索、选取、创建、更新和删除设备通讯录。
+访问、搜索、选取、创建、更新和删除设备通讯录。Web 平台不支持此功能。
 
 ## 安装
 
