@@ -390,7 +390,7 @@ function hashContent(content) {
 function isFileTranslated(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-    const fm = content.match(/^---\n([\s\S]*?)\n---/);
+    const fm = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     return fm && /translated:\s*true/.test(fm[1]);
   } catch {
     return false;

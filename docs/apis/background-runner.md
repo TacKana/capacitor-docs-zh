@@ -5,7 +5,7 @@ custom_edit_url: https://github.com/ionic-team/capacitor-background-runner/blob/
 editApiUrl: https://github.com/ionic-team/capacitor-background-runner/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: 后台运行
 translated: true
-source_hash: 59f19e44
+source_hash: 594fdf46
 ---
 
 # @capacitor/background-runner
@@ -89,22 +89,12 @@ Apple 要求在 `Info.plist` 中为位置信息指定隐私描述：
 
 ## Android
 
-在 `android/app/build.gradle` 中插入以下内容：
+无需额外设置。
 
-```diff
-...
+如果你要升级现有 Android 项目，以下旧版本遗留内容已不再使用，可以删除：
 
-repositories {
-    flatDir{
-        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
-+		dirs '../../node_modules/@capacitor/background-runner/android/src/main/libs', 'libs'
-    }
-}
-...
-
-```
-
-如果你要从 1.0.5 版本升级且已有 Android 项目，请务必从 `android/src/main/libs` 中删除 `android-js-engine-release.aar`。
+- 在 `android/app/build.gradle` 中，删除 `flatDir` 块内的 `dirs '../../node_modules/@capacitor/background-runner/android/src/main/libs', 'libs'` 这一行。
+- 如果是从 1.0.5 或更早版本升级，还可以删除 `android/src/main/libs/android-js-engine-release.aar`。
 
 ### 地理定位
 
@@ -530,7 +520,7 @@ removeNotificationListeners() => any
 | **`sound`**            | <code>string</code>  | 显示此通知时播放的音频文件名。文件名中需包含文件扩展名。在 iOS 上，文件应位于应用包中。在 Android 上，文件应位于 res/raw 文件夹中。推荐使用 `.wav` 格式，因为 iOS 和 Android 均支持。仅适用于 iOS 和 Android &lt; 26。对于 Android 26+，请使用已配置所需声音的 channelId。如果找不到声音文件（即空字符串或错误名称），将使用系统默认通知声音。如果未提供，则在 Android 上会产生默认声音，在 iOS 上则没有声音。                                                                                                                                                                                                               | 1.0.0 |
 | **`actionTypeId`**     | <code>string</code>  | 为此通知关联一个动作类型。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1.0.0 |
 | **`threadIdentifier`** | <code>string</code>  | 用于对多个通知进行分组。设置 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上的 `threadIdentifier`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                              | 1.0.0 |
-| **`summaryArgument`**  | <code>string</code>  | 此通知添加到分类摘要格式字符串的字符串。设置 [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上的 `summaryArgument`。仅适用于 iOS。                                                                                                                                                                                                                                                                                                                                                                                                                | 1.0.0 |
+| **`summaryArgument`**  | <code>string</code>  | 此通知添加到分类摘要格式字符串中的字符串。仅适用于 iOS。**此选项不起作用。** [`UNMutableNotificationContent`](https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent) 上的 `summaryArgument` 自 iOS 15 起已弃用，系统会忽略该值，因此不再将其设置在通知内容上。                                                                                                                                                                                                                                                                                                      | 1.0.0 |
 | **`group`**            | <code>string</code>  | 用于对多个通知进行分组。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroup()`。仅适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                                                          | 1.0.0 |
 | **`groupSummary`**     | <code>string</code>  | 如果为 true，此通知成为一组通知的摘要。使用提供的值调用 [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) 上的 `setGroupSummary()`。仅在使用 `group` 时适用于 Android。                                                                                                                                                                                                                                                                                                                                                                                   | 1.0.0 |
 | **`extra`**            | <code>any</code>     | 设置要存储在此通知中的额外数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1.0.0 |

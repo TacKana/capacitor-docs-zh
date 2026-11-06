@@ -5,7 +5,7 @@ translated: true
 custom_edit_url: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-os-inappbrowser/blob/main/src/definitions.ts
 sidebar_label: 应用内浏览器
-source_hash: 6ad420a4
+source_hash: 54c48723
 ---
 
 # @capacitor/inappbrowser
@@ -268,12 +268,13 @@ removeAllListeners() => void
 
 #### AndroidWebViewOptions
 
-| 属性               | 类型                 | 描述                                                                                                                                |
-| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`allowZoom`**    | <code>boolean</code> | 显示 Android 浏览器的缩放控件。                                                                                                 |
-| **`hardwareBack`** | <code>boolean</code> | 使用硬件返回按钮在 WebView 的历史记录中向后导航。如果没有上一页，WebView 将关闭。 |
-| **`pauseMedia`**   | <code>boolean</code> | 使 WebView 随应用暂停/恢复，以停止后台音频。                                                                     |
-| **`isIsolated`**   | <code>boolean</code> | 是否在隔离进程中运行 InAppBrowser。仅适用于 Android。默认为 true。                                                    |
+| 属性                     | 类型                  | 描述                                                                                                                                                                                                                                                                        |
+| ------------------------ | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`allowZoom`**          | <code>boolean</code>  | 显示 Android 浏览器的缩放控件。                                                                                                                                                                                                                                             |
+| **`hardwareBack`**       | <code>boolean</code>  | 使用硬件返回按钮在 WebView 的历史记录中向后导航。如果没有上一页，WebView 将关闭。                                                                                                                                                                                           |
+| **`pauseMedia`**         | <code>boolean</code>  | 使 WebView 随应用暂停/恢复，以停止后台音频。                                                                                                                                                                                                                                |
+| **`isIsolated`**         | <code>boolean</code>  | 是否在隔离进程中运行 InAppBrowser。仅适用于 Android。默认为 true。                                                                                                                                                                                                         |
+| **`successUrlPatterns`** | <code>string[]</code> | 在每次页面加载完成时检查的正则表达式模式；匹配到某个模式时，WebView 会在原生端关闭，不依赖宿主应用的 JS 是否能够响应。仅适用于 Android。适用于具有已知“完成”URL 的重定向流程，可在该 URL 加载完成后可靠地关闭 WebView。 |
 
 
 #### iOSWebViewOptions
